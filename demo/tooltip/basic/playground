@@ -1,7 +1,7 @@
 const html = '<p>Lorem ipsum dolor sit amet, consectetur <strong>adipisicing</strong> elit, sed do eiusmod tempor incididunt</p>'
 
 return (
-  <div style={{'text-align': 'center'}}>
+  <div style={{'textAlign': 'center'}}>
     <img style={{'margin': '10px'}} data-tip='hello world' data-place='right' src='https://placeholdit.imgix.net/~text?txtsize=20&txt=position%20right&w=210&h=110' />
     <img style={{'margin': '10px'}} data-tip='hello world' data-place='left' src='https://placeholdit.imgix.net/~text?txtsize=20&txt=position%20left&w=210&h=110' />
     <img style={{'margin': '10px'}} data-tip='hello world' data-place='top' src='https://placeholdit.imgix.net/~text?txtsize=20&txt=position%20top&w=210&h=110' />
