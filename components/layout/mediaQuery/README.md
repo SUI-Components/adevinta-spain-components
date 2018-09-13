@@ -81,7 +81,7 @@ const LayoutMediaQueryBootstrap = LayoutMediaQueryFactory(BREAKPOINTS)
 
 ### initialMediaQueries props
 
-This component accept and special prop call `initialMediaQueries`. This props is specially useful in SSR, because setting up you can force a media queries object, for environments where the `componentDidMount` never is called, like in Node.
+This component accepts a special prop called initialMediaQueries. This prop is specially useful in SSR in order to force a initial media query object that will be used in environments where the componentDidMount is never called, like in Node.
 
 You can combine this prop with some kind of logic in an upper component to avoid rerenders in the server.
 
