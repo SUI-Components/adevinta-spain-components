@@ -1,0 +1,7 @@
+node_modules/
+public/
+lib/
+npm-debug.log
+lib
+package-lock.json
+.env
