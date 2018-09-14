@@ -79,4 +79,21 @@ const LayoutMediaQueryBootstrap = LayoutMediaQueryFactory(BREAKPOINTS)
 </LayoutMediaQueryBootstrap>
 ```
 
+### initialMediaQueries props
+
+This component accepts a special prop called initialMediaQueries. This prop is specially useful in SSR in order to force a initial media query object that will be used in environments where the componentDidMount is never called, like in Node.
+
+You can combine this prop with some kind of logic in an upper component to avoid rerenders in the server.
+
+```
+<LayoutMediaQuery initialMediaQueries={{MD: true}}>
+  {({MD, LG, XL}) => { // MD will be true in the server.
+    if (XL) return <p>LargeDesktop</p>
+    if (LG) return <p>Desktop</p>
+    if (MD) return <p>Tablet</p>
+    return <p>Mobile</p>
+  }}
+</LayoutMediaQuery>
+```
+
 > **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/layout/mediaQuery/demo).**
