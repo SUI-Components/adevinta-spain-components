@@ -1,4 +1,10 @@
+import boroscmp from '@schibstedspain/boros-cmp'
+
 export class CmpRepository {
+  constructor() {
+    boroscmp.init()
+  }
+
   getConsentStatus() {
     return new Promise((resolve, reject) => {
       window.__cmp('getConsentStatus', null, function(consentStatus, success) {
