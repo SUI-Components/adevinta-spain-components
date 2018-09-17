@@ -13,6 +13,6 @@
   "license": "ISC",
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "react-tooltip": "3.2.7"
+    "react-tooltip": "3.8.4"
   }
 }
