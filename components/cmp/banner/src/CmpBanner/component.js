@@ -14,6 +14,7 @@ export class CmpBanner extends Component {
     return (
       <div className={CLASS}>
         <Notification
+          autoClose="manual"
           buttons={buttons}
           position="bottom"
           text={
