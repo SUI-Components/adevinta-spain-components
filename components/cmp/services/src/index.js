@@ -7,8 +7,6 @@ import {
   sendConsents
 } from './useCases/index'
 
-import {CmpWaitForLibrary} from './CmpWaitForLibrary'
-
 class CmpServices extends Component {
   render() {
     return this.props.children({
@@ -27,5 +25,4 @@ CmpServices.propTypes = {
   children: PropTypes.func.isRequired
 }
 
-export {CmpWaitForLibrary}
 export default CmpServices

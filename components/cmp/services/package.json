@@ -10,7 +10,8 @@
     "test": "sui-test browser"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "1",
+    "@schibstedspain/boros-cmp": "1"
   },
   "keywords": [],
   "author": "",

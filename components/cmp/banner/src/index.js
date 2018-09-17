@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
-import CmpServices, {CmpWaitForLibrary} from '@s-ui/react-cmp-services'
+import CmpServices from '@s-ui/react-cmp-services'
 
 import {CmpBannerContainer} from './CmpBanner/index'
 
@@ -12,18 +12,16 @@ class CmpBanner extends Component {
 
   render() {
     return (
-      <CmpWaitForLibrary>
-        <CmpServices>
-          {({getConsentStatus, getPurposesAndVendors, sendConsents}) => (
-            <CmpBannerContainer
-              {...this.props}
-              getConsentStatus={getConsentStatus}
-              getPurposesAndVendors={getPurposesAndVendors}
-              sendConsents={sendConsents}
-            />
-          )}
-        </CmpServices>
-      </CmpWaitForLibrary>
+      <CmpServices>
+        {({getConsentStatus, getPurposesAndVendors, sendConsents}) => (
+          <CmpBannerContainer
+            {...this.props}
+            getConsentStatus={getConsentStatus}
+            getPurposesAndVendors={getPurposesAndVendors}
+            sendConsents={sendConsents}
+          />
+        )}
+      </CmpServices>
     )
   }
 }

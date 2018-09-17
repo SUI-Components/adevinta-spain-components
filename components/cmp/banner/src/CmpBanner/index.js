@@ -24,6 +24,7 @@ export class CmpBannerContainer extends Component {
     } = await getPurposesAndVendors.execute()
     await sendConsents.execute({purposeConsents, vendorConsents})
     this.setState({showModal: false, showNotification: false})
+    this._removeBodyEvent()
   }
 
   _handleReadMore = async () => {
@@ -64,19 +65,25 @@ export class CmpBannerContainer extends Component {
     ]
   }
 
-  async componentDidMount() {
-    // We're assuming, the user accepts our CMP if he keep navigating in our page
-    document.addEventListener('click', this._handleClickOnDocument, true)
+  _removeBodyEvent() {
+    document.removeEventListener('click', this._handleClickOnDocument, true)
+  }
 
+  async componentDidMount() {
     const {getConsentStatus} = this.props
     const consentStatus = await getConsentStatus.execute()
     this.setState({
       showNotification: consentStatus === CONSENT_STATUS_NOT_ACCEPTED
     })
+
+    if (consentStatus === CONSENT_STATUS_NOT_ACCEPTED) {
+      // We're assuming, the user accepts our CMP if he keep navigating in our page
+      document.addEventListener('click', this._handleClickOnDocument, true)
+    }
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this._handleClickOnDocument, true)
+    this._removeBodyEvent()
   }
 
   render() {
