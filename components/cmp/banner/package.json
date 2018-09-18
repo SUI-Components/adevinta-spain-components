@@ -1,5 +1,5 @@
 {
-  "name": "@s-ui/react-cmp-banner",
+  "name": "@schibstedspain/react-cmp-banner",
   "version": "1.5.0",
   "description": "",
   "main": "lib/index.js",
@@ -11,8 +11,8 @@
   "dependencies": {
     "@s-ui/component-dependencies": "1",
     "@s-ui/react-molecule-notification": "1",
-    "@s-ui/react-cmp-services": "1",
-    "@s-ui/react-cmp-modal": "1"
+    "@schibstedspain/react-cmp-services": "1",
+    "@schibstedspain/react-cmp-modal": "1"
   },
   "keywords": [],
   "author": "",
