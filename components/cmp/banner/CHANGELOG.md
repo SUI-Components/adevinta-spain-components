@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2018-09-19)
+
+
+### Bug Fixes
+
+* wrong imported package name ([2ab5342](https://github.com/SUI-Components/schibsted-spain-components/commit/2ab5342))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2018-09-19)
 
