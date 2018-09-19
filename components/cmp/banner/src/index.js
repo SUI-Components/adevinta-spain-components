@@ -46,6 +46,14 @@ CmpBanner.propTypes = {
    */
   logo: PropTypes.string,
   /**
+   * Method to execute when the user accepts the consents, useful for tracking
+   */
+  onAccept: PropTypes.func,
+  /**
+   * Method to execute when the user configure the consents, useful for tracking
+   */
+  onConfigure: PropTypes.func,
+  /**
    * URL where the user will go in order to know more about the privacy conditions of the website
    */
   privacyUrl: PropTypes.string.isRequired

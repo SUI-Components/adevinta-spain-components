@@ -7,6 +7,7 @@ import CmpModal from '@schibstedspain/react-cmp-modal'
 import {I18N} from '../settings'
 
 const CONSENT_STATUS_NOT_ACCEPTED = 'NOT_ACCEPTED'
+const NO_OP = () => {}
 
 export class CmpBannerContainer extends Component {
   state = {
@@ -25,10 +26,12 @@ export class CmpBannerContainer extends Component {
     await sendConsents.execute({purposeConsents, vendorConsents})
     this.setState({showModal: false, showNotification: false})
     this._removeBodyEvent()
+    this.props.onAccept()
   }
 
   _handleReadMore = async () => {
     this.setState({showModal: true, showNotification: false})
+    this.props.onConfigure()
   }
 
   /**
@@ -111,12 +114,19 @@ export class CmpBannerContainer extends Component {
   }
 }
 
+CmpBannerContainer.defaultProps = {
+  onAccept: NO_OP,
+  onConfigure: NO_OP
+}
+
 CmpBannerContainer.propTypes = {
   companyName: PropTypes.string.isRequired,
   getConsentStatus: PropTypes.object.isRequired,
   getPurposesAndVendors: PropTypes.object.isRequired,
   lang: PropTypes.string,
   logo: PropTypes.string,
+  onAccept: PropTypes.func,
+  onConfigure: PropTypes.func,
   privacyUrl: PropTypes.string,
   sendConsents: PropTypes.object.isRequired
 }
