@@ -1,1 +1,16 @@
-return (<CmpServices />)
+return (
+  <CmpServices>
+    {({getConsentStatus, getPurposesAndVendors, sendConsents}) => {
+      return (
+        <div>
+          <p>This component is not visual. It's meant to be used to wrap a function that will inject as parameter three methods</p>
+          <ul>
+            <li><strong>getConsentStatus:</strong> Return a promise that retrieves the consent status</li>
+            <li><strong>getPurposesAndVendors:</strong> Return a promise that get all the purposes and vendors available for the user.</li>
+            <li><strong>sendConsents:</strong> Return a promise with the result of sending the consents of the user</li>
+          </ul>
+        </div>
+      )
+    }}
+  </CmpServices>
+)
