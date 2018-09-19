@@ -7,14 +7,14 @@ This component shows a Modal to let the user know about the consents, purposes a
 ## Installation
 
 ```sh
-$ npm install @s-ui/react-cmp-modal --save
+$ npm install @schibstedspain/react-cmp-modal --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import CmpModal from '@s-ui/react-cmp-modal'
+import CmpModal from '@schibstedspain/react-cmp-modal'
 
 return (
   <CmpModal
