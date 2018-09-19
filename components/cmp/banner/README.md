@@ -9,14 +9,14 @@ The banner will be shown only if the user hasn't accepted yet the consents.
 ## Installation
 
 ```sh
-$ npm install @s-ui/react-cmp-banner --save
+$ npm install @schibstedspain/react-cmp-banner --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import CmpBanner from '@s-ui/react-cmp-banner'
+import CmpBanner from '@schibstedspain/react-cmp-banner'
 
 return (
     <CmpBanner

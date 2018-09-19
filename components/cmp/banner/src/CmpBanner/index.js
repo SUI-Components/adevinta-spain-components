@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 import {CmpBanner} from './component'
-import CmpModal from '@s-ui/react-cmp-modal'
+import CmpModal from '@schibstedspain/react-cmp-modal'
 
 import {I18N} from '../settings'
 
