@@ -1,19 +1,23 @@
 import {Component} from 'react'
 import PropTypes from 'prop-types'
 
-import {
-  getConsentStatus,
-  getPurposesAndVendors,
-  sendConsents
-} from './useCases/index'
-
 class CmpServices extends Component {
+  state = {isReady: false}
+  componentDidMount() {
+    require.ensure(
+      [],
+      require => {
+        const useCases = require('./useCases/index')
+        this.setState({useCases, isReady: true})
+      },
+      'cmpDomain'
+    )
+  }
+
   render() {
-    return this.props.children({
-      getConsentStatus,
-      getPurposesAndVendors,
-      sendConsents
-    })
+    if (this.state.isReady === false) return null
+
+    return this.props.children(this.state.useCases)
   }
 }
 
