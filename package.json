@@ -70,6 +70,8 @@
   },
   "sasslintConfig": "./node_modules/@s-ui/lint/sass-lint.yml",
   "babel": {
-    "presets": ["sui"]
+    "presets": [
+      "sui"
+    ]
   }
 }
