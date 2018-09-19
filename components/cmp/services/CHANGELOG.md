@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2018-09-19)
+
+
+### Bug Fixes
+
+* handle default consents when user doesnt have anything stored ([ae039c3](https://github.com/SUI-Components/schibsted-spain-components/commit/ae039c3))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2018-09-19)
 
