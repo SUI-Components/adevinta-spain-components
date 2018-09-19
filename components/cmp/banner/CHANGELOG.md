@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2018-09-19)
+
+
+### Bug Fixes
+
+* Use correct package name ([4eb4385](https://github.com/SUI-Components/schibsted-spain-components/commit/4eb4385))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2018-09-19)
 
