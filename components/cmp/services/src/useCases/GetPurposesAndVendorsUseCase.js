@@ -14,13 +14,15 @@ export class GetPurposesAndVendorsUseCase {
     return Promise.all([
       this._repository.getPurposesAndVendors(),
       this._repository.getVendorConsents()
-    ]).then(([purposesAndVendors, consents]) => {
-      return {
-        ...purposesAndVendors,
-        purposeConsents: consents.purposeConsents,
-        vendorConsents: consents.vendorConsents
-      }
-    })
+    ])
+      .then(([purposesAndVendors, consents]) => {
+        return {
+          ...purposesAndVendors,
+          purposeConsents: consents.purposeConsents,
+          vendorConsents: consents.vendorConsents
+        }
+      })
+      .catch(_ => this._loadDefaultConsents())
   }
 
   _loadDefaultConsents() {
