@@ -3,15 +3,31 @@ import PropTypes from 'prop-types'
 
 class CmpServices extends Component {
   state = {isReady: false}
-  componentDidMount() {
-    require.ensure(
-      [],
-      require => {
+
+  _importAndInitializeBoros() {
+    return new Promise(resolve => {
+      require.ensure([], () => {
+        const borosCmp = require('@schibstedspain/boros-cmp').default
+        resolve(borosCmp.init())
+      })
+    }, 'borosCmp')
+  }
+
+  _importUseCases() {
+    return new Promise(resolve => {
+      require.ensure([], () => {
         const useCases = require('./useCases/index')
+        resolve({useCases})
+      })
+    }, 'cmpDomain')
+  }
+
+  componentDidMount() {
+    this._importAndInitializeBoros()
+      .then(this._importUseCases)
+      .then(({useCases}) => {
         this.setState({useCases, isReady: true})
-      },
-      'cmpDomain'
-    )
+      })
   }
 
   render() {
