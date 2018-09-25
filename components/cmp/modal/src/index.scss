@@ -3,6 +3,7 @@
 @import '~@s-ui/react-atom-switch/lib/index';
 
 $bgc-sui-cmp-modal: rgba(33, 41, 52, .85) !default;
+$fz-sui-cmp-modal-inner: $fz-m !default;
 $fz-sui-cmp-modal-title: $fz-xxl !default;
 $lh-sui-cmp-modal-title: $lh-xxl !default;
 
@@ -145,6 +146,7 @@ $lh-sui-cmp-modal-title: $lh-xxl !default;
   }
 
   &-inner {
+    font-size: $fz-sui-cmp-modal-inner;
     height: 700px;
     max-height: calc(100vh - 122px);
     overflow-y: scroll;
