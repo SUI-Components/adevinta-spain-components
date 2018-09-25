@@ -2,9 +2,11 @@
 @import '~@schibstedspain/react-cmp-modal/lib/index';
 @import '~@s-ui/react-molecule-notification/lib/index';
 
+$lh-sui-cmp-banner-text: $lh-xl !default;
+
 .sui-CmpBanner {
   &-text {
-    line-height: $lh-xl;
+    line-height: $lh-sui-cmp-banner-text;
     margin: 0;
     padding: 0;
   }
