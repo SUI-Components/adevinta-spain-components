@@ -2,13 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.26.0"></a>
+# 1.26.0 (2018-09-26)
+
+
+### Bug Fixes
+
+* pR feedback ([fdff51a](https://github.com/SUI-Components/schibsted-spain-components/commit/fdff51a))
+
+
+### Features
+
+* allow handlers on items, and close list if click outside document/list ([3e92e05](https://github.com/SUI-Components/schibsted-spain-components/commit/3e92e05))
+
+
+
 <a name="1.25.0"></a>
 # 1.25.0 (2018-05-30)
 
 
 ### Features
 
-* enable default target prop, add to Link render ([79f99ee](https://github.com/SUI-Components/sui-components/commit/79f99ee))
+* enable default target prop, add to Link render ([79f99ee](https://github.com/SUI-Components/schibsted-spain-components/commit/79f99ee))
 
 
 
@@ -18,8 +33,8 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix sass variables ([b5d99c8](https://github.com/SUI-Components/sui-components/commit/b5d99c8))
-* removed package-lock.json ([c1ccac6](https://github.com/SUI-Components/sui-components/commit/c1ccac6))
+* fix sass variables ([b5d99c8](https://github.com/SUI-Components/schibsted-spain-components/commit/b5d99c8))
+* removed package-lock.json ([c1ccac6](https://github.com/SUI-Components/schibsted-spain-components/commit/c1ccac6))
 
 
 
@@ -29,8 +44,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add color variable ([d2f0ad2](https://github.com/SUI-Components/sui-components/commit/d2f0ad2))
-* test ([aaf158c](https://github.com/SUI-Components/sui-components/commit/aaf158c))
+* add color variable ([d2f0ad2](https://github.com/SUI-Components/schibsted-spain-components/commit/d2f0ad2))
+* test ([aaf158c](https://github.com/SUI-Components/schibsted-spain-components/commit/aaf158c))
 
 
 
@@ -40,7 +55,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([d13605f](https://github.com/SUI-Components/sui-components/commit/d13605f))
+* Bump version ([d13605f](https://github.com/SUI-Components/schibsted-spain-components/commit/d13605f))
 
 
 
@@ -50,12 +65,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix spacing between links ([fed77a0](https://github.com/SUI-Components/sui-components/commit/fed77a0))
+* fix spacing between links ([fed77a0](https://github.com/SUI-Components/schibsted-spain-components/commit/fed77a0))
 
 
 ### Features
 
-* change grid variables sizes to standard ([11e9788](https://github.com/SUI-Components/sui-components/commit/11e9788))
+* change grid variables sizes to standard ([11e9788](https://github.com/SUI-Components/schibsted-spain-components/commit/11e9788))
 
 
 
@@ -65,7 +80,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix border bottom on desktop dropdown menu ([047c158](https://github.com/SUI-Components/sui-components/commit/047c158))
+* fix border bottom on desktop dropdown menu ([047c158](https://github.com/SUI-Components/schibsted-spain-components/commit/047c158))
 
 
 
@@ -75,15 +90,15 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* change style dropdown basic to be more like monolith dropdown ([c3eacd3](https://github.com/SUI-Components/sui-components/commit/c3eacd3))
+* change style dropdown basic to be more like monolith dropdown ([c3eacd3](https://github.com/SUI-Components/schibsted-spain-components/commit/c3eacd3))
 
 
 ### Features
 
-* adjust padding desktop dropdown ([23b9cdf](https://github.com/SUI-Components/sui-components/commit/23b9cdf))
-* modify padding dropdown menu ([bd5d1f2](https://github.com/SUI-Components/sui-components/commit/bd5d1f2))
-* update old variables to new ones ([23447aa](https://github.com/SUI-Components/sui-components/commit/23447aa))
-* update old variables to new ones with correct equivalence ([3fa682f](https://github.com/SUI-Components/sui-components/commit/3fa682f))
+* adjust padding desktop dropdown ([23b9cdf](https://github.com/SUI-Components/schibsted-spain-components/commit/23b9cdf))
+* modify padding dropdown menu ([bd5d1f2](https://github.com/SUI-Components/schibsted-spain-components/commit/bd5d1f2))
+* update old variables to new ones ([23447aa](https://github.com/SUI-Components/schibsted-spain-components/commit/23447aa))
+* update old variables to new ones with correct equivalence ([3fa682f](https://github.com/SUI-Components/schibsted-spain-components/commit/3fa682f))
 
 
 
@@ -93,8 +108,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add z-indez var ([e55b5d3](https://github.com/SUI-Components/sui-components/commit/e55b5d3))
-* update component ([fbe7956](https://github.com/SUI-Components/sui-components/commit/fbe7956))
+* add z-indez var ([e55b5d3](https://github.com/SUI-Components/schibsted-spain-components/commit/e55b5d3))
+* update component ([fbe7956](https://github.com/SUI-Components/schibsted-spain-components/commit/fbe7956))
 
 
 
@@ -104,8 +119,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Migrate to PropTypes package ([0e622dc](https://github.com/SUI-Components/sui-components/commit/0e622dc))
-* switch to s-ui/component-dependencies and sui-theme@8 ([d43f458](https://github.com/SUI-Components/sui-components/commit/d43f458))
+* Migrate to PropTypes package ([0e622dc](https://github.com/SUI-Components/schibsted-spain-components/commit/0e622dc))
+* switch to s-ui/component-dependencies and sui-theme@8 ([d43f458](https://github.com/SUI-Components/schibsted-spain-components/commit/d43f458))
 
 
 
@@ -115,7 +130,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* ensure that mouseover and mouseout always send the correct value ([d7facca](https://github.com/SUI-Components/sui-components/commit/d7facca))
+* ensure that mouseover and mouseout always send the correct value ([d7facca](https://github.com/SUI-Components/schibsted-spain-components/commit/d7facca))
 
 
 
@@ -125,7 +140,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* include titles ([daf79b6](https://github.com/SUI-Components/sui-components/commit/daf79b6))
+* include titles ([daf79b6](https://github.com/SUI-Components/schibsted-spain-components/commit/daf79b6))
 
 
 
@@ -135,7 +150,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* ie incorrect visualitzation ([2705f66](https://github.com/SUI-Components/sui-components/commit/2705f66))
+* ie incorrect visualitzation ([2705f66](https://github.com/SUI-Components/schibsted-spain-components/commit/2705f66))
 
 
 
@@ -145,7 +160,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* display links in a single line ([1742c8b](https://github.com/SUI-Components/sui-components/commit/1742c8b))
+* display links in a single line ([1742c8b](https://github.com/SUI-Components/schibsted-spain-components/commit/1742c8b))
 
 
 
@@ -155,7 +170,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* adjust link colors ([f73ae60](https://github.com/SUI-Components/sui-components/commit/f73ae60))
+* adjust link colors ([f73ae60](https://github.com/SUI-Components/schibsted-spain-components/commit/f73ae60))
 
 
 
@@ -165,7 +180,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* adjusting breakpoints ([aaad295](https://github.com/SUI-Components/sui-components/commit/aaad295))
+* adjusting breakpoints ([aaad295](https://github.com/SUI-Components/schibsted-spain-components/commit/aaad295))
 
 
 
