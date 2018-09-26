@@ -25,6 +25,11 @@ class DropdownBasic extends Component {
   _doNothing = () => {}
 
   /**
+   * Dropdown wrapper element.
+   */
+  _wrapper = React.createRef()
+
+  /**
    * Toggle menu state: expanded/collapsed.
    */
   _toggleMenu = expand => {
@@ -73,16 +78,17 @@ class DropdownBasic extends Component {
    */
   _renderLink = ({onClick, target, text, url}, index) => {
     const Link = this.props.linkFactory
+    const onClickHandler = e => {
+      onClick && onClick(e)
+      this.props.closeOnItemClick && this._toggleMenu(false)
+    }
 
     return (
       <li key={index} className="sui-DropdownBasicMenu-listItem">
         <Link
           href={url}
           className="sui-DropdownBasicMenu-listLink"
-          onClick={e => {
-            onClick && onClick(e)
-            this.props.closeOnItemClick && this._toggleMenu(false)
-          }}
+          onClick={onClickHandler}
           target={target}
           title={text}
         >
@@ -97,7 +103,7 @@ class DropdownBasic extends Component {
    */
   _onDocumentClick = event => {
     const {target} = event
-    const isClickOutsideDropdown = !this.wrapper.contains(target)
+    const isClickOutsideDropdown = !this._wrapper.current.contains(target)
 
     isClickOutsideDropdown &&
       this.props.closeOnDocumentClick &&
@@ -151,10 +157,7 @@ class DropdownBasic extends Component {
             <ArrowButtonIcon svgClass="sui-DropdownBasic-buttonIcon" />
           </button>
         </div>
-        <div
-          className="sui-DropdownBasicMenu"
-          ref={node => (this.wrapper = node)}
-        >
+        <div className="sui-DropdownBasicMenu" ref={this._wrapper}>
           {menu.map(this._renderMenuItem)}
         </div>
       </div>
