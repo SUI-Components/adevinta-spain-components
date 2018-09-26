@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2018-09-25)
+
+
+### Features
+
+* async import boros and useCases ([3be28b5](https://github.com/SUI-Components/schibsted-spain-components/commit/3be28b5))
+
+
+
+<a name="1.7.0"></a>
+# 1.7.0 (2018-09-19)
+
+
+### Bug Fixes
+
+* import only when needed and avoid problems in the server ([954de17](https://github.com/SUI-Components/schibsted-spain-components/commit/954de17))
+
+
+
+<a name="1.6.0"></a>
+# 1.6.0 (2018-09-19)
+
+
+### Bug Fixes
+
+* handle default consents when user doesnt have anything stored ([ae039c3](https://github.com/SUI-Components/schibsted-spain-components/commit/ae039c3))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2018-09-19)
 

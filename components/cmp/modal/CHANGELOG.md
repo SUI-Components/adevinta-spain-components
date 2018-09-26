@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2018-09-25)
+
+
+### Features
+
+* add font-size variable ([a09c777](https://github.com/SUI-Components/schibsted-spain-components/commit/a09c777))
+
+
+
+<a name="1.6.0"></a>
+# 1.6.0 (2018-09-25)
+
+
+### Features
+
+* Add theme variables ([54cc412](https://github.com/SUI-Components/schibsted-spain-components/commit/54cc412))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2018-09-19)
 
