@@ -5,7 +5,11 @@ const menu = [
     links: [
       {
         text: 'Link 1',
-        url: '#link-1'
+        url: '#link-1',
+        onClick: e => {
+          e.preventDefault();
+          console.log('Go Link 1!')
+        }
       },
       {
         target: '_blank',
@@ -33,6 +37,7 @@ return (
   <DropdownBasic
     button={{ icon: Audio, text: 'My dropdown' }}
     menu={menu}
-    expandOnMouseOver
+    closeOnItemClick
+    closeOnDocumentClick
   />
 )

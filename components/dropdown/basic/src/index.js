@@ -25,16 +25,22 @@ class DropdownBasic extends Component {
   _doNothing = () => {}
 
   /**
+   * Dropdown wrapper element.
+   */
+  _wrapper = React.createRef()
+
+  /**
    * Toggle menu state: expanded/collapsed.
    */
-  _toggleMenu = () => {
-    const {expanded} = this.state
+  _toggleMenu = expand => {
+    const expanded = expand || !this.state.expanded
 
-    this.setState({expanded: !expanded})
+    this._handleListener(expanded)
+    this.setState({expanded})
   }
 
   /**
-   * Mouser over event handler.
+   * Mouse over event handler.
    */
   _onMouseOver = () => {
     this.setState({
@@ -44,7 +50,7 @@ class DropdownBasic extends Component {
   }
 
   /**
-   * Mouser out event handler.
+   * Mouse out event handler.
    */
   _onMouseOut = () => {
     this.setState({
@@ -70,14 +76,19 @@ class DropdownBasic extends Component {
   /**
    * Function rendering a simple list item link.
    */
-  _renderLink = ({text, url, target}, index) => {
+  _renderLink = ({onClick, target, text, url}, index) => {
     const Link = this.props.linkFactory
+    const onClickHandler = e => {
+      onClick && onClick(e)
+      this.props.closeOnItemClick && this._toggleMenu(false)
+    }
 
     return (
       <li key={index} className="sui-DropdownBasicMenu-listItem">
         <Link
           href={url}
           className="sui-DropdownBasicMenu-listLink"
+          onClick={onClickHandler}
           target={target}
           title={text}
         >
@@ -85,6 +96,34 @@ class DropdownBasic extends Component {
         </Link>
       </li>
     )
+  }
+
+  /**
+   * Document click event handler.
+   */
+  _onDocumentClick = event => {
+    const {target} = event
+    const isClickOutsideDropdown = !this._wrapper.current.contains(target)
+
+    isClickOutsideDropdown &&
+      this.props.closeOnDocumentClick &&
+      this._toggleMenu(false)
+  }
+
+  /**
+   * Document listener handler.
+   */
+  _handleListener(add) {
+    const listenerMethod = add ? 'addEventListener' : 'removeEventListener'
+    document[listenerMethod]('click', this._onDocumentClick, false)
+  }
+
+  componentDidMount() {
+    this.state.expanded && this._handleListener(true)
+  }
+
+  componentWillUnmount() {
+    this._handleListener(false)
   }
 
   render() {
@@ -118,7 +157,7 @@ class DropdownBasic extends Component {
             <ArrowButtonIcon svgClass="sui-DropdownBasic-buttonIcon" />
           </button>
         </div>
-        <div className="sui-DropdownBasicMenu">
+        <div className="sui-DropdownBasicMenu" ref={this._wrapper}>
           {menu.map(this._renderMenuItem)}
         </div>
       </div>
@@ -183,16 +222,32 @@ DropdownBasic.propTypes = {
   /**
    * Factory for the component that will hold the menu links.
    */
-  linkFactory: PropTypes.func
+  linkFactory: PropTypes.func,
+  /**
+   * Flag to close list on item click.
+   */
+  closeOnItemClick: PropTypes.bool,
+  /**
+   * Flag to close list on document click.
+   */
+  closeOnDocumentClick: PropTypes.bool
 }
 
 DropdownBasic.defaultProps = {
   expandOnMouseOver: false,
-  linkFactory: ({href, className, children, title, target}) => (
-    <a href={href} className={className} target={target} title={title}>
+  linkFactory: ({href, className, children, onClick, target, title}) => (
+    <a
+      href={href}
+      className={className}
+      onClick={onClick}
+      target={target}
+      title={title}
+    >
       {children}
     </a>
-  )
+  ),
+  closeOnItemClick: false,
+  closeOnDocumentClick: false
 }
 
 export default DropdownBasic
