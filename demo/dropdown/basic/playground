@@ -35,7 +35,7 @@ const menu = [
 
 return (
   <DropdownBasic
-    button={{ icon: Audio, text: 'My dropdown' }}
+    button={{ icon: Audio, text: 'My dropdown', className: 'fooo' }}
     menu={menu}
     closeOnItemClick
     closeOnDocumentClick
