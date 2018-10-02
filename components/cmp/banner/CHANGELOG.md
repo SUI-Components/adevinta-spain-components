@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.11.0"></a>
+# 1.11.0 (2018-10-02)
+
+
+### Features
+
+* Add italian language ([1b99bb9](https://github.com/SUI-Components/schibsted-spain-components/commit/1b99bb9))
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2018-09-25)
 
