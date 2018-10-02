@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2018-10-02)
+
+
+### Bug Fixes
+
+* use single line for strings ([573c81c](https://github.com/SUI-Components/schibsted-spain-components/commit/573c81c))
+
+
+### Features
+
+* Add italian language ([6e07616](https://github.com/SUI-Components/schibsted-spain-components/commit/6e07616))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2018-09-25)
 
