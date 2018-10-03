@@ -134,13 +134,17 @@ class DropdownBasic extends Component {
     const wrapperClassName = cx('sui-DropdownBasic', {
       'is-expanded': expanded
     })
+    const buttonWrapperClassName = cx('sui-DropdownBasic-buttonWrap', {
+      [button.className]: !!button.className
+    })
+
     return (
       <div
         className={wrapperClassName}
         onMouseOver={expandOnMouseOver ? this._onMouseOver : this._doNothing}
         onMouseOut={expandOnMouseOver ? this._onMouseOut : this._doNothing}
       >
-        <div className="sui-DropdownBasic-buttonWrap">
+        <div className={buttonWrapperClassName}>
           <button
             className="sui-DropdownBasic-button"
             onClick={expandOnMouseOver ? this._doNothing : this._toggleMenu}
@@ -172,6 +176,10 @@ DropdownBasic.propTypes = {
    * Dropdown button object.
    */
   button: PropTypes.shape({
+    /**
+     * Optional button className.
+     */
+    className: PropTypes.string,
     /**
      * Optional button icon.
      */
