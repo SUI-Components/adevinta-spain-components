@@ -46,12 +46,7 @@ const it = {
   ACCEPT: 'Accetto',
   AUTHORIZE: 'Autorizzo',
   BACK: 'Indietro',
-  BODY: `Sia noi che i nostri partner utilizziamo cookie sul nostro sito web per fornire il servizio richiesto,
-    sviluppare statistiche, promuovere il traffico sul web e mostrarti pubblicità personalizzata sulla
-    base dei tuoi dati di navigazione o sviluppare profili pubblicitari in funzione dei dati che raccogliamo
-    su di te, che possiamo condividere con terze parti. Cliccando, acconsenti all’utilizzo di questa
-    tecnologia sul nostro sito web. Puoi cambiare idea e personalizzare il tuo consenso ogni volta che
-    vuoi tornando su questa schermata di configurazione.`,
+  BODY: `Sia noi che i nostri partner utilizziamo cookie sul nostro sito web per fornire il servizio richiesto, sviluppare statistiche, promuovere il traffico sul web e mostrarti pubblicità personalizzata sulla base dei tuoi dati di navigazione o sviluppare profili pubblicitari in funzione dei dati che raccogliamo su di te, che possiamo condividere con terze parti. Cliccando, acconsenti all’utilizzo di questa tecnologia sul nostro sito web. Puoi cambiare idea e personalizzare il tuo consenso ogni volta che vuoi tornando su questa schermata di configurazione.`,
   COOKIES_SESSION: 'Cookie di sessione',
   COOKIES_SESSION_DESC:
     'I cookie sono indispensabili affinché il nostro sito web funzioni al meglio. Archiviamo le informazioni di navigazione e le preferenze di configurazione.',
