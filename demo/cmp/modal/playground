@@ -52,6 +52,21 @@ class ModalPlayground extends React.Component {
             privacyUrl='#privacy-url-to-configure'
           />
         )}
+        <p>
+          Es posible que quieras mostrar la modal en una página que no esté hecha en React. Para ello, puedes pasarle una prop para indicar el elemento clickable que hará que la modal se abra.
+        </p>
+        <p>
+          <button id='button-to-open-cmp'>
+            Abrir Modal usando prop elementToOpenOnClick
+          </button>
+        </p>
+        <CmpModal
+          onExit={() => {this.setState({ showModal: false })}}
+          retrieveConsentsFromCmp={retrieveConsentsFromCmp}
+          elementToOpenOnClick='#button-to-open-cmp'
+          logo="https://www.schibsted.es/wp-content/themes/Schibsted-spn/img/logo.png"
+          privacyUrl='#privacy-url-to-configure'
+        />
       </React.Fragment>
     )
   }
