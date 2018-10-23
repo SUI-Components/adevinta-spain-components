@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2018-10-23)
+
+
+### Bug Fixes
+
+* multiline italian language ([9bbb589](https://github.com/SUI-Components/schibsted-spain-components/commit/9bbb589))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2018-10-02)
 
