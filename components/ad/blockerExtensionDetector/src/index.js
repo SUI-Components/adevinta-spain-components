@@ -14,12 +14,7 @@ class AdBlockerExtensionDetector extends Component {
     const blockDetector = this.blockDetector.current
 
     const isBlockerAdviseActive = blockDetector.offsetHeight === 0
-    this.setState(
-      {
-        displayBanner: isBlockerAdviseActive
-      },
-      () => blockDetector.remove()
-    )
+    this.setState({displayBanner: isBlockerAdviseActive})
   }
 
   componentDidMount() {
