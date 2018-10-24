@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2018-10-24)
+
+
+### Features
+
+* add a prop to pass to the component an element and open the modal on clicking it ([1987a88](https://github.com/SUI-Components/schibsted-spain-components/commit/1987a88))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2018-10-23)
 
