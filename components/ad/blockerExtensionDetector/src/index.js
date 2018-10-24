@@ -6,7 +6,8 @@ class AdBlockerExtensionDetector extends Component {
     super(props)
     this.blockDetector = React.createRef()
     this.state = {
-      displayBanner: false
+      displayBanner: false,
+      showBlockDetector: true
     }
   }
 
@@ -14,12 +15,10 @@ class AdBlockerExtensionDetector extends Component {
     const blockDetector = this.blockDetector.current
 
     const isBlockerAdviseActive = blockDetector.offsetHeight === 0
-    this.setState(
-      {
-        displayBanner: isBlockerAdviseActive
-      },
-      () => blockDetector.remove()
-    )
+    this.setState({
+      displayBanner: isBlockerAdviseActive,
+      showBlockDetector: false
+    })
   }
 
   componentDidMount() {
@@ -31,9 +30,11 @@ class AdBlockerExtensionDetector extends Component {
     return (
       <React.Fragment>
         {this.state.displayBanner && children}
-        <div ref={this.blockDetector} className="adsbox">
-          &nbsp;
-        </div>
+        {this.state.showBlockDetector && (
+          <div ref={this.blockDetector} className="adsbox">
+            &nbsp;
+          </div>
+        )}
       </React.Fragment>
     )
   }
