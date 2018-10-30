@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.11.0"></a>
+# 1.11.0 (2018-10-30)
+
+
+### Features
+
+* open read more links in a new page ([914147a](https://github.com/SUI-Components/schibsted-spain-components/commit/914147a))
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2018-10-24)
 
