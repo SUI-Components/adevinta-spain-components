@@ -123,7 +123,8 @@
         display: flex;
         position: relative;
 
-        &:hover {
+        &:hover,
+        &Highlight {
           color: $c-accent;
         }
       }
@@ -133,6 +134,10 @@
         height: $size-dropdown-icon;
         margin-right: $m-h-small;
         width: $size-dropdown-icon;
+
+        &Highlight {
+          fill: $c-accent !important;
+        }
 
         :hover > & {
           fill: $c-accent !important;

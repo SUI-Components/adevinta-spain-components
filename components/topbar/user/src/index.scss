@@ -162,37 +162,4 @@ $maw-topbar-user-nav: 350px !default;
       }
     }
   }
-
-  &-cta {
-
-    &Text {
-      @include media-breakpoint-up(m) {
-        display: none;
-      }
-
-      &Link {
-        @include reset-link;
-        display: block;
-        font-size: $fz-h3;
-        font-weight: normal;
-        padding: $p-v-large $p-h;
-        position: relative;
-
-        &:hover {
-          color: $c-primary;
-        }
-      }
-
-      &Icon {
-        fill: $c-text-base !important;
-        height: $size-dropdown-icon;
-        margin-right: $m-h-small;
-        width: $size-dropdown-icon;
-
-        :hover > & {
-          fill: $c-primary !important;
-        }
-      }
-    }
-  }
 }
