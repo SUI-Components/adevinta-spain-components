@@ -2,13 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.21.0"></a>
+# 1.21.0 (2018-10-30)
+
+
+### Features
+
+* receive highlight prop, style link ([fbdef4c](https://github.com/SUI-Components/schibsted-spain-components/commit/fbdef4c))
+
+
+
 <a name="1.20.0"></a>
 # 1.20.0 (2018-06-21)
 
 
 ### Features
 
-* delete requiresAuth as is no longer used ([872f419](https://github.com/SUI-Components/sui-components/commit/872f419))
+* delete requiresAuth as is no longer used ([872f419](https://github.com/SUI-Components/schibsted-spain-components/commit/872f419))
 
 
 
@@ -18,8 +28,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* replace needLogin by requiresAuth ([ccbb4f4](https://github.com/SUI-Components/sui-components/commit/ccbb4f4))
-* sending needlogin to the link factory ([f3b272e](https://github.com/SUI-Components/sui-components/commit/f3b272e))
+* replace needLogin by requiresAuth ([ccbb4f4](https://github.com/SUI-Components/schibsted-spain-components/commit/ccbb4f4))
+* sending needlogin to the link factory ([f3b272e](https://github.com/SUI-Components/schibsted-spain-components/commit/f3b272e))
 
 
 
@@ -29,8 +39,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* accesibility improve to img and change key antipattern for child ([0ce1afd](https://github.com/SUI-Components/sui-components/commit/0ce1afd))
-* remove comma ([b48a19a](https://github.com/SUI-Components/sui-components/commit/b48a19a))
+* accesibility improve to img and change key antipattern for child ([0ce1afd](https://github.com/SUI-Components/schibsted-spain-components/commit/0ce1afd))
+* remove comma ([b48a19a](https://github.com/SUI-Components/schibsted-spain-components/commit/b48a19a))
 
 
 
@@ -40,7 +50,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* fix notifications position ([b9bd808](https://github.com/SUI-Components/sui-components/commit/b9bd808))
+* fix notifications position ([b9bd808](https://github.com/SUI-Components/schibsted-spain-components/commit/b9bd808))
 
 
 
@@ -50,7 +60,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* remove useless declaration ([60d69db](https://github.com/SUI-Components/sui-components/commit/60d69db))
+* remove useless declaration ([60d69db](https://github.com/SUI-Components/schibsted-spain-components/commit/60d69db))
 
 
 
@@ -60,8 +70,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add color variable ([4a35866](https://github.com/SUI-Components/sui-components/commit/4a35866))
-* update component ([690e820](https://github.com/SUI-Components/sui-components/commit/690e820))
+* add color variable ([4a35866](https://github.com/SUI-Components/schibsted-spain-components/commit/4a35866))
+* update component ([690e820](https://github.com/SUI-Components/schibsted-spain-components/commit/690e820))
 
 
 
@@ -71,7 +81,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([65bf4c9](https://github.com/SUI-Components/sui-components/commit/65bf4c9))
+* Bump version ([65bf4c9](https://github.com/SUI-Components/schibsted-spain-components/commit/65bf4c9))
 
 
 
@@ -81,8 +91,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add z-index var ([9ff7d87](https://github.com/SUI-Components/sui-components/commit/9ff7d87))
-* update component ([e8a6eab](https://github.com/SUI-Components/sui-components/commit/e8a6eab))
+* add z-index var ([9ff7d87](https://github.com/SUI-Components/schibsted-spain-components/commit/9ff7d87))
+* update component ([e8a6eab](https://github.com/SUI-Components/schibsted-spain-components/commit/e8a6eab))
 
 
 
@@ -92,8 +102,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add new class to dropdown user menu list text ([b4dd8df](https://github.com/SUI-Components/sui-components/commit/b4dd8df))
-* align span badge notification to right ([cb9e147](https://github.com/SUI-Components/sui-components/commit/cb9e147))
+* add new class to dropdown user menu list text ([b4dd8df](https://github.com/SUI-Components/schibsted-spain-components/commit/b4dd8df))
+* align span badge notification to right ([cb9e147](https://github.com/SUI-Components/schibsted-spain-components/commit/cb9e147))
 
 
 
@@ -103,10 +113,10 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add badge notification in dropdown component ([b136c77](https://github.com/SUI-Components/sui-components/commit/b136c77))
-* add notifications badge in dropdown user component ([95783b7](https://github.com/SUI-Components/sui-components/commit/95783b7))
-* add notifications badge in dropdown user component (fix PR) ([fda47a8](https://github.com/SUI-Components/sui-components/commit/fda47a8))
-* add notifications badge in dropdown user component (fix PR) ([c8071c3](https://github.com/SUI-Components/sui-components/commit/c8071c3))
+* add badge notification in dropdown component ([b136c77](https://github.com/SUI-Components/schibsted-spain-components/commit/b136c77))
+* add notifications badge in dropdown user component ([95783b7](https://github.com/SUI-Components/schibsted-spain-components/commit/95783b7))
+* add notifications badge in dropdown user component (fix PR) ([fda47a8](https://github.com/SUI-Components/schibsted-spain-components/commit/fda47a8))
+* add notifications badge in dropdown user component (fix PR) ([c8071c3](https://github.com/SUI-Components/schibsted-spain-components/commit/c8071c3))
 
 
 
@@ -116,8 +126,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Migrate to PropTypes package ([df4766e](https://github.com/SUI-Components/sui-components/commit/df4766e))
-* switch to s-ui/component-dependencies and sui-theme@8 ([e9cbb94](https://github.com/SUI-Components/sui-components/commit/e9cbb94))
+* Migrate to PropTypes package ([df4766e](https://github.com/SUI-Components/schibsted-spain-components/commit/df4766e))
+* switch to s-ui/component-dependencies and sui-theme@8 ([e9cbb94](https://github.com/SUI-Components/schibsted-spain-components/commit/e9cbb94))
 
 
 
@@ -127,7 +137,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* remove extra padding ([3151721](https://github.com/SUI-Components/sui-components/commit/3151721))
+* remove extra padding ([3151721](https://github.com/SUI-Components/schibsted-spain-components/commit/3151721))
 
 
 
@@ -137,7 +147,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* fix vertical scroll on microsoft browsers ([1264451](https://github.com/SUI-Components/sui-components/commit/1264451))
+* fix vertical scroll on microsoft browsers ([1264451](https://github.com/SUI-Components/schibsted-spain-components/commit/1264451))
 
 
 
@@ -147,7 +157,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* ensure that mouseover and mouseout always send the correct value ([680b25f](https://github.com/SUI-Components/sui-components/commit/680b25f))
+* ensure that mouseover and mouseout always send the correct value ([680b25f](https://github.com/SUI-Components/schibsted-spain-components/commit/680b25f))
 
 
 
@@ -157,7 +167,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* include titles ([07d6a03](https://github.com/SUI-Components/sui-components/commit/07d6a03))
+* include titles ([07d6a03](https://github.com/SUI-Components/schibsted-spain-components/commit/07d6a03))
 
 
 
@@ -167,7 +177,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* adjust link colors ([30545b8](https://github.com/SUI-Components/sui-components/commit/30545b8))
+* adjust link colors ([30545b8](https://github.com/SUI-Components/schibsted-spain-components/commit/30545b8))
 
 
 
@@ -177,7 +187,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* adjusting breakpoints ([954cf97](https://github.com/SUI-Components/sui-components/commit/954cf97))
+* adjusting breakpoints ([954cf97](https://github.com/SUI-Components/schibsted-spain-components/commit/954cf97))
 
 
 
