@@ -224,18 +224,6 @@ class TopbarUser extends Component {
             <div className="sui-TopbarUser-nav">
               <div className="sui-TopbarUser-navMain">
                 {navMain.map(this._renderNavMain(isToggleHidden))}
-                <div className="sui-TopbarUser-ctaText">
-                  <Link
-                    href={navCtaUrl}
-                    className="sui-TopbarUser-ctaTextLink"
-                    title={navCtaText}
-                  >
-                    {NavCtaIcon && (
-                      <NavCtaIcon svgClass="sui-TopbarUser-ctaTextIcon" />
-                    )}
-                    <span>{navCtaText}</span>
-                  </Link>
-                </div>
               </div>
               {shouldDisplayNavUser && (
                 <div className="sui-TopbarUser-navUser">
@@ -366,7 +354,11 @@ TopbarUser.propTypes = {
         /**
          * Menu links icon.
          */
-        icon: PropTypes.func.isRequired
+        icon: PropTypes.func.isRequired,
+        /**
+         * Menu highlighted links.
+         */
+        highlight: PropTypes.bool
       })
     )
   }).isRequired,
