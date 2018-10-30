@@ -15,7 +15,8 @@ const menu = [
   {
     text: 'Link text 3',
     url: '#link-3',
-    icon: Audio
+    icon: Audio,
+    highlight: true
   },
   {
     text: 'Link text 4',
