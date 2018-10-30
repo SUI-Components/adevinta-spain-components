@@ -186,7 +186,6 @@ class TopbarUser extends Component {
       'has-notifications': hasNotifications
     })
     const {
-      icon: NavCtaIcon,
       url: navCtaUrl,
       text: navCtaText,
       onClick: onCTAClick = () => {}
