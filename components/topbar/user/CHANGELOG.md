@@ -2,14 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.28.0"></a>
+# 1.28.0 (2018-10-30)
+
+
+### Features
+
+* add highlight prop, delete unnecessary cta link ([bae0891](https://github.com/SUI-Components/schibsted-spain-components/commit/bae0891))
+* delete unnecessary assignment ([999a2c2](https://github.com/SUI-Components/schibsted-spain-components/commit/999a2c2))
+
+
+
 <a name="1.27.0"></a>
 # 1.27.0 (2018-06-19)
 
 
 ### Features
 
-* add onclick feature in atom button ([c6c0228](https://github.com/SUI-Components/sui-components/commit/c6c0228))
-* change prop name and resume default value in atom button ([89f4dec](https://github.com/SUI-Components/sui-components/commit/89f4dec))
+* add onclick feature in atom button ([c6c0228](https://github.com/SUI-Components/schibsted-spain-components/commit/c6c0228))
+* change prop name and resume default value in atom button ([89f4dec](https://github.com/SUI-Components/schibsted-spain-components/commit/89f4dec))
 
 
 
@@ -19,7 +30,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* sending needlogin to the dropdown user ([263c111](https://github.com/SUI-Components/sui-components/commit/263c111))
+* sending needlogin to the dropdown user ([263c111](https://github.com/SUI-Components/schibsted-spain-components/commit/263c111))
 
 
 
@@ -29,7 +40,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add default target prop linkfactory ([21b2a70](https://github.com/SUI-Components/sui-components/commit/21b2a70))
+* add default target prop linkfactory ([21b2a70](https://github.com/SUI-Components/schibsted-spain-components/commit/21b2a70))
 
 
 
@@ -39,7 +50,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* getting if user nav should be displayed ([410b061](https://github.com/SUI-Components/sui-components/commit/410b061))
+* getting if user nav should be displayed ([410b061](https://github.com/SUI-Components/schibsted-spain-components/commit/410b061))
 
 
 
@@ -49,8 +60,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* delete unused var ([ce25071](https://github.com/SUI-Components/sui-components/commit/ce25071))
-* using atom button in topbar ([121cfc5](https://github.com/SUI-Components/sui-components/commit/121cfc5))
+* delete unused var ([ce25071](https://github.com/SUI-Components/schibsted-spain-components/commit/ce25071))
+* using atom button in topbar ([121cfc5](https://github.com/SUI-Components/schibsted-spain-components/commit/121cfc5))
 
 
 
@@ -60,7 +71,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* adjust logo margin ([ad5d87f](https://github.com/SUI-Components/sui-components/commit/ad5d87f))
+* adjust logo margin ([ad5d87f](https://github.com/SUI-Components/schibsted-spain-components/commit/ad5d87f))
 
 
 
@@ -70,8 +81,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* little fix for different sizes ([9b7a55c](https://github.com/SUI-Components/sui-components/commit/9b7a55c))
-* update variables and add new ones for logo in topbar user ([156eb07](https://github.com/SUI-Components/sui-components/commit/156eb07))
+* little fix for different sizes ([9b7a55c](https://github.com/SUI-Components/schibsted-spain-components/commit/9b7a55c))
+* update variables and add new ones for logo in topbar user ([156eb07](https://github.com/SUI-Components/schibsted-spain-components/commit/156eb07))
 
 
 
@@ -81,7 +92,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([4fe572f](https://github.com/SUI-Components/sui-components/commit/4fe572f))
+* Bump version ([4fe572f](https://github.com/SUI-Components/schibsted-spain-components/commit/4fe572f))
 
 
 
@@ -91,7 +102,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* propagate link factory to dropdown basic ([0e38cfd](https://github.com/SUI-Components/sui-components/commit/0e38cfd))
+* propagate link factory to dropdown basic ([0e38cfd](https://github.com/SUI-Components/schibsted-spain-components/commit/0e38cfd))
 
 
 
@@ -101,8 +112,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add badge notification in topbar user component ([d46c3a8](https://github.com/SUI-Components/sui-components/commit/d46c3a8))
-* remove notifications in top bar component ([dc86362](https://github.com/SUI-Components/sui-components/commit/dc86362))
+* add badge notification in topbar user component ([d46c3a8](https://github.com/SUI-Components/schibsted-spain-components/commit/d46c3a8))
+* remove notifications in top bar component ([dc86362](https://github.com/SUI-Components/schibsted-spain-components/commit/dc86362))
 
 
 
@@ -112,8 +123,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* migrate to PropTypes package ([fd60b95](https://github.com/SUI-Components/sui-components/commit/fd60b95))
-* switch to s-ui/component-dependencies and sui-theme@8 ([8fba008](https://github.com/SUI-Components/sui-components/commit/8fba008))
+* migrate to PropTypes package ([fd60b95](https://github.com/SUI-Components/schibsted-spain-components/commit/fd60b95))
+* switch to s-ui/component-dependencies and sui-theme@8 ([8fba008](https://github.com/SUI-Components/schibsted-spain-components/commit/8fba008))
 
 
 
@@ -123,7 +134,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* avoid to execute resize handler when user is scrolling down (safari ios does) ([3598765](https://github.com/SUI-Components/sui-components/commit/3598765))
+* avoid to execute resize handler when user is scrolling down (safari ios does) ([3598765](https://github.com/SUI-Components/schibsted-spain-components/commit/3598765))
 
 
 
@@ -133,10 +144,10 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* cache some strings and check if have to restore window scroll ([5224cf1](https://github.com/SUI-Components/sui-components/commit/5224cf1))
-* fix body scroll position while side menu is being toggled ([af24d0c](https://github.com/SUI-Components/sui-components/commit/af24d0c))
-* remove wrong default values ([bea247e](https://github.com/SUI-Components/sui-components/commit/bea247e))
-* switch from set styles to set css classnames in order to avoid ios errors ([177535e](https://github.com/SUI-Components/sui-components/commit/177535e))
+* cache some strings and check if have to restore window scroll ([5224cf1](https://github.com/SUI-Components/schibsted-spain-components/commit/5224cf1))
+* fix body scroll position while side menu is being toggled ([af24d0c](https://github.com/SUI-Components/schibsted-spain-components/commit/af24d0c))
+* remove wrong default values ([bea247e](https://github.com/SUI-Components/schibsted-spain-components/commit/bea247e))
+* switch from set styles to set css classnames in order to avoid ios errors ([177535e](https://github.com/SUI-Components/schibsted-spain-components/commit/177535e))
 
 
 
@@ -146,7 +157,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* disable scroll on html and body elements when topbar aside menu is open ([a83b513](https://github.com/SUI-Components/sui-components/commit/a83b513))
+* disable scroll on html and body elements when topbar aside menu is open ([a83b513](https://github.com/SUI-Components/schibsted-spain-components/commit/a83b513))
 
 
 
@@ -156,7 +167,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* make topbar main buttons clickable area bigger ([457cdd8](https://github.com/SUI-Components/sui-components/commit/457cdd8))
+* make topbar main buttons clickable area bigger ([457cdd8](https://github.com/SUI-Components/schibsted-spain-components/commit/457cdd8))
 
 
 
@@ -166,7 +177,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* include cta mobile button ([9f75885](https://github.com/SUI-Components/sui-components/commit/9f75885))
+* include cta mobile button ([9f75885](https://github.com/SUI-Components/schibsted-spain-components/commit/9f75885))
 
 
 
@@ -176,7 +187,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* allo setting notifications in the cta ([216e338](https://github.com/SUI-Components/sui-components/commit/216e338))
+* allo setting notifications in the cta ([216e338](https://github.com/SUI-Components/schibsted-spain-components/commit/216e338))
 
 
 
@@ -186,7 +197,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* allow to provide a custom Call to Action in the topbar ([4f574a0](https://github.com/SUI-Components/sui-components/commit/4f574a0))
+* allow to provide a custom Call to Action in the topbar ([4f574a0](https://github.com/SUI-Components/schibsted-spain-components/commit/4f574a0))
 
 
 
@@ -196,7 +207,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* include titles ([4cc307d](https://github.com/SUI-Components/sui-components/commit/4cc307d))
+* include titles ([4cc307d](https://github.com/SUI-Components/schibsted-spain-components/commit/4cc307d))
 
 
 
@@ -206,7 +217,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* use correct events in toggle mode ([caa3971](https://github.com/SUI-Components/sui-components/commit/caa3971))
+* use correct events in toggle mode ([caa3971](https://github.com/SUI-Components/schibsted-spain-components/commit/caa3971))
 
 
 
@@ -216,7 +227,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix usage of custom button mixin ([741c340](https://github.com/SUI-Components/sui-components/commit/741c340))
+* fix usage of custom button mixin ([741c340](https://github.com/SUI-Components/schibsted-spain-components/commit/741c340))
 
 
 
@@ -226,7 +237,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* customized topbar brand ([32852fb](https://github.com/SUI-Components/sui-components/commit/32852fb))
+* customized topbar brand ([32852fb](https://github.com/SUI-Components/schibsted-spain-components/commit/32852fb))
 
 
 
@@ -236,7 +247,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* set a max width ([abde18e](https://github.com/SUI-Components/sui-components/commit/abde18e))
+* set a max width ([abde18e](https://github.com/SUI-Components/schibsted-spain-components/commit/abde18e))
 
 
 
@@ -246,7 +257,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* adjusting colors and breakpoints ([eab1ff9](https://github.com/SUI-Components/sui-components/commit/eab1ff9))
+* adjusting colors and breakpoints ([eab1ff9](https://github.com/SUI-Components/schibsted-spain-components/commit/eab1ff9))
 
 
 
