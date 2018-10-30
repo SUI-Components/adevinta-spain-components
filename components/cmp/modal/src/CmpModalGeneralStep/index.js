@@ -12,7 +12,12 @@ const CmpModalGeneralBox = ({children, title, description}) => (
 )
 
 const CmpModalGeneralBoxReadMore = ({i18n, privacyUrl}) => (
-  <a className={`${CLASS}-boxLink`} href={privacyUrl}>
+  <a
+    className={`${CLASS}-boxLink`}
+    href={privacyUrl}
+    target="_blank"
+    rel="noopener"
+  >
     {i18n['READ_MORE']}
   </a>
 )
