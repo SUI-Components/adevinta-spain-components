@@ -4,8 +4,6 @@ import PropTypes from 'prop-types'
 import {CmpBanner} from './component'
 import CmpModal from '@schibstedspain/react-cmp-modal'
 
-import {I18N} from '../settings'
-
 const CONSENT_STATUS_NOT_ACCEPTED = 'NOT_ACCEPTED'
 const NO_OP = () => {}
 
@@ -48,26 +46,6 @@ export class CmpBannerContainer extends Component {
     this.setState({showModal: false})
   }
 
-  _generateButtons() {
-    const i18n = I18N[this.props.lang]
-    return [
-      {
-        children: i18n.READ_MORE_BUTTON,
-        negative: true,
-        onClick: this._handleReadMore,
-        size: 'small',
-        type: 'tertiary'
-      },
-      {
-        children: i18n.ACCEPT_BUTTON,
-        negative: true,
-        onClick: this._handleAccept,
-        size: 'large',
-        type: 'primary'
-      }
-    ]
-  }
-
   _removeBodyEvent() {
     document.removeEventListener('click', this._handleClickOnDocument, true)
   }
@@ -95,7 +73,8 @@ export class CmpBannerContainer extends Component {
       <div ref={this.containerDOMEl}>
         {this.state.showNotification && (
           <CmpBanner
-            buttons={this._generateButtons()}
+            onAccept={this._handleAccept}
+            onConfigure={this._handleReadMore}
             companyName={companyName}
             lang={lang}
           />
