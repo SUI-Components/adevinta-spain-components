@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.12.0"></a>
+# 1.12.0 (2018-11-15)
+
+
+### Features
+
+* iterate the text and design of the CMP ([8f5fc5d](https://github.com/SUI-Components/schibsted-spain-components/commit/8f5fc5d))
+
+
+
 <a name="1.11.0"></a>
 # 1.11.0 (2018-10-02)
 
