@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.12.0"></a>
+# 1.12.0 (2018-11-19)
+
+
+### Bug Fixes
+
+* fix iOS modal ([82d2678](https://github.com/SUI-Components/schibsted-spain-components/commit/82d2678))
+
+
+
 <a name="1.11.0"></a>
 # 1.11.0 (2018-10-30)
 
