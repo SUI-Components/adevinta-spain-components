@@ -44,9 +44,4 @@ GigyaLoader.defaultProps = {
   detectionDelay: 15000
 }
 
-GigyaLoader.contextTypes = {
-  i18n: PropTypes.object,
-  domain: PropTypes.object
-}
-
 export default GigyaLoader
