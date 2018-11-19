@@ -16,7 +16,6 @@ $lh-sui-cmp-modal-title: $lh-xxl !default;
   justify-content: center;
   left: 0;
   line-height: $lh-m;
-  overflow-y: scroll;
   position: fixed;
   right: 0;
   top: 0;
@@ -59,6 +58,7 @@ $lh-sui-cmp-modal-title: $lh-xxl !default;
     color: $c-gray-dark;
     display: flex;
     flex-direction: column;
+    height: 100%;
     max-width: 770px;
     min-width: 320px;
     overflow: hidden;
@@ -146,9 +146,9 @@ $lh-sui-cmp-modal-title: $lh-xxl !default;
   }
 
   &-inner {
+    -webkit-overflow-scrolling: touch;
+    flex: 1 1;
     font-size: $fz-sui-cmp-modal-inner;
-    height: 700px;
-    max-height: calc(100vh - 122px);
     overflow-y: scroll;
     padding: $p-l;
   }
@@ -185,6 +185,10 @@ $lh-sui-cmp-modal-title: $lh-xxl !default;
   }
 
   @media (min-width: 769px) {
+    &-content {
+      height: auto;
+    }
+
     &-header {
       padding: $p-l;
     }
@@ -195,6 +199,17 @@ $lh-sui-cmp-modal-title: $lh-xxl !default;
 
     &-footer {
       padding: $p-xl $p-l;
+    }
+  }
+
+  @media (max-height: 450px) {
+    &-content {
+      height: 100%;
+      max-width: 100%;
+    }
+
+    &-inner {
+      max-height: 100px;
     }
   }
 }
