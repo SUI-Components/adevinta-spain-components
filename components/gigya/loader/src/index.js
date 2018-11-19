@@ -13,12 +13,12 @@ class GigyaLoader extends Component {
       timeoutRender,
       onTimeout,
       detectionDelay,
-      GIGYA_API_KEYConfig
+      gigyaApiKey
     } = this.props
 
     return (
       <ScriptLoader
-        src={`${gigyaUrl}${GIGYA_API_KEYConfig}`}
+        src={`${gigyaUrl}${gigyaApiKey}`}
         isAsync
         verifier={getGigya}
         render={render}
@@ -37,7 +37,7 @@ GigyaLoader.propTypes = {
   timeoutRender: PropTypes.func.isRequired,
   onTimeout: PropTypes.func,
   detectionDelay: PropTypes.number,
-  GIGYA_API_KEYConfig: PropTypes.string.isRequired
+  gigyaApiKey: PropTypes.string.isRequired
 }
 
 GigyaLoader.defaultProps = {
