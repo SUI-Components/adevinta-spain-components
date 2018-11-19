@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.14.0"></a>
+# 1.14.0 (2018-11-19)
+
+
+### Features
+
+* use system type and fix text-decoration for link ([236d34c](https://github.com/SUI-Components/schibsted-spain-components/commit/236d34c))
+
+
+
 <a name="1.13.0"></a>
 # 1.13.0 (2018-11-19)
 
