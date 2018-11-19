@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.13.0"></a>
+# 1.13.0 (2018-11-19)
+
+
+### Features
+
+* force hidden icon for more space ([8dfd8b2](https://github.com/SUI-Components/schibsted-spain-components/commit/8dfd8b2))
+
+
+
 <a name="1.12.0"></a>
 # 1.12.0 (2018-11-15)
 
