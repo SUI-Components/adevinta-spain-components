@@ -55,6 +55,7 @@ export class CmpBanner extends Component {
           show
           showCloseButton={false}
           variation="positive"
+          type="system"
         >
           <span
             className={`${CLASS}-text`}

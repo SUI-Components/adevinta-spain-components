@@ -1,7 +1,7 @@
 export const CLASS = 'sui-CmpBanner'
 
 const DEFAULT_I18N = {
-  ACCEPT_BUTTON: 'Seguir navegando',
+  ACCEPT_BUTTON: 'Aceptar',
   BANNER_BODY:
     'Utilizamos cookies propias y de terceros para recordar tus preferencias, elaborar estadísticas, crear perfiles publicitarios y mostrarte publicidad personalizada analizando tu navegación. Cambia tus preferencias en nuestra <a class="sui-CmpBanner-link" href="#">política de cookies.</a>'
 }
