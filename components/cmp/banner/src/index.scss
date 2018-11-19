@@ -7,17 +7,19 @@ $c-sui-cmp-banner-link: $c-primary !default;
 .sui-CmpBanner {
   &-text {
     font-size: $fz-xs;
-    line-height: $lh-xxs;
     margin: 0;
     padding: 0;
 
     @include media-breakpoint-up(s) {
       font-size: $fz-s;
-      line-height: $lh-s;
     }
   }
 
   &-link {
     color: $c-sui-cmp-banner-link;
+  }
+
+  .sui-MoleculeNotification-iconLeft {
+    display: none; // force as we want to get more space for text
   }
 }
