@@ -6,13 +6,9 @@ $c-sui-cmp-banner-link: $c-primary !default;
 
 .sui-CmpBanner {
   &-text {
-    font-size: $fz-xs;
+    font-size: $fz-s;
     margin: 0;
     padding: 0;
-
-    @include media-breakpoint-up(s) {
-      font-size: $fz-s;
-    }
   }
 
   &-link {
