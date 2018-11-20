@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.15.0"></a>
+# 1.15.0 (2018-11-20)
+
+
+### Bug Fixes
+
+* avoid too small font ([e56d802](https://github.com/SUI-Components/schibsted-spain-components/commit/e56d802))
+
+
+
 <a name="1.14.0"></a>
 # 1.14.0 (2018-11-19)
 
