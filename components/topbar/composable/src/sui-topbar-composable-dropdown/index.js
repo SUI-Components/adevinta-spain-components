@@ -49,13 +49,13 @@ export default class DropdownMenu extends Component {
     })
 
     return (
-      <div
-        className={activeMenu}
-        ref={node => {
-          this.wrapper = node
-        }}
-      >
-        <div className="sui-DropdownMenu">
+      <div className={activeMenu}>
+        <div
+          className="sui-DropdownMenu"
+          ref={node => {
+            this.wrapper = node
+          }}
+        >
           <div className="sui-DropdownMenu-header" onClick={this.toggle}>
             {this.props.icon}
             {this.props.label && (
