@@ -22,7 +22,7 @@ export default class DropdownMenu extends Component {
   }
 
   closeMenu = ({target}) => {
-    var isClickOutsideDropdown = !this.wrapper.contains(target)
+    const isClickOutsideDropdown = !this.wrapper.contains(target)
 
     isClickOutsideDropdown && this.setState({displayMenu: false})
   }
