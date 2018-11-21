@@ -2,13 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2018-11-21)
+
+
+### Bug Fixes
+
+* close dropdown only if click is outside the wrapper ([c3d5e6e](https://github.com/SUI-Components/schibsted-spain-components/commit/c3d5e6e))
+* pr feedback ([f8afe55](https://github.com/SUI-Components/schibsted-spain-components/commit/f8afe55))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2017-11-06)
 
 
 ### Features
 
-* Bump version ([06f6114](https://github.com/SUI-Components/sui-components/commit/06f6114))
+* Bump version ([06f6114](https://github.com/SUI-Components/schibsted-spain-components/commit/06f6114))
 
 
 
@@ -18,8 +29,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Migrate to PropTypes package ([99aed1d](https://github.com/SUI-Components/sui-components/commit/99aed1d))
-* switch to s-ui/component-dependencies and sui-theme@8 ([cc80ad6](https://github.com/SUI-Components/sui-components/commit/cc80ad6))
+* Migrate to PropTypes package ([99aed1d](https://github.com/SUI-Components/schibsted-spain-components/commit/99aed1d))
+* switch to s-ui/component-dependencies and sui-theme@8 ([cc80ad6](https://github.com/SUI-Components/schibsted-spain-components/commit/cc80ad6))
 
 
 
@@ -29,7 +40,17 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* rollback className name to keep compatibility ([cfc17ef](https://github.com/SUI-Components/sui-components/commit/cfc17ef))
+* rollback className name to keep compatibility ([cfc17ef](https://github.com/SUI-Components/schibsted-spain-components/commit/cfc17ef))
+
+
+
+<a name="1.1.0"></a>
+# 1.1.0 (2017-10-05)
+
+
+### Features
+
+* move sui-topbar to sui-components ([9829c33](https://github.com/SUI-Components/schibsted-spain-components/commit/9829c33))
 
 
 
