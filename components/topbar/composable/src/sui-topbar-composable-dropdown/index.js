@@ -21,14 +21,10 @@ export default class DropdownMenu extends Component {
     )
   }
 
-  closeMenu = e => {
-    if (e.target === this.headerDOMEl) {
-      return
-    }
+  closeMenu = ({target}) => {
+    var isClickOutsideDropdown = !this.wrapper.contains(target)
 
-    if (this.state.displayMenu === true) {
-      this.setState({displayMenu: false})
-    }
+    isClickOutsideDropdown && this.setState({displayMenu: false})
   }
 
   toggle = e => {
@@ -53,15 +49,14 @@ export default class DropdownMenu extends Component {
     })
 
     return (
-      <div className={activeMenu}>
+      <div
+        className={activeMenu}
+        ref={node => {
+          this.wrapper = node
+        }}
+      >
         <div className="sui-DropdownMenu">
-          <div
-            className="sui-DropdownMenu-header"
-            ref={node => {
-              this.headerDOMEl = node
-            }}
-            onClick={this.toggle}
-          >
+          <div className="sui-DropdownMenu-header" onClick={this.toggle}>
             {this.props.icon}
             {this.props.label && (
               <span className="sui-DropdownMenu-headerMainLabel">
