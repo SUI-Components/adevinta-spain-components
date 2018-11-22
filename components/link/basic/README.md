@@ -19,7 +19,7 @@ import LinkBasic from '@schibstedspain/sui-link-basic'
 return (
   <LinkBasic
     useReactRouterLinks
-    url='#' />
+    url='#'
   />
 )
 ```
