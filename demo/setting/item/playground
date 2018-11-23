@@ -1,7 +1,11 @@
 const description =  (
-    <React.Fragment><span style={{color: "red"}}>18</span> This is a description</React.Fragment>
-  )
+  <React.Fragment>
+    <span class='sui-SettingItem-highlight'>18</span> This is a description
+  </React.Fragment>
+)
 
 
-return (<React.Fragment><SettingItem title="Ubication" description={description} onToggle={() => console.log("demo")}><h1>Test</h1></SettingItem>
-<SettingItem title="Ubication" description={description} withSwitch={false} onToggle={() => console.log("demo")}><h1>Test</h1></SettingItem></React.Fragment>)
+return (<div style={{margin: "20px"}}>
+          <SettingItem title="Ubication" description={description} onToggle={() => console.log("demo")}><h1>Test</h1></SettingItem>
+          <SettingItem title="Ubication" description={description} withSwitch={false} onToggle={() => console.log("demo")}><h1>Test</h1></SettingItem>
+        </div>)

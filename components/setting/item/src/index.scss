@@ -2,12 +2,42 @@
 @import '~@s-ui/react-atom-switch/lib/index';
 
 .sui-SettingItem {
-  border-top: 1px solid #000000;
+  border-top: 1px solid #e5e5e5;
+  padding: 16px 0;
+  //font-family: Proximanova-semibold;
+
+  &-content-top {
+    display: flex;
+
+    &-text {
+      flex: 2 1 100%;
+    }
+  }
+
   &-title {
-    font-weight: bold;
+    color: #2d3133;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 0;
   }
 
   &-description {
     font-size: 14px;
+    line-height: 18px;
+    margin: 0;
   }
+
+  &-highlight {
+    color: #ff6340;
+  }
+}
+
+//componente AtomSwitch
+.sui-AtomSwitch-toggleType .sui-AtomSwitch-container {
+  margin-top: 0;
+}
+
+.sui-AtomSwitch--active .sui-AtomSwitch-container .sui-AtomSwitch-inputContainer {
+  background-color: #4f9cc9; //primary
+  border-color: #4f9cc9; //primary
 }

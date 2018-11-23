@@ -8,17 +8,21 @@ const classNameFactory = name =>
 const SettingItem = ({onToggle, title, description, withSwitch, children}) => {
   return (
     <div className={classNameFactory()}>
-      <div className={classNameFactory('title')}>{title}</div>
-      <div className={classNameFactory('description')}>{description}</div>
-      {withSwitch && (
-        <Switch
-          name=""
-          label=""
-          labelLeft=""
-          labelRight=""
-          onToggle={onToggle}
-        />
-      )}
+      <div className={classNameFactory('content-top')}>
+        <div className={classNameFactory('content-top-text')}>
+          <h2 className={classNameFactory('title')}>{title}</h2>
+          <p className={classNameFactory('description')}>{description}</p>
+        </div>
+        {withSwitch && (
+          <Switch
+            name=""
+            label=""
+            labelLeft=""
+            labelRight=""
+            onToggle={onToggle}
+          />
+        )}
+      </div>
       {children}
     </div>
   )
