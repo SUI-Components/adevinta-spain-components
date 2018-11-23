@@ -1,0 +1,13 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/react-atom-switch/lib/index';
+
+.sui-SettingItem {
+  border-top: 1px solid #000000;
+  &-title {
+    font-weight: bold;
+  }
+
+  &-description {
+    font-size: 14px;
+  }
+}

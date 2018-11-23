@@ -1,0 +1,6 @@
+const description =  (
+    <React.Fragment><span style={{color: "red"}}>18</span> This is a description</React.Fragment>
+  )
+
+
+return (<SettingItem title="Ubication" description={description} onToggle={() => console.log("demo")}><h1>Test</h1></SettingItem>)
