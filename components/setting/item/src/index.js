@@ -5,12 +5,20 @@ import PropTypes from 'prop-types'
 const classNameFactory = name =>
   name ? `sui-SettingItem-${name}` : 'sui-SettingItem'
 
-const SettingItem = ({onToggle, title, description, children}) => {
+const SettingItem = ({onToggle, title, description, withSwitch, children}) => {
   return (
     <div className={classNameFactory()}>
       <div className={classNameFactory('title')}>{title}</div>
       <div className={classNameFactory('description')}>{description}</div>
-      <Switch name="" label="" labelLeft="" labelRight="" onToggle={onToggle} />
+      {withSwitch && (
+        <Switch
+          name=""
+          label=""
+          labelLeft=""
+          labelRight=""
+          onToggle={onToggle}
+        />
+      )}
       {children}
     </div>
   )
@@ -32,9 +40,17 @@ SettingItem.propTypes = {
    */
   description: PropTypes.node,
   /**
+   * Boolean to use or not use a switch
+   */
+  withSwitch: PropTypes.bool,
+  /**
    * Optional children to add any kind of extra component to the setting item
    */
   children: PropTypes.node
+}
+
+SettingItem.defaultProps = {
+  withSwitch: true
 }
 
 export default SettingItem

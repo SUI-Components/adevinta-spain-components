@@ -3,4 +3,5 @@ const description =  (
   )
 
 
-return (<SettingItem title="Ubication" description={description} onToggle={() => console.log("demo")}><h1>Test</h1></SettingItem>)
+return (<React.Fragment><SettingItem title="Ubication" description={description} onToggle={() => console.log("demo")}><h1>Test</h1></SettingItem>
+<SettingItem title="Ubication" description={description} withSwitch={false} onToggle={() => console.log("demo")}><h1>Test</h1></SettingItem></React.Fragment>)
