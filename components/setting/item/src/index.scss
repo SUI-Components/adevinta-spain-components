@@ -1,10 +1,22 @@
+//ij-theme
+//$c-atom-switch--active: $c-primary;
+
 @import '~@schibstedspain/sui-theme/lib/index';
 @import '~@s-ui/react-atom-switch/lib/index';
 
+$c-setting-item-primary: $c-primary !default;
+$bc-setting-item: $c-gray !default;
+$p-setting-item: $p-l !default;
+$c-setting-item-title: $c-system !default;
+$fz-setting-item-title: $fz-base !default;
+$lh-setting-item-title: $lh-m !default;
+$fz-setting-item-description: $fz-s !default;
+$lh-setting-item-description: $lh-s !default;
+$c-setting-item-highlight: $c-highlight !default;
+
 .sui-SettingItem {
-  border-top: 1px solid #e5e5e5;
-  padding: 16px 0;
-  //font-family: Proximanova-semibold;
+  border-top: 1px solid $bc-setting-item;
+  padding: $p-setting-item 0;
 
   &-content-top {
     display: flex;
@@ -15,29 +27,24 @@
   }
 
   &-title {
-    color: #2d3133;
-    font-size: 16px;
-    line-height: 20px;
+    color: $c-setting-item-title;
+    font-size: $fz-setting-item-title;
+    line-height: $lh-setting-item-title;
     margin: 0;
   }
 
   &-description {
-    font-size: 14px;
-    line-height: 18px;
+    font-size: $fz-setting-item-description;
+    line-height: $lh-setting-item-description;
     margin: 0;
   }
 
   &-highlight {
-    color: #ff6340;
+    color: $c-setting-item-highlight;
   }
 }
 
 //componente AtomSwitch
 .sui-AtomSwitch-toggleType .sui-AtomSwitch-container {
   margin-top: 0;
-}
-
-.sui-AtomSwitch--active .sui-AtomSwitch-container .sui-AtomSwitch-inputContainer {
-  background-color: #4f9cc9; //primary
-  border-color: #4f9cc9; //primary
 }
