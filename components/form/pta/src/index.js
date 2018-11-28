@@ -5,19 +5,37 @@ import {paramsToQueryString} from './querystring'
 const BASE_CLASS = 'sui-FormPta'
 const CONTENT_CLASS = `${BASE_CLASS}-content`
 const REMOVE_DRAFT = 'REMOVE_DRAFT'
+const SUBMIT_SUCCESS_EVENT_TYPE = 'SUBMIT_FORM_SUCCEEDED'
+const SUBMIT_ERROR_EVENT_TYPE = 'SUBMIT_FORM_ERROR'
+const MESSAGE_EVENT_TYPE = 'message'
 
 class FormPta extends Component {
   constructor(props) {
     super(props)
 
-    const {formUrl: BASE_URL, ...settings} = this.props
+    const {formUrl: BASE_URL, onSubmit, onError, ...settings} = this.props
     const QUERY = paramsToQueryString(settings)
     const formUrl = `${BASE_URL}?${QUERY}`
-
+    this.handleMessage = this.handleMessage.bind(this)
     this.state = {
       formUrl
     }
   }
+
+  componentWillMount() {
+    window.addEventListener(MESSAGE_EVENT_TYPE, this.handleMessage)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener(MESSAGE_EVENT_TYPE, this.handleMessage)
+  }
+
+  handleMessage({data: {type}}) {
+    const {onSubmit, onError} = this.props
+    type === SUBMIT_SUCCESS_EVENT_TYPE && onSubmit()
+    type === SUBMIT_ERROR_EVENT_TYPE && onError()
+  }
+
   /**
    * Avoid iframe re-rendering
    */
@@ -75,11 +93,19 @@ FormPta.propTypes = {
   /**
    * Redirection url on error
    */
-  redirectOnErrorUrl: PropTypes.string.isRequired,
+  redirectOnErrorUrl: PropTypes.string,
   /**
    * Redirection url on success
    */
-  redirectOnSuccessUrl: PropTypes.string.isRequired
+  redirectOnSuccessUrl: PropTypes.string,
+  /**
+   * OnSubmit callback
+   */
+  onSubmit: PropTypes.func,
+  /**
+   * OnError callback
+   */
+  onError: PropTypes.func
 }
 
 FormPta.defaultProps = {
