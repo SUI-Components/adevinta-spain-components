@@ -31,6 +31,10 @@ class MarkerManager {
 
   createMarker(item, deprecatedLabelNoPrice) {
     const events = [
+      {
+        eventName: 'add',
+        eventHandler: ({target}) => (target._icon.id = target.Id)
+      },
       {eventName: 'click', eventHandler: e => this.isPoiClicked(e)},
       {eventName: 'mouseover', eventHandler: e => this.onMouseOver(e)},
       {eventName: 'mouseout', eventHandler: e => this.onMouseOut(e)},
