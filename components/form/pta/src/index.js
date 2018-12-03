@@ -13,12 +13,7 @@ class FormPta extends Component {
   constructor(props) {
     super(props)
 
-    const {
-      formUrl: BASE_URL,
-      onSubmit = false,
-      onError = false,
-      ...settings
-    } = this.props
+    const {formUrl: BASE_URL, onSubmit, onError, ...settings} = this.props
     const QUERY = paramsToQueryString(settings)
     const formUrl = `${BASE_URL}?${QUERY}`
 
