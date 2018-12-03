@@ -42,7 +42,11 @@ ThumbnailBasic.propTypes = {
   /**
    * https://www.w3.org/wiki/HTML/Elements/a
    */
-  target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top'])
+  target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+  /**
+   * html picture sources, object {media, srcset} expected
+   */
+  imgSources: PropTypes.array
 }
 
 ThumbnailBasic.defaultProps = {

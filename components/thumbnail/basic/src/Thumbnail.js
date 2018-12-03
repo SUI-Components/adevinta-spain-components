@@ -39,7 +39,11 @@ Thumbnail.propTypes = {
   /**
    * Img props to be shown if the image fails loading
    */
-  fallback: PropTypes.object
+  fallback: PropTypes.object,
+  /**
+   * html picture sources, object {media, srcset} expected
+   */
+  imgSources: PropTypes.array
 }
 
 export default Thumbnail
