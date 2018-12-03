@@ -38,7 +38,7 @@ describe('<FormPta />', function() {
   })
 
   it('should call onError callback when SUBMIT message is listened from PTA', function(done) {
-    const EVENT_TYPE = 'SUBMIT_FORM_ERROR'
+    const EVENT_TYPE = 'SUBMIT_FORM_FAILED'
     const listener = function(e) {
       expect(onErrorSpy.mock.calls.length).toEqual(1)
       done()
