@@ -13,10 +13,20 @@ class FormPta extends Component {
   constructor(props) {
     super(props)
 
-    const {formUrl: BASE_URL, onSubmit, onError, ...settings} = this.props
+    const {
+      formUrl: BASE_URL,
+      onSubmit = false,
+      onError = false,
+      ...settings
+    } = this.props
     const QUERY = paramsToQueryString(settings)
     const formUrl = `${BASE_URL}?${QUERY}`
-    this.handleMessage = this.handleMessage.bind(this)
+
+    this.handleMessage = ({data: {type}}) => {
+      type === SUBMIT_SUCCESS_EVENT_TYPE && onSubmit && onSubmit()
+      type === SUBMIT_ERROR_EVENT_TYPE && onError && onError()
+    }
+
     this.state = {
       formUrl
     }
@@ -28,12 +38,6 @@ class FormPta extends Component {
 
   componentWillUnmount() {
     window.removeEventListener(MESSAGE_EVENT_TYPE, this.handleMessage)
-  }
-
-  handleMessage({data: {type}}) {
-    const {onSubmit, onError} = this.props
-    type === SUBMIT_SUCCESS_EVENT_TYPE && onSubmit()
-    type === SUBMIT_ERROR_EVENT_TYPE && onError()
   }
 
   /**
