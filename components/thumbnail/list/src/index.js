@@ -25,6 +25,7 @@ const ThumbnailList = ({
           placeholder={placeholder}
           src={item.src}
           target={target}
+          imgSources={item.sources}
         />
       </li>
     ))}

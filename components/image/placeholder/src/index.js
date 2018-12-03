@@ -66,17 +66,23 @@ class ImagePlaceholder extends Component {
   }
 
   render() {
+    const {fallback, imgSources} = this.props
     return (
       <div className={this._classNames}>
         {this.state.error ? (
-          this.props.fallback && this._renderFallback()
+          fallback && this._renderFallback()
         ) : (
-          <img
-            className={this._imageClassNames}
-            onLoad={() => this.onLoad()}
-            onError={() => this.onError()}
-            {...this._imageProps}
-          />
+          <picture>
+            {imgSources.map((source, idx) => (
+              <source key={idx} media={source.media} srcSet={source.srcset} />
+            ))}
+            <img
+              className={this._imageClassNames}
+              onLoad={() => this.onLoad()}
+              onError={() => this.onError()}
+              {...this._imageProps}
+            />
+          </picture>
         )}
         {this.state.imageLoaded || this._renderPlaceholder()}
       </div>
@@ -122,9 +128,17 @@ ImagePlaceholder.propTypes = {
    */
   onLoad: PropTypes.func,
   /**
+   * html picture sources, object {media, srcset} expected
+   */
+  imgSources: PropTypes.array,
+  /**
    * <img> prop
    */
   ...htmlImgProps
+}
+
+ImagePlaceholder.defaultProps = {
+  imgSources: []
 }
 
 export default ImagePlaceholder
