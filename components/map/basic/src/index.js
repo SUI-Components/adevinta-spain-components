@@ -61,6 +61,7 @@ class MapBasic extends Component {
       _deprecatedLabelNoPrice: this.props._deprecatedLabelNoPrice,
       appCode: this.props.appCode,
       appId: this.props.appId,
+      attribution: this.props.attribution,
       dragging: this.props.isInteractable,
       enableViewMenu: this.props.enableViewMenu,
       heatMapUrl: this.props.heatMapUrl,
@@ -172,6 +173,10 @@ MapBasic.propTypes = {
   appCode: PropTypes.string.isRequired,
   appId: PropTypes.string.isRequired,
   /**
+   * The attribution control allows you to display attribution data in a small text box on a map.
+   */
+  attribution: PropTypes.string,
+  /**
    * An array composed by lat and lng like: [lat, lng]
    */
   center: PropTypes.array,
@@ -282,6 +287,8 @@ MapBasic.propTypes = {
 
 MapBasic.defaultProps = {
   _deprecatedLabelNoPrice: '',
+  attribution:
+    'Map &copy; 1987-2017 <a href="http://developer.here.com">HERE</a>',
   center: [40.00237, -3.99902],
   id: 'map-container',
   isInteractable: true,

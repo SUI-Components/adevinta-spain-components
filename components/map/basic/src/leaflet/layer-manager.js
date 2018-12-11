@@ -7,7 +7,15 @@ export default class LayerManager {
     this.layers = {}
   }
 
-  createMapLayers({mapViewModes, maxZoom, minZoom, appId, appCode, id}) {
+  createMapLayers({
+    appCode,
+    appId,
+    attribution,
+    id,
+    mapViewModes,
+    maxZoom,
+    minZoom
+  }) {
     let tileLayers = []
     mapViewModes.forEach((value, index) => {
       const baseMapView = this.getBaseMapView(value)
@@ -18,8 +26,7 @@ export default class LayerManager {
         {
           app_code: appCode,
           app_id: appId,
-          attribution:
-            'Map &copy; 1987-2017 <a href="http://developer.here.com">HERE</a>',
+          attribution: attribution,
           base: baseMapView,
           mapVersion: 'newest',
           maxZoom: maxZoom,
