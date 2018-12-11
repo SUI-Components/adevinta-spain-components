@@ -3,15 +3,13 @@ import React, {Component} from 'react'
 import IconX from '@schibstedspain/sui-svgiconset/lib/X'
 import cx from 'classnames'
 
-class ModalBasic extends Component {
-  constructor(...args) {
-    super(...args)
+const CLASS_MODAL_OPEN = 'is-modal-open'
 
-    this.contentDOMEl = null
-    this.wrapperDOMEl = null
-    this.state = {
-      open: this.props.open
-    }
+class ModalBasic extends Component {
+  contentDOMEl = null
+  wrapperDOMEl = null
+  state = {
+    open: this.props.open
   }
 
   _preventScrollIfNeeded = e => {
@@ -45,7 +43,7 @@ class ModalBasic extends Component {
   }
 
   _toggleWindowScroll(disableScroll) {
-    window.document.body.classList.toggle('is-modal-open', disableScroll)
+    window.document.body.classList.toggle(CLASS_MODAL_OPEN, disableScroll)
   }
 
   _handleCloseClick = () => {
@@ -88,13 +86,17 @@ class ModalBasic extends Component {
   }
 
   componentWillReceiveProps({open, disableWindowScroll}) {
-    if (open && disableWindowScroll) {
-      this._toggleWindowScroll(true)
+    if (disableWindowScroll) {
+      this._toggleWindowScroll(open)
     }
 
     if (open !== this.state.open) {
       this.setState({open})
     }
+  }
+
+  componentWillUnmount() {
+    this._toggleWindowScroll(false)
   }
 
   render() {
