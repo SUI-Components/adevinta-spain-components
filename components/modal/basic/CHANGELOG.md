@@ -2,13 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2018-12-11)
+
+
+### Bug Fixes
+
+* fix behaviour of modal when unmount and updating open prop ([0b33aab](https://github.com/SUI-Components/schibsted-spain-components/commit/0b33aab))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2017-11-06)
 
 
 ### Features
 
-* Bump version ([980c3da](https://github.com/SUI-Components/sui-components/commit/980c3da))
+* Bump version ([980c3da](https://github.com/SUI-Components/schibsted-spain-components/commit/980c3da))
 
 
 
@@ -18,8 +28,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* migrate to PropTypes package ([44791fb](https://github.com/SUI-Components/sui-components/commit/44791fb))
-* switch to s-ui/component-dependencies and sui-theme@8 ([754957c](https://github.com/SUI-Components/sui-components/commit/754957c))
+* migrate to PropTypes package ([44791fb](https://github.com/SUI-Components/schibsted-spain-components/commit/44791fb))
+* switch to s-ui/component-dependencies and sui-theme@8 ([754957c](https://github.com/SUI-Components/schibsted-spain-components/commit/754957c))
 
 
 
@@ -29,7 +39,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* use classname instead direct styles in body ([6a97125](https://github.com/SUI-Components/sui-components/commit/6a97125))
+* use classname instead direct styles in body ([6a97125](https://github.com/SUI-Components/schibsted-spain-components/commit/6a97125))
 
 
 
@@ -39,7 +49,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add styling from deprecated one ([342eca4](https://github.com/SUI-Components/sui-components/commit/342eca4))
+* add styling from deprecated one ([342eca4](https://github.com/SUI-Components/schibsted-spain-components/commit/342eca4))
 
 
 
@@ -49,7 +59,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix icon name and prop type ([30fa15e](https://github.com/SUI-Components/sui-components/commit/30fa15e))
+* fix icon name and prop type ([30fa15e](https://github.com/SUI-Components/schibsted-spain-components/commit/30fa15e))
 
 
 
@@ -59,7 +69,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* move footer border in to footer selector ([eb7e233](https://github.com/SUI-Components/sui-components/commit/eb7e233))
+* move footer border in to footer selector ([eb7e233](https://github.com/SUI-Components/schibsted-spain-components/commit/eb7e233))
 
 
 
