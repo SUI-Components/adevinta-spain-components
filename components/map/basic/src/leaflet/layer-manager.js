@@ -26,7 +26,7 @@ export default class LayerManager {
         {
           app_code: appCode,
           app_id: appId,
-          attribution: attribution,
+          attribution,
           base: baseMapView,
           mapVersion: 'newest',
           maxZoom: maxZoom,
