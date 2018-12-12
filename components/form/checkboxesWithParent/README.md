@@ -7,14 +7,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-form-checkboxes-with-parent --save
+$ npm install @schibstedspain/form-checkboxes-with-parent --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import FormCheckboxesWithParent from '@schibstedspain/sui-form-checkboxes-with-parent'
+import FormCheckboxesWithParent from '@schibstedspain/form-checkboxes-with-parent'
 
 return (<FormCheckboxesWithParent />)
 ```
