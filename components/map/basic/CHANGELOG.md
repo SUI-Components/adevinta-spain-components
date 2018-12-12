@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.14.0"></a>
+# 1.14.0 (2018-12-12)
+
+
+### Features
+
+* allow customise attribution text displayed at the bottom right of map. ([4d941e6](https://github.com/SUI-Components/schibsted-spain-components/commit/4d941e6))
+* minor fix ([4b9f2e1](https://github.com/SUI-Components/schibsted-spain-components/commit/4b9f2e1))
+
+
+
 <a name="1.13.0"></a>
 # 1.13.0 (2018-12-03)
 
