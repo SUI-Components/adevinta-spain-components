@@ -74,8 +74,8 @@ FormCheckboxesWithParent.defaultProps = {
 }
 
 FormCheckboxesWithParent.propTypes = {
-  parentCheckbox: PropTypes.object,
-  initialChildrenCheckbox: PropTypes.array,
+  parentCheckbox: PropTypes.object.isRequired,
+  initialChildrenCheckbox: PropTypes.array.isRequired,
   handleUpdateCheckboxes: PropTypes.func
 }
 
