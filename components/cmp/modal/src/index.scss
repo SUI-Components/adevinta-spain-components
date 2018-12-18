@@ -161,6 +161,7 @@ $lh-sui-cmp-modal-title: $lh-xxl !default;
     justify-content: flex-end;
     padding: $p-m $p-l;
     width: 100%;
+    box-sizing: border-box;
   }
 
   &-logo {
