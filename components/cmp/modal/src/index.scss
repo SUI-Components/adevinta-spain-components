@@ -151,6 +151,7 @@ $lh-sui-cmp-modal-title: $lh-xxl !default;
     font-size: $fz-sui-cmp-modal-inner;
     overflow-y: scroll;
     padding: $p-l;
+    min-height: 50vh; // fix for IE
   }
 
   &-footer {
