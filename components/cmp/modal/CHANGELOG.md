@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.15.0"></a>
+# 1.15.0 (2018-12-19)
+
+
+### Features
+
+* add max-height variable aswell in case anyone needs it ([ebf5510](https://github.com/SUI-Components/schibsted-spain-components/commit/ebf5510))
+* add usage of CMP Component Variable ([1c5f6c2](https://github.com/SUI-Components/schibsted-spain-components/commit/1c5f6c2))
+* add variable for setting a width and max-width to the CMP Modal Logo ([2091c1c](https://github.com/SUI-Components/schibsted-spain-components/commit/2091c1c))
+
+
+
 <a name="1.14.0"></a>
 # 1.14.0 (2018-12-19)
 
