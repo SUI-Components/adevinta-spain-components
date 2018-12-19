@@ -8,6 +8,7 @@ $fz-sui-cmp-modal-title: $fz-xxl !default;
 $lh-sui-cmp-modal-title: $lh-xxl !default;
 $w-sui-cmp-modal-logo: 150px !default;
 $maw-sui-cmp-modal-logo: 150px !default;
+$mah-sui-cmp-modal-logo: 40px !default;
 
 .sui-CmpModal {
   align-items: center;
@@ -170,7 +171,7 @@ $maw-sui-cmp-modal-logo: 150px !default;
   &-logo {
     width: $w-sui-cmp-modal-logo;
     max-width: $maw-sui-cmp-modal-logo;
-    max-height: 40px;
+    max-height: $mah-sui-cmp-modal-logo;
   }
 
   &-header {
