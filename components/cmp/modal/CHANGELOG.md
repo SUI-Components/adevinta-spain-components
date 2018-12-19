@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.14.0"></a>
+# 1.14.0 (2018-12-19)
+
+
+### Bug Fixes
+
+* fix height of the innerMmodal in IE ([65651a6](https://github.com/SUI-Components/schibsted-spain-components/commit/65651a6)), closes [#26](https://github.com/SUI-Components/schibsted-spain-components/issues/26)
+
+
+
 <a name="1.13.0"></a>
 # 1.13.0 (2018-12-18)
 
