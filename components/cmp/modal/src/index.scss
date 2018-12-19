@@ -168,6 +168,8 @@ $maw-sui-cmp-modal-logo: 150px !default;
   }
 
   &-logo {
+    width: $w-sui-cmp-modal-logo;
+    max-width: $maw-sui-cmp-modal-logo;
     max-height: 40px;
   }
 
