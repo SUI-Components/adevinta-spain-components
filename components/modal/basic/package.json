@@ -11,6 +11,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "react-dom": "16"
+  },
+  "peerDependencies": {
+    "react-dom": "16"
+  },
   "dependencies": {
     "@schibstedspain/sui-svgiconset": "1",
     "@s-ui/component-dependencies": "1"

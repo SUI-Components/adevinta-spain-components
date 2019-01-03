@@ -1,13 +1,15 @@
 import PropTypes from 'prop-types'
 import React, {Component} from 'react'
+import {createPortal} from 'react-dom'
 import IconX from '@schibstedspain/sui-svgiconset/lib/X'
 import cx from 'classnames'
 
 const CLASS_MODAL_OPEN = 'is-modal-open'
 
 class ModalBasic extends Component {
-  contentDOMEl = null
-  wrapperDOMEl = null
+  contentDOMEl = React.createRef()
+  wrapperDOMEl = React.createRef()
+
   state = {
     open: this.props.open
   }
@@ -17,12 +19,8 @@ class ModalBasic extends Component {
   }
 
   _avoidOverscroll = () => {
-    const {
-      clientHeight,
-      offsetHeight,
-      scrollTop,
-      scrollHeight
-    } = this.contentDOMEl
+    const {current} = this.contentDOMEl
+    const {clientHeight, offsetHeight, scrollTop, scrollHeight} = current
     const currentScroll = scrollTop + offsetHeight
     // check if the content has to scroll in order to prevent the default
     // behaviour of the touchmove in case we don't need the scroll
@@ -30,9 +28,9 @@ class ModalBasic extends Component {
     this.noScroll = scrollHeight <= clientHeight
 
     if (scrollTop === 0) {
-      this.contentDOMEl.scrollTop = 1
+      current.scrollTop = 1
     } else if (currentScroll >= scrollHeight) {
-      this.contentDOMEl.scrollTop = scrollTop - 1
+      current.scrollTop = scrollTop - 1
     }
   }
 
@@ -51,7 +49,10 @@ class ModalBasic extends Component {
   }
 
   _handleOutsideClick = event => {
-    if (this.props.closeOnOutsideClick && event.target === this.wrapperDOMEl) {
+    if (
+      this.props.closeOnOutsideClick &&
+      event.target === this.wrapperDOMEl.current
+    ) {
       this._closeModal()
     }
   }
@@ -59,10 +60,11 @@ class ModalBasic extends Component {
   _renderHeader = () => {
     const {
       header,
-      iconClose: IconClose,
       textClose,
-      textCloseHidden
+      textCloseHidden,
+      iconClose: IconClose
     } = this.props
+
     return (
       <div
         className="sui-ModalBasic-header"
@@ -70,9 +72,9 @@ class ModalBasic extends Component {
       >
         {header}
         <button
-          type="button"
           className="sui-ModalBasic-close"
           onClick={this._handleCloseClick}
+          type="button"
         >
           <IconClose svgClass="sui-ModalBasic-closeIcon" />
           {textCloseHidden ? (
@@ -81,6 +83,40 @@ class ModalBasic extends Component {
             textClose
           )}
         </button>
+      </div>
+    )
+  }
+
+  _renderModal() {
+    const {header, content, footer} = this.props
+
+    const wrapperClassName = cx('sui-ModalBasic', {
+      'is-open': this.state.open,
+      'sui-ModalBasic--verticallyCentered': this.props.centerVertically
+    })
+
+    const dialogClassName = cx('sui-ModalBasic-dialog', {
+      'sui-ModalBasic-dialog--full': this.props.fitWindow
+    })
+
+    return (
+      <div
+        className={wrapperClassName}
+        ref={this.wrapperDOMEl}
+        onClick={this._handleOutsideClick}
+      >
+        <div className={dialogClassName}>
+          {header && this._renderHeader()}
+          <div
+            className="sui-ModalBasic-content"
+            onTouchStart={this._avoidOverscroll}
+            onTouchMove={this._preventScrollIfNeeded}
+            ref={this.contentDOMEl}
+          >
+            {content}
+          </div>
+          {footer && <div className="sui-ModalBasic-footer">{footer}</div>}
+        </div>
       </div>
     )
   }
@@ -100,41 +136,15 @@ class ModalBasic extends Component {
   }
 
   render() {
-    const {header, content, footer} = this.props
+    const {portalContainer, usePortal} = this.props
+    const modalElement = this._renderModal()
 
-    const wrapperClassName = cx('sui-ModalBasic', {
-      'is-open': this.state.open,
-      'sui-ModalBasic--verticallyCentered': this.props.centerVertically
-    })
+    if (usePortal) {
+      const container = document.querySelector(portalContainer)
+      return createPortal(modalElement, container)
+    }
 
-    const dialogClassName = cx('sui-ModalBasic-dialog', {
-      'sui-ModalBasic-dialog--full': this.props.fitWindow
-    })
-
-    return (
-      <div
-        className={wrapperClassName}
-        ref={node => {
-          this.wrapperDOMEl = node
-        }}
-        onClick={this._handleOutsideClick}
-      >
-        <div className={dialogClassName}>
-          {header && this._renderHeader()}
-          <div
-            className="sui-ModalBasic-content"
-            onTouchStart={this._avoidOverscroll}
-            onTouchMove={this._preventScrollIfNeeded}
-            ref={node => {
-              this.contentDOMEl = node
-            }}
-          >
-            {content}
-          </div>
-          {footer && <div className="sui-ModalBasic-footer">{footer}</div>}
-        </div>
-      </div>
-    )
+    return modalElement
   }
 }
 
@@ -150,7 +160,9 @@ ModalBasic.propTypes = {
   open: PropTypes.bool,
   textClose: PropTypes.string,
   textCloseHidden: PropTypes.bool,
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
+  portalContainer: PropTypes.string,
+  usePortal: PropTypes.bool
 }
 
 ModalBasic.defaultProps = {
@@ -160,9 +172,11 @@ ModalBasic.defaultProps = {
   fitWindow: false,
   iconClose: IconX,
   open: false,
+  portalContainer: '#modal-react-portal',
   textClose: 'Close',
   textCloseHidden: true,
-  onClose: () => {}
+  onClose: () => {},
+  usePortal: false
 }
 
 ModalBasic.displayName = 'ModalBasic'
