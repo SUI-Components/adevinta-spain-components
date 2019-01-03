@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2019-01-03)
+
+
+### Features
+
+* add needed dependencies for Portals to work ([19fd159](https://github.com/SUI-Components/schibsted-spain-components/commit/19fd159))
+* add new prop to render modal in a Portal along with other fixes and improvements ([d9aa558](https://github.com/SUI-Components/schibsted-spain-components/commit/d9aa558))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2018-12-11)
 
