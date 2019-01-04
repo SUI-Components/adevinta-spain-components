@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.12.0"></a>
+# 1.12.0 (2019-01-04)
+
+
+### Bug Fixes
+
+* fix for wrong className ([3a0b7d3](https://github.com/SUI-Components/schibsted-spain-components/commit/3a0b7d3))
+
+
+
 <a name="1.11.0"></a>
 # 1.11.0 (2019-01-04)
 
