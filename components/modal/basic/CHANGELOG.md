@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.11.0"></a>
+# 1.11.0 (2019-01-04)
+
+
+### Features
+
+* add className to modal basic ([6308595](https://github.com/SUI-Components/schibsted-spain-components/commit/6308595))
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2019-01-03)
 
