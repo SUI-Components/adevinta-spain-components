@@ -90,8 +90,7 @@ class ModalBasic extends Component {
   _renderModal() {
     const {className, content, header, footer} = this.props
 
-    const wrapperClassName = cx('sui-ModalBasic', {
-      className,
+    const wrapperClassName = cx('sui-ModalBasic', className, {
       'is-open': this.state.open,
       'sui-ModalBasic--verticallyCentered': this.props.centerVertically
     })
