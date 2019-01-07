@@ -11,7 +11,20 @@ class ModalBasic extends Component {
   wrapperDOMEl = React.createRef()
 
   state = {
+    isClientReady: false,
     open: this.props.open
+  }
+
+  _getContainer() {
+    const {portalContainerId} = this.props
+    let containerDOMEl = document.getElementById(portalContainerId)
+    // if container is not created, create it and attach to the body
+    if (!containerDOMEl) {
+      containerDOMEl = document.createElement('div')
+      containerDOMEl.id = portalContainerId
+      document.body.appendChild(containerDOMEl)
+    }
+    return containerDOMEl
   }
 
   _preventScrollIfNeeded = e => {
@@ -121,6 +134,15 @@ class ModalBasic extends Component {
     )
   }
 
+  componentDidMount() {
+    // portals should work only in client, so, if usePortal is enabled
+    // we will use a flag in order to render the component only in client
+    const {usePortal} = this.props
+    if (usePortal) {
+      this.setState({isClientReady: true})
+    }
+  }
+
   componentWillReceiveProps({open, disableWindowScroll}) {
     if (disableWindowScroll) {
       this._toggleWindowScroll(open)
@@ -136,12 +158,17 @@ class ModalBasic extends Component {
   }
 
   render() {
-    const {portalContainer, usePortal} = this.props
+    const {usePortal} = this.props
+    const {isClientReady} = this.state
+
     const modalElement = this._renderModal()
 
     if (usePortal) {
-      const container = document.querySelector(portalContainer)
-      return createPortal(modalElement, container)
+      // check if we're in the client using the flag isClientReady
+      // as portals are only usable in client
+      return isClientReady
+        ? createPortal(modalElement, this._getContainer())
+        : null
     }
 
     return modalElement
@@ -158,11 +185,17 @@ ModalBasic.propTypes = {
   footer: PropTypes.element,
   header: PropTypes.element,
   iconClose: PropTypes.func,
+  onClose: PropTypes.func,
   open: PropTypes.bool,
   textClose: PropTypes.string,
   textCloseHidden: PropTypes.bool,
-  onClose: PropTypes.func,
-  portalContainer: PropTypes.string,
+  /**
+   * Container id element to be used to render the portal. If not available, it will be created for you.
+   */
+  portalContainerId: PropTypes.string,
+  /**
+   * Determines if modal will be rendered using a React Portal.
+   */
   usePortal: PropTypes.bool
 }
 
@@ -172,11 +205,11 @@ ModalBasic.defaultProps = {
   disableWindowScroll: true,
   fitWindow: false,
   iconClose: IconX,
+  onClose: () => {},
   open: false,
-  portalContainer: '#modal-react-portal',
+  portalContainerId: 'modal-react-portal',
   textClose: 'Close',
   textCloseHidden: true,
-  onClose: () => {},
   usePortal: false
 }
 
