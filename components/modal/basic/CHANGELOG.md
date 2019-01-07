@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.13.0"></a>
+# 1.13.0 (2019-01-07)
+
+
+### Features
+
+* better handling of missing container and use portals only in client ([41aaff6](https://github.com/SUI-Components/schibsted-spain-components/commit/41aaff6))
+
+
+
 <a name="1.12.0"></a>
 # 1.12.0 (2019-01-04)
 
@@ -101,6 +111,24 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * move footer border in to footer selector ([eb7e233](https://github.com/SUI-Components/schibsted-spain-components/commit/eb7e233))
+
+
+
+<a name="1.2.0"></a>
+# 1.2.0 (2017-03-09)
+
+
+### Bug Fixes
+
+* add important to fill icon color ([299f225](https://github.com/SUI-Components/schibsted-spain-components/commit/299f225))
+* fix babel presets ([cf99c76](https://github.com/SUI-Components/schibsted-spain-components/commit/cf99c76))
+
+
+### Features
+
+* enhance modal basic ([5d66fa0](https://github.com/SUI-Components/schibsted-spain-components/commit/5d66fa0))
+* modal basic init ([abf41cb](https://github.com/SUI-Components/schibsted-spain-components/commit/abf41cb))
+* update package.json ([f7f5eee](https://github.com/SUI-Components/schibsted-spain-components/commit/f7f5eee))
 
 
 
