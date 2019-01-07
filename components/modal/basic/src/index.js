@@ -18,7 +18,7 @@ class ModalBasic extends Component {
   _getContainer() {
     const {portalContainerId} = this.props
     let containerDOMEl = document.getElementById(portalContainerId)
-    // if we container is not created, create it and attach to the body
+    // if container is not created, create it and attach to the body
     if (!containerDOMEl) {
       containerDOMEl = document.createElement('div')
       containerDOMEl.id = portalContainerId
