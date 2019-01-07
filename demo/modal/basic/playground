@@ -37,8 +37,6 @@ class MyModal extends React.Component {
           Open modal using portal
         </button>
 
-        <div id="modal-react-portal" />
-
         {open && (
           <ModalBasic
             centerVertically
