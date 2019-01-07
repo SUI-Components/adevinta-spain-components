@@ -24,10 +24,10 @@ class AdSmartbanner extends Component {
       text,
       buttonText,
       staticPosition,
-      icon: IconClose,
       ratingValue,
       ratingMax,
-      customRatingIcons
+      customRatingIcons,
+      icon: IconClose
     } = this.props
     const className = cx('sui-AdSmartbanner', {
       'is-static': staticPosition
@@ -42,7 +42,7 @@ class AdSmartbanner extends Component {
           <IconClose svgClass="sui-AdSmartbanner-buttonCloseIcon" />
         </button>
         <div className="sui-AdSmartbanner-primary">
-          <img src={imageUrl} className="sui-AdSmartbanner-logo" />
+          <img alt="logo" src={imageUrl} className="sui-AdSmartbanner-logo" />
         </div>
         <div className="sui-AdSmartbanner-secondary">
           <h3 className="sui-AdSmartbanner-title">{title}</h3>
