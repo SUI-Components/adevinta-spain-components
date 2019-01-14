@@ -141,6 +141,11 @@ class MarkerManager {
   }
 
   // Coupled FC, should be removed in the future
+  isVisited() {
+    return false
+  }
+
+  // Coupled FC, should be removed in the future
   isFavorite({propertyInfo}) {
     return (
       propertyInfo !== undefined &&
@@ -150,16 +155,11 @@ class MarkerManager {
   }
 
   // Coupled FC, should be removed in the future
-  hasBeenVisited() {
-    return false
-  }
-
-  // Coupled FC, should be removed in the future
-  isPromotion({propertyInfo}) {
+  isContacted({propertyInfo}) {
     return (
       propertyInfo !== undefined &&
-      propertyInfo.promotionId !== undefined &&
-      propertyInfo.promotionId > 0
+      propertyInfo.isContacted !== undefined &&
+      propertyInfo.isContacted
     )
   }
 
@@ -188,9 +188,9 @@ class MarkerManager {
   // Coupled FC, should be removed in the future
   addClassModifier(iconClassName, options) {
     const classModifiers = {
+      '--visited': this.isVisited,
       '--fav': this.isFavorite,
-      '--visited': this.hasBeenVisited,
-      '--new': this.isPromotion
+      '--contacted': this.isContacted
     }
 
     const checkModifier = className => {
