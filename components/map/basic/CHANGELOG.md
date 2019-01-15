@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.15.0"></a>
+# 1.15.0 (2019-01-15)
+
+
+### Features
+
+* add contacted modifier class on realEstates with isContacted property ([d29f04a](https://github.com/SUI-Components/schibsted-spain-components/commit/d29f04a))
+
+
+
 <a name="1.14.0"></a>
 # 1.14.0 (2018-12-12)
 
