@@ -141,31 +141,14 @@ class MarkerManager {
   }
 
   // Coupled FC, should be removed in the future
-  isVisited({propertyInfo}) {
-    return (
-      propertyInfo !== undefined &&
-      propertyInfo.isVisited !== undefined &&
-      propertyInfo.isVisited
-    )
-  }
+  isVisited = ({propertyInfo} = {}) =>
+    !!propertyInfo && !!propertyInfo.isVisited
 
-  // Coupled FC, should be removed in the future
-  isFavorite({propertyInfo}) {
-    return (
-      propertyInfo !== undefined &&
-      propertyInfo.IsFavorite !== undefined &&
-      propertyInfo.IsFavorite
-    )
-  }
+  isFavorite = ({propertyInfo} = {}) =>
+    !!propertyInfo && !!propertyInfo.isFavorite
 
-  // Coupled FC, should be removed in the future
-  isContacted({propertyInfo}) {
-    return (
-      propertyInfo !== undefined &&
-      propertyInfo.isContacted !== undefined &&
-      propertyInfo.isContacted
-    )
-  }
+  isContacted = ({propertyInfo} = {}) =>
+    !!propertyInfo && !!propertyInfo.isContacted
 
   addIconMarkersToMap({icons = [], map}) {
     icons.forEach(icon => {
