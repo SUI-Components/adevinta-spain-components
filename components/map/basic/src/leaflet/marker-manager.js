@@ -141,8 +141,12 @@ class MarkerManager {
   }
 
   // Coupled FC, should be removed in the future
-  isVisited() {
-    return false
+  isVisited({propertyInfo}) {
+    return (
+      propertyInfo !== undefined &&
+      propertyInfo.isVisited !== undefined &&
+      propertyInfo.isVisited
+    )
   }
 
   // Coupled FC, should be removed in the future
