@@ -5,7 +5,6 @@ class MarkerManager {
     this.setMapDOMInstance(mapDOMInstance)
     this.setMarkerDefaults()
 
-    this.HEART_ICON = '&#9829;'
     this.POPUP_WAIT_TIME = 1000
   }
 
@@ -110,8 +109,7 @@ class MarkerManager {
   getPriceText(options, deprecatedLabelNoPrice) {
     let formattedValue
 
-    formattedValue = this.isFavorite(options) ? this.HEART_ICON + ' ' : ''
-    formattedValue += this.hasValidPrice(options)
+    formattedValue = this.hasValidPrice(options)
       ? options.propertyInfo.price
       : deprecatedLabelNoPrice
 
