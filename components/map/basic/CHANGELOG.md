@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.16.0"></a>
+# 1.16.0 (2019-01-21)
+
+
+### Features
+
+* add visited modifier on realEstates with isVisited property ([e98feaf](https://github.com/SUI-Components/schibsted-spain-components/commit/e98feaf))
+* remove old favorite price drawing ([90f54f1](https://github.com/SUI-Components/schibsted-spain-components/commit/90f54f1))
+
+
+
 <a name="1.15.0"></a>
 # 1.15.0 (2019-01-15)
 
