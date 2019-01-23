@@ -38,8 +38,11 @@ export class CmpBannerContainer extends Component {
    * he's just navigating the website
    */
   _handleClickOnDocument = ({target}) => {
-    this.containerDOMEl.current.contains(target) === false &&
-      this._handleAccept()
+    const isClickableElement =
+      target.closest('a') || target.closest('button') || target.closest('input')
+    const isNotContainedInBanner = !this.containerDOMEl.current.contains(target)
+    // if not contained and clickable element, then accept the banner
+    isNotContainedInBanner && isClickableElement && this._handleAccept()
   }
 
   _handleExitModal = () => {
