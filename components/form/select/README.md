@@ -16,7 +16,20 @@ $ npm install @schibstedspain/react-form-select --save
 ```js
 import FormSelect from '@schibstedspain/react-form-select'
 
-return (<FormSelect />)
+const OPTIONS = [
+  { key: 'default', value: '', content: '--Please choose an option--' },
+  { key: 'dog', value: 'dog', content: 'Dog' },
+  { key: 'cat', value: 'cat', content: 'Cat' },
+  { key: 'hamster', value: 'hamster', content: 'Hamster' },
+  { key: 'parrot', value: 'parrot', content: 'Parrot' }
+]
+
+return (
+  <FormSelect
+    options={OPTIONS}
+    onChange={(e, data) => console.log(data)}
+  />
+)
 ```
 
 ```sass
