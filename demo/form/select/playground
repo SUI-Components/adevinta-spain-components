@@ -1,0 +1,17 @@
+const OPTIONS = [
+  { key: 'default', value: '', content: '--Please choose an option--' },
+  { key: 'dog', value: 'dog', content: 'Dog' },
+  { key: 'cat', value: 'cat', content: 'Cat' },
+  { key: 'hamster', value: 'hamster', content: 'Hamster' },
+  { key: 'parrot', value: 'parrot', content: 'Parrot' }
+]
+
+return (
+  <React.Fragment>
+    <h2>Normal behaviour</h2>
+    <FormSelect options={OPTIONS} onChange={(e, data) => console.log(data)} />
+    <br /><br />
+    <h2>Disabled</h2>
+    <FormSelect disabled options={OPTIONS} onChange={(e, data) => console.log(data)} />
+  </React.Fragment>
+  )
