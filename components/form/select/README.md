@@ -20,7 +20,7 @@ return (<FormSelect />)
 ```
 
 ```sass
-@import '~@schibstedspain/react-form-select/lib/index
+@import '~@schibstedspain/react-form-select/lib/index';
 ```
 
 > **Find full description and more examples in the [demo page](#).**
