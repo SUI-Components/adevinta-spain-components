@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.16.0"></a>
+# 1.16.0 (2019-01-23)
+
+
+### Bug Fixes
+
+* handle accept only on click on interactive elements ([b3397c3](https://github.com/SUI-Components/schibsted-spain-components/commit/b3397c3))
+
+
+
 <a name="1.15.0"></a>
 # 1.15.0 (2018-11-20)
 
