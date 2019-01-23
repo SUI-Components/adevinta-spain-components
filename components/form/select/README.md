@@ -7,20 +7,20 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-form-select --save
+$ npm install @schibstedspain/react-form-select --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import FormSelect from '@schibstedspain/sui-form-select'
+import FormSelect from '@schibstedspain/react-form-select'
 
 return (<FormSelect />)
 ```
 
 ```sass
-@import '~@schibstedspain/sui-form-select/lib/index
+@import '~@schibstedspain/react-form-select/lib/index
 ```
 
 > **Find full description and more examples in the [demo page](#).**
