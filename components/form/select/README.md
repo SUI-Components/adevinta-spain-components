@@ -1,8 +1,8 @@
 # FormSelect
 
-> Description
+> Wrapper around a select html element that gives a consistent look'n'feel across devices yet keeping the native functionality on being used.
 
-<!-- ![](./assets/preview.png) -->
+![](https://user-images.githubusercontent.com/1561955/51612938-bce53d80-1f22-11e9-95f8-75ac892a4f5e.png)
 
 ## Installation
 
@@ -19,5 +19,8 @@ import FormSelect from '@schibstedspain/sui-form-select'
 return (<FormSelect />)
 ```
 
+```sass
+@import '~@schibstedspain/sui-form-select/lib/index
+```
 
 > **Find full description and more examples in the [demo page](#).**
