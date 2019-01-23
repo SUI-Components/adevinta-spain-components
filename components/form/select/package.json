@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-form-select",
+  "name": "@schibstedspain/react-form-select",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
