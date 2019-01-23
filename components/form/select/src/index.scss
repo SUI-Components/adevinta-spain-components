@@ -1,0 +1,27 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+.sui-FormSelect {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+  background-color: transparent;
+  background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M2 8l10 9 10-9" stroke-linecap="round" stroke="%235F5F5F" fill="none" fill-rule="evenodd"/%3E%3C/svg%3E');
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  border: 1px solid $c-gray-light;
+  border-radius: 0;
+  color: $c-gray-dark;
+  font-size: $fz-m;
+
+  padding: $p-m $p-xxxl $p-m $p-m;
+  width: 100%;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &.is-disabled {
+    opacity: .5;
+  }
+}
