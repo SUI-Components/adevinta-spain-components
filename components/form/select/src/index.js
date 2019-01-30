@@ -7,10 +7,12 @@ export default function FormSelect({
   disabled,
   onChange,
   options,
+  prominent,
   value
 }) {
   const selectClassName = cx('sui-FormSelect', className, {
-    'is-disabled': disabled
+    'is-disabled': disabled,
+    [`sui-FormSelect--prominent`]: prominent
   })
   const wrappedOnChange = e => onChange(e, {value: e.target.value})
 
@@ -50,6 +52,10 @@ FormSelect.propTypes = {
    * Callback when value is changed
    */
   onChange: PropTypes.func,
+  /**
+   * Indicates if form select is prominent to be selected
+   */
+  prominent: PropTypes.bool,
   /**
    * Array of options to fill the select with
    */

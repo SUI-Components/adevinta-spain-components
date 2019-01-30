@@ -17,6 +17,10 @@
   padding: $p-m $p-xxxl $p-m $p-m;
   width: 100%;
 
+  &--prominent {
+    color: $c-black;
+  }
+
   &:focus {
     outline: 0;
   }
