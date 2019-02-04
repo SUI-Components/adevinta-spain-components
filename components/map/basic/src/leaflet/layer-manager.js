@@ -12,6 +12,7 @@ export default class LayerManager {
     appId,
     attribution,
     id,
+    language,
     mapViewModes,
     maxZoom,
     minZoom
@@ -22,12 +23,13 @@ export default class LayerManager {
       const tileLayer = L.tileLayer(
         'https://{s}.{base}.maps.api.here.com/maptile/2.1/maptile/{mapVersion}/' +
           value +
-          '/{z}/{x}/{y}/256/png8?app_id={app_id}&app_code={app_code}',
+          '/{z}/{x}/{y}/256/png8?app_id={app_id}&app_code={app_code}&lg={language}',
         {
           app_code: appCode,
           app_id: appId,
           attribution,
           base: baseMapView,
+          language,
           mapVersion: 'newest',
           maxZoom: maxZoom,
           minZoom: minZoom,
