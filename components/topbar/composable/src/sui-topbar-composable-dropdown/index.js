@@ -7,8 +7,6 @@ const EVENTS_TO_HANDLE = ['click', 'touchstart']
 export default class DropdownMenu extends Component {
   state = {displayMenu: false}
 
-  headerDOMEl = null
-
   componentDidMount() {
     EVENTS_TO_HANDLE.forEach(event =>
       document.body.addEventListener(event, this.closeMenu, false)

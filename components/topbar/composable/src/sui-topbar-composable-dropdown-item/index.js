@@ -1,24 +1,14 @@
 import PropTypes from 'prop-types'
-import React, {Component} from 'react'
+import React from 'react'
 import cx from 'classnames'
 
-export default class DropdownMenuItem extends Component {
-  shouldComponentUpdate(nextProps) {
-    // update only when the dropdown is visible
-    return (
-      nextProps.active !== this.props.active ||
-      nextProps.disabled !== this.props.disabled
-    )
-  }
+function DropdownMenuItem({active, children, disabled}) {
+  const classesContainer = cx('sui-DropdownMenuItem', {
+    'sui-DropdownMenuItem--disabled': disabled,
+    'sui-DropdownMenuItem--active': active
+  })
 
-  render() {
-    const classesContainer = cx('sui-DropdownMenuItem', {
-      'sui-DropdownMenuItem--disabled': this.props.disabled,
-      'sui-DropdownMenuItem--active': this.props.active
-    })
-
-    return <li className={classesContainer}>{this.props.children}</li>
-  }
+  return <li className={classesContainer}>{children}</li>
 }
 
 DropdownMenuItem.propTypes = {
@@ -30,3 +20,5 @@ DropdownMenuItem.propTypes = {
 DropdownMenuItem.defaultProps = {
   active: false
 }
+
+export default React.memo(DropdownMenuItem)
