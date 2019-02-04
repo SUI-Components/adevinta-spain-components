@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import {mapViewModes, NO_OP} from './leaflet/constants'
+import {mapLanguages, mapViewModes, NO_OP} from './leaflet/constants'
 
 class MapBasic extends Component {
   constructor(props) {
@@ -67,6 +67,7 @@ class MapBasic extends Component {
       heatMapUrl: this.props.heatMapUrl,
       icons: this.props.icons,
       id: this.props.id,
+      language: this.props.language,
       latitude: this.props.center[0],
       literals: this.props.literals,
       longitude: this.props.center[1],
@@ -192,6 +193,10 @@ MapBasic.propTypes = {
    * The DOM Id that we would like to have on our map div if none is provided 'map-container' will be its id.
    */
   id: PropTypes.string,
+  /**
+   * Language code for requesting a map tile rendered in a specific language.
+   */
+  language: PropTypes.oneOf(Object.values(mapLanguages)),
   literals: PropTypes.object,
   /**
    * Array of map view modes. Those models are defined could be: mapViewModes.NORMAL, mapViewModes.SATELLITE
@@ -292,6 +297,7 @@ MapBasic.defaultProps = {
   center: [40.00237, -3.99902],
   id: 'map-container',
   isInteractable: true,
+  language: mapLanguages.ENGLISH,
   mapViewModes: [mapViewModes.NORMAL, mapViewModes.SATELLITE],
   maxZoom: 20,
   minZoom: 6,
@@ -316,3 +322,4 @@ MapBasic.defaultProps = {
 MapBasic.displayName = 'MapBasic'
 
 export default MapBasic
+export {mapLanguages}

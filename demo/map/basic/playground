@@ -15,6 +15,7 @@ return (
       minZoom={10}
       maxZoom={19}
       scrollWheelZoom={false}
+      language={mapLanguages.SPANISH}
     />
   </div>
 )
