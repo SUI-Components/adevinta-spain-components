@@ -16,7 +16,11 @@ const BOTS_USER_AGENTS = [
 
 const LazyContent = hocIntersectionObserver(
   ({children, height, innerRef, isVisible}) => {
-    return isVisible ? children : <div ref={innerRef} style={{height}} />
+    return isVisible ? (
+      children
+    ) : (
+      <div ref={innerRef} style={{height: `${height}px`}} />
+    )
   }
 )
 
@@ -60,7 +64,7 @@ PerfDynamicRendering.propTypes = {
    */
   disabled: PropTypes.bool,
   /**
-   * Number that determines the height of the component that we're waiting.
+   * Number that determines the height of the component that we're waiting in pixels.
    */
   height: PropTypes.number,
   /**
