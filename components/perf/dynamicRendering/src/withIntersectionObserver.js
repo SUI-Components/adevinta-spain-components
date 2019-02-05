@@ -26,17 +26,18 @@ export const hocIntersectionObserverWithOptions = (
       this.refTarget = elem
     }
 
+    _startIntersectionObserver = () => {
+      const target = this.refTarget
+      this._observer = new window.IntersectionObserver(this.handleChange)
+      this._observer.observe(target, options)
+    }
+
     componentDidMount() {
-      import('intersection-observer').then(_ => {
-        const target = this.refTarget
-        // check we support IntersectionObserver
-        if (!('IntersectionObserver' in window)) {
-          this.setState({isIntersecting: true})
-          return
-        }
-        this._observer = new window.IntersectionObserver(this.handleChange)
-        this._observer.observe(target, options)
-      })
+      if (!('IntersectionObserver' in window)) {
+        import('intersection-observer').then(this._startIntersectionObserver)
+      } else {
+        this._startIntersectionObserver()
+      }
     }
 
     componentWillUnmount() {

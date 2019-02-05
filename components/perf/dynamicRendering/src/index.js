@@ -15,12 +15,8 @@ const BOTS_USER_AGENTS = [
 ]
 
 const LazyContent = hocIntersectionObserver(
-  ({children, innerRef, isVisible}) => {
-    return isVisible ? (
-      children
-    ) : (
-      <div ref={innerRef} style={{border: '1px solid red'}} />
-    )
+  ({children, height, innerRef, isVisible}) => {
+    return isVisible ? children : <div ref={innerRef} style={{height}} />
   }
 )
 
@@ -32,7 +28,7 @@ export default class PerfDynamicRendering extends Component {
   }
 
   render() {
-    const {children, disabled, userAgent} = this.props
+    const {children, disabled, height, userAgent} = this.props
     const isBot = this._checkUserAgentIsBot({userAgent})
     const isBrowser = typeof window !== 'undefined'
 
@@ -40,7 +36,7 @@ export default class PerfDynamicRendering extends Component {
     if (isBot) return <Fragment>{children}</Fragment>
 
     if (isBrowser && !disabled) {
-      return <LazyContent>{children}</LazyContent>
+      return <LazyContent height={height}>{children}</LazyContent>
     } else {
       // isServer and isNotBot
       return null
@@ -53,5 +49,6 @@ PerfDynamicRendering.displayName = 'PerfDynamicRendering'
 PerfDynamicRendering.propTypes = {
   children: PropTypes.any,
   disabled: PropTypes.bool,
+  height: PropTypes.number,
   userAgent: PropTypes.string
 }
