@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import {hocIntersectionObserverWithOptions} from './withIntersectionObserver'
@@ -20,27 +20,31 @@ const LazyContent = hocIntersectionObserver(
   }
 )
 
-export default class PerfDynamicRendering extends Component {
-  _checkUserAgentIsBot({userAgent}) {
-    const lowerCaseUserAgent = userAgent.toLowerCase()
-    // check if the userAgent is a bot
-    return BOTS_USER_AGENTS.some(ua => lowerCaseUserAgent.includes(ua))
-  }
+function checkUserAgentIsBot({userAgent}) {
+  const lowerCaseUserAgent = userAgent.toLowerCase()
+  // check if the userAgent is a bot
+  return BOTS_USER_AGENTS.some(ua => lowerCaseUserAgent.includes(ua))
+}
 
-  render() {
-    const {children, disabled, height, userAgent} = this.props
-    const isBot = this._checkUserAgentIsBot({userAgent})
-    const isBrowser = typeof window !== 'undefined'
+export default function PerfDynamicRendering({
+  children,
+  disabled,
+  height,
+  userAgent
+}) {
+  const isBot = checkUserAgentIsBot({userAgent})
+  const isOnBrowser = typeof window !== 'undefined'
 
-    // if isBot, we return in server and client the content
-    if (isBot) return <Fragment>{children}</Fragment>
+  // if isBot, we return in server and client the content
+  if (isBot) return children
 
-    if (isBrowser && !disabled) {
-      return <LazyContent height={height}>{children}</LazyContent>
-    } else {
-      // isServer and isNotBot
-      return null
-    }
+  // now, we're sure the user isNotBot
+  // so check if we're on the browser side and if is not disabled the component
+  if (isOnBrowser && !disabled) {
+    return <LazyContent height={height}>{children}</LazyContent>
+  } else {
+    // so, we're on the server side or the component is disabled
+    return null
   }
 }
 
