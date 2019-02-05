@@ -56,5 +56,3 @@ export const hocIntersectionObserverWithOptions = (
     }
   }
 }
-
-export default hocIntersectionObserverWithOptions()
