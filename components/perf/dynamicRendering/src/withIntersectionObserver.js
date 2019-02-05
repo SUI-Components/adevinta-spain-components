@@ -17,8 +17,8 @@ export const hocIntersectionObserverWithOptions = (
 
     handleChange = ([{isIntersecting}]) => {
       if (isIntersecting) {
-        this.setState({isIntersecting})
         this._observer.unobserve(this.refTarget)
+        this.setState({isIntersecting})
       }
     }
 

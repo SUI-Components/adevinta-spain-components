@@ -16,7 +16,11 @@ const BOTS_USER_AGENTS = [
 
 const LazyContent = hocIntersectionObserver(
   ({children, innerRef, isVisible}) => {
-    return isVisible ? children : <span ref={innerRef} />
+    return isVisible ? (
+      children
+    ) : (
+      <div ref={innerRef} style={{border: '1px solid red'}} />
+    )
   }
 )
 
