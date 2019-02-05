@@ -47,8 +47,20 @@ export default class PerfDynamicRendering extends Component {
 PerfDynamicRendering.displayName = 'PerfDynamicRendering'
 
 PerfDynamicRendering.propTypes = {
+  /**
+   * Wrapped content that will be rendered, or not, depending your userAgent and if is interescting. As explained in the README.md
+   */
   children: PropTypes.any,
+  /**
+   * Flag that determines if you don't want to render anything in the client. ⚠️ This prop doesn't apply if the userAgent is a bot.
+   */
   disabled: PropTypes.bool,
+  /**
+   * Number that determines the height of the component that we're waiting.
+   */
   height: PropTypes.number,
+  /**
+   * String with the userAgent that will be used to check if is bot or normal user.
+   */
   userAgent: PropTypes.string
 }
