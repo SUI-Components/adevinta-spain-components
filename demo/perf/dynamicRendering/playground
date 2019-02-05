@@ -15,7 +15,7 @@ return (
 
     <div>
       <div style={{ paddingTop: '1000px' }}>
-        <PerfDynamicRendering userAgent={clientUserAgent}>
+        <PerfDynamicRendering height={100} userAgent={clientUserAgent}>
           <img src='https://images.unsplash.com/photo-1525382455947-f319bc05fb35?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1628&q=80' />
         </PerfDynamicRendering>
       </div>
