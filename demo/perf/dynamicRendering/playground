@@ -1,0 +1,24 @@
+const clientUserAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.81 Safari/537.36'
+const botUserAgent = 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; Google Web Preview Analytics) Chrome/27.0.1453 Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
+
+return (
+  <React.Fragment>
+    <PerfDynamicRendering userAgent={botUserAgent}>Hola! Soy un bot!</PerfDynamicRendering>
+
+    <PerfDynamicRendering userAgent={clientUserAgent}>
+      Hola! Soy un cliente!
+    </PerfDynamicRendering>
+
+    <PerfDynamicRendering disabled={true} userAgent={clientUserAgent}>
+      Hola! Soy un cliente! Pero no me ves
+    </PerfDynamicRendering>
+
+    <div>
+      <div style={{ paddingTop: '1000px' }}>
+        <PerfDynamicRendering height={100} userAgent={clientUserAgent}>
+          <img src='https://images.unsplash.com/photo-1525382455947-f319bc05fb35?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1628&q=80' />
+        </PerfDynamicRendering>
+      </div>
+    </div>
+  </React.Fragment>
+)
