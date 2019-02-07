@@ -39,12 +39,12 @@ export default function PerfDynamicRendering({
   const isBot = checkUserAgentIsBot({userAgent})
   const isOnBrowser = typeof window !== 'undefined'
 
-  // if isBot, we return in server and client the content
-  if (isBot) return children
+  // if isBot or disabled, we return in server and client the content
+  if (isBot || disabled) return children
 
   // now, we're sure the user isNotBot
   // so check if we're on the browser side and if is not disabled the component
-  if (isOnBrowser && !disabled) {
+  if (isOnBrowser) {
     return <LazyContent height={height}>{children}</LazyContent>
   } else {
     // so, we're on the server side or the component is disabled
