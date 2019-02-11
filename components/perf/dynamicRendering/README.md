@@ -38,7 +38,7 @@ return (
       <img src='https://huge-image.com/panda_02.jpg'/>
     </PerfDynamicRendering>
 
-    <PerfDynamicRendering height={50} userAgent={navigator.userAgent} force={true}>
+    <PerfDynamicRendering height={50} userAgent={navigator.userAgent} forceRender={true}>
       <p>This Image will be render in client and server even when the image it is outside of the viewport</p>
       <p>Or in the server even when is a regular user agent</p>
       <p>The practical effect of this, is make this component 100% transparent</p>
