@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2019-02-11)
+
+
+### Performance Improvements
+
+* move component to function and use dynamic import to load only if needed the s ([41f3d90](https://github.com/SUI-Components/schibsted-spain-components/commit/41f3d90))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2019-01-07)
 
