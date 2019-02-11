@@ -33,7 +33,7 @@ function checkUserAgentIsBot({userAgent}) {
 export default function PerfDynamicRendering({
   children,
   disabled,
-  force,
+  forceRender,
   height,
   userAgent
 }) {
@@ -41,7 +41,7 @@ export default function PerfDynamicRendering({
   const isOnBrowser = typeof window !== 'undefined'
 
   // Force render in server and client
-  if (force) return children
+  if (forceRender) return children
 
   // if isBot or disabled, we return in server and client the content
   if (isBot) return children
@@ -72,7 +72,7 @@ PerfDynamicRendering.propTypes = {
   /**
    * avoid any check and render always.
    * */
-  force: PropTypes.bool,
+  forceRender: PropTypes.bool,
 
   /**
    * Number that determines the height of the component that we're waiting in pixels.
