@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2019-02-12)
+
+
+### Bug Fixes
+
+* make release of ad smartbanner for fixing dynamic import ([c7b9236](https://github.com/SUI-Components/schibsted-spain-components/commit/c7b9236))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2019-02-11)
 
