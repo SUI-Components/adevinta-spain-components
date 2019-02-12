@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.0.0"></a>
+# 2.0.0 (2019-02-12)
+
+
+### Features
+
+* separate components with dynamic import ([c0d62cc](https://github.com/SUI-Components/schibsted-spain-components/commit/c0d62cc))
+* separate components with dynamic import ([5a542f4](https://github.com/SUI-Components/schibsted-spain-components/commit/5a542f4))
+
+
+### BREAKING CHANGES
+
+* New sui-bundler@4 is needed
+* dynamic import is only compatible with latest sui-bundler@4
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2019-02-12)
 
@@ -95,6 +112,22 @@ All notable changes to this project will be documented in this file.
 
 * adds a prop named static to define in a declarative way the component layout ([44a04ad](https://github.com/SUI-Components/schibsted-spain-components/commit/44a04ad))
 * adds default prop to staticPosition and minor styling ([58b05a3](https://github.com/SUI-Components/schibsted-spain-components/commit/58b05a3))
+
+
+
+<a name="1.1.0"></a>
+# 1.1.0 (2017-03-30)
+
+
+### Bug Fixes
+
+* add public access to npm publish ([ae2ce3b](https://github.com/SUI-Components/schibsted-spain-components/commit/ae2ce3b))
+* fix proptypes and scss ([793b74b](https://github.com/SUI-Components/schibsted-spain-components/commit/793b74b))
+
+
+### Features
+
+* init smartbanner component ([9edbebd](https://github.com/SUI-Components/schibsted-spain-components/commit/9edbebd))
 
 
 
