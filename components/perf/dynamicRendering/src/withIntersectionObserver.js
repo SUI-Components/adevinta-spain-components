@@ -41,7 +41,11 @@ export const hocIntersectionObserverWithOptions = (
     }
 
     componentWillUnmount() {
-      this._observer && this._observer.unobserve(this.refTarget)
+      try {
+        this._observer && this._observer.unobserve(this.refTarget)
+      } catch (e) {
+        console.warn(e)
+      }
     }
 
     render() {
