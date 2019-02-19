@@ -9,6 +9,7 @@ const SUBMIT_SUCCESS_EVENT_TYPE = 'SUBMIT_FORM_SUCCEEDED'
 const SUBMIT_ERROR_EVENT_TYPE = 'SUBMIT_FORM_FAILED'
 const MESSAGE_EVENT_TYPE = 'message'
 const RESIZE_EVENT_TYPE = 'resize'
+const DEFAULT_IFRAME_HEIGHT = 768
 
 class FormPta extends Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class FormPta extends Component {
     window.removeEventListener(MESSAGE_EVENT_TYPE, this.handleMessage)
   }
 
-  doResize(height) {
+  doResize(height=DEFAULT_IFRAME_HEIGHT) {
     const ptaIframe = document.getElementById(IFRAME_ID)
     ptaIframe.style.height = `${height}px`
   }
