@@ -4,10 +4,11 @@ import {paramsToQueryString} from './querystring'
 
 const BASE_CLASS = 'sui-FormPta'
 const CONTENT_CLASS = `${BASE_CLASS}-content`
-const REMOVE_DRAFT = 'REMOVE_DRAFT'
+const IFRAME_ID = `${BASE_CLASS}-iframe`
 const SUBMIT_SUCCESS_EVENT_TYPE = 'SUBMIT_FORM_SUCCEEDED'
 const SUBMIT_ERROR_EVENT_TYPE = 'SUBMIT_FORM_FAILED'
 const MESSAGE_EVENT_TYPE = 'message'
+const RESIZE_EVENT_TYPE = 'resize'
 
 class FormPta extends Component {
   constructor(props) {
@@ -17,9 +18,10 @@ class FormPta extends Component {
     const QUERY = paramsToQueryString(settings)
     const formUrl = `${BASE_URL}?${QUERY}`
 
-    this.handleMessage = ({data: {type}}) => {
+    this.handleMessage = ({data: {type, payload}}) => {
       type === SUBMIT_SUCCESS_EVENT_TYPE && onSubmit && onSubmit()
       type === SUBMIT_ERROR_EVENT_TYPE && onError && onError()
+      type === RESIZE_EVENT_TYPE && this.doResize(payload)
     }
 
     this.state = {
@@ -35,26 +37,16 @@ class FormPta extends Component {
     window.removeEventListener(MESSAGE_EVENT_TYPE, this.handleMessage)
   }
 
+  doResize(height) {
+    const ptaIframe = document.getElementById(IFRAME_ID)
+    ptaIframe.style.height = `${height}px`
+  }
+
   /**
    * Avoid iframe re-rendering
    */
   shouldComponentUpdate() {
     return false
-  }
-
-  removeDraft(draftId) {
-    const {formUrl} = this.state
-    const {contentWindow} = this._iframeRef
-
-    contentWindow.postMessage(
-      {
-        type: REMOVE_DRAFT,
-        payload: {
-          draftId
-        }
-      },
-      formUrl
-    )
   }
 
   render() {
@@ -65,6 +57,7 @@ class FormPta extends Component {
     return (
       <div className={BASE_CLASS}>
         <iframe
+          id={IFRAME_ID}
           ref={ref => (this._iframeRef = ref)}
           className={CONTENT_CLASS}
           src={formUrl}
