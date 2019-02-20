@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2019-02-20)
+
+
+### Bug Fixes
+
+* fix problem with hydrating nulled component ([8ed5433](https://github.com/SUI-Components/schibsted-spain-components/commit/8ed5433))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2019-02-12)
 
