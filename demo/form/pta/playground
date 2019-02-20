@@ -1,12 +1,12 @@
-let settings = {
-    authToken: 'eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiI4NTUzMGE1NDRjOTQ0MTMwYmQ2NjVmMWFjZmU3YWFkNSIsInN1YiI6InVzZXIiLCJ1c2VyX2lkIjo1MTg0NDI3LCJyb2xlcyI6IlJPTEVfVVNFUiIsImlzcyI6Im1vdG9yLXByZSIsImV4cCI6MTU1MDY1MzI1OCwidG9rZW4iOiI5NWRlY2VkNTQ0ODhiYjk4YTU1ZGU5YTk1MzNkMWE4NzNmNTAzZjQ2MDI3YmJjYjg2ZTQ4OTUzNjA0NDM1Mzg0IiwidXNlcm5hbWUiOiJ6ZWNhIn0.DyFZsQsSKEWt5pEliaEdgWetwgCAOAZIRJyOXWqx18g',
+const settings = {
+    authToken: '',
     appTheme: 'coches',
     formUrl: 'https://webformbuilderpre.scmspain.com/index.html',
     language: 'es',
     load_strategy: 'create_draft',
     submit_strategy: 'create',
     adsUrl: 'https://ms-mt--api-web.global-pre.spain.schibsted.io/cochesnet/ads',
-    draftUrl: 'https://ms-mt--api-web.global-pre.spain.schibsted.io/cochesnet/drafts/',   
+    draftUrl: 'https://ms-mt--api-web.global-pre.spain.schibsted.io/cochesnet/drafts/',    
     imagesUrl: 'https://ms-mt--api-web.global-pre.spain.schibsted.io/cochesnet/photos',
     enableDraft: true,
     appID: 'cochesnet-insert-car'
