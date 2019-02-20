@@ -52,7 +52,7 @@ export default function PerfDynamicRendering({
     return <LazyContent height={height}>{children}</LazyContent>
   } else {
     // so, we're on the server side or the component is disabled
-    return null
+    return <div />
   }
 }
 
