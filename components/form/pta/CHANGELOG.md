@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2019-02-20)
+
+
+### Features
+
+* add default iframe height value on resize ([ab2090e](https://github.com/SUI-Components/schibsted-spain-components/commit/ab2090e))
+* cross origin iframe resize ([182336b](https://github.com/SUI-Components/schibsted-spain-components/commit/182336b))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2018-12-05)
 
