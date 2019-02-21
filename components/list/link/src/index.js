@@ -1,12 +1,15 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import LinkBasic from '@schibstedspain/sui-link-basic'
 
-class ListLink extends Component {
-  _renderLink = (item, index) => {
-    const {displayInline, useReactRouterLinks} = this.props
+export default function ListLink({
+  displayInline,
+  list = [],
+  useReactRouterLinks
+}) {
+  const renderLink = (item, index) => {
     const classListItem = cx('sui-ListLink-item', {
       'sui-ListLink-item--inline': displayInline
     })
@@ -18,21 +21,12 @@ class ListLink extends Component {
     )
   }
 
-  render() {
-    return (
-      <ul className="sui-ListLink">{this.props.list.map(this._renderLink)}</ul>
-    )
-  }
+  return <ul className="sui-ListLink">{list.map(renderLink)}</ul>
 }
 
 ListLink.displayName = 'ListLink'
-ListLink.defaultProps = {
-  list: []
-}
 ListLink.propTypes = {
   displayInline: PropTypes.bool,
   list: PropTypes.array,
   useReactRouterLinks: PropTypes.bool
 }
-
-export default ListLink
