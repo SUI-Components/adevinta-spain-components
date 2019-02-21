@@ -1,12 +1,23 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import {Link} from 'react-router'
 import cx from 'classnames'
 
-class LinkBasic extends Component {
-  _renderContent() {
-    const {icon, literal} = this.props
-    return icon && literal ? (
+export default function LinkBasic({
+  className,
+  disabled,
+  handleClick,
+  icon,
+  literal,
+  rel,
+  target,
+  title,
+  useReactRouterLinks,
+  url = '#'
+}) {
+  const linkClassName = cx('sui-LinkBasic', className)
+  const renderContent = () =>
+    icon && literal ? (
       <span>
         {icon}
         {literal}
@@ -14,64 +25,45 @@ class LinkBasic extends Component {
     ) : (
       literal || icon
     )
+
+  if (disabled) {
+    return (
+      <span className={linkClassName} onClick={handleClick} title={title}>
+        {renderContent()}
+      </span>
+    )
   }
 
-  render() {
-    const className = cx('sui-LinkBasic', this.props.className)
-
-    const {
-      disabled,
-      handleClick,
-      rel,
-      target,
-      title,
-      useReactRouterLinks,
-      url
-    } = this.props
-
-    if (disabled) {
-      return (
-        <span className={className} onClick={handleClick} title={title}>
-          {this._renderContent()}
-        </span>
-      )
-    }
-
-    if (useReactRouterLinks) {
-      return (
-        <Link
-          className={className}
-          onClick={handleClick}
-          rel={rel}
-          target={target}
-          title={title}
-          to={url}
-        >
-          {this._renderContent()}
-        </Link>
-      )
-    }
-
+  if (useReactRouterLinks) {
     return (
-      <a
-        className={className}
-        href={url}
+      <Link
+        className={linkClassName}
         onClick={handleClick}
         rel={rel}
         target={target}
         title={title}
+        to={url}
       >
-        {this._renderContent()}
-      </a>
+        {renderContent()}
+      </Link>
     )
   }
+
+  return (
+    <a
+      className={linkClassName}
+      href={url}
+      onClick={handleClick}
+      rel={rel}
+      target={target}
+      title={title}
+    >
+      {renderContent()}
+    </a>
+  )
 }
 
 LinkBasic.displayName = 'LinkBasic'
-
-LinkBasic.defaultProps = {
-  url: '#'
-}
 
 LinkBasic.propTypes = {
   className: PropTypes.string,
@@ -85,5 +77,3 @@ LinkBasic.propTypes = {
   url: PropTypes.string,
   useReactRouterLinks: PropTypes.bool
 }
-
-export default LinkBasic
