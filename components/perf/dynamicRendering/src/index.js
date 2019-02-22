@@ -52,11 +52,15 @@ export default function PerfDynamicRendering({
     return <LazyContent height={height}>{children}</LazyContent>
   } else {
     // so, we're on the server side or the component is disabled
-    return <div />
+    return <div style={{height: `${height}px`}} />
   }
 }
 
 PerfDynamicRendering.displayName = 'PerfDynamicRendering'
+
+PerfDynamicRendering.defaultProps = {
+  height: 0
+}
 
 PerfDynamicRendering.propTypes = {
   /**
