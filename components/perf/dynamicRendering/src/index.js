@@ -18,10 +18,8 @@ const LazyContent = hocIntersectionObserver(
   ({children, height, innerRef, isVisible}) => {
     return isVisible ? (
       children
-    ) : height ? (
-      <div ref={innerRef} style={{height: `${height}px`}} />
     ) : (
-      <div ref={innerRef} />
+      <div ref={innerRef} style={{height: `${height}px`}} />
     )
   }
 )
@@ -54,11 +52,15 @@ export default function PerfDynamicRendering({
     return <LazyContent height={height}>{children}</LazyContent>
   } else {
     // so, we're on the server side or the component is disabled
-    return height ? <div style={{height: `${height}px`}} /> : <div />
+    return <div style={{height: `${height}px`}} />
   }
 }
 
 PerfDynamicRendering.displayName = 'PerfDynamicRendering'
+
+PerfDynamicRendering.defaultProps = {
+  height: 0
+}
 
 PerfDynamicRendering.propTypes = {
   /**
