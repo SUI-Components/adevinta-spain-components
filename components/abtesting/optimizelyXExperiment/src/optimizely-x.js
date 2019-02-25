@@ -32,7 +32,7 @@ const getOptimizely = () =>
  * @param {Object} sdk OptimizelySdk
  */
 const registerExprimentsEvents = sdk => {
-  if (!wasExperimentsListenerAdded) {
+  if (sdk && !wasExperimentsListenerAdded) {
     sdk.push({
       type: 'addListener',
       filter: {type: 'lifecycle', name: 'campaignDecided'},
