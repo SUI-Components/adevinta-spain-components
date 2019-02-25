@@ -5,7 +5,7 @@ import Notification from '@s-ui/react-molecule-notification'
 
 import {CLASS, I18N} from '../settings'
 
-export class CmpBanner extends Component {
+export default class CmpBanner extends Component {
   textRef = React.createRef()
   openCookiesDOM = null
 
