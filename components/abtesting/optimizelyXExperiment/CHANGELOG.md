@@ -2,14 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2019-02-25)
+
+
+### Bug Fixes
+
+* fix small issue ([909f111](https://github.com/SUI-Components/schibsted-spain-components/commit/909f111))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2018-09-07)
 
 
 ### Features
 
-* add methods to listen to experiments activation ([5562334](https://github.com/SUI-Components/sui-components/commit/5562334))
-* make component to wait for experiment to activate manually ([49adb82](https://github.com/SUI-Components/sui-components/commit/49adb82))
+* add methods to listen to experiments activation ([5562334](https://github.com/SUI-Components/schibsted-spain-components/commit/5562334))
+* make component to wait for experiment to activate manually ([49adb82](https://github.com/SUI-Components/schibsted-spain-components/commit/49adb82))
 
 
 
@@ -19,8 +29,8 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix: wait for sdk of optimizely to be loaded. ([60abe3c](https://github.com/SUI-Components/sui-components/commit/60abe3c))
-* mAke tests work with react 15 ([54af133](https://github.com/SUI-Components/sui-components/commit/54af133))
+* fix: wait for sdk of optimizely to be loaded. ([60abe3c](https://github.com/SUI-Components/schibsted-spain-components/commit/60abe3c))
+* mAke tests work with react 15 ([54af133](https://github.com/SUI-Components/schibsted-spain-components/commit/54af133))
 
 
 
@@ -30,13 +40,13 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* adapt tests to enzyme@3 ([f26d098](https://github.com/SUI-Components/sui-components/commit/f26d098))
+* adapt tests to enzyme@3 ([f26d098](https://github.com/SUI-Components/schibsted-spain-components/commit/f26d098))
 
 
 ### Features
 
-* Bump version ([bcfe637](https://github.com/SUI-Components/sui-components/commit/bcfe637))
-* Migrate to PropTypes package ([d69afa9](https://github.com/SUI-Components/sui-components/commit/d69afa9))
+* Bump version ([bcfe637](https://github.com/SUI-Components/schibsted-spain-components/commit/bcfe637))
+* Migrate to PropTypes package ([d69afa9](https://github.com/SUI-Components/schibsted-spain-components/commit/d69afa9))
 
 
 
@@ -46,7 +56,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* make component work when optmizely is loaded async ([d26ab36](https://github.com/SUI-Components/sui-components/commit/d26ab36))
+* make component work when optmizely is loaded async ([d26ab36](https://github.com/SUI-Components/schibsted-spain-components/commit/d26ab36))
 
 
 
