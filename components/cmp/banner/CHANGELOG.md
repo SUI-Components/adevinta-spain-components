@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.17.0"></a>
+# 1.17.0 (2019-02-26)
+
+
+### Performance Improvements
+
+* load dynamically packages to avoid putting them in the bundle if not neeeded ([baaa108](https://github.com/SUI-Components/schibsted-spain-components/commit/baaa108))
+
+
+
 <a name="1.16.0"></a>
 # 1.16.0 (2019-01-23)
 
