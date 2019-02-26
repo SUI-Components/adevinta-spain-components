@@ -1,11 +1,11 @@
-import React, {Component} from 'react'
+import React, {Component, Suspense} from 'react'
 import PropTypes from 'prop-types'
-
-import {CmpBanner} from './component'
-import CmpModal from '@schibstedspain/react-cmp-modal'
 
 const CONSENT_STATUS_NOT_ACCEPTED = 'NOT_ACCEPTED'
 const NO_OP = () => {}
+
+const CmpBanner = React.lazy(() => import('./component'))
+const CmpModal = React.lazy(() => import('@schibstedspain/react-cmp-modal'))
 
 export class CmpBannerContainer extends Component {
   state = {
@@ -75,21 +75,25 @@ export class CmpBannerContainer extends Component {
     return (
       <div ref={this.containerDOMEl}>
         {this.state.showNotification && (
-          <CmpBanner
-            onAccept={this._handleAccept}
-            onConfigure={this._handleReadMore}
-            companyName={companyName}
-            lang={lang}
-          />
+          <Suspense fallback={<div />}>
+            <CmpBanner
+              onAccept={this._handleAccept}
+              onConfigure={this._handleReadMore}
+              companyName={companyName}
+              lang={lang}
+            />
+          </Suspense>
         )}
         {this.state.showModal && (
-          <CmpModal
-            cmpReady
-            lang={lang}
-            logo={logo}
-            onExit={this._handleExitModal}
-            privacyUrl={privacyUrl}
-          />
+          <Suspense fallback={<div />}>
+            <CmpModal
+              cmpReady
+              lang={lang}
+              logo={logo}
+              onExit={this._handleExitModal}
+              privacyUrl={privacyUrl}
+            />
+          </Suspense>
         )}
       </div>
     )
