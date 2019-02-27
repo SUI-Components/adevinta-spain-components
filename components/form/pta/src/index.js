@@ -15,14 +15,21 @@ class FormPta extends Component {
   constructor(props) {
     super(props)
 
-    const {formUrl: BASE_URL, onSubmit, onError, ...settings} = this.props
+    const {formUrl: BASE_URL, onSubmit, onError, eventListeners, ...settings} = this.props
     const QUERY = paramsToQueryString(settings)
     const formUrl = `${BASE_URL}?${QUERY}`
+    
+    const messageList = eventListeners
+      ? this.messageList(eventListeners)
+      : []
 
     this.handleMessage = ({data: {type, payload}}) => {
       type === SUBMIT_SUCCESS_EVENT_TYPE && onSubmit && onSubmit()
       type === SUBMIT_ERROR_EVENT_TYPE && onError && onError()
       type === RESIZE_EVENT_TYPE && this.doResize(payload)
+
+      const callbacks = messageList[type] || []
+      callbacks.map(callback => callback())
     }
 
     this.state = {
@@ -41,6 +48,24 @@ class FormPta extends Component {
   doResize(height=DEFAULT_IFRAME_HEIGHT) {
     const ptaIframe = document.getElementById(IFRAME_ID)
     ptaIframe.style.height = `${height}px`
+  }
+
+  messageList(eventListeners) {
+
+    const traverseNames = listener => (acc, name) => ({
+      ...acc,
+      [name]: [
+        listener,
+        ...acc[name] || []
+      ]
+    })
+    
+    const prepare = (acc, {eventNames, listener}) =>
+      eventNames.reduce(traverseNames(listener), acc)
+    
+    const transformListeners = listeners => listeners.reduce(prepare, {})
+    
+    return transformListeners(eventListeners)    
   }
 
   /**
@@ -91,6 +116,10 @@ FormPta.propTypes = {
    * Redirection url on success
    */
   redirectOnSuccessUrl: PropTypes.string,
+  /**
+   * Event listeners
+   */
+  eventListeners: PropTypes.array,
   /**
    * OnSubmit callback
    */
