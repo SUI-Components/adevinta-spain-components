@@ -1,9 +1,14 @@
-import React, {Component, Fragment} from 'react'
+import React, {Component, Fragment, Suspense} from 'react'
 import PropTypes from 'prop-types'
 
+const CLOSE_ANIMATION_TIME = 1000
+const MoleculeNotification = React.lazy(() =>
+  import(/* webpackChunkName: "MoleculeNotification" */ '@s-ui/react-molecule-notification')
+)
+
 class ErrorAppBoundary extends Component {
-  MoleculeNotification = null
   state = {errorCount: 0, hasError: false}
+
   componentDidCatch(errorMessage, errorStack) {
     const {errorThreshold, onError, redirectUrlOnBreakingThreshold} = this.props
     const {errorCount} = this.state
@@ -14,27 +19,15 @@ class ErrorAppBoundary extends Component {
     return errorCount >= errorThreshold
       ? redirectUrlOnBreakingThreshold &&
           (window.location.href = redirectUrlOnBreakingThreshold)
-      : this._loadNotification()
+      : this.setState({hasError: true})
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     return nextState.errorCount <= nextProps.errorThreshold
   }
 
-  _loadNotification() {
-    new Promise(resolve => {
-      require.ensure(
-        [],
-        require => {
-          resolve(require('@s-ui/react-molecule-notification').default)
-        },
-        'MoleculeNotification'
-      )
-    }).then(Component => {
-      this.MoleculeNotification = Component
-      // Display fallback UI
-      this.setState({hasError: true})
-    })
+  _onCloseNotification = () => {
+    setTimeout(() => this.setState({hasError: false}), CLOSE_ANIMATION_TIME)
   }
 
   render() {
@@ -45,21 +38,22 @@ class ErrorAppBoundary extends Component {
         {children}
         {this.state.hasError && (
           <div className="sui-ErrorAppBoundary-notification">
-            <this.MoleculeNotification
-              buttons={[
-                {
-                  type: 'secondary',
-                  negative: true,
-                  children: buttonLabel,
-                  onClick: () => {
-                    this.setState({hasError: false})
+            <Suspense fallback={<div />}>
+              <MoleculeNotification
+                buttons={[
+                  {
+                    type: 'secondary',
+                    negative: true,
+                    children: buttonLabel,
+                    onClick: this._onCloseNotification
                   }
-                }
-              ]}
-              type="warning"
-              text={message}
-              position="bottom"
-            />
+                ]}
+                onClose={this._onCloseNotification}
+                type="warning"
+                text={message}
+                position="bottom"
+              />
+            </Suspense>
           </div>
         )}
       </Fragment>
