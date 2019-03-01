@@ -46,7 +46,7 @@ ListBullet.propTypes = {
    */
   linkFactory: PropTypes.func,
   /**
-   * Factory used to create navigation links
+   * Responsive behaviour
    */
   responsive: PropTypes.bool
 }
