@@ -1,7 +1,7 @@
 # ListBullet
 
-> The status spot can has the success, error and alert color.
-> We can use the status: high, medium or low to assign the different colors.
+> Bullet list component
+> It has two behaviours, standard and responsive.
 
 <!-- ![](./assets/preview.png) -->
 
