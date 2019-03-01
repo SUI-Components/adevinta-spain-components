@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {paramsToQueryString} from './querystring'
-import {parseEvents} from './parseEvents'
+import {transformEventsListenersIntoCallbackMap} from './transformEventListeners'
 
 const BASE_CLASS = 'sui-FormPta'
 const CONTENT_CLASS = `${BASE_CLASS}-content`
@@ -20,7 +20,7 @@ class FormPta extends Component {
     const QUERY = paramsToQueryString(settings)
     const formUrl = `${BASE_URL}?${QUERY}`
     
-    this.handleMessage = this.handleMessage.bind(this)     
+    this.runEventCallbacks = this.runEventCallbacks.bind(this)     
 
     this.state = {
       formUrl
@@ -28,28 +28,28 @@ class FormPta extends Component {
   }
 
   componentWillMount() {
-    window.addEventListener(MESSAGE_EVENT_TYPE, this.handleMessage)
+    window.addEventListener(MESSAGE_EVENT_TYPE, this.runEventCallbacks)
   }
 
   componentWillUnmount() {
-    window.removeEventListener(MESSAGE_EVENT_TYPE, this.handleMessage)
+    window.removeEventListener(MESSAGE_EVENT_TYPE, this.runEventCallbacks)
   }
 
-  handleMessage({data: {type, payload}}) {
+  runEventCallbacks({data: {type, payload}}) {
     const {onSubmit, onError, eventListeners} = this.props
 
-    const messages = eventListeners
-      ? parseEvents(eventListeners)
+    const genericCallbackMap = eventListeners
+      ? transformEventsListenersIntoCallbackMap(eventListeners)
       : []
 
-    const messageList = {
+    const callbackMap = {
       [RESIZE_EVENT_TYPE]: [this.doResize],
       ...(onSubmit ? {[SUBMIT_SUCCESS_EVENT_TYPE]: [onSubmit]} : {}),
       ...(onError ? {[SUBMIT_ERROR_EVENT_TYPE]: [onError]} : {}),
-      ...messages
+      ...genericCallbackMap
     }
-    const callbacks = messageList[type] || []
-    callbacks.map(callback => callback(payload))
+    const currentMessageCallbacks = callbackMap[type] || []
+    currentMessageCallbacks.map(callback => callback(payload))
   }
 
   doResize(height=DEFAULT_IFRAME_HEIGHT) {
