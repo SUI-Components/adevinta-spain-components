@@ -1,0 +1,66 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+
+$sz-list-bullet-illustration-s: 42px !default;
+$sz-list-bullet-illustration-m: 64px !default;
+$sz-list-bullet-illustration-l: 72px !default;
+
+.sui-ListBullet {
+  $prefix: &;
+
+  &--responsive {
+    @include media-breakpoint-up(l) {
+      display: flex;
+
+      #{$prefix}-item {
+        flex: 1;
+        flex-direction: column;
+        margin: 0 $m-m;
+        text-align: center;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      #{$prefix}-illustration {
+        height: $sz-list-bullet-illustration-l;
+        margin-bottom: $m-xl;
+        width: $sz-list-bullet-illustration-l;
+      }
+    }
+  }
+
+  &-item {
+    align-items: center;
+    display: flex;
+    margin-bottom: $m-xxl;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-illustration {
+    height: $sz-list-bullet-illustration-s;
+    margin-right: $m-l;
+    width: $sz-list-bullet-illustration-s;
+  }
+
+  &-title {
+    margin: 0 0 $m-m;
+  }
+
+  &-text {
+    margin: 0;
+  }
+
+  &-title,
+  &-text {
+    line-height: $lh-m;
+  }
+}
