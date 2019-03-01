@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {paramsToQueryString} from './querystring'
+import {parseEvents} from './parseEvents'
 
 const BASE_CLASS = 'sui-FormPta'
 const CONTENT_CLASS = `${BASE_CLASS}-content`
@@ -19,18 +20,7 @@ class FormPta extends Component {
     const QUERY = paramsToQueryString(settings)
     const formUrl = `${BASE_URL}?${QUERY}`
     
-    const messageList = eventListeners
-      ? this.messageList(eventListeners)
-      : []
-
-    this.handleMessage = ({data: {type, payload}}) => {
-      type === SUBMIT_SUCCESS_EVENT_TYPE && onSubmit && onSubmit()
-      type === SUBMIT_ERROR_EVENT_TYPE && onError && onError()
-      type === RESIZE_EVENT_TYPE && this.doResize(payload)
-
-      const callbacks = messageList[type] || []
-      callbacks.map(callback => callback())
-    }
+    this.handleMessage = this.handleMessage.bind(this)     
 
     this.state = {
       formUrl
@@ -45,27 +35,26 @@ class FormPta extends Component {
     window.removeEventListener(MESSAGE_EVENT_TYPE, this.handleMessage)
   }
 
+  handleMessage({data: {type, payload}}) {
+    const {onSubmit, onError, eventListeners} = this.props
+
+    const messages = eventListeners
+      ? parseEvents(eventListeners)
+      : []
+
+    const messageList = {
+      [RESIZE_EVENT_TYPE]: [this.doResize],
+      ...(onSubmit ? {[SUBMIT_SUCCESS_EVENT_TYPE]: [onSubmit]} : {}),
+      ...(onError ? {[SUBMIT_ERROR_EVENT_TYPE]: [onError]} : {}),
+      ...messages
+    }
+    const callbacks = messageList[type] || []
+    callbacks.map(callback => callback(payload))
+  }
+
   doResize(height=DEFAULT_IFRAME_HEIGHT) {
     const ptaIframe = document.getElementById(IFRAME_ID)
     ptaIframe.style.height = `${height}px`
-  }
-
-  messageList(eventListeners) {
-
-    const traverseNames = listener => (acc, name) => ({
-      ...acc,
-      [name]: [
-        listener,
-        ...acc[name] || []
-      ]
-    })
-    
-    const prepare = (acc, {eventNames, listener}) =>
-      eventNames.reduce(traverseNames(listener), acc)
-    
-    const transformListeners = listeners => listeners.reduce(prepare, {})
-    
-    return transformListeners(eventListeners)    
   }
 
   /**
