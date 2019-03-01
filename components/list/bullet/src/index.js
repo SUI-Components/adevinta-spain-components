@@ -1,28 +1,20 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import Bullet from './bullet.js'
 import cx from 'classnames'
 
-const ListBullet = ({listItems, linkFactory, responsive}) => {
-  const listBulletClass = cx('sui-ListBullet', {
-    'sui-ListBullet--responsive': responsive
+const BASE_CLASS = 'sui-ListBullet'
+
+const ListBullet = ({listItems, responsive}) => {
+  const listBulletClass = cx(BASE_CLASS, {
+    [`${BASE_CLASS}--responsive`]: responsive
   })
 
   return (
     <div className={listBulletClass}>
       {listItems &&
         listItems.map((item, index) => (
-          <div key={index} className="sui-ListBullet-item">
-            <img
-              className="sui-ListBullet-illustration"
-              src={item.illustration}
-            />
-            <div className="sui-ListBullet-description">
-              {item.title && (
-                <h3 className="sui-ListBullet-title">{item.title}</h3>
-              )}
-              <p className="sui-ListBullet-text">{item.description}</p>
-            </div>
-          </div>
+          <Bullet {...item} key={index} baseClass={BASE_CLASS} />
         ))}
     </div>
   )
@@ -38,14 +30,10 @@ ListBullet.propTypes = {
     PropTypes.shape({
       illustration: PropTypes.string.isRequired,
       title: PropTypes.string,
-      description: PropTypes.string.isRequired
+      text: PropTypes.string.isRequired
     }).isRequired
   ).isRequired,
 
-  /**
-   * Factory used to create navigation links
-   */
-  linkFactory: PropTypes.func,
   /**
    * Responsive behaviour
    */
@@ -53,11 +41,6 @@ ListBullet.propTypes = {
 }
 
 ListBullet.defaultProps = {
-  linkFactory: ({href, className, children} = {}) => (
-    <a href={href} className={className}>
-      {children}
-    </a>
-  ),
   responsive: false
 }
 

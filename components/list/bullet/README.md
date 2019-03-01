@@ -21,13 +21,13 @@ const listItems = [
   {
     illustration: 'https://s.ccdn.es/images/motivation-search.svg',
     title: 'Publica con total seguridad',
-    description:
+    text:
       'Te damos todas las herramientas para un proceso de venta seguro'
   },
   {
     illustration: 'https://s.ccdn.es/images/motivation-trust.svg',
     title: 'Gestiona tu anuncio según tus necesidades',
-    description: 'Edita y renueva tu anuncio tantas veces como necesites'
+    text: 'Edita y renueva tu anuncio tantas veces como necesites'
   }
 ]
 
