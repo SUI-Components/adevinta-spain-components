@@ -20,9 +20,7 @@ const ListBullet = ({listItems, linkFactory, responsive}) => {
               {item.title && (
                 <h3 className="sui-ListBullet-title">{item.title}</h3>
               )}
-              {item.description && (
-                <p className="sui-ListBullet-text">{item.description}</p>
-              )}
+              <p className="sui-ListBullet-text">{item.description}</p>
             </div>
           </div>
         ))}
@@ -38,9 +36,9 @@ ListBullet.propTypes = {
    */
   listItems: PropTypes.arrayOf(
     PropTypes.shape({
-      illustration: PropTypes.string,
+      illustration: PropTypes.string.isRequired,
       title: PropTypes.string,
-      description: PropTypes.string
+      description: PropTypes.string.isRequired
     }).isRequired
   ).isRequired,
 
