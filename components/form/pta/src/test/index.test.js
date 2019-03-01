@@ -1,13 +1,12 @@
 /* eslint-env jest */
 import React from 'react'
-import Enzyme, {shallow} from 'enzyme'
+import Enzyme, { shallow } from 'enzyme'
 import FormPta from '../index'
 import Adapter from 'enzyme-adapter-react-16'
 
-Enzyme.configure({adapter: new Adapter()})
-describe.only('<FormPta />', () => {
-    
-  describe('submit listeners', function() {
+Enzyme.configure({ adapter: new Adapter() })
+describe('<FormPta />', () => {
+  describe('submit listeners', function () {
     let component, wrapper
     const onSubmitSpy = jest.fn()
     const onErrorSpy = jest.fn()
@@ -15,7 +14,11 @@ describe.only('<FormPta />', () => {
     beforeEach(() => {
       // Given
       component = (
-        <FormPta onSubmit={onSubmitSpy} onError={onErrorSpy} formUrl={'anyUrl'} />
+        <FormPta
+          onSubmit={onSubmitSpy}
+          onError={onErrorSpy}
+          formUrl={'anyUrl'}
+        />
       )
       wrapper = shallow(component)
     })
@@ -26,65 +29,49 @@ describe.only('<FormPta />', () => {
       wrapper.unmount()
     })
 
-    it('should call onSubmit callback when SUBMIT message is listened from PTA', function(done) {
+    it('should call onSubmit callback when SUBMIT message is listened from PTA', function (done) {
       const EVENT_TYPE = 'SUBMIT_FORM_SUCCEEDED'
-      const listener = function(e) {
+      const listener = function (e) {
         // Then
         expect(onSubmitSpy.mock.calls.length).toEqual(1)
         done()
       }
-      window.addEventListener('message', listener, {once: true})
+      window.addEventListener('message', listener, { once: true })
 
       // When
-      window.postMessage({type: EVENT_TYPE}, '*')
+      window.postMessage({ type: EVENT_TYPE }, '*')
     })
 
-    it('should call onError callback when SUBMIT message is listened from PTA', function(done) {
+    it('should call onError callback when SUBMIT message is listened from PTA', function (done) {
       const EVENT_TYPE = 'SUBMIT_FORM_FAILED'
-      const listener = function(e) {
+      const listener = function (e) {
         // Then
         expect(onErrorSpy.mock.calls.length).toEqual(1)
         done()
       }
-      window.addEventListener('message', listener, {once: true})
+      window.addEventListener('message', listener, { once: true })
 
       // When
-      window.postMessage({type: EVENT_TYPE}, '*')
+      window.postMessage({ type: EVENT_TYPE }, '*')
     })
 
-    it('should NOT call onSubmit callback when NO SUBMIT message is listened from PTA', function(done) {
+    it('should NOT call onSubmit callback when NO SUBMIT message is listened from PTA', function (done) {
       const NO_SUBMIT_TYPE = 'NOSUBMIT'
 
-      const listener = function(e) {
+      const listener = function (e) {
         // Then
         expect(onSubmitSpy.mock.calls.length).toEqual(0)
         expect(onErrorSpy.mock.calls.length).toEqual(0)
         done()
       }
-      window.addEventListener('message', listener, {once: true})
+      window.addEventListener('message', listener, { once: true })
 
       // When
-      window.postMessage({type: NO_SUBMIT_TYPE}, '*')
-    })
-
-    it('shoul call eventListeners when event emmited type matches', () => {
-      const listener1Spy = jest.fn()
-      const listener2Spy = jest.fn()
-
-      const listener = function(e) {
-        // Then
-        expect(onSubmitSpy.mock.calls.length).toEqual(0)
-        expect(onErrorSpy.mock.calls.length).toEqual(0)
-        done()
-      }
-      window.addEventListener('message', listener, {once: true})
-
-      // When
-      window.postMessage({type: 'ANY_TYPE'}, '*')    
+      window.postMessage({ type: NO_SUBMIT_TYPE }, '*')
     })
   })
 
-  describe('generic listeners', function() {
+  describe('generic listeners', function () {
     let component, wrapper
     const listener1Spy = jest.fn()
     const listener2Spy = jest.fn()
@@ -108,61 +95,60 @@ describe.only('<FormPta />', () => {
         listener: listener3Spy
       }
     ]
-    
+
     beforeEach(() => {
       // Given
-      component = (
-        <FormPta eventListeners={eventListeners} formUrl={'anyUrl'} />
-      )
+      component = <FormPta eventListeners={eventListeners} formUrl={'anyUrl'} />
       wrapper = shallow(component)
     })
 
     afterEach(() => {
       listener1Spy.mockRestore()
-      listener2Spy.mockRestore()  
+      listener2Spy.mockRestore()
+      listener3Spy.mockRestore()
       wrapper.unmount()
     })
 
-    it('shoul call eventListeners when event emmited type matches many listener', () => {
-      const listener = function(e) {
+    it('shoul call eventListeners when event emmited type matches many listener', done => {
+      const listener = function (e) {
         // Then
         expect(listener1Spy.mock.calls.length).toEqual(1)
         expect(listener2Spy.mock.calls.length).toEqual(1)
         expect(listener3Spy.mock.calls.length).toEqual(0)
         done()
       }
-      window.addEventListener('message', listener, {once: true})
+      window.addEventListener('message', listener, { once: true })
 
       // When
-      window.postMessage({type: EVENT_TYPE_1}, '*')    
+      window.postMessage({ type: EVENT_TYPE_1 }, '*')
     })
 
-    it('shoul call eventListeners when event emmited type matches one listener', () => {
-      const listener = function(e) {
+    it('shoul call eventListeners when event emmited type matches one listener', done => {
+      const listener = function (e) {
         // Then
         expect(listener1Spy.mock.calls.length).toEqual(1)
         expect(listener2Spy.mock.calls.length).toEqual(0)
         expect(listener3Spy.mock.calls.length).toEqual(0)
         done()
       }
-      window.addEventListener('message', listener, {once: true})
+      window.addEventListener('message', listener, { once: true })
 
       // When
-      window.postMessage({type: EVENT_TYPE_2}, '*')    
+      window.postMessage({ type: EVENT_TYPE_2 }, '*')
     })
 
-    it('shoul not call eventListeners when event emmited type does not match any listener', () => {
-      const listener = function(e) {
+    it('shoul not call eventListeners when event emmited type does not match any listener', done => {
+      const listener = function (e) {
         // Then
         expect(listener1Spy.mock.calls.length).toEqual(0)
         expect(listener2Spy.mock.calls.length).toEqual(0)
         expect(listener3Spy.mock.calls.length).toEqual(0)
         done()
       }
-      window.addEventListener('message', listener, {once: true})
+      window.addEventListener('message', listener, { once: true })
 
       // When
-      window.postMessage({type: NOT_MATCHING_EVENT_TYPE}, '*')    
+      window.postMessage({ type: NOT_MATCHING_EVENT_TYPE }, '*')
     })
   })
 })

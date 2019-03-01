@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {paramsToQueryString} from './querystring'
+import {transformEventsListenersIntoCallbackMap} from './transformEventListeners'
 
 const BASE_CLASS = 'sui-FormPta'
 const CONTENT_CLASS = `${BASE_CLASS}-content`
@@ -15,15 +16,11 @@ class FormPta extends Component {
   constructor(props) {
     super(props)
 
-    const {formUrl: BASE_URL, onSubmit, onError, ...settings} = this.props
+    const {formUrl: BASE_URL, onSubmit, onError, eventListeners, ...settings} = this.props
     const QUERY = paramsToQueryString(settings)
     const formUrl = `${BASE_URL}?${QUERY}`
-
-    this.handleMessage = ({data: {type, payload}}) => {
-      type === SUBMIT_SUCCESS_EVENT_TYPE && onSubmit && onSubmit()
-      type === SUBMIT_ERROR_EVENT_TYPE && onError && onError()
-      type === RESIZE_EVENT_TYPE && this.doResize(payload)
-    }
+    
+    this.runEventCallbacks = this.runEventCallbacks.bind(this)     
 
     this.state = {
       formUrl
@@ -31,11 +28,28 @@ class FormPta extends Component {
   }
 
   componentWillMount() {
-    window.addEventListener(MESSAGE_EVENT_TYPE, this.handleMessage)
+    window.addEventListener(MESSAGE_EVENT_TYPE, this.runEventCallbacks)
   }
 
   componentWillUnmount() {
-    window.removeEventListener(MESSAGE_EVENT_TYPE, this.handleMessage)
+    window.removeEventListener(MESSAGE_EVENT_TYPE, this.runEventCallbacks)
+  }
+
+  runEventCallbacks({data: {type, payload}}) {
+    const {onSubmit, onError, eventListeners} = this.props
+
+    const genericCallbackMap = eventListeners
+      ? transformEventsListenersIntoCallbackMap(eventListeners)
+      : []
+
+    const callbackMap = {
+      [RESIZE_EVENT_TYPE]: [this.doResize],
+      ...(onSubmit ? {[SUBMIT_SUCCESS_EVENT_TYPE]: [onSubmit]} : {}),
+      ...(onError ? {[SUBMIT_ERROR_EVENT_TYPE]: [onError]} : {}),
+      ...genericCallbackMap
+    }
+    const currentMessageCallbacks = callbackMap[type] || []
+    currentMessageCallbacks.map(callback => callback(payload))
   }
 
   doResize(height=DEFAULT_IFRAME_HEIGHT) {
@@ -91,6 +105,10 @@ FormPta.propTypes = {
    * Redirection url on success
    */
   redirectOnSuccessUrl: PropTypes.string,
+  /**
+   * Event listeners
+   */
+  eventListeners: PropTypes.array,
   /**
    * OnSubmit callback
    */
