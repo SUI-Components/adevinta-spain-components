@@ -36,11 +36,14 @@ ListBullet.propTypes = {
   /**
    * List of bullet items
    */
-  listItems: PropTypes.shape({
-    illustration: PropTypes.string,
-    title: PropTypes.string,
-    description: PropTypes.string
-  }).isRequired,
+  listItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      illustration: PropTypes.string,
+      title: PropTypes.string,
+      description: PropTypes.string
+    }).isRequired
+  ).isRequired,
+
   /**
    * Factory used to create navigation links
    */
