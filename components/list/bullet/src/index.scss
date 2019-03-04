@@ -54,6 +54,10 @@ $sz-list-bullet-illustration-l: 72px !default;
   }
 
   &-illustration {
+    @include media-breakpoint-up(l) {
+      height: $sz-list-bullet-illustration-m;
+      width: $sz-list-bullet-illustration-m;
+    }
     height: $sz-list-bullet-illustration-s;
     margin-right: $m-l;
     width: $sz-list-bullet-illustration-s;
