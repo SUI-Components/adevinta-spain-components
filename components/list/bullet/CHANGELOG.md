@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2019-03-04)
+
+
+### Features
+
+* icon size ([538a7a8](https://github.com/SUI-Components/schibsted-spain-components/commit/538a7a8))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2019-03-04)
 
