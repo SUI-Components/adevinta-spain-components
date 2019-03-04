@@ -1,0 +1,28 @@
+const listItems = [
+  {
+    illustration: 'https://s.ccdn.es/images/motivation-search.svg',
+    title: 'Publica con total seguridad',
+    text:
+      'Te damos todas las herramientas para un proceso de venta seguro'
+  },
+  {
+    illustration: 'https://s.ccdn.es/images/motivation-trust.svg',
+    title: 'Gestiona tu anuncio según tus necesidades',
+    text: 'Edita y renueva tu anuncio tantas veces como necesites'
+  },
+  {
+    illustration: 'https://s.ccdn.es/images/motivation-security.svg',
+    title: 'Chatea con los compradores potenciales',
+    text:
+      'Resuelve rápidamente las dudas de los interesados en tu anuncio en el chat'
+  }
+]
+
+return (
+  <div>
+    <h2>Standard</h2>
+    <ListBullet listItems={listItems}/>
+    <h2>Responsive</h2>
+    <ListBullet listItems={listItems} responsive />
+  </div>
+)
