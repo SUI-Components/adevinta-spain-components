@@ -5,9 +5,10 @@ import cx from 'classnames'
 
 const BASE_CLASS = 'sui-ListBullet'
 
-const ListBullet = ({listItems, responsive}) => {
+const ListBullet = ({listItems, responsive, smallFont}) => {
   const listBulletClass = cx(BASE_CLASS, {
-    [`${BASE_CLASS}--responsive`]: responsive
+    [`${BASE_CLASS}--responsive`]: responsive,
+    [`${BASE_CLASS}--smallFont`]: smallFont
   })
 
   return (
@@ -37,11 +38,16 @@ ListBullet.propTypes = {
   /**
    * Responsive behaviour
    */
-  responsive: PropTypes.bool
+  responsive: PropTypes.bool,
+  /**
+   * Small font size
+   */
+  smallFont: PropTypes.bool
 }
 
 ListBullet.defaultProps = {
-  responsive: false
+  responsive: false,
+  smallFont: false
 }
 
 export default ListBullet

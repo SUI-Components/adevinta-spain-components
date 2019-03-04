@@ -36,6 +36,13 @@ $sz-list-bullet-illustration-l: 72px !default;
     }
   }
 
+  &--smallFont {
+    @include media-breakpoint-up(l) {
+      font-size: $fz-s;
+    }
+    font-size: $fz-xs;
+  }
+
   &-item {
     align-items: center;
     display: flex;
