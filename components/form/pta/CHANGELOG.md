@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2019-03-04)
+
+
+### Features
+
+* add generic callback handler ([3513470](https://github.com/SUI-Components/schibsted-spain-components/commit/3513470))
+* generic event handler ([58bdd83](https://github.com/SUI-Components/schibsted-spain-components/commit/58bdd83))
+* renaming ([bc4e448](https://github.com/SUI-Components/schibsted-spain-components/commit/bc4e448))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2019-02-20)
 
@@ -67,21 +79,6 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * adapt wrapper component to pta changes ([1d858ba](https://github.com/SUI-Components/schibsted-spain-components/commit/1d858ba))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2018-05-30)
-
-
-### Bug Fixes
-
-* fix component name ([8621fa3](https://github.com/SUI-Components/schibsted-spain-components/commit/8621fa3))
-
-
-### Features
-
-* PTA formbuilder iframe wrapper ([2f70f0a](https://github.com/SUI-Components/schibsted-spain-components/commit/2f70f0a))
 
 
 
