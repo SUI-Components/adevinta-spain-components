@@ -30,10 +30,16 @@ $sz-list-bullet-illustration-l: 72px !default;
       #{$prefix}-illustration {
         height: $sz-list-bullet-illustration-l;
         margin-bottom: $m-xl;
-        margin-right: 0;
         width: $sz-list-bullet-illustration-l;
       }
     }
+  }
+
+  &--smallFont {
+    @include media-breakpoint-up(l) {
+      font-size: $fz-s;
+    }
+    font-size: $fz-xs;
   }
 
   &-item {
