@@ -46,6 +46,11 @@ $sz-list-bullet-illustration-l: 72px !default;
   }
 
   &-illustration {
+    .sui-ListBullet--responsive & {
+      @include media-breakpoint-up(l) {
+        margin-right: 0;
+      }
+    }
     height: $sz-list-bullet-illustration-s;
     margin-right: $m-l;
     width: $sz-list-bullet-illustration-s;
