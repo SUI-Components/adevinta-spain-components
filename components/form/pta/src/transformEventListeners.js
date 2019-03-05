@@ -31,7 +31,7 @@ export const transformEventsListenersIntoCallbackMap = eventListeners => {
     ...acc,
     [name]: [callback, ...(acc[name] || [])]
   })
-  
+
   const transformListeners = listeners =>
     listeners.reduce(eventListenerToCallbackMap, {})
 

@@ -1,0 +1,51 @@
+/* sass-lint:disable no-important*/
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/react-atom-image/lib/index';
+
+$w-card-arrow-img: 150px !default;
+
+.sui-CardArrow {
+  @include sui-card;
+
+  &-link {
+    @include reset-link;
+    align-items: center;
+    display: flex;
+  }
+
+  &-img {
+    @include media-breakpoint-up(l) {
+      display: block;
+      width: $w-card-arrow-img;
+    }
+    display: none;
+  }
+
+  &-inner {
+    &Title {
+      font-size: $fz-s;
+      margin-top: 0;
+    }
+    flex: 1;
+    padding: $p-l;
+
+    &Description {
+      font-size: $fz-xs;
+      margin-bottom: 0;
+    }
+  }
+
+  &-icon {
+    fill: $c-gray-light !important;
+    padding-right: $p-l;
+    width: $sz-icon-xl;
+
+  }
+
+  &:hover {
+    .sui-CardArrow-icon {
+      fill: $c-gray !important;
+    }
+  }
+}

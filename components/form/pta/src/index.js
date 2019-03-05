@@ -16,11 +16,17 @@ class FormPta extends Component {
   constructor(props) {
     super(props)
 
-    const {formUrl: BASE_URL, onSubmit, onError, eventListeners, ...settings} = this.props
+    const {
+      formUrl: BASE_URL,
+      onSubmit,
+      onError,
+      eventListeners,
+      ...settings
+    } = this.props
     const QUERY = paramsToQueryString(settings)
     const formUrl = `${BASE_URL}?${QUERY}`
-    
-    this.runEventCallbacks = this.runEventCallbacks.bind(this)     
+
+    this.runEventCallbacks = this.runEventCallbacks.bind(this)
 
     this.state = {
       formUrl
@@ -52,7 +58,7 @@ class FormPta extends Component {
     currentMessageCallbacks.map(callback => callback(payload))
   }
 
-  doResize(height=DEFAULT_IFRAME_HEIGHT) {
+  doResize(height = DEFAULT_IFRAME_HEIGHT) {
     const ptaIframe = document.getElementById(IFRAME_ID)
     ptaIframe.style.height = `${height}px`
   }
