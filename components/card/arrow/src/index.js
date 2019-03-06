@@ -55,7 +55,7 @@ CardArrow.propTypes = {
   /**
    * URL for the link that wraps the whole card.
    */
-  link: PropTypes.string
+  link: PropTypes.string.isRequired
 }
 
 CardArrow.defaultProps = {
