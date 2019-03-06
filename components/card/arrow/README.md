@@ -16,7 +16,19 @@ $ npm install @schibstedspain/sui-card-arrow --save
 ```js
 import CardArrow from '@schibstedspain/sui-card-arrow'
 
-return (<CardArrow />)
+const link = 'https://www.lorem.com/'
+
+const media = {
+  alt: 'Lorem image',
+  src: 'https://www.lorem.com/ipsum.jpg'
+}
+
+const text = {
+  title: 'Lorem',
+  description: 'Lorem ipsum dolor sit amet'
+}
+
+return (<CardArrow media={media} text={text} link={link}/>)
 ```
 
 
