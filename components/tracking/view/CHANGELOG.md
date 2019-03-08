@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2019-03-08)
+
+
+### Bug Fixes
+
+* bug match of undefined ([12b2f12](https://github.com/SUI-Components/schibsted-spain-components/commit/12b2f12))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2019-03-08)
 
