@@ -22,6 +22,13 @@ class TrackingView extends Component {
   }
 
   render() {
+    if (
+      typeof window !== 'undefined' &&
+      window.document.href.match('disable-tealium')
+    ) {
+      return null
+    }
+
     return (
       <ScriptLoader
         isAsync={false}
