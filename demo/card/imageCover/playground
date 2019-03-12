@@ -1,0 +1,25 @@
+const data = {
+  media: {
+    alt: "asdasd",
+    src: "https://s.ccdn.es/images/landing-seller-hero@2x.jpg"
+  },
+  title: "¿Cómo conseguir los datos técnicos de un coche?",
+  text: "Todos los datos de coches nuevos y descatalogados en coches.net",
+  url: "https://www.coches.net",
+  tag: {
+    url: 'http://www.coches.net/novedades/',
+    text: 'News',
+    type: 'novedades'
+  }
+}
+
+var wrapperStyles = {
+  width: '300px',
+  padding: '20px'
+};
+
+return (
+  <div style={wrapperStyles}>
+    <CardImageCover {...data} />
+  </div>
+)
