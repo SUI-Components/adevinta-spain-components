@@ -1,7 +1,7 @@
 const data = {
   media: {
     alt: "image alt",
-    src: "./assets/cover-image.jpg"
+    src: "https://s.ccdn.es/images/landing-seller-hero@2x.jpg"
   },
   title: "¿Cómo conseguir los datos técnicos de un coche?",
   text: "Todos los datos de coches nuevos y descatalogados en coches.net",
