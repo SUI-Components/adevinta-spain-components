@@ -12,8 +12,7 @@
     "@s-ui/component-dependencies": "1",
     "@schibstedspain/sui-atom-panel": "1",
     "@schibstedspain/sui-image-lazy-load": "1",
-    "@schibstedspain/sui-tag-chip": "1",
-    "@schibstedspain/mt-tag-chip": "1"
+    "@schibstedspain/sui-tag-chip": "1"
   },
   "keywords": [],
   "author": "",
