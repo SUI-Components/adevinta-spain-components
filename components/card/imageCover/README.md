@@ -1,8 +1,6 @@
 # CardImageCover
 
-> Description
-
-<!-- ![](./assets/preview.png) -->
+SUI `CardImageCover` component is a card containing a background image, an optional tag, a title and text.
 
 ## Installation
 
