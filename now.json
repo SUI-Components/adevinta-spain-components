@@ -1,6 +1,6 @@
 {
-  "name": "schibsted-spain-react-components",
   "version": 2,
+  "name": "schibsted-spain-react-components",
   "public": true,
   "alias": "schibsted-spain-react-components",
   "build": {
