@@ -13,7 +13,7 @@
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",
-    "now:build": "npm run phoenix:ci && npm run build",
+    "now-build": "npm run phoenix:ci && npm run build",
     "phoenix": "sui-mono phoenix && (cd demo && sui-mono phoenix)",
     "phoenix:ci": "sui-mono phoenix --no-progress && (cd demo && sui-mono phoenix --no-progress)",
     "precommit": "sui-precommit run",
