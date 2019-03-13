@@ -3,8 +3,10 @@
   "version": 2,
   "public": true,
   "alias": "schibsted-spain-react-components",
-  "env": {
-    "NPM_TOKEN": "@npm-token"
+  "build": {
+    "env": {
+      "NPM_TOKEN": "@npm-token"
+    }
   },
   "builds": [
     {
