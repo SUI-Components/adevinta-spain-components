@@ -6,7 +6,7 @@
   "config": {
     "sui-mono": {
       "packagesFolder": ".",
-      "deepLevel": 3
+      "deepLevel": 2
     }
   }
 }

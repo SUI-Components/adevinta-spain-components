@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/mono": "1",
+    "@s-ui/mono": "beta",
     "@schibstedspain/cf-theme": "1",
     "@schibstedspain/fc-theme": "10",
     "@schibstedspain/ij-theme": "1",
