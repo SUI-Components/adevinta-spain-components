@@ -5,7 +5,7 @@
   "alias": "schibsted-spain-react-components",
   "build": {
     "env": {
-      "NPM_TOKEN": "@npm-token"
+      "NPM_TOKEN": "@npm_token"
     }
   },
   "builds": [
