@@ -1,0 +1,59 @@
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@schibstedspain/sui-atom-panel/lib/index';
+@import '~@schibstedspain/sui-tag-chip/lib/index';
+
+$bg-card-image-cover: rgba($c-black, .6) !default;
+$bg-card-image-cover-hover: rgba($c-black, .7) !default;
+$bg-card-image-cover-active: rgba($c-black, .8) !default;
+$c-card-image-cover: $c-white !default;
+$h-card-image-cover: 250px !default;
+$lh-card-image-cover: $lh-m !default;
+$p-card-image-cover:  $p-m !default;
+$fz-card-image-cover-text: $fz-s !default;
+$m-card-image-cover-text: 0 !default;
+$fz-card-image-cover-title: $fz-s !default;
+$fw-card-image-cover-title: $fw-bold !default;
+$m-card-image-cover-title: 0 !default;
+
+.sui-CardImageCover {
+  @include sui-card;
+  color: $c-card-image-cover;
+
+  &-inner {
+    background: $bg-card-image-cover;
+    display: flex;
+    flex-direction: column;
+    height: $h-card-image-cover;
+    justify-content: flex-end;
+    margin: 0;
+    padding: $p-card-image-cover;
+
+    &:hover {
+      background: $bg-card-image-cover-hover;
+      cursor: pointer;
+    }
+
+    &:active {
+      background: $bg-card-image-cover-active;
+    }
+  }
+
+  &-link {
+    color: $c-card-image-cover;
+    text-decoration: none;
+  }
+
+  &-title {
+    font-size: $fz-card-image-cover-title;
+    font-weight: $fw-card-image-cover-title;
+    line-height: $lh-card-image-cover;
+    margin: $m-card-image-cover-title;
+  }
+
+  &-text {
+    font-size: $fz-card-image-cover-text;
+    line-height: $lh-card-image-cover;
+    margin: $m-card-image-cover-text;
+  }
+}
