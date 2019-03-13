@@ -15,7 +15,7 @@
     "lint:sass": "sui-lint sass",
     "now-build": "npm run phoenix:ci && npm run build",
     "phoenix": "sui-mono phoenix && (cd demo && sui-mono phoenix)",
-    "phoenix:ci": "sui-mono phoenix --no-progress && (cd demo && sui-mono phoenix --no-progress)",
+    "phoenix:ci": "sui-mono run-parallel npm install && (cd demo && sui-mono run-parallel npm install --no-progress)",
     "precommit": "sui-precommit run",
     "release": "sui-studio release",
     "start": "sui-studio start",
