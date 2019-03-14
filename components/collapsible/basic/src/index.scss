@@ -19,10 +19,10 @@
     padding: $p-collapsible-basic-trigger;
 
     &-iconBox {
-      flex: 1;
       transition: $trs-collapsible-basic-trigger-icon;
 
       &-icon {
+        display: block;
         fill: $c-collapsible-basic-trigger-icon !important; // sass-lint:disable-line no-important
         height: $sz-collapsible-basic-trigger-icon;
         margin: auto $m-h-collapsible-basic-trigger-icon;
@@ -32,12 +32,12 @@
 
     &-label {
       color: $c-collapsible-basic;
-      flex: 1 1 100%;
+      flex: 1;
       font-size: $fz-l;
       font-weight: $fw-semi-bold;
       overflow: hidden;
       text-overflow: ellipsis;
-      white-space: nowrap;
+      white-space: $ws-collapsible-basic-trigger-label;
     }
   }
 

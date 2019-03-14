@@ -2,13 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.5.0"></a>
+# 2.5.0 (2019-03-13)
+
+
+### Features
+
+* fix collapsible-basic styles ([2238dc2](https://github.com/SUI-Components/schibsted-spain-components/commit/2238dc2))
+* set whitespace from variable ([b86e6ae](https://github.com/SUI-Components/schibsted-spain-components/commit/b86e6ae))
+
+
+
 <a name="2.4.0"></a>
 # 2.4.0 (2018-08-06)
 
 
 ### Features
 
-* added ternary instead a conditionall ([f907982](https://github.com/SUI-Components/sui-components/commit/f907982))
+* added ternary instead a conditionall ([f907982](https://github.com/SUI-Components/schibsted-spain-components/commit/f907982))
 
 
 
@@ -18,7 +29,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* added is clickable prop ([3ef14b9](https://github.com/SUI-Components/sui-components/commit/3ef14b9))
+* added is clickable prop ([3ef14b9](https://github.com/SUI-Components/schibsted-spain-components/commit/3ef14b9))
 
 
 
@@ -28,7 +39,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* do not show content scroll bar in IE/Edge if not needed. ([886aeed](https://github.com/SUI-Components/sui-components/commit/886aeed))
+* do not show content scroll bar in IE/Edge if not needed. ([886aeed](https://github.com/SUI-Components/schibsted-spain-components/commit/886aeed))
 
 
 
@@ -38,7 +49,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* allow animation speed customization in collapsible basic. ([79b8af5](https://github.com/SUI-Components/sui-components/commit/79b8af5))
+* allow animation speed customization in collapsible basic. ([79b8af5](https://github.com/SUI-Components/schibsted-spain-components/commit/79b8af5))
 
 
 
@@ -48,8 +59,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* update default icon sui-svgiconset ([d6616d5](https://github.com/SUI-Components/sui-components/commit/d6616d5))
-* use variable of theme-basic ([8ed49bf](https://github.com/SUI-Components/sui-components/commit/8ed49bf))
+* update default icon sui-svgiconset ([d6616d5](https://github.com/SUI-Components/schibsted-spain-components/commit/d6616d5))
+* use variable of theme-basic ([8ed49bf](https://github.com/SUI-Components/schibsted-spain-components/commit/8ed49bf))
 
 
 ### BREAKING CHANGES
@@ -64,7 +75,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* remove root-parent selector from collapsible basic. ([c4d93ac](https://github.com/SUI-Components/sui-components/commit/c4d93ac))
+* remove root-parent selector from collapsible basic. ([c4d93ac](https://github.com/SUI-Components/schibsted-spain-components/commit/c4d93ac))
 
 
 
@@ -74,7 +85,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add border-radius to collapsible basic ([8d5037f](https://github.com/SUI-Components/sui-components/commit/8d5037f))
+* add border-radius to collapsible basic ([8d5037f](https://github.com/SUI-Components/schibsted-spain-components/commit/8d5037f))
 
 
 
@@ -84,7 +95,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add ellipsis to collapsible label ([b64cf9e](https://github.com/SUI-Components/sui-components/commit/b64cf9e))
+* add ellipsis to collapsible label ([b64cf9e](https://github.com/SUI-Components/schibsted-spain-components/commit/b64cf9e))
 
 
 
@@ -94,8 +105,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* set icon animation as a variable ([d22b643](https://github.com/SUI-Components/sui-components/commit/d22b643))
-* set transition as variable ([91d95a1](https://github.com/SUI-Components/sui-components/commit/91d95a1))
+* set icon animation as a variable ([d22b643](https://github.com/SUI-Components/schibsted-spain-components/commit/d22b643))
+* set transition as variable ([91d95a1](https://github.com/SUI-Components/schibsted-spain-components/commit/91d95a1))
 
 
 
@@ -105,7 +116,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add icon size ([858caed](https://github.com/SUI-Components/sui-components/commit/858caed))
+* add icon size ([858caed](https://github.com/SUI-Components/schibsted-spain-components/commit/858caed))
 
 
 
@@ -115,8 +126,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add collapsible vars ([b2cb762](https://github.com/SUI-Components/sui-components/commit/b2cb762))
-* insert vars in settings file ([1261c9e](https://github.com/SUI-Components/sui-components/commit/1261c9e))
+* add collapsible vars ([b2cb762](https://github.com/SUI-Components/schibsted-spain-components/commit/b2cb762))
+* insert vars in settings file ([1261c9e](https://github.com/SUI-Components/schibsted-spain-components/commit/1261c9e))
 
 
 
@@ -126,7 +137,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([ca3c19c](https://github.com/SUI-Components/sui-components/commit/ca3c19c))
+* Bump version ([ca3c19c](https://github.com/SUI-Components/schibsted-spain-components/commit/ca3c19c))
 
 
 
@@ -136,7 +147,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* update this component to use in accordion collapsible component ([a017e59](https://github.com/SUI-Components/sui-components/commit/a017e59))
+* update this component to use in accordion collapsible component ([a017e59](https://github.com/SUI-Components/schibsted-spain-components/commit/a017e59))
 
 
 
@@ -146,7 +157,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* switch to s-ui/component-dependencies and sui-theme@8 ([e4cb549](https://github.com/SUI-Components/sui-components/commit/e4cb549))
+* switch to s-ui/component-dependencies and sui-theme@8 ([e4cb549](https://github.com/SUI-Components/schibsted-spain-components/commit/e4cb549))
 
 
 
@@ -156,9 +167,9 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* merge changes to resolve conflict with master. ([102d7e1](https://github.com/SUI-Components/sui-components/commit/102d7e1))
-* Migrate to PropTypes package ([1cf04ca](https://github.com/SUI-Components/sui-components/commit/1cf04ca))
-* remove default paddings. ([dfcaccf](https://github.com/SUI-Components/sui-components/commit/dfcaccf))
+* merge changes to resolve conflict with master. ([102d7e1](https://github.com/SUI-Components/schibsted-spain-components/commit/102d7e1))
+* Migrate to PropTypes package ([1cf04ca](https://github.com/SUI-Components/schibsted-spain-components/commit/1cf04ca))
+* remove default paddings. ([dfcaccf](https://github.com/SUI-Components/schibsted-spain-components/commit/dfcaccf))
 
 
 
@@ -168,7 +179,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* allow flex grow/shrink in label and trigger elements. ([92159de](https://github.com/SUI-Components/sui-components/commit/92159de))
+* allow flex grow/shrink in label and trigger elements. ([92159de](https://github.com/SUI-Components/schibsted-spain-components/commit/92159de))
 
 
 
@@ -178,8 +189,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* adapt var name to convention. ([3b778b8](https://github.com/SUI-Components/sui-components/commit/3b778b8))
-* use custom bgc when component is expanded ([c66343c](https://github.com/SUI-Components/sui-components/commit/c66343c))
+* adapt var name to convention. ([3b778b8](https://github.com/SUI-Components/schibsted-spain-components/commit/3b778b8))
+* use custom bgc when component is expanded ([c66343c](https://github.com/SUI-Components/schibsted-spain-components/commit/c66343c))
 
 
 
@@ -189,7 +200,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add border variable. ([6168c85](https://github.com/SUI-Components/sui-components/commit/6168c85))
+* add border variable. ([6168c85](https://github.com/SUI-Components/schibsted-spain-components/commit/6168c85))
 
 
 
@@ -199,7 +210,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* collapsible/expandible component. ([bcb1277](https://github.com/SUI-Components/sui-components/commit/bcb1277))
+* collapsible/expandible component. ([bcb1277](https://github.com/SUI-Components/schibsted-spain-components/commit/bcb1277))
 
 
 
