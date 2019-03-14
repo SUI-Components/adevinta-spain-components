@@ -15,7 +15,7 @@ $w-card-arrow-img: 150px !default;
   }
 
   &-img {
-    @include media-breakpoint-up(l) {
+    @include media-breakpoint-up(m) {
       display: block;
       width: $w-card-arrow-img;
     }
