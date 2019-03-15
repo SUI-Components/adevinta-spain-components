@@ -3,8 +3,14 @@ const data = {
     alt: "image alt",
     src: "https://s.ccdn.es/images/landing-seller-hero@2x.jpg"
   },
-  title: "¿Cómo conseguir los datos técnicos de un coche?",
-  text: "Todos los datos de coches nuevos y descatalogados en coches.net",
+  title: {
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    lines: 1
+  },
+  text: {
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    lines: 2
+  },
   url: "https://www.coches.net",
   tag: {
     url: 'http://www.coches.net/novedades/',

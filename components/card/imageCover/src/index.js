@@ -1,13 +1,14 @@
 /* eslint-disable react/prop-types */
 import AtomPanel from '@schibstedspain/sui-atom-panel'
 import React from 'react'
+import Dotdotdot from 'react-dotdotdot'
 import PropTypes from 'prop-types'
 import SuiTagChip from '@schibstedspain/sui-tag-chip'
 
 const CardImageCover = ({
   media,
-  title,
-  text,
+  title: {content: titleContent, lines: titleLines},
+  text: {content: textContent, lines: textLines},
   tag,
   tagChip: TagChip,
   linkFactory: Link,
@@ -37,11 +38,13 @@ const CardImageCover = ({
             </div>
           )}
           <h2 className={TITLE_CLASS}>
-            <Link href={url} title={title} className={LINK_CLASS}>
-              {title}
+            <Link href={url} title={titleContent} className={LINK_CLASS}>
+              <Dotdotdot clamp={titleLines}>{titleContent}</Dotdotdot>
             </Link>
           </h2>
-          <p className={TEXT_CLASS}>{text}</p>
+          <p className={TEXT_CLASS}>
+            <Dotdotdot clamp={textLines}>{textContent}</Dotdotdot>
+          </p>
         </div>
       </AtomPanel>
     </div>
@@ -75,11 +78,17 @@ CardImageCover.propTypes = {
   /**
    * Card title
    */
-  title: PropTypes.string.isRequired,
+  title: PropTypes.shape({
+    content: PropTypes.string.isRequired,
+    lines: PropTypes.number
+  }),
   /**
-   * Text text
+   * Card text
    */
-  text: PropTypes.string.isRequired,
+  text: PropTypes.shape({
+    content: PropTypes.string,
+    lines: PropTypes.number
+  }),
   /**
    * Tag object
    */
@@ -113,7 +122,13 @@ CardImageCover.propTypes = {
 
 CardImageCover.defaultProps = {
   tagChip: SuiTagChip,
-  linkFactory: ({children, ...rest}) => <a {...rest}>{children}</a>
+  linkFactory: ({children, ...rest}) => <a {...rest}>{children}</a>,
+  title: {
+    lines: 2
+  },
+  text: {
+    lines: 2
+  }
 }
 
 export default CardImageCover

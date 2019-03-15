@@ -41,6 +41,7 @@ $m-card-image-cover-title: 0 !default;
 
   &-link {
     color: $c-card-image-cover;
+    display: block;
     text-decoration: none;
   }
 
