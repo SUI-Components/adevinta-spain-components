@@ -50,7 +50,7 @@ const LayoutMediaQueryFactory = function(BREAKPOINTS) {
     }
 
     componentWillUnmount() {
-      this.containerResizeObserver.disconnect()
+      this.containerResizeObserver && this.containerResizeObserver.disconnect()
       this.containerResizeObserver = null
       window.removeEventListener('resize', this.handleResize)
     }
