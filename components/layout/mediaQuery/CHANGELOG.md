@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2019-03-18)
+
+
+### Bug Fixes
+
+* fix when component will destroy ([e39e1b4](https://github.com/SUI-Components/schibsted-spain-components/commit/e39e1b4))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2019-01-17)
 
