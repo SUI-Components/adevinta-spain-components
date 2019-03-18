@@ -27,7 +27,7 @@
   "license": "ISC",
   "devDependencies": {
     "@s-ui/precommit": "2",
-    "@s-ui/studio": "5",
+    "@s-ui/studio": "6",
     "babel-jest": "20.0.3",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
