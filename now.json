@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "name": "schibsted-spain-react-components",
+  "public": true,
+  "alias": "schibsted-spain-react-components",
+  "build": {
+    "env": {
+      "NPM_TOKEN": "@npm_token"
+    }
+  },
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": { "distDir": "public" }
+    }
+  ]
+}
