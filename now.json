@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "name": "schibsted-spain-react-components",
+  "name": "schibstedspain-react-components",
   "public": true,
-  "alias": "schibsted-spain-react-components",
+  "alias": "schibstedspain-react-components",
   "build": {
     "env": {
       "NPM_TOKEN": "@npm_token"
