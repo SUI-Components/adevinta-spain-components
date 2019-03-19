@@ -2,13 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="3.0.0"></a>
+# 3.0.0 (2019-03-19)
+
+
+### Features
+
+* update to react-slidy@4 and remove dynamicContent as is not longer needed ([320a0df](https://github.com/SUI-Components/schibsted-spain-components/commit/320a0df))
+
+
+### BREAKING CHANGES
+
+* Remove dynamicContent prop and remove classes from react-slidy
+
+
+
 <a name="2.6.0"></a>
 # 2.6.0 (2018-08-14)
 
 
 ### Bug Fixes
 
-* fix initial slide counter ([2001658](https://github.com/SUI-Components/sui-components/commit/2001658))
+* fix initial slide counter ([2001658](https://github.com/SUI-Components/schibsted-spain-components/commit/2001658))
 
 
 
@@ -18,12 +33,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix default prop to be backwards compatible ([1894abd](https://github.com/SUI-Components/sui-components/commit/1894abd))
+* fix default prop to be backwards compatible ([1894abd](https://github.com/SUI-Components/schibsted-spain-components/commit/1894abd))
 
 
 ### Features
 
-* suppor title attribute and some refactor ([b89bd74](https://github.com/SUI-Components/sui-components/commit/b89bd74))
+* suppor title attribute and some refactor ([b89bd74](https://github.com/SUI-Components/schibsted-spain-components/commit/b89bd74))
 
 
 
@@ -33,7 +48,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* prepare component for sui-theme change ([53fece5](https://github.com/SUI-Components/sui-components/commit/53fece5))
+* prepare component for sui-theme change ([53fece5](https://github.com/SUI-Components/schibsted-spain-components/commit/53fece5))
 
 
 
@@ -43,9 +58,9 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add bottomCenter and counterPatternFactory options. ([116b53f](https://github.com/SUI-Components/sui-components/commit/116b53f))
-* add image counter ([bbd209e](https://github.com/SUI-Components/sui-components/commit/bbd209e))
-* load icon as dependency. ([870d5c2](https://github.com/SUI-Components/sui-components/commit/870d5c2))
+* add bottomCenter and counterPatternFactory options. ([116b53f](https://github.com/SUI-Components/schibsted-spain-components/commit/116b53f))
+* add image counter ([bbd209e](https://github.com/SUI-Components/schibsted-spain-components/commit/bbd209e))
+* load icon as dependency. ([870d5c2](https://github.com/SUI-Components/schibsted-spain-components/commit/870d5c2))
 
 
 
@@ -55,12 +70,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* add max width to make a single image not displayed with react-slidy to be adapted ([b0a0730](https://github.com/SUI-Components/sui-components/commit/b0a0730))
+* add max width to make a single image not displayed with react-slidy to be adapted ([b0a0730](https://github.com/SUI-Components/schibsted-spain-components/commit/b0a0730))
 
 
 ### Features
 
-* add link to image ([3beb320](https://github.com/SUI-Components/sui-components/commit/3beb320))
+* add link to image ([3beb320](https://github.com/SUI-Components/schibsted-spain-components/commit/3beb320))
 
 
 
@@ -70,7 +85,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add dynamicContent flag so that component can be properly updated. ([861a3e4](https://github.com/SUI-Components/sui-components/commit/861a3e4))
+* add dynamicContent flag so that component can be properly updated. ([861a3e4](https://github.com/SUI-Components/schibsted-spain-components/commit/861a3e4))
 
 
 
@@ -80,10 +95,10 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* allow customising slider props: lazyLoadSlider and initialSlide. ([5d16325](https://github.com/SUI-Components/sui-components/commit/5d16325))
-* change react-slidy version. ([407975b](https://github.com/SUI-Components/sui-components/commit/407975b))
-* modify again version of react-slidy to generate a major version. ([dda2dad](https://github.com/SUI-Components/sui-components/commit/dda2dad))
-* upgrade version of react-slidy (1.2 -> 3). ([525bf04](https://github.com/SUI-Components/sui-components/commit/525bf04))
+* allow customising slider props: lazyLoadSlider and initialSlide. ([5d16325](https://github.com/SUI-Components/schibsted-spain-components/commit/5d16325))
+* change react-slidy version. ([407975b](https://github.com/SUI-Components/schibsted-spain-components/commit/407975b))
+* modify again version of react-slidy to generate a major version. ([dda2dad](https://github.com/SUI-Components/schibsted-spain-components/commit/dda2dad))
+* upgrade version of react-slidy (1.2 -> 3). ([525bf04](https://github.com/SUI-Components/schibsted-spain-components/commit/525bf04))
 
 
 ### BREAKING CHANGES
@@ -100,7 +115,7 @@ component, generating a major version is required.
 
 ### Features
 
-* Bump version ([3a831d2](https://github.com/SUI-Components/sui-components/commit/3a831d2))
+* Bump version ([3a831d2](https://github.com/SUI-Components/schibsted-spain-components/commit/3a831d2))
 
 
 
@@ -110,8 +125,8 @@ component, generating a major version is required.
 
 ### Features
 
-* migrate to PropTypes package ([0672e46](https://github.com/SUI-Components/sui-components/commit/0672e46))
-* switch to s-ui/component-dependencies and sui-theme@8 ([1bd0c03](https://github.com/SUI-Components/sui-components/commit/1bd0c03))
+* migrate to PropTypes package ([0672e46](https://github.com/SUI-Components/schibsted-spain-components/commit/0672e46))
+* switch to s-ui/component-dependencies and sui-theme@8 ([1bd0c03](https://github.com/SUI-Components/schibsted-spain-components/commit/1bd0c03))
 
 
 
@@ -121,15 +136,15 @@ component, generating a major version is required.
 
 ### Features
 
-* ignore public dir when linting. Fix code style. ([b8099fe](https://github.com/SUI-Components/sui-components/commit/b8099fe))
-* remove sui-multimedia dependency. Fix comments. ([8e7d4ec](https://github.com/SUI-Components/sui-components/commit/8e7d4ec))
-* remove sui-multimedia usage ([495176f](https://github.com/SUI-Components/sui-components/commit/495176f))
-* remove unused param and add comment. ([8e0ce24](https://github.com/SUI-Components/sui-components/commit/8e0ce24))
-* removing unused lazyload flag ([5be76b7](https://github.com/SUI-Components/sui-components/commit/5be76b7))
-* rename function to handleClick ([ef2bffb](https://github.com/SUI-Components/sui-components/commit/ef2bffb))
-* set package access to public when publishing. ([f35263c](https://github.com/SUI-Components/sui-components/commit/f35263c))
-* show nothing when image list is empty or null. ([b4a8a4a](https://github.com/SUI-Components/sui-components/commit/b4a8a4a))
-* simple gallery using sui-multimedia and react-slidy ([e54b612](https://github.com/SUI-Components/sui-components/commit/e54b612))
+* ignore public dir when linting. Fix code style. ([b8099fe](https://github.com/SUI-Components/schibsted-spain-components/commit/b8099fe))
+* remove sui-multimedia dependency. Fix comments. ([8e7d4ec](https://github.com/SUI-Components/schibsted-spain-components/commit/8e7d4ec))
+* remove sui-multimedia usage ([495176f](https://github.com/SUI-Components/schibsted-spain-components/commit/495176f))
+* remove unused param and add comment. ([8e0ce24](https://github.com/SUI-Components/schibsted-spain-components/commit/8e0ce24))
+* removing unused lazyload flag ([5be76b7](https://github.com/SUI-Components/schibsted-spain-components/commit/5be76b7))
+* rename function to handleClick ([ef2bffb](https://github.com/SUI-Components/schibsted-spain-components/commit/ef2bffb))
+* set package access to public when publishing. ([f35263c](https://github.com/SUI-Components/schibsted-spain-components/commit/f35263c))
+* show nothing when image list is empty or null. ([b4a8a4a](https://github.com/SUI-Components/schibsted-spain-components/commit/b4a8a4a))
+* simple gallery using sui-multimedia and react-slidy ([e54b612](https://github.com/SUI-Components/schibsted-spain-components/commit/e54b612))
 
 
 
