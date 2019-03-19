@@ -29,13 +29,7 @@ class ImageSlider extends Component {
   }
 
   render() {
-    const {
-      dynamicContent,
-      enableCounter,
-      handleClick,
-      images,
-      linkFactory
-    } = this.props
+    const {enableCounter, handleClick, images, linkFactory} = this.props
 
     const slides = this._getSlides(images, linkFactory)
 
@@ -43,12 +37,7 @@ class ImageSlider extends Component {
       slides.length > 0 && (
         <div onClick={handleClick} className="sui-ImageSlider">
           {slides.length > 1 ? (
-            <ReactSlidy
-              {...this._sliderOptions}
-              dynamicContent={dynamicContent}
-            >
-              {slides}
-            </ReactSlidy>
+            <ReactSlidy {...this._sliderOptions}>{slides}</ReactSlidy>
           ) : (
             slides
           )}
@@ -120,7 +109,6 @@ class ImageSlider extends Component {
 }
 
 ImageSlider.propTypes = {
-  dynamicContent: PropTypes.bool,
   /**
    * List of objects with src and alt properties.
    */
@@ -180,13 +168,6 @@ ImageSlider.defaultProps = {
    * If not set, react-slidy will be created with its default properties.
    */
   sliderOptions: {},
-  /**
-   * Whether to enable react-slidy to receive new props and change its content or not.
-   * If you want to set it to true, you also need to set a unique key for every image given over component updates.
-   * It means that if the initial images has keys a and b, when you want to update the component with new content,
-   * new images should have keys c and d... never a or b. Otherwise, images with the same key will not be updated.
-   */
-  dynamicContent: false,
   /**
    * Link component factory.
    */
