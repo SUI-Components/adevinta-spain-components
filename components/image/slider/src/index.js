@@ -117,9 +117,7 @@ ImageSlider.propTypes = {
       src: PropTypes.string.isRequired,
       alt: PropTypes.string,
       /**
-       * When dynamicContent is set to true, you need to set this key with a unique value for all the groups of images.
-       * When dynamicContent is set to false, you can ommit this field.
-       * @see dynamicContent code comment for more info.
+       * If you want to change images dynamically, you should change this key when chaning items of the slider
        */
       key: PropTypes.string,
       link: PropTypes.string,
@@ -134,6 +132,7 @@ ImageSlider.propTypes = {
    * Custom configuration options to pass to react-slidy component.
    */
   sliderOptions: PropTypes.shape({
+    classNameArrows: PropTypes.string,
     lazyLoadSlider: PropTypes.bool,
     initialSlide: PropTypes.number
   }),
