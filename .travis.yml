@@ -7,6 +7,7 @@ node_js:
 before_install:
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 install:
+  - npm install
   - npm run phoenix:ci 1>/dev/null
 
 jobs:
