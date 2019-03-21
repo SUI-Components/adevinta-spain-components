@@ -5,7 +5,6 @@
   "private": true,
   "scripts": {
     "build": "sui-studio build",
-    "check:release": "sui-studio check-release",
     "co": "sui-studio commit",
     "commitmsg": "validate-commit-msg",
     "dev": "sui-studio dev",
@@ -17,7 +16,6 @@
     "phoenix": "sui-mono phoenix && (cd demo && sui-mono phoenix)",
     "phoenix:ci": "sui-mono run-parallel npm install && (cd demo && sui-mono run-parallel npm install --no-progress)",
     "precommit": "sui-precommit run",
-    "release": "sui-studio release",
     "start": "sui-studio start",
     "test": "jest"
   },

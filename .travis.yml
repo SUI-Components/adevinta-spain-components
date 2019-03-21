@@ -1,0 +1,23 @@
+dist: xenial
+
+sudo: false
+language: node_js
+node_js:
+  - '10'
+before_install:
+  - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+install:
+  - npm run phoenix:ci -- --no-progress
+
+jobs:
+  include:
+    - stage: Checks and release
+      script: npm run lint
+      script: npm run test
+      if: branch = master AND NOT type = pull_request
+      script: sh .travis-release.sh
+    - stage: Build & Deploy
+      script:
+        - npm install now
+        - npm run build
+        - now && now alias
