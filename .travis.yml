@@ -21,4 +21,4 @@ jobs:
       script:
         - npm install now
         - npm run build
-        - now && now alias
+        - now -t $NOW_TOKEN && now alias -t $NOW_TOKEN
