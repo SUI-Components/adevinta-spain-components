@@ -1,11 +1,15 @@
 dist: xenial
 
 sudo: false
+
 language: node_js
+
 node_js:
-  - '10'
+  - '11'
+
 before_install:
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+
 install:
   - npm install
   - npm run phoenix:ci 1>/dev/null
@@ -21,4 +25,4 @@ jobs:
       script:
         - npm install now -g
         - npm run build
-        - cd static && now -t $NOW_TOKEN && now alias -t $NOW_TOKEN
+        - now ./public -t $NOW_TOKEN && now alias -t $NOW_TOKEN
