@@ -19,6 +19,6 @@ jobs:
       script: sh .travis-release.sh
     - stage: Build & Deploy
       script:
-        - npm install now
+        - npm install now -g
         - npm run build
-        - now -t $NOW_TOKEN && now alias -t $NOW_TOKEN
+        - cd static && now -t $NOW_TOKEN && now alias -t $NOW_TOKEN
