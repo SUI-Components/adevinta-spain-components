@@ -25,4 +25,4 @@ jobs:
       script:
         - npm install now -g
         - npm run build
-        - now ./public -t $NOW_TOKEN && now alias -t $NOW_TOKEN
+        - now ./public -t $NOW_TOKEN && now --target production $NOW_TOKEN
