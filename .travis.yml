@@ -16,14 +16,16 @@ install:
 
 jobs:
   include:
-    - stage: Checks and release
+    - stage: Checks
       script: npm run lint
       script: npm run test
+    - stage: Release
       if: branch = master AND NOT type = pull_request
       script: sh .travis-release.sh
     - stage: Build & Deploy
-      script: npm install now@14 -g
-      script: npm run build
+      script:
+        - npm install now@14 -g
+        - npm run build
       if: branch = master AND NOT type = pull_request
       script: now ./public -t $NOW_TOKEN --target production
       if: type = pull_request
