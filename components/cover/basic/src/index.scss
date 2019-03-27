@@ -12,9 +12,10 @@ $c-cover-basic-children: $c-white !default;
 $op-cover-basic-gradient-after: .35 !default;
 $sz-cover-basic-button-icon: $sz-icon-s !default;
 $c-cover-basic-button-icon: $c-primary !default;
-$bgsz-cover-basic-bgImage: cover !default;
-$bgp-cover-basic-bgImage: center !default;
-$bgr-cover-basic-bgImage: initial !default;
+$bgsz-cover-basic-bgImage: cover !default; // sass-lint:disable-line variable-name-format
+
+$bgp-cover-basic-bgImage: center !default; // sass-lint:disable-line variable-name-format
+$bgr-cover-basic-bgImage: initial !default; // sass-lint:disable-line variable-name-format
 $bgc-cover-basic-button: rgba(255, 255, 255, .75) !default;
 $bdrs-cover-basic-button: $bdrs-base !default;
 $z-cover-basic-children: 1 !default;
@@ -56,9 +57,9 @@ $z-cover-basic-button-list: 1 !default;
   }
 
   &--bgImage {
-    background-size: $bgsz-cover-basic-bgImage;
-    background-position: $bgp-cover-basic-bgImage;
-    background-repeat: $bgr-cover-basic-bgImage;
+    background-position: $bgp-cover-basic-bgImage; // sass-lint:disable-line variable-name-format
+    background-repeat: $bgr-cover-basic-bgImage; // sass-lint:disable-line variable-name-format
+    background-size: $bgsz-cover-basic-bgImage; // sass-lint:disable-line variable-name-format
     width: 100%;
   }
 
