@@ -23,7 +23,7 @@ jobs:
       if: branch = master AND NOT type = pull_request
       script: sh .travis-release.sh
     - stage: Build & Deploy
-      if: branch = master AND NOT type = pull_request
+      if: branch = master AND type = pull_request
       script:
         - npm install now@14 -g
         - npm run build
