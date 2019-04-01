@@ -13,26 +13,23 @@ before_install:
 install:
   - npm install
   - npm run phoenix:ci 1>/dev/null
+  - npm run lint
+  - npm run test
 
 jobs:
   include:
-    - stage: Checks
-      script: npm run lint
-      script: npm run test
-    - stage: Release
-      if: branch = master AND NOT type = pull_request
-      script: sh .travis-release.sh
-    - stage: Build & Deploy
+    - stage: Deploy
       if: branch = master AND type = pull_request
       script:
         - npm install now@14 -g
         - npm run build
         - cp now.json ./public/now.json
         - now ./public -t $NOW_TOKEN
-    - stage: Build & Deploy
+    - stage: Deploy
       if: branch = master AND NOT type = pull_request
       script:
         - npm install now@14 -g
         - npm run build
         - cp now.json ./public/now.json
         - now ./public -t $NOW_TOKEN --target production
+        - sh .travis-release.sh
