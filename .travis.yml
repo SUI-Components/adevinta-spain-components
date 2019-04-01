@@ -27,10 +27,12 @@ jobs:
       script:
         - npm install now@14 -g
         - npm run build
+        - cp now.json ./public/now.json
         - now ./public -t $NOW_TOKEN
     - stage: Build & Deploy
       if: branch = master AND NOT type = pull_request
       script:
         - npm install now@14 -g
         - npm run build
+        - cp now.json ./public/now.json
         - now ./public -t $NOW_TOKEN --target production
