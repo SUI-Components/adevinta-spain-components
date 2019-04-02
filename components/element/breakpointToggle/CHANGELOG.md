@@ -2,13 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([79ea4d2](https://github.com/SUI-Components/schibsted-spain-components/commit/79ea4d2))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2018-03-07)
 
 
 ### Performance Improvements
 
-* remove useless scss ([a1fdaf9](https://github.com/SUI-Components/sui-components/commit/a1fdaf9))
+* remove useless scss ([a1fdaf9](https://github.com/SUI-Components/schibsted-spain-components/commit/a1fdaf9))
 
 
 
@@ -18,8 +28,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add inverse mode to breackpoint toggle ([33ef42c](https://github.com/SUI-Components/sui-components/commit/33ef42c))
-* change variable type ([c850236](https://github.com/SUI-Components/sui-components/commit/c850236))
+* add inverse mode to breackpoint toggle ([33ef42c](https://github.com/SUI-Components/schibsted-spain-components/commit/33ef42c))
+* change variable type ([c850236](https://github.com/SUI-Components/schibsted-spain-components/commit/c850236))
 
 
 
@@ -29,8 +39,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* rename components ([21a0f6b](https://github.com/SUI-Components/sui-components/commit/21a0f6b))
-* update variable type ([b3d1f3f](https://github.com/SUI-Components/sui-components/commit/b3d1f3f))
+* rename components ([21a0f6b](https://github.com/SUI-Components/schibsted-spain-components/commit/21a0f6b))
+* update variable type ([b3d1f3f](https://github.com/SUI-Components/schibsted-spain-components/commit/b3d1f3f))
 
 
 
