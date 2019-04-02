@@ -2,13 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([67f7be7](https://github.com/SUI-Components/schibsted-spain-components/commit/67f7be7))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2018-02-22)
 
 
 ### Features
 
-* reset mobile max-width ([606b869](https://github.com/SUI-Components/sui-components/commit/606b869))
+* reset mobile max-width ([606b869](https://github.com/SUI-Components/schibsted-spain-components/commit/606b869))
 
 
 
@@ -18,15 +28,15 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix typo ([fe16181](https://github.com/SUI-Components/sui-components/commit/fe16181))
+* fix typo ([fe16181](https://github.com/SUI-Components/schibsted-spain-components/commit/fe16181))
 
 
 ### Features
 
-* adds a conditional title based on its prop declaration ([bca798a](https://github.com/SUI-Components/sui-components/commit/bca798a))
-* avoid returning empty h3 tag when empty string is provided ([3126636](https://github.com/SUI-Components/sui-components/commit/3126636))
-* improved playground and doc ([7ba871a](https://github.com/SUI-Components/sui-components/commit/7ba871a))
-* simplified truthy eval for title ([6cefba4](https://github.com/SUI-Components/sui-components/commit/6cefba4))
+* adds a conditional title based on its prop declaration ([bca798a](https://github.com/SUI-Components/schibsted-spain-components/commit/bca798a))
+* avoid returning empty h3 tag when empty string is provided ([3126636](https://github.com/SUI-Components/schibsted-spain-components/commit/3126636))
+* improved playground and doc ([7ba871a](https://github.com/SUI-Components/schibsted-spain-components/commit/7ba871a))
+* simplified truthy eval for title ([6cefba4](https://github.com/SUI-Components/schibsted-spain-components/commit/6cefba4))
 
 
 
@@ -36,7 +46,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* adds flex-basis property to section tag ([25fab0a](https://github.com/SUI-Components/sui-components/commit/25fab0a))
+* adds flex-basis property to section tag ([25fab0a](https://github.com/SUI-Components/schibsted-spain-components/commit/25fab0a))
 
 
 
@@ -46,7 +56,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* adds some sass vars to better style layout ([85ff8b7](https://github.com/SUI-Components/sui-components/commit/85ff8b7))
+* adds some sass vars to better style layout ([85ff8b7](https://github.com/SUI-Components/schibsted-spain-components/commit/85ff8b7))
 
 
 
@@ -56,7 +66,22 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* adds custom Sass vars to provide better layout flexibility ([7aff696](https://github.com/SUI-Components/sui-components/commit/7aff696))
+* adds custom Sass vars to provide better layout flexibility ([7aff696](https://github.com/SUI-Components/schibsted-spain-components/commit/7aff696))
+
+
+
+<a name="1.1.0"></a>
+# 1.1.0 (2017-11-30)
+
+
+### Bug Fixes
+
+* adds some fixes based on PR review ([0f8de5c](https://github.com/SUI-Components/schibsted-spain-components/commit/0f8de5c))
+
+
+### Features
+
+* adds a new section info component ([80da9f7](https://github.com/SUI-Components/schibsted-spain-components/commit/80da9f7))
 
 
 
