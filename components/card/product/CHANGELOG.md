@@ -2,13 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([bcc7879](https://github.com/SUI-Components/schibsted-spain-components/commit/bcc7879))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2018-01-05)
 
 
 ### Bug Fixes
 
-* modify svg icon component name ([aaed933](https://github.com/SUI-Components/sui-components/commit/aaed933))
+* modify svg icon component name ([aaed933](https://github.com/SUI-Components/schibsted-spain-components/commit/aaed933))
 
 
 
@@ -18,7 +28,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([caec139](https://github.com/SUI-Components/sui-components/commit/caec139))
+* Bump version ([caec139](https://github.com/SUI-Components/schibsted-spain-components/commit/caec139))
 
 
 
@@ -28,7 +38,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix build ([7a93c78](https://github.com/SUI-Components/sui-components/commit/7a93c78))
+* fix build ([7a93c78](https://github.com/SUI-Components/schibsted-spain-components/commit/7a93c78))
 
 
 
@@ -38,8 +48,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Migrate to PropTypes package ([617ab14](https://github.com/SUI-Components/sui-components/commit/617ab14))
-* switch to s-ui/component-dependencies and sui-theme@8 ([c0c4fb8](https://github.com/SUI-Components/sui-components/commit/c0c4fb8))
+* Migrate to PropTypes package ([617ab14](https://github.com/SUI-Components/schibsted-spain-components/commit/617ab14))
+* switch to s-ui/component-dependencies and sui-theme@8 ([c0c4fb8](https://github.com/SUI-Components/schibsted-spain-components/commit/c0c4fb8))
 
 
 
@@ -49,23 +59,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fixed package name ([ddbcfaf](https://github.com/SUI-Components/sui-components/commit/ddbcfaf))
-
-
-
-<a name="1.2.0"></a>
-# 1.2.0 (2017-02-16)
-
-
-### Bug Fixes
-
-* fixed babel transformation build error ([d284bbb](https://github.com/SUI-Components/sui-components/commit/d284bbb))
-* switched to refs instead of query selectors in swiper library ([980a458](https://github.com/SUI-Components/sui-components/commit/980a458))
-
-
-### Features
-
-* added card product component ([b190ae8](https://github.com/SUI-Components/sui-components/commit/b190ae8))
+* fixed package name ([ddbcfaf](https://github.com/SUI-Components/schibsted-spain-components/commit/ddbcfaf))
 
 
 
