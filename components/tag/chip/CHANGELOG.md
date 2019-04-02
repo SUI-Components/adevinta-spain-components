@@ -2,14 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([6c182ef](https://github.com/SUI-Components/schibsted-spain-components/commit/6c182ef))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2018-05-23)
 
 
 ### Bug Fixes
 
-* fix sass variables ([b5d99c8](https://github.com/SUI-Components/sui-components/commit/b5d99c8))
-* removed package-lock.json ([2f31461](https://github.com/SUI-Components/sui-components/commit/2f31461))
+* fix sass variables ([b5d99c8](https://github.com/SUI-Components/schibsted-spain-components/commit/b5d99c8))
+* removed package-lock.json ([2f31461](https://github.com/SUI-Components/schibsted-spain-components/commit/2f31461))
 
 
 
@@ -19,7 +29,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([96c0005](https://github.com/SUI-Components/sui-components/commit/96c0005))
+* Bump version ([96c0005](https://github.com/SUI-Components/schibsted-spain-components/commit/96c0005))
 
 
 
@@ -29,7 +39,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add new prop to tagchip ([24f2e9c](https://github.com/SUI-Components/sui-components/commit/24f2e9c))
+* add new prop to tagchip ([24f2e9c](https://github.com/SUI-Components/schibsted-spain-components/commit/24f2e9c))
 
 
 
@@ -39,8 +49,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* migrate to PropTypes package ([70c713c](https://github.com/SUI-Components/sui-components/commit/70c713c))
-* switch to s-ui/component-dependencies and sui-theme@8 ([af3c8d4](https://github.com/SUI-Components/sui-components/commit/af3c8d4))
+* migrate to PropTypes package ([70c713c](https://github.com/SUI-Components/schibsted-spain-components/commit/70c713c))
+* switch to s-ui/component-dependencies and sui-theme@8 ([af3c8d4](https://github.com/SUI-Components/schibsted-spain-components/commit/af3c8d4))
 
 
 
@@ -50,7 +60,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* modify label proptype in sui-tag-chip to support "node" property. ([4891a68](https://github.com/SUI-Components/sui-components/commit/4891a68))
+* modify label proptype in sui-tag-chip to support "node" property. ([4891a68](https://github.com/SUI-Components/schibsted-spain-components/commit/4891a68))
 
 
 
@@ -60,7 +70,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* define the linkFactory prop ([d12faac](https://github.com/SUI-Components/sui-components/commit/d12faac))
+* define the linkFactory prop ([d12faac](https://github.com/SUI-Components/schibsted-spain-components/commit/d12faac))
 
 
 
@@ -70,7 +80,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* get className via prop ([f1c26fd](https://github.com/SUI-Components/sui-components/commit/f1c26fd))
+* get className via prop ([f1c26fd](https://github.com/SUI-Components/schibsted-spain-components/commit/f1c26fd))
 
 
 
@@ -80,7 +90,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* add publish to postversion task in package.json ([2c99f54](https://github.com/SUI-Components/sui-components/commit/2c99f54))
+* add publish to postversion task in package.json ([2c99f54](https://github.com/SUI-Components/schibsted-spain-components/commit/2c99f54))
 
 
 
@@ -90,16 +100,16 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix icon component import ([eebfcfe](https://github.com/SUI-Components/sui-components/commit/eebfcfe))
-* fix link behaviour ([4dafc96](https://github.com/SUI-Components/sui-components/commit/4dafc96))
-* fix package name ([e112ba2](https://github.com/SUI-Components/sui-components/commit/e112ba2))
+* fix icon component import ([eebfcfe](https://github.com/SUI-Components/schibsted-spain-components/commit/eebfcfe))
+* fix link behaviour ([4dafc96](https://github.com/SUI-Components/schibsted-spain-components/commit/4dafc96))
+* fix package name ([e112ba2](https://github.com/SUI-Components/schibsted-spain-components/commit/e112ba2))
 
 
 ### Features
 
-* add preventDefaultHandler event manager ([ba6a245](https://github.com/SUI-Components/sui-components/commit/ba6a245))
-* clasname function ([f2b9e95](https://github.com/SUI-Components/sui-components/commit/f2b9e95))
-* generic tag component ([c1b25c9](https://github.com/SUI-Components/sui-components/commit/c1b25c9))
+* add preventDefaultHandler event manager ([ba6a245](https://github.com/SUI-Components/schibsted-spain-components/commit/ba6a245))
+* clasname function ([f2b9e95](https://github.com/SUI-Components/schibsted-spain-components/commit/f2b9e95))
+* generic tag component ([c1b25c9](https://github.com/SUI-Components/schibsted-spain-components/commit/c1b25c9))
 
 
 
