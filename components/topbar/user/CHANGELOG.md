@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.29.0"></a>
+# 1.29.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([adc2719](https://github.com/SUI-Components/schibsted-spain-components/commit/adc2719))
+
+
+
 <a name="1.28.0"></a>
 # 1.28.0 (2018-10-30)
 
@@ -248,16 +258,6 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * set a max width ([abde18e](https://github.com/SUI-Components/schibsted-spain-components/commit/abde18e))
-
-
-
-<a name="1.4.0"></a>
-# 1.4.0 (2017-01-26)
-
-
-### Bug Fixes
-
-* adjusting colors and breakpoints ([eab1ff9](https://github.com/SUI-Components/schibsted-spain-components/commit/eab1ff9))
 
 
 
