@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([3be6090](https://github.com/SUI-Components/schibsted-spain-components/commit/3be6090))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2019-02-21)
 
@@ -29,6 +39,16 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * Bump version ([377b0c6](https://github.com/SUI-Components/schibsted-spain-components/commit/377b0c6))
+
+
+
+<a name="1.2.0"></a>
+# 1.2.0 (2017-10-19)
+
+
+### Features
+
+* create new sui-link-basic ([6c8a7c3](https://github.com/SUI-Components/schibsted-spain-components/commit/6c8a7c3))
 
 
 
