@@ -2,13 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.12.0"></a>
+# 1.12.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([4dead88](https://github.com/SUI-Components/schibsted-spain-components/commit/4dead88))
+
+
+
 <a name="1.11.0"></a>
 # 1.11.0 (2017-11-15)
 
 
 ### Bug Fixes
 
-* use only the major version of [@schibstedspain](https://github.com/schibstedspain)/sui-image-lazy-load ([c0d657c](https://github.com/SUI-Components/sui-components/commit/c0d657c))
+* use only the major version of [@schibstedspain](https://github.com/schibstedspain)/sui-image-lazy-load ([c0d657c](https://github.com/SUI-Components/schibsted-spain-components/commit/c0d657c))
 
 
 
@@ -18,7 +28,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* update react-lazy-load import in index.js ([c585e01](https://github.com/SUI-Components/sui-components/commit/c585e01))
+* update react-lazy-load import in index.js ([c585e01](https://github.com/SUI-Components/schibsted-spain-components/commit/c585e01))
 
 
 
@@ -28,7 +38,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* change dep from react-lazy-load to [@schibstedspain](https://github.com/schibstedspain)/react-lazy-load ([a9755c8](https://github.com/SUI-Components/sui-components/commit/a9755c8))
+* change dep from react-lazy-load to [@schibstedspain](https://github.com/schibstedspain)/react-lazy-load ([a9755c8](https://github.com/SUI-Components/schibsted-spain-components/commit/a9755c8))
 
 
 
@@ -38,7 +48,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* bump react-lazy-load@3.0.12 ([f679728](https://github.com/SUI-Components/sui-components/commit/f679728))
+* bump react-lazy-load@3.0.12 ([f679728](https://github.com/SUI-Components/schibsted-spain-components/commit/f679728))
 
 
 
@@ -48,7 +58,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix wrong package script using lib ([96f8f5c](https://github.com/SUI-Components/sui-components/commit/96f8f5c))
+* fix wrong package script using lib ([96f8f5c](https://github.com/SUI-Components/schibsted-spain-components/commit/96f8f5c))
 
 
 
@@ -58,7 +68,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([ca37ee7](https://github.com/SUI-Components/sui-components/commit/ca37ee7))
+* Bump version ([ca37ee7](https://github.com/SUI-Components/schibsted-spain-components/commit/ca37ee7))
 
 
 
@@ -68,8 +78,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* migrate to PropTypes package ([2e90070](https://github.com/SUI-Components/sui-components/commit/2e90070))
-* switch to s-ui/component-dependencies and sui-theme@8 ([a9df35c](https://github.com/SUI-Components/sui-components/commit/a9df35c))
+* migrate to PropTypes package ([2e90070](https://github.com/SUI-Components/schibsted-spain-components/commit/2e90070))
+* switch to s-ui/component-dependencies and sui-theme@8 ([a9df35c](https://github.com/SUI-Components/schibsted-spain-components/commit/a9df35c))
 
 
 
@@ -79,7 +89,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fixed Sass map format ([c0b1d9a](https://github.com/SUI-Components/sui-components/commit/c0b1d9a))
+* fixed Sass map format ([c0b1d9a](https://github.com/SUI-Components/schibsted-spain-components/commit/c0b1d9a))
 
 
 
@@ -89,7 +99,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* duplicate aspect ratios config for sass and js code ([9a88141](https://github.com/SUI-Components/sui-components/commit/9a88141))
+* duplicate aspect ratios config for sass and js code ([9a88141](https://github.com/SUI-Components/schibsted-spain-components/commit/9a88141))
 
 
 
@@ -99,7 +109,19 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix copy script & added optional prop type ([190637c](https://github.com/SUI-Components/sui-components/commit/190637c))
+* fix copy script & added optional prop type ([190637c](https://github.com/SUI-Components/schibsted-spain-components/commit/190637c))
+
+
+
+<a name="1.1.0"></a>
+# 1.1.0 (2017-03-09)
+
+
+### Features
+
+* add new spinner ([17f1c57](https://github.com/SUI-Components/schibsted-spain-components/commit/17f1c57))
+* first commit ([2e85878](https://github.com/SUI-Components/schibsted-spain-components/commit/2e85878))
+* modify spinner dependency ([b6aeb60](https://github.com/SUI-Components/schibsted-spain-components/commit/b6aeb60))
 
 
 
