@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.6.0"></a>
+# 2.6.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([45fbcc0](https://github.com/SUI-Components/schibsted-spain-components/commit/45fbcc0))
+
+
+
 <a name="2.5.0"></a>
 # 2.5.0 (2019-03-13)
 
@@ -201,16 +211,6 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * add border variable. ([6168c85](https://github.com/SUI-Components/schibsted-spain-components/commit/6168c85))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-09-12)
-
-
-### Features
-
-* collapsible/expandible component. ([bcb1277](https://github.com/SUI-Components/schibsted-spain-components/commit/bcb1277))
 
 
 
