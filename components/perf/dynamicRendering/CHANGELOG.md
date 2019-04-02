@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([9c30443](https://github.com/SUI-Components/schibsted-spain-components/commit/9c30443))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2019-02-22)
 
