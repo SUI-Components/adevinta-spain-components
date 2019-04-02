@@ -30,6 +30,9 @@ CardComposable.propTypes = {
    * Add custom className to the component
    */
   className: PropTypes.string,
+  /**
+   * Determine if the content should come first
+   */
   contentFirst: PropTypes.bool,
   landscapeLayout: PropTypes.bool,
   primary: PropTypes.any.isRequired,
