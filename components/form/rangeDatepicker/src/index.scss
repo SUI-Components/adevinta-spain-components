@@ -12,7 +12,7 @@ $fz-range-datepicker-input: $fz-xs !default;
 $p-range-datepicker-input: $p-m $p-l !default;
 
 /* Overwrite react-datepicker variables */
-$datepicker__selected-color: $bgc-range-datepicker-selected;
+$datepicker__selected-color: $bgc-range-datepicker-selected; // sass-lint:disable-line variable-name-format
 /* Load react-datepicker styles */
 @import '~react-datepicker/src/stylesheets/datepicker.scss';
 
