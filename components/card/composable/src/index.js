@@ -34,6 +34,9 @@ CardComposable.propTypes = {
    * Determine if the content should come first
    */
   contentFirst: PropTypes.bool,
+  /**
+   * Determine if landscape layout should be shown
+   */
   landscapeLayout: PropTypes.bool,
   primary: PropTypes.any.isRequired,
   secondary: PropTypes.any
