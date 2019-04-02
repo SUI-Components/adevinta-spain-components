@@ -2,13 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.11.0"></a>
+# 1.11.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([1d30f3f](https://github.com/SUI-Components/schibsted-spain-components/commit/1d30f3f))
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2018-03-07)
 
 
 ### Features
 
-* add callback parameter on info item ([49198b8](https://github.com/SUI-Components/sui-components/commit/49198b8))
+* add callback parameter on info item ([49198b8](https://github.com/SUI-Components/schibsted-spain-components/commit/49198b8))
 
 
 
@@ -18,7 +28,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* prepare component for sui-theme change ([99f6afe](https://github.com/SUI-Components/sui-components/commit/99f6afe))
+* prepare component for sui-theme change ([99f6afe](https://github.com/SUI-Components/schibsted-spain-components/commit/99f6afe))
 
 
 
@@ -28,8 +38,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add X close button on card's header when its expanded. ([fe4403d](https://github.com/SUI-Components/sui-components/commit/fe4403d))
-* remove custom button classname and styles. ([9a873dc](https://github.com/SUI-Components/sui-components/commit/9a873dc))
+* add X close button on card's header when its expanded. ([fe4403d](https://github.com/SUI-Components/schibsted-spain-components/commit/fe4403d))
+* remove custom button classname and styles. ([9a873dc](https://github.com/SUI-Components/schibsted-spain-components/commit/9a873dc))
 
 
 
@@ -39,7 +49,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* remove some css in order to improve usage flexibility. ([eea35b2](https://github.com/SUI-Components/sui-components/commit/eea35b2))
+* remove some css in order to improve usage flexibility. ([eea35b2](https://github.com/SUI-Components/schibsted-spain-components/commit/eea35b2))
 
 
 
@@ -49,7 +59,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add collapsed property in order to decide initial state. ([3305c1f](https://github.com/SUI-Components/sui-components/commit/3305c1f))
+* add collapsed property in order to decide initial state. ([3305c1f](https://github.com/SUI-Components/schibsted-spain-components/commit/3305c1f))
 
 
 
@@ -59,7 +69,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* remove root-parent selector from collapsible card. ([62c0360](https://github.com/SUI-Components/sui-components/commit/62c0360))
+* remove root-parent selector from collapsible card. ([62c0360](https://github.com/SUI-Components/schibsted-spain-components/commit/62c0360))
 
 
 
@@ -69,8 +79,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* expose click handler func of collapsible. Move scss vars. ([11a9026](https://github.com/SUI-Components/sui-components/commit/11a9026))
-* reuse is-expanded class instead of has-shadow. ([0c2eadc](https://github.com/SUI-Components/sui-components/commit/0c2eadc))
+* expose click handler func of collapsible. Move scss vars. ([11a9026](https://github.com/SUI-Components/schibsted-spain-components/commit/11a9026))
+* reuse is-expanded class instead of has-shadow. ([0c2eadc](https://github.com/SUI-Components/schibsted-spain-components/commit/0c2eadc))
 
 
 
@@ -80,7 +90,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([1c635d1](https://github.com/SUI-Components/sui-components/commit/1c635d1))
+* Bump version ([1c635d1](https://github.com/SUI-Components/schibsted-spain-components/commit/1c635d1))
 
 
 
@@ -90,23 +100,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* set the prop "collapsed" accroding to the value of the collapsed state. ([6ca0c10](https://github.com/SUI-Components/sui-components/commit/6ca0c10))
+* set the prop "collapsed" accroding to the value of the collapsed state. ([6ca0c10](https://github.com/SUI-Components/schibsted-spain-components/commit/6ca0c10))
 
 
 ### Features
 
-* Migrate to PropTypes package ([b8d7dfe](https://github.com/SUI-Components/sui-components/commit/b8d7dfe))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-10-23)
-
-
-### Features
-
-* first version of card collapsible component. ([49dbf69](https://github.com/SUI-Components/sui-components/commit/49dbf69))
-* improve docs, rename "Element" variable. ([56162f8](https://github.com/SUI-Components/sui-components/commit/56162f8))
+* Migrate to PropTypes package ([b8d7dfe](https://github.com/SUI-Components/schibsted-spain-components/commit/b8d7dfe))
 
 
 
