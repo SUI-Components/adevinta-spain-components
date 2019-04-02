@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([dfb1fe2](https://github.com/SUI-Components/schibsted-spain-components/commit/dfb1fe2))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2019-03-27)
 
@@ -29,6 +39,16 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * avoid displaying triangle for expanding in IE and Edge ([42e2b72](https://github.com/SUI-Components/schibsted-spain-components/commit/42e2b72))
+
+
+
+<a name="1.1.0"></a>
+# 1.1.0 (2019-01-23)
+
+
+### Features
+
+* create form/select component ([fc59ad8](https://github.com/SUI-Components/schibsted-spain-components/commit/fc59ad8))
 
 
 
