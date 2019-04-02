@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="3.1.0"></a>
+# 3.1.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([cf9258e](https://github.com/SUI-Components/schibsted-spain-components/commit/cf9258e))
+
+
+
 <a name="3.0.0"></a>
 # 3.0.0 (2019-03-19)
 
