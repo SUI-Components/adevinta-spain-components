@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.22.0"></a>
+# 1.22.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([8eeddc3](https://github.com/SUI-Components/schibsted-spain-components/commit/8eeddc3))
+
+
+
 <a name="1.21.0"></a>
 # 1.21.0 (2018-10-30)
 
@@ -178,16 +188,6 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * adjust link colors ([30545b8](https://github.com/SUI-Components/schibsted-spain-components/commit/30545b8))
-
-
-
-<a name="1.4.0"></a>
-# 1.4.0 (2017-01-26)
-
-
-### Bug Fixes
-
-* adjusting breakpoints ([954cf97](https://github.com/SUI-Components/schibsted-spain-components/commit/954cf97))
 
 
 
