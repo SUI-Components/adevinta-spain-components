@@ -2,13 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.13.0"></a>
+# 1.13.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([322350b](https://github.com/SUI-Components/schibsted-spain-components/commit/322350b))
+
+
+
 <a name="1.12.0"></a>
 # 1.12.0 (2017-11-06)
 
 
 ### Features
 
-* Bump version ([acee4a1](https://github.com/SUI-Components/sui-components/commit/acee4a1))
+* Bump version ([acee4a1](https://github.com/SUI-Components/schibsted-spain-components/commit/acee4a1))
 
 
 
@@ -18,8 +28,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Migrate to PropTypes package ([486ba8d](https://github.com/SUI-Components/sui-components/commit/486ba8d))
-* switch to s-ui/component-dependencies and sui-theme@8 ([a801884](https://github.com/SUI-Components/sui-components/commit/a801884))
+* Migrate to PropTypes package ([486ba8d](https://github.com/SUI-Components/schibsted-spain-components/commit/486ba8d))
+* switch to s-ui/component-dependencies and sui-theme@8 ([a801884](https://github.com/SUI-Components/schibsted-spain-components/commit/a801884))
 
 
 
@@ -29,9 +39,9 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* define initial refs as null ([d38f8d0](https://github.com/SUI-Components/sui-components/commit/d38f8d0))
-* enalbles closeOnOutsideClick ([b134f2b](https://github.com/SUI-Components/sui-components/commit/b134f2b))
-* remove eventListener on componentWillUnmount ([d573393](https://github.com/SUI-Components/sui-components/commit/d573393))
+* define initial refs as null ([d38f8d0](https://github.com/SUI-Components/schibsted-spain-components/commit/d38f8d0))
+* enalbles closeOnOutsideClick ([b134f2b](https://github.com/SUI-Components/schibsted-spain-components/commit/b134f2b))
+* remove eventListener on componentWillUnmount ([d573393](https://github.com/SUI-Components/schibsted-spain-components/commit/d573393))
 
 
 
@@ -41,7 +51,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* fix vertical position for clear button ([a3bf9cc](https://github.com/SUI-Components/sui-components/commit/a3bf9cc))
+* fix vertical position for clear button ([a3bf9cc](https://github.com/SUI-Components/schibsted-spain-components/commit/a3bf9cc))
 
 
 
@@ -51,7 +61,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* insert button type as a SCSS var ([ee8d99e](https://github.com/SUI-Components/sui-components/commit/ee8d99e))
+* insert button type as a SCSS var ([ee8d99e](https://github.com/SUI-Components/schibsted-spain-components/commit/ee8d99e))
 
 
 
@@ -61,7 +71,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* allow external set of text ([ca17d0d](https://github.com/SUI-Components/sui-components/commit/ca17d0d))
+* allow external set of text ([ca17d0d](https://github.com/SUI-Components/schibsted-spain-components/commit/ca17d0d))
 
 
 
@@ -71,7 +81,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* execute handleSubmit on press return ([77583b8](https://github.com/SUI-Components/sui-components/commit/77583b8))
+* execute handleSubmit on press return ([77583b8](https://github.com/SUI-Components/schibsted-spain-components/commit/77583b8))
 
 
 
@@ -81,8 +91,8 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* include z-index as a variable ([a377359](https://github.com/SUI-Components/sui-components/commit/a377359))
-* insert z-index ([88e34fa](https://github.com/SUI-Components/sui-components/commit/88e34fa))
+* include z-index as a variable ([a377359](https://github.com/SUI-Components/schibsted-spain-components/commit/a377359))
+* insert z-index ([88e34fa](https://github.com/SUI-Components/schibsted-spain-components/commit/88e34fa))
 
 
 
@@ -92,7 +102,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix submit default data ([3319944](https://github.com/SUI-Components/sui-components/commit/3319944))
+* fix submit default data ([3319944](https://github.com/SUI-Components/schibsted-spain-components/commit/3319944))
 
 
 
@@ -102,7 +112,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* make focus input method public ([1a36071](https://github.com/SUI-Components/sui-components/commit/1a36071))
+* make focus input method public ([1a36071](https://github.com/SUI-Components/schibsted-spain-components/commit/1a36071))
 
 
 
@@ -112,7 +122,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* disable bind lint in autocompleted list item ([78d3d55](https://github.com/SUI-Components/sui-components/commit/78d3d55))
+* disable bind lint in autocompleted list item ([78d3d55](https://github.com/SUI-Components/schibsted-spain-components/commit/78d3d55))
 
 
 
@@ -122,7 +132,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* incorrect handle function name ([afe814a](https://github.com/SUI-Components/sui-components/commit/afe814a))
+* incorrect handle function name ([afe814a](https://github.com/SUI-Components/schibsted-spain-components/commit/afe814a))
 
 
 
