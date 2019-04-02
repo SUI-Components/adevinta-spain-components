@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.2.0"></a>
+# 2.2.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([0a34cc7](https://github.com/SUI-Components/schibsted-spain-components/commit/0a34cc7))
+
+
+
 <a name="2.1.0"></a>
 # 2.1.0 (2019-02-28)
 
@@ -60,6 +70,16 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * ensure the position of the error notification ([a84600c](https://github.com/SUI-Components/schibsted-spain-components/commit/a84600c))
+
+
+
+<a name="1.1.0"></a>
+# 1.1.0 (2018-01-15)
+
+
+### Features
+
+* create new error appBoundary component ([98b0087](https://github.com/SUI-Components/schibsted-spain-components/commit/98b0087))
 
 
 
