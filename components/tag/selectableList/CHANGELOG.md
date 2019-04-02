@@ -2,13 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([8f8cadc](https://github.com/SUI-Components/schibsted-spain-components/commit/8f8cadc))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2018-03-16)
 
 
 ### Features
 
-* delete unused property ([30dd0df](https://github.com/SUI-Components/sui-components/commit/30dd0df))
+* delete unused property ([30dd0df](https://github.com/SUI-Components/schibsted-spain-components/commit/30dd0df))
 
 
 
@@ -18,7 +28,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add new property: display flex to selectable list container ([f1fa6ec](https://github.com/SUI-Components/sui-components/commit/f1fa6ec))
+* add new property: display flex to selectable list container ([f1fa6ec](https://github.com/SUI-Components/schibsted-spain-components/commit/f1fa6ec))
 
 
 
@@ -28,7 +38,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* resolve warning to parameters ([defa593](https://github.com/SUI-Components/sui-components/commit/defa593))
+* resolve warning to parameters ([defa593](https://github.com/SUI-Components/schibsted-spain-components/commit/defa593))
 
 
 
@@ -38,7 +48,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* change proptype of selectableList ([c75902a](https://github.com/SUI-Components/sui-components/commit/c75902a))
+* change proptype of selectableList ([c75902a](https://github.com/SUI-Components/schibsted-spain-components/commit/c75902a))
 
 
 
@@ -48,8 +58,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add option: initialValues to selectableList ([d7fd1a1](https://github.com/SUI-Components/sui-components/commit/d7fd1a1))
-* rename prop: initialSelectedValues ([f52587f](https://github.com/SUI-Components/sui-components/commit/f52587f))
+* add option: initialValues to selectableList ([d7fd1a1](https://github.com/SUI-Components/schibsted-spain-components/commit/d7fd1a1))
+* rename prop: initialSelectedValues ([f52587f](https://github.com/SUI-Components/schibsted-spain-components/commit/f52587f))
 
 
 
@@ -59,7 +69,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([05d7d10](https://github.com/SUI-Components/sui-components/commit/05d7d10))
+* Bump version ([05d7d10](https://github.com/SUI-Components/schibsted-spain-components/commit/05d7d10))
 
 
 
@@ -69,8 +79,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* migrate to PropTypes package ([133c7ae](https://github.com/SUI-Components/sui-components/commit/133c7ae))
-* switch to s-ui/component-dependencies and sui-theme@8 ([27a384f](https://github.com/SUI-Components/sui-components/commit/27a384f))
+* migrate to PropTypes package ([133c7ae](https://github.com/SUI-Components/schibsted-spain-components/commit/133c7ae))
+* switch to s-ui/component-dependencies and sui-theme@8 ([27a384f](https://github.com/SUI-Components/schibsted-spain-components/commit/27a384f))
 
 
 
@@ -80,12 +90,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* new fucntion for set selected values ([8812054](https://github.com/SUI-Components/sui-components/commit/8812054))
+* new fucntion for set selected values ([8812054](https://github.com/SUI-Components/schibsted-spain-components/commit/8812054))
 
 
 ### Features
 
-* adapt to selectable v2 ([4dd54f8](https://github.com/SUI-Components/sui-components/commit/4dd54f8))
+* adapt to selectable v2 ([4dd54f8](https://github.com/SUI-Components/schibsted-spain-components/commit/4dd54f8))
 
 
 
@@ -95,8 +105,8 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* rename component name ([85ef939](https://github.com/SUI-Components/sui-components/commit/85ef939))
-* reverse version ([1a04c27](https://github.com/SUI-Components/sui-components/commit/1a04c27))
+* rename component name ([85ef939](https://github.com/SUI-Components/schibsted-spain-components/commit/85ef939))
+* reverse version ([1a04c27](https://github.com/SUI-Components/schibsted-spain-components/commit/1a04c27))
 
 
 
@@ -106,14 +116,14 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix className ([418a732](https://github.com/SUI-Components/sui-components/commit/418a732))
+* fix className ([418a732](https://github.com/SUI-Components/schibsted-spain-components/commit/418a732))
 
 
 ### Features
 
-* a React component that show a selectable tag list ([703ba2f](https://github.com/SUI-Components/sui-components/commit/703ba2f))
-* code Improvement ([ed9e70b](https://github.com/SUI-Components/sui-components/commit/ed9e70b))
-* remove bind and use fat arrow ([db893ac](https://github.com/SUI-Components/sui-components/commit/db893ac))
+* a React component that show a selectable tag list ([703ba2f](https://github.com/SUI-Components/schibsted-spain-components/commit/703ba2f))
+* code Improvement ([ed9e70b](https://github.com/SUI-Components/schibsted-spain-components/commit/ed9e70b))
+* remove bind and use fat arrow ([db893ac](https://github.com/SUI-Components/schibsted-spain-components/commit/db893ac))
 
 
 
