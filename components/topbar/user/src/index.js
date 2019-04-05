@@ -245,7 +245,7 @@ class TopbarUser extends Component {
             title={navCtaText}
             leftIcon={<navCTA.icon svgClass="sui-TopbarUser-ctaButtonIcon" />}
             size="small"
-            type="accent"
+            type="primary"
             onClick={onCTAClick}
           >
             {navCtaText}
