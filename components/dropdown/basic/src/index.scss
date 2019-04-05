@@ -38,7 +38,7 @@
     justify-content: space-between;
 
     &:hover {
-      color: $c-accent;
+      color: $c-primary;
     }
 
     &Wrap {
@@ -75,7 +75,7 @@
       width: $size-dropdown-icon;
 
       [class$='-button']:hover &:first-child {
-        fill: $c-accent !important;
+        fill: $c-primary !important;
       }
 
       &:not(:last-child) {
@@ -157,7 +157,7 @@
         padding-right: $p-xl;
 
         &:hover {
-          color: $c-accent;
+          color: $c-primary;
         }
       }
     }
