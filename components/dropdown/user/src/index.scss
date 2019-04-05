@@ -125,7 +125,7 @@
 
         &:hover,
         &Highlight {
-          color: $c-accent;
+          color: $c-dropdown-user-link-highlight;
         }
       }
 
@@ -136,11 +136,11 @@
         width: $size-dropdown-icon;
 
         &Highlight {
-          fill: $c-accent !important;
+          fill: $c-dropdown-user-icon-highlight !important;
         }
 
         :hover > & {
-          fill: $c-accent !important;
+          fill: $c-dropdown-user-icon-hover !important;
         }
       }
 
