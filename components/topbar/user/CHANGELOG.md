@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.30.0"></a>
+# 1.30.0 (2019-04-05)
+
+
+### Features
+
+* swap colors ([0efbf36](https://github.com/SUI-Components/schibsted-spain-components/commit/0efbf36))
+
+
+
 <a name="1.29.0"></a>
 # 1.29.0 (2019-04-02)
 
@@ -258,6 +268,16 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * set a max width ([abde18e](https://github.com/SUI-Components/schibsted-spain-components/commit/abde18e))
+
+
+
+<a name="1.4.0"></a>
+# 1.4.0 (2017-01-26)
+
+
+### Bug Fixes
+
+* adjusting colors and breakpoints ([eab1ff9](https://github.com/SUI-Components/schibsted-spain-components/commit/eab1ff9))
 
 
 
