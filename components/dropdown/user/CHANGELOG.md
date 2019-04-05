@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.23.0"></a>
+# 1.23.0 (2019-04-05)
+
+
+### Features
+
+* define color vars ([00988b8](https://github.com/SUI-Components/schibsted-spain-components/commit/00988b8))
+
+
+
 <a name="1.22.0"></a>
 # 1.22.0 (2019-04-02)
 
@@ -188,6 +198,16 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * adjust link colors ([30545b8](https://github.com/SUI-Components/schibsted-spain-components/commit/30545b8))
+
+
+
+<a name="1.4.0"></a>
+# 1.4.0 (2017-01-26)
+
+
+### Bug Fixes
+
+* adjusting breakpoints ([954cf97](https://github.com/SUI-Components/schibsted-spain-components/commit/954cf97))
 
 
 
