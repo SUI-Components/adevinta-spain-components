@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2019-04-16)
+
+
+### Features
+
+* move to hooks ([c86e5db](https://github.com/SUI-Components/schibsted-spain-components/commit/c86e5db))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2019-04-02)
 
@@ -71,16 +81,6 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * rollback className name to keep compatibility ([cfc17ef](https://github.com/SUI-Components/schibsted-spain-components/commit/cfc17ef))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-10-05)
-
-
-### Features
-
-* move sui-topbar to sui-components ([9829c33](https://github.com/SUI-Components/schibsted-spain-components/commit/9829c33))
 
 
 
