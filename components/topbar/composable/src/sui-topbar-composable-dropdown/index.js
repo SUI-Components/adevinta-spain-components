@@ -1,79 +1,55 @@
+import React, {useEffect, useRef, useState} from 'react'
 import PropTypes from 'prop-types'
-import React, {Component} from 'react'
 import cx from 'classnames'
 
-const EVENTS_TO_HANDLE = ['click', 'touchstart']
+function DropdownMenu({caret, classname, entries, icon, label}) {
+  const [displayMenu, setDisplayMenu] = useState(false)
+  const wrapperRef = useRef()
 
-export default class DropdownMenu extends Component {
-  state = {displayMenu: false}
-
-  componentDidMount() {
-    EVENTS_TO_HANDLE.forEach(event =>
-      document.body.addEventListener(event, this.closeMenu, false)
-    )
+  const closeMenu = ({target}) => {
+    const isClickOutsideDropdown = !wrapperRef.current.contains(target)
+    isClickOutsideDropdown && setDisplayMenu(false)
   }
 
-  componentWillUnmount() {
-    EVENTS_TO_HANDLE.forEach(event =>
-      document.body.removeEventListener(event, this.closeMenu, false)
-    )
-  }
-
-  closeMenu = ({target}) => {
-    const isClickOutsideDropdown = !this.wrapper.contains(target)
-
-    isClickOutsideDropdown && this.setState({displayMenu: false})
-  }
-
-  toggle = e => {
+  const toggle = e => {
     e.stopPropagation()
-
-    this.setState({
-      displayMenu: !this.state.displayMenu
-    })
+    setDisplayMenu(!displayMenu)
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextState.displayMenu !== this.state.displayMenu
-  }
+  useEffect(function() {
+    document.body.addEventListener('click', closeMenu)
+    return () => document.body.removeEventListener('click', closeMenu)
+  })
 
-  render() {
-    const activeMenu = cx('sui-DropdownMenu-wrapper', this.props.classname, {
-      'sui-DropdownMenu-wrapper--active': this.state.displayMenu
-    })
+  const activeMenu = cx('sui-DropdownMenu-wrapper', classname, {
+    'sui-DropdownMenu-wrapper--active': displayMenu
+  })
 
-    const visibleDropdown = cx('sui-DropdownMenu-body', {
-      'sui-DropdownMenu-body--visible': this.state.displayMenu
-    })
+  const visibleDropdown = cx('sui-DropdownMenu-body', {
+    'sui-DropdownMenu-body--visible': displayMenu
+  })
 
-    return (
-      <div className={activeMenu}>
-        <div
-          className="sui-DropdownMenu"
-          ref={node => {
-            this.wrapper = node
-          }}
-        >
-          <div className="sui-DropdownMenu-header" onClick={this.toggle}>
-            {this.props.icon}
-            {this.props.label && (
-              <span className="sui-DropdownMenu-headerMainLabel">
-                {this.props.label}
-              </span>
-            )}
-            {this.props.caret}
-          </div>
-          <ul className={visibleDropdown}>{this.props.entries}</ul>
+  return (
+    <div className={activeMenu}>
+      <div className="sui-DropdownMenu" ref={wrapperRef}>
+        <div className="sui-DropdownMenu-header" onClick={toggle}>
+          {icon}
+          {label && (
+            <span className="sui-DropdownMenu-headerMainLabel">{label}</span>
+          )}
+          {caret}
         </div>
+        <ul className={visibleDropdown}>{entries}</ul>
       </div>
-    )
-  }
+    </div>
+  )
 }
+
+export default React.memo(DropdownMenu, () => true)
 
 DropdownMenu.propTypes = {
   caret: PropTypes.element,
   classname: PropTypes.string,
-  displayMenu: PropTypes.bool,
   entries: PropTypes.array,
   icon: PropTypes.element,
   label: PropTypes.string
