@@ -152,26 +152,27 @@ $mah-sui-cmp-modal-logo: 40px !default;
     -webkit-overflow-scrolling: touch;
     flex: 1 1;
     font-size: $fz-sui-cmp-modal-inner;
+    min-height: 50vh; // fix for IE
     overflow-y: scroll;
     padding: $p-l;
-    min-height: 50vh; // fix for IE
   }
 
   &-footer {
     align-items: center;
     border-top: 1px solid $c-gray-lightest;
     box-shadow: 0 0 4px 1px $c-gray-lightest;
+    box-sizing: border-box;
     display: flex;
     justify-content: flex-end;
     padding: $p-m $p-l;
     width: 100%;
-    box-sizing: border-box;
   }
 
   &-logo {
-    width: $w-sui-cmp-modal-logo;
-    max-width: $maw-sui-cmp-modal-logo;
     max-height: $mah-sui-cmp-modal-logo;
+    max-width: $maw-sui-cmp-modal-logo;
+    object-fit: contain;
+    width: $w-sui-cmp-modal-logo;
   }
 
   &-header {
