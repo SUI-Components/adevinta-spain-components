@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.17.0"></a>
+# 1.17.0 (2019-04-23)
+
+
+### Performance Improvements
+
+* Improve cmp perf ([c1279a3](https://github.com/SUI-Components/schibsted-spain-components/commit/c1279a3))
+
+
+
 <a name="1.16.0"></a>
 # 1.16.0 (2019-04-02)
 
