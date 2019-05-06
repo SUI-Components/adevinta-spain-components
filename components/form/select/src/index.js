@@ -8,6 +8,7 @@ export default function FormSelect({
   onChange,
   options,
   prominent,
+  required,
   title,
   value
 }) {
@@ -24,6 +25,7 @@ export default function FormSelect({
       onChange={wrappedOnChange}
       title={title}
       value={value}
+      required={required}
     >
       {options.map(({content, key, value}, index) => {
         const optionKey = key || index
@@ -72,6 +74,10 @@ FormSelect.propTypes = {
    * Title attribute of the select
    */
   title: PropTypes.string,
+  /**
+   * required attribute for combobox
+   */
+  required: PropTypes.bool,
   /**
    * Actual value for the select
    */
