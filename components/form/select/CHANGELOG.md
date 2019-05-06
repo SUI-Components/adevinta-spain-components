@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2019-05-06)
+
+
+### Features
+
+* adding a required optional  attribute for select ([0840cc8](https://github.com/SUI-Components/schibsted-spain-components/commit/0840cc8))
+
+
+
+<a name="1.5.1"></a>
+## 1.5.1 (2019-04-02)
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2019-04-02)
 
@@ -39,16 +54,6 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * avoid displaying triangle for expanding in IE and Edge ([42e2b72](https://github.com/SUI-Components/schibsted-spain-components/commit/42e2b72))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2019-01-23)
-
-
-### Features
-
-* create form/select component ([fc59ad8](https://github.com/SUI-Components/schibsted-spain-components/commit/fc59ad8))
 
 
 
