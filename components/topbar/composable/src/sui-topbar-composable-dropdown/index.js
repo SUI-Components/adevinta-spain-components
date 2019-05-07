@@ -2,8 +2,9 @@ import React, {useEffect, useRef, useState} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-function DropdownMenu({caret, classname, entries, icon, label}) {
+function DropdownMenu({caret, classname, entries, icon, label, renderOnClick}) {
   const [displayMenu, setDisplayMenu] = useState(false)
+  const [renderBody, setRenderBody] = useState(false)
   const wrapperRef = useRef()
 
   const closeMenu = ({target}) => {
@@ -14,6 +15,7 @@ function DropdownMenu({caret, classname, entries, icon, label}) {
   const toggle = e => {
     e.stopPropagation()
     setDisplayMenu(!displayMenu)
+    if (renderOnClick) setRenderBody(true)
   }
 
   useEffect(function() {
@@ -39,7 +41,9 @@ function DropdownMenu({caret, classname, entries, icon, label}) {
           )}
           {caret}
         </div>
-        <ul className={visibleDropdown}>{entries}</ul>
+        {(!renderOnClick || renderBody) && (
+          <ul className={visibleDropdown}>{entries}</ul>
+        )}
       </div>
     </div>
   )
@@ -52,5 +56,6 @@ DropdownMenu.propTypes = {
   classname: PropTypes.string,
   entries: PropTypes.array,
   icon: PropTypes.element,
-  label: PropTypes.string
+  label: PropTypes.string,
+  renderOnClick: PropTypes.bool
 }
