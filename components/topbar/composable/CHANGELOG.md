@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2019-05-07)
+
+
+### Features
+
+* add render on click prop ([3caa910](https://github.com/SUI-Components/schibsted-spain-components/commit/3caa910))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2019-04-16)
 
