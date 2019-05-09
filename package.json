@@ -34,13 +34,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/mono": "1",
-    "@schibstedspain/cf-theme": "1",
-    "@schibstedspain/fc-theme": "10",
-    "@schibstedspain/ij-theme": "1",
-    "@schibstedspain/mt-theme": "4",
-    "@schibstedspain/nc-theme": "1",
-    "@schibstedspain/vb-theme": "1"
+    "@s-ui/mono": "1"
   },
   "config": {
     "sui-studio": {
