@@ -22,7 +22,7 @@ $ npm install @schibstedspain/react-perf-dynamic-rendering --save
 
 ### Basic usage
 ```js
-import PerfDynamicRendering from '@schibstedspain/sui-perf-dynamic-rendering'
+import PerfDynamicRendering from '@schibstedspain/react-perf-dynamic-rendering'
 
 return (
   <React.Fragment>
