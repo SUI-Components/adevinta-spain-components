@@ -105,7 +105,7 @@ PerfDynamicRendering.propTypes = {
   rootMargin: PropTypes.string,
 
   /**
-   * Am Array of strings that is used to set the lists of userAgents for which the element is always rendered
+   * An Array of strings that is used to set the lists of userAgents for which the element is always rendered
    */
   botsUserAgents: PropTypes.arrayOf(PropTypes.string)
 }
