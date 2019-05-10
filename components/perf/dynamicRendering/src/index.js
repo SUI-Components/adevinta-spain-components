@@ -28,7 +28,7 @@ export default function PerfDynamicRendering({
 }) {
   if (typeof height !== 'undefined' && typeof placeholder !== 'undefined') {
     console.warn(
-      'If both height and placeholder props are present placeholder is ignored'
+      'If both height and placeholder props are present height is ignored'
     )
   }
 
