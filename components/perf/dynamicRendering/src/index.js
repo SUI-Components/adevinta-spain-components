@@ -1,10 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import {hocIntersectionObserverWithOptions} from './withIntersectionObserver'
-const hocIntersectionObserver = hocIntersectionObserverWithOptions({
-  rootMargin: '100px 0 0'
-})
+import {LazyContent} from './lazyContent'
 
 const BOTS_USER_AGENTS = [
   'googlebot',
@@ -14,20 +10,10 @@ const BOTS_USER_AGENTS = [
   'mediapartners-google'
 ]
 
-const LazyContent = hocIntersectionObserver(
-  ({children, height, innerRef, isVisible}) => {
-    return isVisible ? (
-      children
-    ) : (
-      <div ref={innerRef} style={{height: `${height}px`}} />
-    )
-  }
-)
-
-function checkUserAgentIsBot({userAgent}) {
+function checkUserAgentIsBot(userAgent, botsUserAgents) {
   const lowerCaseUserAgent = userAgent.toLowerCase()
   // check if the userAgent is a bot
-  return BOTS_USER_AGENTS.some(ua => lowerCaseUserAgent.includes(ua))
+  return botsUserAgents.some(ua => lowerCaseUserAgent.includes(ua))
 }
 
 export default function PerfDynamicRendering({
@@ -35,9 +21,18 @@ export default function PerfDynamicRendering({
   disabled,
   forceRender,
   height,
-  userAgent
+  userAgent,
+  placeholder,
+  rootMargin,
+  botsUserAgents
 }) {
-  const isBot = checkUserAgentIsBot({userAgent})
+  if (typeof height !== 'undefined' && typeof placeholder !== 'undefined') {
+    console.warn(
+      'If both height and placeholder props are present height is ignored'
+    )
+  }
+
+  const isBot = checkUserAgentIsBot(userAgent, botsUserAgents)
   const isOnBrowser = typeof window !== 'undefined'
 
   // Force render in server and client
@@ -49,17 +44,27 @@ export default function PerfDynamicRendering({
   // now, we're sure the user isNotBot
   // so check if we're on the browser side and if is not disabled the component
   if (isOnBrowser && !disabled) {
-    return <LazyContent height={height}>{children}</LazyContent>
-  } else {
+    return (
+      <LazyContent
+        rootMargin={rootMargin}
+        placeholder={placeholder}
+        height={height}
+      >
+        {children}
+      </LazyContent>
+    )
+  } else if (placeholder) {
     // so, we're on the server side or the component is disabled
+    return placeholder
+  } else {
     return <div style={{height: `${height}px`}} />
   }
 }
-
 PerfDynamicRendering.displayName = 'PerfDynamicRendering'
 
 PerfDynamicRendering.defaultProps = {
-  height: 0
+  height: 0,
+  botsUserAgents: BOTS_USER_AGENTS
 }
 
 PerfDynamicRendering.propTypes = {
@@ -86,5 +91,21 @@ PerfDynamicRendering.propTypes = {
   /**
    * String with the userAgent that will be used to check if is bot or normal user.
    */
-  userAgent: PropTypes.string
+  userAgent: PropTypes.string.isRequired,
+
+  /**
+   * A component or html element that is used as a placeholder
+   */
+  placeholder: PropTypes.element,
+
+  /**
+   * String in the format of the css margin property. the values serves to grow or shrink
+   * each side of the root element's bounding box before computing intersections.
+   */
+  rootMargin: PropTypes.string,
+
+  /**
+   * An Array of strings that is used to set the lists of userAgents for which the element is always rendered
+   */
+  botsUserAgents: PropTypes.arrayOf(PropTypes.string)
 }
