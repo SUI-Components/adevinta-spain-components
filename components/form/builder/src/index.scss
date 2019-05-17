@@ -1,5 +1,12 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
+@import '~@s-ui/react-molecule-input-field/lib/index';
+@import '~@s-ui/react-molecule-select-field/lib/index';
+@import '~@s-ui/react-molecule-textarea-field/lib/index';
+@import '~@s-ui/react-molecule-button-group/lib/index';
+@import '~@schibstedspain/sui-atom-button/lib/index';
+@import '~@s-ui/react-molecule-dropdown-option/lib/index';
+
 .sui-FormBuilder {
   padding: 20px;
 }
