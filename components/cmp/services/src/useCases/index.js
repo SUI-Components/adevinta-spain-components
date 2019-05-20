@@ -1,4 +1,4 @@
-import borosCmp from '@schibstedspain/boros-cmp'
+import borosCmp from '@schibstedspain/boros-cmp/lib'
 
 import {GetConsentStatusUseCase} from './GetConsentStatusUseCase'
 import {GetPurposesAndVendorsUseCase} from './GetPurposesAndVendorsUseCase'
