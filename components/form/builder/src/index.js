@@ -27,20 +27,31 @@ class FormBuilder extends Component {
     this.state = {...this._initialState, showErrors: false}
   }
 
-  /* Requested the list of vehicle brands by default at the start of the PTA */
+  /**
+   * Requests the initial status of the form and the listing of the first field
+   */
   componentDidMount = async () => {
     const items = await this.props.onLoad()
     const initialState = this._getDefaultInitialState(this._formFields)
     this.setState({...initialState, ...items})
   }
 
-  /* Get initial form state */
+  /**
+   * Get initial form state.
+   * @param {Array} fields
+   */
   _getDefaultInitialState = fields =>
     fields.reduce((state, key) => {
       state[key] = INITIAL_LIST_ITEM_STATE
       return state
     }, {})
 
+  /**
+   * Get the form values.
+   * @param {Array} fields
+   * @param {Object} currentField
+   * @param {string} fields
+   */
   _getFormValues = (fields, currentField, currentValuedId) =>
     fields.reduce((state, field) => {
       const selectedFieldId = this._getSelectedFieldId(this.state[field])
@@ -48,7 +59,12 @@ class FormBuilder extends Component {
       return state
     }, {})
 
-  /* Must implement the method of calling the UseCase, passing the field name and the parameters to it */
+  /**
+   * Executes the *props.onChange* function that is passed via props, to request a list based on the fieldname and current parameters
+   * @param {string} field
+   * @param {Object} currentField
+   * @param {string} currentValueId
+   */
   _getFieldItems = async (field, currentField, currentValueId) => {
     const params = this._getSelectedFormValues(
       field,
@@ -59,7 +75,12 @@ class FormBuilder extends Component {
     return items
   }
 
-  /* From a field name, returns the previous values to that field of the form, to make the request to UseCase through the generated parameters. */
+  /**
+   * From a field name, returns the previous values to that field of the form, to make the request to *props.onChange* through the generated parameters
+   * @param {string} nextField
+   * @param {Object} currentField
+   * @param {string} currentValueId
+   */
   _getSelectedFormValues = (nextField, currentField, currentValuedId) => {
     const maxIndex = this._formFields.indexOf(nextField)
     const selectedFields = this._formFields.filter(
@@ -73,7 +94,10 @@ class FormBuilder extends Component {
     return selectedFormValues
   }
 
-  /* Function responsible to clear the data from the fields subsequent to the current selection, except if isPersistent */
+  /**
+   * Function responsible to clear the data from the fields subsequent to the current selection, except if isPersistent
+   * @param {string} field
+   */
   _clearForwardFields = field => {
     const maxIndex = this._formFields.indexOf(field)
     const fieldsToClear = this._formFields.filter(
@@ -83,20 +107,30 @@ class FormBuilder extends Component {
     return clearedFields
   }
 
-  /* Get the selected field name from a list */
+  /**
+   * Get the selected field name from a list
+   * @param {Array} list
+   */
   _getSelectedFieldName = list => {
     const selectedItem = list.find(({selected}) => selected)
     return selectedItem && selectedItem.name
   }
 
-  /* Get the selected field */
+  /**
+   * Get the selected field id
+   * @param {Array | string} field
+   */
   _getSelectedFieldId = field => {
     const isArray = Array.isArray(field)
     const selectedItem = isArray && field.find(({selected}) => selected)
     return selectedItem && selectedItem.id
   }
 
-  /* Set the selected field and returns the modified object */
+  /**
+   * Set the selected field and returns the modified object
+   * @param {string} field
+   * @param {Object} string
+   */
   _setSelectedField = (field, value) =>
     this.state[field].map(field => {
       return {
@@ -105,9 +139,12 @@ class FormBuilder extends Component {
       }
     })
 
-  /* Function that manages the onChange method, setting the Value and List states, and clear the data from the fields subsequent to the current selection */
-  /* Prevents the setState method from running when the user selects the same item that was previously selected */
-  /* Get ID from item name */
+  /**
+   * Function that manages the onChange method, setting the Value and List states, and clear the data from the fields subsequent to the current selection
+   * Prevents the setState method from running when the user selects the same item that was previously selected
+   * @param {string} field
+   * @param {string} value
+   */
   _handleChange = async (field, value) => {
     const selectedFormField = this._setSelectedField(field, value)
     const selectedFieldItemId = this._getSelectedFieldId(selectedFormField)
@@ -124,13 +161,20 @@ class FormBuilder extends Component {
     })
   }
 
-  /* Function that manages the onChange method form input and text-areas, setting the value */
+  /**
+   * Function that manages the onChange method form input and text-areas, setting the value
+   * @param {string} field
+   * @param {string} value
+   */
   _handleInputChange = (field, value) => {
     const inputValue = {[field]: value}
     this.setState({...inputValue})
   }
 
-  /* Function responsible for rendering the Select component, generating the data according to the received field name */
+  /**
+   * Function responsible for rendering the Select component, generating the data according to the received field name
+   * @param {Object} props
+   */
   _renderSelect = ({errorText, field, label, id, disabled, placeholder}) => {
     const {showError} = this.state
     const value = this.state[field]
@@ -149,7 +193,10 @@ class FormBuilder extends Component {
     )
   }
 
-  /* Function responsible for rendering the ButtonGroup component, generating the data according to the received field name */
+  /**
+   * Function responsible for rendering the ButtonGroup component, generating the data according to the received field name
+   * @param {Object} props
+   */
   _renderButtonGroup = ({errorText, field, label, id, disabled}) => {
     const {showError} = this.state
     return (
@@ -166,7 +213,10 @@ class FormBuilder extends Component {
     )
   }
 
-  /* Function responsible for rendering the Input component, generating the data according to the received field name */
+  /**
+   * Function responsible for rendering the Input component, generating the data according to the received field name
+   * @param {Object} props
+   */
   _renderInput = ({errorText, field, label, id, placeholder, inputType}) => {
     const {showError} = this.state
     const value = this.state[field]
@@ -184,7 +234,10 @@ class FormBuilder extends Component {
     )
   }
 
-  /* Function responsible for rendering the TextArea component, generating the data according to the received field name */
+  /**
+   * Function responsible for rendering the TextArea component, generating the data according to the received field
+   * @param {Object} props
+   */
   _renderTextArea = ({errorText, field, label, id, size, placeholder}) => {
     const {showError} = this.state
     const value = this.state[field]
@@ -202,7 +255,10 @@ class FormBuilder extends Component {
     )
   }
 
-  /* Renders the component corresponding to the received field name */
+  /**
+   * Renders the component corresponding to the received field name
+   * @param {Object} props
+   */
   _renderFormFieldItem = ({props}) => {
     const {type} = props
     switch (type) {
@@ -217,7 +273,11 @@ class FormBuilder extends Component {
     }
   }
 
-  /* Renders the form-field corresponding to the received field name */
+  /**
+   * Renders the form field corresponding to the received field name
+   * @param {string} field
+   * @param {number} index
+   */
   _renderFormField = (field, index) => {
     const capitalizedKey = `${field[0].toUpperCase()}${field.slice(1)}` // SUI-JS ??
     const disabled = !this.state[field].length
@@ -236,13 +296,18 @@ class FormBuilder extends Component {
     )
   }
 
-  /* Execute the form submit */
+  /**
+   * Execute the form submit
+   * @param {Event} e
+   */
   _handleSubmit = e => {
     e.preventDefault()
     this.props.onSubmit(this.state)
   }
 
-  /* Render method that maps config KEYS and generates form fields dynamically depending on the config, a specific type of form field (select, button group, text-area, etc.) */
+  /**
+   * Render method that maps config KEYS and generates form fields dynamically depending on the config, a specific type of form field (select, button group, text-area, etc.)
+   */
   render() {
     return (
       <div className={BASE_CLASS}>
@@ -260,19 +325,32 @@ class FormBuilder extends Component {
 FormBuilder.displayName = 'FormBuilder'
 
 FormBuilder.propTypes = {
+  /** Config with the form specifications */
   config: PropTypes.shape({
+    /** Refers to the formfield Type */
     type: PropTypes.string.isRequired,
+    /** Refers to the following field that the formbuilder must request */
     next: PropTypes.string,
+    /** Refers to the formfield placeholder */
     placeholder: PropTypes.string,
+    /** Refers to the formfield label */
     label: PropTypes.string,
+    /** Refers to the formfield errorText */
     errorText: PropTypes.string,
+    /** Refers to whether formField is persistent */
     persists: PropTypes.bool,
+    /** Refers to the formfield input type */
     inputType: PropTypes.string,
+    /** Refers to the formfield size */
     size: PropTypes.string
   }),
+  /** Function that requests the start listings of the form */
   onLoad: PropTypes.func.isRequired,
+  /** Function that requests the start listings of the form */
   onChange: PropTypes.func.isRequired,
+  /** Function that sends the form data */
   onSubmit: PropTypes.func.isRequired,
+  /** Submit button text */
   submitText: PropTypes.string.isRequired
 }
 
