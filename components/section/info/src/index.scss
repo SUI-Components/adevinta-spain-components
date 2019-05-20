@@ -40,5 +40,9 @@
     font-size: $fz-section-info-content;
     margin: $m-section-info-content;
     padding: $p-section-info-content;
+
+    &--withoutTitle {
+      padding: 0;
+    }
   }
 }
