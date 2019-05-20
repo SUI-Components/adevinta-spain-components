@@ -131,7 +131,7 @@ class FormBuilder extends Component {
    * @param {string} field
    * @param {Object} string
    */
-  _setSelectedField = (field, value) =>
+  _getNewStateWithSelectedField = (field, value) =>
     this.state[field].map(field => {
       return {
         ...field,
@@ -146,7 +146,7 @@ class FormBuilder extends Component {
    * @param {string} value
    */
   _handleChange = async (field, value) => {
-    const selectedFormField = this._setSelectedField(field, value)
+    const selectedFormField = this._getNewStateWithSelectedField(field, value)
     const selectedFieldItemId = this._getSelectedFieldId(selectedFormField)
     const nextField = this._config[field].next
     const items =
@@ -282,7 +282,7 @@ class FormBuilder extends Component {
     const capitalizedKey = `${field[0].toUpperCase()}${field.slice(1)}` // SUI-JS ??
     const disabled = !this.state[field].length
     const id = `${BASE_CLASS}-${field}`
-    const props = {field, id, disabled, ...this._config[field]}
+    const props = {field, id, disabled, ...this._config[field], BASE_CLASS}
     const fieldClass = cx(
       `${FORM_ITEM_CLASS} ${FORM_ITEM_CLASS}${capitalizedKey}`,
       {
