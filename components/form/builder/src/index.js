@@ -344,9 +344,9 @@ FormBuilder.propTypes = {
     /** Refers to the formfield size */
     size: PropTypes.string
   }),
-  /** Function that requests the start listings of the form */
+  /** Function executed on component load. May be used to intialize form data */
   onLoad: PropTypes.func.isRequired,
-  /** Function that requests the start listings of the form */
+  /** Function executed on field change. May be used to initialize next field data */
   onChange: PropTypes.func.isRequired,
   /** Function that sends the form data */
   onSubmit: PropTypes.func.isRequired,
