@@ -27,7 +27,7 @@ export default () => {
         <p>
           Scroll until you see the message. When the message is shown, the color
           of the block is green. When is not in the viewport, the color of the
-          block is green.
+          block is red.
         </p>
         <div
           style={{
