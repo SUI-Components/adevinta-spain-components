@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.29.0"></a>
+# 1.29.0 (2019-05-21)
+
+
+### Features
+
+* allow rel attribute ([9e70c05](https://github.com/SUI-Components/schibsted-spain-components/commit/9e70c05))
+
+
+
 <a name="1.28.0"></a>
 # 1.28.0 (2019-04-05)
 
@@ -191,16 +201,6 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * adjust link colors ([f73ae60](https://github.com/SUI-Components/schibsted-spain-components/commit/f73ae60))
-
-
-
-<a name="1.11.0"></a>
-# 1.11.0 (2017-01-26)
-
-
-### Bug Fixes
-
-* adjusting breakpoints ([aaad295](https://github.com/SUI-Components/schibsted-spain-components/commit/aaad295))
 
 
 
