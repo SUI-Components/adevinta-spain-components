@@ -36,7 +36,6 @@ Defines the form items and dependencies between fields.
     errorText: 'Required',
     next: 'city'
   },
-  {
   city: {
     type: 'select',
     label: 'Cities',
