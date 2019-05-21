@@ -37,7 +37,7 @@ const FORM_SETTINGS = {
   }
 }
 
-const SUBMIT_TEXT = 'Validate'
+const SUBMIT_TEXT = 'Submit'
 
 const getCities = countryID => {
   switch (countryID) {
