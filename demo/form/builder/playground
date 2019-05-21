@@ -1,1 +1,113 @@
-return (<FormBuilder />)
+const FORM_SETTINGS = {
+  country: {
+    type: 'select',
+    next: 'city',
+    placeholder: 'Select country',
+    label: 'Country',
+    errorText: 'Required'
+  },
+  city: {
+    type: 'select',
+    next: 'street',
+    placeholder: 'Select city',
+    label: 'City',
+    errorText: 'Required'
+  },
+  street: {
+    type: 'select',
+    placeholder: 'Select street',
+    label: 'Street',
+    errorText: 'Required'
+  },
+  population: {
+    persists: true,
+    type: 'input',
+    inputType: 'number',
+    placeholder: 'Enter population',
+    label: 'Population',
+    errorText: 'Required'
+  },
+  comments: {
+    persists: true,
+    type: 'text-area',
+    size: 'long',
+    placeholder: 'Aditional comments',
+    label: 'Is there anything else you want to say?',
+    errorText: 'No special characters allowed'
+  }
+}
+
+const SUBMIT_TEXT = 'Validate'
+
+const getCities = countryID => {
+  switch (countryID) {
+    case 1:
+      return {
+        city: [{id: 11, name: 'Berlin'}, {id: 12, name: 'Hamburg'}]
+      }
+    case 2:
+      return {
+        city: [{id: 21, name: 'Rome'}, {id: 22, name: 'Milan'}]
+      }
+  }
+}
+
+const getStreets = cityID => {
+  switch (cityID) {
+    case 11:
+      return {
+        street: [
+          {id: 111, name: 'Fasanerieallee'},
+          {id: 112, name: 'Kaiserdamm'}
+        ]
+      }
+    case 12:
+      return {
+        street: [
+          {id: 121, name: 'Ballindamm'},
+          {id: 122, name: 'Hamburg Wallring'}
+        ]
+      }
+    case 21:
+      return {
+        street: [
+          {id: 211, name: 'Via della Conciliazione'},
+          {id: 212, name: 'Via del Corso'}
+        ]
+      }
+    case 22:
+      return {
+        street: [
+          {id: 221, name: 'Corso Venezia'},
+          {id: 222, name: 'Via Manzoni'}
+        ]
+      }
+  }
+}
+
+const handleLoad = () => {
+  return {
+    country: [{id: 1, name: 'Germany'}, {id: 2, name: 'Italy'}]
+  }
+}
+
+const handleChange = ({nextField, params: {city, country}}) => {
+  switch (nextField) {
+    case 'city':
+      return getCities(country)
+    case 'street':
+      return getStreets(city)
+  }
+}
+
+const handleSubmit = formValue => console.log(formValue)
+
+return (
+  <FormBuilder
+    submitText={SUBMIT_TEXT}
+    config={FORM_SETTINGS}
+    onLoad={handleLoad}
+    onChange={handleChange}
+    onSubmit={handleSubmit}
+  />
+)

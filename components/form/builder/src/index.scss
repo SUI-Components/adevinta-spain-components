@@ -9,4 +9,20 @@
 
 .sui-FormBuilder {
   padding: $p-xl;
+
+  &-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &-item {
+    margin-bottom: $m-l;
+
+    &Comments {
+      textarea {
+        width: 100%;
+      }
+    }
+  }
 }

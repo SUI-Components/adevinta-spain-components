@@ -61,17 +61,17 @@ class FormBuilder extends Component {
 
   /**
    * Executes the *props.onChange* function that is passed via props, to request a list based on the fieldname and current parameters
-   * @param {string} field
+   * @param {string} nextField
    * @param {Object} currentField
    * @param {string} currentValueId
    */
-  _getFieldItems = async (field, currentField, currentValueId) => {
+  _getFieldItems = async (nextField, currentField, currentValueId) => {
     const params = this._getSelectedFormValues(
-      field,
+      nextField,
       currentField,
       currentValueId
     )
-    const items = await this.props.onChange({field, params})
+    const items = await this.props.onChange({nextField, params})
     return items
   }
 
