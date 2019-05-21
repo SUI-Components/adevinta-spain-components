@@ -143,7 +143,6 @@ For instance, if the `city` field depends on the `country`:
     type: 'select',
     next: 'city'
   },
-  {
   city: {
     type: 'select'
   }
@@ -160,7 +159,6 @@ This behavior can be avoided, by setting **persists: true** in the config:
     type: 'select',
     next: 'city'
   },
-  {
   city: {
     type: 'select',
     persist: true
