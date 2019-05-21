@@ -76,7 +76,7 @@ class DropdownBasic extends Component {
   /**
    * Function rendering a simple list item link.
    */
-  _renderLink = ({onClick, target, text, url}, index) => {
+  _renderLink = ({onClick, rel, target, text, url}, index) => {
     const Link = this.props.linkFactory
     const onClickHandler = e => {
       onClick && onClick(e)
@@ -89,6 +89,7 @@ class DropdownBasic extends Component {
           href={url}
           className="sui-DropdownBasicMenu-listLink"
           onClick={onClickHandler}
+          rel={rel}
           target={target}
           title={text}
         >
@@ -200,17 +201,25 @@ DropdownBasic.propTypes = {
       links: PropTypes.arrayOf(
         PropTypes.shape({
           /**
+           * Link rel.
+           */
+          rel: PropTypes.string,
+          /**
+           * Link target.
+           */
+          target: PropTypes.string,
+          /**
            * Link text.
            */
           text: PropTypes.string.isRequired,
           /**
+           * Link title.
+           */
+          title: PropTypes.string,
+          /**
            * Link url.
            */
-          url: PropTypes.string.isRequired,
-          /**
-           * Link target.
-           */
-          target: PropTypes.string
+          url: PropTypes.string.isRequired
         })
       )
     })
@@ -235,11 +244,12 @@ DropdownBasic.propTypes = {
 
 DropdownBasic.defaultProps = {
   expandOnMouseOver: false,
-  linkFactory: ({href, className, children, onClick, target, title}) => (
+  linkFactory: ({href, className, children, onClick, rel, target, title}) => (
     <a
       href={href}
       className={className}
       onClick={onClick}
+      rel={rel}
       target={target}
       title={title}
     >
