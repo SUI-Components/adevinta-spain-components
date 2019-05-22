@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2019-05-22)
+
+
+### Features
+
+* remove unnecessary padding when section has no title ([b3f7d25](https://github.com/SUI-Components/schibsted-spain-components/commit/b3f7d25))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2019-04-02)
 
@@ -67,21 +77,6 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * adds custom Sass vars to provide better layout flexibility ([7aff696](https://github.com/SUI-Components/schibsted-spain-components/commit/7aff696))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-11-30)
-
-
-### Bug Fixes
-
-* adds some fixes based on PR review ([0f8de5c](https://github.com/SUI-Components/schibsted-spain-components/commit/0f8de5c))
-
-
-### Features
-
-* adds a new section info component ([80da9f7](https://github.com/SUI-Components/schibsted-spain-components/commit/80da9f7))
 
 
 
