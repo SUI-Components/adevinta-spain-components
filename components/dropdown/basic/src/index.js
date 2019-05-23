@@ -1,86 +1,66 @@
 /* eslint-disable react/prop-types */
+import React, {useRef, useState} from 'react'
 import PropTypes from 'prop-types'
-
-import React, {Component} from 'react'
 import cx from 'classnames'
 import Chevronbottom from '@schibstedspain/sui-svgiconset/lib/Chevronbottom'
+
+const NO_OP = () => {}
 
 /**
  * Dropdown menu containing sections of links, triggered from a simple button
  * with an optional icon.
  */
-class DropdownBasic extends Component {
-  constructor(...args) {
-    super(...args)
-
-    this.state = {
-      expanded: false,
-      collapseByTouch: false
-    }
-  }
-
-  /**
-   * Empty function.
-   */
-  _doNothing = () => {}
-
-  /**
-   * Dropdown wrapper element.
-   */
-  _wrapper = React.createRef()
+export default function DropdownBasic(props) {
+  const [expanded, setExpanded] = useState(false)
+  const [collapseByTouch, setCollapseByTouch] = useState(false)
+  const wrapper = useRef(null)
 
   /**
    * Toggle menu state: expanded/collapsed.
    */
-  _toggleMenu = expand => {
-    const expanded = expand || !this.state.expanded
+  const toggleMenu = expand => {
+    const newExpanded = expand || !expanded
 
-    this._handleListener(expanded)
-    this.setState({expanded})
+    handleListener(newExpanded)
+    setExpanded(newExpanded)
   }
 
   /**
    * Mouse over event handler.
    */
-  _onMouseOver = () => {
-    this.setState({
-      expanded: true,
-      collapseByTouch: true
-    })
+  const onMouseOver = () => {
+    setExpanded(true)
+    setCollapseByTouch(true)
   }
 
   /**
    * Mouse out event handler.
    */
-  _onMouseOut = () => {
-    this.setState({
-      expanded: false,
-      collapseByTouch: false
-    })
+  const onMouseOut = () => {
+    setExpanded(false)
+    setCollapseByTouch(false)
   }
 
   /**
    * Function rendering menu element.
    */
-  _renderMenuItem = ({title, links}, index) => (
+  const renderMenuItem = ({title, links}, index) => (
     <div key={index} className={'sui-DropdownBasicMenu-item'}>
       {title && (
         <header className={'sui-DropdownBasicMenu-title'}>{title}</header>
       )}
-      <ul className={'sui-DropdownBasicMenu-list'}>
-        {links.map(this._renderLink)}
-      </ul>
+      <ul className={'sui-DropdownBasicMenu-list'}>{links.map(renderLink)}</ul>
     </div>
   )
 
   /**
    * Function rendering a simple list item link.
    */
-  _renderLink = ({onClick, rel, target, text, url}, index) => {
-    const Link = this.props.linkFactory
+  const renderLink = ({onClick, rel, target, text, url}, index) => {
+    const Link = props.linkFactory
     const onClickHandler = e => {
       onClick && onClick(e)
-      this.props.closeOnItemClick && this._toggleMenu(false)
+      props.closeOnItemClick && toggleMenu(false)
     }
 
     return (
@@ -102,68 +82,53 @@ class DropdownBasic extends Component {
   /**
    * Document click event handler.
    */
-  _onDocumentClick = event => {
+  const onDocumentClick = event => {
     const {target} = event
-    const isClickOutsideDropdown = !this._wrapper.current.contains(target)
+    const isClickOutsideDropdown = !wrapper.current.contains(target)
 
-    isClickOutsideDropdown &&
-      this.props.closeOnDocumentClick &&
-      this._toggleMenu(false)
+    isClickOutsideDropdown && props.closeOnDocumentClick && toggleMenu(false)
   }
 
   /**
    * Document listener handler.
    */
-  _handleListener(add) {
+  const handleListener = add => {
     const listenerMethod = add ? 'addEventListener' : 'removeEventListener'
-    document[listenerMethod]('click', this._onDocumentClick, false)
+    document[listenerMethod]('click', onDocumentClick, false)
   }
+  const {button, menu, expandOnMouseOver} = props
+  const {text, icon: Icon} = button
+  const ArrowButtonIcon = button.arrowButtonIcon || Chevronbottom
+  const wrapperClassName = cx('sui-DropdownBasic', {
+    'is-expanded': expanded
+  })
 
-  componentDidMount() {
-    this.state.expanded && this._handleListener(true)
-  }
-
-  componentWillUnmount() {
-    this._handleListener(false)
-  }
-
-  render() {
-    const {expanded, collapseByTouch} = this.state
-    const {button, menu, expandOnMouseOver} = this.props
-    const {text, icon: Icon} = button
-    const ArrowButtonIcon = button.arrowButtonIcon || Chevronbottom
-    const wrapperClassName = cx('sui-DropdownBasic', {
-      'is-expanded': expanded
-    })
-    return (
-      <div
-        className={wrapperClassName}
-        onMouseOver={expandOnMouseOver ? this._onMouseOver : this._doNothing}
-        onMouseOut={expandOnMouseOver ? this._onMouseOut : this._doNothing}
-      >
-        <div className="sui-DropdownBasic-buttonWrap">
-          <button
-            className="sui-DropdownBasic-button"
-            onClick={expandOnMouseOver ? this._doNothing : this._toggleMenu}
-            onTouchStart={
-              expandOnMouseOver && collapseByTouch
-                ? this._toggleMenu
-                : this._doNothing
-            }
-          >
-            <div className="sui-DropdownBasic-buttonContent">
-              {Icon && <Icon svgClass="sui-DropdownBasic-buttonIcon" />}
-              <span>{text}</span>
-            </div>
-            <ArrowButtonIcon svgClass="sui-DropdownBasic-buttonIcon" />
-          </button>
-        </div>
-        <div className="sui-DropdownBasicMenu" ref={this._wrapper}>
-          {menu.map(this._renderMenuItem)}
-        </div>
+  return (
+    <div
+      className={wrapperClassName}
+      onMouseOver={expandOnMouseOver ? onMouseOver : NO_OP}
+      onMouseOut={expandOnMouseOver ? onMouseOut : NO_OP}
+    >
+      <div className="sui-DropdownBasic-buttonWrap">
+        <button
+          className="sui-DropdownBasic-button"
+          onClick={expandOnMouseOver ? NO_OP : toggleMenu}
+          onTouchStart={
+            expandOnMouseOver && collapseByTouch ? toggleMenu : NO_OP
+          }
+        >
+          <div className="sui-DropdownBasic-buttonContent">
+            {Icon && <Icon svgClass="sui-DropdownBasic-buttonIcon" />}
+            <span>{text}</span>
+          </div>
+          <ArrowButtonIcon svgClass="sui-DropdownBasic-buttonIcon" />
+        </button>
       </div>
-    )
-  }
+      <div className="sui-DropdownBasicMenu" ref={wrapper}>
+        {menu.map(renderMenuItem)}
+      </div>
+    </div>
+  )
 }
 
 DropdownBasic.displayName = 'DropdownBasic'
@@ -249,7 +214,7 @@ DropdownBasic.defaultProps = {
       href={href}
       className={className}
       onClick={onClick}
-      rel={rel}
+      rel={rel || undefined}
       target={target}
       title={title}
     >
@@ -259,5 +224,3 @@ DropdownBasic.defaultProps = {
   closeOnItemClick: false,
   closeOnDocumentClick: false
 }
-
-export default DropdownBasic
