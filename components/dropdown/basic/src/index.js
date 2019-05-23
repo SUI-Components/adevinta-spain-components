@@ -68,7 +68,7 @@ export default function DropdownBasic(props) {
     }
 
     return (
-      <li key={index} className={`${MENU_CLASS}-listItem"`}>
+      <li key={index} className={`${MENU_CLASS}-listItem`}>
         <Link
           href={url}
           className={`${MENU_CLASS}-listLink`}
