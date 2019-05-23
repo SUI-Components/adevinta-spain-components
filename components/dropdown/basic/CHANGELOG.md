@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.30.0"></a>
+# 1.30.0 (2019-05-23)
+
+
+### Features
+
+* move to baseClass to reuse string ([6788bdd](https://github.com/SUI-Components/schibsted-spain-components/commit/6788bdd))
+
+
+### Performance Improvements
+
+* move to hooks ([f5083fe](https://github.com/SUI-Components/schibsted-spain-components/commit/f5083fe))
+
+
+
 <a name="1.29.0"></a>
 # 1.29.0 (2019-05-21)
 
