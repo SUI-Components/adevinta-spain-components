@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2019-05-23)
+
+
+### Bug Fixes
+
+* fix released package without library folder ([93510ca](https://github.com/SUI-Components/schibsted-spain-components/commit/93510ca))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2019-05-22)
 
