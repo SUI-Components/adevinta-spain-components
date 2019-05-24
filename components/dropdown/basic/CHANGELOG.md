@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.32.0"></a>
+# 1.32.0 (2019-05-24)
+
+
+### Bug Fixes
+
+* fix dropdown basic ([3676ffc](https://github.com/SUI-Components/schibsted-spain-components/commit/3676ffc))
+
+
+
 <a name="1.31.0"></a>
 # 1.31.0 (2019-05-23)
 
