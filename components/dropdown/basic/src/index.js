@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, {useRef, useState} from 'react'
+import React, {useCallback, useEffect, useRef, useState} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Chevronbottom from '@schibstedspain/sui-svgiconset/lib/Chevronbottom'
@@ -17,15 +17,35 @@ export default function DropdownBasic(props) {
   const [collapseByTouch, setCollapseByTouch] = useState(false)
   const wrapper = useRef(null)
 
-  /**
-   * Toggle menu state: expanded/collapsed.
-   */
-  const toggleMenu = expand => {
-    const newExpanded = typeof expand !== 'undefined' ? expand : !expanded
+  const toggleMenu = useCallback(
+    expand => {
+      const newExpanded = typeof expand !== 'undefined' ? expand : !expanded
+      setExpanded(newExpanded)
+    },
+    [expanded]
+  )
 
-    handleListener(newExpanded)
-    setExpanded(newExpanded)
-  }
+  useEffect(
+    function() {
+      const handleListener = add => {
+        const listenerMethod = add ? 'addEventListener' : 'removeEventListener'
+        document[listenerMethod]('click', onDocumentClick, false)
+      }
+
+      const onDocumentClick = event => {
+        const {target} = event
+        const isClickOutsideDropdown = !wrapper.current.contains(target)
+
+        isClickOutsideDropdown &&
+          props.closeOnDocumentClick &&
+          toggleMenu(false)
+      }
+
+      handleListener(expanded)
+      return () => handleListener(false)
+    },
+    [expanded, props.closeOnDocumentClick, toggleMenu]
+  )
 
   const onClick = e => {
     toggleMenu()
@@ -81,24 +101,6 @@ export default function DropdownBasic(props) {
         </Link>
       </li>
     )
-  }
-
-  /**
-   * Document click event handler.
-   */
-  const onDocumentClick = event => {
-    const {target} = event
-    const isClickOutsideDropdown = !wrapper.current.contains(target)
-
-    isClickOutsideDropdown && props.closeOnDocumentClick && toggleMenu(false)
-  }
-
-  /**
-   * Document listener handler.
-   */
-  const handleListener = add => {
-    const listenerMethod = add ? 'addEventListener' : 'removeEventListener'
-    document[listenerMethod]('click', onDocumentClick, false)
   }
 
   const {button, menu, expandOnMouseOver} = props
