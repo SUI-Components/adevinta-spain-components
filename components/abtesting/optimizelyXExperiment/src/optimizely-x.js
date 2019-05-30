@@ -27,6 +27,16 @@ const waitUntil = (truthyFn, callback, delay = 100, interval = 100) => {
 const getOptimizely = () =>
   window && window.optimizely && window.optimizely.get && window.optimizely
 
+const hotjarTrigger = eventName => {
+  window.hj =
+    window.hj ||
+    function() {
+      ;(window.hj.q = window.hj.q || []).push(arguments)
+    }
+
+  window.hj('trigger', eventName)
+}
+
 /**
  * Register handler to optimizely ONCE
  * @param {Object} sdk OptimizelySdk
@@ -128,7 +138,10 @@ class OptimizelyXExperiments {
     activationHandlers[experimentId] = activationHandlers[experimentId] || []
     activationHandlers[experimentId].push(handler)
     if (await this.isActivated(experimentId)) {
-      handler(await this.getVariation(experimentId))
+      const variationId = await this.getVariation(experimentId)
+
+      handler(variationId)
+      variationId && hotjarTrigger(`${experimentId}-${variationId}`)
     }
   }
 
