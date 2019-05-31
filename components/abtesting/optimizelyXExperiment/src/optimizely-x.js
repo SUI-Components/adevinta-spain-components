@@ -1,3 +1,5 @@
+import {dispatchEvent} from '@s-ui/js/lib/events'
+
 const DETECTION_DELAY = 5000
 
 const activationHandlers = {}
@@ -26,16 +28,6 @@ const waitUntil = (truthyFn, callback, delay = 100, interval = 100) => {
 
 const getOptimizely = () =>
   window && window.optimizely && window.optimizely.get && window.optimizely
-
-const hotjarTrigger = eventName => {
-  window.hj =
-    window.hj ||
-    function() {
-      ;(window.hj.q = window.hj.q || []).push(arguments)
-    }
-
-  window.hj('trigger', eventName)
-}
 
 /**
  * Register handler to optimizely ONCE
@@ -141,7 +133,15 @@ class OptimizelyXExperiments {
       const variationId = await this.getVariation(experimentId)
 
       handler(variationId)
-      variationId && hotjarTrigger(`${experimentId}-${variationId}`)
+
+      variationId &&
+        dispatchEvent({
+          eventName: 'OptimizelyActivated',
+          detail: {
+            experimentId,
+            variationId
+          }
+        })
     }
   }
 
