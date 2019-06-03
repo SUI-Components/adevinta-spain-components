@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.12.0"></a>
+# 1.12.0 (2019-06-03)
+
+
+### Features
+
+* add trigger when a variant is selected ([74ebf4b](https://github.com/SUI-Components/schibsted-spain-components/commit/74ebf4b))
+* integrate Hotjar with Optimizely to allow record AB test by f ([fb2eca3](https://github.com/SUI-Components/schibsted-spain-components/commit/fb2eca3))
+
+
+
 <a name="1.11.0"></a>
 # 1.11.0 (2019-04-02)
 
