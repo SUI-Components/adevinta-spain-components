@@ -1,13 +1,12 @@
 import {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
+import getUseCases from './useCases'
 
 export default function CmpServices({children}) {
   const [useCases, setUseCases] = useState(false)
 
   useEffect(function() {
-    import('./useCases/index').then(({default: getUseCases}) => {
-      getUseCases().then(useCases => setUseCases(useCases))
-    })
+    getUseCases().then(useCases => setUseCases(useCases))
   }, [])
 
   return useCases && children(useCases)

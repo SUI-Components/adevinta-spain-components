@@ -1,19 +1,15 @@
-export class GetPurposesAndVendorsUseCase {
-  constructor({repository}) {
-    this._repository = repository
+export default function({repository}) {
+  const loadDefaultConsents = ({repository}) => {
+    return repository.getPurposesAndVendors().then(purposesAndVendors => ({
+      ...purposesAndVendors,
+      ...generateDefaultConsentsObject(purposesAndVendors)
+    }))
   }
 
-  execute({retrieveConsentsFromCmp} = {}) {
-    return Promise.resolve(retrieveConsentsFromCmp).then(
-      retrieve =>
-        retrieve ? this._loadStoredConsents() : this._loadDefaultConsents()
-    )
-  }
-
-  _loadStoredConsents() {
+  const loadStoredConsents = ({repository}) => {
     return Promise.all([
-      this._repository.getPurposesAndVendors(),
-      this._repository.getVendorConsents()
+      repository.getPurposesAndVendors(),
+      repository.getVendorConsents()
     ])
       .then(([purposesAndVendors, consents]) => {
         return {
@@ -22,29 +18,28 @@ export class GetPurposesAndVendorsUseCase {
           vendorConsents: consents.vendorConsents
         }
       })
-      .catch(_ => this._loadDefaultConsents())
+      .catch(loadDefaultConsents)
   }
 
-  _loadDefaultConsents() {
-    return this._repository
-      .getPurposesAndVendors()
-      .then(purposesAndVendors => ({
-        ...purposesAndVendors,
-        ...this._generateDefaultConsentsObject(purposesAndVendors)
-      }))
-  }
-
-  _generateConsent({list}) {
-    return list.reduce((acc, {id}) => {
+  const generateConsent = ({list}) =>
+    list.reduce((acc, {id}) => {
       acc[id.toString()] = true
       return acc
     }, {})
-  }
 
-  _generateDefaultConsentsObject({purposes, vendors}) {
-    return {
-      purposeConsents: this._generateConsent({list: purposes}),
-      vendorConsents: this._generateConsent({list: vendors})
+  const generateDefaultConsentsObject = ({purposes, vendors}) => ({
+    purposeConsents: generateConsent({list: purposes}),
+    vendorConsents: generateConsent({list: vendors})
+  })
+
+  return {
+    execute({retrieveConsentsFromCmp} = {}) {
+      return Promise.resolve(retrieveConsentsFromCmp).then(
+        retrieve =>
+          retrieve
+            ? loadStoredConsents({repository})
+            : loadDefaultConsents({repository})
+      )
     }
   }
 }

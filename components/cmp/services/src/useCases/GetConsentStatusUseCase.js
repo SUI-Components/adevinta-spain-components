@@ -1,9 +1,7 @@
-export class GetConsentStatusUseCase {
-  constructor({repository}) {
-    this._repository = repository
-  }
-
-  execute() {
-    return this._repository.getConsentStatus()
+export default function({repository}) {
+  return {
+    execute() {
+      return repository.getConsentStatus()
+    }
   }
 }
