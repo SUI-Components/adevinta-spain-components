@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.13.0"></a>
+# 1.13.0 (2019-06-06)
+
+
+### Features
+
+* Simplify and improve cmp ([fc70d99](https://github.com/SUI-Components/schibsted-spain-components/commit/fc70d99))
+
+
+
 <a name="1.12.0"></a>
 # 1.12.0 (2019-05-20)
 
