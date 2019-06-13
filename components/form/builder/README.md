@@ -153,7 +153,7 @@ The form initializes with the next sequence:
     return fieldItems
   }
 ```
-So the `country` form field, will be initalized as a `select`, with Germany and Italy options.
+So the `country` form field, will be initialized as a `select`, with Germany and Italy options.
 
 Notice that you can initialize as much items as you need. If you have no dependencies between form fields, you can fill the form completely.
 

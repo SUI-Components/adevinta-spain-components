@@ -30,7 +30,7 @@ class FormBuilder extends Component {
   }
 
   /**
-   * Requests the listing of the inital field values
+   * Requests the listing of the initial field values
    */
   componentDidMount = async () => {
     const items = await this.props.onLoad()
