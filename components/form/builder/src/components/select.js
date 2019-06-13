@@ -7,6 +7,8 @@ import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 import IconAngleDown from '@schibstedspain/mt-svg-icons/lib/IconAngleDown'
 import IconClose from '@schibstedspain/mt-svg-icons/lib/IconClose'
 
+import WithValidator from '../validatorHoC/WithValidator'
+
 const Select = ({
   errorText,
   label,
@@ -34,11 +36,12 @@ const Select = ({
       disabled={disabled}
       onChange={(_, {value}) => onChange(value)}
     >
-      {items.map(({name}, i) => (
-        <MoleculeSelectOption key={i} value={name}>
-          {name}
-        </MoleculeSelectOption>
-      ))}
+      {items &&
+        items.map(({name}, i) => (
+          <MoleculeSelectOption key={i} value={name}>
+            {name}
+          </MoleculeSelectOption>
+        ))}
     </MoleculeSelectField>
   )
 }
@@ -49,7 +52,7 @@ Select.propTypes = {
   errorText: PropTypes.string,
   label: PropTypes.string,
   id: PropTypes.string,
-  value: PropTypes.object,
+  value: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.obj),
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
@@ -57,4 +60,4 @@ Select.propTypes = {
   BASE_CLASS: PropTypes.string
 }
 
-export default Select
+export default WithValidator(Select)

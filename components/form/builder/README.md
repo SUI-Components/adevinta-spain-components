@@ -33,15 +33,53 @@ Defines the form items and dependencies between fields.
     type: 'select',
     label: 'Countries',
     placeholder: 'Select a country',
-    errorText: 'Required',
-    next: 'city'
+    next: 'city',
+    errors: {
+      empty: {
+        text: 'Required'
+      }
+    }
   },
   city: {
     type: 'select',
     label: 'Cities',
     placeholder: 'Select a city',
-    errorText: 'Required',
-    next: 'street'
+    next: 'street',
+    errors: {
+      empty: {
+        text: 'Required'
+      }
+    }
+  },
+  comments: {
+    type: 'text-area',
+    label: 'Comments',
+    placeholder: 'Type your comments'
+    persists: true,
+    errors: {
+      empty: {
+        text: 'Required'
+      },
+      notAllowed: {
+        character: {
+          text: 'Do not enter special characters',
+          pattern: /[`~@#$^&¬|=<>{}[\]\\]/
+        },
+        phone: {
+          text: 'Do not enter phone numbers',
+          pattern: /[0-9]{9}/
+        },
+        mail: {
+          text: 'Do not enter email addresses',
+          pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        },
+        url: {
+          text: 'Do not enter web browsing addresses',
+          pattern: /http|www|ftp/
+        }
+      }
+    }
+    
   },
   [...]
 }
@@ -60,7 +98,7 @@ placeholder: **string**
 label: **string**
 > Sets the formField label
 
-errorText: **string**
+errors: **object**
 > Sets the error text to be displayed in case of error in the field
 
 persists: **boolean**
@@ -72,6 +110,29 @@ inputType: **string**
 size: **string**
 > short | long
 
+
+#### Accepted config errors properties
+empty: **object**
+> Defines the error case in which the form field has no value.
+
+notAllowed: **object**
+> Defines the error case in which the form field has an invalid character.
+
+
+#### Accepted config empty error properties
+text: **string**
+> Defines the error text that will be displayed if the form field has no value.
+
+#### Accepted config notAllowed error properties
+*nameOfYourError*: **object**
+> Defines the error type name.
+
+#### Accepted config notAllowed *nameOfYourError* properties
+text: **string**
+> Defines the error text that will be displayed if the form field has match with the current *condition*.
+
+pattern: **regex**
+> Defines the error pattern to be evaluated.
 
 
 ### onLoad
@@ -92,7 +153,7 @@ The form initializes with the next sequence:
     return fieldItems
   }
 ```
-So the `country` form field, will be initalized as a `select`, with Germany and Italy options.
+So the `country` form field, will be initialized as a `select`, with Germany and Italy options.
 
 Notice that you can initialize as much items as you need. If you have no dependencies between form fields, you can fill the form completely.
 
@@ -117,7 +178,6 @@ Once the user selects an item, `onChange` func will be triggered. This func will
 ```
 
 so the form `formBuilder` will update the state adding the options list to the `city` field.
-
 
 ### onSubmit
 
