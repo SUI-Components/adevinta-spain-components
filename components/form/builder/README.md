@@ -33,15 +33,49 @@ Defines the form items and dependencies between fields.
     type: 'select',
     label: 'Countries',
     placeholder: 'Select a country',
-    errorText: 'Required',
-    next: 'city'
+    next: 'city',
+    empty: {
+      text: 'Required'
+    }
   },
   city: {
     type: 'select',
     label: 'Cities',
     placeholder: 'Select a city',
-    errorText: 'Required',
-    next: 'street'
+    next: 'street',
+    empty: {
+      text: 'Required'
+    }
+  },
+  comments: {
+    type: 'text-area',
+    label: 'Comments',
+    placeholder: 'Type your comments'
+    persists: true,
+    errors: {
+      empty: {
+        text: 'Required'
+      },
+      notAllowed: {
+        character: {
+          text: 'Do not enter special characters',
+          condition: /[`~@#$^&¬|=<>{}[\]\\]/
+        },
+        phone: {
+          text: 'Do not enter phone numbers',
+          condition: /[0-9]{9}/
+        },
+        mail: {
+          text: 'Do not enter email addresses',
+          condition: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        },
+        url: {
+          text: 'Do not enter web browsing addresses',
+          condition: /http|www|ftp/
+        }
+      }
+    }
+    
   },
   [...]
 }
@@ -60,7 +94,7 @@ placeholder: **string**
 label: **string**
 > Sets the formField label
 
-errorText: **string**
+errors: **object**
 > Sets the error text to be displayed in case of error in the field
 
 persists: **boolean**
@@ -72,6 +106,29 @@ inputType: **string**
 size: **string**
 > short | long
 
+
+#### Accepted config errors properties
+empty: **object**
+> Defines the error case in which the form field has no value.
+
+notAllowed: **object**
+> Defines the error case in which the form field has an invalid character.
+
+
+#### Accepted config empty error properties
+text: **string**
+> Defines the error text that will be displayed if the form field has no value.
+
+#### Accepted config notAllowed error properties
+*nameOfYourError*: **object**
+> Defines the error type name.
+
+#### Accepted config notAllowed *nameOfYourError* properties
+text: **string**
+> Defines the error text that will be displayed if the form field has match with the current *condition*.
+
+condition: **regex**
+> Defines the error condition to be evaluated.
 
 
 ### onLoad
@@ -117,7 +174,6 @@ Once the user selects an item, `onChange` func will be triggered. This func will
 ```
 
 so the form `formBuilder` will update the state adding the options list to the `city` field.
-
 
 ### onSubmit
 

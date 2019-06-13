@@ -8,7 +8,9 @@ import Input from './components/input'
 import TextArea from './components/text-area'
 import AtomButtom from '@schibstedspain/sui-atom-button'
 
-const INITIAL_LIST_ITEM_STATE = []
+import {toCapitalCase} from '@s-ui/js/lib/string'
+
+const INITIAL_LIST_ITEM_STATE = undefined
 const INITIAL_INPUT_ITEM_STATE = ''
 
 const BASE_CLASS = 'sui-FormBuilder'
@@ -21,19 +23,18 @@ class FormBuilder extends Component {
     super()
     this._config = config
     this._formFields = Object.keys(this._config)
-    this._initialState = this._getDefaultInitialState(this._formFields)
     this._submitText = submitText
-
-    this.state = {...this._initialState, showErrors: false}
+    this.state = {
+      showErrors: false
+    }
   }
 
   /**
-   * Requests the initial status of the form and the listing of the first field
+   * Requests the listing of the inital field values
    */
   componentDidMount = async () => {
     const items = await this.props.onLoad()
-    const initialState = this._getDefaultInitialState(this._formFields)
-    this.setState({...initialState, ...items})
+    this.setState({...items})
   }
 
   /**
@@ -42,7 +43,7 @@ class FormBuilder extends Component {
    */
   _getDefaultInitialState = fields =>
     fields.reduce((state, key) => {
-      state[key] = INITIAL_LIST_ITEM_STATE
+      if (this.state.hasOwnProperty(key)) state[key] = INITIAL_LIST_ITEM_STATE
       return state
     }, {})
 
@@ -112,7 +113,7 @@ class FormBuilder extends Component {
    * @param {Array} list
    */
   _getSelectedFieldName = list => {
-    const selectedItem = list.find(({selected}) => selected)
+    const selectedItem = list && list.find(({selected}) => selected)
     return selectedItem && selectedItem.name
   }
 
@@ -153,7 +154,6 @@ class FormBuilder extends Component {
       nextField &&
       (await this._getFieldItems(nextField, field, selectedFieldItemId))
     const clearedForwardFields = this._clearForwardFields(field)
-
     this.setState({
       ...clearedForwardFields,
       [field]: selectedFormField,
@@ -175,18 +175,27 @@ class FormBuilder extends Component {
    * Function responsible for rendering the Select component, generating the data according to the received field name
    * @param {Object} props
    */
-  _renderSelect = ({errorText, field, label, id, disabled, placeholder}) => {
-    const {showError} = this.state
-    const value = this.state[field]
+  _renderSelect = ({
+    errors,
+    showErrors,
+    field,
+    label,
+    id,
+    disabled,
+    placeholder
+  }) => {
+    const items = this.state[field]
+    const value = this._getSelectedFieldName(items)
     return (
       <Select
-        errorText={showError && errorText}
+        errors={errors}
+        showErrors={showErrors}
         disabled={disabled}
         key={field}
         label={label}
         id={id}
-        value={this._getSelectedFieldName(this.state[field])}
-        items={value}
+        value={value}
+        items={items}
         placeholder={placeholder}
         onChange={name => this._handleChange(field, name)}
       />
@@ -197,19 +206,23 @@ class FormBuilder extends Component {
    * Function responsible for rendering the ButtonGroup component, generating the data according to the received field name
    * @param {Object} props
    */
-  _renderButtonGroup = ({errorText, field, label, id, disabled}) => {
-    const {showError} = this.state
+  _renderButtonGroup = ({errors, showErrors, field, label, id, disabled}) => {
+    const items = this.state[field]
+    const value = this._getSelectedFieldName(items)
     return (
-      <ButtonGroup
-        errorText={showError && errorText}
-        disabled={disabled}
-        key={field}
-        label={label}
-        id={id}
-        value={this._getSelectedFieldName(this.state[field])}
-        items={this.state[field]}
-        onChange={name => this._handleChange(field, name)}
-      />
+      items && (
+        <ButtonGroup
+          errors={errors}
+          showErrors={showErrors}
+          disabled={disabled}
+          key={field}
+          label={label}
+          id={id}
+          value={value}
+          items={items}
+          onChange={name => this._handleChange(field, name)}
+        />
+      )
     )
   }
 
@@ -217,16 +230,24 @@ class FormBuilder extends Component {
    * Function responsible for rendering the Input component, generating the data according to the received field name
    * @param {Object} props
    */
-  _renderInput = ({errorText, field, label, id, placeholder, inputType}) => {
-    const {showError} = this.state
-    const value = this.state[field]
+  _renderInput = ({
+    errors,
+    showErrors,
+    field,
+    label,
+    id,
+    placeholder,
+    inputType
+  }) => {
+    const value = this.state[field] || INITIAL_INPUT_ITEM_STATE
     return (
       <Input
-        errorText={showError && errorText}
+        errors={errors}
+        showErrors={showErrors}
         key={field}
         label={label}
         id={id}
-        value={value.length ? value : INITIAL_INPUT_ITEM_STATE}
+        value={value}
         type={inputType}
         placeholder={placeholder}
         onChange={value => this._handleInputChange(field, value)}
@@ -238,16 +259,24 @@ class FormBuilder extends Component {
    * Function responsible for rendering the TextArea component, generating the data according to the received field
    * @param {Object} props
    */
-  _renderTextArea = ({errorText, field, label, id, size, placeholder}) => {
-    const {showError} = this.state
-    const value = this.state[field]
+  _renderTextArea = ({
+    errors,
+    showErrors,
+    field,
+    label,
+    id,
+    size,
+    placeholder
+  }) => {
+    const value = this.state[field] || INITIAL_INPUT_ITEM_STATE
     return (
       <TextArea
-        errorText={showError && errorText}
+        errors={errors}
+        showErrors={showErrors}
         key={field}
         label={label}
         id={id}
-        value={value.length ? value : INITIAL_INPUT_ITEM_STATE}
+        value={value}
         size={size}
         placeholder={placeholder}
         onChange={value => this._handleInputChange(field, value)}
@@ -279,10 +308,18 @@ class FormBuilder extends Component {
    * @param {number} index
    */
   _renderFormField = (field, index) => {
-    const capitalizedKey = `${field[0].toUpperCase()}${field.slice(1)}` // SUI-JS ??
-    const disabled = !this.state[field].length
+    const capitalizedKey = toCapitalCase(field)
+    const disabled = !this.state[field]
+    const {showErrors} = this.state
     const id = `${BASE_CLASS}-${field}`
-    const props = {field, id, disabled, ...this._config[field], BASE_CLASS}
+    const props = {
+      field,
+      id,
+      disabled,
+      showErrors,
+      BASE_CLASS,
+      ...this._config[field]
+    }
     const fieldClass = cx(
       `${FORM_ITEM_CLASS} ${FORM_ITEM_CLASS}${capitalizedKey}`,
       {
@@ -302,6 +339,7 @@ class FormBuilder extends Component {
    */
   _handleSubmit = e => {
     e.preventDefault()
+    this.setState({showErrors: true})
     this.props.onSubmit(this.state)
   }
 
@@ -335,8 +373,8 @@ FormBuilder.propTypes = {
     placeholder: PropTypes.string,
     /** Refers to the formfield label */
     label: PropTypes.string,
-    /** Refers to the formfield errorText */
-    errorText: PropTypes.string,
+    /** Refers to the formfield errors */
+    errors: PropTypes.Object,
     /** Refers to whether formField is persistent */
     persists: PropTypes.bool,
     /** Refers to the formfield input type */
