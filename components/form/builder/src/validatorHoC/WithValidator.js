@@ -5,7 +5,7 @@ const getErrorText = ({empty, notAllowed}, value) => {
   if (empty && !value) return empty.text
   if (notAllowed) {
     const error = Object.keys(notAllowed).find(
-      key => notAllowed[key] && value.match(notAllowed[key].condition)
+      key => notAllowed[key] && value.match(notAllowed[key].pattern)
     )
     return error && notAllowed[error].text
   }

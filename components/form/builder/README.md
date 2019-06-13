@@ -34,8 +34,10 @@ Defines the form items and dependencies between fields.
     label: 'Countries',
     placeholder: 'Select a country',
     next: 'city',
-    empty: {
-      text: 'Required'
+    errors: {
+      empty: {
+        text: 'Required'
+      }
     }
   },
   city: {
@@ -43,8 +45,10 @@ Defines the form items and dependencies between fields.
     label: 'Cities',
     placeholder: 'Select a city',
     next: 'street',
-    empty: {
-      text: 'Required'
+    errors: {
+      empty: {
+        text: 'Required'
+      }
     }
   },
   comments: {
@@ -59,19 +63,19 @@ Defines the form items and dependencies between fields.
       notAllowed: {
         character: {
           text: 'Do not enter special characters',
-          condition: /[`~@#$^&¬|=<>{}[\]\\]/
+          pattern: /[`~@#$^&¬|=<>{}[\]\\]/
         },
         phone: {
           text: 'Do not enter phone numbers',
-          condition: /[0-9]{9}/
+          pattern: /[0-9]{9}/
         },
         mail: {
           text: 'Do not enter email addresses',
-          condition: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         },
         url: {
           text: 'Do not enter web browsing addresses',
-          condition: /http|www|ftp/
+          pattern: /http|www|ftp/
         }
       }
     }
@@ -127,8 +131,8 @@ text: **string**
 text: **string**
 > Defines the error text that will be displayed if the form field has match with the current *condition*.
 
-condition: **regex**
-> Defines the error condition to be evaluated.
+pattern: **regex**
+> Defines the error pattern to be evaluated.
 
 
 ### onLoad

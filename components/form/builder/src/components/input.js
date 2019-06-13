@@ -4,32 +4,29 @@ import PropTypes from 'prop-types'
 import MoleculeInputField from '@s-ui/react-molecule-input-field'
 import WithValidator from '../validatorHoC/WithValidator'
 
-const Input = WithValidator(
-  ({
-    type,
-    errorText,
-    label,
-    id,
-    value,
-    placeholder,
-    onChange,
-    onError,
-    ...props
-  }) => {
-    return (
-      <MoleculeInputField
-        {...props}
-        type={type}
-        errorText={errorText}
-        label={label}
-        id={id}
-        value={value}
-        placeholder={placeholder}
-        onChange={(_, {value}) => onChange(value)}
-      />
-    )
-  }
-)
+const Input = ({
+  type,
+  errorText,
+  label,
+  id,
+  value,
+  placeholder,
+  onChange,
+  ...props
+}) => {
+  return (
+    <MoleculeInputField
+      {...props}
+      type={type}
+      errorText={errorText}
+      label={label}
+      id={id}
+      value={value}
+      placeholder={placeholder}
+      onChange={(_, {value}) => onChange(value)}
+    />
+  )
+}
 
 Input.displayName = 'Input'
 
@@ -43,4 +40,4 @@ Input.propTypes = {
   onChange: PropTypes.func
 }
 
-export default Input
+export default WithValidator(Input)

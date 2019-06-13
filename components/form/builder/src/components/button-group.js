@@ -7,30 +7,28 @@ import MoleculeField from '@s-ui/react-molecule-field'
 
 import WithValidator from '../validatorHoC/WithValidator'
 
-const ButtonGroup = WithValidator(
-  ({errorText, label, id, value, items, onChange}) => {
-    return (
-      <MoleculeField label={label} name={id} errorText={errorText}>
-        <MoleculeButtonGroup type="secondary" fullWidth>
-          {items &&
-            items.map(({name}, i) => {
-              const isSelected = name === value
-              return (
-                <AtomButtom
-                  key={i}
-                  onClick={() => onChange(name)}
-                  focused={isSelected}
-                  isButton
-                >
-                  {name}
-                </AtomButtom>
-              )
-            })}
-        </MoleculeButtonGroup>
-      </MoleculeField>
-    )
-  }
-)
+const ButtonGroup = ({errorText, label, id, value, items, onChange}) => {
+  return (
+    <MoleculeField label={label} name={id} errorText={errorText}>
+      <MoleculeButtonGroup type="secondary" fullWidth>
+        {items &&
+          items.map(({name}, i) => {
+            const isSelected = name === value
+            return (
+              <AtomButtom
+                key={i}
+                onClick={() => onChange(name)}
+                focused={isSelected}
+                isButton
+              >
+                {name}
+              </AtomButtom>
+            )
+          })}
+      </MoleculeButtonGroup>
+    </MoleculeField>
+  )
+}
 
 ButtonGroup.displayName = 'ButtonGroup'
 
@@ -43,4 +41,4 @@ ButtonGroup.propTypes = {
   onChange: PropTypes.func
 }
 
-export default ButtonGroup
+export default WithValidator(ButtonGroup)

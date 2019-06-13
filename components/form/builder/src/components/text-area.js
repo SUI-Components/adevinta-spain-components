@@ -5,21 +5,27 @@ import MoleculeTextareaField from '@s-ui/react-molecule-textarea-field'
 
 import WithValidator from '../validatorHoC/WithValidator'
 
-const TextArea = WithValidator(
-  ({errorText, label, id, value, placeholder, size, onChange}) => {
-    return (
-      <MoleculeTextareaField
-        errorText={errorText}
-        size={size}
-        label={label}
-        id={id}
-        value={value}
-        placeholder={placeholder}
-        onChange={(_, {value}) => onChange(value)}
-      />
-    )
-  }
-)
+const TextArea = ({
+  errorText,
+  label,
+  id,
+  value,
+  placeholder,
+  size,
+  onChange
+}) => {
+  return (
+    <MoleculeTextareaField
+      errorText={errorText}
+      size={size}
+      label={label}
+      id={id}
+      value={value}
+      placeholder={placeholder}
+      onChange={(_, {value}) => onChange(value)}
+    />
+  )
+}
 
 TextArea.displayName = 'TextArea'
 
@@ -33,4 +39,4 @@ TextArea.propTypes = {
   onChange: PropTypes.func
 }
 
-export default TextArea
+export default WithValidator(TextArea)
