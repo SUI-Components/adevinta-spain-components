@@ -47,7 +47,7 @@ class ErrorAppBoundary extends Component {
       <Fragment>
         {children}
         {this.state.hasError &&
-          !silent(
+          !silent && (
             <div className="sui-ErrorAppBoundary-notification">
               <Suspense fallback={<div />}>
                 <MoleculeNotification
