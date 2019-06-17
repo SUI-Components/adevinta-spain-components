@@ -1,4 +1,4 @@
-import React, {Component, Fragment, Suspense} from 'react'
+import React, {Component, Fragment} from 'react'
 import PropTypes from 'prop-types'
 import MoleculeNotification from '@s-ui/react-molecule-notification'
 
@@ -49,22 +49,21 @@ class ErrorAppBoundary extends Component {
         {this.state.hasError &&
           !silent && (
             <div className="sui-ErrorAppBoundary-notification">
-              <Suspense fallback={<div />}>
-                <MoleculeNotification
-                  buttons={[
-                    {
-                      type: 'secondary',
-                      negative: true,
-                      children: buttonLabel,
-                      onClick: this._onCloseNotification
-                    }
-                  ]}
-                  onClose={this._onCloseNotification}
-                  type="warning"
-                  text={message}
-                  position="bottom"
-                />
-              </Suspense>
+              <MoleculeNotification
+                buttons={[
+                  {
+                    type: 'secondary',
+                    negative: true,
+                    children: buttonLabel,
+                    onClick: this._onCloseNotification
+                  }
+                ]}
+                onClose={this._onCloseNotification}
+                type="warning"
+                position="bottom"
+              >
+                {message}
+              </MoleculeNotification>
             </div>
           )}
       </Fragment>
