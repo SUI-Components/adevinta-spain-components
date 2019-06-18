@@ -179,18 +179,26 @@ Once the user selects an item, `onChange` func will be triggered. This func will
 
 so the form `formBuilder` will update the state adding the options list to the `city` field.
 
-### onSubmit
+### onError
+when one of the fields of the form changes state, this function sends to the wrapper component, the error state of these fields
 
 ```javascript
-  const onSubmit = ({params}) => {
-    console.log(params) // {country: 0, city: 1}
-  }
+  const handleError = error => consol.elog(error) // {country: 'required', city: 'required'}
+
+  <form className={FORM_WRAP_CLASS} onSubmit={handleSubmit}>
+    <FormBuilder
+      config={ptaFormSettings}
+      isSubmitted={isSubmitted}
+      onLoad={handleLoad}
+      onSelect={handleSelect}
+      onInputChange={handleInputChange}
+      onError={handleError}
+    />
+    <AtomButtom isSubmit disabled={hasErrors}>
+      {submitText}
+    </AtomButtom>
+  </form>
 ```
-
-
-### submitText
-Sets the submit button text
-
 
 ### Auto-cleaning the form
 

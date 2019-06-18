@@ -12,8 +12,8 @@ const getErrorText = ({empty, notAllowed}, value) => {
 }
 
 const WithValidator = BaseComponent => {
-  const FormField = ({errors, showErrors, value, ...rest}) => {
-    const errorText = (showErrors || value) && getErrorText(errors, value)
+  const FormField = ({errors, isSubmited, value, ...rest}) => {
+    const errorText = (isSubmited || value) && getErrorText(errors, value)
     return <BaseComponent {...rest} errorText={errorText} value={value} />
   }
 
@@ -22,7 +22,7 @@ const WithValidator = BaseComponent => {
   FormField.propTypes = {
     type: PropTypes.string,
     errors: PropTypes.Object,
-    showErrors: PropTypes.bool,
+    isSubmited: PropTypes.bool,
     value: PropTypes.string
   }
   return FormField

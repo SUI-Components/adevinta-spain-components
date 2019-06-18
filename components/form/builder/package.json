@@ -15,7 +15,6 @@
     "@s-ui/react-molecule-input-field": "2",
     "@s-ui/react-molecule-select-field": "1",
     "@s-ui/react-molecule-textarea-field": "2",
-    "@schibstedspain/sui-atom-button": "1",
     "@schibstedspain/mt-svg-icons": "1"
   },
   "keywords": [],
