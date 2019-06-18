@@ -16,7 +16,7 @@ const TextArea = ({
   onChange,
   onError
 }) => {
-  errorText && onError({[field]: errorText})
+  onError({[field]: errorText})
   return (
     <MoleculeTextareaField
       errorText={errorText}

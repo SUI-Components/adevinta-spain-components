@@ -24,7 +24,7 @@ const Select = ({
 }) => {
   const FORM_ICON_CLOSE_CLASS = `${BASE_CLASS}-iconSelectClose`
   const FORM_ICON_ARROW_CLASS = `${BASE_CLASS}-iconSelectArrow`
-  errorText && onError({[field]: errorText})
+  onError({[field]: errorText})
   return (
     <MoleculeSelectField
       iconCloseTag={<IconClose size={10} svgClass={FORM_ICON_CLOSE_CLASS} />}

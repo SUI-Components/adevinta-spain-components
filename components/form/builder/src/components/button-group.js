@@ -17,7 +17,7 @@ const ButtonGroup = ({
   onChange,
   onError
 }) => {
-  errorText && onError({[field]: errorText})
+  onError({[field]: errorText})
   return (
     <MoleculeField label={label} name={id} errorText={errorText}>
       <MoleculeButtonGroup type="secondary" fullWidth>

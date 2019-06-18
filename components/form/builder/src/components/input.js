@@ -16,7 +16,7 @@ const Input = ({
   onError,
   ...props
 }) => {
-  errorText && onError({[field]: errorText})
+  onError({[field]: errorText})
   return (
     <MoleculeInputField
       {...props}
