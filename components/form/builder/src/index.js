@@ -384,6 +384,7 @@ FormBuilder.propTypes = {
   onInputChange: PropTypes.func.isRequired,
   /** Get the submit state of the form */
   isSubmited: PropTypes.bool,
+  /** Send field error state to wrapper */
   onError: PropTypes.func
 }
 
