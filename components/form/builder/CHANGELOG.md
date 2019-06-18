@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2019-06-18)
+
+
+### Features
+
+* error control ([3c0a1f9](https://github.com/SUI-Components/schibsted-spain-components/commit/3c0a1f9))
+* fix isSubmitted definition ([e534aab](https://github.com/SUI-Components/schibsted-spain-components/commit/e534aab))
+* fix readme ([3646284](https://github.com/SUI-Components/schibsted-spain-components/commit/3646284))
+* refactor submit action ([69dfbc6](https://github.com/SUI-Components/schibsted-spain-components/commit/69dfbc6))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2019-06-13)
 
