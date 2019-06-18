@@ -188,7 +188,7 @@ when one of the fields of the form changes state, this function sends to the wra
   <form className={FORM_WRAP_CLASS} onSubmit={handleSubmit}>
     <FormBuilder
       config={ptaFormSettings}
-      isSubmited={isSubmited}
+      isSubmitted={isSubmitted}
       onLoad={handleLoad}
       onSelect={handleSelect}
       onInputChange={handleInputChange}

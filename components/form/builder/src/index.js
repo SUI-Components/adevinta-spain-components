@@ -22,7 +22,7 @@ class FormBuilder extends Component {
     this._config = config
     this._formFields = Object.keys(this._config)
     this.state = {
-      isSubmited: false,
+      isSubmitted: false,
       hasErrors: false
     }
   }
@@ -176,7 +176,7 @@ class FormBuilder extends Component {
    */
   _renderSelect = ({
     errors,
-    isSubmited,
+    isSubmitted,
     field,
     label,
     id,
@@ -188,7 +188,7 @@ class FormBuilder extends Component {
     return (
       <Select
         errors={errors}
-        isSubmited={isSubmited}
+        isSubmitted={isSubmitted}
         disabled={disabled}
         key={field}
         field={field}
@@ -207,14 +207,14 @@ class FormBuilder extends Component {
    * Function responsible for rendering the ButtonGroup component, generating the data according to the received field name
    * @param {Object} props
    */
-  _renderButtonGroup = ({errors, isSubmited, field, label, id, disabled}) => {
+  _renderButtonGroup = ({errors, isSubmitted, field, label, id, disabled}) => {
     const items = this.state[field]
     const value = this._getSelectedFieldName(items)
     return (
       items && (
         <ButtonGroup
           errors={errors}
-          isSubmited={isSubmited}
+          isSubmitted={isSubmitted}
           disabled={disabled}
           key={field}
           field={field}
@@ -235,7 +235,7 @@ class FormBuilder extends Component {
    */
   _renderInput = ({
     errors,
-    isSubmited,
+    isSubmitted,
     field,
     label,
     id,
@@ -246,7 +246,7 @@ class FormBuilder extends Component {
     return (
       <Input
         errors={errors}
-        isSubmited={isSubmited}
+        isSubmitted={isSubmitted}
         key={field}
         field={field}
         label={label}
@@ -266,7 +266,7 @@ class FormBuilder extends Component {
    */
   _renderTextArea = ({
     errors,
-    isSubmited,
+    isSubmitted,
     field,
     label,
     id,
@@ -277,7 +277,7 @@ class FormBuilder extends Component {
     return (
       <TextArea
         errors={errors}
-        isSubmited={isSubmited}
+        isSubmitted={isSubmitted}
         key={field}
         field={field}
         label={label}
@@ -317,13 +317,13 @@ class FormBuilder extends Component {
   _renderFormField = (field, index) => {
     const capitalizedKey = toCapitalCase(field)
     const disabled = !this.state[field]
-    const {isSubmited} = this.props
+    const {isSubmitted} = this.props
     const id = `${BASE_CLASS}-${field}`
     const props = {
       field,
       id,
       disabled,
-      isSubmited,
+      isSubmitted,
       BASE_CLASS,
       ...this._config[field]
     }
@@ -383,7 +383,7 @@ FormBuilder.propTypes = {
   /** Function executed on input field change. */
   onInputChange: PropTypes.func.isRequired,
   /** Get the submit state of the form */
-  isSubmited: PropTypes.bool,
+  isSubmitted: PropTypes.bool,
   /** Send field error state to wrapper */
   onError: PropTypes.func
 }
