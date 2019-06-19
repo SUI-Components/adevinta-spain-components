@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2019-06-19)
+
+
+### Features
+
+* fix submit definition ([254ca1b](https://github.com/SUI-Components/schibsted-spain-components/commit/254ca1b))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2019-06-18)
 
