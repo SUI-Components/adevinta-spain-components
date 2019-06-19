@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2019-06-19)
+
+
+### Features
+
+* Move to functions ([c01a8a0](https://github.com/SUI-Components/schibsted-spain-components/commit/c01a8a0))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2019-04-02)
 
