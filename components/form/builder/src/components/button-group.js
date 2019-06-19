@@ -7,17 +7,7 @@ import MoleculeField from '@s-ui/react-molecule-field'
 
 import WithValidator from '../validatorHoC/WithValidator'
 
-const ButtonGroup = ({
-  errorText,
-  field,
-  label,
-  id,
-  value,
-  items,
-  onChange,
-  onError
-}) => {
-  onError({[field]: errorText})
+const ButtonGroup = ({errorText, label, id, value, items, onChange}) => {
   return (
     <MoleculeField label={label} name={id} errorText={errorText}>
       <MoleculeButtonGroup type="secondary" fullWidth>
@@ -44,13 +34,11 @@ ButtonGroup.displayName = 'ButtonGroup'
 
 ButtonGroup.propTypes = {
   errorText: PropTypes.string,
-  field: PropTypes.string,
   value: PropTypes.object,
   label: PropTypes.string,
   id: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.obj),
-  onChange: PropTypes.func,
-  onError: PropTypes.func
+  onChange: PropTypes.func
 }
 
 export default WithValidator(ButtonGroup)

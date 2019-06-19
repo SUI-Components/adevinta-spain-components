@@ -16,10 +16,11 @@ import FormBuilder from '@schibstedspain/sui-form-builder'
 return (
   <FormBuilder
     config={ptaFormSettings}
+    showErrors={isSubmitted && showErrors}
     onLoad={handleLoad}
-    onChange={handleChange}
-    onSubmit={handleSubmit}
-    submitText={submitText}
+    onSelect={handleSelect}
+    onInputChange={handleInputChange}
+    onError={handleError}
   />)
 ```
 
@@ -158,22 +159,54 @@ So the `country` form field, will be initialized as a `select`, with Germany and
 Notice that you can initialize as much items as you need. If you have no dependencies between form fields, you can fill the form completely.
 
 
-### onChange
-Once the user selects an item, `onChange` func will be triggered. This func will receive the `nextField`, and the selected items (`params`)
+### onSelect
+Once the user selects an item, `onSelectChange` func will be triggered. This func will receive the `nextField`, and the selected items (`params`)
 
 ``` javascript
-  const onChange = ({nextField, params}) => {
+  const [selectedValues, setSelectedValues] = useState(null)
+  const [showErrors, setShowErrors] = useState(false)
 
+  const handleSelect = async ({nextField, params}) => {
     console.log(nextField) // city
     console.log(params) // {country: 0}
 
-    const fieldItems = {
-      city: [
-        {id: 0, name: 'Barcelona'},
-        {id: 1, name: 'Madrid'}
-      ]
+    const previousPersistsValue = Object.values(selectedValues).filter(
+      value => ptaFormSettings[value] && ptaFormSettings[value].persists
+    )
+    const previousPersistsValues = getValues(previousPersistsValue)
+    params = {
+      ...params,
+      ...previousPersistsValues
     }
-    return fieldItems
+    setSelectedValues(params)
+    setShowErrors(true)
+    return getItems({nextField, params})
+  }
+
+  <form className={FORM_WRAP_CLASS} onSubmit={handleSubmit}>
+    <FormBuilder
+      config={ptaFormSettings}
+      showErrors={isSubmitted && showErrors}
+      onLoad={handleLoad}
+      onSelect={handleSelect}
+      onInputChange={handleInputChange}
+      onError={handleError}
+    />
+    <AtomButtom isSubmit disabled={isSubmitted && hasErrors}>
+      {submitText}
+    </AtomButtom>
+  </form>
+```
+
+
+### onInputChange
+Once the user selects an item, `onInputChange` func will be triggered. This func will receive the current field to update
+
+``` javascript
+  const [selectedValues, setSelectedValues] = useState(null)
+
+  const handleInputChange = field => {
+    setSelectedValues({...selectedValues, ...field})
   }
 ```
 
@@ -183,18 +216,46 @@ so the form `formBuilder` will update the state adding the options list to the `
 when one of the fields of the form changes state, this function sends to the wrapper component, the error state of these fields
 
 ```javascript
-  const handleError = error => consol.elog(error) // {country: 'required', city: 'required'}
+  const handleError = error => consol.log(error) // {country: 'required', city: 'required'}
 
   <form className={FORM_WRAP_CLASS} onSubmit={handleSubmit}>
     <FormBuilder
       config={ptaFormSettings}
-      isSubmitted={isSubmitted}
+      showErrors={isSubmitted && showErrors}
       onLoad={handleLoad}
       onSelect={handleSelect}
       onInputChange={handleInputChange}
       onError={handleError}
     />
-    <AtomButtom isSubmit disabled={hasErrors}>
+    <AtomButtom isSubmit disabled={isSubmitted && hasErrors}>
+      {submitText}
+    </AtomButtom>
+  </form>
+```
+
+### showErrors
+when the user sets showError to true, FormsBuilder will display error messages
+
+```javascript
+  const [showErrors, setShowErrors] = useState(false)
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    setIsSubmitted(true)
+    setShowErrors(true)
+    !hasErrors && publishDraft()
+  }
+
+  <form className={FORM_WRAP_CLASS} onSubmit={handleSubmit}>
+    <FormBuilder
+      config={ptaFormSettings}
+      showErrors={isSubmitted && showErrors}
+      onLoad={handleLoad}
+      onSelect={handleSelect}
+      onInputChange={handleInputChange}
+      onError={handleError}
+    />
+    <AtomButtom isSubmit disabled={isSubmitted && hasErrors}>
       {submitText}
     </AtomButtom>
   </form>

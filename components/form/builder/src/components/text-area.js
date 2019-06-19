@@ -7,16 +7,14 @@ import WithValidator from '../validatorHoC/WithValidator'
 
 const TextArea = ({
   errorText,
-  field,
   label,
   id,
   value,
   placeholder,
   size,
-  onChange,
-  onError
+  onChange
 }) => {
-  onError({[field]: errorText})
+  // onError({[field]: errorText})
   return (
     <MoleculeTextareaField
       errorText={errorText}
@@ -34,14 +32,12 @@ TextArea.displayName = 'TextArea'
 
 TextArea.propTypes = {
   errorText: PropTypes.string,
-  field: PropTypes.string,
   size: PropTypes.string,
   label: PropTypes.string,
   id: PropTypes.string,
   value: PropTypes.string,
   placeholder: PropTypes.string,
-  onChange: PropTypes.func,
-  onError: PropTypes.func
+  onChange: PropTypes.func
 }
 
 export default WithValidator(TextArea)
