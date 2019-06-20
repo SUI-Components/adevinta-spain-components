@@ -1,15 +1,53 @@
 /* eslint handle-callback-err: "off" */
-import PropTypes from 'prop-types'
-
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import AbTestToggle from '@s-ui/abtesting-toggle'
+
+import ExperimentContext from './experiment-context'
 import OptimizelyX from './optimizely-x'
 
 class AbTestOptimizelyXExperiment extends Component {
-  state = {variation: null}
+  defaultVariation = this._getDefaultVariation()
+  initialVariation = this.props.forceVariation || this.defaultVariation
+  state = {
+    ...this.props,
+    isActive: false,
+    isDefault: this.initialVariation === this.defaultVariation,
+    isVariation: this.initialVariation !== this.defaultVariation,
+    isWrapped: true,
+    variationName: this._getVariationName(this.initialVariation),
+    variationId: this.initialVariation
+  }
+
+  _getDefaultVariation() {
+    const defaultChild = this.props.children.find(
+      child => child.props.defaultVariation
+    )
+    return defaultChild ? defaultChild.props.variationId : null
+  }
+
+  _getVariationName(variationId) {
+    const child = this.props.children.find(
+      child => child.props.variationId === variationId
+    )
+
+    // variationName can be overriden via prop
+    if (child.props.variationName) return child.props.variationName
+
+    // otherwise, use an alphabet letter based on child position
+    const childIndex = this.props.children.indexOf(child)
+    return String.fromCharCode(65 + childIndex) // A, B, C, D, ...
+  }
 
   componentDidMount() {
-    this._activationHandler = variation => this.setState({variation})
+    this._activationHandler = variationId =>
+      this.setState({
+        isActive: true,
+        isDefault: variationId === this.defaultVariation,
+        isVariation: variationId !== this.defaultVariation,
+        variationName: this._getVariationName(variationId),
+        variationId: variationId
+      })
     OptimizelyX.addActivationListener(
       this.props.experimentId,
       this._activationHandler
@@ -25,9 +63,11 @@ class AbTestOptimizelyXExperiment extends Component {
 
   render() {
     return (
-      <AbTestToggle variation={this.state.variation}>
-        {this.props.children}
-      </AbTestToggle>
+      <ExperimentContext.Provider value={this.state}>
+        <AbTestToggle variation={this.state.variationId}>
+          {this.props.children}
+        </AbTestToggle>
+      </ExperimentContext.Provider>
     )
   }
 }
@@ -44,7 +84,13 @@ AbTestOptimizelyXExperiment.propTypes = {
    * Id of the experiment to get variation from.
    */
   experimentId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-    .isRequired
+    .isRequired,
+  /**
+   * Id of the variation to display which overrides defaultVariation prop from children.
+   * Only for development purposes.
+   */
+  forceVariation: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 export default AbTestOptimizelyXExperiment
+export {ExperimentContext}
