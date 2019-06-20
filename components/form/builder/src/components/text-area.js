@@ -13,20 +13,17 @@ const TextArea = ({
   placeholder,
   size,
   onChange
-}) => {
-  // onError({[field]: errorText})
-  return (
-    <MoleculeTextareaField
-      errorText={errorText}
-      size={size}
-      label={label}
-      id={id}
-      value={value}
-      placeholder={placeholder}
-      onChange={(_, {value}) => onChange(value)}
-    />
-  )
-}
+}) => (
+  <MoleculeTextareaField
+    errorText={errorText}
+    size={size}
+    label={label}
+    id={id}
+    value={value}
+    placeholder={placeholder}
+    onChange={(_, {value}) => onChange(value)}
+  />
+)
 
 TextArea.displayName = 'TextArea'
 

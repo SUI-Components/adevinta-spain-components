@@ -13,20 +13,18 @@ const Input = ({
   placeholder,
   onChange,
   ...props
-}) => {
-  return (
-    <MoleculeInputField
-      {...props}
-      type={type}
-      errorText={errorText}
-      label={label}
-      id={id}
-      value={value}
-      placeholder={placeholder}
-      onChange={(_, {value}) => onChange(value)}
-    />
-  )
-}
+}) => (
+  <MoleculeInputField
+    {...props}
+    type={type}
+    errorText={errorText}
+    label={label}
+    id={id}
+    value={value}
+    placeholder={placeholder}
+    onChange={(_, {value}) => onChange(value)}
+  />
+)
 
 Input.displayName = 'Input'
 
