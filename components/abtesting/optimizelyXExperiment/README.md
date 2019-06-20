@@ -15,7 +15,7 @@
 npm install @s-ui/abtesting-optimizely-x --save
 ```
 
-## Usage
+## Basic Usage
 
 ### 1. Get experiment's id and its variation ids from OptimizelyX
 
@@ -41,8 +41,84 @@ Component will obtain OptimizelyX's decision for given `experimentId` and displa
 
 If no variation is provided or OptimizelyX API is unavailable, `defaultVariation` will be displayed.
 
-## Known issues
+## Advanced Usage
 
+### Experiment Context
+
+The following data is set in a plain object to the experiment context.
+
+- All props passed to OptimizelyXExperiment (see limitations at Known issues section).
+- isActive: true when a decision has been made by optimizely.
+- isDefault: true when the chosen variation is the default one.
+- isVariation: true when the chosen variation is not the default one.
+- isWrapped: true when the current component has OptimizelyXExperiment as a parent (direct or not).
+- variationId: The variationId of the chosen variation.
+- variationName: The variationName of the chosen variation (more about this below).
+
+So for a given experiment:
+
+```html
+<OptimizelyXExperiment experimentId={8470306415}>
+  <NiceComponent variationId={8463707014} defaultVariation />
+  <NiceComponent variationId={8480321136} />
+</OptimizelyXExperiment>
+```
+
+The experiment context can be consumed at any child level by using the `useExperiment` hook:
+
+```js
+import {useExperiment} from '@s-ui/abtesting-hooks'
+
+const NiceComponent = () => {
+  const {isActive, isDefault, isVariation, ...} = useExperiment()
+}
+```
+
+### variationName
+
+You may need to check which variation has been chosen down in the children, specially when the experiment has 3 or more possible variations. For the sake of simplicity, OptimizelyXExperiment will automatically assign an uppercase letter for each variation based on the order of children, but you could override it by using `variationName` prop directly into a variation.
+
+```html
+<OptimizelyXExperiment experimentId={8470306415}>
+  <TestedComponent variationId={8463707014} defaultVariation />
+  <TestedComponent variationId={8480321136} />
+  <TestedComponent variationId={8462843355} variationName="Maneko" />
+  <TestedComponent variationId={8468413552} />
+</OptimizelyXExperiment>
+```
+
+Considering the above example, if we look into TestedComponent we can access the chosen `variationName` from the experiment context through the `useExperiment` hook:
+
+```js
+import {useExperiment} from '@s-ui/abtesting-hooks'
+
+const TestedComponent = () => {
+  const {variationName} = useExperiment()
+
+  // if 1st variation is chosen: variationName → "A"
+  // if 2nd variation is chosen: variationName → "B"
+  // if 3rd variation is chosen: variationName → "Maneko" (overriden)
+  // if 4th variation is chosen: variationName → "D"
+  // ...
+  // if Nth variation is chosen: variationName → Nth letter in alphabet
+  console.log(variationName)
+}
+```
+
+### forceVariation (OptimizelyXExperiment prop for development purposes)
+
+While developing in localhost you may need to test different variations. You could move `defaultVariation` prop around children, but this could lead to human mistake when commiting changes since you could leave `defaultVariation` prop in a wrong child.
+
+```html
+<OptimizelyXExperiment experimentId={8470306415} forceVariation={8480321136}>
+  <button variationId={8463707014} defaultVariation>Original</button>
+  <button variationId={8480321136}>Variation #1</button>
+</OptimizelyXExperiment>
+```
+
+In the above example, defaultVariation is ignored thanks to forceVariation, so Variation #1 is displayed instead. This way any variation can be tested while no OptimizelyXExperiment child needs to be altered.
+
+## Known issues
 
 ### Clipping of variations
 
@@ -51,3 +127,19 @@ If no variation is provided or OptimizelyX API is unavailable, `defaultVariation
 Moreover, depending on how you load Optimizely's snippet, the clipping may also happend in SPA mode (without SSR):
 * If you load the snippet as blocking script in `<head>` (recommended by Optimizely itself), no clipping should appear on SPA, as Optimizely will be present on first render.
 * If you load Optimizely later (async), the default variation will be rendered on first render. The component will wait for Optimizely until it's loaded (5 seconds max) and then render the decided variation. In that case, user may also experience some clipping.
+
+### Passing props that change over time to the context
+
+All the props passed to OptimizelyXExperiment component will be automatically set on the experiment context. This is why experimentId is available in the context.
+
+```html
+<OptimizelyXExperiment experimentId={8470306415} propX="foo" propY="boo">
+   <VariationA ...>
+   <VariationB ...>
+   <VariationC ...>
+</OptimizelyXExperiment>
+```
+
+In the above example, propX and propY will be available in the context too, but if they change they will not be updated in the context due to technical limitations that would cause unnecessary renders and potentially create other issues.
+
+Extra props can certainly be passed to OptimizelyXExperiment in order to get extra data in the experiment context, but keep in mind that they cannot change.
