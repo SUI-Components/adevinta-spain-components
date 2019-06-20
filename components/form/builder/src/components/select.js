@@ -11,7 +11,6 @@ import WithValidator from '../validatorHoC/WithValidator'
 
 const Select = ({
   errorText,
-  field,
   label,
   id,
   value,
@@ -19,12 +18,10 @@ const Select = ({
   placeholder,
   disabled,
   onChange,
-  onError,
   BASE_CLASS
 }) => {
   const FORM_ICON_CLOSE_CLASS = `${BASE_CLASS}-iconSelectClose`
   const FORM_ICON_ARROW_CLASS = `${BASE_CLASS}-iconSelectArrow`
-  onError({[field]: errorText})
   return (
     <MoleculeSelectField
       iconCloseTag={<IconClose size={10} svgClass={FORM_ICON_CLOSE_CLASS} />}
@@ -53,7 +50,6 @@ Select.displayName = 'Select'
 
 Select.propTypes = {
   errorText: PropTypes.string,
-  field: PropTypes.string,
   label: PropTypes.string,
   id: PropTypes.string,
   value: PropTypes.string,
@@ -61,7 +57,6 @@ Select.propTypes = {
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
-  onError: PropTypes.func,
   BASE_CLASS: PropTypes.string
 }
 

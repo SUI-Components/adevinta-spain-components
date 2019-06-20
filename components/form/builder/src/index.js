@@ -21,10 +21,7 @@ class FormBuilder extends Component {
     super()
     this._config = config
     this._formFields = Object.keys(this._config)
-    this.state = {
-      isSubmitted: false,
-      hasErrors: false
-    }
+    this.state = {}
   }
 
   /**
@@ -176,7 +173,7 @@ class FormBuilder extends Component {
    */
   _renderSelect = ({
     errors,
-    isSubmitted,
+    showErrors,
     field,
     label,
     id,
@@ -188,7 +185,7 @@ class FormBuilder extends Component {
     return (
       <Select
         errors={errors}
-        isSubmitted={isSubmitted}
+        showErrors={showErrors}
         disabled={disabled}
         key={field}
         field={field}
@@ -207,14 +204,14 @@ class FormBuilder extends Component {
    * Function responsible for rendering the ButtonGroup component, generating the data according to the received field name
    * @param {Object} props
    */
-  _renderButtonGroup = ({errors, isSubmitted, field, label, id, disabled}) => {
+  _renderButtonGroup = ({errors, showErrors, field, label, id, disabled}) => {
     const items = this.state[field]
     const value = this._getSelectedFieldName(items)
     return (
       items && (
         <ButtonGroup
           errors={errors}
-          isSubmitted={isSubmitted}
+          showErrors={showErrors}
           disabled={disabled}
           key={field}
           field={field}
@@ -235,7 +232,7 @@ class FormBuilder extends Component {
    */
   _renderInput = ({
     errors,
-    isSubmitted,
+    showErrors,
     field,
     label,
     id,
@@ -246,7 +243,7 @@ class FormBuilder extends Component {
     return (
       <Input
         errors={errors}
-        isSubmitted={isSubmitted}
+        showErrors={showErrors}
         key={field}
         field={field}
         label={label}
@@ -266,7 +263,7 @@ class FormBuilder extends Component {
    */
   _renderTextArea = ({
     errors,
-    isSubmitted,
+    showErrors,
     field,
     label,
     id,
@@ -277,7 +274,7 @@ class FormBuilder extends Component {
     return (
       <TextArea
         errors={errors}
-        isSubmitted={isSubmitted}
+        showErrors={showErrors}
         key={field}
         field={field}
         label={label}
@@ -317,13 +314,13 @@ class FormBuilder extends Component {
   _renderFormField = (field, index) => {
     const capitalizedKey = toCapitalCase(field)
     const disabled = !this.state[field]
-    const {isSubmitted} = this.props
+    const {showErrors} = this.props
     const id = `${BASE_CLASS}-${field}`
     const props = {
       field,
       id,
       disabled,
-      isSubmitted,
+      showErrors,
       BASE_CLASS,
       ...this._config[field]
     }
@@ -382,8 +379,8 @@ FormBuilder.propTypes = {
   onSelect: PropTypes.func.isRequired,
   /** Function executed on input field change. */
   onInputChange: PropTypes.func.isRequired,
-  /** Get the submit state of the form */
-  isSubmitted: PropTypes.bool,
+  /** shows or does not show errors */
+  showErrors: PropTypes.bool,
   /** Send field error state to wrapper */
   onError: PropTypes.func
 }
