@@ -5,9 +5,7 @@ export default function AtomStatusSpot({size = 'medium', status = 'default'}) {
   return (
     <div className="sui-AtomStatusSpot">
       <span
-        className={`sui-AtomStatusSpot-status sui-AtomStatusSpot-status-${
-          this.props.status
-        } sui-AtomStatusSpot-size-${this.props.size}`}
+        className={`sui-AtomStatusSpot-status sui-AtomStatusSpot-status-${status} sui-AtomStatusSpot-size-${size}`}
       />
     </div>
   )
