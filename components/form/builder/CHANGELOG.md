@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2019-06-20)
+
+
+### Features
+
+* remove comments ([6074267](https://github.com/SUI-Components/schibsted-spain-components/commit/6074267))
+* update formbuilder show error management ([abb7770](https://github.com/SUI-Components/schibsted-spain-components/commit/abb7770))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2019-06-19)
 
