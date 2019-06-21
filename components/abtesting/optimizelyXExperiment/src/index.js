@@ -7,16 +7,25 @@ import ExperimentContext from './experiment-context'
 import OptimizelyX from './optimizely-x'
 
 class AbTestOptimizelyXExperiment extends Component {
-  defaultVariation = this._getDefaultVariation()
-  initialVariation = this.props.forceVariation || this.defaultVariation
-  state = {
-    ...this.props,
-    isActive: false,
-    isDefault: this.initialVariation === this.defaultVariation,
-    isVariation: this.initialVariation !== this.defaultVariation,
-    isWrapped: true,
-    variationName: this._getVariationName(this.initialVariation),
-    variationId: this.initialVariation
+  constructor(initialProps) {
+    super(initialProps)
+    const {forceVariation} = initialProps
+
+    this.defaultVariation = this._getDefaultVariation()
+    this.initialVariation = forceVariation || this.defaultVariation
+
+    // no need to pass the special children prop to the context
+    const {children, ...initialPropsWithoutChildren} = initialProps
+
+    this.state = {
+      ...initialPropsWithoutChildren,
+      isActive: false,
+      isDefault: this.initialVariation === this.defaultVariation,
+      isVariation: this.initialVariation !== this.defaultVariation,
+      isWrapped: true,
+      variationName: this._getVariationName(this.initialVariation),
+      variationId: this.initialVariation
+    }
   }
 
   _getDefaultVariation() {
