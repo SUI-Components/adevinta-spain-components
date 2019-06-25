@@ -6,4 +6,5 @@ export default function ReactHooks() {
 }
 
 export {default as useMount} from './useMount'
+export {default as useAsyncMount} from './useAsyncMount'
 export {default as useOnScreen, useNearScreen} from './useOnScreen'

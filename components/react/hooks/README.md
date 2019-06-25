@@ -32,6 +32,25 @@ export default () => {
 }
 ```
 
+### useAsyncMount
+
+Hook that will be executed when the component is mounted. Similar behavior to `useMount ` but `useAsyncMount` will execute the received function in order to use it asynchronously.
+
+```js
+import { useAsyncMount } from '@schibstedspain/sui-react-hooks'
+
+export default () => {
+  const [currentUser, setCurrentUser] = useState(null)
+
+  useAsyncMount(async () => {
+    const user = await getUser()
+    setCurrentUser(user)
+  })
+
+  return currentUser && <h1>Hello {currentUser.name} !!</h1>
+}
+```
+
 ### useOnScreen
 
 Hook to detect if an element is on the screen. Useful for lazy loading components, images or fetching of data.
