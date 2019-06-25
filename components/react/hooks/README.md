@@ -28,7 +28,14 @@ export default () => {
     return () => document.removeEventListener('scroll', onScroll)
   })
 
-  return <h1>Hey!</h1>
+  const [currentUser, setCurrentUser] = useState(null)
+
+  useMount(async () => {
+    const user = await getUser()
+    setCurrentUser(user)
+  })
+
+  return currentUser && <h1>Hello {currentUser.name} !!</h1>
 }
 ```
 
