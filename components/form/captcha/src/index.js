@@ -18,8 +18,8 @@ const FormCaptcha = ({siteKey, locale, onSubmit = () => {}}) => {
   const reset = () => {
     if (captchaId !== null) {
       window.grecaptcha.reset(captchaId)
-      onSubmit('')
     }
+    onSubmit('')
   }
 
   const load = () => {
