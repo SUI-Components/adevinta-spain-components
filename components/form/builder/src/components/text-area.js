@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 
 import MoleculeTextareaField from '@s-ui/react-molecule-textarea-field'
 
+import WithValidator from '../validatorHoC/WithValidator'
+
 const TextArea = ({
   errorText,
   label,
@@ -30,9 +32,9 @@ TextArea.propTypes = {
   size: PropTypes.string,
   label: PropTypes.string,
   id: PropTypes.string,
-  value: PropTypes.object,
+  value: PropTypes.string,
   placeholder: PropTypes.string,
   onChange: PropTypes.func
 }
 
-export default TextArea
+export default WithValidator(TextArea)

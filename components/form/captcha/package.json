@@ -1,6 +1,6 @@
 {
-  "name": "@schibstedspain/sui-react-hooks",
-  "version": "1.3.0",
+  "name": "@schibstedspain/sui-form-captcha",
+  "version": "1.2.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "intersection-observer": "0.5.1"
+    "@schibstedspain/sui-react-hooks": "1",
+    "@schibstedspain/sui-script-loader": "1"
   },
   "keywords": [],
   "author": "",

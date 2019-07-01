@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.21.0"></a>
+# 1.21.0 (2019-06-19)
+
+
+### Features
+
+* Move to functions ([62c266d](https://github.com/SUI-Components/schibsted-spain-components/commit/62c266d))
+
+
+
 <a name="1.20.0"></a>
 # 1.20.0 (2019-06-06)
 

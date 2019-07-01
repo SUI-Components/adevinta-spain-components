@@ -5,11 +5,13 @@ import MoleculeButtonGroup from '@s-ui/react-molecule-button-group'
 import AtomButtom from '@schibstedspain/sui-atom-button'
 import MoleculeField from '@s-ui/react-molecule-field'
 
-const ButtonGroup = ({errorText, label, id, value, items, onChange}) => {
-  return (
-    <MoleculeField label={label} name={id} errorText={errorText}>
-      <MoleculeButtonGroup type="secondary" fullWidth>
-        {items.map(({name}, i) => {
+import WithValidator from '../validatorHoC/WithValidator'
+
+const ButtonGroup = ({errorText, label, id, value, items, onChange}) => (
+  <MoleculeField label={label} name={id} errorText={errorText}>
+    <MoleculeButtonGroup type="secondary" fullWidth>
+      {items &&
+        items.map(({name}, i) => {
           const isSelected = name === value
           return (
             <AtomButtom
@@ -22,10 +24,9 @@ const ButtonGroup = ({errorText, label, id, value, items, onChange}) => {
             </AtomButtom>
           )
         })}
-      </MoleculeButtonGroup>
-    </MoleculeField>
-  )
-}
+    </MoleculeButtonGroup>
+  </MoleculeField>
+)
 
 ButtonGroup.displayName = 'ButtonGroup'
 
@@ -38,4 +39,4 @@ ButtonGroup.propTypes = {
   onChange: PropTypes.func
 }
 
-export default ButtonGroup
+export default WithValidator(ButtonGroup)

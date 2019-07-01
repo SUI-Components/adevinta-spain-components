@@ -16,10 +16,11 @@ import FormBuilder from '@schibstedspain/sui-form-builder'
 return (
   <FormBuilder
     config={ptaFormSettings}
+    showErrors={isSubmitted && showErrors}
     onLoad={handleLoad}
-    onChange={handleChange}
-    onSubmit={handleSubmit}
-    submitText={submitText}
+    onSelect={handleSelect}
+    onInputChange={handleInputChange}
+    onError={handleError}
   />)
 ```
 
@@ -33,15 +34,53 @@ Defines the form items and dependencies between fields.
     type: 'select',
     label: 'Countries',
     placeholder: 'Select a country',
-    errorText: 'Required',
-    next: 'city'
+    next: 'city',
+    errors: {
+      empty: {
+        text: 'Required'
+      }
+    }
   },
   city: {
     type: 'select',
     label: 'Cities',
     placeholder: 'Select a city',
-    errorText: 'Required',
-    next: 'street'
+    next: 'street',
+    errors: {
+      empty: {
+        text: 'Required'
+      }
+    }
+  },
+  comments: {
+    type: 'text-area',
+    label: 'Comments',
+    placeholder: 'Type your comments'
+    persists: true,
+    errors: {
+      empty: {
+        text: 'Required'
+      },
+      notAllowed: {
+        character: {
+          text: 'Do not enter special characters',
+          pattern: /[`~@#$^&¬|=<>{}[\]\\]/
+        },
+        phone: {
+          text: 'Do not enter phone numbers',
+          pattern: /[0-9]{9}/
+        },
+        mail: {
+          text: 'Do not enter email addresses',
+          pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        },
+        url: {
+          text: 'Do not enter web browsing addresses',
+          pattern: /http|www|ftp/
+        }
+      }
+    }
+    
   },
   [...]
 }
@@ -60,7 +99,7 @@ placeholder: **string**
 label: **string**
 > Sets the formField label
 
-errorText: **string**
+errors: **object**
 > Sets the error text to be displayed in case of error in the field
 
 persists: **boolean**
@@ -72,6 +111,29 @@ inputType: **string**
 size: **string**
 > short | long
 
+
+#### Accepted config errors properties
+empty: **object**
+> Defines the error case in which the form field has no value.
+
+notAllowed: **object**
+> Defines the error case in which the form field has an invalid character.
+
+
+#### Accepted config empty error properties
+text: **string**
+> Defines the error text that will be displayed if the form field has no value.
+
+#### Accepted config notAllowed error properties
+*nameOfYourError*: **object**
+> Defines the error type name.
+
+#### Accepted config notAllowed *nameOfYourError* properties
+text: **string**
+> Defines the error text that will be displayed if the form field has match with the current *condition*.
+
+pattern: **regex**
+> Defines the error pattern to be evaluated.
 
 
 ### onLoad
@@ -92,45 +154,112 @@ The form initializes with the next sequence:
     return fieldItems
   }
 ```
-So the `country` form field, will be initalized as a `select`, with Germany and Italy options.
+So the `country` form field, will be initialized as a `select`, with Germany and Italy options.
 
 Notice that you can initialize as much items as you need. If you have no dependencies between form fields, you can fill the form completely.
 
 
-### onChange
-Once the user selects an item, `onChange` func will be triggered. This func will receive the `nextField`, and the selected items (`params`)
+### onSelect
+Once the user selects an item, `onSelectChange` func will be triggered. This func will receive the `nextField`, and the selected items (`params`)
 
 ``` javascript
-  const onChange = ({nextField, params}) => {
+  const [selectedValues, setSelectedValues] = useState(null)
+  const [showErrors, setShowErrors] = useState(false)
 
+  const handleSelect = async ({nextField, params}) => {
     console.log(nextField) // city
     console.log(params) // {country: 0}
 
-    const fieldItems = {
-      city: [
-        {id: 0, name: 'Barcelona'},
-        {id: 1, name: 'Madrid'}
-      ]
+    const previousPersistsValue = Object.values(selectedValues).filter(
+      value => ptaFormSettings[value] && ptaFormSettings[value].persists
+    )
+    const previousPersistsValues = getValues(previousPersistsValue)
+    params = {
+      ...params,
+      ...previousPersistsValues
     }
-    return fieldItems
+    setSelectedValues(params)
+    setShowErrors(true)
+    return getItems({nextField, params})
+  }
+
+  <form className={FORM_WRAP_CLASS} onSubmit={handleSubmit}>
+    <FormBuilder
+      config={ptaFormSettings}
+      showErrors={isSubmitted && showErrors}
+      onLoad={handleLoad}
+      onSelect={handleSelect}
+      onInputChange={handleInputChange}
+      onError={handleError}
+    />
+    <AtomButtom isSubmit disabled={isSubmitted && hasErrors}>
+      {submitText}
+    </AtomButtom>
+  </form>
+```
+
+
+### onInputChange
+Once the user selects an item, `onInputChange` func will be triggered. This func will receive the current field to update
+
+``` javascript
+  const [selectedValues, setSelectedValues] = useState(null)
+
+  const handleInputChange = field => {
+    setSelectedValues({...selectedValues, ...field})
   }
 ```
 
 so the form `formBuilder` will update the state adding the options list to the `city` field.
 
-
-### onSubmit
+### onError
+when one of the fields of the form changes state, this function sends to the wrapper component, the error state of these fields
 
 ```javascript
-  const onSubmit = ({params}) => {
-    console.log(params) // {country: 0, city: 1}
-  }
+  const handleError = error => consol.log(error) // {country: 'required', city: 'required'}
+
+  <form className={FORM_WRAP_CLASS} onSubmit={handleSubmit}>
+    <FormBuilder
+      config={ptaFormSettings}
+      showErrors={isSubmitted && showErrors}
+      onLoad={handleLoad}
+      onSelect={handleSelect}
+      onInputChange={handleInputChange}
+      onError={handleError}
+    />
+    <AtomButtom isSubmit disabled={isSubmitted && hasErrors}>
+      {submitText}
+    </AtomButtom>
+  </form>
 ```
 
+### showErrors
+when the user sets showError to true, FormsBuilder will display error messages
 
-### submitText
-Sets the submit button text
+```javascript
+  const [showErrors, setShowErrors] = useState(false)
 
+  const handleSubmit = e => {
+    e.preventDefault()
+    setIsSubmitted(true)
+    setShowErrors(true)
+    !hasErrors && publishDraft()
+  }
+
+  <form className={FORM_WRAP_CLASS} onSubmit={handleSubmit}>
+    <FormBuilder
+      config={ptaFormSettings}
+      showErrors={isSubmitted && showErrors}
+      onLoad={handleLoad}
+      onSelect={handleSelect}
+      onInputChange={handleInputChange}
+      onError={handleError}
+    />
+    <AtomButtom isSubmit disabled={isSubmitted && hasErrors}>
+      {submitText}
+    </AtomButtom>
+  </form>
+```
 
 ### Auto-cleaning the form
 

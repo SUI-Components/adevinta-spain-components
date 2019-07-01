@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.3.0"></a>
+# 2.3.0 (2019-06-18)
+
+
+### Bug Fixes
+
+* add silent prop in order to remove notification ([915c419](https://github.com/SUI-Components/schibsted-spain-components/commit/915c419))
+
+
+### Features
+
+* add silent prop ([ead3123](https://github.com/SUI-Components/schibsted-spain-components/commit/ead3123))
+
+
+
 <a name="2.2.0"></a>
 # 2.2.0 (2019-04-02)
 
@@ -70,16 +85,6 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * ensure the position of the error notification ([a84600c](https://github.com/SUI-Components/schibsted-spain-components/commit/a84600c))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2018-01-15)
-
-
-### Features
-
-* create new error appBoundary component ([98b0087](https://github.com/SUI-Components/schibsted-spain-components/commit/98b0087))
 
 
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import CmpServices from '@schibstedspain/react-cmp-services'
 
-import {CmpBannerContainer} from './CmpBanner/index'
+import CmpBannerContainer from './CmpBanner/index'
 
 export default function CmpBanner({lang = 'es', ...restOfProps}) {
   return (
