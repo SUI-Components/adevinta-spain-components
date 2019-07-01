@@ -65,17 +65,23 @@ class AbTestOptimizelyXExperiment extends Component {
   }
 
   componentDidMount() {
+    if (this.props.forceVariation) {
+      const msg = `[OptimizelyXExperiment] Watch out!! Optimizely response will be ignored because the forceVariation prop.`
+      console.warn(msg) // eslint-disable-line no-console
+      return
+    }
+
     this._activationHandler = variationId => {
-      const variationName = this._getVariationNameFromVariationId(variationId)
       this.setState({
         isActive: true,
         isDefault: variationId === this.defaultVariation,
         isVariation: variationId !== this.defaultVariation,
-        variationName,
+        variationName: this._getVariationNameFromVariationId(variationId),
         variationId,
         ...this._getVariationFlags(variationId)
       })
     }
+
     OptimizelyX.addActivationListener(
       this.props.experimentId,
       this._activationHandler
@@ -83,6 +89,7 @@ class AbTestOptimizelyXExperiment extends Component {
   }
 
   componentWillUnmount() {
+    if (this.props.forceVariation) return
     OptimizelyX.removeActivationListener(
       this.props.experimentId,
       this._activationHandler
