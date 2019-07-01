@@ -6,6 +6,7 @@ import {ExperimentContext} from '@s-ui/abtesting-optimizely-x'
 // provider of the actual context). This way we mainly avoid trying to access
 // properties from undefined when no experiment context is present.
 const NON_WRAPPED_BY_CONTEXT_PROVIDER_FALLBACK_OBJECT = {
+  isDefault: true,
   isWrapped: false
 }
 
