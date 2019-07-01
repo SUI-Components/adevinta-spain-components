@@ -51,6 +51,10 @@ The following data is set in a plain object to the experiment context.
 - isActive: true when a decision has been made by optimizely.
 - isDefault: true when the chosen variation is the default one.
 - isVariation: true when the chosen variation is not the default one.
+- isVariationA: true when the choosen variation is A.
+- isVariationB: true when the choosen variation is B.
+- ...
+- isVariationN: true when the choosen variation is N.
 - isWrapped: true when the current component has OptimizelyXExperiment as a parent (direct or not).
 - variationId: The variationId of the chosen variation.
 - variationName: The variationName of the chosen variation (more about this below).
@@ -82,7 +86,7 @@ You may need to check which variation has been chosen down in the children, spec
 <OptimizelyXExperiment experimentId={8470306415}>
   <TestedComponent variationId={8463707014} defaultVariation />
   <TestedComponent variationId={8480321136} />
-  <TestedComponent variationId={8462843355} variationName="Maneko" />
+  <TestedComponent variationId={8462843355} variationName="maneko" />
   <TestedComponent variationId={8468413552} />
 </OptimizelyXExperiment>
 ```
@@ -97,7 +101,7 @@ const TestedComponent = () => {
 
   // if 1st variation is chosen: variationName → "A"
   // if 2nd variation is chosen: variationName → "B"
-  // if 3rd variation is chosen: variationName → "Maneko" (overriden)
+  // if 3rd variation is chosen: variationName → "maneko" (overriden)
   // if 4th variation is chosen: variationName → "D"
   // ...
   // if Nth variation is chosen: variationName → Nth letter in alphabet
@@ -105,18 +109,43 @@ const TestedComponent = () => {
 }
 ```
 
+Also, boolean keys are provided for simplicity:
+
+```js
+import {useExperiment} from '@s-ui/abtesting-hooks'
+
+const TestedComponent = () => {
+  const {isVariationA, isVariationB, isVariationManeko, isVariationD} = useExperiment()
+
+  // consider 'B' variation is chosen by optimizely, then:
+  console.log(isVariationA) // → false
+  console.log(isVariationB) // → true
+  console.log(isVariationManeko) // → false
+  console.log(isVariationD) // → false
+}
+```
+
 ### forceVariation (OptimizelyXExperiment prop for development purposes)
 
-While developing in localhost you may need to test different variations. You could move `defaultVariation` prop around children, but this could lead to human mistake when commiting changes since you could leave `defaultVariation` prop in a wrong child.
+While developing in localhost you may need to test different variations:
 
 ```html
 <OptimizelyXExperiment experimentId={8470306415} forceVariation={8480321136}>
-  <button variationId={8463707014} defaultVariation>Original</button>
-  <button variationId={8480321136}>Variation #1</button>
+  <button variationId={8463707014} defaultVariation>Cats</button>
+  <button variationId={8480321136}>Dogs</button>
 </OptimizelyXExperiment>
 ```
 
-In the above example, defaultVariation is ignored thanks to forceVariation, so Variation #1 is displayed instead. This way any variation can be tested while no OptimizelyXExperiment child needs to be altered.
+In the above example, defaultVariation is ignored so "Dogs" variation is displayed instead. Using a variation name instead of an id leads to the same results:
+
+```html
+<OptimizelyXExperiment experimentId={8470306415} forceVariation="B">
+  <button variationId={8463707014} defaultVariation>Cats</button>
+  <button variationId={8480321136}>Dogs</button>
+</OptimizelyXExperiment>
+```
+
+NOTE: By using this prop OptimizelyXExperiment will display a warning in the console since forceVariation is not meant to be used for production.
 
 ## Known issues
 
