@@ -71,9 +71,16 @@ class AbTestOptimizelyXExperiment extends Component {
 
   _getVariationFlags(selectedVariationId) {
     return this.props.children.reduce((obj, child) => {
+      const variationName = this._getVariationNameFromChild(child)
+
+      // capitalize variation name in order to get a well-formed camel case key
+      // i. e. for a name 'foo' → isVariationFoo
+      const capitalizedVariationName =
+        variationName.charAt(0).toUpperCase() + variationName.slice(1)
+
       return {
         ...obj,
-        [`isVariation${this._getVariationNameFromChild(child)}`]:
+        [`isVariation${capitalizedVariationName}`]:
           child.props.variationId === selectedVariationId
       }
     }, {})
