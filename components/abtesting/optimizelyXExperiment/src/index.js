@@ -7,24 +7,28 @@ import ExperimentContext from './experiment-context'
 import OptimizelyX from './optimizely-x'
 
 class AbTestOptimizelyXExperiment extends Component {
-  constructor(initialProps) {
-    super(initialProps)
-    const {forceVariation} = initialProps
+  constructor(props) {
+    super(props)
+    const {forceVariation} = props
 
     this.defaultVariation = this._getDefaultVariation()
-    this.initialVariation = forceVariation || this.defaultVariation
+    this.initialVariationId = forceVariation || this.defaultVariation
+    this.initialVariationName = this._getVariationNameFromVariationId(
+      this.initialVariationId
+    )
 
     // no need to pass the special children prop to the context
-    const {children, ...initialPropsWithoutChildren} = initialProps
+    const {children, ...propsWithoutChildren} = props
 
     this.state = {
-      ...initialPropsWithoutChildren,
+      ...propsWithoutChildren,
       isActive: false,
-      isDefault: this.initialVariation === this.defaultVariation,
-      isVariation: this.initialVariation !== this.defaultVariation,
+      isDefault: this.initialVariationId === this.defaultVariation,
+      isVariation: this.initialVariationId !== this.defaultVariation,
       isWrapped: true,
-      variationName: this._getVariationName(this.initialVariation),
-      variationId: this.initialVariation
+      variationName: this.initialVariationName,
+      variationId: this.initialVariationId,
+      ...this._getVariationFlags(this.initialVariationId)
     }
   }
 
@@ -35,11 +39,13 @@ class AbTestOptimizelyXExperiment extends Component {
     return defaultChild ? defaultChild.props.variationId : null
   }
 
-  _getVariationName(variationId) {
-    const child = this.props.children.find(
-      child => child.props.variationId === variationId
+  _getVariationNameFromVariationId(variationId) {
+    return this._getVariationNameFromChild(
+      this.props.children.find(child => child.props.variationId === variationId)
     )
+  }
 
+  _getVariationNameFromChild(child) {
     // variationName can be overriden via prop
     if (child.props.variationName) return child.props.variationName
 
@@ -48,15 +54,28 @@ class AbTestOptimizelyXExperiment extends Component {
     return String.fromCharCode(65 + childIndex) // A, B, C, D, ...
   }
 
+  _getVariationFlags(selectedVariationId) {
+    return this.props.children.reduce((obj, child) => {
+      return {
+        ...obj,
+        [`isVariation${this._getVariationNameFromChild(child)}`]:
+          child.props.variationId === selectedVariationId
+      }
+    }, {})
+  }
+
   componentDidMount() {
-    this._activationHandler = variationId =>
+    this._activationHandler = variationId => {
+      const variationName = this._getVariationNameFromVariationId(variationId)
       this.setState({
         isActive: true,
         isDefault: variationId === this.defaultVariation,
         isVariation: variationId !== this.defaultVariation,
-        variationName: this._getVariationName(variationId),
-        variationId: variationId
+        variationName,
+        variationId,
+        ...this._getVariationFlags(variationId)
       })
+    }
     OptimizelyX.addActivationListener(
       this.props.experimentId,
       this._activationHandler
