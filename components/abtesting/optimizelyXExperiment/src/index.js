@@ -26,8 +26,8 @@ class AbTestOptimizelyXExperiment extends Component {
       isDefault: this.initialVariationId === this.defaultVariation,
       isVariation: this.initialVariationId !== this.defaultVariation,
       isWrapped: true,
-      variationName: this.initialVariationName,
       variationId: this.initialVariationId,
+      variationName: this.initialVariationName,
       ...this._getVariationFlags(this.initialVariationId)
     }
   }
@@ -98,8 +98,8 @@ class AbTestOptimizelyXExperiment extends Component {
         isActive: true,
         isDefault: variationId === this.defaultVariation,
         isVariation: variationId !== this.defaultVariation,
-        variationName: this._getVariationNameFromVariationId(variationId),
         variationId,
+        variationName: this._getVariationNameFromVariationId(variationId),
         ...this._getVariationFlags(variationId)
       })
     }
