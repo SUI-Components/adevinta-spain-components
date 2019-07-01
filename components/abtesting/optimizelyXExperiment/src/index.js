@@ -9,10 +9,10 @@ import OptimizelyX from './optimizely-x'
 class AbTestOptimizelyXExperiment extends Component {
   constructor(props) {
     super(props)
-    const {forceVariation} = props
 
     this.defaultVariation = this._getDefaultVariation()
-    this.initialVariationId = forceVariation || this.defaultVariation
+    this.initialVariationId =
+      this._getForceVariationId() || this.defaultVariation
     this.initialVariationName = this._getVariationNameFromVariationId(
       this.initialVariationId
     )
@@ -37,6 +37,21 @@ class AbTestOptimizelyXExperiment extends Component {
       child => child.props.defaultVariation
     )
     return defaultChild ? defaultChild.props.variationId : null
+  }
+
+  _getForceVariationId() {
+    const {children, forceVariation} = this.props
+    const forceVariationChild =
+      forceVariation &&
+      children.find(child => {
+        const variationNameForChild = this._getVariationNameFromChild(child)
+        return (
+          // name or id are both valid ways to force a variation
+          forceVariation === variationNameForChild ||
+          forceVariation === child.props.variationId
+        )
+      })
+    return forceVariationChild ? forceVariationChild.props.variationId : null
   }
 
   _getVariationNameFromVariationId(variationId) {
