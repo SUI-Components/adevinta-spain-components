@@ -1,7 +1,7 @@
 /* eslint-env jest */
 import React from 'react'
 import Enzyme, {shallow} from 'enzyme'
-// import OptimizelyX from '../src/optimizely-x'
+import OptimizelyX from '../src/optimizely-x'
 import AbTestOptimizelyXExperiment from '../src/index'
 import {useExperiment} from '../../hooks/src/index'
 import Adapter from 'enzyme-adapter-react-16'
@@ -9,195 +9,217 @@ import Adapter from 'enzyme-adapter-react-16'
 Enzyme.configure({adapter: new Adapter()})
 
 describe('useExperiment', () => {
-  describe('when the current component IS NOT wrapped by an experiment component', () => {
+  describe('when the component IS NOT wrapped by an experiment component', () => {
     it('should output isWrapped to false', () => {
       const Child = () => {
         const {isWrapped} = useExperiment()
         return isWrapped.toString()
       }
-      expect(
-        shallow(
-          <div>
-            <Child />
-          </div>
-        ).html()
-      ).toEqual('<div>false</div>')
+      const component = (
+        <div>
+          <Child />
+        </div>
+      )
+      const mounted = shallow(component)
+      expect(mounted.html()).toEqual('<div>false</div>')
     })
     it('should output isDefault to true', () => {
       const Child = () => {
         const {isDefault} = useExperiment()
         return isDefault.toString()
       }
-      expect(
-        shallow(
-          <div>
-            <Child />
-          </div>
-        ).html()
-      ).toEqual('<div>true</div>')
+      const component = (
+        <div>
+          <Child />
+        </div>
+      )
+      const mounted = shallow(component)
+      expect(mounted.html()).toEqual('<div>true</div>')
     })
   })
-  describe('when the current component IS wrapped by an experiment component', () => {
-    describe('and optimizely is still not responding', () => {
-      it('should output isWrapped to true', () => {
-        const Child = () => {
-          const {isWrapped} = useExperiment()
-          return isWrapped.toString()
-        }
-        expect(
-          shallow(
-            <div>
-              <AbTestOptimizelyXExperiment experimentId={40000}>
-                <Child defaultVariation variationId={700000} />
-                <Child variationId={700001} />
-                <Child variationId={700002} />
-              </AbTestOptimizelyXExperiment>
-            </div>
-          ).html()
-        ).toEqual('<div>true</div>')
-      })
-      it('should output isActive to false', () => {
-        const Child = () => {
-          const {isActive} = useExperiment()
-          return isActive.toString()
-        }
-        expect(
-          shallow(
-            <div>
-              <AbTestOptimizelyXExperiment experimentId={40000}>
-                <Child defaultVariation variationId={700000} />
-                <Child variationId={700001} />
-                <Child variationId={700002} />
-              </AbTestOptimizelyXExperiment>
-            </div>
-          ).html()
-        ).toEqual('<div>false</div>')
-      })
-      it('should output isDefault to true', () => {
-        const Child = () => {
-          const {isDefault} = useExperiment()
-          return isDefault.toString()
-        }
-        expect(
-          shallow(
-            <div>
-              <AbTestOptimizelyXExperiment experimentId={40000}>
-                <Child defaultVariation variationId={700000} />
-                <Child variationId={700001} />
-                <Child variationId={700002} />
-              </AbTestOptimizelyXExperiment>
-            </div>
-          ).html()
-        ).toEqual('<div>true</div>')
-      })
-      it('should output isVariation to false', () => {
-        const Child = () => {
-          const {isVariation} = useExperiment()
-          return isVariation.toString()
-        }
-        expect(
-          shallow(
-            <div>
-              <AbTestOptimizelyXExperiment experimentId={40000}>
-                <Child defaultVariation variationId={700000} />
-                <Child variationId={700001} />
-                <Child variationId={700002} />
-              </AbTestOptimizelyXExperiment>
-            </div>
-          ).html()
-        ).toEqual('<div>false</div>')
-      })
-      it('should contain parent experimentId and choosen variationId', () => {
-        const Child = () => {
-          const {experimentId, variationId} = useExperiment()
-          return `${experimentId}/${variationId}`
-        }
-        expect(
-          shallow(
-            <div>
-              <AbTestOptimizelyXExperiment experimentId={40000}>
-                <Child defaultVariation variationId={700000} />
-                <Child variationId={700001} />
-                <Child variationId={700002} />
-              </AbTestOptimizelyXExperiment>
-            </div>
-          ).html()
-        ).toEqual('<div>40000/700000</div>')
-      })
-      it('should match default variation in variationName', () => {
-        const Child = () => {
-          const {variationName} = useExperiment()
-          return variationName
-        }
-        expect(
-          shallow(
-            <div>
-              <AbTestOptimizelyXExperiment experimentId={40000}>
-                <Child variationId={700000} />
-                <Child variationId={700001} />
-                <Child defaultVariation variationId={700002} />
-              </AbTestOptimizelyXExperiment>
-            </div>
-          ).html()
-        ).toEqual('<div>C</div>')
-      })
-      it('should match default variation in variation flags', () => {
-        const Child = () => {
-          const {isVariationA, isVariationB, isVariationC} = useExperiment()
-          return `${isVariationA}:${isVariationB}:${isVariationC}`
-        }
-        expect(
-          shallow(
-            <div>
-              <AbTestOptimizelyXExperiment experimentId={40000}>
-                <Child variationId={700000} />
-                <Child variationId={700001} />
-                <Child defaultVariation variationId={700002} />
-              </AbTestOptimizelyXExperiment>
-            </div>
-          ).html()
-        ).toEqual('<div>false:false:true</div>')
-      })
-      it('should ignore default variation if forceVariation is provided as an id', () => {
-        const Child = () => {
-          const {variationName} = useExperiment()
-          return variationName
-        }
-        expect(
-          shallow(
-            <div>
-              <AbTestOptimizelyXExperiment
-                experimentId={40000}
-                forceVariation={700001} // B
-              >
-                <Child defaultVariation variationId={700000} />
-                <Child variationId={700001} />
-                <Child variationId={700002} />
-              </AbTestOptimizelyXExperiment>
-            </div>
-          ).html()
-        ).toEqual('<div>B</div>')
-      })
-      it('should ignore default variation if forceVariation is provided as a name', () => {
-        const Child = () => {
-          const {variationName} = useExperiment()
-          return variationName
-        }
-        expect(
-          shallow(
-            <div>
-              <AbTestOptimizelyXExperiment
-                experimentId={40000}
-                forceVariation="B"
-              >
-                <Child defaultVariation variationId={700000} />
-                <Child variationId={700001} />
-                <Child variationId={700002} />
-              </AbTestOptimizelyXExperiment>
-            </div>
-          ).html()
-        ).toEqual('<div>B</div>')
-      })
+  describe('when the component IS wrapped by an experiment component', () => {
+    let activationHandler
+
+    beforeEach(() => {
+      jest
+        .spyOn(OptimizelyX, 'addActivationListener')
+        .mockImplementation((experimentId, handler) => {
+          activationHandler = handler
+        })
+    })
+
+    afterEach(() => {
+      OptimizelyX.addActivationListener.mockRestore()
+    })
+
+    it('should output isWrapped to true, then keep isWrapped to true', () => {
+      const Child = () => {
+        const {isWrapped} = useExperiment()
+        return isWrapped.toString()
+      }
+      const component = (
+        <AbTestOptimizelyXExperiment experimentId={40000}>
+          <Child defaultVariation variationId={700000} />
+          <Child variationId={700001} />
+          <Child variationId={700002} />
+        </AbTestOptimizelyXExperiment>
+      )
+      const mounted = shallow(component)
+      expect(mounted.html()).toEqual('true')
+      activationHandler(700001)
+      mounted.update()
+      expect(mounted.html()).toEqual('true')
+    })
+
+    it('should output isActive to false, then set isActive to true', () => {
+      const Child = () => {
+        const {isActive} = useExperiment()
+        return isActive.toString()
+      }
+      const component = (
+        <AbTestOptimizelyXExperiment experimentId={40000}>
+          <Child defaultVariation variationId={700000} />
+          <Child variationId={700001} />
+          <Child variationId={700002} />
+        </AbTestOptimizelyXExperiment>
+      )
+      const mounted = shallow(component)
+      expect(mounted.html()).toEqual('false')
+      activationHandler(700001)
+      mounted.update()
+      expect(mounted.html()).toEqual('true')
+    })
+
+    it('should output isDefault to true, then set isDefault to false', () => {
+      const Child = () => {
+        const {isDefault} = useExperiment()
+        return isDefault.toString()
+      }
+      const component = (
+        <AbTestOptimizelyXExperiment experimentId={40000}>
+          <Child defaultVariation variationId={700000} />
+          <Child variationId={700001} />
+          <Child variationId={700002} />
+        </AbTestOptimizelyXExperiment>
+      )
+      const mounted = shallow(component)
+      expect(mounted.html()).toEqual('true')
+      activationHandler(700001)
+      mounted.update()
+      expect(mounted.html()).toEqual('false')
+    })
+
+    it('should output isVariation to false, then set isVariation to true', () => {
+      const Child = () => {
+        const {isVariation} = useExperiment()
+        return isVariation.toString()
+      }
+      const component = (
+        <AbTestOptimizelyXExperiment experimentId={40000}>
+          <Child defaultVariation variationId={700000} />
+          <Child variationId={700001} />
+          <Child variationId={700002} />
+        </AbTestOptimizelyXExperiment>
+      )
+      const mounted = shallow(component)
+      expect(mounted.html()).toEqual('false')
+      activationHandler(700001)
+      mounted.update()
+      expect(mounted.html()).toEqual('true')
+    })
+
+    it('should contain parent experimentId and choosen variationId, then keep experimentId and set variationId to the choosen one', () => {
+      const Child = () => {
+        const {experimentId, variationId} = useExperiment()
+        return `${experimentId}/${variationId}`
+      }
+      const component = (
+        <AbTestOptimizelyXExperiment experimentId={40000}>
+          <Child defaultVariation variationId={700000} />
+          <Child variationId={700001} />
+          <Child variationId={700002} />
+        </AbTestOptimizelyXExperiment>
+      )
+      const mounted = shallow(component)
+      expect(mounted.html()).toEqual('40000/700000')
+      activationHandler(700001)
+      mounted.update()
+      expect(mounted.html()).toEqual('40000/700001')
+    })
+
+    it('should match default variation in variationName, then match the choosen variation in variationName', () => {
+      const Child = () => {
+        const {variationName} = useExperiment()
+        return variationName
+      }
+      const component = (
+        <AbTestOptimizelyXExperiment experimentId={40000}>
+          <Child variationId={700000} />
+          <Child variationId={700001} />
+          <Child defaultVariation variationId={700002} />
+        </AbTestOptimizelyXExperiment>
+      )
+      const mounted = shallow(component)
+      expect(mounted.html()).toEqual('C')
+      activationHandler(700001)
+      expect(mounted.html()).toEqual('B')
+    })
+
+    it('should match default variation in variation flags, then match the choosen variation in variation flags', () => {
+      const Child = () => {
+        const {isVariationA, isVariationB, isVariationC} = useExperiment()
+        return `${isVariationA}:${isVariationB}:${isVariationC}`
+      }
+      const component = (
+        <AbTestOptimizelyXExperiment experimentId={40000}>
+          <Child variationId={700000} />
+          <Child variationId={700001} />
+          <Child defaultVariation variationId={700002} />
+        </AbTestOptimizelyXExperiment>
+      )
+      const mounted = shallow(component)
+      expect(mounted.html()).toEqual('false:false:true')
+      activationHandler(700000)
+      expect(mounted.html()).toEqual('true:false:false')
+    })
+
+    it('should always keep forceVariation when provided as an id', () => {
+      const Child = () => {
+        const {variationName} = useExperiment()
+        return variationName
+      }
+      const component = (
+        <AbTestOptimizelyXExperiment
+          experimentId={40000}
+          forceVariation={700001} // B
+        >
+          <Child defaultVariation variationId={700000} />
+          <Child variationId={700001} />
+          <Child variationId={700002} />
+        </AbTestOptimizelyXExperiment>
+      )
+      const mounted = shallow(component)
+      expect(mounted.html()).toEqual('B')
+      activationHandler(700002)
+      expect(mounted.html()).toEqual('B')
+    })
+
+    it('should always keep forceVariation when provided as a name', () => {
+      const Child = () => {
+        const {variationName} = useExperiment()
+        return variationName
+      }
+      const component = (
+        <AbTestOptimizelyXExperiment experimentId={40000} forceVariation="B">
+          <Child defaultVariation variationId={700000} />
+          <Child variationId={700001} />
+          <Child variationId={700002} />
+        </AbTestOptimizelyXExperiment>
+      )
+      const mounted = shallow(component)
+      expect(mounted.html()).toEqual('B')
+      activationHandler(700002)
+      expect(mounted.html()).toEqual('B')
     })
   })
 })
