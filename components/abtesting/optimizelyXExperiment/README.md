@@ -125,7 +125,7 @@ const TestedComponent = () => {
 }
 ```
 
-### forceVariation (OptimizelyXExperiment prop for development purposes)
+### forceVariation (for development purposes)
 
 While developing in localhost you may need to test different variations:
 
@@ -136,7 +136,7 @@ While developing in localhost you may need to test different variations:
 </OptimizelyXExperiment>
 ```
 
-In the above example, defaultVariation is ignored so "Dogs" variation is displayed instead. Using a variation name instead of an id leads to the same results:
+In the above example, "Dogs" variation will be always displayed. You can also use variation name instead:
 
 ```html
 <OptimizelyXExperiment experimentId={8470306415} forceVariation="B">
@@ -145,7 +145,7 @@ In the above example, defaultVariation is ignored so "Dogs" variation is display
 </OptimizelyXExperiment>
 ```
 
-NOTE: By using this prop OptimizelyXExperiment will display a warning in the console since forceVariation is not meant to be used for production.
+NOTE: Since this prop is meant to be used in development environment only, forceVariation is just ignored in production as a preventive measure.
 
 ## Known issues
 
