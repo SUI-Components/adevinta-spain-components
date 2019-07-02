@@ -98,9 +98,9 @@ class AbTestOptimizelyXExperiment extends Component {
   }
 
   componentDidMount() {
-    if (this.props.forceVariation) {
+    if (process.env.NODE_ENV !== 'production' && this.props.forceVariation) {
       const msg = `[OptimizelyXExperiment] Watch out!! Optimizely response will be ignored because the forceVariation prop.`
-      console.warn(msg) // eslint-disable-line no-console
+      if (process.env.NODE_ENV !== 'test') console.warn(msg) // eslint-disable-line no-console
       return
     }
 
@@ -111,7 +111,9 @@ class AbTestOptimizelyXExperiment extends Component {
   }
 
   componentWillUnmount() {
-    if (this.props.forceVariation) return
+    if (process.env.NODE_ENV !== 'production' && this.props.forceVariation) {
+      return
+    }
     OptimizelyX.removeActivationListener(
       this.props.experimentId,
       this._activationHandler
