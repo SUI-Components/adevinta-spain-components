@@ -1,5 +1,5 @@
-$t-animation-transation-fade-out-left: 500ms ease !default;
-$t-animation-transation-fade-in-right: 500ms ease !default;
+$t-css-transition-fade-out-left: 500ms ease !default;
+$t-css-transition-fade-in-right: 500ms ease !default;
 
 .sui-CssTransition {
   &FadeOutLeft {
@@ -12,7 +12,7 @@ $t-animation-transation-fade-in-right: 500ms ease !default;
     &-enterActive {
       opacity: 1;
       transform: translate3d(0, 0, 0);
-      transition: $t-animation-transation-fade-out-left;
+      transition: $t-css-transition-fade-out-left;
     }
 
     &-enterDone {
@@ -28,7 +28,7 @@ $t-animation-transation-fade-in-right: 500ms ease !default;
     &-exitActive {
       opacity: 0;
       transform: translate3d(-100%, 0, 0);
-      transition: $t-animation-transation-fade-out-left;
+      transition: $t-css-transition-fade-out-left;
     }
   }
 
@@ -42,7 +42,7 @@ $t-animation-transation-fade-in-right: 500ms ease !default;
     &-enterActive {
       opacity: 1;
       transform: translate3d(0, 0, 0);
-      transition: $t-animation-transation-fade-in-right;
+      transition: $t-css-transition-fade-in-right;
     }
 
     &-enterDone {
@@ -58,7 +58,7 @@ $t-animation-transation-fade-in-right: 500ms ease !default;
     &-exitActive {
       opacity: 0;
       transform: translate3d(100%, 0, 0);
-      transition: $t-animation-transation-fade-in-right;
+      transition: $t-css-transition-fade-in-right;
     }
   }
 }
