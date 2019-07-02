@@ -32,14 +32,14 @@ class AbTestOptimizelyXExperiment extends Component {
     }
   }
 
-  _getDefaultVariation() {
+  _getDefaultVariation = () => {
     const defaultChild = this.props.children.find(
       child => child.props.defaultVariation
     )
     return defaultChild ? defaultChild.props.variationId : null
   }
 
-  _getForceVariationId() {
+  _getForceVariationId = () => {
     const {children, forceVariation} = this.props
     const forceVariationChild =
       forceVariation &&
@@ -54,13 +54,13 @@ class AbTestOptimizelyXExperiment extends Component {
     return forceVariationChild ? forceVariationChild.props.variationId : null
   }
 
-  _getVariationNameFromVariationId(variationId) {
+  _getVariationNameFromVariationId = variationId => {
     return this._getVariationNameFromChild(
       this.props.children.find(child => child.props.variationId === variationId)
     )
   }
 
-  _getVariationNameFromChild(child) {
+  _getVariationNameFromChild = child => {
     // variationName can be overriden via prop
     if (child.props.variationName) return child.props.variationName
 
@@ -69,7 +69,7 @@ class AbTestOptimizelyXExperiment extends Component {
     return String.fromCharCode(65 + childIndex) // A, B, C, D, ...
   }
 
-  _getVariationFlags(selectedVariationId) {
+  _getVariationFlags = selectedVariationId => {
     return this.props.children.reduce((obj, child) => {
       const variationName = this._getVariationNameFromChild(child)
 
@@ -86,22 +86,22 @@ class AbTestOptimizelyXExperiment extends Component {
     }, {})
   }
 
+  _activationHandler = variationId => {
+    return this.setState({
+      isActive: true,
+      isDefault: variationId === this.defaultVariation,
+      isVariation: variationId !== this.defaultVariation,
+      variationId,
+      variationName: this._getVariationNameFromVariationId(variationId),
+      ...this._getVariationFlags(variationId)
+    })
+  }
+
   componentDidMount() {
     if (this.props.forceVariation) {
       const msg = `[OptimizelyXExperiment] Watch out!! Optimizely response will be ignored because the forceVariation prop.`
       console.warn(msg) // eslint-disable-line no-console
       return
-    }
-
-    this._activationHandler = variationId => {
-      this.setState({
-        isActive: true,
-        isDefault: variationId === this.defaultVariation,
-        isVariation: variationId !== this.defaultVariation,
-        variationId,
-        variationName: this._getVariationNameFromVariationId(variationId),
-        ...this._getVariationFlags(variationId)
-      })
     }
 
     OptimizelyX.addActivationListener(
