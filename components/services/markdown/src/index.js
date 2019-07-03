@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import {useMount} from '@schibstedspain/sui-react-hooks'
 import PropTypes from 'prop-types'
 
 const STATUS_OK = 200
@@ -9,20 +8,23 @@ function ServiceMarkdown({src}) {
   const [html, setHtml] = useState('')
   const [loaded, setLoaded] = useState(false)
 
-  useMount(function() {
-    import(/* webpackChunkName: "marked" */ 'marked').then(markedLibrary => {
-      const {default: marked} = markedLibrary
-      const req = new window.XMLHttpRequest()
-      req.open('GET', src, true)
-      req.onload = () => {
-        if (req.readyState === COMPLETED && req.status === STATUS_OK) {
-          setHtml(marked(req.responseText))
-          setLoaded(true)
+  useEffect(
+    function() {
+      import(/* webpackChunkName: "marked" */ 'marked').then(markedLibrary => {
+        const {default: marked} = markedLibrary
+        const req = new window.XMLHttpRequest()
+        req.open('GET', src, true)
+        req.onload = () => {
+          if (req.readyState === COMPLETED && req.status === STATUS_OK) {
+            setHtml(marked(req.responseText))
+            setLoaded(true)
+          }
         }
-      }
-      req.send(null)
-    })
-  })
+        req.send(null)
+      })
+    },
+    [src]
+  )
 
   useEffect(
     function() {
