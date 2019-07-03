@@ -1,49 +1,44 @@
-import React, {Component} from 'react'
+import React, {useEffect, useState} from 'react'
+import {useMount} from '@schibstedspain/sui-react-hooks'
 import PropTypes from 'prop-types'
 
 const STATUS_OK = 200
 const COMPLETED = 4
 
-class ServiceMarkdown extends Component {
-  state = {html: '', loaded: false}
+function ServiceMarkdown({src}) {
+  const [html, setHtml] = useState('')
+  const [loaded, setLoaded] = useState(false)
 
-  async componentDidMount() {
-    require.ensure(
-      [],
-      require => {
-        const markedLibrary = require('marked')
-        const marked = markedLibrary.default || markedLibrary
-        const req = new window.XMLHttpRequest()
-        req.open('GET', this.props.src, true)
-        req.onload = () => {
-          if (req.readyState === COMPLETED) {
-            if (req.status === STATUS_OK) {
-              this.setState({html: marked(req.responseText), loaded: true})
-            }
-          }
+  useMount(function() {
+    import(/* webpackChunkName: "marked" */ 'marked').then(markedLibrary => {
+      const {default: marked} = markedLibrary
+      const req = new window.XMLHttpRequest()
+      req.open('GET', src, true)
+      req.onload = () => {
+        if (req.readyState === COMPLETED && req.status === STATUS_OK) {
+          setHtml(marked(req.responseText))
+          setLoaded(true)
         }
-        req.send(null)
-      },
-      'marked'
-    )
-  }
+      }
+      req.send(null)
+    })
+  })
 
-  componentDidUpdate() {
-    const id = document.location.hash.substring(1)
-    if (id) {
-      const element = document.getElementById(id)
-      element && element.scrollIntoView({block: 'start', behavior: 'smooth'})
-    }
-  }
+  useEffect(
+    function() {
+      if (loaded) {
+        const id = document.location.hash.substring(1)
+        if (id) {
+          const element = document.getElementById(id)
+          element &&
+            element.scrollIntoView({block: 'start', behavior: 'smooth'})
+        }
+      }
+    },
+    [loaded]
+  )
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextState.loaded !== this.state.loaded
-  }
-
-  render() {
-    const {html} = this.state
-    return <div dangerouslySetInnerHTML={{__html: html}} />
-  }
+  return <div dangerouslySetInnerHTML={{__html: html}} />
 }
 
 ServiceMarkdown.displayName = 'ServiceMarkdown'
