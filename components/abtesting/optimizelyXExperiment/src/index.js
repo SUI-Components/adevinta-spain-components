@@ -117,6 +117,10 @@ class AbTestOptimizelyXExperiment extends Component {
 
   render() {
     return (
+      /**
+       * FYI: About why using just `value={this.state}` instead of a new object.
+       * @see https://en.reactjs.org/docs/context.html#caveats
+       */
       <ExperimentContext.Provider value={this.state}>
         <AbTestToggle variation={this.state.variationId}>
           {this.props.children}
