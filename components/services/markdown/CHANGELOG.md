@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2019-07-03)
+
+
+### Features
+
+* move to a function and remove deprecated require.ensure ([6c24264](https://github.com/SUI-Components/schibsted-spain-components/commit/6c24264))
+* support changing the prop src ([03efa28](https://github.com/SUI-Components/schibsted-spain-components/commit/03efa28))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2019-04-02)
 
