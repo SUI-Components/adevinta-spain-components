@@ -66,6 +66,7 @@ export class CmpModalContainer extends Component {
 
   _handleOpenAdsStep = e => {
     e.preventDefault()
+    e.stopPropagation()
     this.setState({step: STEPS.ADVERTISEMENT}, this._scrollTopContent)
   }
 
