@@ -16,14 +16,14 @@ export class CmpModalContainer extends Component {
     vendors: []
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     this.setState({fetchingPurposes: true})
     const {getPurposesAndVendors, retrieveConsentsFromCmp} = this.props
-    const purposesAndVendors = await getPurposesAndVendors
+    getPurposesAndVendors
       .execute({
         retrieveConsentsFromCmp
       })
-      .then(() => {
+      .then(purposesAndVendors => {
         this.setState({...purposesAndVendors, fetchingPurposes: false})
       })
       .catch(() => {
