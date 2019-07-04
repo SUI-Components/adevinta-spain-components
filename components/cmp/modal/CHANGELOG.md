@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.20.0"></a>
+# 1.20.0 (2019-07-04)
+
+
+### Bug Fixes
+
+* fix problems fetching the data ([0401761](https://github.com/SUI-Components/schibsted-spain-components/commit/0401761))
+
+
+
 <a name="1.19.0"></a>
 # 1.19.0 (2019-07-04)
 
