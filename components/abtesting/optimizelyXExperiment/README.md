@@ -47,17 +47,18 @@ If no variation is provided or OptimizelyX API is unavailable, `defaultVariation
 
 The following data is set in a plain object to the experiment context.
 
-- All props passed to OptimizelyXExperiment (see limitations at Known issues section).
-- isActive: true when a decision has been made by optimizely.
-- isDefault: true when the chosen variation is the default one.
-- isVariation: true when the chosen variation is not the default one.
-- isVariationA: true when the choosen variation is A.
-- isVariationB: true when the choosen variation is B.
+- All props passed to OptimizelyXExperiment  (see limitations at Known issues section).
+- experimentId: The experimentId of the experiment, e.g. `8470306415`.
+- isActive: `true` when a decision has been made by optimizely.
+- isDefault: `true` when the chosen variation is the default one.
+- isVariation: `true` when the chosen variation is *not* the default one.
+- isVariationA: `true` when the choosen variation is A.
+- isVariationB: `true` when the choosen variation is B.
 - ...
-- isVariationN: true when the choosen variation is N.
-- isWrapped: true when the current component has OptimizelyXExperiment as a parent (direct or not).
-- variationId: The variationId of the chosen variation.
-- variationName: The variationName of the chosen variation (more about this below).
+- isVariationN: `true` when the choosen variation is N.
+- isWrapped: `true` when the current component has OptimizelyXExperiment as a parent (direct or not).
+- variationId: The variationId of the chosen variation, e.g. `8463707014`.
+- variationName: The variationName of the chosen variation, e.g. `A` (more about this below).
 
 So for a given experiment:
 
