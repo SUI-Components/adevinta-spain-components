@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.19.0"></a>
+# 1.19.0 (2019-07-04)
+
+
+### Bug Fixes
+
+* fix modal is closing when it shouldn't ([06b01dd](https://github.com/SUI-Components/schibsted-spain-components/commit/06b01dd))
+
+
+
 <a name="1.18.0"></a>
 # 1.18.0 (2019-07-04)
 
