@@ -9,26 +9,28 @@ import OptimizelyX from './optimizely-x'
 class AbTestOptimizelyXExperiment extends Component {
   constructor(props) {
     super(props)
-
     this.defaultVariation = this._getDefaultVariation()
-    this.initialVariationId =
+
+    const initialVariationId =
       this._getForceVariationId() || this.defaultVariation
-    this.initialVariationName = this._getVariationNameFromVariationId(
-      this.initialVariationId
-    )
 
-    // no need to pass the special children prop to the context
-    const {children, ...propsWithoutChildren} = props
+    // set state which will be used to provide context
+    this.state = this._buildContextState({variationId: initialVariationId})
+  }
 
-    this.state = {
+  _buildContextState = ({variationId, active = false}) => {
+    const {children, ...propsWithoutChildren} = this.props // remove children prop
+    const variationName = this._getVariationNameFromVariationId(variationId)
+
+    return {
       ...propsWithoutChildren,
-      isActive: false,
-      isDefault: this.initialVariationId === this.defaultVariation,
-      isVariation: this.initialVariationId !== this.defaultVariation,
+      isActive: active,
+      isDefault: variationId === this.defaultVariation,
+      isVariation: variationId !== this.defaultVariation,
       isWrapped: true,
-      variationId: this.initialVariationId,
-      variationName: this.initialVariationName,
-      ...this._getVariationFlags(this.initialVariationId)
+      variationId,
+      variationName,
+      ...this._getVariationFlags(variationId)
     }
   }
 
@@ -87,14 +89,7 @@ class AbTestOptimizelyXExperiment extends Component {
   }
 
   _activationHandler = variationId => {
-    return this.setState({
-      isActive: true,
-      isDefault: variationId === this.defaultVariation,
-      isVariation: variationId !== this.defaultVariation,
-      variationId,
-      variationName: this._getVariationNameFromVariationId(variationId),
-      ...this._getVariationFlags(variationId)
-    })
+    return this.setState(this._buildContextState({variationId, active: true}))
   }
 
   componentDidMount() {
@@ -122,6 +117,10 @@ class AbTestOptimizelyXExperiment extends Component {
 
   render() {
     return (
+      /**
+       * FYI: About why using just `value={this.state}` instead of a new object.
+       * @see https://en.reactjs.org/docs/context.html#caveats
+       */
       <ExperimentContext.Provider value={this.state}>
         <AbTestToggle variation={this.state.variationId}>
           {this.props.children}
