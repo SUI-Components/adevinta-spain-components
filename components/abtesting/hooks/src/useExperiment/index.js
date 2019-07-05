@@ -1,5 +1,6 @@
 import {useContext} from 'react'
 import {ExperimentContext} from '@s-ui/abtesting-optimizely-x'
+import {ExperimentContext as TestExperimentContext} from '../../../optimizelyXExperiment/src'
 
 // Fallback object in case the hook is used in some point of the hierarchy
 // that is not wrapped by OptimizelyXExperiment component (which is the
@@ -11,5 +12,6 @@ const NON_WRAPPED_BY_CONTEXT_PROVIDER_FALLBACK_OBJECT = {
 }
 
 export default () =>
-  useContext(ExperimentContext) ||
-  NON_WRAPPED_BY_CONTEXT_PROVIDER_FALLBACK_OBJECT
+  useContext(
+    process.env.NODE_ENV === 'test' ? TestExperimentContext : ExperimentContext
+  ) || NON_WRAPPED_BY_CONTEXT_PROVIDER_FALLBACK_OBJECT
