@@ -7,7 +7,7 @@ const scriptPromises = []
  * @param  {bool} isAsync
  * @return {Promise}
  */
-const loadScript = ({src, verifier, isAsync, detectionDelay, styles}) => {
+const loadScript = ({src, verifier, isAsync, detectionDelay, stylesheet}) => {
   scriptPromises[src] =
     scriptPromises[src] ||
     new Promise((resolve, reject) => {
@@ -19,7 +19,7 @@ const loadScript = ({src, verifier, isAsync, detectionDelay, styles}) => {
       }
 
       injectScript({src, isAsync})
-      styles && injectStyles({styles})
+      stylesheet && injectStyles(stylesheet)
       waitUntil(verifier, resolve, reject, detectionDelay)
     })
 
@@ -46,11 +46,11 @@ const injectScript = ({src, isAsync}) => {
  * @param  {string} styles
  * @return {void}
  */
-const injectStyles = ({styles}) => {
+const injectStyles = stylesheet => {
   const link = document.createElement('link')
 
   link.rel = 'stylesheet'
-  link.href = styles
+  link.href = stylesheet
 
   document.head.appendChild(link)
 }
