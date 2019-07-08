@@ -1,36 +1,33 @@
-import {Component} from 'react'
+import {useEffect, useState} from 'react'
+import {useMount} from '@schibstedspain/sui-react-hooks'
 import PropTypes from 'prop-types'
 import {loadScript} from './helper.js'
 
-class ScriptLoader extends Component {
-  state = {
-    readyToRender: false,
-    timeout: false
-  }
+const ScriptLoader = ({
+  src,
+  verifier,
+  isAsync = true,
+  detectionDelay = 5000,
+  onTimeout = () => {},
+  stylesheet,
+  render,
+  timeoutRender = () => null
+}) => {
+  const [readyToRender, setReadyToRender] = useState(false)
+  const [timeout, seTimeout] = useState(false)
 
-  componentDidMount() {
-    const {
-      src,
-      verifier,
-      isAsync,
-      detectionDelay,
-      onTimeout,
-      stylesheet
-    } = this.props
-
+  const initLoad = () => {
     loadScript({src, verifier, isAsync, detectionDelay, stylesheet})
-      .then(() => this.setState({readyToRender: true}))
-      .catch(() => this.setState({timeout: true}, onTimeout))
+      .then(() => setReadyToRender(true))
+      .catch(() => seTimeout(true))
   }
 
-  render() {
-    const {render, timeoutRender} = this.props
-    const {readyToRender, timeout} = this.state
+  useEffect(() => onTimeout(), [onTimeout, timeout])
+  useMount(initLoad)
 
-    if (readyToRender && render) return render()
-    if (timeout && timeoutRender) return timeoutRender()
-    return null
-  }
+  if (readyToRender && render) return render()
+  if (timeout && timeoutRender) return timeoutRender()
+  return null
 }
 
 ScriptLoader.displayName = 'ScriptLoader'
@@ -71,13 +68,6 @@ ScriptLoader.propTypes = {
    * Stylesheet to be injected
    */
   stylesheet: PropTypes.string
-}
-
-ScriptLoader.defaultProps = {
-  isAsync: true,
-  onTimeout: () => {},
-  timeoutRender: () => null,
-  detectionDelay: 5000
 }
 
 export default ScriptLoader
