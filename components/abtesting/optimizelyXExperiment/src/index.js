@@ -88,8 +88,14 @@ class AbTestOptimizelyXExperiment extends Component {
     }, {})
   }
 
-  _activationHandler = variationId => {
+  _activationHandler = rawVariationId => {
+    const variationId = this._parseVariationId(rawVariationId)
     return this.setState(this._buildContextState({variationId, active: true}))
+  }
+
+  _parseVariationId = rawVariationId => {
+    const numberVariationId = Number(rawVariationId)
+    return !isNaN(numberVariationId) ? numberVariationId : rawVariationId
   }
 
   componentDidMount() {
