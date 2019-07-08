@@ -39,5 +39,14 @@ return (
         render={() => 'Facebook SDK loaded!'}
       />
     </p>
+    <p>
+      <ScriptLoader
+        src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/3.0.0/adyen.js"
+        styles="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/3.0.0/adyen.css"
+        isAsync
+        verifier={() => window && window.AdyenCheckout}
+        render={() => 'Adyen script and styles loaded!'}
+      />
+    </p>
   </div>
 )

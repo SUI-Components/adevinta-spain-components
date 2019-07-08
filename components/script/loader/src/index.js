@@ -9,9 +9,16 @@ class ScriptLoader extends Component {
   }
 
   componentDidMount() {
-    const {src, verifier, isAsync, detectionDelay, onTimeout} = this.props
+    const {
+      src,
+      verifier,
+      isAsync,
+      detectionDelay,
+      onTimeout,
+      styles
+    } = this.props
 
-    loadScript({src, verifier, isAsync, detectionDelay})
+    loadScript({src, verifier, isAsync, detectionDelay, styles})
       .then(() => this.setState({readyToRender: true}))
       .catch(() => this.setState({timeout: true}, onTimeout))
   }
@@ -58,7 +65,12 @@ ScriptLoader.propTypes = {
   /**
    * Detection delay time (in miliseconds)
    */
-  detectionDelay: PropTypes.number
+  detectionDelay: PropTypes.number,
+
+  /**
+   * Styles to be injected
+   */
+  styles: PropTypes.string
 }
 
 ScriptLoader.defaultProps = {

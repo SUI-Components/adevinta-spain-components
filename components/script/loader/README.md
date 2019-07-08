@@ -20,7 +20,10 @@ $ npm install @schibstedspain/sui-script-loader --save
 ```js
 import ScriptLoader from '@schibstedspain/sui-script-loader'
 
-return (<ScriptLoader src={src} verifier={() => true} isAsync={false} render={() => 'Ready to render!'} />)
+const src = 'javascript file url'
+const styles = 'styles file url'
+
+return (<ScriptLoader src={src} verifier={() => true} isAsync={false} render={() => 'Ready to render!'} styles={styles}/>)
 ```
 
 **Find full description and more examples in the [demo page](https://sui-components.now.sh/workbench/script/loader).**
