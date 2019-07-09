@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2019-07-09)
+
+
+### Features
+
+* component refactor ([db787a2](https://github.com/SUI-Components/schibsted-spain-components/commit/db787a2))
+* load styles ([1492969](https://github.com/SUI-Components/schibsted-spain-components/commit/1492969))
+* use stylesheet instead of styles prop ([c943f9c](https://github.com/SUI-Components/schibsted-spain-components/commit/c943f9c))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2019-04-02)
 
