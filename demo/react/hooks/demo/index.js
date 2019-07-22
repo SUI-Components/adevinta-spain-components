@@ -5,6 +5,7 @@ import {
   useOnScreen,
   useNearScreen
 } from '../../../../components/react/hooks/src'
+import StateReducerDemo from './StateReducerDemo'
 
 export default () => {
   const [text, setText] = useState('On 3 secs, execute the onMount callback')
@@ -67,6 +68,11 @@ export default () => {
             {isNear ? '❗ near the viewport' : '🙈 not near'}
           </div>
         </div>
+      </div>
+
+      <div>
+        <h1>useStateReducer</h1>
+        <StateReducerDemo />
       </div>
     </div>
   )
