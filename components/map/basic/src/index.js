@@ -65,6 +65,7 @@ class MapBasic extends Component {
       dragging: this.props.isInteractable,
       enableViewMenu: this.props.enableViewMenu,
       heatMapUrl: this.props.heatMapUrl,
+      hoverStyles: this.props.hoverStyles,
       icons: this.props.icons,
       id: this.props.id,
       language: this.props.language,
@@ -189,6 +190,10 @@ MapBasic.propTypes = {
    * In some cases our styles will be loaded after our map being created. In this cases we must specify our map height by code F.E on sui-studio
    */
   height: PropTypes.string,
+  /**
+   * Leaflet path options when hovering layers https://leafletjs.com/reference-1.5.0.html#path-option
+   */
+  hoverStyles: PropTypes.object,
   /**
    * The DOM Id that we would like to have on our map div if none is provided 'map-container' will be its id.
    */
