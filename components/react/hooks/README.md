@@ -80,12 +80,12 @@ export default () => {
 }
 ```
 
-### useStateReducer
+### useLegacyState
 
-Hook that provides a similar state management approach to the old `this.setState`, implemented through a reducer. Useful to manage complex states that would cause unnecessary renders if divided into multiple useState hooks.
+Hook that provides a similar state management approach to the old `this.setState`. Useful to manage complex states that would cause unnecessary renders if divided into multiple useState hooks.
 
 ```js
-import {useStateReducer} from '@schibstedspain/sui-react-hooks'
+import {useLegacyState} from '@schibstedspain/sui-react-hooks'
 
 export default () => {
   const initialState = {
@@ -93,7 +93,7 @@ export default () => {
     catsFood: 0,
     dogsFood: 0
   }
-  const [state, setState] = useStateReducer(initialState)
+  const [state, setState] = useLegacyState(initialState)
   const {availableFood, catsFood, dogsFood} = state
 
   const giveCatsFood = () => {

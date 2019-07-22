@@ -1,5 +1,5 @@
 import React from 'react'
-import {useStateReducer} from '../../../../../components/react/hooks/src'
+import {useLegacyState} from '../../../../../components/react/hooks/src'
 
 export default () => {
   const initialState = {
@@ -7,7 +7,7 @@ export default () => {
     catsFood: 0,
     dogsFood: 0
   }
-  const [state, setState] = useStateReducer(initialState)
+  const [state, setState] = useLegacyState(initialState)
   const {availableFood, catsFood, dogsFood} = state
 
   const giveCatsFood = () => {

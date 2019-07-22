@@ -7,4 +7,4 @@ export default function ReactHooks() {
 
 export {default as useMount} from './useMount'
 export {default as useOnScreen, useNearScreen} from './useOnScreen'
-export {default as useStateReducer} from './useStateReducer'
+export {default as useLegacyState} from './useLegacyState'

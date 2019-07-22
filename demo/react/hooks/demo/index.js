@@ -5,7 +5,7 @@ import {
   useOnScreen,
   useNearScreen
 } from '../../../../components/react/hooks/src'
-import StateReducerDemo from './StateReducerDemo'
+import LegacyStateDemo from './LegacyStateDemo'
 
 export default () => {
   const [text, setText] = useState('On 3 secs, execute the onMount callback')
@@ -71,8 +71,8 @@ export default () => {
       </div>
 
       <div>
-        <h1>useStateReducer</h1>
-        <StateReducerDemo />
+        <h1>useLegacyState</h1>
+        <LegacyStateDemo />
       </div>
     </div>
   )
