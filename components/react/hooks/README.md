@@ -82,7 +82,11 @@ export default () => {
 
 ### useLegacyState
 
-Hook that provides a similar state management approach to the old `this.setState`. Useful to manage complex states that would cause unnecessary renders if divided into multiple useState hooks.
+Hook that provides a similar state management approach to the old `this.setState` from a class.
+
+Useful to cover quick functional migrations in components with complex states that would cause unnecessary renders if simply divided into lots of useState hooks.
+
+If you apply this when migrating to a functional component, please take in mind that you may later rethink the strategy of its state.
 
 ```js
 import {useLegacyState} from '@schibstedspain/sui-react-hooks'
