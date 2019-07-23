@@ -148,6 +148,28 @@ In the above example, "Dogs" variation will be always displayed. You can also us
 
 NOTE: Since this prop is meant to be used in development environment only, forceVariation is just ignored in production as a preventive measure.
 
+### forceActivation (for development purposes)
+
+This prop is similar to `forceVariation` prop, but it simulates an actual activation, so default variation is displayed first and then it gets swapped by the passed variation after X milliseconds (the number of milliseconds can be changed via `forceActivationDelay` prop). This is the closest behaviour to an actual experiment that you could configure in Optimizely's panel because you get the same "flash" effect. This way you can check that nothing gets broken despite the flash, without the need of actually configuring an experiment in Optimizely's panel.
+
+```html
+<OptimizelyXExperiment experimentId={8470306415} forceActivation={8480321136}>
+  <button variationId={8463707014} defaultVariation>Cats</button>
+  <button variationId={8480321136}>Dogs</button>
+</OptimizelyXExperiment>
+```
+
+In the above example, "Cats" variation will be displayed first, then after a few milliseconds "Dogs" variation will be definitely displayed. You can also use variation name instead:
+
+```html
+<OptimizelyXExperiment experimentId={8470306415} forceActivation="B">
+  <button variationId={8463707014} defaultVariation>Cats</button>
+  <button variationId={8480321136}>Dogs</button>
+</OptimizelyXExperiment>
+```
+
+NOTE: Since this prop is meant to be used in development environment only, forceVariation is just ignored in production as a preventive measure.
+
 ## Known issues
 
 ### Clipping of variations
