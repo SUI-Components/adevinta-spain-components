@@ -12,7 +12,8 @@ class AbTestOptimizelyXExperiment extends Component {
     this.defaultVariation = this._getDefaultVariation()
 
     const initialVariationId =
-      this._getForceVariationId() || this.defaultVariation
+      this._checkVariationInChildren(props.forceVariation) ||
+      this.defaultVariation
 
     // set state which will be used to provide context
     this.state = this._buildContextState({variationId: initialVariationId})
@@ -41,19 +42,19 @@ class AbTestOptimizelyXExperiment extends Component {
     return defaultChild ? defaultChild.props.variationId : null
   }
 
-  _getForceVariationId = () => {
-    const {children, forceVariation} = this.props
-    const forceVariationChild =
-      forceVariation &&
+  _checkVariationInChildren = variation => {
+    const {children} = this.props
+    const variationChild =
+      variation &&
       children.find(child => {
         const variationNameForChild = this._getVariationNameFromChild(child)
         return (
           // name or id are both valid ways to force a variation
-          forceVariation === variationNameForChild ||
-          forceVariation === child.props.variationId
+          variation === variationNameForChild ||
+          variation === child.props.variationId
         )
       })
-    return forceVariationChild ? forceVariationChild.props.variationId : null
+    return variationChild ? variationChild.props.variationId : null
   }
 
   _getVariationNameFromVariationId = variationId => {
@@ -98,21 +99,44 @@ class AbTestOptimizelyXExperiment extends Component {
     return !isNaN(numberVariationId) ? numberVariationId : rawVariationId
   }
 
+  _logWatchOutMessage(message) {
+    // eslint-disable-next-line no-console
+    if (process.env.NODE_ENV !== 'test') console.warn(message)
+  }
+
   componentDidMount() {
-    if (process.env.NODE_ENV !== 'production' && this.props.forceVariation) {
-      const msg = `[OptimizelyXExperiment] Watch out!! Optimizely response will be ignored because the forceVariation prop.`
-      if (process.env.NODE_ENV !== 'test') console.warn(msg) // eslint-disable-line no-console
-      return
+    const {experimentId, forceActivation, forceVariation} = this.props
+
+    if (process.env.NODE_ENV !== 'production') {
+      const getMessageForProp = prop =>
+        `[OptimizelyXExperiment] Watch out!! Optimizely response will be ignored because the ${prop} prop.`
+
+      if (forceActivation) {
+        setTimeout(
+          () =>
+            this._activationHandler(
+              this._checkVariationInChildren(forceActivation)
+            ),
+          this.props.forceActivationDelay
+        )
+        this._logWatchOutMessage(getMessageForProp('forceActivation'))
+        return
+      }
+
+      if (forceVariation) {
+        this._logWatchOutMessage(getMessageForProp('forceVariation'))
+        return
+      }
     }
 
-    OptimizelyX.addActivationListener(
-      this.props.experimentId,
-      this._activationHandler
-    )
+    OptimizelyX.addActivationListener(experimentId, this._activationHandler)
   }
 
   componentWillUnmount() {
-    if (process.env.NODE_ENV !== 'production' && this.props.forceVariation) {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      (this.props.forceActivation || this.props.forceVariation)
+    ) {
       return
     }
     OptimizelyX.removeActivationListener(
@@ -150,10 +174,40 @@ AbTestOptimizelyXExperiment.propTypes = {
   experimentId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
     .isRequired,
   /**
-   * Id of the variation to display which overrides defaultVariation prop from children.
-   * Only for development purposes.
+   * This prop will force the `_activationHandler` method to be ran for
+   * the passed variation after a few milliseconds, so it will result
+   * in something like an "Optimizely's response simulation". Accepts
+   * the same values as `forceVariation` prop: variation id or name.
+   *
+   * This makes possible to try and ensure that the "flash" which is caused
+   * by the swapping of variations due to the activation will not break
+   * anything.
+   *
+   * NOTE: Only for development purposes.
+   */
+  forceActivation: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /**
+   * The number of milliseconds after which a "forced activation" will happen.
+   * This already has a default value and it only works together with
+   * `forceActivation` prop.
+   */
+  forceActivationDelay: PropTypes.oneOfType(PropTypes.number),
+  /**
+   * Id or name of the variation to display which overrides defaultVariation
+   * prop from children. This way you can easily try how other variations look
+   * in your local environment before an actual experiment is configured in
+   * Optimizely's panel.
+   *
+   * See `forceActivation` prop to simulate the "flash" effect from an actual
+   * Optimizely's response.
+   *
+   * NOTE: Only for development purposes.
    */
   forceVariation: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+}
+
+AbTestOptimizelyXExperiment.defaultProps = {
+  forceActivationDelay: 1000
 }
 
 export default AbTestOptimizelyXExperiment
