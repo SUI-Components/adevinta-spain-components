@@ -7,6 +7,7 @@ import {useExperiment} from '../../hooks/src/index'
 import Adapter from 'enzyme-adapter-react-16'
 
 Enzyme.configure({adapter: new Adapter()})
+jest.useFakeTimers()
 
 const HOOK_PARAMS = {ExperimentContext}
 
@@ -223,6 +224,45 @@ describe('useExperiment', () => {
       const mounted = shallow(component)
       expect(mounted.html()).toEqual('B')
       activationHandler(700002)
+      expect(mounted.html()).toEqual('B')
+    })
+
+    it('should display default variation first, then display forceActivation after a few milliseconds when provided as an id', () => {
+      const Child = () => {
+        const {variationName} = useExperiment(HOOK_PARAMS)
+        return variationName
+      }
+      const component = (
+        <AbTestOptimizelyXExperiment
+          experimentId={40000}
+          forceActivation={700001} // B
+        >
+          <Child defaultVariation variationId={700000} />
+          <Child variationId={700001} />
+          <Child variationId={700002} />
+        </AbTestOptimizelyXExperiment>
+      )
+      const mounted = shallow(component)
+      expect(mounted.html()).toEqual('A')
+      jest.runAllTimers()
+      expect(mounted.html()).toEqual('B')
+    })
+
+    it('should display default variation first, then display forceActivation after a few milliseconds when provided as a name', () => {
+      const Child = () => {
+        const {variationName} = useExperiment(HOOK_PARAMS)
+        return variationName
+      }
+      const component = (
+        <AbTestOptimizelyXExperiment experimentId={40000} forceActivation="B">
+          <Child defaultVariation variationId={700000} />
+          <Child variationId={700001} />
+          <Child variationId={700002} />
+        </AbTestOptimizelyXExperiment>
+      )
+      const mounted = shallow(component)
+      expect(mounted.html()).toEqual('A')
+      jest.runAllTimers()
       expect(mounted.html()).toEqual('B')
     })
   })
