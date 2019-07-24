@@ -52,10 +52,10 @@ The following data is set in a plain object to the experiment context.
 - isActive: `true` when a decision has been made by optimizely.
 - isDefault: `true` when the chosen variation is the default one.
 - isVariation: `true` when the chosen variation is *not* the default one.
-- isVariationA: `true` when the choosen variation is A.
-- isVariationB: `true` when the choosen variation is B.
+- isVariationA: `true` when the chosen variation is A.
+- isVariationB: `true` when the chosen variation is B.
 - ...
-- isVariationN: `true` when the choosen variation is N.
+- isVariationN: `true` when the chosen variation is N.
 - isWrapped: `true` when the current component has OptimizelyXExperiment as a parent (direct or not).
 - variationId: The variationId of the chosen variation, e.g. `8463707014`.
 - variationName: The variationName of the chosen variation, e.g. `A` (more about this below).
@@ -146,7 +146,7 @@ In the above example, "Dogs" variation will be always displayed. You can also us
 </OptimizelyXExperiment>
 ```
 
-NOTE: Since this prop is meant to be used in development environment only, forceVariation is just ignored in production as a preventive measure.
+NOTE: Since this prop is meant to be used in development environment only, `forceVariation` is just ignored in production as a preventive measure.
 
 ### forceActivation (for development purposes)
 
@@ -168,7 +168,7 @@ In the above example, "Cats" variation will be displayed first, then after a few
 </OptimizelyXExperiment>
 ```
 
-NOTE: Since this prop is meant to be used in development environment only, forceVariation is just ignored in production as a preventive measure.
+NOTE: Since this prop is meant to be used in development environment only, `forceActivation` is just ignored in production as a preventive measure.
 
 ## Known issues
 
