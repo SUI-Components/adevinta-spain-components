@@ -6,7 +6,9 @@
   @include reset-basic;
   background: $bgc-thumbnail-basic;
   border: $bd-thumbnail-basic;
+  border-radius: $bdrs-thumbnail-base;
   display: inline-block;
+  overflow: hidden;
   padding: $p-thumbnail-basic;
   position: relative;
   width: 100%;
