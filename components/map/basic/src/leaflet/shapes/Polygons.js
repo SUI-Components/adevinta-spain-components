@@ -53,7 +53,7 @@ export default class SearchMapPolygons {
     if (polygonName !== this.SPAIN_POLYGON_NAME) {
       const bounds = polygonGeoJSon.getBounds()
       if (bounds.isValid()) {
-        this.onPolygonWithBounds({bounds, map})
+        return bounds
       }
     } else {
       const {latitude, longitude} = this.SPAIN_POLYGON_CENTER
@@ -63,6 +63,7 @@ export default class SearchMapPolygons {
   }
 
   setPolygonsOnMap({map, polygons}) {
+    let bounds
     this.removePolygonsFromMap(map)
 
     if (!(polygons instanceof Array)) {
@@ -70,8 +71,12 @@ export default class SearchMapPolygons {
     }
 
     polygons.map(polygon => {
-      this.printPolygonOnMap({map, polygon})
+      bounds = bounds
+        ? bounds.extend(this.printPolygonOnMap({map, polygon}))
+        : this.printPolygonOnMap({map, polygon})
     })
+
+    this.onPolygonWithBounds({bounds, map})
 
     return true
   }
