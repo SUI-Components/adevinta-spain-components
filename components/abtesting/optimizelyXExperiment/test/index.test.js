@@ -1,6 +1,7 @@
 /* eslint-env jest */
 import React from 'react'
-import Enzyme, {shallow} from 'enzyme'
+import {act} from 'react-dom/test-utils'
+import Enzyme, {mount} from 'enzyme'
 import OptimizelyX from '../src/optimizely-x'
 import AbTestOptimizelyXExperiment from '../src/index'
 import Adapter from 'enzyme-adapter-react-16'
@@ -8,7 +9,7 @@ import Adapter from 'enzyme-adapter-react-16'
 Enzyme.configure({adapter: new Adapter()})
 
 describe('<AbTestOptimizelyXExperiment />', () => {
-  let activationHandler, component
+  let activationHandler, mounted
   beforeAll(() => {
     jest
       .spyOn(OptimizelyX, 'addActivationListener')
@@ -16,7 +17,7 @@ describe('<AbTestOptimizelyXExperiment />', () => {
         activationHandler = handler
       })
 
-    component = (
+    const Component = () => (
       <AbTestOptimizelyXExperiment experimentId={40000}>
         <button variationId={400000} defaultVariation>
           Original
@@ -26,6 +27,9 @@ describe('<AbTestOptimizelyXExperiment />', () => {
         <button variationId={400003}>Variation #3</button>
       </AbTestOptimizelyXExperiment>
     )
+    act(() => {
+      mounted = mount(<Component />)
+    })
   })
 
   afterAll(() => {
@@ -33,14 +37,16 @@ describe('<AbTestOptimizelyXExperiment />', () => {
   })
 
   it('should render nothing when OptimizelyX is not available', () => {
-    expect(shallow(component).html()).toEqual('<button>Original</button>')
+    expect(mounted.html()).toEqual('<button>Original</button>')
   })
 
   describe('When OptimizelyX API is present', () => {
     it('should render AbTestToggle with corresponding variations', () => {
-      const mounted = shallow(component)
       expect(mounted.html()).toEqual('<button>Original</button>')
-      activationHandler(400002)
+
+      act(() => {
+        activationHandler(400002)
+      })
       mounted.update()
       expect(mounted.html()).toEqual('<button>Variation #2</button>')
     })

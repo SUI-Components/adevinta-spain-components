@@ -1,53 +1,38 @@
-/* eslint handle-callback-err: "off" */
-import React, {Component} from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 import AbTestToggle from '@s-ui/abtesting-toggle'
 
 import ExperimentContext from './experiment-context'
 import OptimizelyX from './optimizely-x'
 
-class AbTestOptimizelyXExperiment extends Component {
-  constructor(props) {
-    super(props)
-    this.defaultVariation = this._getDefaultVariation()
+function AbTestOptimizelyXExperiment(props) {
+  const {
+    children,
+    experimentId,
+    forceActivation,
+    forceActivationDelay = 1000,
+    forceVariation
+  } = props
 
-    const initialVariationId =
-      this._checkVariationInChildren(props.forceVariation) ||
-      this.defaultVariation
+  // get default variation
+  const defaultChild = children.find(child => child.props.defaultVariation)
+  const defaultVariation = defaultChild ? defaultChild.props.variationId : null
 
-    // set state which will be used to provide context
-    this.state = this._buildContextState({variationId: initialVariationId})
+  const getVariationNameFromChild = child => {
+    // variationName can be overriden via prop
+    if (child.props.variationName) return child.props.variationName
+
+    // otherwise, use an alphabet letter based on child position
+    const childIndex = children.indexOf(child)
+    return String.fromCharCode(65 + childIndex) // A, B, C, D, ...
   }
 
-  _buildContextState = ({variationId, active = false}) => {
-    const {children, ...propsWithoutChildren} = this.props // remove children prop
-    const variationName = this._getVariationNameFromVariationId(variationId)
-
-    return {
-      ...propsWithoutChildren,
-      isActive: active,
-      isDefault: variationId === this.defaultVariation,
-      isVariation: variationId !== this.defaultVariation,
-      isWrapped: true,
-      variationId,
-      variationName,
-      ...this._getVariationFlags(variationId)
-    }
-  }
-
-  _getDefaultVariation = () => {
-    const defaultChild = this.props.children.find(
-      child => child.props.defaultVariation
-    )
-    return defaultChild ? defaultChild.props.variationId : null
-  }
-
-  _checkVariationInChildren = variation => {
-    const {children} = this.props
+  const checkVariationInChildren = variation => {
     const variationChild =
       variation &&
       children.find(child => {
-        const variationNameForChild = this._getVariationNameFromChild(child)
+        const variationNameForChild = getVariationNameFromChild(child)
         return (
           // name or id are both valid ways to force a variation
           variation === variationNameForChild ||
@@ -57,24 +42,15 @@ class AbTestOptimizelyXExperiment extends Component {
     return variationChild ? variationChild.props.variationId : null
   }
 
-  _getVariationNameFromVariationId = variationId => {
-    return this._getVariationNameFromChild(
-      this.props.children.find(child => child.props.variationId === variationId)
+  const getVariationNameFromVariationId = variationId => {
+    return getVariationNameFromChild(
+      children.find(child => child.props.variationId === variationId)
     )
   }
 
-  _getVariationNameFromChild = child => {
-    // variationName can be overriden via prop
-    if (child.props.variationName) return child.props.variationName
-
-    // otherwise, use an alphabet letter based on child position
-    const childIndex = this.props.children.indexOf(child)
-    return String.fromCharCode(65 + childIndex) // A, B, C, D, ...
-  }
-
-  _getVariationFlags = selectedVariationId => {
-    return this.props.children.reduce((obj, child) => {
-      const variationName = this._getVariationNameFromChild(child)
+  const getVariationFlags = selectedVariationId => {
+    return children.reduce((obj, child) => {
+      const variationName = getVariationNameFromChild(child)
 
       // capitalize variation name in order to get a well-formed camel case key
       // i. e. for a name 'foo' → isVariationFoo
@@ -89,75 +65,86 @@ class AbTestOptimizelyXExperiment extends Component {
     }, {})
   }
 
-  _activationHandler = rawVariationId => {
-    const variationId = this._parseVariationId(rawVariationId)
-    return this.setState(this._buildContextState({variationId, active: true}))
+  const buildContextState = ({variationId, active = false}) => {
+    const {children, ...propsWithoutChildren} = props // remove children prop
+    const variationName = getVariationNameFromVariationId(variationId)
+
+    return {
+      ...propsWithoutChildren,
+      isActive: active,
+      isDefault: variationId === defaultVariation,
+      isVariation: variationId !== defaultVariation,
+      isWrapped: true,
+      variationId,
+      variationName,
+      ...getVariationFlags(variationId)
+    }
   }
 
-  _parseVariationId = rawVariationId => {
+  const initialVariationId =
+    checkVariationInChildren(props.forceVariation) || defaultVariation
+
+  // set state which will be used to provide context
+  const initialState = buildContextState({variationId: initialVariationId})
+  const [state, setState] = useState(initialState)
+
+  const parseVariationId = rawVariationId => {
     const numberVariationId = Number(rawVariationId)
     return !isNaN(numberVariationId) ? numberVariationId : rawVariationId
   }
 
-  _logWatchOutMessage(message) {
+  const activationHandler = rawVariationId => {
+    const variationId = parseVariationId(rawVariationId)
+    return setState(buildContextState({...state, variationId, active: true}))
+  }
+
+  const logWatchOutMessage = message => {
     // eslint-disable-next-line no-console
     if (process.env.NODE_ENV !== 'test') console.warn(message)
   }
 
-  componentDidMount() {
-    const {experimentId, forceActivation, forceVariation} = this.props
-
+  useEffect(() => {
     if (process.env.NODE_ENV !== 'production') {
       const getMessageForProp = prop =>
         `[OptimizelyXExperiment] Watch out!! Optimizely response will be ignored because the ${prop} prop.`
 
       if (forceActivation) {
         setTimeout(
-          () =>
-            this._activationHandler(
-              this._checkVariationInChildren(forceActivation)
-            ),
-          this.props.forceActivationDelay
+          () => activationHandler(checkVariationInChildren(forceActivation)),
+          forceActivationDelay
         )
-        this._logWatchOutMessage(getMessageForProp('forceActivation'))
+        logWatchOutMessage(getMessageForProp('forceActivation'))
         return
       }
 
       if (forceVariation) {
-        this._logWatchOutMessage(getMessageForProp('forceVariation'))
+        logWatchOutMessage(getMessageForProp('forceVariation'))
         return
       }
     }
 
-    OptimizelyX.addActivationListener(experimentId, this._activationHandler)
-  }
+    OptimizelyX.addActivationListener(experimentId, activationHandler)
 
-  componentWillUnmount() {
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      (this.props.forceActivation || this.props.forceVariation)
-    ) {
-      return
+    return () => {
+      if (
+        process.env.NODE_ENV !== 'production' &&
+        (forceActivation || forceVariation)
+      ) {
+        return
+      }
+      OptimizelyX.removeActivationListener(experimentId, activationHandler)
     }
-    OptimizelyX.removeActivationListener(
-      this.props.experimentId,
-      this._activationHandler
-    )
-  }
+  }, [])
 
-  render() {
-    return (
-      /**
-       * FYI: About why using just `value={this.state}` instead of a new object.
-       * @see https://en.reactjs.org/docs/context.html#caveats
-       */
-      <ExperimentContext.Provider value={this.state}>
-        <AbTestToggle variation={this.state.variationId}>
-          {this.props.children}
-        </AbTestToggle>
-      </ExperimentContext.Provider>
-    )
-  }
+  return (
+    /**
+     * FYI: About why using just `value={state}` instead of a new object.
+     * @see https://en.reactjs.org/docs/context.html#caveats
+     */
+    <ExperimentContext.Provider value={state}>
+      <AbTestToggle variation={state.variationId}>{children}</AbTestToggle>
+    </ExperimentContext.Provider>
+  )
 }
 
 AbTestOptimizelyXExperiment.displayName = 'AbTestOptimizelyXExperiment'
@@ -174,7 +161,7 @@ AbTestOptimizelyXExperiment.propTypes = {
   experimentId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
     .isRequired,
   /**
-   * This prop will force the `_activationHandler` method to be ran for
+   * This prop will force the `activationHandler` method to be ran for
    * the passed variation after a few milliseconds, so it will result
    * in something like an "Optimizely's response simulation". Accepts
    * the same values as `forceVariation` prop: variation id or name.
@@ -204,10 +191,6 @@ AbTestOptimizelyXExperiment.propTypes = {
    * NOTE: Only for development purposes.
    */
   forceVariation: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-}
-
-AbTestOptimizelyXExperiment.defaultProps = {
-  forceActivationDelay: 1000
 }
 
 export default AbTestOptimizelyXExperiment

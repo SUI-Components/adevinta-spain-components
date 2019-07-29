@@ -1,10 +1,12 @@
 /* eslint-env jest */
 import React from 'react'
-import Enzyme, {shallow} from 'enzyme'
+import {act} from 'react-dom/test-utils'
+import Enzyme, {mount} from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+
 import OptimizelyX from '../src/optimizely-x'
 import AbTestOptimizelyXExperiment, {ExperimentContext} from '../src/index'
 import {useExperiment} from '../../hooks/src/index'
-import Adapter from 'enzyme-adapter-react-16'
 
 Enzyme.configure({adapter: new Adapter()})
 jest.useFakeTimers()
@@ -18,28 +20,38 @@ describe('useExperiment', () => {
         const {isWrapped} = useExperiment(HOOK_PARAMS)
         return isWrapped.toString()
       }
-      const component = (
+      const Component = () => (
         <div>
           <Child />
         </div>
       )
-      const mounted = shallow(component)
+
+      let mounted
+      act(() => {
+        mounted = mount(<Component />)
+      })
       expect(mounted.html()).toEqual('<div>false</div>')
     })
+
     it('should output isDefault to true', () => {
       const Child = () => {
         const {isDefault} = useExperiment(HOOK_PARAMS)
         return isDefault.toString()
       }
-      const component = (
+      const Component = () => (
         <div>
           <Child />
         </div>
       )
-      const mounted = shallow(component)
+
+      let mounted
+      act(() => {
+        mounted = mount(<Component />)
+      })
       expect(mounted.html()).toEqual('<div>true</div>')
     })
   })
+
   describe('when the component IS wrapped by an experiment component', () => {
     let activationHandler
 
@@ -60,17 +72,23 @@ describe('useExperiment', () => {
         const {isWrapped} = useExperiment(HOOK_PARAMS)
         return isWrapped.toString()
       }
-      const component = (
+      const Component = () => (
         <AbTestOptimizelyXExperiment experimentId={40000}>
           <Child defaultVariation variationId={700000} />
           <Child variationId={700001} />
           <Child variationId={700002} />
         </AbTestOptimizelyXExperiment>
       )
-      const mounted = shallow(component)
+
+      let mounted
+      act(() => {
+        mounted = mount(<Component />)
+      })
       expect(mounted.html()).toEqual('true')
-      activationHandler(700001)
-      mounted.update()
+
+      act(() => {
+        activationHandler(700001)
+      })
       expect(mounted.html()).toEqual('true')
     })
 
@@ -79,16 +97,23 @@ describe('useExperiment', () => {
         const {isActive} = useExperiment(HOOK_PARAMS)
         return isActive.toString()
       }
-      const component = (
+      const Component = () => (
         <AbTestOptimizelyXExperiment experimentId={40000}>
           <Child defaultVariation variationId={700000} />
           <Child variationId={700001} />
           <Child variationId={700002} />
         </AbTestOptimizelyXExperiment>
       )
-      const mounted = shallow(component)
+
+      let mounted
+      act(() => {
+        mounted = mount(<Component />)
+      })
       expect(mounted.html()).toEqual('false')
-      activationHandler(700001)
+
+      act(() => {
+        activationHandler(700001)
+      })
       mounted.update()
       expect(mounted.html()).toEqual('true')
     })
@@ -98,16 +123,23 @@ describe('useExperiment', () => {
         const {isDefault} = useExperiment(HOOK_PARAMS)
         return isDefault.toString()
       }
-      const component = (
+      const Component = () => (
         <AbTestOptimizelyXExperiment experimentId={40000}>
           <Child defaultVariation variationId={700000} />
           <Child variationId={700001} />
           <Child variationId={700002} />
         </AbTestOptimizelyXExperiment>
       )
-      const mounted = shallow(component)
+
+      let mounted
+      act(() => {
+        mounted = mount(<Component />)
+      })
       expect(mounted.html()).toEqual('true')
-      activationHandler(700001)
+
+      act(() => {
+        activationHandler(700001)
+      })
       mounted.update()
       expect(mounted.html()).toEqual('false')
     })
@@ -117,16 +149,23 @@ describe('useExperiment', () => {
         const {isVariation} = useExperiment(HOOK_PARAMS)
         return isVariation.toString()
       }
-      const component = (
+      const Component = () => (
         <AbTestOptimizelyXExperiment experimentId={40000}>
           <Child defaultVariation variationId={700000} />
           <Child variationId={700001} />
           <Child variationId={700002} />
         </AbTestOptimizelyXExperiment>
       )
-      const mounted = shallow(component)
+
+      let mounted
+      act(() => {
+        mounted = mount(<Component />)
+      })
       expect(mounted.html()).toEqual('false')
-      activationHandler(700001)
+
+      act(() => {
+        activationHandler(700001)
+      })
       mounted.update()
       expect(mounted.html()).toEqual('true')
     })
@@ -136,16 +175,23 @@ describe('useExperiment', () => {
         const {experimentId, variationId} = useExperiment(HOOK_PARAMS)
         return `${experimentId}/${variationId}`
       }
-      const component = (
+      const Component = () => (
         <AbTestOptimizelyXExperiment experimentId={40000}>
           <Child defaultVariation variationId={700000} />
           <Child variationId={700001} />
           <Child variationId={700002} />
         </AbTestOptimizelyXExperiment>
       )
-      const mounted = shallow(component)
+
+      let mounted
+      act(() => {
+        mounted = mount(<Component />)
+      })
       expect(mounted.html()).toEqual('40000/700000')
-      activationHandler(700001)
+
+      act(() => {
+        activationHandler(700001)
+      })
       mounted.update()
       expect(mounted.html()).toEqual('40000/700001')
     })
@@ -155,16 +201,24 @@ describe('useExperiment', () => {
         const {variationName} = useExperiment(HOOK_PARAMS)
         return variationName
       }
-      const component = (
+      const Component = () => (
         <AbTestOptimizelyXExperiment experimentId={40000}>
           <Child variationId={700000} />
           <Child variationId={700001} />
           <Child defaultVariation variationId={700002} />
         </AbTestOptimizelyXExperiment>
       )
-      const mounted = shallow(component)
+
+      let mounted
+      act(() => {
+        mounted = mount(<Component />)
+      })
       expect(mounted.html()).toEqual('C')
-      activationHandler(700001)
+
+      act(() => {
+        activationHandler(700001)
+      })
+      mounted.update()
       expect(mounted.html()).toEqual('B')
     })
 
@@ -175,16 +229,24 @@ describe('useExperiment', () => {
         )
         return `${isVariationA}:${isVariationB}:${isVariationC}`
       }
-      const component = (
+      const Component = () => (
         <AbTestOptimizelyXExperiment experimentId={40000}>
           <Child variationId={700000} />
           <Child variationId={700001} />
           <Child defaultVariation variationId={700002} />
         </AbTestOptimizelyXExperiment>
       )
-      const mounted = shallow(component)
+
+      let mounted
+      act(() => {
+        mounted = mount(<Component />)
+      })
       expect(mounted.html()).toEqual('false:false:true')
-      activationHandler(700000)
+
+      act(() => {
+        activationHandler(700000)
+      })
+      mounted.update()
       expect(mounted.html()).toEqual('true:false:false')
     })
 
@@ -193,7 +255,7 @@ describe('useExperiment', () => {
         const {variationName} = useExperiment(HOOK_PARAMS)
         return variationName
       }
-      const component = (
+      const Component = () => (
         <AbTestOptimizelyXExperiment
           experimentId={40000}
           forceVariation={700001} // B
@@ -203,9 +265,17 @@ describe('useExperiment', () => {
           <Child variationId={700002} />
         </AbTestOptimizelyXExperiment>
       )
-      const mounted = shallow(component)
+
+      let mounted
+      act(() => {
+        mounted = mount(<Component />)
+      })
       expect(mounted.html()).toEqual('B')
-      activationHandler(700002)
+
+      act(() => {
+        activationHandler(700002)
+      })
+      mounted.update()
       expect(mounted.html()).toEqual('B')
     })
 
@@ -214,16 +284,24 @@ describe('useExperiment', () => {
         const {variationName} = useExperiment(HOOK_PARAMS)
         return variationName
       }
-      const component = (
+      const Component = () => (
         <AbTestOptimizelyXExperiment experimentId={40000} forceVariation="B">
           <Child defaultVariation variationId={700000} />
           <Child variationId={700001} />
           <Child variationId={700002} />
         </AbTestOptimizelyXExperiment>
       )
-      const mounted = shallow(component)
+
+      let mounted
+      act(() => {
+        mounted = mount(<Component />)
+      })
       expect(mounted.html()).toEqual('B')
-      activationHandler(700002)
+
+      act(() => {
+        activationHandler(700002)
+      })
+      mounted.update()
       expect(mounted.html()).toEqual('B')
     })
 
@@ -232,7 +310,7 @@ describe('useExperiment', () => {
         const {variationName} = useExperiment(HOOK_PARAMS)
         return variationName
       }
-      const component = (
+      const Component = () => (
         <AbTestOptimizelyXExperiment
           experimentId={40000}
           forceActivation={700001} // B
@@ -242,9 +320,17 @@ describe('useExperiment', () => {
           <Child variationId={700002} />
         </AbTestOptimizelyXExperiment>
       )
-      const mounted = shallow(component)
+
+      let mounted
+      act(() => {
+        mounted = mount(<Component />)
+      })
       expect(mounted.html()).toEqual('A')
-      jest.runAllTimers()
+
+      act(() => {
+        jest.runAllTimers()
+      })
+      mounted.update()
       expect(mounted.html()).toEqual('B')
     })
 
@@ -253,16 +339,24 @@ describe('useExperiment', () => {
         const {variationName} = useExperiment(HOOK_PARAMS)
         return variationName
       }
-      const component = (
+      const Component = () => (
         <AbTestOptimizelyXExperiment experimentId={40000} forceActivation="B">
           <Child defaultVariation variationId={700000} />
           <Child variationId={700001} />
           <Child variationId={700002} />
         </AbTestOptimizelyXExperiment>
       )
-      const mounted = shallow(component)
+
+      let mounted
+      act(() => {
+        mounted = mount(<Component />)
+      })
       expect(mounted.html()).toEqual('A')
-      jest.runAllTimers()
+
+      act(() => {
+        jest.runAllTimers()
+      })
+      mounted.update()
       expect(mounted.html()).toEqual('B')
     })
   })
