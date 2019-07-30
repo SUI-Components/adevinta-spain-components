@@ -1,71 +1,61 @@
-import React, {Component} from 'react'
+import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
+import {useMount} from '@schibstedspain/sui-react-hooks'
 
 import Notification from '@s-ui/react-molecule-notification'
 
 import {CLASS, I18N} from '../settings'
 
-export default class CmpBanner extends Component {
-  textRef = React.createRef()
-  openCookiesDOM = null
+export default function CmpBanner({lang, onAccept, onConfigure}) {
+  const textRef = useRef()
 
-  componentDidMount() {
-    this.openCookiesDOM =
-      this.textRef && this.textRef.current.querySelector(`.${CLASS}-link`)
+  useMount(function() {
+    const {current: textDOM} = textRef
+    const openCookiesDOM = textDOM.querySelector(`.${CLASS}-link`)
+    openCookiesDOM.addEventListener('click', _handleOpenCookies)
 
-    this.openCookiesDOM &&
-      this.openCookiesDOM.addEventListener('click', this._handleOpenCookies)
-  }
+    return () =>
+      openCookiesDOM &&
+      openCookiesDOM.removeEventListener('click', _handleOpenCookies)
+  })
 
-  shouldComponentUpdate() {
-    return false
-  }
-
-  componentWillUnmount() {
-    this.openCookiesDOM &&
-      this.openCookiesDOM.removeEventListener('click', this._handleOpenCookies)
-  }
-
-  _generateButtons({lang}) {
+  const _generateButtons = ({lang}) => {
     const i18n = I18N[lang]
     return [
       {
         children: i18n.ACCEPT_BUTTON,
         negative: true,
-        onClick: this.props.onAccept,
+        onClick: onAccept,
         size: 'small',
         type: 'primary'
       }
     ]
   }
 
-  _handleOpenCookies = e => {
+  const _handleOpenCookies = e => {
     e.preventDefault()
-    this.props.onConfigure()
+    onConfigure()
   }
 
-  render() {
-    const {lang} = this.props
-    return (
-      <div className={CLASS}>
-        <Notification
-          autoClose="manual"
-          buttons={this._generateButtons({lang})}
-          position="bottom"
-          show
-          showCloseButton={false}
-          variation="positive"
-          type="system"
-        >
-          <span
-            className={`${CLASS}-text`}
-            ref={this.textRef}
-            dangerouslySetInnerHTML={{__html: I18N[lang].BANNER_BODY}}
-          />
-        </Notification>
-      </div>
-    )
-  }
+  return (
+    <div className={CLASS}>
+      <Notification
+        autoClose="manual"
+        buttons={_generateButtons({lang})}
+        position="bottom"
+        show
+        showCloseButton={false}
+        variation="positive"
+        type="system"
+      >
+        <span
+          className={`${CLASS}-text`}
+          ref={textRef}
+          dangerouslySetInnerHTML={{__html: I18N[lang].BANNER_BODY}}
+        />
+      </Notification>
+    </div>
+  )
 }
 
 CmpBanner.propTypes = {

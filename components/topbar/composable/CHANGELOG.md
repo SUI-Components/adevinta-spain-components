@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2019-05-07)
+
+
+### Features
+
+* add render on click prop ([3caa910](https://github.com/SUI-Components/schibsted-spain-components/commit/3caa910))
+
+
+
+<a name="1.9.0"></a>
+# 1.9.0 (2019-04-16)
+
+
+### Features
+
+* move to hooks ([c86e5db](https://github.com/SUI-Components/schibsted-spain-components/commit/c86e5db))
+
+
+
+<a name="1.8.0"></a>
+# 1.8.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([f3a4985](https://github.com/SUI-Components/schibsted-spain-components/commit/f3a4985))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2019-02-04)
 

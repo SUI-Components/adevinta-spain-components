@@ -5,7 +5,6 @@
   "private": true,
   "scripts": {
     "build": "sui-studio build",
-    "check:release": "sui-studio check-release",
     "co": "sui-studio commit",
     "commitmsg": "validate-commit-msg",
     "dev": "sui-studio dev",
@@ -13,11 +12,9 @@
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",
-    "now-build": "npm run phoenix:ci && npm run build",
     "phoenix": "sui-mono phoenix && (cd demo && sui-mono phoenix)",
-    "phoenix:ci": "sui-mono run-parallel npm install && (cd demo && sui-mono run-parallel npm install --no-progress)",
+    "phoenix:ci": "sui-mono run-parallel npm install && (cd demo && sui-mono run-parallel npm install)",
     "precommit": "sui-precommit run",
-    "release": "sui-studio release",
     "start": "sui-studio start",
     "test": "jest"
   },
@@ -26,24 +23,18 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "7.4.0",
     "@s-ui/precommit": "2",
     "@s-ui/studio": "6",
-    "babel-jest": "20.0.3",
-    "enzyme": "3.3.0",
-    "enzyme-adapter-react-16": "1.1.1",
+    "enzyme": "3.9.0",
+    "enzyme-adapter-react-16": "1.2.0",
     "husky": "0.13.4",
-    "jest": "23.5.0",
+    "jest": "24.5.0",
     "validate-commit-msg": "2.12.2"
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/mono": "1",
-    "@schibstedspain/cf-theme": "1",
-    "@schibstedspain/fc-theme": "10",
-    "@schibstedspain/ij-theme": "1",
-    "@schibstedspain/mt-theme": "4",
-    "@schibstedspain/nc-theme": "1",
-    "@schibstedspain/vb-theme": "1"
+    "@s-ui/mono": "1"
   },
   "config": {
     "sui-studio": {

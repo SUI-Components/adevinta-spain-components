@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.21.0"></a>
+# 1.21.0 (2019-06-19)
+
+
+### Features
+
+* Move to functions ([62c266d](https://github.com/SUI-Components/schibsted-spain-components/commit/62c266d))
+
+
+
+<a name="1.20.0"></a>
+# 1.20.0 (2019-06-06)
+
+
+### Features
+
+* Simplify and improve cmp ([ce0c8e5](https://github.com/SUI-Components/schibsted-spain-components/commit/ce0c8e5))
+
+
+
+<a name="1.19.0"></a>
+# 1.19.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([a5593f1](https://github.com/SUI-Components/schibsted-spain-components/commit/a5593f1))
+
+
+
+<a name="1.18.0"></a>
+# 1.18.0 (2019-04-02)
+
+
+### Features
+
+* added italy literals ([7ee28c9](https://github.com/SUI-Components/schibsted-spain-components/commit/7ee28c9))
+
+
+
 <a name="1.17.0"></a>
 # 1.17.0 (2019-02-26)
 
@@ -176,40 +216,6 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * add companyName prop ([8a491c1](https://github.com/SUI-Components/schibsted-spain-components/commit/8a491c1))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2018-06-28)
-
-
-### Bug Fixes
-
-* fix typo ([d7c0bb0](https://github.com/SUI-Components/schibsted-spain-components/commit/d7c0bb0))
-* fix wrong classnames and add missing devDependencies ([5e72bce](https://github.com/SUI-Components/schibsted-spain-components/commit/5e72bce))
-* ignore files to publish and fix not needed import ([a6390da](https://github.com/SUI-Components/schibsted-spain-components/commit/a6390da))
-* remove inline translations and use settings ([1e163ef](https://github.com/SUI-Components/schibsted-spain-components/commit/1e163ef))
-* some fixes to cmp/banner regarding PR comments ([52531e2](https://github.com/SUI-Components/schibsted-spain-components/commit/52531e2))
-
-
-### Features
-
-* add modal handling to banner ([3b99dcc](https://github.com/SUI-Components/schibsted-spain-components/commit/3b99dcc))
-* add some styling to the banner component ([ef406f6](https://github.com/SUI-Components/schibsted-spain-components/commit/ef406f6))
-* check if cmp is ready before using it ([3beb51e](https://github.com/SUI-Components/schibsted-spain-components/commit/3beb51e))
-* create a settings file to share some useful data ([5d8fc9c](https://github.com/SUI-Components/schibsted-spain-components/commit/5d8fc9c))
-* create banner presentational component ([6d326be](https://github.com/SUI-Components/schibsted-spain-components/commit/6d326be))
-* create cmp banner component ([eede279](https://github.com/SUI-Components/schibsted-spain-components/commit/eede279))
-* create CmpBannerContainer ([7e164e8](https://github.com/SUI-Components/schibsted-spain-components/commit/7e164e8))
-* create i18n for banner ([1a4a1c7](https://github.com/SUI-Components/schibsted-spain-components/commit/1a4a1c7))
-* don't update never the component ([6dbd493](https://github.com/SUI-Components/schibsted-spain-components/commit/6dbd493))
-* on accept, send all as default consents ([24f21c5](https://github.com/SUI-Components/schibsted-spain-components/commit/24f21c5))
-* remove close button by props instead css ([8d9e795](https://github.com/SUI-Components/schibsted-spain-components/commit/8d9e795))
-* use i18n object instead inline translation ([d9d91bb](https://github.com/SUI-Components/schibsted-spain-components/commit/d9d91bb))
-* use lang propType to get the right translation ([3856703](https://github.com/SUI-Components/schibsted-spain-components/commit/3856703))
-* use new CmpWaitForLibrary component ([de2d5fb](https://github.com/SUI-Components/schibsted-spain-components/commit/de2d5fb))
-* use privacyUrl in banner as well to be passed to modal ([09d9db1](https://github.com/SUI-Components/schibsted-spain-components/commit/09d9db1))
-* use service in order to get access to useCases ([e589f3e](https://github.com/SUI-Components/schibsted-spain-components/commit/e589f3e))
 
 
 

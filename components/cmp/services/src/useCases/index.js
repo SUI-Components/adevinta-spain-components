@@ -1,12 +1,18 @@
-import {GetConsentStatusUseCase} from './GetConsentStatusUseCase'
-import {GetPurposesAndVendorsUseCase} from './GetPurposesAndVendorsUseCase'
-import {SendConsentsUseCase} from './SendConsentsUseCase'
+import borosCmp from '@schibstedspain/boros-cmp/lib'
 
-import {CmpRepository} from '../repository/cmpRepository'
-const repository = new CmpRepository()
+import getConsentStatusUseCase from './GetConsentStatusUseCase'
+import getPurposesAndVendorsUseCase from './GetPurposesAndVendorsUseCase'
+import sendConsentsUseCase from './SendConsentsUseCase'
 
-export const getConsentStatus = new GetConsentStatusUseCase({repository})
-export const getPurposesAndVendors = new GetPurposesAndVendorsUseCase({
-  repository
-})
-export const sendConsents = new SendConsentsUseCase({repository})
+import cmpRepository from '../repository/cmpRepository'
+const repository = cmpRepository()
+
+export default function getUseCases() {
+  return borosCmp.init().then(() => {
+    return {
+      getConsentStatus: getConsentStatusUseCase({repository}),
+      getPurposesAndVendors: getPurposesAndVendorsUseCase({repository}),
+      sendConsents: sendConsentsUseCase({repository})
+    }
+  })
+}

@@ -1,18 +1,14 @@
 import PropTypes from 'prop-types'
-import React, {Component} from 'react'
+import React from 'react'
 
-class AtomStatusSpot extends Component {
-  render() {
-    return (
-      <div className="sui-AtomStatusSpot">
-        <span
-          className={`sui-AtomStatusSpot-status sui-AtomStatusSpot-status-${
-            this.props.status
-          } sui-AtomStatusSpot-size-${this.props.size}`}
-        />
-      </div>
-    )
-  }
+export default function AtomStatusSpot({size = 'medium', status = 'default'}) {
+  return (
+    <div className="sui-AtomStatusSpot">
+      <span
+        className={`sui-AtomStatusSpot-status sui-AtomStatusSpot-status-${status} sui-AtomStatusSpot-size-${size}`}
+      />
+    </div>
+  )
 }
 
 AtomStatusSpot.displayName = 'AtomStatusSpot'
@@ -27,10 +23,3 @@ AtomStatusSpot.propTypes = {
    */
   size: PropTypes.oneOf(['large', 'medium', 'small'])
 }
-
-AtomStatusSpot.defaultProps = {
-  status: 'default',
-  size: 'medium'
-}
-
-export default AtomStatusSpot

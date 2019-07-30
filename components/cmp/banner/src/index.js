@@ -1,36 +1,27 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import CmpServices from '@schibstedspain/react-cmp-services'
 
-import {CmpBannerContainer} from './CmpBanner/index'
+import CmpBannerContainer from './CmpBanner/index'
 
-class CmpBanner extends Component {
-  shouldComponentUpdate() {
-    return false
-  }
-
-  render() {
-    return (
-      <CmpServices>
-        {({getConsentStatus, getPurposesAndVendors, sendConsents}) => (
-          <CmpBannerContainer
-            {...this.props}
-            getConsentStatus={getConsentStatus}
-            getPurposesAndVendors={getPurposesAndVendors}
-            sendConsents={sendConsents}
-          />
-        )}
-      </CmpServices>
-    )
-  }
+export default function CmpBanner({lang = 'es', ...restOfProps}) {
+  return (
+    <CmpServices>
+      {({getConsentStatus, getPurposesAndVendors, sendConsents}) => (
+        <CmpBannerContainer
+          {...restOfProps}
+          lang={lang}
+          getConsentStatus={getConsentStatus}
+          getPurposesAndVendors={getPurposesAndVendors}
+          sendConsents={sendConsents}
+        />
+      )}
+    </CmpServices>
+  )
 }
 
 CmpBanner.displayName = 'CmpBanner'
-
-CmpBanner.defaultProps = {
-  lang: 'es'
-}
 
 CmpBanner.propTypes = {
   /**
@@ -58,5 +49,3 @@ CmpBanner.propTypes = {
    */
   privacyUrl: PropTypes.string.isRequired
 }
-
-export default CmpBanner

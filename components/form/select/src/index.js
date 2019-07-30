@@ -8,6 +8,8 @@ export default function FormSelect({
   onChange,
   options,
   prominent,
+  required,
+  title,
   value
 }) {
   const selectClassName = cx('sui-FormSelect', className, {
@@ -20,8 +22,10 @@ export default function FormSelect({
     <select
       className={selectClassName}
       disabled={disabled}
-      value={value}
       onChange={wrappedOnChange}
+      title={title}
+      value={value}
+      required={required}
     >
       {options.map(({content, key, value}, index) => {
         const optionKey = key || index
@@ -66,6 +70,14 @@ FormSelect.propTypes = {
       content: PropTypes.string
     })
   ),
+  /**
+   * Title attribute of the select
+   */
+  title: PropTypes.string,
+  /**
+   * required attribute for combobox
+   */
+  required: PropTypes.bool,
   /**
    * Actual value for the select
    */

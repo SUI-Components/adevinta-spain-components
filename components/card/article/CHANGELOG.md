@@ -2,13 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.22.0"></a>
+# 1.22.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([de8512a](https://github.com/SUI-Components/schibsted-spain-components/commit/de8512a))
+
+
+
 <a name="1.21.0"></a>
 # 1.21.0 (2018-03-12)
 
 
 ### Features
 
-* verify tag prop is passed before to print it ([e96ac8e](https://github.com/SUI-Components/sui-components/commit/e96ac8e))
+* verify tag prop is passed before to print it ([e96ac8e](https://github.com/SUI-Components/schibsted-spain-components/commit/e96ac8e))
 
 
 
@@ -18,7 +28,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([10b32b3](https://github.com/SUI-Components/sui-components/commit/10b32b3))
+* Bump version ([10b32b3](https://github.com/SUI-Components/schibsted-spain-components/commit/10b32b3))
 
 
 
@@ -28,7 +38,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* adapat default linkfactory to receive more params ([697f2b2](https://github.com/SUI-Components/sui-components/commit/697f2b2))
+* adapat default linkfactory to receive more params ([697f2b2](https://github.com/SUI-Components/schibsted-spain-components/commit/697f2b2))
 
 
 
@@ -38,7 +48,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add new prop to tagchip ([806d325](https://github.com/SUI-Components/sui-components/commit/806d325))
+* add new prop to tagchip ([806d325](https://github.com/SUI-Components/schibsted-spain-components/commit/806d325))
 
 
 
@@ -48,8 +58,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Migrate to PropTypes package ([74d3007](https://github.com/SUI-Components/sui-components/commit/74d3007))
-* switch to s-ui/component-dependencies and sui-theme@8 ([1ccac17](https://github.com/SUI-Components/sui-components/commit/1ccac17))
+* Migrate to PropTypes package ([74d3007](https://github.com/SUI-Components/schibsted-spain-components/commit/74d3007))
+* switch to s-ui/component-dependencies and sui-theme@8 ([1ccac17](https://github.com/SUI-Components/schibsted-spain-components/commit/1ccac17))
 
 
 
@@ -59,7 +69,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* pass link factory to tagchip ([8c3a86a](https://github.com/SUI-Components/sui-components/commit/8c3a86a))
+* pass link factory to tagchip ([8c3a86a](https://github.com/SUI-Components/schibsted-spain-components/commit/8c3a86a))
 
 
 
@@ -69,7 +79,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* include titles ([a484292](https://github.com/SUI-Components/sui-components/commit/a484292))
+* include titles ([a484292](https://github.com/SUI-Components/schibsted-spain-components/commit/a484292))
 
 
 
@@ -79,7 +89,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* include optional media icon ([f79e1c1](https://github.com/SUI-Components/sui-components/commit/f79e1c1))
+* include optional media icon ([f79e1c1](https://github.com/SUI-Components/schibsted-spain-components/commit/f79e1c1))
 
 
 
@@ -89,7 +99,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix extra margin of tag chips ([87fe7c9](https://github.com/SUI-Components/sui-components/commit/87fe7c9))
+* fix extra margin of tag chips ([87fe7c9](https://github.com/SUI-Components/schibsted-spain-components/commit/87fe7c9))
 
 
 
@@ -99,12 +109,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* include tagChip in propTypes ([55dc585](https://github.com/SUI-Components/sui-components/commit/55dc585))
+* include tagChip in propTypes ([55dc585](https://github.com/SUI-Components/schibsted-spain-components/commit/55dc585))
 
 
 ### Features
 
-* get tag chip as a prop ([15f9f2e](https://github.com/SUI-Components/sui-components/commit/15f9f2e))
+* get tag chip as a prop ([15f9f2e](https://github.com/SUI-Components/schibsted-spain-components/commit/15f9f2e))
 
 
 
@@ -114,12 +124,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* remove unnecessary default prop ([49426d3](https://github.com/SUI-Components/sui-components/commit/49426d3))
+* remove unnecessary default prop ([49426d3](https://github.com/SUI-Components/schibsted-spain-components/commit/49426d3))
 
 
 ### Features
 
-* remove tag types ([c54f03d](https://github.com/SUI-Components/sui-components/commit/c54f03d))
+* remove tag types ([c54f03d](https://github.com/SUI-Components/schibsted-spain-components/commit/c54f03d))
 
 
 
@@ -129,12 +139,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* adding uppercase css property ([39aa0c4](https://github.com/SUI-Components/sui-components/commit/39aa0c4))
+* adding uppercase css property ([39aa0c4](https://github.com/SUI-Components/schibsted-spain-components/commit/39aa0c4))
 
 
 ### Features
 
-* use tag-chip to display tags ([3199c2c](https://github.com/SUI-Components/sui-components/commit/3199c2c))
+* use tag-chip to display tags ([3199c2c](https://github.com/SUI-Components/schibsted-spain-components/commit/3199c2c))
 
 
 
@@ -144,8 +154,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add featured card ([0c24b7b](https://github.com/SUI-Components/sui-components/commit/0c24b7b))
-* reduce vars definition, improve selector CSS ([51fff59](https://github.com/SUI-Components/sui-components/commit/51fff59))
+* add featured card ([0c24b7b](https://github.com/SUI-Components/schibsted-spain-components/commit/0c24b7b))
+* reduce vars definition, improve selector CSS ([51fff59](https://github.com/SUI-Components/schibsted-spain-components/commit/51fff59))
 
 
 
@@ -155,7 +165,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* include icon only if there are available comments ([1879fa4](https://github.com/SUI-Components/sui-components/commit/1879fa4))
+* include icon only if there are available comments ([1879fa4](https://github.com/SUI-Components/schibsted-spain-components/commit/1879fa4))
 
 
 
@@ -165,7 +175,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* remove top border, adjust title font size ([eebb68d](https://github.com/SUI-Components/sui-components/commit/eebb68d))
+* remove top border, adjust title font size ([eebb68d](https://github.com/SUI-Components/schibsted-spain-components/commit/eebb68d))
 
 
 
@@ -175,22 +185,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* rename react subcomponent ([cdfcd2e](https://github.com/SUI-Components/sui-components/commit/cdfcd2e))
+* rename react subcomponent ([cdfcd2e](https://github.com/SUI-Components/schibsted-spain-components/commit/cdfcd2e))
 
 
 ### Features
 
-* add lazy load ([2944c12](https://github.com/SUI-Components/sui-components/commit/2944c12))
-
-
-
-<a name="1.5.0"></a>
-# 1.5.0 (2017-01-26)
-
-
-### Bug Fixes
-
-* adjusting colors ([67ca3a4](https://github.com/SUI-Components/sui-components/commit/67ca3a4))
+* add lazy load ([2944c12](https://github.com/SUI-Components/schibsted-spain-components/commit/2944c12))
 
 
 

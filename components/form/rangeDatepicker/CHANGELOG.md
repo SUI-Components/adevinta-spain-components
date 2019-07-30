@@ -2,13 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.23.0"></a>
+# 1.23.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([581b4bd](https://github.com/SUI-Components/schibsted-spain-components/commit/581b4bd))
+
+
+
 <a name="1.22.0"></a>
 # 1.22.0 (2018-09-05)
 
 
 ### Features
 
-* add control to check date entries on change ([4f847ee](https://github.com/SUI-Components/sui-components/commit/4f847ee))
+* add control to check date entries on change ([4f847ee](https://github.com/SUI-Components/schibsted-spain-components/commit/4f847ee))
 
 
 
@@ -18,7 +28,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* update version moment for rangedatepicker ([144f5c2](https://github.com/SUI-Components/sui-components/commit/144f5c2))
+* update version moment for rangedatepicker ([144f5c2](https://github.com/SUI-Components/schibsted-spain-components/commit/144f5c2))
 
 
 
@@ -28,7 +38,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* update moment version to resolve security vulnerabilities ([3212274](https://github.com/SUI-Components/sui-components/commit/3212274))
+* update moment version to resolve security vulnerabilities ([3212274](https://github.com/SUI-Components/schibsted-spain-components/commit/3212274))
 
 
 
@@ -38,7 +48,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* update moment version in rangedatepicker ([cd0f384](https://github.com/SUI-Components/sui-components/commit/cd0f384))
+* update moment version in rangedatepicker ([cd0f384](https://github.com/SUI-Components/schibsted-spain-components/commit/cd0f384))
 
 
 
@@ -48,7 +58,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* update version range-datepicker component ([d569e6f](https://github.com/SUI-Components/sui-components/commit/d569e6f))
+* update version range-datepicker component ([d569e6f](https://github.com/SUI-Components/schibsted-spain-components/commit/d569e6f))
 
 
 
@@ -58,8 +68,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add comment of the new prop ([a21d574](https://github.com/SUI-Components/sui-components/commit/a21d574))
-* add new prop to show datepicker in the new modal ([e645d1b](https://github.com/SUI-Components/sui-components/commit/e645d1b))
+* add comment of the new prop ([a21d574](https://github.com/SUI-Components/schibsted-spain-components/commit/a21d574))
+* add new prop to show datepicker in the new modal ([e645d1b](https://github.com/SUI-Components/schibsted-spain-components/commit/e645d1b))
 
 
 
@@ -74,12 +84,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* prepare component for sui-theme change ([dde04ce](https://github.com/SUI-Components/sui-components/commit/dde04ce))
+* prepare component for sui-theme change ([dde04ce](https://github.com/SUI-Components/schibsted-spain-components/commit/dde04ce))
 
 
 ### Features
 
-* update version momentjs ([33634c0](https://github.com/SUI-Components/sui-components/commit/33634c0))
+* update version momentjs ([33634c0](https://github.com/SUI-Components/schibsted-spain-components/commit/33634c0))
 
 
 
@@ -89,7 +99,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add new prop for customizable icon ([cbfb9f5](https://github.com/SUI-Components/sui-components/commit/cbfb9f5))
+* add new prop for customizable icon ([cbfb9f5](https://github.com/SUI-Components/schibsted-spain-components/commit/cbfb9f5))
 
 
 
@@ -99,7 +109,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add new variables for css: font-size and padding ([8414f22](https://github.com/SUI-Components/sui-components/commit/8414f22))
+* add new variables for css: font-size and padding ([8414f22](https://github.com/SUI-Components/schibsted-spain-components/commit/8414f22))
 
 
 
@@ -109,7 +119,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* replace old variables ([dbb291f](https://github.com/SUI-Components/sui-components/commit/dbb291f))
+* replace old variables ([dbb291f](https://github.com/SUI-Components/schibsted-spain-components/commit/dbb291f))
 
 
 
@@ -119,7 +129,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* update version moment in rangedatepicker ([287e352](https://github.com/SUI-Components/sui-components/commit/287e352))
+* update version moment in rangedatepicker ([287e352](https://github.com/SUI-Components/schibsted-spain-components/commit/287e352))
 
 
 
@@ -129,12 +139,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* remove variable repeated ([4aa6296](https://github.com/SUI-Components/sui-components/commit/4aa6296))
+* remove variable repeated ([4aa6296](https://github.com/SUI-Components/schibsted-spain-components/commit/4aa6296))
 
 
 ### Features
 
-* add new variables to new rangedatepicker ([8553533](https://github.com/SUI-Components/sui-components/commit/8553533))
+* add new variables to new rangedatepicker ([8553533](https://github.com/SUI-Components/schibsted-spain-components/commit/8553533))
 
 
 
@@ -144,7 +154,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* update default styles ([d7d84d4](https://github.com/SUI-Components/sui-components/commit/d7d84d4))
+* update default styles ([d7d84d4](https://github.com/SUI-Components/schibsted-spain-components/commit/d7d84d4))
 
 
 
@@ -154,7 +164,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([c834a1e](https://github.com/SUI-Components/sui-components/commit/c834a1e))
+* Bump version ([c834a1e](https://github.com/SUI-Components/schibsted-spain-components/commit/c834a1e))
 
 
 
@@ -164,7 +174,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* update callback performance after insert a date ([034c857](https://github.com/SUI-Components/sui-components/commit/034c857))
+* update callback performance after insert a date ([034c857](https://github.com/SUI-Components/schibsted-spain-components/commit/034c857))
 
 
 
@@ -174,7 +184,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add range datepicker vars ([268c930](https://github.com/SUI-Components/sui-components/commit/268c930))
+* add range datepicker vars ([268c930](https://github.com/SUI-Components/schibsted-spain-components/commit/268c930))
 
 
 
@@ -184,8 +194,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* migrate to PropTypes package ([4d48919](https://github.com/SUI-Components/sui-components/commit/4d48919))
-* switch to s-ui/component-dependencies and sui-theme@8 ([43f2bff](https://github.com/SUI-Components/sui-components/commit/43f2bff))
+* migrate to PropTypes package ([4d48919](https://github.com/SUI-Components/schibsted-spain-components/commit/4d48919))
+* switch to s-ui/component-dependencies and sui-theme@8 ([43f2bff](https://github.com/SUI-Components/schibsted-spain-components/commit/43f2bff))
 
 
 
@@ -195,22 +205,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* update path external css of the datepicker ([baa123d](https://github.com/SUI-Components/sui-components/commit/baa123d))
-
-
-
-<a name="1.1.0"></a>
-# 1.1.0 (2017-09-13)
-
-
-### Bug Fixes
-
-* update handleChange event and update scss variables ([7020a3a](https://github.com/SUI-Components/sui-components/commit/7020a3a))
-
-
-### Features
-
-* new component Range datepicker ([412d8f2](https://github.com/SUI-Components/sui-components/commit/412d8f2))
+* update path external css of the datepicker ([baa123d](https://github.com/SUI-Components/schibsted-spain-components/commit/baa123d))
 
 
 

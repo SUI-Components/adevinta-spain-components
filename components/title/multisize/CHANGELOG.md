@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([ffe3f0f](https://github.com/SUI-Components/schibsted-spain-components/commit/ffe3f0f))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2018-03-07)
 
@@ -13,7 +23,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* imports theme settings compat v7 ([c2dff6e](https://github.com/SUI-Components/sui-components/commit/c2dff6e))
+* imports theme settings compat v7 ([c2dff6e](https://github.com/SUI-Components/schibsted-spain-components/commit/c2dff6e))
 
 
 
@@ -23,7 +33,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* prepare component for sui-theme change ([cf7bfdd](https://github.com/SUI-Components/sui-components/commit/cf7bfdd))
+* prepare component for sui-theme change ([cf7bfdd](https://github.com/SUI-Components/schibsted-spain-components/commit/cf7bfdd))
 
 
 
@@ -33,7 +43,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([6a3a115](https://github.com/SUI-Components/sui-components/commit/6a3a115))
+* Bump version ([6a3a115](https://github.com/SUI-Components/schibsted-spain-components/commit/6a3a115))
 
 
 
@@ -43,7 +53,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* adjust styles and sizes, adapt to sui-theme@8 ([fdc4a2f](https://github.com/SUI-Components/sui-components/commit/fdc4a2f))
+* adjust styles and sizes, adapt to sui-theme@8 ([fdc4a2f](https://github.com/SUI-Components/schibsted-spain-components/commit/fdc4a2f))
 
 
 
@@ -53,8 +63,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* migrate to PropTypes package ([dad35a1](https://github.com/SUI-Components/sui-components/commit/dad35a1))
-* switch to s-ui/component-dependencies and sui-theme@8 ([788c2a5](https://github.com/SUI-Components/sui-components/commit/788c2a5))
+* migrate to PropTypes package ([dad35a1](https://github.com/SUI-Components/schibsted-spain-components/commit/dad35a1))
+* switch to s-ui/component-dependencies and sui-theme@8 ([788c2a5](https://github.com/SUI-Components/schibsted-spain-components/commit/788c2a5))
 
 
 
@@ -64,7 +74,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* adjust css styles and modify title proptype in sui-title-multisize component. ([28265a0](https://github.com/SUI-Components/sui-components/commit/28265a0))
+* adjust css styles and modify title proptype in sui-title-multisize component. ([28265a0](https://github.com/SUI-Components/schibsted-spain-components/commit/28265a0))
 
 
 
@@ -74,7 +84,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* customise title orientation, add new title sizes. ([7bc1a8f](https://github.com/SUI-Components/sui-components/commit/7bc1a8f))
+* customise title orientation, add new title sizes. ([7bc1a8f](https://github.com/SUI-Components/schibsted-spain-components/commit/7bc1a8f))
 
 
 
@@ -84,11 +94,11 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add support to different title sizes (not fixed anymore). Adapt scss variable ([3c8295d](https://github.com/SUI-Components/sui-components/commit/3c8295d))
-* define const for title sizes. Minor comment changes. ([7cde229](https://github.com/SUI-Components/sui-components/commit/7cde229))
-* first version of multisize title component which supports up to 3 different t ([3f3f12f](https://github.com/SUI-Components/sui-components/commit/3f3f12f))
-* rename local function. Remove sass variables (moved to theme-basic). ([f6a6876](https://github.com/SUI-Components/sui-components/commit/f6a6876))
-* select HTML tag for size from a TAG_FOR_SIZE object mapper. ([9ed6b5a](https://github.com/SUI-Components/sui-components/commit/9ed6b5a))
+* add support to different title sizes (not fixed anymore). Adapt scss variable ([3c8295d](https://github.com/SUI-Components/schibsted-spain-components/commit/3c8295d))
+* define const for title sizes. Minor comment changes. ([7cde229](https://github.com/SUI-Components/schibsted-spain-components/commit/7cde229))
+* first version of multisize title component which supports up to 3 different t ([3f3f12f](https://github.com/SUI-Components/schibsted-spain-components/commit/3f3f12f))
+* rename local function. Remove sass variables (moved to theme-basic). ([f6a6876](https://github.com/SUI-Components/schibsted-spain-components/commit/f6a6876))
+* select HTML tag for size from a TAG_FOR_SIZE object mapper. ([9ed6b5a](https://github.com/SUI-Components/schibsted-spain-components/commit/9ed6b5a))
 
 
 

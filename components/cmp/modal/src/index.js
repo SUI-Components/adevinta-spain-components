@@ -1,53 +1,43 @@
-import React, {Component} from 'react'
+import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 
 import {CmpModalContainer} from './CmpModal'
 import CmpServices from '@schibstedspain/react-cmp-services'
 
-class CmpModal extends Component {
-  state = {open: !this.props.elementToOpenOnClick}
+export default function CmpModal(props) {
+  const {elementToOpenOnClick} = props
+  const [open, setOpen] = useState(!elementToOpenOnClick)
+  let domElementToOpenOnClick
 
-  _DOMElementToOpenOnClick = undefined
-
-  _openModal = () => {
-    this.setState({open: true})
-  }
-
-  _handleClickElementEvent = (createEvent = true) => {
+  const openModal = () => setOpen(true)
+  const createHandleClickElementEvent = (createEvent = true) => {
     const event = createEvent ? 'addEventListener' : 'removeEventListener'
-    this._DOMElementToOpenOnClick &&
-      this._DOMElementToOpenOnClick[event]('click', this._openModal)
+    domElementToOpenOnClick &&
+      domElementToOpenOnClick[event]('click', openModal)
   }
 
-  componentDidMount() {
-    const {elementToOpenOnClick} = this.props
+  useEffect(function() {
     if (elementToOpenOnClick) {
-      this._DOMElementToOpenOnClick = document.querySelector(
-        elementToOpenOnClick
-      )
-      this._handleClickElementEvent()
+      domElementToOpenOnClick = document.querySelector(elementToOpenOnClick)
+      createHandleClickElementEvent()
     }
-  }
 
-  componentWillUnmount() {
-    this._handleClickElementEvent(false)
-  }
+    return () => createHandleClickElementEvent(false)
+  })
 
-  render() {
-    if (this.state.open === false) return null
+  if (!open) return null
 
-    return (
-      <CmpServices>
-        {({getPurposesAndVendors, sendConsents}) => (
-          <CmpModalContainer
-            {...this.props}
-            getPurposesAndVendors={getPurposesAndVendors}
-            sendConsents={sendConsents}
-          />
-        )}
-      </CmpServices>
-    )
-  }
+  return (
+    <CmpServices>
+      {({getPurposesAndVendors, sendConsents}) => (
+        <CmpModalContainer
+          {...props}
+          getPurposesAndVendors={getPurposesAndVendors}
+          sendConsents={sendConsents}
+        />
+      )}
+    </CmpServices>
+  )
 }
 
 CmpModal.defaultProps = {
@@ -85,5 +75,3 @@ CmpModal.propTypes = {
 }
 
 CmpModal.displayName = 'CmpModal'
-
-export default CmpModal

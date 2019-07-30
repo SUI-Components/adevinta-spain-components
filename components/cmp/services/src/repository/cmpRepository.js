@@ -1,4 +1,4 @@
-export class CmpRepository {
+export default () => ({
   getConsentStatus() {
     return new Promise((resolve, reject) => {
       window.__cmp('getConsentStatus', null, function(consentStatus, success) {
@@ -9,7 +9,7 @@ export class CmpRepository {
         }
       })
     })
-  }
+  },
 
   getVendorConsents() {
     return new Promise((resolve, reject) => {
@@ -21,7 +21,7 @@ export class CmpRepository {
         }
       })
     })
-  }
+  },
 
   getPurposesAndVendors() {
     return new Promise((resolve, reject) => {
@@ -33,7 +33,7 @@ export class CmpRepository {
         }
       })
     })
-  }
+  },
 
   sendConsents({purposeConsents, vendorConsents}) {
     const consents = {purposeConsents, vendorConsents}
@@ -47,4 +47,4 @@ export class CmpRepository {
       })
     })
   }
-}
+})

@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.23.0"></a>
+# 1.23.0 (2019-04-05)
+
+
+### Features
+
+* define color vars ([00988b8](https://github.com/SUI-Components/schibsted-spain-components/commit/00988b8))
+
+
+
+<a name="1.22.0"></a>
+# 1.22.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([8eeddc3](https://github.com/SUI-Components/schibsted-spain-components/commit/8eeddc3))
+
+
+
 <a name="1.21.0"></a>
 # 1.21.0 (2018-10-30)
 

@@ -2,13 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([047a92c](https://github.com/SUI-Components/schibsted-spain-components/commit/047a92c))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2018-04-16)
 
 
 ### Features
 
-* add onBlur handler for textarea. ([dbef3e4](https://github.com/SUI-Components/sui-components/commit/dbef3e4))
+* add onBlur handler for textarea. ([dbef3e4](https://github.com/SUI-Components/schibsted-spain-components/commit/dbef3e4))
 
 
 
@@ -18,7 +28,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add onFocus handler. ([488737e](https://github.com/SUI-Components/sui-components/commit/488737e))
+* add onFocus handler. ([488737e](https://github.com/SUI-Components/schibsted-spain-components/commit/488737e))
 
 
 
@@ -28,7 +38,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* prepare component for sui-theme change ([b20a8dd](https://github.com/SUI-Components/sui-components/commit/b20a8dd))
+* prepare component for sui-theme change ([b20a8dd](https://github.com/SUI-Components/schibsted-spain-components/commit/b20a8dd))
 
 
 
@@ -38,7 +48,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([222f41e](https://github.com/SUI-Components/sui-components/commit/222f41e))
+* Bump version ([222f41e](https://github.com/SUI-Components/schibsted-spain-components/commit/222f41e))
 
 
 
@@ -48,7 +58,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add name prop, adapt textarea to sui-theme@8. ([d644c55](https://github.com/SUI-Components/sui-components/commit/d644c55))
+* add name prop, adapt textarea to sui-theme@8. ([d644c55](https://github.com/SUI-Components/schibsted-spain-components/commit/d644c55))
 
 
 
@@ -58,8 +68,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* migrate to PropTypes package ([fc764f8](https://github.com/SUI-Components/sui-components/commit/fc764f8))
-* switch to s-ui/component-dependencies and sui-theme@8 ([bfacf54](https://github.com/SUI-Components/sui-components/commit/bfacf54))
+* migrate to PropTypes package ([fc764f8](https://github.com/SUI-Components/schibsted-spain-components/commit/fc764f8))
+* switch to s-ui/component-dependencies and sui-theme@8 ([bfacf54](https://github.com/SUI-Components/schibsted-spain-components/commit/bfacf54))
 
 
 
@@ -69,9 +79,9 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* first commit of the text area form element. ([e9459ab](https://github.com/SUI-Components/sui-components/commit/e9459ab))
-* remove wrong files, add README message, small css changes. ([ebb4e56](https://github.com/SUI-Components/sui-components/commit/ebb4e56))
-* rename theme-basic for sui-theme on import dependency. ([720c27e](https://github.com/SUI-Components/sui-components/commit/720c27e))
+* first commit of the text area form element. ([e9459ab](https://github.com/SUI-Components/schibsted-spain-components/commit/e9459ab))
+* remove wrong files, add README message, small css changes. ([ebb4e56](https://github.com/SUI-Components/schibsted-spain-components/commit/ebb4e56))
+* rename theme-basic for sui-theme on import dependency. ([720c27e](https://github.com/SUI-Components/schibsted-spain-components/commit/720c27e))
 
 
 

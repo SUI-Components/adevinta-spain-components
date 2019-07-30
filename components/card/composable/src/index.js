@@ -26,8 +26,17 @@ export default function CardComposable({
 }
 
 CardComposable.propTypes = {
+  /**
+   * Add custom className to the component
+   */
   className: PropTypes.string,
+  /**
+   * Determine if the content should come first
+   */
   contentFirst: PropTypes.bool,
+  /**
+   * Determine if landscape layout should be shown
+   */
   landscapeLayout: PropTypes.bool,
   primary: PropTypes.any.isRequired,
   secondary: PropTypes.any

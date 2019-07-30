@@ -69,6 +69,19 @@ describe('<FormPta />', () => {
       // When
       window.postMessage({type: NO_SUBMIT_TYPE}, '*')
     })
+
+    it('shoul call eventListeners when event emmited type matches', done => {
+      const listener = function(e) {
+        // Then
+        expect(onSubmitSpy.mock.calls.length).toEqual(0)
+        expect(onErrorSpy.mock.calls.length).toEqual(0)
+        done()
+      }
+      window.addEventListener('message', listener, {once: true})
+
+      // When
+      window.postMessage({type: 'ANY_TYPE'}, '*')
+    })
   })
 
   describe('generic listeners', function() {
@@ -105,7 +118,6 @@ describe('<FormPta />', () => {
     afterEach(() => {
       listener1Spy.mockRestore()
       listener2Spy.mockRestore()
-      listener3Spy.mockRestore()
       wrapper.unmount()
     })
 

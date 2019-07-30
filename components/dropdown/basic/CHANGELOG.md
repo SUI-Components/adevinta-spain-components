@@ -2,6 +2,71 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.32.0"></a>
+# 1.32.0 (2019-05-24)
+
+
+### Bug Fixes
+
+* fix dropdown basic ([3676ffc](https://github.com/SUI-Components/schibsted-spain-components/commit/3676ffc))
+
+
+
+<a name="1.31.0"></a>
+# 1.31.0 (2019-05-23)
+
+
+### Bug Fixes
+
+* fix wrong classname ([606d222](https://github.com/SUI-Components/schibsted-spain-components/commit/606d222))
+
+
+
+<a name="1.30.0"></a>
+# 1.30.0 (2019-05-23)
+
+
+### Features
+
+* move to baseClass to reuse string ([6788bdd](https://github.com/SUI-Components/schibsted-spain-components/commit/6788bdd))
+
+
+### Performance Improvements
+
+* move to hooks ([f5083fe](https://github.com/SUI-Components/schibsted-spain-components/commit/f5083fe))
+
+
+
+<a name="1.29.0"></a>
+# 1.29.0 (2019-05-21)
+
+
+### Features
+
+* allow rel attribute ([9e70c05](https://github.com/SUI-Components/schibsted-spain-components/commit/9e70c05))
+
+
+
+<a name="1.28.0"></a>
+# 1.28.0 (2019-04-05)
+
+
+### Features
+
+* define color var ([2a85f26](https://github.com/SUI-Components/schibsted-spain-components/commit/2a85f26))
+
+
+
+<a name="1.27.0"></a>
+# 1.27.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([00a8472](https://github.com/SUI-Components/schibsted-spain-components/commit/00a8472))
+
+
+
 <a name="1.26.0"></a>
 # 1.26.0 (2018-09-26)
 
@@ -171,16 +236,6 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * adjust link colors ([f73ae60](https://github.com/SUI-Components/schibsted-spain-components/commit/f73ae60))
-
-
-
-<a name="1.11.0"></a>
-# 1.11.0 (2017-01-26)
-
-
-### Bug Fixes
-
-* adjusting breakpoints ([aaad295](https://github.com/SUI-Components/schibsted-spain-components/commit/aaad295))
 
 
 

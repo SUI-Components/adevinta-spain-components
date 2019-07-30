@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types'
-import React, {Component} from 'react'
+import React from 'react'
 
-class BadgeCounter extends Component {
-  render() {
-    return (
-      <div className="sui-BadgeCounter">
-        <span
-          className={`sui-BadgeCounter--${this.props.size} sui-BadgeCounter-${
-            this.props.type
-          } sui-BadgeCounter-${this.props.type}--${this.props.thickness}`}
-        />
-      </div>
-    )
-  }
+export default function BadgeCounter({
+  size = 'medium',
+  type = 'bullet',
+  thickness = 'medium'
+}) {
+  return (
+    <div className="sui-BadgeCounter">
+      <span
+        className={`sui-BadgeCounter--${size} sui-BadgeCounter-${type} sui-BadgeCounter-${type}--${thickness}`}
+      />
+    </div>
+  )
 }
 
 BadgeCounter.displayName = 'BadgeCounter'
@@ -31,11 +31,3 @@ BadgeCounter.propTypes = {
    */
   type: PropTypes.oneOf(['bullet'])
 }
-
-BadgeCounter.defaultProps = {
-  size: 'medium',
-  thickness: 'medium',
-  type: 'bullet'
-}
-
-export default BadgeCounter

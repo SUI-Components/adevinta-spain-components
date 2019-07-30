@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.19.0"></a>
+# 1.19.0 (2019-07-23)
+
+
+### Features
+
+* allow featureCollection maps to be rendered. Also, fix hovering styles ([73b65e4](https://github.com/SUI-Components/schibsted-spain-components/commit/73b65e4))
+
+
+
+<a name="1.18.0"></a>
+# 1.18.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([1ac628a](https://github.com/SUI-Components/schibsted-spain-components/commit/1ac628a))
+
+
+
 <a name="1.17.0"></a>
 # 1.17.0 (2019-02-04)
 

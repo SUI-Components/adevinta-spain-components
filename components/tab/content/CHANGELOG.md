@@ -2,13 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([65e8955](https://github.com/SUI-Components/schibsted-spain-components/commit/65e8955))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2018-04-26)
 
 
 ### Features
 
-* add handler method to execute when active tab is changed. ([48e8fe3](https://github.com/SUI-Components/sui-components/commit/48e8fe3))
+* add handler method to execute when active tab is changed. ([48e8fe3](https://github.com/SUI-Components/schibsted-spain-components/commit/48e8fe3))
 
 
 
@@ -18,7 +28,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([d3a3b24](https://github.com/SUI-Components/sui-components/commit/d3a3b24))
+* Bump version ([d3a3b24](https://github.com/SUI-Components/schibsted-spain-components/commit/d3a3b24))
 
 
 
@@ -28,8 +38,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* migrate to PropTypes package ([6ef0a41](https://github.com/SUI-Components/sui-components/commit/6ef0a41))
-* switch to s-ui/component-dependencies and sui-theme@8 ([0741d72](https://github.com/SUI-Components/sui-components/commit/0741d72))
+* migrate to PropTypes package ([6ef0a41](https://github.com/SUI-Components/schibsted-spain-components/commit/6ef0a41))
+* switch to s-ui/component-dependencies and sui-theme@8 ([0741d72](https://github.com/SUI-Components/schibsted-spain-components/commit/0741d72))
 
 
 
@@ -44,12 +54,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* use correct name for the package ([e665076](https://github.com/SUI-Components/sui-components/commit/e665076))
+* use correct name for the package ([e665076](https://github.com/SUI-Components/schibsted-spain-components/commit/e665076))
 
 
 ### Features
 
-* add new tab content component ([11d613f](https://github.com/SUI-Components/sui-components/commit/11d613f))
+* add new tab content component ([11d613f](https://github.com/SUI-Components/schibsted-spain-components/commit/11d613f))
 
 
 

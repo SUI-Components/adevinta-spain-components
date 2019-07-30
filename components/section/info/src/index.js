@@ -1,19 +1,22 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 const baseClass = 'sui-SectionInfo'
+const baseContentClass = `${baseClass}-content`
+const titleClass = `${baseClass}-title`
 
-class SectionInfo extends Component {
-  render() {
-    const {title, children} = this.props
+export default function SectionInfo({title, children}) {
+  const contentClass = cx(baseContentClass, {
+    [`${baseContentClass}--withoutTitle`]: !title
+  })
 
-    return (
-      <section className={baseClass}>
-        {title && <h3 className={`${baseClass}-title`}>{title}</h3>}
-        <div className={`${baseClass}-content`}>{children}</div>
-      </section>
-    )
-  }
+  return (
+    <section className={baseClass}>
+      {title && <h3 className={titleClass}>{title}</h3>}
+      <div className={contentClass}>{children}</div>
+    </section>
+  )
 }
 
 SectionInfo.displayName = 'SectionInfo'
@@ -26,5 +29,3 @@ SectionInfo.propTypes = {
     PropTypes.object
   ])
 }
-
-export default SectionInfo

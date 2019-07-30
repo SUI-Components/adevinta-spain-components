@@ -16,13 +16,19 @@ export class CmpModalContainer extends Component {
     vendors: []
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     this.setState({fetchingPurposes: true})
     const {getPurposesAndVendors, retrieveConsentsFromCmp} = this.props
-    const purposesAndVendors = await getPurposesAndVendors.execute({
-      retrieveConsentsFromCmp
-    })
-    this.setState({...purposesAndVendors, fetchingPurposes: false})
+    getPurposesAndVendors
+      .execute({
+        retrieveConsentsFromCmp
+      })
+      .then(purposesAndVendors => {
+        this.setState({...purposesAndVendors, fetchingPurposes: false})
+      })
+      .catch(() => {
+        this.setState({fetchingPurposes: false})
+      })
   }
 
   _getKeyOfConsentToUpdate({isVendor}) {
@@ -60,12 +66,15 @@ export class CmpModalContainer extends Component {
     onExit()
   }
 
-  _handleBack = () => {
+  _handleBack = e => {
+    e.preventDefault()
+    e.nativeEvent.stopImmediatePropagation()
     this.setState({step: STEPS.GENERAL}, this._scrollTopContent)
   }
 
   _handleOpenAdsStep = e => {
     e.preventDefault()
+    e.nativeEvent.stopImmediatePropagation()
     this.setState({step: STEPS.ADVERTISEMENT}, this._scrollTopContent)
   }
 

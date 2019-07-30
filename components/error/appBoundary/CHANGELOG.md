@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.3.0"></a>
+# 2.3.0 (2019-06-18)
+
+
+### Bug Fixes
+
+* add silent prop in order to remove notification ([915c419](https://github.com/SUI-Components/schibsted-spain-components/commit/915c419))
+
+
+### Features
+
+* add silent prop ([ead3123](https://github.com/SUI-Components/schibsted-spain-components/commit/ead3123))
+
+
+
+<a name="2.2.0"></a>
+# 2.2.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([0a34cc7](https://github.com/SUI-Components/schibsted-spain-components/commit/0a34cc7))
+
+
+
 <a name="2.1.0"></a>
 # 2.1.0 (2019-02-28)
 

@@ -2,6 +2,77 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.15.0"></a>
+# 1.15.0 (2019-06-07)
+
+
+### Features
+
+* add cmp to the bundle for faster TTI ([ebb7b72](https://github.com/SUI-Components/schibsted-spain-components/commit/ebb7b72))
+
+
+
+<a name="1.14.0"></a>
+# 1.14.0 (2019-06-06)
+
+
+### Bug Fixes
+
+* boros is not compatible with ssr ([42c6c79](https://github.com/SUI-Components/schibsted-spain-components/commit/42c6c79))
+
+
+
+<a name="1.13.0"></a>
+# 1.13.0 (2019-06-06)
+
+
+### Features
+
+* Simplify and improve cmp ([fc70d99](https://github.com/SUI-Components/schibsted-spain-components/commit/fc70d99))
+
+
+
+<a name="1.12.0"></a>
+# 1.12.0 (2019-05-20)
+
+
+### Performance Improvements
+
+* use new lib version of cmp ([0b24b91](https://github.com/SUI-Components/schibsted-spain-components/commit/0b24b91))
+
+
+
+<a name="1.11.0"></a>
+# 1.11.0 (2019-04-23)
+
+
+### Performance Improvements
+
+* Improve cmp perf ([a00ab0b](https://github.com/SUI-Components/schibsted-spain-components/commit/a00ab0b))
+
+
+
+<a name="1.10.0"></a>
+# 1.10.0 (2019-04-03)
+
+
+### Features
+
+* update sui-test dependency version ([bdab4b3](https://github.com/SUI-Components/schibsted-spain-components/commit/bdab4b3))
+
+
+
+<a name="1.9.0"></a>
+# 1.9.0 (2019-04-02)
+
+
+### Features
+
+* Add .npmignore ([923a1ec](https://github.com/SUI-Components/schibsted-spain-components/commit/923a1ec))
+* Remove .npmignore ([2709646](https://github.com/SUI-Components/schibsted-spain-components/commit/2709646))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2018-09-25)
 

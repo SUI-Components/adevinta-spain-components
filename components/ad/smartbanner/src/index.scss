@@ -56,8 +56,8 @@
     padding: $p-ad-smartbanner-rating-container;
 
     &Icon {
-        @include sui-icon--small;
-        fill: $c-ad-smartbanner-rating-icon !important;
+      @include sui-icon--small;
+      fill: $c-ad-smartbanner-rating-icon !important;
      }
   }
 

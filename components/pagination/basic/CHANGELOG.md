@@ -2,13 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([0eda183](https://github.com/SUI-Components/schibsted-spain-components/commit/0eda183))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2018-03-07)
 
 
 ### Bug Fixes
 
-* prepare component for sui-theme change ([a58e387](https://github.com/SUI-Components/sui-components/commit/a58e387))
+* prepare component for sui-theme change ([a58e387](https://github.com/SUI-Components/schibsted-spain-components/commit/a58e387))
 
 
 
@@ -18,8 +28,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([814cdd9](https://github.com/SUI-Components/sui-components/commit/814cdd9))
-* migrate to PropTypes package ([b430432](https://github.com/SUI-Components/sui-components/commit/b430432))
+* Bump version ([814cdd9](https://github.com/SUI-Components/schibsted-spain-components/commit/814cdd9))
+* migrate to PropTypes package ([b430432](https://github.com/SUI-Components/schibsted-spain-components/commit/b430432))
 
 
 
@@ -29,7 +39,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* use font-size in the item instead ([45d962d](https://github.com/SUI-Components/sui-components/commit/45d962d))
+* use font-size in the item instead ([45d962d](https://github.com/SUI-Components/schibsted-spain-components/commit/45d962d))
 
 
 
@@ -39,7 +49,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add new sui-pagination-basic ([450758b](https://github.com/SUI-Components/sui-components/commit/450758b))
+* add new sui-pagination-basic ([450758b](https://github.com/SUI-Components/schibsted-spain-components/commit/450758b))
 
 
 

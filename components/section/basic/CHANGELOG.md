@@ -2,13 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.3.0"></a>
+# 2.3.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([c41b8a6](https://github.com/SUI-Components/schibsted-spain-components/commit/c41b8a6))
+
+
+
 <a name="2.2.0"></a>
 # 2.2.0 (2018-03-29)
 
 
 ### Features
 
-* no margins for "hr" section line separator. ([91e103f](https://github.com/SUI-Components/sui-components/commit/91e103f))
+* no margins for "hr" section line separator. ([91e103f](https://github.com/SUI-Components/schibsted-spain-components/commit/91e103f))
 
 
 
@@ -18,8 +28,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* fix comment typo. ([82a8f43](https://github.com/SUI-Components/sui-components/commit/82a8f43))
-* support custom empty content when no children or textContent is provided. ([50834cb](https://github.com/SUI-Components/sui-components/commit/50834cb))
+* fix comment typo. ([82a8f43](https://github.com/SUI-Components/schibsted-spain-components/commit/82a8f43))
+* support custom empty content when no children or textContent is provided. ([50834cb](https://github.com/SUI-Components/schibsted-spain-components/commit/50834cb))
 
 
 
@@ -29,9 +39,9 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* improve prop-types description comments. ([8c6798e](https://github.com/SUI-Components/sui-components/commit/8c6798e))
-* modify section to support different bottom spacing between header/content/secti ([3f3b28a](https://github.com/SUI-Components/sui-components/commit/3f3b28a))
-* update README file. ([41ec1b9](https://github.com/SUI-Components/sui-components/commit/41ec1b9))
+* improve prop-types description comments. ([8c6798e](https://github.com/SUI-Components/schibsted-spain-components/commit/8c6798e))
+* modify section to support different bottom spacing between header/content/secti ([3f3b28a](https://github.com/SUI-Components/schibsted-spain-components/commit/3f3b28a))
+* update README file. ([41ec1b9](https://github.com/SUI-Components/schibsted-spain-components/commit/41ec1b9))
 
 
 ### BREAKING CHANGES
@@ -46,7 +56,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([2d227bd](https://github.com/SUI-Components/sui-components/commit/2d227bd))
+* Bump version ([2d227bd](https://github.com/SUI-Components/schibsted-spain-components/commit/2d227bd))
 
 
 
@@ -56,8 +66,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* remove unnecesary style property, as it is affecting to all p children ([d9d29b3](https://github.com/SUI-Components/sui-components/commit/d9d29b3))
-* section title is not mandatory anymore. ([87508e2](https://github.com/SUI-Components/sui-components/commit/87508e2))
+* remove unnecesary style property, as it is affecting to all p children ([d9d29b3](https://github.com/SUI-Components/schibsted-spain-components/commit/d9d29b3))
+* section title is not mandatory anymore. ([87508e2](https://github.com/SUI-Components/schibsted-spain-components/commit/87508e2))
 
 
 
@@ -67,8 +77,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* migrate to PropTypes package ([84addce](https://github.com/SUI-Components/sui-components/commit/84addce))
-* switch to s-ui/component-dependencies and sui-theme@8 ([fe6f900](https://github.com/SUI-Components/sui-components/commit/fe6f900))
+* migrate to PropTypes package ([84addce](https://github.com/SUI-Components/schibsted-spain-components/commit/84addce))
+* switch to s-ui/component-dependencies and sui-theme@8 ([fe6f900](https://github.com/SUI-Components/schibsted-spain-components/commit/fe6f900))
 
 
 
@@ -78,7 +88,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add an hr separator at the end (bottom) of the section component. ([fc21683](https://github.com/SUI-Components/sui-components/commit/fc21683))
+* add an hr separator at the end (bottom) of the section component. ([fc21683](https://github.com/SUI-Components/schibsted-spain-components/commit/fc21683))
 
 
 
@@ -88,8 +98,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add extra custom variables for section paragraph content. ([191de7a](https://github.com/SUI-Components/sui-components/commit/191de7a))
-* new section basic component. ([5f8d031](https://github.com/SUI-Components/sui-components/commit/5f8d031))
+* add extra custom variables for section paragraph content. ([191de7a](https://github.com/SUI-Components/schibsted-spain-components/commit/191de7a))
+* new section basic component. ([5f8d031](https://github.com/SUI-Components/schibsted-spain-components/commit/5f8d031))
 
 
 

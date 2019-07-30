@@ -2,13 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.15.0"></a>
+# 1.15.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([6ce1e5c](https://github.com/SUI-Components/schibsted-spain-components/commit/6ce1e5c))
+
+
+
 <a name="1.14.0"></a>
 # 1.14.0 (2018-03-08)
 
 
 ### Features
 
-* button list must be displayed over gradient bg image. ([5e2ea02](https://github.com/SUI-Components/sui-components/commit/5e2ea02))
+* button list must be displayed over gradient bg image. ([5e2ea02](https://github.com/SUI-Components/schibsted-spain-components/commit/5e2ea02))
 
 
 
@@ -23,12 +33,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* imports theme settings compat v7 ([91c067b](https://github.com/SUI-Components/sui-components/commit/91c067b))
+* imports theme settings compat v7 ([91c067b](https://github.com/SUI-Components/schibsted-spain-components/commit/91c067b))
 
 
 ### Features
 
-* fix bg size to use sass var when no prop is provided. ([72e1c4a](https://github.com/SUI-Components/sui-components/commit/72e1c4a))
+* fix bg size to use sass var when no prop is provided. ([72e1c4a](https://github.com/SUI-Components/schibsted-spain-components/commit/72e1c4a))
 
 
 
@@ -38,14 +48,14 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* prepare component for sui-theme change ([82cd0ab](https://github.com/SUI-Components/sui-components/commit/82cd0ab))
-* removed refs and pass an style object instead ([7fd6f20](https://github.com/SUI-Components/sui-components/commit/7fd6f20))
+* prepare component for sui-theme change ([82cd0ab](https://github.com/SUI-Components/schibsted-spain-components/commit/82cd0ab))
+* removed refs and pass an style object instead ([7fd6f20](https://github.com/SUI-Components/schibsted-spain-components/commit/7fd6f20))
 
 
 ### Features
 
-* adds background image as a backgroundimage property to cover container ([3d74cb2](https://github.com/SUI-Components/sui-components/commit/3d74cb2))
-* adds refactor of event handlers and improved doc ([5f0927d](https://github.com/SUI-Components/sui-components/commit/5f0927d))
+* adds background image as a backgroundimage property to cover container ([3d74cb2](https://github.com/SUI-Components/schibsted-spain-components/commit/3d74cb2))
+* adds refactor of event handlers and improved doc ([5f0927d](https://github.com/SUI-Components/schibsted-spain-components/commit/5f0927d))
 
 
 
@@ -55,8 +65,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* remove custom button classname and styles. ([6b2c0a0](https://github.com/SUI-Components/sui-components/commit/6b2c0a0))
-* use atom button to create cover basic buttons. ([06412a0](https://github.com/SUI-Components/sui-components/commit/06412a0))
+* remove custom button classname and styles. ([6b2c0a0](https://github.com/SUI-Components/schibsted-spain-components/commit/6b2c0a0))
+* use atom button to create cover basic buttons. ([06412a0](https://github.com/SUI-Components/schibsted-spain-components/commit/06412a0))
 
 
 
@@ -66,7 +76,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([b23308b](https://github.com/SUI-Components/sui-components/commit/b23308b))
+* Bump version ([b23308b](https://github.com/SUI-Components/schibsted-spain-components/commit/b23308b))
 
 
 
@@ -76,7 +86,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* adjust css styles, adapt to sui-theme@8 ([38d8442](https://github.com/SUI-Components/sui-components/commit/38d8442))
+* adjust css styles, adapt to sui-theme@8 ([38d8442](https://github.com/SUI-Components/schibsted-spain-components/commit/38d8442))
 
 
 
@@ -86,8 +96,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Migrate to PropTypes package ([62bc7dc](https://github.com/SUI-Components/sui-components/commit/62bc7dc))
-* switch to s-ui/component-dependencies and sui-theme@8 ([50506fb](https://github.com/SUI-Components/sui-components/commit/50506fb))
+* Migrate to PropTypes package ([62bc7dc](https://github.com/SUI-Components/schibsted-spain-components/commit/62bc7dc))
+* switch to s-ui/component-dependencies and sui-theme@8 ([50506fb](https://github.com/SUI-Components/schibsted-spain-components/commit/50506fb))
 
 
 
@@ -102,12 +112,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix height and cursor issues for IE. ([0c34c21](https://github.com/SUI-Components/sui-components/commit/0c34c21))
+* fix height and cursor issues for IE. ([0c34c21](https://github.com/SUI-Components/schibsted-spain-components/commit/0c34c21))
 
 
 ### Features
 
-* modify cover gradient color and opacity. ([9d7d0c0](https://github.com/SUI-Components/sui-components/commit/9d7d0c0))
+* modify cover gradient color and opacity. ([9d7d0c0](https://github.com/SUI-Components/schibsted-spain-components/commit/9d7d0c0))
 
 
 
@@ -117,9 +127,34 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add className property. ([86ed7f8](https://github.com/SUI-Components/sui-components/commit/86ed7f8))
-* add responsive media query. ([30ee8f7](https://github.com/SUI-Components/sui-components/commit/30ee8f7))
-* use new var name. ([58d7876](https://github.com/SUI-Components/sui-components/commit/58d7876))
+* add className property. ([86ed7f8](https://github.com/SUI-Components/schibsted-spain-components/commit/86ed7f8))
+* add responsive media query. ([30ee8f7](https://github.com/SUI-Components/schibsted-spain-components/commit/30ee8f7))
+* use new var name. ([58d7876](https://github.com/SUI-Components/schibsted-spain-components/commit/58d7876))
+
+
+
+<a name="1.3.0"></a>
+# 1.3.0 (2017-08-01)
+
+
+### Bug Fixes
+
+* button click was not working because of children layer was over it. ([d0cebe9](https://github.com/SUI-Components/schibsted-spain-components/commit/d0cebe9))
+
+
+### Features
+
+* accept and display children. Use cx() when possible. ([554dad4](https://github.com/SUI-Components/schibsted-spain-components/commit/554dad4))
+* adapt css to convention. ([b705be3](https://github.com/SUI-Components/schibsted-spain-components/commit/b705be3))
+* cover with image and buttons. ([9dedbc0](https://github.com/SUI-Components/schibsted-spain-components/commit/9dedbc0))
+* emulate object-fit:cover when it is not supported by browsers. ([a8969d0](https://github.com/SUI-Components/schibsted-spain-components/commit/a8969d0))
+* modify readme. ([84e3a9e](https://github.com/SUI-Components/schibsted-spain-components/commit/84e3a9e))
+* remove redundant gitignore rule ([9c78fab](https://github.com/SUI-Components/schibsted-spain-components/commit/9c78fab))
+* update scripts following latest sui-studio release. ([347c7bf](https://github.com/SUI-Components/schibsted-spain-components/commit/347c7bf))
+* use ButtonBasic instead of custom implementation. Use of more variables in scss. ([68c1314](https://github.com/SUI-Components/schibsted-spain-components/commit/68c1314))
+* use classnames to generate className property. ([86337b9](https://github.com/SUI-Components/schibsted-spain-components/commit/86337b9))
+* use conditional rendering for buttonList. ([eddec0d](https://github.com/SUI-Components/schibsted-spain-components/commit/eddec0d))
+* use of vars in scss. Rename class. Remove propertyes that will be generated with ([b5de49b](https://github.com/SUI-Components/schibsted-spain-components/commit/b5de49b))
 
 
 

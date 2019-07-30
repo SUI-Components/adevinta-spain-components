@@ -45,9 +45,6 @@ $maw-topbar-user-nav: 350px !default;
   }
 
   &-toggle {
-    &.has-notifications {
-      @include sui-badge-notification(true, 2px, 12px);
-    }
     @include reset-button;
     @include media-breakpoint-up(m) {
       display: none;
@@ -55,8 +52,12 @@ $maw-topbar-user-nav: 350px !default;
     margin-left: -$m-h;
     padding: $p-v $p-h;
 
+    &.has-notifications {
+      @include sui-badge-notification(true, 2px, 12px);
+    }
+
     &Icon {
-      fill: $c-primary !important;
+      fill: $c-accent !important;
       height: $size-topbar-user-toggle-icon;
       width: $size-topbar-user-toggle-icon;
     }

@@ -2,6 +2,56 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.20.0"></a>
+# 1.20.0 (2019-07-04)
+
+
+### Bug Fixes
+
+* fix problems fetching the data ([0401761](https://github.com/SUI-Components/schibsted-spain-components/commit/0401761))
+
+
+
+<a name="1.19.0"></a>
+# 1.19.0 (2019-07-04)
+
+
+### Bug Fixes
+
+* fix modal is closing when it shouldn't ([06b01dd](https://github.com/SUI-Components/schibsted-spain-components/commit/06b01dd))
+
+
+
+<a name="1.18.0"></a>
+# 1.18.0 (2019-07-04)
+
+
+### Bug Fixes
+
+* avoid closing modal when clicking inside ([f64d60b](https://github.com/SUI-Components/schibsted-spain-components/commit/f64d60b))
+
+
+
+<a name="1.17.0"></a>
+# 1.17.0 (2019-04-23)
+
+
+### Performance Improvements
+
+* Improve cmp perf ([c1279a3](https://github.com/SUI-Components/schibsted-spain-components/commit/c1279a3))
+
+
+
+<a name="1.16.0"></a>
+# 1.16.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([403d48a](https://github.com/SUI-Components/schibsted-spain-components/commit/403d48a))
+
+
+
 <a name="1.15.0"></a>
 # 1.15.0 (2018-12-19)
 

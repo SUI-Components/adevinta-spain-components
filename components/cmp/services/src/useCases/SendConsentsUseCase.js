@@ -1,9 +1,7 @@
-export class SendConsentsUseCase {
-  constructor({repository}) {
-    this._repository = repository
-  }
-
-  execute({purposeConsents, vendorConsents}) {
-    return this._repository.sendConsents({purposeConsents, vendorConsents})
+export default function({repository}) {
+  return {
+    execute({purposeConsents, vendorConsents}) {
+      return repository.sendConsents({purposeConsents, vendorConsents})
+    }
   }
 }

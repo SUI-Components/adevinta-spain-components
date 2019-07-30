@@ -31,12 +31,22 @@ return (
         timeoutRender={() => 'I\'d rather prefer to not to load jQuery :P'}
       />
     </p>
+
     <p>
       <ScriptLoader
         src='https://connect.facebook.net/es_ES/sdk.js'
         verifier={() => window && window.FB}
         isAsync={false}
         render={() => 'Facebook SDK loaded!'}
+      />
+    </p>
+    <p>
+      <ScriptLoader
+        src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/3.0.0/adyen.js"
+        stylesheet="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/3.0.0/adyen.css"
+        isAsync
+        verifier={() => window && window.AdyenCheckout}
+        render={() => 'Adyen script and styles loaded!'}
       />
     </p>
   </div>

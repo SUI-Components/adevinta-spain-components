@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/react-cmp-services",
-  "version": "1.8.0",
+  "version": "1.15.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -17,7 +17,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@s-ui/test": "1",
+    "@s-ui/test": "2",
     "chai": "4.1.2",
     "sinon": "6.0.1"
   }

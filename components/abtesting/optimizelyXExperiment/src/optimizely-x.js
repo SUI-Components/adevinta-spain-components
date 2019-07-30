@@ -1,3 +1,5 @@
+import {dispatchEvent} from '@s-ui/js/lib/events'
+
 const DETECTION_DELAY = 5000
 
 const activationHandlers = {}
@@ -128,7 +130,18 @@ class OptimizelyXExperiments {
     activationHandlers[experimentId] = activationHandlers[experimentId] || []
     activationHandlers[experimentId].push(handler)
     if (await this.isActivated(experimentId)) {
-      handler(await this.getVariation(experimentId))
+      const variationId = await this.getVariation(experimentId)
+
+      handler(variationId)
+
+      variationId &&
+        dispatchEvent({
+          eventName: 'OptimizelyActivated',
+          detail: {
+            experimentId,
+            variationId
+          }
+        })
     }
   }
 

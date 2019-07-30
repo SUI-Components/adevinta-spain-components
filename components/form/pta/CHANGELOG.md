@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2019-04-02)
+
+
+### Features
+
+* link card with arrow icon ([2e283c9](https://github.com/SUI-Components/schibsted-spain-components/commit/2e283c9))
+* Remove .npmignore ([39e347a](https://github.com/SUI-Components/schibsted-spain-components/commit/39e347a))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2019-03-04)
 
@@ -79,6 +90,21 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * adapt wrapper component to pta changes ([1d858ba](https://github.com/SUI-Components/schibsted-spain-components/commit/1d858ba))
+
+
+
+<a name="1.1.0"></a>
+# 1.1.0 (2018-05-30)
+
+
+### Bug Fixes
+
+* fix component name ([8621fa3](https://github.com/SUI-Components/schibsted-spain-components/commit/8621fa3))
+
+
+### Features
+
+* PTA formbuilder iframe wrapper ([2f70f0a](https://github.com/SUI-Components/schibsted-spain-components/commit/2f70f0a))
 
 
 

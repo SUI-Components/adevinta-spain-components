@@ -2,13 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([979a1ff](https://github.com/SUI-Components/schibsted-spain-components/commit/979a1ff))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2017-11-06)
 
 
 ### Features
 
-* Bump version ([b40849a](https://github.com/SUI-Components/sui-components/commit/b40849a))
+* Bump version ([b40849a](https://github.com/SUI-Components/schibsted-spain-components/commit/b40849a))
 
 
 
@@ -18,8 +28,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Migrate to PropTypes package ([c0a1d02](https://github.com/SUI-Components/sui-components/commit/c0a1d02))
-* switch to s-ui/component-dependencies and sui-theme@8 ([d7ee9ab](https://github.com/SUI-Components/sui-components/commit/d7ee9ab))
+* Migrate to PropTypes package ([c0a1d02](https://github.com/SUI-Components/schibsted-spain-components/commit/c0a1d02))
+* switch to s-ui/component-dependencies and sui-theme@8 ([d7ee9ab](https://github.com/SUI-Components/schibsted-spain-components/commit/d7ee9ab))
 
 
 
@@ -29,7 +39,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* import icons in a way that not all the lib is loaded ([9fb3dc6](https://github.com/SUI-Components/sui-components/commit/9fb3dc6))
+* import icons in a way that not all the lib is loaded ([9fb3dc6](https://github.com/SUI-Components/schibsted-spain-components/commit/9fb3dc6))
 
 
 
@@ -39,7 +49,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* insert close button ([9607266](https://github.com/SUI-Components/sui-components/commit/9607266))
+* insert close button ([9607266](https://github.com/SUI-Components/schibsted-spain-components/commit/9607266))
 
 
 

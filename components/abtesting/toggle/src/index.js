@@ -1,27 +1,23 @@
 /* eslint eqeqeq: "off" */
 
+import React from 'react'
 import PropTypes from 'prop-types'
 
-import React, {Component} from 'react'
+export default function AbTestToggle({children, variation}) {
+  const filterFunc = variation
+    ? child => child.props.variationId == variation
+    : child => child.props.defaultVariation
 
-class AbTestToggle extends Component {
-  render() {
-    let {variation, children} = this.props
-    const filterFunc = variation
-      ? child => child.props.variationId == variation
-      : child => child.props.defaultVariation
+  let child = children.filter(filterFunc)[0] || null
 
-    let child = children.filter(filterFunc)[0] || null
-
-    if (child) {
-      let newProps = {...child.props}
-      delete newProps.variationId
-      delete newProps.defaultVariation
-      child = React.createElement(child.type, newProps)
-    }
-
-    return child
+  if (child) {
+    let newProps = {...child.props}
+    delete newProps.variationId
+    delete newProps.defaultVariation
+    child = React.createElement(child.type, newProps)
   }
+
+  return child
 }
 
 AbTestToggle.displayName = 'AbTestToggle'
@@ -37,5 +33,3 @@ AbTestToggle.propTypes = {
    */
   children: PropTypes.arrayOf(PropTypes.element).isRequired
 }
-
-export default AbTestToggle

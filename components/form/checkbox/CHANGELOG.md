@@ -2,13 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([13ea547](https://github.com/SUI-Components/schibsted-spain-components/commit/13ea547))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2018-04-16)
 
 
 ### Features
 
-* use flexbox style to align checkbox label when text is multiline. ([7883e5c](https://github.com/SUI-Components/sui-components/commit/7883e5c))
+* use flexbox style to align checkbox label when text is multiline. ([7883e5c](https://github.com/SUI-Components/schibsted-spain-components/commit/7883e5c))
 
 
 
@@ -18,7 +28,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* prepare component for sui-theme change ([924ce8c](https://github.com/SUI-Components/sui-components/commit/924ce8c))
+* prepare component for sui-theme change ([924ce8c](https://github.com/SUI-Components/schibsted-spain-components/commit/924ce8c))
 
 
 
@@ -28,7 +38,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([bf4f2f2](https://github.com/SUI-Components/sui-components/commit/bf4f2f2))
+* Bump version ([bf4f2f2](https://github.com/SUI-Components/schibsted-spain-components/commit/bf4f2f2))
 
 
 
@@ -38,7 +48,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add property name, adapt checkbox to sui-theme@8. ([6c0e85b](https://github.com/SUI-Components/sui-components/commit/6c0e85b))
+* add property name, adapt checkbox to sui-theme@8. ([6c0e85b](https://github.com/SUI-Components/schibsted-spain-components/commit/6c0e85b))
 
 
 
@@ -48,8 +58,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* migrate to PropTypes package ([1e458cf](https://github.com/SUI-Components/sui-components/commit/1e458cf))
-* switch to s-ui/component-dependencies and sui-theme@8 ([77b93ea](https://github.com/SUI-Components/sui-components/commit/77b93ea))
+* migrate to PropTypes package ([1e458cf](https://github.com/SUI-Components/schibsted-spain-components/commit/1e458cf))
+* switch to s-ui/component-dependencies and sui-theme@8 ([77b93ea](https://github.com/SUI-Components/schibsted-spain-components/commit/77b93ea))
 
 
 
@@ -59,11 +69,11 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add comment on README file. ([4cc2d8e](https://github.com/SUI-Components/sui-components/commit/4cc2d8e))
-* first commit of checkbox form element component. ([94d75ef](https://github.com/SUI-Components/sui-components/commit/94d75ef))
-* remove name property, modify README.md ([f38e93a](https://github.com/SUI-Components/sui-components/commit/f38e93a))
-* rename theme-basic for sui-theme import. ([4cd9402](https://github.com/SUI-Components/sui-components/commit/4cd9402))
-* retrieve checkbox icons from sui-svgiconset package. ([67b6b8d](https://github.com/SUI-Components/sui-components/commit/67b6b8d))
+* add comment on README file. ([4cc2d8e](https://github.com/SUI-Components/schibsted-spain-components/commit/4cc2d8e))
+* first commit of checkbox form element component. ([94d75ef](https://github.com/SUI-Components/schibsted-spain-components/commit/94d75ef))
+* remove name property, modify README.md ([f38e93a](https://github.com/SUI-Components/schibsted-spain-components/commit/f38e93a))
+* rename theme-basic for sui-theme import. ([4cd9402](https://github.com/SUI-Components/schibsted-spain-components/commit/4cd9402))
+* retrieve checkbox icons from sui-svgiconset package. ([67b6b8d](https://github.com/SUI-Components/schibsted-spain-components/commit/67b6b8d))
 
 
 

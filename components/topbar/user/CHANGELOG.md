@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.30.0"></a>
+# 1.30.0 (2019-04-05)
+
+
+### Features
+
+* swap colors ([0efbf36](https://github.com/SUI-Components/schibsted-spain-components/commit/0efbf36))
+
+
+
+<a name="1.29.0"></a>
+# 1.29.0 (2019-04-02)
+
+
+### Features
+
+* Remove .npmignore ([adc2719](https://github.com/SUI-Components/schibsted-spain-components/commit/adc2719))
+
+
+
 <a name="1.28.0"></a>
 # 1.28.0 (2018-10-30)
 
