@@ -235,13 +235,13 @@ export default class LeafletMap {
   getPositiveDiffOfArraysOfPoints(arrayOrigin, arrayToCompare) {
     return arrayOrigin.reduce((accumulate, originalArrayPoint) => {
       !arrayToCompare.some(comparedArrayPoint => {
+        const {Id, isSelected, propertyInfo} = comparedArrayPoint
+        const {isFavorite, highlighted} = propertyInfo
         return (
-          comparedArrayPoint.Id === originalArrayPoint.Id &&
-          comparedArrayPoint.isSelected === originalArrayPoint.isSelected &&
-          comparedArrayPoint.propertyInfo.isFavorite ===
-            originalArrayPoint.propertyInfo.isFavorite &&
-          comparedArrayPoint.propertyInfo.highlighted ===
-            originalArrayPoint.propertyInfo.highlighted
+          Id === originalArrayPoint.Id &&
+          isSelected === originalArrayPoint.isSelected &&
+          isFavorite === originalArrayPoint.propertyInfo.isFavorite &&
+          highlighted === originalArrayPoint.propertyInfo.highlighted
         )
       }) && accumulate.push(originalArrayPoint)
       return accumulate
