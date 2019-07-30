@@ -237,7 +237,11 @@ export default class LeafletMap {
       !arrayToCompare.some(comparedArrayPoint => {
         return (
           comparedArrayPoint.Id === originalArrayPoint.Id &&
-          comparedArrayPoint.isSelected === originalArrayPoint.isSelected
+          comparedArrayPoint.isSelected === originalArrayPoint.isSelected &&
+          comparedArrayPoint.propertyInfo.isFavorite ===
+            originalArrayPoint.propertyInfo.isFavorite &&
+          comparedArrayPoint.propertyInfo.highlighted ===
+            originalArrayPoint.propertyInfo.highlighted
         )
       }) && accumulate.push(originalArrayPoint)
       return accumulate

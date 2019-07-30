@@ -1,5 +1,7 @@
 import L from 'leaflet'
 
+const HIGHLIGHTED_CLASS = 'marker--highlighted'
+
 class MarkerManager {
   constructor(mapDOMInstance) {
     this.setMapDOMInstance(mapDOMInstance)
@@ -139,6 +141,9 @@ class MarkerManager {
   }
 
   // Coupled FC, should be removed in the future
+  isHighlighted = ({propertyInfo} = {}) =>
+    propertyInfo && propertyInfo.highlighted
+
   isVisited = ({propertyInfo} = {}) =>
     !!propertyInfo && !!propertyInfo.isVisited
 
@@ -173,16 +178,19 @@ class MarkerManager {
   // Coupled FC, should be removed in the future
   addClassModifier(iconClassName, options) {
     const classModifiers = {
-      '--visited': this.isVisited,
+      '--contacted': this.isContacted,
       '--fav': this.isFavorite,
-      '--contacted': this.isContacted
+      '--visited': this.isVisited
     }
 
     const checkModifier = className => {
       return classModifiers[className](options)
     }
 
-    const modifier = Object.keys(classModifiers).find(checkModifier)
+    let modifier = Object.keys(classModifiers).find(checkModifier)
+    modifier = `${modifier} ${
+      this.isHighlighted(options) ? HIGHLIGHTED_CLASS : ''
+    }`
     return modifier ? iconClassName + modifier : ''
   }
 
