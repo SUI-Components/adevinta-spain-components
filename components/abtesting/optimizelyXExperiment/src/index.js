@@ -3,20 +3,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import AbTestToggle from '@s-ui/abtesting-toggle'
 
-import ExperimentContext from './experiment-context'
 import useExperimentCore from '../../hooks/src/useExperimentCore'
 
-function AbTestOptimizelyXExperiment(props) {
-  const {children, ...propsWithoutChildren} = props
-  const {experimentData} = useExperimentCore({
-    ...propsWithoutChildren,
-    variations: children.map(child => ({
-      id: child.props.variationId,
-      name: child.props.variationName,
-      isDefault: child.props.defaultVariation
-    }))
-  })
+import experimentPropsMapper from './experiment-props-mapper'
+import ExperimentContext from './experiment-context'
 
+function AbTestOptimizelyXExperiment(props) {
+  const {experimentData} = useExperimentCore(experimentPropsMapper(props))
   return (
     /**
      * FYI: About why using just `value={state}` instead of a new object.
@@ -24,7 +17,7 @@ function AbTestOptimizelyXExperiment(props) {
      */
     <ExperimentContext.Provider value={experimentData}>
       <AbTestToggle variation={experimentData.variationId}>
-        {children}
+        {props.children}
       </AbTestToggle>
     </ExperimentContext.Provider>
   )
