@@ -2,9 +2,10 @@
 import React from 'react'
 import {act} from 'react-dom/test-utils'
 import Enzyme, {mount} from 'enzyme'
-import OptimizelyX from '../src/optimizely-x'
-import AbTestOptimizelyXExperiment from '../src/index'
 import Adapter from 'enzyme-adapter-react-16'
+
+import AbTestOptimizelyXExperiment from '../src/index'
+import OptimizelyX from '../../hooks/src/useExperimentCore/optimizely-x'
 
 Enzyme.configure({adapter: new Adapter()})
 
