@@ -11,10 +11,6 @@ import ExperimentContext from './experiment-context'
 function AbTestOptimizelyXExperiment(props) {
   const {experimentData} = useExperimentCore(experimentPropsMapper(props))
   return (
-    /**
-     * FYI: About why using just `value={state}` instead of a new object.
-     * @see https://en.reactjs.org/docs/context.html#caveats
-     */
     <ExperimentContext.Provider value={experimentData}>
       <AbTestToggle variation={experimentData.variationId}>
         {props.children}
