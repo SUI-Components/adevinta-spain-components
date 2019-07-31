@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.20.0"></a>
+# 1.20.0 (2019-07-31)
+
+
+### Features
+
+* add markers logic ([efba58d](https://github.com/SUI-Components/schibsted-spain-components/commit/efba58d))
+* avoid mutation ([6e03637](https://github.com/SUI-Components/schibsted-spain-components/commit/6e03637))
+* make code readable ([7766d6e](https://github.com/SUI-Components/schibsted-spain-components/commit/7766d6e))
+
+
+
 <a name="1.19.0"></a>
 # 1.19.0 (2019-07-23)
 
