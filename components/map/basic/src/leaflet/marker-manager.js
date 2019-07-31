@@ -109,9 +109,7 @@ class MarkerManager {
 
   // Coupled with FC code, we should remove from here
   getPriceText(options, deprecatedLabelNoPrice) {
-    let formattedValue
-
-    formattedValue = this.hasValidPrice(options)
+    const formattedValue = this.hasValidPrice(options)
       ? options.propertyInfo.price
       : deprecatedLabelNoPrice
 
@@ -187,11 +185,17 @@ class MarkerManager {
       return classModifiers[className](options)
     }
 
-    let modifier = Object.keys(classModifiers).find(checkModifier)
-    modifier = `${modifier} ${
-      this.isHighlighted(options) ? HIGHLIGHTED_CLASS : ''
-    }`
-    return modifier ? iconClassName + modifier : ''
+    const matchingModifier = Object.keys(classModifiers).find(checkModifier)
+
+    const modifier = matchingModifier
+      ? `${iconClassName}${matchingModifier}`
+      : ''
+
+    const highlightedModifer = this.isHighlighted(options)
+      ? HIGHLIGHTED_CLASS
+      : ''
+
+    return `${modifier} ${highlightedModifer}`
   }
 
   // Coupled FC, should be removed in the future
