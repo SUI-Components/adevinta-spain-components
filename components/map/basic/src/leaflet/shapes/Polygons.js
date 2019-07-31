@@ -71,9 +71,15 @@ export default class SearchMapPolygons {
     }
 
     polygons.map(polygon => {
-      bounds = bounds
-        ? bounds.extend(this.printPolygonOnMap({map, polygon}))
-        : this.printPolygonOnMap({map, polygon})
+      const {fitBound} = polygon[0]
+
+      if (fitBound) {
+        bounds = bounds
+          ? bounds.extend(this.printPolygonOnMap({map, polygon}))
+          : this.printPolygonOnMap({map, polygon})
+      } else {
+        this.printPolygonOnMap({map, polygon})
+      }
     })
 
     this.onPolygonWithBounds({bounds, map})
