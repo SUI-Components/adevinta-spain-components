@@ -11,7 +11,7 @@ export class CmpModalContainer extends Component {
     fetchingPurposes: false,
     purposeConsents: {},
     purposes: [],
-    step: STEPS.GENERAL,
+    step: this.props.showPartners ? STEPS.ADVERTISEMENT : STEPS.GENERAL,
     vendorConsents: {},
     vendors: []
   }
@@ -124,5 +124,6 @@ CmpModalContainer.propTypes = {
   onExit: PropTypes.func.isRequired,
   privacyUrl: PropTypes.string,
   retrieveConsentsFromCmp: PropTypes.bool,
-  sendConsents: PropTypes.object.isRequired
+  sendConsents: PropTypes.object.isRequired,
+  showPartners: PropTypes.bool
 }

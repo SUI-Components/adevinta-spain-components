@@ -71,7 +71,11 @@ CmpModal.propTypes = {
    * Flag to determine if we have to retrieve the consents from the CMP cookie
    * or if it's the first time the user is selecting the consents
    */
-  retrieveConsentsFromCmp: PropTypes.bool
+  retrieveConsentsFromCmp: PropTypes.bool,
+  /**
+   * Flag to determine if the step to show is the list of partners
+   */
+  showPartners: PropTypes.bool
 }
 
 CmpModal.displayName = 'CmpModal'
