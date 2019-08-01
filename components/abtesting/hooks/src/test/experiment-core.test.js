@@ -83,6 +83,210 @@ describe('Experiment', () => {
         'true'
       )
     })
+
+    it('should output isActive to false, then set isActive to true', () => {
+      assertActivation(
+        () => {
+          const experimentData = useExperiment({
+            experimentId: 40000,
+            variations: [
+              {id: 700000, isDefault: true},
+              {id: 700001},
+              {id: 700002}
+            ]
+          })
+          const {isActive} = experimentData
+          return isActive.toString()
+        },
+        'false',
+        700001,
+        'true'
+      )
+    })
+
+    it('should output isDefault to true, then set isDefault to false', () => {
+      assertActivation(
+        () => {
+          const experimentData = useExperiment({
+            experimentId: 40000,
+            variations: [
+              {id: 700000, isDefault: true},
+              {id: 700001},
+              {id: 700002}
+            ]
+          })
+          const {isDefault} = experimentData
+          return isDefault.toString()
+        },
+        'true',
+        700001,
+        'false'
+      )
+    })
+
+    it('should output isVariation to false, then set isVariation to true', () => {
+      assertActivation(
+        () => {
+          const experimentData = useExperiment({
+            experimentId: 40000,
+            variations: [
+              {id: 700000, isDefault: true},
+              {id: 700001},
+              {id: 700002}
+            ]
+          })
+          const {isVariation} = experimentData
+          return isVariation.toString()
+        },
+        'false',
+        700001,
+        'true'
+      )
+    })
+
+    it('should contain parent experimentId and choosen variationId, then keep experimentId and set variationId to the choosen one', () => {
+      assertActivation(
+        () => {
+          const experimentData = useExperiment({
+            experimentId: 40000,
+            variations: [
+              {id: 700000, isDefault: true},
+              {id: 700001},
+              {id: 700002}
+            ]
+          })
+          const {experimentId, variationId} = experimentData
+          return `${experimentId}/${variationId}`
+        },
+        '40000/700000',
+        700001,
+        '40000/700001'
+      )
+    })
+
+    it('should match default variation in variationName, then match the choosen variation in variationName', () => {
+      assertActivation(
+        () => {
+          const experimentData = useExperiment({
+            experimentId: 40000,
+            variations: [
+              {id: 700000},
+              {id: 700001},
+              {id: 700002, isDefault: true}
+            ]
+          })
+          const {variationName} = experimentData
+          return variationName
+        },
+        'C',
+        700001,
+        'B'
+      )
+    })
+
+    it('should match default variation in variation flags, then match the choosen variation in variation flags', () => {
+      assertActivation(
+        () => {
+          const experimentData = useExperiment({
+            experimentId: 40000,
+            variations: [
+              {id: 700000},
+              {id: 700001},
+              {id: 700002, isDefault: true}
+            ]
+          })
+          const {isVariationA, isVariationB, isVariationC} = experimentData
+          return `${isVariationA}:${isVariationB}:${isVariationC}`
+        },
+        'false:false:true',
+        700000,
+        'true:false:false'
+      )
+    })
+
+    it('should always keep forceVariation when provided as an id', () => {
+      assertActivation(
+        () => {
+          const experimentData = useExperiment({
+            experimentId: 40000,
+            forceVariation: 700001, // B
+            variations: [
+              {id: 700000, isDefault: true},
+              {id: 700001},
+              {id: 700002}
+            ]
+          })
+          const {variationName} = experimentData
+          return variationName
+        },
+        'B',
+        700002,
+        'B'
+      )
+    })
+
+    it('should always keep forceVariation when provided as a name', () => {
+      assertActivation(
+        () => {
+          const experimentData = useExperiment({
+            experimentId: 40000,
+            forceVariation: 'B',
+            variations: [
+              {id: 700000, isDefault: true},
+              {id: 700001},
+              {id: 700002}
+            ]
+          })
+          const {variationName} = experimentData
+          return variationName
+        },
+        'B',
+        700002,
+        'B'
+      )
+    })
+
+    it('should display default variation first, then display forceActivation after a few milliseconds when provided as an id', () => {
+      assertActivation(
+        () => {
+          const experimentData = useExperiment({
+            experimentId: 40000,
+            forceActivation: 700001, // B
+            variations: [
+              {id: 700000, isDefault: true},
+              {id: 700001},
+              {id: 700002}
+            ]
+          })
+          const {variationName} = experimentData
+          return variationName
+        },
+        'A',
+        'runAllTimers',
+        'B'
+      )
+    })
+
+    it('should display default variation first, then display forceActivation after a few milliseconds when provided as a name', () => {
+      assertActivation(
+        () => {
+          const experimentData = useExperiment({
+            experimentId: 40000,
+            forceActivation: 'B',
+            variations: [
+              {id: 700000, isDefault: true},
+              {id: 700001},
+              {id: 700002}
+            ]
+          })
+          const {variationName} = experimentData
+          return variationName
+        },
+        'A',
+        'runAllTimers',
+        'B'
+      )
+    })
   })
 
   describe('from useExperiment acting as a CONTEXT CONSUMER and OptimizelyXExperiment as a CORE RUNNER', () => {
