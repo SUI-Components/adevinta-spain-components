@@ -26,7 +26,7 @@ $bgc-cmp-ui: #fff !default;
     }
   }
 
-  .sui-AtomButton {
+  &-acceptButton {
     font-size: $fz-s;
     max-height: 32px;
     width: 100%;

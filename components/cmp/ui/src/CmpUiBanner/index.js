@@ -46,7 +46,9 @@ export default function CmpBanner({lang, onAccept, onConfigure}) {
           <button className={`${CLASS}-partnersLink`} onClick={onConfigure}>
             {I18N[lang].PARTNERS_LINK}
           </button>
-          <Button onClick={onAccept}>{I18N[lang].ACCEPT_BUTTON}</Button>
+          <Button className={`${CLASS}-acceptButton`} onClick={onAccept}>
+            {I18N[lang].ACCEPT_BUTTON}
+          </Button>
         </section>
       </Notification>
     </div>
