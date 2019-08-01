@@ -12,7 +12,7 @@ $bgc-cmp-ui: #fff !default;
   .sui-MoleculeNotification {
     background: $bgc-cmp-ui;
     box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.05);
-    padding-bottom: 16px;
+    padding-bottom: $p-l;
     @include media-breakpoint-up(m) {
       box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
       display: flex;
@@ -50,28 +50,28 @@ $bgc-cmp-ui: #fff !default;
   }
 
   &-title {
-    font-size: 16px;
-    margin: 0 0 8px;
+    font-size: $fz-m;
+    margin: 0 0 $m-s;
 
     @include media-breakpoint-up(m) {
-      font-size: 24px;
-      margin: 0 0 16px;
+      font-size: $fz-xxl;
+      margin: 0 0 $m-m;
     }
   }
 
   &-text {
     color: $c-gray-dark;
-    font-size: 12px;
+    font-size: $fz-xs;
     line-height: 18px;
     display: block;
-    padding-bottom: 16px;
+    padding-bottom: $p-l;
 
     @include media-breakpoint-up(m) {
       color: $c-black;
-      font-size: 16px;
+      font-size: $fz-m;
       line-height: 1.5;
-      padding-bottom: 24px;
-      padding-top: 16px;
+      padding-bottom: $p-xl;
+      padding-top: $p-l;
     }
   }
 
@@ -102,7 +102,7 @@ $bgc-cmp-ui: #fff !default;
     }
 
     @include media-breakpoint-up(m) {
-      font-size: 16px;
+      font-size: $fz-m;
       text-align: left;
       position: relative;
     }
