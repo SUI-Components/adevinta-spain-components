@@ -6,10 +6,12 @@ import ExperimentProviderOnly from './experiment-provider-only'
 import ExperimentProviderAndCore from './experiment-provider-and-core'
 
 function AbTestOptimizelyXExperiment(props) {
-  // provides data to the context from an already running experiment
+  // ACT AS AN EXPERIMENT CONTEXT PROVIDER ONLY
+  // - feeds from an external experiment and provides data from it to the context
   if (props.experimentData) return <ExperimentProviderOnly {...props} />
 
-  // provides data to the context while internally running an experiment
+  // ACT AS AN EXPERIMENT CORE RUNNER AND CONTEXT PROVIDER
+  // - internally runs the experiment and provides data from it to the context
   return <ExperimentProviderAndCore {...props} />
 }
 
