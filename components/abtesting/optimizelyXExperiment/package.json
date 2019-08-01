@@ -12,6 +12,7 @@
   "author": "David Almeida <davidbarna@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@s-ui/abtesting-hooks": "1",
     "@s-ui/abtesting-toggle": "1",
     "@s-ui/js": "1"
   }

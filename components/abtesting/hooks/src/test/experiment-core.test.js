@@ -5,22 +5,27 @@ import Enzyme, {mount} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 import OptimizelyX from '../useExperimentCore/optimizely-x'
-import {useExperiment} from '..'
+import {useExperiment as useExperimentRaw, useExperimentCore} from '..'
 
 import AbTestOptimizelyXExperiment, {
   ExperimentContext
 } from '../../../optimizelyXExperiment/src'
 
+// configure tests
 Enzyme.configure({adapter: new Adapter()})
 jest.useFakeTimers()
 
-const HOOK_PARAMS = {ExperimentContext}
+// configure dependencies
+const useExperiment = () => useExperimentRaw({ExperimentContext})
+const OptimizelyXExperiment = props => (
+  <AbTestOptimizelyXExperiment {...props} deps={{useExperimentCore}} />
+)
 
 describe('useExperiment', () => {
   describe('when the component IS NOT wrapped by an experiment component', () => {
     it('should output isWrapped to false', () => {
       const Child = () => {
-        const {isWrapped} = useExperiment(HOOK_PARAMS)
+        const {isWrapped} = useExperiment()
         return isWrapped.toString()
       }
       const Component = () => (
@@ -38,7 +43,7 @@ describe('useExperiment', () => {
 
     it('should output isDefault to true', () => {
       const Child = () => {
-        const {isDefault} = useExperiment(HOOK_PARAMS)
+        const {isDefault} = useExperiment()
         return isDefault.toString()
       }
       const Component = () => (
@@ -72,15 +77,15 @@ describe('useExperiment', () => {
 
     it('should output isWrapped to true, then keep isWrapped to true', () => {
       const Child = () => {
-        const {isWrapped} = useExperiment(HOOK_PARAMS)
+        const {isWrapped} = useExperiment()
         return isWrapped.toString()
       }
       const Component = () => (
-        <AbTestOptimizelyXExperiment experimentId={40000}>
+        <OptimizelyXExperiment experimentId={40000}>
           <Child defaultVariation variationId={700000} />
           <Child variationId={700001} />
           <Child variationId={700002} />
-        </AbTestOptimizelyXExperiment>
+        </OptimizelyXExperiment>
       )
 
       let mounted
@@ -97,15 +102,15 @@ describe('useExperiment', () => {
 
     it('should output isActive to false, then set isActive to true', () => {
       const Child = () => {
-        const {isActive} = useExperiment(HOOK_PARAMS)
+        const {isActive} = useExperiment()
         return isActive.toString()
       }
       const Component = () => (
-        <AbTestOptimizelyXExperiment experimentId={40000}>
+        <OptimizelyXExperiment experimentId={40000}>
           <Child defaultVariation variationId={700000} />
           <Child variationId={700001} />
           <Child variationId={700002} />
-        </AbTestOptimizelyXExperiment>
+        </OptimizelyXExperiment>
       )
 
       let mounted
@@ -123,15 +128,15 @@ describe('useExperiment', () => {
 
     it('should output isDefault to true, then set isDefault to false', () => {
       const Child = () => {
-        const {isDefault} = useExperiment(HOOK_PARAMS)
+        const {isDefault} = useExperiment()
         return isDefault.toString()
       }
       const Component = () => (
-        <AbTestOptimizelyXExperiment experimentId={40000}>
+        <OptimizelyXExperiment experimentId={40000}>
           <Child defaultVariation variationId={700000} />
           <Child variationId={700001} />
           <Child variationId={700002} />
-        </AbTestOptimizelyXExperiment>
+        </OptimizelyXExperiment>
       )
 
       let mounted
@@ -149,15 +154,15 @@ describe('useExperiment', () => {
 
     it('should output isVariation to false, then set isVariation to true', () => {
       const Child = () => {
-        const {isVariation} = useExperiment(HOOK_PARAMS)
+        const {isVariation} = useExperiment()
         return isVariation.toString()
       }
       const Component = () => (
-        <AbTestOptimizelyXExperiment experimentId={40000}>
+        <OptimizelyXExperiment experimentId={40000}>
           <Child defaultVariation variationId={700000} />
           <Child variationId={700001} />
           <Child variationId={700002} />
-        </AbTestOptimizelyXExperiment>
+        </OptimizelyXExperiment>
       )
 
       let mounted
@@ -175,15 +180,15 @@ describe('useExperiment', () => {
 
     it('should contain parent experimentId and choosen variationId, then keep experimentId and set variationId to the choosen one', () => {
       const Child = () => {
-        const {experimentId, variationId} = useExperiment(HOOK_PARAMS)
+        const {experimentId, variationId} = useExperiment()
         return `${experimentId}/${variationId}`
       }
       const Component = () => (
-        <AbTestOptimizelyXExperiment experimentId={40000}>
+        <OptimizelyXExperiment experimentId={40000}>
           <Child defaultVariation variationId={700000} />
           <Child variationId={700001} />
           <Child variationId={700002} />
-        </AbTestOptimizelyXExperiment>
+        </OptimizelyXExperiment>
       )
 
       let mounted
@@ -201,15 +206,15 @@ describe('useExperiment', () => {
 
     it('should match default variation in variationName, then match the choosen variation in variationName', () => {
       const Child = () => {
-        const {variationName} = useExperiment(HOOK_PARAMS)
+        const {variationName} = useExperiment()
         return variationName
       }
       const Component = () => (
-        <AbTestOptimizelyXExperiment experimentId={40000}>
+        <OptimizelyXExperiment experimentId={40000}>
           <Child variationId={700000} />
           <Child variationId={700001} />
           <Child defaultVariation variationId={700002} />
-        </AbTestOptimizelyXExperiment>
+        </OptimizelyXExperiment>
       )
 
       let mounted
@@ -227,17 +232,15 @@ describe('useExperiment', () => {
 
     it('should match default variation in variation flags, then match the choosen variation in variation flags', () => {
       const Child = () => {
-        const {isVariationA, isVariationB, isVariationC} = useExperiment(
-          HOOK_PARAMS
-        )
+        const {isVariationA, isVariationB, isVariationC} = useExperiment()
         return `${isVariationA}:${isVariationB}:${isVariationC}`
       }
       const Component = () => (
-        <AbTestOptimizelyXExperiment experimentId={40000}>
+        <OptimizelyXExperiment experimentId={40000}>
           <Child variationId={700000} />
           <Child variationId={700001} />
           <Child defaultVariation variationId={700002} />
-        </AbTestOptimizelyXExperiment>
+        </OptimizelyXExperiment>
       )
 
       let mounted
@@ -255,18 +258,18 @@ describe('useExperiment', () => {
 
     it('should always keep forceVariation when provided as an id', () => {
       const Child = () => {
-        const {variationName} = useExperiment(HOOK_PARAMS)
+        const {variationName} = useExperiment()
         return variationName
       }
       const Component = () => (
-        <AbTestOptimizelyXExperiment
+        <OptimizelyXExperiment
           experimentId={40000}
           forceVariation={700001} // B
         >
           <Child defaultVariation variationId={700000} />
           <Child variationId={700001} />
           <Child variationId={700002} />
-        </AbTestOptimizelyXExperiment>
+        </OptimizelyXExperiment>
       )
 
       let mounted
@@ -284,15 +287,15 @@ describe('useExperiment', () => {
 
     it('should always keep forceVariation when provided as a name', () => {
       const Child = () => {
-        const {variationName} = useExperiment(HOOK_PARAMS)
+        const {variationName} = useExperiment()
         return variationName
       }
       const Component = () => (
-        <AbTestOptimizelyXExperiment experimentId={40000} forceVariation="B">
+        <OptimizelyXExperiment experimentId={40000} forceVariation="B">
           <Child defaultVariation variationId={700000} />
           <Child variationId={700001} />
           <Child variationId={700002} />
-        </AbTestOptimizelyXExperiment>
+        </OptimizelyXExperiment>
       )
 
       let mounted
@@ -310,18 +313,18 @@ describe('useExperiment', () => {
 
     it('should display default variation first, then display forceActivation after a few milliseconds when provided as an id', () => {
       const Child = () => {
-        const {variationName} = useExperiment(HOOK_PARAMS)
+        const {variationName} = useExperiment()
         return variationName
       }
       const Component = () => (
-        <AbTestOptimizelyXExperiment
+        <OptimizelyXExperiment
           experimentId={40000}
           forceActivation={700001} // B
         >
           <Child defaultVariation variationId={700000} />
           <Child variationId={700001} />
           <Child variationId={700002} />
-        </AbTestOptimizelyXExperiment>
+        </OptimizelyXExperiment>
       )
 
       let mounted
@@ -339,15 +342,15 @@ describe('useExperiment', () => {
 
     it('should display default variation first, then display forceActivation after a few milliseconds when provided as a name', () => {
       const Child = () => {
-        const {variationName} = useExperiment(HOOK_PARAMS)
+        const {variationName} = useExperiment()
         return variationName
       }
       const Component = () => (
-        <AbTestOptimizelyXExperiment experimentId={40000} forceActivation="B">
+        <OptimizelyXExperiment experimentId={40000} forceActivation="B">
           <Child defaultVariation variationId={700000} />
           <Child variationId={700001} />
           <Child variationId={700002} />
-        </AbTestOptimizelyXExperiment>
+        </OptimizelyXExperiment>
       )
 
       let mounted
