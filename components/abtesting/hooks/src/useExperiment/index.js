@@ -15,7 +15,7 @@ export default (params = {}) => {
   // ACT AS AN EXPERIMENT CORE RUNNER
   // - if the required params are passed, run a new experiment here
   if (params.experimentId) {
-    const experimentData = useExperimentCore(params)
+    const {experimentData} = useExperimentCore(params)
     return experimentData
   }
 
