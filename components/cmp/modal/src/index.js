@@ -9,20 +9,24 @@ export default function CmpModal(props) {
   const [open, setOpen] = useState(!elementToOpenOnClick)
 
   const openModal = () => setOpen(true)
-  const createHandleClickElementEvent = (element, createEvent = true) => {
-    const event = createEvent ? 'addEventListener' : 'removeEventListener'
-    element && element[event]('click', openModal)
-  }
 
-  useEffect(function() {
-    let domElementToOpenOnClick
-    if (elementToOpenOnClick) {
-      domElementToOpenOnClick = document.querySelector(elementToOpenOnClick)
-      createHandleClickElementEvent(domElementToOpenOnClick)
-    }
+  useEffect(
+    function() {
+      let domElementToOpenOnClick
+      const createHandleClickElementEvent = (element, createEvent = true) => {
+        const event = createEvent ? 'addEventListener' : 'removeEventListener'
+        element && element[event]('click', openModal)
+      }
 
-    return () => createHandleClickElementEvent(domElementToOpenOnClick, false)
-  })
+      if (elementToOpenOnClick) {
+        domElementToOpenOnClick = document.querySelector(elementToOpenOnClick)
+        createHandleClickElementEvent(domElementToOpenOnClick)
+      }
+
+      return () => createHandleClickElementEvent(domElementToOpenOnClick, false)
+    },
+    [elementToOpenOnClick]
+  )
 
   if (!open) return null
 
