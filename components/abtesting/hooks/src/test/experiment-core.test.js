@@ -24,6 +24,18 @@ const OptimizelyXExperiment = props => (
 describe('Experiment', () => {
   let activationHandler
 
+  beforeEach(() => {
+    jest
+      .spyOn(OptimizelyX, 'addActivationListener')
+      .mockImplementation((experimentId, handler) => {
+        activationHandler = handler
+      })
+  })
+
+  afterEach(() => {
+    OptimizelyX.addActivationListener.mockRestore()
+  })
+
   const assertActivation = (
     Component,
     expectedFromDefault,
@@ -51,19 +63,7 @@ describe('Experiment', () => {
     }
   }
 
-  describe('from useExperiment acting as an CORE RUNNER', () => {
-    beforeEach(() => {
-      jest
-        .spyOn(OptimizelyX, 'addActivationListener')
-        .mockImplementation((experimentId, handler) => {
-          activationHandler = handler
-        })
-    })
-
-    afterEach(() => {
-      OptimizelyX.addActivationListener.mockRestore()
-    })
-
+  describe('from useExperiment acting as a CORE RUNNER', () => {
     it('should output isWrapped to true, then keep isWrapped to true', () => {
       assertActivation(
         () => {
@@ -119,18 +119,6 @@ describe('Experiment', () => {
     })
 
     describe('when the component IS wrapped by an experiment component', () => {
-      beforeEach(() => {
-        jest
-          .spyOn(OptimizelyX, 'addActivationListener')
-          .mockImplementation((experimentId, handler) => {
-            activationHandler = handler
-          })
-      })
-
-      afterEach(() => {
-        OptimizelyX.addActivationListener.mockRestore()
-      })
-
       it('should output isWrapped to true, then keep isWrapped to true', () => {
         const Child = () => {
           const {isWrapped} = useExperiment()
