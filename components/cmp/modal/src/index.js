@@ -7,22 +7,21 @@ import CmpServices from '@schibstedspain/react-cmp-services'
 export default function CmpModal(props) {
   const {elementToOpenOnClick} = props
   const [open, setOpen] = useState(!elementToOpenOnClick)
-  let domElementToOpenOnClick
 
   const openModal = () => setOpen(true)
-  const createHandleClickElementEvent = (createEvent = true) => {
+  const createHandleClickElementEvent = (element, createEvent = true) => {
     const event = createEvent ? 'addEventListener' : 'removeEventListener'
-    domElementToOpenOnClick &&
-      domElementToOpenOnClick[event]('click', openModal)
+    element && element[event]('click', openModal)
   }
 
   useEffect(function() {
+    let domElementToOpenOnClick
     if (elementToOpenOnClick) {
       domElementToOpenOnClick = document.querySelector(elementToOpenOnClick)
-      createHandleClickElementEvent()
+      createHandleClickElementEvent(domElementToOpenOnClick)
     }
 
-    return () => createHandleClickElementEvent(false)
+    return () => createHandleClickElementEvent(domElementToOpenOnClick, false)
   })
 
   if (!open) return null
