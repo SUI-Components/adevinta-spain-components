@@ -8,7 +8,8 @@ import ExperimentProviderAndCore from './experiment-provider-and-core'
 function AbTestOptimizelyXExperiment(props) {
   // ACT AS AN EXPERIMENT CONTEXT PROVIDER ONLY
   // - feeds from an external experiment and provides data from it to the context
-  if (props.experimentData) return <ExperimentProviderOnly {...props} />
+  const {feed} = props
+  if (feed) return <ExperimentProviderOnly {...props} experimentData={feed} />
 
   // ACT AS AN EXPERIMENT CORE RUNNER AND CONTEXT PROVIDER
   // - internally runs the experiment and provides data from it to the context
@@ -19,7 +20,7 @@ AbTestOptimizelyXExperiment.displayName = 'AbTestOptimizelyXExperiment'
 
 AbTestOptimizelyXExperiment.propTypes = {
   children: PropTypes.any.isRequired,
-  experimentData: PropTypes.object
+  feed: PropTypes.object
 }
 
 export default AbTestOptimizelyXExperiment
