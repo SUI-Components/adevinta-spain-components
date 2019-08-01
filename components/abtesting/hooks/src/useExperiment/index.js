@@ -12,13 +12,15 @@ const NON_WRAPPED_BY_CONTEXT_PROVIDER_FALLBACK_OBJECT = {
 }
 
 export default (params = {}) => {
-  // if the required params are passed, run a new experiment here
+  // ACT AS AN EXPERIMENT CORE RUNNER
+  // - if the required params are passed, run a new experiment here
   if (params.experimentId) {
     const experimentData = useExperimentCore(params)
     return experimentData
   }
 
-  // return data from the context of an already running experiment
+  // ACT AS AN EXPERIMENT CONTEXT CONSUMER
+  // - return data from the context of an already running experiment
   const {ExperimentContext} = params
   const experimentData =
     useContext(ExperimentContext || ExperimentContextFromPackage) ||
