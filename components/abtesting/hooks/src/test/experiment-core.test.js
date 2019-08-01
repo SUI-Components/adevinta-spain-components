@@ -63,6 +63,36 @@ describe('Experiment', () => {
     }
   }
 
+  describe('from useExperiment acting as a CORE RUNNER and OptimizelyXExperiment as a CONTEXT PROVIDER', () => {
+    it("should output experimentData from children's useExperiment acting as a CONTEXT CONSUMER", () => {
+      const Child = () => {
+        const experimentData = useExperiment()
+        const {isActive, isDefault, isVariation} = experimentData
+        return `${isActive}:${isDefault}:${isVariation}`
+      }
+      assertActivation(
+        () => {
+          const experimentData = useExperiment({
+            experimentId: 40000,
+            variations: [
+              {id: 700000, isDefault: true},
+              {id: 700001},
+              {id: 700002}
+            ]
+          })
+          return (
+            <OptimizelyXExperiment feed={experimentData}>
+              <Child />
+            </OptimizelyXExperiment>
+          )
+        },
+        'false:true:false',
+        700001,
+        'true:false:true'
+      )
+    })
+  })
+
   describe('from useExperiment acting as a CORE RUNNER', () => {
     it('should output isWrapped to true, then keep isWrapped to true', () => {
       assertActivation(
