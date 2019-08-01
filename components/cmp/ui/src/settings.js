@@ -4,7 +4,6 @@ export const UI_TYPES = {
   MODAL: 'modal'
 }
 
-
 const DEFAULT_I18N = {
   ACCEPT_BUTTON: 'Seguir navegando',
   BANNER_BODY:

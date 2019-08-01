@@ -91,7 +91,7 @@ export default function CmpUiContainer({
 
   return (
     <div ref={containerDOMEl}>
-      {true && (
+      {showNotification && (
         <Suspense fallback={<div />}>
           <Component
             onAccept={_handleAccept}
