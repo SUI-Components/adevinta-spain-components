@@ -73,9 +73,9 @@ CmpModal.propTypes = {
    */
   retrieveConsentsFromCmp: PropTypes.bool,
   /**
-   * Flag to determine if the step to show is the list of partners
+   * Flag to determine if the step to show the list of partners to start
    */
-  showPartners: PropTypes.bool
+  startOnPartnersList: PropTypes.bool
 }
 
 CmpModal.displayName = 'CmpModal'
