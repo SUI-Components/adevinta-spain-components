@@ -5,11 +5,11 @@ import Enzyme, {mount} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 import OptimizelyX from '../useExperimentCore/optimizely-x'
-import {useExperiment} from '../index'
+import {useExperiment} from '..'
 
 import AbTestOptimizelyXExperiment, {
   ExperimentContext
-} from '../../../optimizelyXExperiment/src/index'
+} from '../../../optimizelyXExperiment/src'
 
 Enzyme.configure({adapter: new Adapter()})
 jest.useFakeTimers()
