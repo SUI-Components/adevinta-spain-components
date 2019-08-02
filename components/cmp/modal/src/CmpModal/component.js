@@ -61,12 +61,7 @@ export function CmpModal({
             </Button>
           )}
 
-          <Button
-            disabled={fetchingPurposes}
-            onClick={onAccept}
-            type="primary"
-            size="large"
-          >
+          <Button disabled={fetchingPurposes} onClick={onAccept} type="primary">
             {i18n['ACCEPT']}
           </Button>
         </footer>
