@@ -4,12 +4,12 @@ import {act} from 'react-dom/test-utils'
 import Enzyme, {mount} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
-import OptimizelyX from '../useExperimentCore/optimizely-x'
-import {useExperiment as useExperimentRaw, useExperimentCore} from '..'
+import OptimizelyX from '../src/useExperimentCore/optimizely-x'
+import {useExperiment as useExperimentRaw, useExperimentCore} from '../src'
 
 import AbTestOptimizelyXExperiment, {
   ExperimentContext
-} from '../../../optimizelyXExperiment/src'
+} from '../../optimizelyXExperiment/src'
 
 // configure tests
 Enzyme.configure({adapter: new Adapter()})
