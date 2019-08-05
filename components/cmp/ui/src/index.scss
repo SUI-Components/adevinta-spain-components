@@ -5,6 +5,9 @@
 
 $bgc-cmp-ui: #fff !default;
 
+$fz-cmp-ui-text-mobile: $fz-xs !default;
+$fz-cmp-ui-text-desktop: $fz-m !default;
+
 .sui-CmpUi {
   /* Cmp is an exception over the MoleculeNotification with some specific styles
      as we want to be the same across verticales, we're styling directly SUI.
@@ -61,14 +64,14 @@ $bgc-cmp-ui: #fff !default;
 
   &-text {
     color: $c-gray-dark;
-    font-size: $fz-xs;
+    font-size: $fz-cmp-ui-text-mobile;
     line-height: 18px;
     display: block;
     padding-bottom: $p-l;
 
     @include media-breakpoint-up(m) {
       color: $c-black;
-      font-size: $fz-m;
+      font-size: $fz-cmp-ui-text-desktop;
       line-height: 1.5;
       padding-bottom: $p-xl;
       padding-top: $p-l;
