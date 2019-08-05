@@ -1,5 +1,7 @@
 import L from 'leaflet'
 
+const HIGHLIGHTED_CLASS = 'marker--highlighted'
+
 class MarkerManager {
   constructor(mapDOMInstance) {
     this.setMapDOMInstance(mapDOMInstance)
@@ -107,9 +109,7 @@ class MarkerManager {
 
   // Coupled with FC code, we should remove from here
   getPriceText(options, deprecatedLabelNoPrice) {
-    let formattedValue
-
-    formattedValue = this.hasValidPrice(options)
+    const formattedValue = this.hasValidPrice(options)
       ? options.propertyInfo.price
       : deprecatedLabelNoPrice
 
@@ -139,6 +139,9 @@ class MarkerManager {
   }
 
   // Coupled FC, should be removed in the future
+  isHighlighted = ({propertyInfo} = {}) =>
+    propertyInfo && propertyInfo.highlighted
+
   isVisited = ({propertyInfo} = {}) =>
     !!propertyInfo && !!propertyInfo.isVisited
 
@@ -173,17 +176,26 @@ class MarkerManager {
   // Coupled FC, should be removed in the future
   addClassModifier(iconClassName, options) {
     const classModifiers = {
-      '--visited': this.isVisited,
+      '--contacted': this.isContacted,
       '--fav': this.isFavorite,
-      '--contacted': this.isContacted
+      '--visited': this.isVisited
     }
 
     const checkModifier = className => {
       return classModifiers[className](options)
     }
 
-    const modifier = Object.keys(classModifiers).find(checkModifier)
-    return modifier ? iconClassName + modifier : ''
+    const matchingModifier = Object.keys(classModifiers).find(checkModifier)
+
+    const modifier = matchingModifier
+      ? `${iconClassName}${matchingModifier}`
+      : ''
+
+    const highlightedModifer = this.isHighlighted(options)
+      ? HIGHLIGHTED_CLASS
+      : ''
+
+    return `${modifier} ${highlightedModifer}`
   }
 
   // Coupled FC, should be removed in the future

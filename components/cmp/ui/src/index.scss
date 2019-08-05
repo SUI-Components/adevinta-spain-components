@@ -1,0 +1,113 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@schibstedspain/react-cmp-modal/lib/index';
+@import '~@s-ui/react-molecule-notification/lib/index';
+@import '~@schibstedspain/sui-atom-button/lib/index';
+
+$bgc-cmp-ui: #fff !default;
+
+$fz-cmp-ui-text-mobile: $fz-xs !default;
+$fz-cmp-ui-text-desktop: $fz-m !default;
+
+.sui-CmpUi {
+  /* Cmp is an exception over the MoleculeNotification with some specific styles
+     as we want to be the same across verticales, we're styling directly SUI.
+     But don't do that on your home. */
+  .sui-MoleculeNotification {
+    background: $bgc-cmp-ui;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.05);
+    padding-bottom: $p-l;
+    @include media-breakpoint-up(m) {
+      box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
+      display: flex;
+      min-height: 30%;
+      max-height: none;
+      justify-content: center;
+    }
+
+    &-content {
+      align-items: center;
+    }
+  }
+
+  &-acceptButton {
+    font-size: $fz-s;
+    max-height: 32px;
+    width: 100%;
+
+    @include media-breakpoint-up(m) {
+      bottom: 0;
+      font-size: $fz-m;
+      max-height: none;
+      right: 0;
+      position: absolute;
+      width: auto;
+    }
+  }
+
+  &-content {
+    @include media-breakpoint-up(m) {
+      max-width: 1220px;
+      padding-right: 250px;
+      position: relative;
+    }
+  }
+
+  &-title {
+    font-size: $fz-m;
+    margin: 0 0 $m-s;
+
+    @include media-breakpoint-up(m) {
+      font-size: $fz-xxl;
+      margin: 0 0 $m-m;
+    }
+  }
+
+  &-text {
+    color: $c-gray-dark;
+    font-size: $fz-cmp-ui-text-mobile;
+    line-height: 18px;
+    display: block;
+    padding-bottom: $p-l;
+
+    @include media-breakpoint-up(m) {
+      color: $c-black;
+      font-size: $fz-cmp-ui-text-desktop;
+      line-height: 1.5;
+      padding-bottom: $p-xl;
+      padding-top: $p-l;
+    }
+  }
+
+  &-link {
+    color: $c-primary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &-partnersLink {
+    border: 0;
+    bottom: $m-s;
+    background: 0;
+    color: $c-primary;
+    cursor: pointer;
+    left: 0;
+    font-size: $fz-xs;
+    text-align: center;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    @include media-breakpoint-up(m) {
+      font-size: $fz-m;
+      text-align: left;
+      position: relative;
+    }
+  }
+}

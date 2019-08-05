@@ -1,0 +1,16 @@
+return (
+  <div>
+    <button>Click this to check if autoclose is working</button>
+    <CmpUi
+      companyName="Your Company Name LTD"
+      onAccept={() => {
+        console.log('accepted consents by the user!')
+      }}
+      onConfigure={() => {
+        console.log('user configuring!')
+      }}
+      logo="https://www.schibsted.es/wp-content/themes/Schibsted-spn/img/logo.png"
+      privacyUrl="#privacy-url-to-configure"
+    />
+  </div>
+)
