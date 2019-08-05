@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2019-08-05)
+
+
+### Bug Fixes
+
+* fix remove padding text and change margin for title ([5cae8cb](https://github.com/SUI-Components/schibsted-spain-components/commit/5cae8cb))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2019-08-05)
 
