@@ -13,7 +13,7 @@ $fz-cmp-ui-text-desktop: $fz-m !default;
      as we want to be the same across verticales, we're styling directly SUI.
      But don't do that on your home. */
   .sui-MoleculeNotification {
-    background: $bgc-cmp-ui;
+    background: $bgc-cmp-ui !important; /* no matter the type, should be the color defined */
     box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.05);
     padding-bottom: $p-l;
     @include media-breakpoint-up(m) {
