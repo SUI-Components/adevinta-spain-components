@@ -54,7 +54,7 @@ $fz-cmp-ui-text-desktop: $fz-m !default;
 
   &-title {
     font-size: $fz-m;
-    margin: 0 0 $m-s;
+    margin: 0 0 $m-l;
 
     @include media-breakpoint-up(m) {
       font-size: $fz-xxl;
@@ -74,7 +74,6 @@ $fz-cmp-ui-text-desktop: $fz-m !default;
       font-size: $fz-cmp-ui-text-desktop;
       line-height: 1.5;
       padding-bottom: $p-xl;
-      padding-top: $p-l;
     }
   }
 
