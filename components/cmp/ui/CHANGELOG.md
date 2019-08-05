@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.2.0"></a>
+# 1.2.0 (2019-08-05)
+
+
+### Features
+
+* add variables to ocustomize text font size ([091d518](https://github.com/SUI-Components/schibsted-spain-components/commit/091d518))
+
+
+
 <a name="1.1.0"></a>
 # 1.1.0 (2019-08-05)
 
