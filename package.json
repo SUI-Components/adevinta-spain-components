@@ -26,10 +26,10 @@
     "@babel/plugin-transform-modules-commonjs": "7.4.0",
     "@s-ui/precommit": "2",
     "@s-ui/studio": "6",
-    "enzyme": "3.9.0",
-    "enzyme-adapter-react-16": "1.2.0",
+    "enzyme": "3.10.0",
+    "enzyme-adapter-react-16": "1.14.0",
     "husky": "0.13.4",
-    "jest": "24.5.0",
+    "jest": "24.8.0",
     "validate-commit-msg": "2.12.2"
   },
   "dependencies": {
