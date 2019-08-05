@@ -8,8 +8,10 @@ import ExperimentProviderOnly from '../experiment-provider-only'
 import experimentPropsMapper from './experiment-props-mapper'
 
 function ExperimentProviderAndCore(props) {
+  const {deps, children} = props
+
   const useExperimentCore =
-    props.deps.useExperimentCore || useExperimentCoreFromPackage
+    (deps && deps.useExperimentCore) || useExperimentCoreFromPackage
 
   const experimentParams = experimentPropsMapper(props)
   const {experimentData: experimentDataFromCore} = useExperimentCore(
@@ -18,7 +20,7 @@ function ExperimentProviderAndCore(props) {
   return (
     <ExperimentProviderOnly experimentData={experimentDataFromCore}>
       <AbTestToggle variation={experimentDataFromCore.variationId}>
-        {props.children}
+        {children}
       </AbTestToggle>
     </ExperimentProviderOnly>
   )
