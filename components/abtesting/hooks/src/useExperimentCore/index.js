@@ -9,8 +9,14 @@ export default params => {
     forceActivation,
     forceActivationDelay = 1000,
     forceVariation,
-    variations
+    variations: rawVariations
   } = params
+
+  // parse variations config
+  const variations = rawVariations.map(raw => {
+    if (typeof raw === 'object') return raw
+    return {id: raw} // make an object from a naked id
+  })
 
   // get default variation
   const defaultVariation = variations.find(variation => variation.isDefault)
