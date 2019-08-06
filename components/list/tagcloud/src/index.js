@@ -35,7 +35,7 @@ ListTagcloud.propTypes = {
 }
 
 ListTagcloud.defaultProps = {
-  linkFactory: ({href, className, children} = {}) => (
+  linkFactory: ({href, className, children} = {}) => ( // eslint-disable-line
     <a href={href} className={className}>
       {children}
     </a>
