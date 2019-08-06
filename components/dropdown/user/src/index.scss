@@ -146,12 +146,11 @@
 
       &Notification {
         @include sui-badge-notification;
-        margin-top: - $size-badge-notification / 2;
+        margin-top: -$size-badge-notification / 2;
         position: absolute;
         right: $p-h-small;
         top: 50%;
       }
-
     }
   }
 }
