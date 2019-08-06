@@ -49,7 +49,7 @@ $mt-modal-gallery-header-height-mobile: -($h-modal-basic-icon + ($m-l * 2)) !def
   }
 
   .sui-ModalBasic {
-    @include media-breakpoint-down (s) {
+    @include media-breakpoint-down(s) {
       &-dialog--full {
         display: flex;
         justify-content: center;
@@ -60,7 +60,7 @@ $mt-modal-gallery-header-height-mobile: -($h-modal-basic-icon + ($m-l * 2)) !def
       }
     }
 
-    @include media-breakpoint-down (xs) {
+    @include media-breakpoint-down(xs) {
       &-header {
         margin-top: $mt-modal-gallery-header-height-mobile;
       }
