@@ -35,12 +35,11 @@ export default class ImageLazyLoad extends Component {
 
     return (
       <div className={lazyLoadWrapClassName}>
-        {loading &&
-          showSpinner && (
-            <div className="sui-ImageLazyLoad-spinner">
-              <SpinnerBasic />
-            </div>
-          )}
+        {loading && showSpinner && (
+          <div className="sui-ImageLazyLoad-spinner">
+            <SpinnerBasic />
+          </div>
+        )}
         <div className="sui-ImageLazyLoad-imageWrap">
           <LazyLoad
             debounce={debounce}
