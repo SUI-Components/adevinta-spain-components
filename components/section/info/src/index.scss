@@ -6,7 +6,7 @@
     flex-direction: column;
     max-width: initial;
   }
-  
+
   border-bottom: $bdb-section-info;
   display: flex;
   flex-basis: $fb-section-info;
@@ -20,7 +20,7 @@
       padding: $p-l 0;
       text-align: center;
     }
-    
+
     flex-basis: $fb-section-info-title;
     flex-grow: $fg-section-info-title;
     flex-shrink: $fs-section-info-title;
