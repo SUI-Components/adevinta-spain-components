@@ -46,27 +46,26 @@ class ErrorAppBoundary extends Component {
     return (
       <Fragment>
         {children}
-        {this.state.hasError &&
-          !silent && (
-            <div className="sui-ErrorAppBoundary-notification">
-              <Suspense fallback={<div />}>
-                <MoleculeNotification
-                  buttons={[
-                    {
-                      type: 'secondary',
-                      negative: true,
-                      children: buttonLabel,
-                      onClick: this._onCloseNotification
-                    }
-                  ]}
-                  onClose={this._onCloseNotification}
-                  type="warning"
-                  text={message}
-                  position="bottom"
-                />
-              </Suspense>
-            </div>
-          )}
+        {this.state.hasError && !silent && (
+          <div className="sui-ErrorAppBoundary-notification">
+            <Suspense fallback={<div />}>
+              <MoleculeNotification
+                buttons={[
+                  {
+                    type: 'secondary',
+                    negative: true,
+                    children: buttonLabel,
+                    onClick: this._onCloseNotification
+                  }
+                ]}
+                onClose={this._onCloseNotification}
+                type="warning"
+                text={message}
+                position="bottom"
+              />
+            </Suspense>
+          </div>
+        )}
       </Fragment>
     )
   }
