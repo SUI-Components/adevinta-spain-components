@@ -70,8 +70,8 @@ const waitUntil = (
   delay,
   interval = 100
 ) => {
-  let intervalId = setInterval(() => {
-    let value = truthyFn()
+  const intervalId = setInterval(() => {
+    const value = truthyFn()
 
     if (value) {
       clearInterval(intervalId)
