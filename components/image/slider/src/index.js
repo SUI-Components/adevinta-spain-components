@@ -133,6 +133,7 @@ ImageSlider.propTypes = {
    */
   sliderOptions: PropTypes.shape({
     classNameArrows: PropTypes.string,
+    doAfterSlide: PropTypes.func,
     lazyLoadSlider: PropTypes.bool,
     initialSlide: PropTypes.number
   }),
@@ -170,7 +171,7 @@ ImageSlider.defaultProps = {
   /**
    * Link component factory.
    */
-  linkFactory: ({href, target, className, children, key} = {}) => (
+  linkFactory: ({href, target, className, children, key} = {}) => ( // eslint-disable-line
     <a href={href} target={target} className={className} key={key}>
       {children}
     </a>
