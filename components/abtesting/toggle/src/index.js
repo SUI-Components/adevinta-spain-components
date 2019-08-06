@@ -11,7 +11,7 @@ export default function AbTestToggle({children, variation}) {
   let child = children.filter(filterFunc)[0] || null
 
   if (child) {
-    let newProps = {...child.props}
+    const newProps = {...child.props}
     delete newProps.variationId
     delete newProps.defaultVariation
     child = React.createElement(child.type, newProps)
