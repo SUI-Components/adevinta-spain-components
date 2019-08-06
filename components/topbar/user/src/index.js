@@ -58,9 +58,7 @@ class TopbarUser extends Component {
   _lockBodyScroll = () => {
     const {elementsToKeepScrollOnToggleMenu} = this.props
     this._verticalScrollPosition = window.scrollY
-    const transformStyleToKeepScroll = `translate3d(0, -${
-      this._verticalScrollPosition
-    }px, 0)`
+    const transformStyleToKeepScroll = `translate3d(0, -${this._verticalScrollPosition}px, 0)`
     window.document.documentElement.classList.add(HTML_HAS_SCROLL_DISABLED)
     window.document.body.classList.add(BODY_HAS_SCROLL_DISABLED)
     elementsToKeepScrollOnToggleMenu.forEach(selector => {
