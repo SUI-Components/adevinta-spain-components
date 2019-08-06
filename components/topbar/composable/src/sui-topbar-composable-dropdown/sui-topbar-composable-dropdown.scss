@@ -1,7 +1,6 @@
 .sui-DropdownMenu-wrapper {
   &.sui-DropdownMenu-wrapper--active {
     @media screen and (max-width: $b-tablet) {
-
       &::before {
         background-color: $c-overlay;
         bottom: 0;
@@ -47,7 +46,6 @@
     opacity: 1;
     visibility: visible;
   }
-
 
   @media screen and (max-width: $b-tablet) {
     left: 50%;
