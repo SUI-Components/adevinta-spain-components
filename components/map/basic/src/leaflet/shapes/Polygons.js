@@ -71,7 +71,7 @@ export default class SearchMapPolygons {
     }
 
     polygons.map(polygon => {
-      const {fitBound} = polygon[0]
+      const {fitBound = true} = polygon
 
       if (fitBound) {
         bounds = bounds
