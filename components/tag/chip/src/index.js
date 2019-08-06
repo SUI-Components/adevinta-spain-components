@@ -93,7 +93,7 @@ TagChip.propTypes = {
 }
 
 TagChip.defaultProps = {
-  linkFactory: ({children, ...rest} = {}) => <a {...rest}>{children}</a>
+  linkFactory: ({children, ...rest} = {}) => <a {...rest}>{children}</a> // eslint-disable-line
 }
 
 export default TagChip
