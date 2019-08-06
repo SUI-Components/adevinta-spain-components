@@ -38,6 +38,7 @@ class FormBuilder extends Component {
    */
   _getDefaultInitialState = fields =>
     fields.reduce((state, key) => {
+      // eslint-disable-next-line
       if (this.state.hasOwnProperty(key)) state[key] = INITIAL_LIST_ITEM_STATE
       return state
     }, {})
