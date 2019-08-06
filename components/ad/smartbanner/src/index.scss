@@ -35,9 +35,11 @@
   }
 
   &-button {
-
     &Install {
-      @include sui-button('custom', $background-color: $bgc-ad-smartbanner-button-install)
+      @include sui-button(
+        'custom',
+        $background-color: $bgc-ad-smartbanner-button-install
+      );
     }
 
     &Close {
@@ -58,7 +60,7 @@
     &Icon {
       @include sui-icon--small;
       fill: $c-ad-smartbanner-rating-icon !important;
-     }
+    }
   }
 
   &.is-visible {
