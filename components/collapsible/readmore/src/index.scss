@@ -1,7 +1,6 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 @import './settings';
 
-
 .sui-CollapsibleReadmore {
   &-contentWrapper {
     height: auto;
@@ -58,7 +57,8 @@
     }
   }
 
-  &.is-expanded { // sass-lint:disable-line class-name-format
+  &.is-expanded {
+    // sass-lint:disable-line class-name-format
     .sui-CollapsibleReadmore {
       &-gradient {
         &:after {
