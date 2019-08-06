@@ -18,9 +18,13 @@ $bd-section-basic-hr-separator: 1px solid $c-gray-lightest;
 // Section/header/content available margin-bottoms
 $bottom-spacings-section-basic: (
   none: 0,
-  small: $m-m,    //  8px
-  medium: $m-l,   // 16px
-  large: $m-xl,   // 24px
-  xlarge: $m-xxl, // 32px
-  giant: $m-giant // 48px
+  small: $m-m,
+  //  8px
+    medium: $m-l,
+  // 16px
+    large: $m-xl,
+  // 24px
+    xlarge: $m-xxl,
+  // 32px
+    giant: $m-giant // 48px
 ) !default;
