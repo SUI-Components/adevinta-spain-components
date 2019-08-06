@@ -71,6 +71,7 @@ export default class LeafletMap {
   showHeatMap(url) {
     this.layerManager.addHeatMapLayer(url, this._map)
   }
+
   removeHeatMapLayer() {
     this._map.removeLayer(this.layerManager.layers.heatMap)
   }
@@ -265,7 +266,7 @@ export default class LeafletMap {
   }
 
   addLayersToMap(layerDataArray, groupName, deprecatedLabelNoPrice) {
-    let layers = layerDataArray.map(layerData =>
+    const layers = layerDataArray.map(layerData =>
       this.markerManager.createMarker(layerData, deprecatedLabelNoPrice)
     )
     this.layerManager.addLayersToGroup(layers, groupName)

@@ -2,11 +2,14 @@ import L from 'leaflet'
 
 export default class SearchMapPolygons {
   _polygonList = []
+
   _storedPolygons = {}
+
   SPAIN_POLYGON_CENTER = {
     latitude: 40.4096,
     longitude: -3.68624
   }
+
   SPAIN_POLYGON_NAME = 'geom_724_0_0_0_0_0_0_0_0'
 
   constructor({hoverStyles, onPolygonWithBounds}) {

@@ -17,7 +17,7 @@ export default class LayerManager {
     maxZoom,
     minZoom
   }) {
-    let tileLayers = []
+    const tileLayers = []
     mapViewModes.forEach((value, index) => {
       const baseMapView = this.getBaseMapView(value)
       const tileLayer = L.tileLayer(
