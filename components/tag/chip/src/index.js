@@ -12,6 +12,12 @@ const Tag = ({Link, children, url, ...rest} = {}) =>
     <span {...rest}>{children}</span>
   )
 
+Tag.propTypes = {
+  Link: PropTypes.elementType,
+  children: PropTypes.element,
+  url: PropTypes.string
+}
+
 const tagChipClassName = ({isClickable, className = null}) =>
   cx('sui-TagChip', className, {
     'sui-TagChip-link': isClickable
