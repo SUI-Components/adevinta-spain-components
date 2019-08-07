@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2019-08-07)
+
+
+### Bug Fixes
+
+* fix margin separation on the bottom with the last link ([f9a7e77](https://github.com/SUI-Components/schibsted-spain-components/commit/f9a7e77))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2019-08-05)
 
