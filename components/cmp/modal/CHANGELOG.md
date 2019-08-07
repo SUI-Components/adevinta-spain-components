@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.21.0"></a>
+# 1.21.0 (2019-08-05)
+
+
+### Features
+
+* add posibility to enter to different step directly by props ([ca1e50a](https://github.com/SUI-Components/schibsted-spain-components/commit/ca1e50a))
+* change name to prop to better understading ([94a0b8a](https://github.com/SUI-Components/schibsted-spain-components/commit/94a0b8a))
+* refactor useEffect to have a dependency ([717cc91](https://github.com/SUI-Components/schibsted-spain-components/commit/717cc91))
+* unify sizes of buttons inside modal ([f917755](https://github.com/SUI-Components/schibsted-spain-components/commit/f917755))
+
+
+
 <a name="1.20.0"></a>
 # 1.20.0 (2019-07-04)
 

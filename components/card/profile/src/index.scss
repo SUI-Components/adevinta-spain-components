@@ -3,7 +3,6 @@
 @import '~@schibstedspain/sui-rating-icons/lib/index';
 @import 'settings';
 
-
 .sui-CardProfile {
   background-color: $bgc-card-profile;
   display: flex;
@@ -37,9 +36,7 @@
 
   &-topContainer {
     display: flex;
-    flex-grow: .4;
-
-
+    flex-grow: 0.4;
 
     &RatingInfoBox {
       display: flex;

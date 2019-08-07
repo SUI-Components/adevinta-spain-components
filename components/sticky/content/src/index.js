@@ -58,8 +58,11 @@ export default class StickyContent extends Component {
   }
 
   _DOMElement = null
+
   _elementTop = 0
+
   _isFixed = false
+
   _scrollableElement = null
 
   constructor(props) {

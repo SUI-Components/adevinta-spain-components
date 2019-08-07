@@ -111,7 +111,9 @@ class CardProduct extends Component {
                 style={cardProductTagsStyle}
                 className="sui-CardProduct-tags"
               >
-                {tags.map((tag, index) => <TagChip key={index} label={tag} />)}
+                {tags.map((tag, index) => (
+                  <TagChip key={index} label={tag} />
+                ))}
               </div>
             </div>
             <div

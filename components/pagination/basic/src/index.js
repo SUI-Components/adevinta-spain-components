@@ -55,7 +55,7 @@ function PaginationBasic({
     const min = leftWindow < FIRST_PAGE ? FIRST_PAGE : leftWindow
     const max = rightWindow > totalPages ? totalPages : rightWindow
 
-    let paginationItems = []
+    const paginationItems = []
 
     if (props.showFirstLast && min > FIRST_PAGE) {
       paginationItems.push(

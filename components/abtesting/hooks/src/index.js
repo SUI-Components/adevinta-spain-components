@@ -7,3 +7,4 @@ export default function ReactHooks() {
 }
 
 export {default as useExperiment} from './useExperiment'
+export {default as useExperimentCore} from './useExperimentCore'

@@ -22,11 +22,13 @@ const LayoutMediaQueryFactory = function(BREAKPOINTS) {
     }
 
     containerRef = createRef()
+
     state = {
       params: this.props.initialMediaQueries
     }
 
     containerResizeObserver = null
+
     matchQueries = matchQueries(BREAKPOINTS)
 
     componentDidMount() {

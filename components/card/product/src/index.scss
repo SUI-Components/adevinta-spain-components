@@ -16,7 +16,7 @@
   &-media {
     @include aspect-ratio(4, 3);
     @include media-breakpoint-up(s) {
-      flex-grow: .5;
+      flex-grow: 0.5;
     }
   }
 

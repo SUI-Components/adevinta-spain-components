@@ -79,8 +79,8 @@
   }
 
   &-submit {
-    @include sui-button($type-form-autocompleted-submit)
-    margin-left: $ml-form-autocompleted-submit;
+    @include sui-button($type-form-autocompleted-submit) margin-left:
+      $ml-form-autocompleted-submit;
 
     .is-collapsed & {
       border-bottom-left-radius: 0;

@@ -47,7 +47,6 @@ $datepicker__selected-color: $bgc-range-datepicker-selected; // sass-lint:disabl
     z-index: $z-range-datepicker-icon;
   }
 
-
   &-input {
     @include sui-input;
     cursor: pointer;
@@ -55,4 +54,3 @@ $datepicker__selected-color: $bgc-range-datepicker-selected; // sass-lint:disabl
     padding: $p-range-datepicker-input;
   }
 }
-

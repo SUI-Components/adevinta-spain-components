@@ -16,8 +16,8 @@ let wasExperimentsListenerAdded = false
  * @param  {Number}   [interval=100] Interval time for checks
  */
 const waitUntil = (truthyFn, callback, delay = 100, interval = 100) => {
-  let intervalId = setInterval(() => {
-    let value = truthyFn()
+  const intervalId = setInterval(() => {
+    const value = truthyFn()
     if (value || delay <= 0) {
       clearInterval(intervalId)
       callback(value)
@@ -116,7 +116,7 @@ class OptimizelyXExperiments {
    * @return Promise<Boolean>
    */
   static async isActivated(experimentId) {
-    let info = (await this.getInfo(experimentId)) || {}
+    const info = (await this.getInfo(experimentId)) || {}
     return (info.isActive && !info.isInExperimentHoldback) || false
   }
 
@@ -164,7 +164,7 @@ class OptimizelyXExperiments {
    * @return Promise<String|Number>
    */
   static async getVariation(experimentId) {
-    let info = (await this.getInfo(experimentId)) || {}
+    const info = (await this.getInfo(experimentId)) || {}
     return info.variation.id || null
   }
 }

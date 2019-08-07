@@ -153,6 +153,7 @@ export default class FormAutocompleted extends Component {
       />
     ) : null
   }
+
   _handleOutsideClick = event =>
     !this.excludeFromOutsideClick.includes(event.target) &&
     this.setState({

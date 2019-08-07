@@ -1,5 +1,5 @@
 /* eslint-env jest */
-import Service from '../src/optimizely-x'
+import Service from '../src/useExperimentCore/optimizely-x'
 
 const fakeExperiments = {
   100: {

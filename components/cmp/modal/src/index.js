@@ -7,23 +7,26 @@ import CmpServices from '@schibstedspain/react-cmp-services'
 export default function CmpModal(props) {
   const {elementToOpenOnClick} = props
   const [open, setOpen] = useState(!elementToOpenOnClick)
-  let domElementToOpenOnClick
 
   const openModal = () => setOpen(true)
-  const createHandleClickElementEvent = (createEvent = true) => {
-    const event = createEvent ? 'addEventListener' : 'removeEventListener'
-    domElementToOpenOnClick &&
-      domElementToOpenOnClick[event]('click', openModal)
-  }
 
-  useEffect(function() {
-    if (elementToOpenOnClick) {
-      domElementToOpenOnClick = document.querySelector(elementToOpenOnClick)
-      createHandleClickElementEvent()
-    }
+  useEffect(
+    function() {
+      let domElementToOpenOnClick
+      const createHandleClickElementEvent = (element, createEvent = true) => {
+        const event = createEvent ? 'addEventListener' : 'removeEventListener'
+        element && element[event]('click', openModal)
+      }
 
-    return () => createHandleClickElementEvent(false)
-  })
+      if (elementToOpenOnClick) {
+        domElementToOpenOnClick = document.querySelector(elementToOpenOnClick)
+        createHandleClickElementEvent(domElementToOpenOnClick)
+      }
+
+      return () => createHandleClickElementEvent(domElementToOpenOnClick, false)
+    },
+    [elementToOpenOnClick]
+  )
 
   if (!open) return null
 
@@ -71,7 +74,11 @@ CmpModal.propTypes = {
    * Flag to determine if we have to retrieve the consents from the CMP cookie
    * or if it's the first time the user is selecting the consents
    */
-  retrieveConsentsFromCmp: PropTypes.bool
+  retrieveConsentsFromCmp: PropTypes.bool,
+  /**
+   * Flag to determine if the step to show the list of partners to start
+   */
+  startOnPartnersList: PropTypes.bool
 }
 
 CmpModal.displayName = 'CmpModal'

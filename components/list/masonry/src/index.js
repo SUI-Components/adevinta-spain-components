@@ -41,7 +41,7 @@ class ListMasonry extends React.Component {
   }
 
   _mapChildren() {
-    let col = []
+    const col = []
     const numColumns = this.state.columns
     for (let i = 0; i < numColumns; i++) {
       col.push([])
@@ -59,7 +59,9 @@ class ListMasonry extends React.Component {
       <div className={masonryClassName} ref={node => (this.listMasonry = node)}>
         {this._mapChildren().map((col, columnIndex) => (
           <div className="sui-ListMasonry-column" key={columnIndex}>
-            {col.map((child, index) => <div key={index}>{child}</div>)}
+            {col.map((child, index) => (
+              <div key={index}>{child}</div>
+            ))}
           </div>
         ))}
       </div>

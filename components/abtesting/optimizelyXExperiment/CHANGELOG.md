@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.16.0"></a>
+# 1.16.0 (2019-08-05)
+
+
+### Bug Fixes
+
+* add extra check in ExperimentProviderAndCore's optional deps p ([417fa56](https://github.com/SUI-Components/schibsted-spain-components/commit/417fa56))
+
+
+### Features
+
+* accept experimentData prop to act just as a provider ([6226682](https://github.com/SUI-Components/schibsted-spain-components/commit/6226682))
+* better manage dependencies for testing ([62958a7](https://github.com/SUI-Components/schibsted-spain-components/commit/62958a7))
+* better organize component file structure ([68cefdb](https://github.com/SUI-Components/schibsted-spain-components/commit/68cefdb))
+* move experiment core logic to a reusable hook ([c9f89e1](https://github.com/SUI-Components/schibsted-spain-components/commit/c9f89e1))
+* move experiment core tests to the hooks folder ([832fb66](https://github.com/SUI-Components/schibsted-spain-components/commit/832fb66))
+* move props mapper logic to its own file ([5bba3af](https://github.com/SUI-Components/schibsted-spain-components/commit/5bba3af))
+* move to functional component and adapt tests ([883c64a](https://github.com/SUI-Components/schibsted-spain-components/commit/883c64a))
+* replace experimentData prop name in favor of feed ([abb2be9](https://github.com/SUI-Components/schibsted-spain-components/commit/abb2be9))
+
+
+
 <a name="1.15.0"></a>
 # 1.15.0 (2019-07-23)
 

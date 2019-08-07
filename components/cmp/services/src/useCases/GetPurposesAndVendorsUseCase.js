@@ -34,11 +34,10 @@ export default function({repository}) {
 
   return {
     execute({retrieveConsentsFromCmp} = {}) {
-      return Promise.resolve(retrieveConsentsFromCmp).then(
-        retrieve =>
-          retrieve
-            ? loadStoredConsents({repository})
-            : loadDefaultConsents({repository})
+      return Promise.resolve(retrieveConsentsFromCmp).then(retrieve =>
+        retrieve
+          ? loadStoredConsents({repository})
+          : loadDefaultConsents({repository})
       )
     }
   }

@@ -118,6 +118,7 @@ ModalGallery.propTypes = {
    * Collection of images to show in the slider gallery inside modal.
    */
   multimedia: PropTypes.shape({
+    images: PropTypes.array,
     photos: PropTypes.arrayOf(
       PropTypes.shape({
         src: PropTypes.string.isRequired,

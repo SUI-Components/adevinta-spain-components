@@ -28,7 +28,7 @@ class LayoutBreakpointSplit extends Component {
   }
 
   onViewportResize(width, height) {
-    let {breakpoint} = this.props
+    const {breakpoint} = this.props
     this.setState({
       isSplitted: width <= breakpoint
     })
@@ -36,7 +36,7 @@ class LayoutBreakpointSplit extends Component {
 
   render() {
     let {children, current} = this.props
-    let {isSplitted} = this.state
+    const {isSplitted} = this.state
     children = isSplitted ? [children[current]] : children
 
     const content = React.Children.map(

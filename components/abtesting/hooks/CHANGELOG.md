@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2019-08-05)
+
+
+### Bug Fixes
+
+* add missing destructuring for experimentData ([8d8ea4c](https://github.com/SUI-Components/schibsted-spain-components/commit/8d8ea4c))
+
+
+### Features
+
+* better manage dependencies for testing ([62958a7](https://github.com/SUI-Components/schibsted-spain-components/commit/62958a7))
+* move experiment core logic to a reusable hook ([c9f89e1](https://github.com/SUI-Components/schibsted-spain-components/commit/c9f89e1))
+* move experiment core tests to the hooks folder ([832fb66](https://github.com/SUI-Components/schibsted-spain-components/commit/832fb66))
+* move some never reassigned vars to const at optimizely-x.js ([b881f99](https://github.com/SUI-Components/schibsted-spain-components/commit/b881f99))
+* parse variations config to make it even simpler ([c62ee1a](https://github.com/SUI-Components/schibsted-spain-components/commit/c62ee1a))
+* run useExperimentCore inside of useExperiment when receiving experimentId ([54044a2](https://github.com/SUI-Components/schibsted-spain-components/commit/54044a2))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2019-07-10)
 

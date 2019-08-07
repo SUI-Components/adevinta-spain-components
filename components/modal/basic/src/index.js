@@ -8,6 +8,7 @@ const CLASS_MODAL_OPEN = 'is-modal-open'
 
 class ModalBasic extends Component {
   contentDOMEl = React.createRef()
+
   wrapperDOMEl = React.createRef()
 
   state = {

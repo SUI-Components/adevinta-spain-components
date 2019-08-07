@@ -3,13 +3,13 @@
 @import '~@schibstedspain/sui-atom-panel/lib/index';
 @import '~@schibstedspain/sui-tag-chip/lib/index';
 
-$bg-card-image-cover: rgba($c-black, .6) !default;
-$bg-card-image-cover-hover: rgba($c-black, .7) !default;
-$bg-card-image-cover-active: rgba($c-black, .8) !default;
+$bg-card-image-cover: rgba($c-black, 0.6) !default;
+$bg-card-image-cover-hover: rgba($c-black, 0.7) !default;
+$bg-card-image-cover-active: rgba($c-black, 0.8) !default;
 $c-card-image-cover: $c-white !default;
 $h-card-image-cover: 250px !default;
 $lh-card-image-cover: $lh-m !default;
-$p-card-image-cover:  $p-m !default;
+$p-card-image-cover: $p-m !default;
 $fz-card-image-cover-text: $fz-s !default;
 $m-card-image-cover-text: 0 !default;
 $fz-card-image-cover-title: $fz-s !default;

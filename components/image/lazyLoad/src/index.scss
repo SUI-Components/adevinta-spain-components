@@ -4,13 +4,34 @@
 @import '~@schibstedspain/sui-spinner-basic/lib/index';
 
 $aspect-ratios: (
-  (h: 1, v: 1),
-  (h: 5, v: 4),
-  (h: 4, v: 3),
-  (h: 3, v: 2),
-  (h: 5, v: 3),
-  (h: 16, v: 9),
-  (h: 3, v: 1)
+  (
+    h: 1,
+    v: 1
+  ),
+  (
+    h: 5,
+    v: 4
+  ),
+  (
+    h: 4,
+    v: 3
+  ),
+  (
+    h: 3,
+    v: 2
+  ),
+  (
+    h: 5,
+    v: 3
+  ),
+  (
+    h: 16,
+    v: 9
+  ),
+  (
+    h: 3,
+    v: 1
+  )
 );
 
 .sui-ImageLazyLoad {

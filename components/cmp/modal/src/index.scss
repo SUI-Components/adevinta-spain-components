@@ -2,7 +2,7 @@
 @import '~@schibstedspain/sui-atom-button/lib/index';
 @import '~@s-ui/react-atom-switch/lib/index';
 
-$bgc-sui-cmp-modal: rgba(33, 41, 52, .85) !default;
+$bgc-sui-cmp-modal: rgba(33, 41, 52, 0.85) !default;
 $fz-sui-cmp-modal-inner: $fz-m !default;
 $fz-sui-cmp-modal-title: $fz-xxl !default;
 $lh-sui-cmp-modal-title: $lh-xxl !default;
@@ -22,7 +22,7 @@ $mah-sui-cmp-modal-logo: 40px !default;
   position: fixed;
   right: 0;
   top: 0;
-  transition: opacity .15s ease;
+  transition: opacity 0.15s ease;
   z-index: 2147483647;
 
   &-body {
@@ -143,7 +143,7 @@ $mah-sui-cmp-modal-logo: 40px !default;
       text-decoration: none;
 
       &:hover {
-        opacity: .8;
+        opacity: 0.8;
       }
     }
   }
