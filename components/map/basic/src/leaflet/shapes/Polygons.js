@@ -12,6 +12,8 @@ export default class SearchMapPolygons {
 
   SPAIN_POLYGON_NAME = 'geom_724_0_0_0_0_0_0_0_0'
 
+  BASE_CLASSNAME = 'scm-map__area'
+
   constructor({hoverStyles, onPolygonWithBounds}) {
     this.hoverStyles = hoverStyles
     this.onPolygonWithBounds = onPolygonWithBounds
@@ -28,10 +30,11 @@ export default class SearchMapPolygons {
     map.setView(evt.latlng, map.getZoom() + 2)
   }
 
-  printPolygonOnMap({map, polygon}) {
-    const {hoverStyles} = this
+  printPolygonOnMap({fitBound, map, polygon}) {
+    const {BASE_CLASSNAME, hoverStyles} = this
+    const className = fitBound ? `${BASE_CLASSNAME} fitBound` : BASE_CLASSNAME
     const polygonGeoJSon = L.geoJson(polygon, {
-      className: 'scm-map__area',
+      className,
       onEachFeature: (feature, layer) => {
         layer.on({
           mouseout: function() {
@@ -78,10 +81,10 @@ export default class SearchMapPolygons {
 
       if (fitBound) {
         bounds = bounds
-          ? bounds.extend(this.printPolygonOnMap({map, polygon}))
-          : this.printPolygonOnMap({map, polygon})
+          ? bounds.extend(this.printPolygonOnMap({fitBound, map, polygon}))
+          : this.printPolygonOnMap({fitBound, map, polygon})
       } else {
-        this.printPolygonOnMap({map, polygon})
+        this.printPolygonOnMap({fitBound, map, polygon})
       }
     })
 
