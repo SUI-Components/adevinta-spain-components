@@ -29,7 +29,6 @@ export default function CmpBanner({lang, onAccept, onConfigure}) {
     <div className={CLASS}>
       <Notification
         autoClose="manual"
-        icon={() => {}}
         position="bottom"
         show
         showCloseButton={false}
