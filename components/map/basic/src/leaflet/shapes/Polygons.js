@@ -21,7 +21,7 @@ export default class SearchMapPolygons {
 
   removePolygonsFromMap(map) {
     if (this._polygonList.length > 0) {
-      this._polygonList.map(polygon => map.removeLayer(polygon))
+      this._polygonList.forEach(polygon => map.removeLayer(polygon))
     }
   }
 
@@ -76,7 +76,7 @@ export default class SearchMapPolygons {
       polygons = [polygons]
     }
 
-    polygons.map(polygon => {
+    polygons.forEach(polygon => {
       const {fitBound = true} = polygon
 
       if (fitBound) {
