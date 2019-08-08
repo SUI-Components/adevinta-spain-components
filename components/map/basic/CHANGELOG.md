@@ -2,8 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.21.0"></a>
+# 1.21.0 (2019-08-08)
+
+
+### Bug Fixes
+
+* add classes for fit and not fit polygons ([fedf713](https://github.com/SUI-Components/schibsted-spain-components/commit/fedf713))
+* fix zoom ([536691e](https://github.com/SUI-Components/schibsted-spain-components/commit/536691e))
+* fixing when bounds are not valid ([11dd448](https://github.com/SUI-Components/schibsted-spain-components/commit/11dd448))
+
+
+
 <a name="1.20.0"></a>
 # 1.20.0 (2019-07-31)
+
+
+### Bug Fixes
+
+* multiple polygon zoom fix ([33e86a0](https://github.com/SUI-Components/schibsted-spain-components/commit/33e86a0))
 
 
 ### Features
