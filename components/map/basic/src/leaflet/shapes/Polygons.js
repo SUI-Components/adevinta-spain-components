@@ -12,6 +12,8 @@ export default class SearchMapPolygons {
 
   SPAIN_POLYGON_NAME = 'geom_724_0_0_0_0_0_0_0_0'
 
+  BASE_CLASSNAME = 'scm-map__area'
+
   constructor({hoverStyles, onPolygonWithBounds}) {
     this.hoverStyles = hoverStyles
     this.onPolygonWithBounds = onPolygonWithBounds
@@ -19,7 +21,7 @@ export default class SearchMapPolygons {
 
   removePolygonsFromMap(map) {
     if (this._polygonList.length > 0) {
-      this._polygonList.map(polygon => map.removeLayer(polygon))
+      this._polygonList.forEach(polygon => map.removeLayer(polygon))
     }
   }
 
@@ -28,10 +30,11 @@ export default class SearchMapPolygons {
     map.setView(evt.latlng, map.getZoom() + 2)
   }
 
-  printPolygonOnMap({map, polygon}) {
-    const {hoverStyles} = this
+  printPolygonOnMap({fitBound, map, polygon}) {
+    const {BASE_CLASSNAME, hoverStyles} = this
+    const className = fitBound ? `${BASE_CLASSNAME} fitBound` : BASE_CLASSNAME
     const polygonGeoJSon = L.geoJson(polygon, {
-      className: 'scm-map__area',
+      className,
       onEachFeature: (feature, layer) => {
         layer.on({
           mouseout: function() {
@@ -56,7 +59,7 @@ export default class SearchMapPolygons {
     if (polygonName !== this.SPAIN_POLYGON_NAME) {
       const bounds = polygonGeoJSon.getBounds()
       if (bounds.isValid()) {
-        this.onPolygonWithBounds({bounds, map})
+        return bounds
       }
     } else {
       const {latitude, longitude} = this.SPAIN_POLYGON_CENTER
@@ -66,15 +69,26 @@ export default class SearchMapPolygons {
   }
 
   setPolygonsOnMap({map, polygons}) {
+    let bounds
     this.removePolygonsFromMap(map)
 
     if (!(polygons instanceof Array)) {
       polygons = [polygons]
     }
 
-    polygons.map(polygon => {
-      this.printPolygonOnMap({map, polygon})
+    polygons.forEach(polygon => {
+      const {fitBound = true} = polygon
+
+      if (fitBound) {
+        bounds = bounds
+          ? bounds.extend(this.printPolygonOnMap({fitBound, map, polygon}))
+          : this.printPolygonOnMap({fitBound, map, polygon})
+      } else {
+        this.printPolygonOnMap({fitBound, map, polygon})
+      }
     })
+
+    this.onPolygonWithBounds({bounds, map})
 
     return true
   }

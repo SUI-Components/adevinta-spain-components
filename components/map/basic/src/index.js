@@ -315,7 +315,7 @@ MapBasic.defaultProps = {
   onPoiMouseMove: NO_OP,
   onPoiMouseOut: NO_OP,
   onPoiMouseOver: NO_OP,
-  onPolygonWithBounds: ({bounds, map}) => map.fitBounds(bounds),
+  onPolygonWithBounds: ({bounds, map}) => bounds && map.fitBounds(bounds),
   onSatelliteView: NO_OP,
   scrollWheelZoom: true,
   selectedMapViewMode: 0,
