@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.12.0"></a>
+# 1.12.0 (2019-08-08)
+
+
+### Features
+
+* add withoutBorder prop ([ecf7163](https://github.com/SUI-Components/schibsted-spain-components/commit/ecf7163))
+
+
+
 <a name="1.11.0"></a>
 # 1.11.0 (2019-06-20)
 
@@ -97,6 +107,21 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * adds custom Sass vars to provide better layout flexibility ([7aff696](https://github.com/SUI-Components/schibsted-spain-components/commit/7aff696))
+
+
+
+<a name="1.1.0"></a>
+# 1.1.0 (2017-11-30)
+
+
+### Bug Fixes
+
+* adds some fixes based on PR review ([0f8de5c](https://github.com/SUI-Components/schibsted-spain-components/commit/0f8de5c))
+
+
+### Features
+
+* adds a new section info component ([80da9f7](https://github.com/SUI-Components/schibsted-spain-components/commit/80da9f7))
 
 
 
