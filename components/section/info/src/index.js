@@ -6,13 +6,15 @@ const baseClass = 'sui-SectionInfo'
 const baseContentClass = `${baseClass}-content`
 const titleClass = `${baseClass}-title`
 
-export default function SectionInfo({title, children}) {
+export default function SectionInfo({title, children, withoutBorder}) {
   const contentClass = cx(baseContentClass, {
     [`${baseContentClass}--withoutTitle`]: !title
   })
 
   return (
-    <section className={baseClass}>
+    <section
+      className={cx(baseClass, withoutBorder && `${baseClass}--withoutBorder`)}
+    >
       {title && <h3 className={titleClass}>{title}</h3>}
       <div className={contentClass}>{children}</div>
     </section>
@@ -27,5 +29,6 @@ SectionInfo.propTypes = {
     PropTypes.string,
     PropTypes.element,
     PropTypes.object
-  ])
+  ]),
+  withoutBorder: PropTypes.bool
 }
