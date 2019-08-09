@@ -59,7 +59,9 @@
       "./node_modules/@s-ui/lint/eslintrc.js"
     ]
   },
-  "stylelint": { "extends": "./node_modules/@s-ui/lint/stylelint.config.js" },
+  "stylelint": {
+    "extends": "./node_modules/@s-ui/lint/stylelint.config.js"
+  },
   "babel": {
     "presets": [
       "sui"
