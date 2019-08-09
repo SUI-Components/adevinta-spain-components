@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2019-08-09)
+
+
+### Bug Fixes
+
+* remove banner icon prop ([a268443](https://github.com/SUI-Components/schibsted-spain-components/commit/a268443))
+* show empty icon instead of default ([378de74](https://github.com/SUI-Components/schibsted-spain-components/commit/378de74))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2019-08-07)
 
