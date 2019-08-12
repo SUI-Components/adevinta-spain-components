@@ -10,6 +10,7 @@
     "test": "sui-test browser"
   },
   "dependencies": {
+    "consent-string": "1.4.2",
     "@s-ui/component-dependencies": "1",
     "@schibstedspain/boros-cmp": "1"
   },
