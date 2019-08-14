@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/react-cmp-services",
-  "version": "1.15.0",
+  "version": "1.16.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -10,6 +10,7 @@
     "test": "sui-test browser"
   },
   "dependencies": {
+    "consent-string": "1.4.2",
     "@s-ui/component-dependencies": "1",
     "@schibstedspain/boros-cmp": "1"
   },

@@ -7,6 +7,8 @@ import Button from '@schibstedspain/sui-atom-button'
 
 import {CLASS, I18N} from '../settings'
 
+const EmptyIcon = () => null
+
 export default function CmpBanner({lang, onAccept, onConfigure}) {
   const textRef = useRef()
 
@@ -29,7 +31,7 @@ export default function CmpBanner({lang, onAccept, onConfigure}) {
     <div className={CLASS}>
       <Notification
         autoClose="manual"
-        icon={() => {}}
+        icon={<EmptyIcon />}
         position="bottom"
         show
         showCloseButton={false}
