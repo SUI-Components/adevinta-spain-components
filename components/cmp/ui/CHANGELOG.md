@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2019-08-14)
+
+
+### Features
+
+* add italian literals ([e654666](https://github.com/SUI-Components/schibsted-spain-components/commit/e654666))
+* Add UNSAFE to life cycle ([01a7f4e](https://github.com/SUI-Components/schibsted-spain-components/commit/01a7f4e))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2019-08-09)
 
