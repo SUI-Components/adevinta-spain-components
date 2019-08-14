@@ -135,7 +135,7 @@ class MapBasic extends Component {
     return false
   }
 
-  componentWillReceiveProps({
+  UNSAFE_componentWillReceiveProps({ // eslint-disable-line
     heatMapUrl,
     pois,
     showHeatmap,
