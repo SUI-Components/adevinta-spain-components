@@ -44,7 +44,7 @@ class TopbarUser extends Component {
     window.removeEventListener('resize', this._setToggleDisplayState)
   }
 
-  componentWillUpdate(nextProps, {menuExpanded, isToggleHidden}) {
+  UNSAFE_componentWillUpdate(nextProps, {menuExpanded, isToggleHidden}) { // eslint-disable-line
     if (menuExpanded && !isToggleHidden) {
       this._lockBodyScroll()
     } else {
