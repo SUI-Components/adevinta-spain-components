@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2019-08-14)
+
+
+### Features
+
+* Add UNSAFE to life cycle ([c14a8c9](https://github.com/SUI-Components/schibsted-spain-components/commit/c14a8c9))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2019-04-02)
 
