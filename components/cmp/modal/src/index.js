@@ -78,7 +78,7 @@ CmpModal.propTypes = {
   /**
    * Flag to determine if the step to show the list of partners to start
    */
-  startOnPartnersList: PropTypes.bool
+  showPartners: PropTypes.bool
 }
 
 CmpModal.displayName = 'CmpModal'
