@@ -19,12 +19,12 @@ class GigyaGlobalEvents extends Component {
     onLogout && removeOnLogoutSubscriber(onLogout)
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line
     this._unregisterEvents(this.props)
     this._registerEvents(nextProps)
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() { // eslint-disable-line
     initListener()
     this._registerEvents(this.props)
   }
