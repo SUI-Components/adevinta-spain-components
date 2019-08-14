@@ -144,7 +144,7 @@ class ModalBasic extends Component {
     }
   }
 
-  componentWillReceiveProps({open, disableWindowScroll}) {
+  UNSAFE_componentWillReceiveProps({open, disableWindowScroll}) { // eslint-disable-line
     if (disableWindowScroll) {
       this._toggleWindowScroll(open)
     }
