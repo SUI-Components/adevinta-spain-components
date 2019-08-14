@@ -10,14 +10,14 @@ class CollapsibleAccordion extends Component {
     this._collapseItems = this._collapseItems.bind(this)
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() { // eslint-disable-line
     this._collapseItems(
       false,
       this.props.items.findIndex(item => !item.collapsed)
     )
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line
     const nextOpenIndex = nextProps.items.findIndex(function(item) {
       return !item.collapsed
     })
