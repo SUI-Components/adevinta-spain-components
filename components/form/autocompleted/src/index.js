@@ -169,13 +169,13 @@ export default class FormAutocompleted extends Component {
       window.addEventListener('click', this._handleOutsideClick, false)
   }
 
-  componentWillReceiveProps({focus}) {
+  UNSAFE_componentWillReceiveProps({focus}) { // eslint-disable-line
     if (this.state.focus !== focus) {
       this.setState({focus})
     }
   }
 
-  componentWillUpdate(nextProps, {focus}) {
+  UNSAFE_componentWillUpdate(nextProps, {focus}) { // eslint-disable-line
     if (focus) {
       this.focusInput()
     }
