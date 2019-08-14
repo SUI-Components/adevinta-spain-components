@@ -15,8 +15,10 @@ const DEFAULT_I18N = {
 const it = {
   ACCEPT_BUTTON: 'Continua la navigazione',
   READ_MORE_BUTTON: 'Modifica impostazioni',
+  TITLE: 'La tua privacy è importante',
   BANNER_BODY:
-    'Utilizziamo i cookie di prima o terza parte per fornire il servizio richiesto, sviluppare statistiche, promuovere il traffico sul web e mostrarti pubblicità personalizzata sulla base dei tuoi dati di navigazione o sviluppare profili pubblicitari in funzione dei dati che raccogliamo su di te, che possiamo condividere con terze parti. Se continui a navigare ne accetti l’utilizzo. È\' possibile configurare o rifiutare i cookie facendo clic su <a class="sui-CmpUi-link" href="#">politica sui cookie.</a>'
+    'Utilizziamo i cookie di prima o terza parte per fornire il servizio richiesto, sviluppare statistiche, promuovere il traffico sul web e mostrarti pubblicità personalizzata sulla base dei tuoi dati di navigazione o sviluppare profili pubblicitari in funzione dei dati che raccogliamo su di te, che possiamo condividere con terze parti. Se continui a navigare ne accetti l’utilizzo. È\' possibile configurare o rifiutare i cookie facendo clic su <a class="sui-CmpUi-link" href="#">politica sui cookie.</a>',
+  PARTNERS_LINK: "Vedi l'elenco completo dei partner"
 }
 
 export const I18N = {
