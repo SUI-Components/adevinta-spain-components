@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.7.0"></a>
+# 2.7.0 (2019-08-14)
+
+
+### Features
+
+* Add UNSAFE to life cycle ([817dd24](https://github.com/SUI-Components/schibsted-spain-components/commit/817dd24))
+
+
+
 <a name="2.6.0"></a>
 # 2.6.0 (2019-04-02)
 
@@ -211,6 +221,16 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * add border variable. ([6168c85](https://github.com/SUI-Components/schibsted-spain-components/commit/6168c85))
+
+
+
+<a name="1.1.0"></a>
+# 1.1.0 (2017-09-12)
+
+
+### Features
+
+* collapsible/expandible component. ([bcb1277](https://github.com/SUI-Components/schibsted-spain-components/commit/bcb1277))
 
 
 
