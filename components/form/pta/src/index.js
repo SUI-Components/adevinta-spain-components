@@ -33,7 +33,7 @@ class FormPta extends Component {
     }
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() { // eslint-disable-line
     window.addEventListener(MESSAGE_EVENT_TYPE, this.runEventCallbacks)
   }
 
