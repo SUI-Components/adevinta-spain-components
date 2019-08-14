@@ -13,7 +13,7 @@ class ModalGallery extends Component {
     currentSlide: this.props.initialSlide
   }
 
-  componentWillReceiveProps({open, initialSlide = 0}) {
+  UNSAFE_componentWillReceiveProps({open, initialSlide = 0}) { // eslint-disable-line
     if (open) {
       this.setState({currentSlide: initialSlide})
     }
