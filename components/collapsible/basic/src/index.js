@@ -22,7 +22,7 @@ class CollapsibleBasic extends Component {
     this.props.handleClick(isCollapsed)
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line
     this.setState({isCollapsed: nextProps.collapsed})
   }
 
