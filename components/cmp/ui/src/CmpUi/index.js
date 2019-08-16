@@ -40,6 +40,7 @@ export default function CmpUiContainer({
     setShowNotification(false)
 
     _removeBodyEvent()
+
     onAccept()
   }
 
@@ -64,6 +65,7 @@ export default function CmpUiContainer({
   }
 
   const _handleExitModal = () => {
+    setShowNotification(false)
     setShowModal(false)
   }
 
