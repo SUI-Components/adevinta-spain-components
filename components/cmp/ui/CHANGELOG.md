@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2019-08-16)
+
+
+### Bug Fixes
+
+* close banner when modal is accepted ([df5ce75](https://github.com/SUI-Components/schibsted-spain-components/commit/df5ce75))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2019-08-14)
 
