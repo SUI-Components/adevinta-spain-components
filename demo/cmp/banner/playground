@@ -1,6 +1,16 @@
+function cleanCookies (e) {
+  e.preventDefault()
+  e.stopPropagation()
+
+  document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+  window.location.reload()
+  return false
+}
+
 return (
   <div>
     <button>Click this to check if autoclose is working</button>
+    <button onClick={cleanCookies}>Clean cookies and refresh</button>
     <CmpBanner
       companyName="Your Company Name LTD"
       onAccept={() => {
