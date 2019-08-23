@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.22.0"></a>
+# 1.22.0 (2019-08-23)
+
+
+### Bug Fixes
+
+* fix styles for modal on mobile ([2812836](https://github.com/SUI-Components/schibsted-spain-components/commit/2812836))
+* fix the broken link on description for mobile ([077e4e7](https://github.com/SUI-Components/schibsted-spain-components/commit/077e4e7))
+
+
+### Features
+
+* Add new translations ([85724c3](https://github.com/SUI-Components/schibsted-spain-components/commit/85724c3))
+* Create ConsentDescription component ([d916c80](https://github.com/SUI-Components/schibsted-spain-components/commit/d916c80))
+* Pass down features ([2f977c9](https://github.com/SUI-Components/schibsted-spain-components/commit/2f977c9))
+* Remove hack and fix margin not needed ([a519dae](https://github.com/SUI-Components/schibsted-spain-components/commit/a519dae))
+* Remove not needed anymore logic for partners ([ce99557](https://github.com/SUI-Components/schibsted-spain-components/commit/ce99557))
+* Reuse consent name for both cases ([ef29c4a](https://github.com/SUI-Components/schibsted-spain-components/commit/ef29c4a))
+* Use chevron icon instead hack ([5f6b68c](https://github.com/SUI-Components/schibsted-spain-components/commit/5f6b68c))
+* Use Consent Description ([ced2d22](https://github.com/SUI-Components/schibsted-spain-components/commit/ced2d22))
+
+
+
 <a name="1.21.0"></a>
 # 1.21.0 (2019-08-05)
 
