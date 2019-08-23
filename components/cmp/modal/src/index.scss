@@ -131,6 +131,7 @@ $mah-sui-cmp-modal-logo: 40px !default;
       display: none;
       margin-top: $p-s;
       padding: $p-l 0;
+      word-break: break-word;
 
       &--expanded {
         display: block;
