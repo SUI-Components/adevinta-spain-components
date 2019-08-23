@@ -88,6 +88,10 @@ $mah-sui-cmp-modal-logo: 40px !default;
     .sui-CmpModal-consent:last-child {
       border-bottom: 0;
     }
+
+    .sui-AtomSwitch-toggleType .sui-AtomSwitch-container {
+      margin-top: 0;
+    }
   }
 
   &-consent {
@@ -98,24 +102,14 @@ $mah-sui-cmp-modal-logo: 40px !default;
     padding: 0 $p-m;
 
     &Name {
+      align-items: center;
       cursor: pointer;
-      display: block;
+      display: flex;
       padding: $p-s 0;
       user-select: none;
 
-      &::after {
-        color: $c-gray;
-        content: '∨';
-        cursor: pointer;
-        display: inline-block;
-        font-size: $fz-xl;
-        margin-left: $m-m;
-      }
-
-      &--expanded {
-        &::after {
-          content: '∧';
-        }
+      &--expanded svg {
+        transform: rotate(180deg);
       }
 
       &:hover,
