@@ -57,11 +57,14 @@ export default function CmpUiContainer({
    * he's just navigating the website
    */
   const _handleClickOnDocument = ({target}) => {
-    const isClickableElement =
+    const isClickableElement = Boolean(
       target.closest('a') || target.closest('button') || target.closest('input')
+    )
+
     const isNotContainedInBanner = !containerDOMEl.current.contains(target)
+
     // if not contained and clickable element, then accept the banner
-    isNotContainedInBanner && isClickableElement && _handleAccept()
+    isClickableElement && isNotContainedInBanner && _handleAccept()
   }
 
   const _handleExitModal = () => {
@@ -77,7 +80,9 @@ export default function CmpUiContainer({
     async function initiConsentStatus() {
       const consentStatus = await getConsentStatus.execute()
       const isConsentNotAccepted = consentStatus === CONSENT_STATUS_NOT_ACCEPTED
-      setShowNotification(isConsentNotAccepted)
+      if (showNotification !== isConsentNotAccepted) {
+        setShowNotification(isConsentNotAccepted)
+      }
 
       if (isConsentNotAccepted) {
         // We're assuming, the user accepts our CMP if he keep navigating in our page
