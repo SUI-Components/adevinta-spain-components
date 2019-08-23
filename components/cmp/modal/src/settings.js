@@ -31,9 +31,12 @@ Ten en cuenta que estas cookies van ligadas a tu sesión en el navegador por lo 
     'Cookies propias o de terceros para ofrecer a nuestros partners de publicidad perfiles de audiencia segmentada. Almacenan información de navegación dentro o fuera de nuestro sitio web, así como datos de localización o datos a carácter personal.',
   DISABLE_ALL: 'Deshabilitar todo',
   ENABLE_ALL: 'Habilitar todo',
+  FEATURES: 'Características',
   FOR_THE_NEXT_PARTNERS: 'Para los siguientes anunciantes y partners',
   PERSONALIZE: 'Personalizar',
   READ_MORE: 'Leer más',
+  POLICY_PRIVACY: 'Política de privacidad',
+  PURPOSES: 'Propósitos',
   TITLE: 'Tu privacidad es importante para nosotros'
 }
 
@@ -61,8 +64,11 @@ const it = {
     'I cookie di prima o terza parte per offrire ai nostri partner pubblicitari un’audience segmentata. Memorizzano le informazioni di navigazione all’interno o all’esterno del nostro sito web, così come la tua posizione o i dati personali.',
   DISABLE_ALL: 'Disabilita tutto',
   ENABLE_ALL: 'Abilita tutto',
+  FEATURES: 'Características',
   FOR_THE_NEXT_PARTNERS: 'Per i prossimi inserzionisti e partner',
   PERSONALIZE: 'Personalizza',
+  POLICY_PRIVACY: 'Política de privacidad',
+  PURPOSES: 'Propósitos',
   READ_MORE: 'Leggi di più',
   TITLE: 'La tua privacy è importante per noi'
 }
