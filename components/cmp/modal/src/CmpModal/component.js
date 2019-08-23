@@ -12,6 +12,7 @@ export function CmpModal({
   consentKey,
   lang,
   fetchingPurposes,
+  features,
   logo,
   onAccept,
   onBack,
@@ -44,6 +45,7 @@ export function CmpModal({
           {step === STEPS.ADVERTISEMENT && (
             <CmpModalAdvertisementStep
               consentKey={consentKey}
+              features={features}
               i18n={i18n}
               onToggleAll={onToggleAll}
               onToggleConsent={onToggleConsent}
@@ -74,6 +76,7 @@ CmpModal.propTypes = {
   consentKey: PropTypes.number,
   lang: PropTypes.string,
   logo: PropTypes.string,
+  features: PropTypes.array,
   fetchingPurposes: PropTypes.bool,
   onAccept: PropTypes.func,
   onBack: PropTypes.func,

@@ -7,6 +7,7 @@ import {Consents} from '../Consents'
 export const CmpModalAdvertisementStep = ({
   consentKey,
   i18n,
+  features,
   onToggleAll,
   onToggleConsent,
   purposeConsents,
@@ -40,7 +41,9 @@ export const CmpModalAdvertisementStep = ({
         consents={vendorConsents}
         isVendor
         key={`vendors-${consentKey}`}
+        features={features}
         list={vendors}
+        purposes={purposes}
         title={i18n['FOR_THE_NEXT_PARTNERS']}
       />
     </Fragment>
@@ -50,6 +53,7 @@ export const CmpModalAdvertisementStep = ({
 CmpModalAdvertisementStep.propTypes = {
   consentKey: PropTypes.number,
   i18n: PropTypes.object,
+  features: PropTypes.array,
   onToggleAll: PropTypes.func,
   onToggleConsent: PropTypes.func,
   purposeConsents: PropTypes.object,
