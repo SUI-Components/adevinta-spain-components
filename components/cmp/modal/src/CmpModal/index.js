@@ -48,7 +48,10 @@ export class CmpModalContainer extends Component {
     }))
   }
 
-  _handleToggleAll = ({enabled, isVendor}) => {
+  _handleToggleAll = ({event, enabled, isVendor}) => {
+    event.preventDefault()
+    event.nativeEvent.stopImmediatePropagation()
+
     const key = this._getKeyOfConsentToUpdate({isVendor})
 
     this.setState(state => {

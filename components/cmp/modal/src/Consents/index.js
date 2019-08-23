@@ -23,14 +23,14 @@ export const Consents = ({
     <h2 className={`${CLASS}-title ${CLASS}-consentsTitle`}>{title}</h2>
     <div className={`${CLASS}-consentsActions`}>
       <Button
-        onClick={() => onToggleAll({enabled: false, isVendor})}
+        onClick={event => onToggleAll({event, enabled: false, isVendor})}
         type="secondary"
         size="small"
       >
         {disableAllLiteral}
       </Button>
       <Button
-        onClick={() => onToggleAll({enabled: true, isVendor})}
+        onClick={event => onToggleAll({event, enabled: true, isVendor})}
         type="primary"
         size="small"
       >
