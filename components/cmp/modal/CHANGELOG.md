@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.23.0"></a>
+# 1.23.0 (2019-08-23)
+
+
+### Bug Fixes
+
+* avoid propagation of event causing accepting when not correct ([5f284f8](https://github.com/SUI-Components/schibsted-spain-components/commit/5f284f8))
+
+
+
 <a name="1.22.0"></a>
 # 1.22.0 (2019-08-23)
 
