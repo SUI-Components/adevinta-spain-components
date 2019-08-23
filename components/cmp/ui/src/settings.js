@@ -7,9 +7,9 @@ export const UI_TYPES = {
 const DEFAULT_I18N = {
   ACCEPT_BUTTON: 'Seguir navegando',
   BANNER_BODY:
-    'Utilizamos cookies propias y de terceros para recordar tus preferencias, elaborar estadísticas, crear perfiles publicitarios y mostrarte publicidad personalizada analizando tu navegación. Si continúas navegando o haces clic en el botón "Seguir navegando", aceptas su uso. Puedes revocar el consentimiento en <a class="sui-CmpUi-link" href="#">nuestra política de cookies</a>.',
+    'Utilizamos cookies propias y de terceros, y tecnología similar, para recordar tus preferencias, elaborar estadísticas, crear perfiles publicitarios, mostrarte publicidad y contenido personalizado, por ejemplo analizando tu navegación. Si continúas navegando o haces clic en el botón "Seguir navegando", aceptas su uso. Puedes revocar el consentimiento en <a class="sui-CmpUi-link" href="#">nuestra política de cookies</a>.',
   TITLE: 'Tu privacidad es importante',
-  PARTNERS_LINK: 'Ver lista completa de partners'
+  PARTNERS_LINK: 'Ver listado de partners'
 }
 
 const it = {

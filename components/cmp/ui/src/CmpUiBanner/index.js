@@ -39,18 +39,26 @@ export default function CmpBanner({lang, onAccept, onConfigure}) {
         type="system"
       >
         <section className={`${CLASS}-content`}>
-          <h3 className={`${CLASS}-title`}>{I18N[lang].TITLE}</h3>
-          <span
-            className={`${CLASS}-text`}
-            ref={textRef}
-            dangerouslySetInnerHTML={{__html: I18N[lang].BANNER_BODY}}
-          />
-          <button className={`${CLASS}-partnersLink`} onClick={onConfigure}>
-            {I18N[lang].PARTNERS_LINK}
-          </button>
-          <Button className={`${CLASS}-acceptButton`} onClick={onAccept}>
-            {I18N[lang].ACCEPT_BUTTON}
-          </Button>
+          <div>
+            <h3 className={`${CLASS}-title`}>{I18N[lang].TITLE}</h3>
+            <span
+              className={`${CLASS}-text`}
+              ref={textRef}
+              dangerouslySetInnerHTML={{__html: I18N[lang].BANNER_BODY}}
+            />
+          </div>
+          <div className={`${CLASS}-actions`}>
+            <Button
+              type="secondary"
+              className={`${CLASS}-button ${CLASS}-partnersButton`}
+              onClick={onConfigure}
+            >
+              {I18N[lang].PARTNERS_LINK}
+            </Button>
+            <Button className={`${CLASS}-button`} onClick={onAccept}>
+              {I18N[lang].ACCEPT_BUTTON}
+            </Button>
+          </div>
         </section>
       </Notification>
     </div>

@@ -6,20 +6,16 @@ import {ConsentName} from '../ConsentName'
 import {CLASS} from '../settings'
 
 export const ConsentItem = ({
-  description,
   enabled,
   id,
   onToggleConsent,
   name,
   isVendor,
+  renderDescription,
   url
 }) => (
   <div className={`${CLASS}-consent`}>
-    <ConsentName
-      name={name}
-      description={isVendor ? '' : description}
-      url={url}
-    />
+    <ConsentName name={name} url={url} renderDescription={renderDescription} />
     <div className={`${CLASS}-consentActions`}>
       <AtomSwitch
         initialValue={enabled}
@@ -35,11 +31,11 @@ export const ConsentItem = ({
 )
 
 ConsentItem.propTypes = {
-  description: PropTypes.string,
   enabled: PropTypes.bool,
-  onToggleConsent: PropTypes.func,
   id: PropTypes.number.isRequired,
   isVendor: PropTypes.bool,
   name: PropTypes.string.isRequired,
+  onToggleConsent: PropTypes.func,
+  renderDescription: PropTypes.func,
   url: PropTypes.string
 }

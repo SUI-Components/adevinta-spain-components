@@ -9,6 +9,7 @@ export class CmpModalContainer extends Component {
   state = {
     consentKey: 0,
     fetchingPurposes: false,
+    features: [],
     purposeConsents: {},
     purposes: [],
     step: this.props.showPartners ? STEPS.ADVERTISEMENT : STEPS.GENERAL,
@@ -87,6 +88,7 @@ export class CmpModalContainer extends Component {
     const {lang, logo, privacyUrl} = this.props
     const {
       consentKey,
+      features,
       fetchingPurposes,
       purposes,
       purposeConsents,
@@ -98,6 +100,7 @@ export class CmpModalContainer extends Component {
     return (
       <CmpModal
         consentKey={consentKey}
+        features={features}
         fetchingPurposes={fetchingPurposes}
         lang={lang}
         logo={logo}

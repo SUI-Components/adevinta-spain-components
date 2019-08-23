@@ -4,8 +4,6 @@
 
 $bgc-sui-cmp-modal: rgba(33, 41, 52, 0.85) !default;
 $fz-sui-cmp-modal-inner: $fz-m !default;
-$fz-sui-cmp-modal-title: $fz-xxl !default;
-$lh-sui-cmp-modal-title: $lh-xxl !default;
 $w-sui-cmp-modal-logo: 150px !default;
 $maw-sui-cmp-modal-logo: 150px !default;
 $mah-sui-cmp-modal-logo: 40px !default;
@@ -90,6 +88,10 @@ $mah-sui-cmp-modal-logo: 40px !default;
     .sui-CmpModal-consent:last-child {
       border-bottom: 0;
     }
+
+    .sui-AtomSwitch-toggleType .sui-AtomSwitch-container {
+      margin-top: 0;
+    }
   }
 
   &-consent {
@@ -100,24 +102,14 @@ $mah-sui-cmp-modal-logo: 40px !default;
     padding: 0 $p-m;
 
     &Name {
+      align-items: center;
       cursor: pointer;
-      display: block;
+      display: flex;
       padding: $p-s 0;
       user-select: none;
 
-      &::after {
-        color: $c-gray;
-        content: '∨';
-        cursor: pointer;
-        display: inline-block;
-        font-size: $fz-xl;
-        margin-left: $m-m;
-      }
-
-      &--expanded {
-        &::after {
-          content: '∧';
-        }
+      &--expanded svg {
+        transform: rotate(180deg);
       }
 
       &:hover,
@@ -131,6 +123,7 @@ $mah-sui-cmp-modal-logo: 40px !default;
       display: none;
       margin-top: $p-s;
       padding: $p-l 0;
+      word-break: break-word;
 
       &--expanded {
         display: block;
@@ -185,11 +178,17 @@ $mah-sui-cmp-modal-logo: 40px !default;
 
   &-title {
     color: $c-black;
-    font-size: $fz-sui-cmp-modal-title;
+    font-size: $fz-l;
+    line-height: $lh-l;
     font-weight: $fw-semi-bold;
-    line-height: $lh-sui-cmp-modal-title;
     margin: 0;
+    padding-bottom: $p-s;
     text-align: left;
+
+    @include media-breakpoint-up(m) {
+      font-size: $fz-xl;
+      line-height: $lh-xl;
+    }
   }
 
   @media (min-width: 769px) {
