@@ -54,19 +54,19 @@ export const Consents = ({
             isVendor={isVendor}
             key={id}
             name={name}
+            onToggleConsent={onToggleConsent}
             renderDescription={() => (
               <ConsentDescription
-                isVendor={isVendor}
+                description={description}
                 featureIds={featureIds}
                 features={features}
+                isVendor={isVendor}
                 legIntPurposeIds={legIntPurposeIds}
-                purposes={purposes}
-                purposeIds={purposeIds}
-                description={description}
                 policyUrl={policyUrl}
+                purposeIds={purposeIds}
+                purposes={purposes}
               />
             )}
-            onToggleConsent={onToggleConsent}
             url={policyUrl}
           />
         )
