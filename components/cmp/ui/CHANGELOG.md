@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2019-08-23)
+
+
+### Features
+
+* Add needed layout for styling ([09fdfcf](https://github.com/SUI-Components/schibsted-spain-components/commit/09fdfcf))
+* add new styles to cmp/ui ([32622cd](https://github.com/SUI-Components/schibsted-spain-components/commit/32622cd))
+* Update texts ([c30946f](https://github.com/SUI-Components/schibsted-spain-components/commit/c30946f))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2019-08-16)
 
