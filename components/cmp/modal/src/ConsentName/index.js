@@ -4,53 +4,40 @@ import cx from 'classnames'
 
 import {CLASS} from '../settings'
 
-export function ConsentName({name, description, url}) {
+export function ConsentName({name, renderDescription, url}) {
   const [expanded, setExpanded] = useState(false)
 
   const handleExpand = () => {
-    if (description) {
-      setExpanded(!expanded)
-    }
+    setExpanded(!expanded)
   }
 
   return (
-    <div className={cx(description && `${CLASS}-consent--withDescription`)}>
-      {url ? (
-        <a
-          className={`${CLASS}-consentLink`}
-          href={url}
-          target="_blank"
-          rel="noopener"
-        >
-          {name}
-        </a>
-      ) : (
-        <span
-          className={cx(
-            `${CLASS}-consentName`,
-            expanded && `${CLASS}-consentName--expanded`
-          )}
-          onClick={handleExpand}
-        >
-          {name}
-        </span>
-      )}
-      {description && (
-        <span
+    <div className={`${CLASS}-consent--withDescription`}>
+      <span
+        className={cx(
+          `${CLASS}-consentName`,
+          expanded && `${CLASS}-consentName--expanded`
+        )}
+        onClick={handleExpand}
+      >
+        {name}
+      </span>
+      {expanded && (
+        <div
           className={cx(
             `${CLASS}-consentDescription`,
-            expanded && `${CLASS}-consentDescription--expanded`
+            `${CLASS}-consentDescription--expanded`
           )}
         >
-          {description}
-        </span>
+          {renderDescription()}
+        </div>
       )}
     </div>
   )
 }
 
 ConsentName.propTypes = {
-  description: PropTypes.string,
+  renderDescription: PropTypes.func,
   name: PropTypes.string,
   url: PropTypes.string
 }
