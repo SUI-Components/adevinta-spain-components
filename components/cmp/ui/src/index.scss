@@ -33,6 +33,7 @@ $fz-cmp-ui-text-desktop: $fz-m !default;
     font-size: $fz-s;
     max-height: 32px;
     margin: 0 0 $m-s 0 !important;
+    text-align: center;
     width: 100%;
 
     @include media-breakpoint-up(s) {
@@ -94,6 +95,7 @@ $fz-cmp-ui-text-desktop: $fz-m !default;
   &-actions {
     display: flex;
     flex-direction: column;
+    margin: 0;
 
     @include media-breakpoint-up(s) {
       margin-top: 36px;
