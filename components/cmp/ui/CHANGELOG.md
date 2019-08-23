@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.11.0"></a>
+# 1.11.0 (2019-08-23)
+
+
+### Bug Fixes
+
+* fix layout for critical css ([5664d33](https://github.com/SUI-Components/schibsted-spain-components/commit/5664d33))
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2019-08-23)
 
