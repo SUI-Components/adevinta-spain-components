@@ -30,6 +30,7 @@ Section.propTypes = {
 
 export const ConsentDescription = ({
   description,
+  i18n,
   isVendor,
   features,
   featureIds,
@@ -40,20 +41,19 @@ export const ConsentDescription = ({
 }) => {
   if (!isVendor) return description
 
-  // console.log({features, featureIds, purposes, purposeIds, legIntPurposeIds})
-
   return (
     <Fragment>
       <p>
-        <strong>Privacy Policy</strong>: <a href={policyUrl}>{policyUrl}</a>
+        <strong>{i18n['POLICY_PRIVACY']}</strong>:<br />
+        <a href={policyUrl}>{policyUrl}</a>
       </p>
-      <Section title="Purposes" data={purposes} ids={purposeIds} />
+      <Section title={i18n['PURPOSES']} data={purposes} ids={purposeIds} />
       <Section
-        title="Legitimate Interest For"
+        title={i18n['LEGITIMATE_INTEREST_FOR']}
         data={purposes}
         ids={legIntPurposeIds}
       />
-      <Section title="Features" data={features} ids={featureIds} />
+      <Section title={i18n['FEATURES']} data={features} ids={featureIds} />
     </Fragment>
   )
 }
@@ -61,6 +61,7 @@ export const ConsentDescription = ({
 ConsentDescription.propTypes = {
   description: PropTypes.string,
   featureIds: PropTypes.arrayOf(PropTypes.number),
+  i18n: PropTypes.object,
   purposeIds: PropTypes.arrayOf(PropTypes.number),
   legIntPurposeIds: PropTypes.arrayOf(PropTypes.number),
   isVendor: PropTypes.bool,
