@@ -33,6 +33,7 @@ Ten en cuenta que estas cookies van ligadas a tu sesión en el navegador por lo 
   ENABLE_ALL: 'Habilitar todo',
   FEATURES: 'Características',
   FOR_THE_NEXT_PARTNERS: 'Para los siguientes anunciantes y partners',
+  LEGITIMATE_INTEREST_FOR: 'Interés legítimo en:',
   PERSONALIZE: 'Personalizar',
   READ_MORE: 'Leer más',
   POLICY_PRIVACY: 'Política de privacidad',
@@ -41,6 +42,7 @@ Ten en cuenta que estas cookies van ligadas a tu sesión en el navegador por lo 
 }
 
 const it = {
+  ...DEFAULT_I18N,
   ADVERTISEMENT_TITLE:
     'Cookie di prima o terza parte per la pubblicità segmentata',
   ADVERTISEMENT_BODY: `Ci preoccupiamo molto della tua privacy, per questo motivo vogliamo informarti delle finalità perseguite dai cookie per la pubblicità personalizzata, e farti sapere con chi stiamo condividendo le tue informazioni. Potrai inoltre definire le finalità e le terze parti con le quali accetti o meno di condividere i tuoi dati di navigazione, di posizione e i tuoi dati personali.
