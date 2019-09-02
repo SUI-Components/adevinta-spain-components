@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.24.0"></a>
+# 1.24.0 (2019-09-02)
+
+
+### Features
+
+* Add new translations and use default for italian ([b77efc2](https://github.com/SUI-Components/schibsted-spain-components/commit/b77efc2))
+* Pass down i18n object ([23005e5](https://github.com/SUI-Components/schibsted-spain-components/commit/23005e5))
+* Use translations for titles ([ea01b55](https://github.com/SUI-Components/schibsted-spain-components/commit/ea01b55))
+
+
+
 <a name="1.23.0"></a>
 # 1.23.0 (2019-08-23)
 
