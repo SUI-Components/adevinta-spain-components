@@ -12,6 +12,7 @@ export const Consents = ({
   disableAllLiteral,
   enableAllLiteral,
   features,
+  i18n,
   isVendor,
   list,
   onToggleAll,
@@ -60,6 +61,7 @@ export const Consents = ({
                 description={description}
                 featureIds={featureIds}
                 features={features}
+                i18n={i18n}
                 isVendor={isVendor}
                 legIntPurposeIds={legIntPurposeIds}
                 policyUrl={policyUrl}
@@ -80,6 +82,7 @@ Consents.propTypes = {
   features: PropTypes.array,
   disableAllLiteral: PropTypes.string,
   enableAllLiteral: PropTypes.string,
+  i18n: PropTypes.object,
   isVendor: PropTypes.bool,
   list: PropTypes.array.isRequired,
   onToggleAll: PropTypes.func.isRequired,

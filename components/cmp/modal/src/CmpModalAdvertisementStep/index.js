@@ -33,6 +33,7 @@ export const CmpModalAdvertisementStep = ({
         {...commonProps}
         consents={purposeConsents}
         key={`purposes-${consentKey}`}
+        i18n={i18n}
         list={purposes}
         title={i18n['AUTHORIZE']}
       />
@@ -42,6 +43,7 @@ export const CmpModalAdvertisementStep = ({
         isVendor
         key={`vendors-${consentKey}`}
         features={features}
+        i18n={i18n}
         list={vendors}
         purposes={purposes}
         title={i18n['FOR_THE_NEXT_PARTNERS']}
