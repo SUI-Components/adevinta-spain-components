@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.23.0"></a>
+# 1.23.0 (2019-09-10)
+
+
+### Features
+
+* add ShowLabels prop to render labels with the location name ([947ba61](https://github.com/SUI-Components/schibsted-spain-components/commit/947ba61))
+
+
+
 <a name="1.22.0"></a>
 # 1.22.0 (2019-08-14)
 
