@@ -14,9 +14,10 @@ export default class SearchMapPolygons {
 
   BASE_CLASSNAME = 'scm-map__area'
 
-  constructor({hoverStyles, onPolygonWithBounds}) {
+  constructor({hoverStyles, onPolygonWithBounds, showLabels}) {
     this.hoverStyles = hoverStyles
     this.onPolygonWithBounds = onPolygonWithBounds
+    this.showLabels = showLabels
   }
 
   removePolygonsFromMap(map) {
@@ -52,7 +53,19 @@ export default class SearchMapPolygons {
     })
 
     this._polygonList.push(polygonGeoJSon)
+
     polygonGeoJSon.addTo(map)
+
+    if (this.showLabels) {
+      polygonGeoJSon.eachLayer(function(layer) {
+        layer
+          .bindTooltip(layer.feature.properties.LocationName, {
+            permanent: true,
+            direction: 'center'
+          })
+          .openTooltip()
+      })
+    }
 
     const polygonName = polygon.properties && polygon.properties.Code
 

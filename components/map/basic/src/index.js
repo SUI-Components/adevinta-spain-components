@@ -81,6 +81,7 @@ class MapBasic extends Component {
       scrollWheelZoom: this.props.scrollWheelZoom,
       selectedMapViewMode: this.props.selectedMapViewMode,
       showHeatmap: this.props.showHeatmap,
+      showLabels: this.props.showLabels,
       showSatelliteView: this.props.showSatelliteView,
       zoom: this.props.zoom,
       zoomControl: this.props.zoomable,
@@ -242,6 +243,7 @@ MapBasic.propTypes = {
    * Whether our map should show the heat map. The usage of this prop is attached to our heatMapUrl.
    */
   showHeatmap: PropTypes.bool,
+  showLabels: PropTypes.bool,
   /**
    * Used to call setView internal function and force to show the Satellite view.
    */
@@ -319,6 +321,7 @@ MapBasic.defaultProps = {
   onSatelliteView: NO_OP,
   scrollWheelZoom: true,
   selectedMapViewMode: 0,
+  showLabels: false,
   zoom: 14,
   zoomable: false,
   zoomControlPosition: 'bottomleft'
