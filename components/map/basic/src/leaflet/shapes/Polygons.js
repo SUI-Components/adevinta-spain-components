@@ -45,13 +45,13 @@ export default class SearchMapPolygons {
             polygonGeoJSon.resetStyle(this)
 
             const tooltipElement = getTooltipElement(this)
-            tooltipElement.classList.remove('is-hover')
+            if (tooltipElement) tooltipElement.classList.remove('is-hover')
           },
           mouseover: function() {
             this.setStyle(hoverStyles)
 
             const tooltipElement = getTooltipElement(this)
-            tooltipElement.classList.add('is-hover')
+            if (tooltipElement) tooltipElement.classList.add('is-hover')
 
             if (!L.Browser.ie && !L.Browser.opera) {
               this.bringToFront()
