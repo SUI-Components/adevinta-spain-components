@@ -1,5 +1,5 @@
 const DETECTION_DELAY = 5000
-let __HANDENDLERS__ = []
+let __HANDLERS__ = {}
 
 const waitUntil = (truthyFn, callback, delay = 100, interval = 100) => {
   const intervalId = setInterval(() => {
@@ -24,37 +24,34 @@ const getSDK = () =>
       DETECTION_DELAY
     )
   })
+
 export const addActivationListener = async (
   experimentId,
   activationHandler
 ) => {
-  debugger //eslint-disable-line
-  __HANDENDLERS__ = [...__HANDENDLERS__, activationHandler]
-  document.addEventListener(
-    'at-request-succeeded' /* sdk.event.REQUEST_SUCCEEDED */,
-    function(evt) {
-      const response = evt.detail
-      console.log('Response => ', response)
-      const id = response.responseTokens['0']['experience.id']
-      __HANDENDLERS__.forEach(handler => {
-        console.log('Call handler with => ', id)
-        handler(id)
-      })
-    }
-  )
-  const sdk = await getSDK()
-  console.log(
-    'SDK =>',
-    sdk,
-    'scampId =>',
-    window.scampId,
-    'sExpId =>',
-    window.sExpId
-  )
-  __HANDENDLERS__.forEach(handler => {
-    console.log('Call handler with => ', window.sExpId)
-    handler(window.sExpId)
-  })
+  __HANDLERS__ = {
+    ...__HANDLERS__,
+    [experimentId]: [...__HANDLERS__[experimentId], activationHandler]
+  }
+
+  await getSDK()
+  __HANDLERS__[window.sCampId] &&
+    __HANDLERS__[window.sCampId].forEach(handler => {
+      console.log(
+        `Target experiement(${window.sCampId}): call handler for variant =>${
+          window.sExpId
+        }`
+      )
+      handler(window.sExpId)
+    })
 }
 
-export const removeActivationListener = () => {}
+export const removeActivationListener = (experimentId, handler) => {
+  const experiment = __HANDLERS__[experimentId]
+
+  if (!experiment) {
+    return null
+  }
+
+  __HANDLERS__[experimentId] = experiment.filter(fn => fn !== handler)
+}

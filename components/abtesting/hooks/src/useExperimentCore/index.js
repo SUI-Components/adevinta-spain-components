@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {useEffect, useState} from 'react'
 
-import {addActivationListener, removeActivationListener} from './Target'
+import {addActivationListener, removeActivationListener} from './target'
 
 export default params => {
   const {
