@@ -35,15 +35,23 @@ export default class SearchMapPolygons {
   printPolygonOnMap({fitBound, map, polygon}) {
     const {BASE_CLASSNAME, hoverStyles} = this
     const className = fitBound ? `${BASE_CLASSNAME} fitBound` : BASE_CLASSNAME
+
+    const getTooltipElement = feature => feature.getTooltip()?.getElement()
     const polygonGeoJSon = L.geoJson(polygon, {
       className,
       onEachFeature: (feature, layer) => {
         layer.on({
           mouseout: function() {
             polygonGeoJSon.resetStyle(this)
+
+            const tooltipElement = getTooltipElement(this)
+            tooltipElement.classList.remove('is-hover')
           },
           mouseover: function() {
             this.setStyle(hoverStyles)
+
+            const tooltipElement = getTooltipElement(this)
+            tooltipElement.classList.add('is-hover')
 
             if (!L.Browser.ie && !L.Browser.opera) {
               this.bringToFront()
@@ -66,7 +74,8 @@ export default class SearchMapPolygons {
           layer
             .bindTooltip(layer.feature.properties.LocationName, {
               permanent: true,
-              direction: 'center'
+              direction: 'center',
+              className: fitBound ? 'is-fit-bound' : ''
             })
             .openTooltip()
         } catch (error) {}
