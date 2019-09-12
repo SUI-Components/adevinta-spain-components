@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.25.0"></a>
+# 1.25.0 (2019-09-12)
+
+
+### Features
+
+* add extra verification ([8d35ae1](https://github.com/SUI-Components/schibsted-spain-components/commit/8d35ae1))
+* add hover and fit bound class to map basic polygon labels ([8a5efc0](https://github.com/SUI-Components/schibsted-spain-components/commit/8a5efc0))
+
+
+
 <a name="1.24.0"></a>
 # 1.24.0 (2019-09-12)
 
