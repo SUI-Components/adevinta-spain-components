@@ -30,11 +30,11 @@ export default class LeafletMap {
     this.layerManager.createMapLayers(properties)
     const mapOptions = {
       center: [properties.latitude, properties.longitude],
-      zoom: properties.zoom,
       dragging: properties.dragging,
-      zoomControl: properties.zoomControl,
       layers: [this.layerManager.layers.map[properties.selectedMapViewMode]],
-      scrollWheelZoom: properties.scrollWheelZoom
+      scrollWheelZoom: properties.scrollWheelZoom,
+      zoom: properties.zoom,
+      zoomControl: properties.zoomControl
     }
     this._map = L.map(properties.id, mapOptions)
     this.attachPropsToMapInstance(properties)
@@ -55,8 +55,19 @@ export default class LeafletMap {
     this.mapDOM = mapDOMInstance
   }
 
-  buildPolygons({hoverStyles, polygons, onPolygonWithBounds}) {
-    this.polygons = new Polygons({hoverStyles, onPolygonWithBounds})
+  buildPolygons({
+    hoverStyles,
+    onLayerClick,
+    onPolygonWithBounds,
+    polygons,
+    showLabels
+  }) {
+    this.polygons = new Polygons({
+      hoverStyles,
+      onLayerClick,
+      onPolygonWithBounds,
+      showLabels
+    })
     this.polygons.setPolygonsOnMap({map: this._map, polygons})
   }
 

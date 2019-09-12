@@ -14,9 +14,11 @@ export default class SearchMapPolygons {
 
   BASE_CLASSNAME = 'scm-map__area'
 
-  constructor({hoverStyles, onPolygonWithBounds}) {
+  constructor({hoverStyles, onLayerClick, onPolygonWithBounds, showLabels}) {
     this.hoverStyles = hoverStyles
+    this.onLayerClick = onLayerClick
     this.onPolygonWithBounds = onPolygonWithBounds
+    this.showLabels = showLabels
   }
 
   removePolygonsFromMap(map) {
@@ -46,13 +48,30 @@ export default class SearchMapPolygons {
             if (!L.Browser.ie && !L.Browser.opera) {
               this.bringToFront()
             }
-          }
+          },
+          click: this.onLayerClick
         })
       }
     })
 
     this._polygonList.push(polygonGeoJSon)
+
     polygonGeoJSon.addTo(map)
+
+    if (this.showLabels) {
+      polygonGeoJSon.eachLayer(function(layer) {
+        if (!layer?.feature?.properties?.LocationName) return
+
+        try {
+          layer
+            .bindTooltip(layer.feature.properties.LocationName, {
+              permanent: true,
+              direction: 'center'
+            })
+            .openTooltip()
+        } catch (error) {}
+      })
+    }
 
     const polygonName = polygon.properties && polygon.properties.Code
 

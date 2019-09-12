@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.12.0"></a>
+# 1.12.0 (2019-09-09)
+
+
+### Bug Fixes
+
+* prevent default behaviour of button to avoid submit ([da6e891](https://github.com/SUI-Components/schibsted-spain-components/commit/da6e891))
+
+
+### Features
+
+* more resilient approach ([77ac955](https://github.com/SUI-Components/schibsted-spain-components/commit/77ac955))
+
+
+
 <a name="1.11.0"></a>
 # 1.11.0 (2019-08-23)
 
