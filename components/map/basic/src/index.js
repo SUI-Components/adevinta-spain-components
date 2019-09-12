@@ -76,6 +76,7 @@ class MapBasic extends Component {
       mapViewModes: this.props.mapViewModes,
       maxZoom: this.props.maxZoom,
       minZoom: this.props.minZoom,
+      onLayerClick: this.props.onLayerClick,
       onPolygonWithBounds: this.props.onPolygonWithBounds,
       polygons: this.props.polygons,
       scrollWheelZoom: this.props.scrollWheelZoom,
@@ -216,6 +217,7 @@ MapBasic.propTypes = {
    * A number used to lock the min zoom or zoom out that a user can do.
    */
   minZoom: PropTypes.number,
+  onLayerClick: PropTypes.func,
   onMapClick: PropTypes.func,
   onMapDragEnd: PropTypes.func,
   onMapLoad: PropTypes.func,
@@ -308,6 +310,7 @@ MapBasic.defaultProps = {
   mapViewModes: [mapViewModes.NORMAL, mapViewModes.SATELLITE],
   maxZoom: 20,
   minZoom: 6,
+  onLayerClick: NO_OP,
   onMapClick: NO_OP,
   onMapDragEnd: NO_OP,
   onMapLoad: NO_OP,
