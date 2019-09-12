@@ -55,8 +55,19 @@ export default class LeafletMap {
     this.mapDOM = mapDOMInstance
   }
 
-  buildPolygons({hoverStyles, onPolygonWithBounds, polygons, showLabels}) {
-    this.polygons = new Polygons({hoverStyles, onPolygonWithBounds, showLabels})
+  buildPolygons({
+    hoverStyles,
+    onLayerClick,
+    onPolygonWithBounds,
+    polygons,
+    showLabels
+  }) {
+    this.polygons = new Polygons({
+      hoverStyles,
+      onLayerClick,
+      onPolygonWithBounds,
+      showLabels
+    })
     this.polygons.setPolygonsOnMap({map: this._map, polygons})
   }
 

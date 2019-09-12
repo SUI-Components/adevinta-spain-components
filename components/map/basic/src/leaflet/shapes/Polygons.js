@@ -14,8 +14,9 @@ export default class SearchMapPolygons {
 
   BASE_CLASSNAME = 'scm-map__area'
 
-  constructor({hoverStyles, onPolygonWithBounds, showLabels}) {
+  constructor({hoverStyles, onLayerClick, onPolygonWithBounds, showLabels}) {
     this.hoverStyles = hoverStyles
+    this.onLayerClick = onLayerClick
     this.onPolygonWithBounds = onPolygonWithBounds
     this.showLabels = showLabels
   }
@@ -47,7 +48,8 @@ export default class SearchMapPolygons {
             if (!L.Browser.ie && !L.Browser.opera) {
               this.bringToFront()
             }
-          }
+          },
+          click: this.onLayerClick
         })
       }
     })
@@ -58,12 +60,16 @@ export default class SearchMapPolygons {
 
     if (this.showLabels) {
       polygonGeoJSon.eachLayer(function(layer) {
-        layer
-          .bindTooltip(layer.feature.properties.LocationName, {
-            permanent: true,
-            direction: 'center'
-          })
-          .openTooltip()
+        if (!layer?.feature?.properties?.LocationName) return
+
+        try {
+          layer
+            .bindTooltip(layer.feature.properties.LocationName, {
+              permanent: true,
+              direction: 'center'
+            })
+            .openTooltip()
+        } catch (error) {}
       })
     }
 
