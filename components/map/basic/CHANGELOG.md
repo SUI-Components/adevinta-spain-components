@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.24.0"></a>
+# 1.24.0 (2019-09-12)
+
+
+### Features
+
+* add click event for polygon layers ([ca75fbc](https://github.com/SUI-Components/schibsted-spain-components/commit/ca75fbc))
+
+
+
 <a name="1.23.0"></a>
 # 1.23.0 (2019-09-10)
 
