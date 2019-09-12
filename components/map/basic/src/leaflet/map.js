@@ -56,6 +56,7 @@ export default class LeafletMap {
   }
 
   buildPolygons({
+    currentGeoCode,
     hoverStyles,
     onLayerClick,
     onPolygonWithBounds,
@@ -63,6 +64,7 @@ export default class LeafletMap {
     showLabels
   }) {
     this.polygons = new Polygons({
+      currentGeoCode,
       hoverStyles,
       onLayerClick,
       onPolygonWithBounds,

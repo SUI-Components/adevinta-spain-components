@@ -14,7 +14,14 @@ export default class SearchMapPolygons {
 
   BASE_CLASSNAME = 'scm-map__area'
 
-  constructor({hoverStyles, onLayerClick, onPolygonWithBounds, showLabels}) {
+  constructor({
+    currentGeoCode,
+    hoverStyles,
+    onLayerClick,
+    onPolygonWithBounds,
+    showLabels
+  }) {
+    this.currentGeoCode = currentGeoCode
     this.hoverStyles = hoverStyles
     this.onLayerClick = onLayerClick
     this.onPolygonWithBounds = onPolygonWithBounds
@@ -67,17 +74,24 @@ export default class SearchMapPolygons {
     polygonGeoJSon.addTo(map)
 
     if (this.showLabels) {
+      const that = this
+
       polygonGeoJSon.eachLayer(function(layer) {
-        if (!layer?.feature?.properties?.LocationName) return
+        if (
+          !layer?.feature?.properties?.LocationName ||
+          !layer?.feature?.properties?.Code
+        )
+          return
 
         try {
-          layer
-            .bindTooltip(layer.feature.properties.LocationName, {
-              permanent: true,
-              direction: 'center',
-              className: fitBound ? 'is-fit-bound' : ''
-            })
-            .openTooltip()
+          that.currentGeoCode !== layer.feature.properties.Code &&
+            layer
+              .bindTooltip(layer.feature.properties.LocationName, {
+                permanent: true,
+                direction: 'center',
+                className: fitBound ? 'is-fit-bound' : ''
+              })
+              .openTooltip()
         } catch (error) {}
       })
     }
