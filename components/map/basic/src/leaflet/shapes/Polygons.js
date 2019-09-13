@@ -84,9 +84,11 @@ export default class SearchMapPolygons {
           return
 
         try {
-          that.currentGeoCode !== layer.feature.properties.Code &&
+          const {Code, LocationName} = layer.feature.properties
+
+          that.currentGeoCode !== Code &&
             layer
-              .bindTooltip(layer.feature.properties.LocationName, {
+              .bindTooltip(LocationName, {
                 permanent: true,
                 direction: 'center',
                 className: fitBound ? 'is-fit-bound' : ''
