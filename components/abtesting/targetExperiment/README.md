@@ -7,14 +7,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-abtesting-target-experiment --save
+$ npm install @s-ui/abtesting-target-x --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import AbtestingTargetExperiment from '@schibstedspain/sui-abtesting-target-experiment'
+import AbtestingTargetExperiment from '@s-ui/abtesting-target-x'
 
 return (<AbtestingTargetExperiment />)
 ```
