@@ -9,7 +9,7 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/abtesting-optimizely-x": "1",
+    "@s-ui/abtesting-target-x": "1",
     "@s-ui/component-dependencies": "1"
   },
   "keywords": [],
