@@ -35,14 +35,15 @@ export const addActivationListener = async (
   }
 
   await getSDK()
-  __HANDLERS__[window.sCampId] &&
-    __HANDLERS__[window.sCampId].forEach(handler => {
+
+  __HANDLERS__[window.sExperimentId] &&
+    __HANDLERS__[window.sExperimentId].forEach(handler => {
+      typeof handler === 'function' && handler(window.sVariantId)
       console.log(
-        `Target experiement(${window.sCampId}): call handler for variant =>${
-          window.sExpId
-        }`
+        `Target experiement(${
+          window.sExperimentId
+        }): called handler for variant => ${window.sVariantId}`
       )
-      handler(window.sExpId)
     })
 }
 
