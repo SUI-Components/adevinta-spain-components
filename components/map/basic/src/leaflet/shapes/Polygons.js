@@ -43,7 +43,10 @@ export default class SearchMapPolygons {
     const {BASE_CLASSNAME, hoverStyles} = this
     const className = fitBound ? `${BASE_CLASSNAME} fitBound` : BASE_CLASSNAME
 
+    const that = this
+
     const getTooltipElement = feature => feature.getTooltip()?.getElement()
+
     const polygonGeoJSon = L.geoJson(polygon, {
       className,
       onEachFeature: (feature, layer) => {
@@ -64,7 +67,15 @@ export default class SearchMapPolygons {
               this.bringToFront()
             }
           },
-          click: this.onLayerClick
+          click: function(event) {
+            if (!layer?.feature?.properties?.Code) return
+
+            const {Code} = layer.feature.properties
+
+            return that.currentGeoCode !== Code
+              ? that.onLayerClick(event)
+              : () => {}
+          }
         })
       }
     })
@@ -74,8 +85,6 @@ export default class SearchMapPolygons {
     polygonGeoJSon.addTo(map)
 
     if (this.showLabels) {
-      const that = this
-
       polygonGeoJSon.eachLayer(function(layer) {
         if (
           !layer?.feature?.properties?.LocationName ||
