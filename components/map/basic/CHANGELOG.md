@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.26.0"></a>
+# 1.26.0 (2019-09-16)
+
+
+### Features
+
+* destructuring ([22db62c](https://github.com/SUI-Components/schibsted-spain-components/commit/22db62c))
+* do not show label to our current location ([f997b55](https://github.com/SUI-Components/schibsted-spain-components/commit/f997b55))
+
+
+
+<a name="1.25.0"></a>
+# 1.25.0 (2019-09-12)
+
+
+### Features
+
+* add extra verification ([8d35ae1](https://github.com/SUI-Components/schibsted-spain-components/commit/8d35ae1))
+* add hover and fit bound class to map basic polygon labels ([8a5efc0](https://github.com/SUI-Components/schibsted-spain-components/commit/8a5efc0))
+
+
+
 <a name="1.24.0"></a>
 # 1.24.0 (2019-09-12)
 
