@@ -62,6 +62,7 @@ class MapBasic extends Component {
       appCode: this.props.appCode,
       appId: this.props.appId,
       attribution: this.props.attribution,
+      currentGeoCode: this.props.currentGeoCode,
       dragging: this.props.isInteractable,
       enableViewMenu: this.props.enableViewMenu,
       heatMapUrl: this.props.heatMapUrl,
@@ -184,6 +185,7 @@ MapBasic.propTypes = {
    * An array composed by lat and lng like: [lat, lng]
    */
   center: PropTypes.array,
+  currentGeoCode: PropTypes.string,
   /**
    * Heat map url is the source where we are going to get the heatMap layers
    */
@@ -304,6 +306,7 @@ MapBasic.defaultProps = {
   attribution:
     'Map &copy; 1987-2017 <a href="http://developer.here.com">HERE</a>',
   center: [40.00237, -3.99902],
+  currentGeoCode: '',
   id: 'map-container',
   isInteractable: true,
   language: mapLanguages.ENGLISH,
