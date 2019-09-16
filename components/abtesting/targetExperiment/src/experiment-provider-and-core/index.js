@@ -14,7 +14,6 @@ function ExperimentProviderAndCore(props) {
     (deps && deps.useExperimentCore) || useExperimentCoreFromPackage
 
   const experimentParams = experimentPropsMapper(props)
-  debugger // eslint-disable-line
   const {experimentData: experimentDataFromCore} = useExperimentCore(
     experimentParams
   )
