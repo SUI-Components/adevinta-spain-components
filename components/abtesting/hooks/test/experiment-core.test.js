@@ -9,7 +9,7 @@ import {useExperiment as useExperimentRaw, useExperimentCore} from '../src'
 
 import AbTestOptimizelyXExperiment, {
   ExperimentContext
-} from '../../optimizelyXExperiment/src'
+} from '../../targetExperiment/src'
 
 // configure tests
 Enzyme.configure({adapter: new Adapter()})
