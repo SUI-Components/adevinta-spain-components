@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.27.0"></a>
+# 1.27.0 (2019-09-17)
+
+
+### Bug Fixes
+
+* remove a new search on click the current zone ([4ad3880](https://github.com/SUI-Components/schibsted-spain-components/commit/4ad3880))
+
+
+
 <a name="1.26.0"></a>
 # 1.26.0 (2019-09-16)
 
