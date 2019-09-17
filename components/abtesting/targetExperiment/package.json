@@ -1,0 +1,20 @@
+{
+  "name": "@s-ui/abtesting-target-x",
+  "version": "1.0.0-beta.2",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "npx rimraf ./lib && npx mkdirp ./lib && npm run build:js && npm run build:styles",
+    "build:js": "../../../node_modules/.bin/babel --presets sui ./src --out-dir ./lib",
+    "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
+  },
+  "dependencies": {
+    "@s-ui/component-dependencies": "1",
+    "@s-ui/abtesting-hooks": "beta",
+    "@s-ui/abtesting-toggle": "1",
+    "@s-ui/js": "2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
