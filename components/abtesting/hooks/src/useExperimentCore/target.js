@@ -12,7 +12,7 @@ const waitUntil = (truthyFn, callback, delay = 100, interval = 100) => {
   }, interval)
 }
 
-const getTarget = () => window && window.adobe && window.adobe.target
+const getTarget = () => window && window.sExperimentId && window.sVariantId && window.adobe && window.adobe.target
 
 const getSDK = () =>
   new Promise(resolve => {
