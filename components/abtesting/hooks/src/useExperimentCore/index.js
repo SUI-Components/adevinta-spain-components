@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {useEffect, useState} from 'react'
 
-import {addActivationListener, removeActivationListener} from './target'
+import OptimizelyX from './optimizely-x'
 
 export default params => {
   const {
@@ -122,7 +122,7 @@ export default params => {
       }
     }
 
-    addActivationListener(experimentId, activationHandler)
+    OptimizelyX.addActivationListener(experimentId, activationHandler)
 
     return () => {
       if (
@@ -131,7 +131,7 @@ export default params => {
       ) {
         return
       }
-      removeActivationListener(experimentId, activationHandler)
+      OptimizelyX.removeActivationListener(experimentId, activationHandler)
     }
   }, [])
 
