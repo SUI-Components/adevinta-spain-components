@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2019-09-19)
+
+
+### Features
+
+* change global vars for Target ([9ca0d2a](https://github.com/SUI-Components/schibsted-spain-components/commit/9ca0d2a))
+* handlers by experimentsID ([f0421fd](https://github.com/SUI-Components/schibsted-spain-components/commit/f0421fd))
+* import ExperimentContext from the new target package ([ca4132a](https://github.com/SUI-Components/schibsted-spain-components/commit/ca4132a))
+* replace Optimizely by Target ([7dce3b0](https://github.com/SUI-Components/schibsted-spain-components/commit/7dce3b0))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2019-08-05)
 
