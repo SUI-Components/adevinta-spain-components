@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.13.0"></a>
+# 1.13.0 (2019-09-19)
+
+
+### Bug Fixes
+
+* iE11 styles ([aae6625](https://github.com/SUI-Components/schibsted-spain-components/commit/aae6625))
+
+
+
 <a name="1.12.0"></a>
 # 1.12.0 (2019-09-09)
 
