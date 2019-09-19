@@ -29,8 +29,8 @@ export default function CmpUiContainer({
   const [showPartners, setShowPartners] = useState(false)
   const containerDOMEl = useRef()
 
-  const _handleAccept = async e => {
-    e.preventDefault()
+  const _handleAccept = async evt => {
+    evt && evt.preventDefault()
 
     const {
       purposeConsents,
