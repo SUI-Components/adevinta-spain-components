@@ -16,7 +16,7 @@
     "phoenix:ci": "sui-mono run-parallel npm install && (cd demo && sui-mono run-parallel npm install)",
     "precommit": "sui-precommit run",
     "start": "sui-studio start",
-    "test": "jest"
+    "test": "true"
   },
   "repository": {},
   "keywords": [],
