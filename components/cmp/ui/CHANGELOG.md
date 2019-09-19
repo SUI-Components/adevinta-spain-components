@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.14.0"></a>
+# 1.14.0 (2019-09-19)
+
+
+### Bug Fixes
+
+* evt not always available ([c08ccf4](https://github.com/SUI-Components/schibsted-spain-components/commit/c08ccf4))
+
+
+
 <a name="1.13.0"></a>
 # 1.13.0 (2019-09-19)
 
