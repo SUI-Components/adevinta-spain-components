@@ -5,6 +5,7 @@
 
 $bgc-cmp-ui: #fff !default;
 
+$ta-cmp-ui-content: left !default;
 $fz-cmp-ui-text-mobile: $fz-xs !default;
 $fz-cmp-ui-text-desktop: $fz-m !default;
 
@@ -55,6 +56,7 @@ $fz-cmp-ui-text-desktop: $fz-m !default;
   &-content {
     display: flex;
     flex-direction: column;
+    text-align: $ta-cmp-ui-content;
     @include media-breakpoint-up(s) {
       flex-direction: row;
       max-width: 1220px;
