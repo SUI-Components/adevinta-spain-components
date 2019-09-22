@@ -7,6 +7,7 @@ $fz-sui-cmp-modal-inner: $fz-m !default;
 $w-sui-cmp-modal-logo: 150px !default;
 $maw-sui-cmp-modal-logo: 150px !default;
 $mah-sui-cmp-modal-logo: 40px !default;
+$ta-sui-cmp-modal-content: left !default;
 
 .sui-CmpModal {
   align-items: center;
@@ -64,6 +65,7 @@ $mah-sui-cmp-modal-logo: 40px !default;
     min-width: 320px;
     overflow: hidden;
     position: relative;
+    text-align: $ta-sui-cmp-modal-content;
     width: 100%;
     will-change: visibility, opacity;
   }
