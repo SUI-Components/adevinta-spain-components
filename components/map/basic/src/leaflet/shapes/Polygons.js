@@ -130,7 +130,7 @@ export default class SearchMapPolygons {
       polygons = [polygons]
     }
 
-    polygons.forEach(polygon => {
+    polygons.forEach((polygon = {}) => {
       const {fitBound = true} = polygon
 
       if (fitBound) {
