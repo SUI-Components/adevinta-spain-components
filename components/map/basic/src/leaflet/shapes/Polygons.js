@@ -48,6 +48,7 @@ export default class SearchMapPolygons {
     const getTooltipElement = feature => feature.getTooltip()?.getElement()
 
     const polygonGeoJSon = L.geoJson(polygon, {
+      isBrother: polygon.isBrother,
       className,
       onEachFeature: (feature, layer) => {
         layer.on({
@@ -143,6 +144,6 @@ export default class SearchMapPolygons {
 
     this.onPolygonWithBounds({bounds, map})
 
-    return true
+    return this._polygonList
   }
 }

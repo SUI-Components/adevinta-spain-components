@@ -70,7 +70,8 @@ export default class LeafletMap {
       onPolygonWithBounds,
       showLabels
     })
-    this.polygons.setPolygonsOnMap({map: this._map, polygons})
+    const geoJSON = this.polygons.setPolygonsOnMap({map: this._map, polygons})
+    this.layerManager.addLayersToGroup(geoJSON, 'geoJSON')
   }
 
   createMarkerManager(mapId) {
@@ -162,7 +163,123 @@ export default class LeafletMap {
     }
   }
 
+  pnpoly(x, y, coords) {
+    const vert = [[0, 0]]
+
+    for (let i = 0; i < coords.length; i++) {
+      for (let j = 0; j < coords[i].length; j++) {
+        vert.push(coords[i][j])
+      }
+      vert.push(coords[i][0])
+      vert.push([0, 0])
+    }
+
+    let inside = false
+    for (let i = 0, j = vert.length - 1; i < vert.length; j = i++) {
+      if (
+        vert[i][0] > y !== vert[j][0] > y &&
+        x <
+          ((vert[j][1] - vert[i][1]) * (y - vert[i][0])) /
+            (vert[j][0] - vert[i][0]) +
+            vert[i][1]
+      )
+        inside = !inside
+    }
+
+    return inside
+  }
+
+  pointInBoundingBox(point, bounds) {
+    return !(
+      point.coordinates[1] < bounds[0][0] ||
+      point.coordinates[1] > bounds[1][0] ||
+      point.coordinates[0] < bounds[0][1] ||
+      point.coordinates[0] > bounds[1][1]
+    )
+  }
+
+  boundingBoxAroundPolyCoords(coords) {
+    let xAll = []
+    let yAll = []
+
+    for (let i = 0; i < coords[0].length; i++) {
+      xAll.push(coords[0][i][1])
+      yAll.push(coords[0][i][0])
+    }
+
+    xAll = xAll.sort(function(a, b) {
+      return a - b
+    })
+    yAll = yAll.sort(function(a, b) {
+      return a - b
+    })
+
+    return [[xAll[0], yAll[0]], [xAll[xAll.length - 1], yAll[yAll.length - 1]]]
+  }
+
+  isPoly(l) {
+    return (
+      l.feature &&
+      l.feature.geometry &&
+      l.feature.geometry.type &&
+      ['Polygon', 'MultiPolygon'].indexOf(l.feature.geometry.type) !== -1
+    )
+  }
+
+  pointInPolygon(p, poly) {
+    let insidePoly = false
+    const coordinates = poly.coordinates
+    if (coordinates[0] && coordinates[0][0]) {
+      const coords = poly.type === 'Polygon' ? [coordinates] : poly.coordinates
+      let insideBox = false
+      for (let i = 0; i < coords.length; i++) {
+        if (
+          this.pointInBoundingBox(
+            p,
+            this.boundingBoxAroundPolyCoords(coords[i])
+          )
+        )
+          insideBox = true
+      }
+      if (!insideBox) return false
+
+      for (let i = 0; i < coords.length; i++) {
+        if (this.pnpoly(p.coordinates[1], p.coordinates[0], coords[i]))
+          insidePoly = true
+      }
+    }
+
+    return insidePoly
+  }
+
   subscribeToLeafletMapEvents() {
+    const pointInPolygon = (p, poly) => this.pointInPolygon(p, poly)
+    const isPoly = layer => this.isPoly(layer)
+    this._map.on('mousemove', ({latlng}) => {
+      const geoJSON = this.layerManager.getLayers(
+        this.layerManager.layers.geoJSON
+      )
+      geoJSON.forEach((item, index) => {
+        const point = {coordinates: [latlng.lng, latlng.lat], type: 'Point'}
+        item.eachLayer(layer => {
+          const {_path: path = {}} = layer
+          const {classList} = path
+          classList && classList.remove('re-Mappage-polygon-hover')
+          classList && classList.remove('re-Mappage-polygonUncle-hover')
+          if (
+            isPoly(layer) &&
+            pointInPolygon(point, layer.toGeoJSON().geometry)
+          ) {
+            classList &&
+              classList.add(
+                !item.options.isBrother
+                  ? 're-Mappage-polygon-hover'
+                  : 're-Mappage-polygonUncle-hover'
+              )
+          }
+        })
+      })
+    })
     this._map.on('load', e => {
       this.dispatchCustomEvent({
         eventName: 'leaflet_map_load',
