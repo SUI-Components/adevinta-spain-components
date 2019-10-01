@@ -185,7 +185,7 @@ MapBasic.propTypes = {
    * An array composed by lat and lng like: [lat, lng]
    */
   center: PropTypes.array,
-  currentGeoCode: PropTypes.string,
+  currentGeoCode: PropTypes.arrayOf(PropTypes.string),
   /**
    * Heat map url is the source where we are going to get the heatMap layers
    */
@@ -306,7 +306,7 @@ MapBasic.defaultProps = {
   attribution:
     'Map &copy; 1987-2017 <a href="http://developer.here.com">HERE</a>',
   center: [40.00237, -3.99902],
-  currentGeoCode: '',
+  currentGeoCode: [],
   id: 'map-container',
   isInteractable: true,
   language: mapLanguages.ENGLISH,

@@ -73,7 +73,7 @@ export default class SearchMapPolygons {
 
             const {Code} = layer.feature.properties
 
-            return that.currentGeoCode !== Code
+            return !that.currentGeoCode.includes(Code)
               ? that.onLayerClick(event)
               : () => {}
           }
@@ -96,7 +96,7 @@ export default class SearchMapPolygons {
         try {
           const {Code, LocationName} = layer.feature.properties
 
-          that.currentGeoCode !== Code &&
+          !that.currentGeoCode.includes(Code) &&
             layer
               .bindTooltip(LocationName, {
                 permanent: true,
