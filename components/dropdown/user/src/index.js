@@ -96,7 +96,7 @@ class DropdownUser extends Component {
         </div>
         <div className="sui-DropdownUserMenu-wrap">
           <div className="sui-DropdownUserMenu">
-            <ul className={'sui-DropdownUserMenu-list'}>
+            <ul className="sui-DropdownUserMenu-list">
               {menu.map(this._renderLink)}
             </ul>
           </div>
