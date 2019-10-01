@@ -13,6 +13,7 @@ export default class SearchMapPolygons {
   SPAIN_POLYGON_NAME = 'geom_724_0_0_0_0_0_0_0_0'
 
   BASE_CLASSNAME = 'scm-map__area'
+  HOVER_CLASSNAME = 'is-hover'
 
   constructor({
     currentGeoCode,
@@ -51,17 +52,42 @@ export default class SearchMapPolygons {
       className,
       onEachFeature: (feature, layer) => {
         layer.on({
-          mouseout: function() {
+          mouseout: function(e) {
+            const {originalEvent} = e
+            // get the element we're entering now
+            const elementAfterOut = document.elementFromPoint(
+              originalEvent.clientX,
+              originalEvent.clientY
+            )
+
+            if (elementAfterOut) {
+              // if the element is a marker, avoid removing the hover class
+              if (!elementAfterOut.classList.contains('leaflet-marker-icon')) {
+                originalEvent.target.classList.remove(this.HOVER_CLASSNAME)
+              }
+            }
+
             polygonGeoJSon.resetStyle(this)
-
             const tooltipElement = getTooltipElement(this)
-            if (tooltipElement) tooltipElement.classList.remove('is-hover')
+            if (tooltipElement)
+              tooltipElement.classList.remove(this.HOVER_CLASSNAME)
           },
-          mouseover: function() {
+          mouseover: function(e) {
             this.setStyle(hoverStyles)
+            // remove previous hovered polygons
+            const polygonWithHover = document.querySelector(
+              `.${this.HOVER_CLASSNAME}`
+            )
+            // if there's a previous polygon, remove the hover class
+            polygonWithHover &&
+              polygonWithHover.classList.remove(this.HOVER_CLASSNAME)
+
+            // add the hover classname to the new polygon
+            e.originalEvent.target.classList.add(this.HOVER_CLASSNAME)
 
             const tooltipElement = getTooltipElement(this)
-            if (tooltipElement) tooltipElement.classList.add('is-hover')
+            if (tooltipElement)
+              tooltipElement.classList.add(this.HOVER_CLASSNAME)
 
             if (!L.Browser.ie && !L.Browser.opera) {
               this.bringToFront()
