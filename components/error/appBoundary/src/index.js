@@ -1,4 +1,4 @@
-import React, {Component, Fragment, Suspense} from 'react'
+import React, {Component, Suspense} from 'react'
 import PropTypes from 'prop-types'
 import MoleculeNotification from '@s-ui/react-molecule-notification'
 
@@ -44,7 +44,7 @@ class ErrorAppBoundary extends Component {
     const {buttonLabel, children, message, silent} = this.props
 
     return (
-      <Fragment>
+      <>
         {children}
         {this.state.hasError && !silent && (
           <div className="sui-ErrorAppBoundary-notification">
@@ -66,7 +66,7 @@ class ErrorAppBoundary extends Component {
             </Suspense>
           </div>
         )}
-      </Fragment>
+      </>
     )
   }
 }
