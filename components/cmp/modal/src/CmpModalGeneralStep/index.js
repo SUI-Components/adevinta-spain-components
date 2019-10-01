@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import {CLASS} from '../settings'
@@ -16,48 +16,48 @@ const CmpModalGeneralBoxReadMore = ({i18n, privacyUrl}) => (
     className={`${CLASS}-boxLink`}
     href={privacyUrl}
     target="_blank"
-    rel="noopener"
+    rel="noopener noreferrer"
   >
-    {i18n['READ_MORE']}
+    {i18n.READ_MORE}
   </a>
 )
 
 export const CmpModalGeneralStep = ({i18n, onOpenAdsStep, privacyUrl}) => {
   return (
-    <Fragment>
-      <h2 className={`${CLASS}-title`}>{i18n['TITLE']}</h2>
-      <p>{i18n['BODY']}</p>
+    <>
+      <h2 className={`${CLASS}-title`}>{i18n.TITLE}</h2>
+      <p>{i18n.BODY}</p>
 
       <CmpModalGeneralBox
-        title={i18n['COOKIES_SESSION']}
-        description={i18n['COOKIES_SESSION_DESC']}
+        title={i18n.COOKIES_SESSION}
+        description={i18n.COOKIES_SESSION_DESC}
       >
         <CmpModalGeneralBoxReadMore i18n={i18n} privacyUrl={privacyUrl} />
       </CmpModalGeneralBox>
 
       <CmpModalGeneralBox
-        title={i18n['COOKIES_ANALYTICS']}
-        description={i18n['COOKIES_ANALYTICS_DESC']}
+        title={i18n.COOKIES_ANALYTICS}
+        description={i18n.COOKIES_ANALYTICS_DESC}
       >
         <CmpModalGeneralBoxReadMore i18n={i18n} privacyUrl={privacyUrl} />
       </CmpModalGeneralBox>
 
       <CmpModalGeneralBox
-        title={i18n['COOKIES_MARKETING']}
-        description={i18n['COOKIES_MARKETING_DESC']}
+        title={i18n.COOKIES_MARKETING}
+        description={i18n.COOKIES_MARKETING_DESC}
       >
         <CmpModalGeneralBoxReadMore i18n={i18n} privacyUrl={privacyUrl} />
       </CmpModalGeneralBox>
 
       <CmpModalGeneralBox
-        title={i18n['COOKIES_ADS']}
-        description={i18n['COOKIES_ADS_DESC']}
+        title={i18n.COOKIES_ADS}
+        description={i18n.COOKIES_ADS_DESC}
       >
         <a className={`${CLASS}-boxLink`} href="#" onClick={onOpenAdsStep}>
-          {i18n['PERSONALIZE']}
+          {i18n.PERSONALIZE}
         </a>
       </CmpModalGeneralBox>
-    </Fragment>
+    </>
   )
 }
 

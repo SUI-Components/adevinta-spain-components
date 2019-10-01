@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import {CLASS} from '../settings'
@@ -15,8 +15,8 @@ export const CmpModalAdvertisementStep = ({
   vendorConsents,
   vendors
 }) => {
-  const enableAllLiteral = i18n['ENABLE_ALL']
-  const disableAllLiteral = i18n['DISABLE_ALL']
+  const enableAllLiteral = i18n.ENABLE_ALL
+  const disableAllLiteral = i18n.DISABLE_ALL
 
   const commonProps = {
     disableAllLiteral,
@@ -26,16 +26,16 @@ export const CmpModalAdvertisementStep = ({
   }
 
   return (
-    <Fragment>
-      <h2 className={`${CLASS}-title`}>{i18n['ADVERTISEMENT_TITLE']}</h2>
-      <p>{i18n['ADVERTISEMENT_BODY']}</p>
+    <>
+      <h2 className={`${CLASS}-title`}>{i18n.ADVERTISEMENT_TITLE}</h2>
+      <p>{i18n.ADVERTISEMENT_BODY}</p>
       <Consents
         {...commonProps}
         consents={purposeConsents}
         key={`purposes-${consentKey}`}
         i18n={i18n}
         list={purposes}
-        title={i18n['AUTHORIZE']}
+        title={i18n.AUTHORIZE}
       />
       <Consents
         {...commonProps}
@@ -46,9 +46,9 @@ export const CmpModalAdvertisementStep = ({
         i18n={i18n}
         list={vendors}
         purposes={purposes}
-        title={i18n['FOR_THE_NEXT_PARTNERS']}
+        title={i18n.FOR_THE_NEXT_PARTNERS}
       />
-    </Fragment>
+    </>
   )
 }
 

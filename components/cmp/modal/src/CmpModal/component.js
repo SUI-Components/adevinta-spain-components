@@ -59,12 +59,12 @@ export function CmpModal({
         <footer className={`${CLASS}-footer`}>
           {step === STEPS.ADVERTISEMENT && (
             <Button onClick={onBack} type="tertiary" size="small">
-              {i18n['BACK']}
+              {i18n.BACK}
             </Button>
           )}
 
           <Button disabled={fetchingPurposes} onClick={onAccept} type="primary">
-            {i18n['ACCEPT']}
+            {i18n.ACCEPT}
           </Button>
         </footer>
       </div>

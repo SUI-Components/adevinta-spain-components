@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 const Section = ({title, data, ids}) => {
@@ -15,10 +15,10 @@ const Section = ({title, data, ids}) => {
   if (content.length === 0) return null
 
   return (
-    <Fragment>
+    <>
       <h3>{title}</h3>
       {content}
-    </Fragment>
+    </>
   )
 }
 
@@ -42,19 +42,19 @@ export const ConsentDescription = ({
   if (!isVendor) return description
 
   return (
-    <Fragment>
+    <>
       <p>
-        <strong>{i18n['POLICY_PRIVACY']}</strong>:<br />
+        <strong>{i18n.POLICY_PRIVACY}</strong>:<br />
         <a href={policyUrl}>{policyUrl}</a>
       </p>
-      <Section title={i18n['PURPOSES']} data={purposes} ids={purposeIds} />
+      <Section title={i18n.PURPOSES} data={purposes} ids={purposeIds} />
       <Section
-        title={i18n['LEGITIMATE_INTEREST_FOR']}
+        title={i18n.LEGITIMATE_INTEREST_FOR}
         data={purposes}
         ids={legIntPurposeIds}
       />
-      <Section title={i18n['FEATURES']} data={features} ids={featureIds} />
-    </Fragment>
+      <Section title={i18n.FEATURES} data={features} ids={featureIds} />
+    </>
   )
 }
 
