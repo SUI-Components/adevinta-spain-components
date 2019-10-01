@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.15.0"></a>
+# 1.15.0 (2019-09-22)
+
+
+### Features
+
+* set text-align: center to sui-CmpUi-content ([#127](https://github.com/SUI-Components/schibsted-spain-components/issues/127)) ([d6309dd](https://github.com/SUI-Components/schibsted-spain-components/commit/d6309dd))
+
+
+
+<a name="1.14.0"></a>
+# 1.14.0 (2019-09-19)
+
+
+### Bug Fixes
+
+* evt not always available ([c08ccf4](https://github.com/SUI-Components/schibsted-spain-components/commit/c08ccf4))
+
+
+
+<a name="1.13.0"></a>
+# 1.13.0 (2019-09-19)
+
+
+### Bug Fixes
+
+* iE11 styles ([aae6625](https://github.com/SUI-Components/schibsted-spain-components/commit/aae6625))
+
+
+
 <a name="1.12.0"></a>
 # 1.12.0 (2019-09-09)
 

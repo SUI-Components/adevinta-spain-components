@@ -55,7 +55,10 @@ class ModalBasic extends Component {
   }
 
   _toggleWindowScroll(disableScroll) {
-    window.document.body.classList.toggle(CLASS_MODAL_OPEN, disableScroll)
+    const {classList} = window.document.body
+    disableScroll
+      ? classList.add(CLASS_MODAL_OPEN)
+      : classList.remove(CLASS_MODAL_OPEN)
   }
 
   _handleCloseClick = () => {

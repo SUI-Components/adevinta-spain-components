@@ -2,6 +2,58 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.27.0"></a>
+# 1.27.0 (2019-09-17)
+
+
+### Bug Fixes
+
+* remove a new search on click the current zone ([4ad3880](https://github.com/SUI-Components/schibsted-spain-components/commit/4ad3880))
+
+
+
+<a name="1.26.0"></a>
+# 1.26.0 (2019-09-16)
+
+
+### Features
+
+* destructuring ([22db62c](https://github.com/SUI-Components/schibsted-spain-components/commit/22db62c))
+* do not show label to our current location ([f997b55](https://github.com/SUI-Components/schibsted-spain-components/commit/f997b55))
+
+
+
+<a name="1.25.0"></a>
+# 1.25.0 (2019-09-12)
+
+
+### Features
+
+* add extra verification ([8d35ae1](https://github.com/SUI-Components/schibsted-spain-components/commit/8d35ae1))
+* add hover and fit bound class to map basic polygon labels ([8a5efc0](https://github.com/SUI-Components/schibsted-spain-components/commit/8a5efc0))
+
+
+
+<a name="1.24.0"></a>
+# 1.24.0 (2019-09-12)
+
+
+### Features
+
+* add click event for polygon layers ([ca75fbc](https://github.com/SUI-Components/schibsted-spain-components/commit/ca75fbc))
+
+
+
+<a name="1.23.0"></a>
+# 1.23.0 (2019-09-10)
+
+
+### Features
+
+* add ShowLabels prop to render labels with the location name ([947ba61](https://github.com/SUI-Components/schibsted-spain-components/commit/947ba61))
+
+
+
 <a name="1.22.0"></a>
 # 1.22.0 (2019-08-14)
 

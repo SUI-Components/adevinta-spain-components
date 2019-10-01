@@ -14,9 +14,18 @@ export default class SearchMapPolygons {
 
   BASE_CLASSNAME = 'scm-map__area'
 
-  constructor({hoverStyles, onPolygonWithBounds}) {
+  constructor({
+    currentGeoCode,
+    hoverStyles,
+    onLayerClick,
+    onPolygonWithBounds,
+    showLabels
+  }) {
+    this.currentGeoCode = currentGeoCode
     this.hoverStyles = hoverStyles
+    this.onLayerClick = onLayerClick
     this.onPolygonWithBounds = onPolygonWithBounds
+    this.showLabels = showLabels
   }
 
   removePolygonsFromMap(map) {
@@ -33,26 +42,70 @@ export default class SearchMapPolygons {
   printPolygonOnMap({fitBound, map, polygon}) {
     const {BASE_CLASSNAME, hoverStyles} = this
     const className = fitBound ? `${BASE_CLASSNAME} fitBound` : BASE_CLASSNAME
+
+    const that = this
+
+    const getTooltipElement = feature => feature.getTooltip()?.getElement()
+
     const polygonGeoJSon = L.geoJson(polygon, {
       className,
       onEachFeature: (feature, layer) => {
         layer.on({
           mouseout: function() {
             polygonGeoJSon.resetStyle(this)
+
+            const tooltipElement = getTooltipElement(this)
+            if (tooltipElement) tooltipElement.classList.remove('is-hover')
           },
           mouseover: function() {
             this.setStyle(hoverStyles)
 
+            const tooltipElement = getTooltipElement(this)
+            if (tooltipElement) tooltipElement.classList.add('is-hover')
+
             if (!L.Browser.ie && !L.Browser.opera) {
               this.bringToFront()
             }
+          },
+          click: function(event) {
+            if (!layer?.feature?.properties?.Code) return
+
+            const {Code} = layer.feature.properties
+
+            return that.currentGeoCode !== Code
+              ? that.onLayerClick(event)
+              : () => {}
           }
         })
       }
     })
 
     this._polygonList.push(polygonGeoJSon)
+
     polygonGeoJSon.addTo(map)
+
+    if (this.showLabels) {
+      polygonGeoJSon.eachLayer(function(layer) {
+        if (
+          !layer?.feature?.properties?.LocationName ||
+          !layer?.feature?.properties?.Code
+        )
+          return
+
+        try {
+          const {Code, LocationName} = layer.feature.properties
+
+          that.currentGeoCode !== Code &&
+            layer
+              .bindTooltip(LocationName, {
+                permanent: true,
+                direction: 'center',
+                className: fitBound ? 'is-fit-bound' : ''
+              })
+              .openTooltip()
+        } catch (error) {}
+      })
+    }
 
     const polygonName = polygon.properties && polygon.properties.Code
 

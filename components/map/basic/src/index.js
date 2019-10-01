@@ -62,6 +62,7 @@ class MapBasic extends Component {
       appCode: this.props.appCode,
       appId: this.props.appId,
       attribution: this.props.attribution,
+      currentGeoCode: this.props.currentGeoCode,
       dragging: this.props.isInteractable,
       enableViewMenu: this.props.enableViewMenu,
       heatMapUrl: this.props.heatMapUrl,
@@ -76,11 +77,13 @@ class MapBasic extends Component {
       mapViewModes: this.props.mapViewModes,
       maxZoom: this.props.maxZoom,
       minZoom: this.props.minZoom,
+      onLayerClick: this.props.onLayerClick,
       onPolygonWithBounds: this.props.onPolygonWithBounds,
       polygons: this.props.polygons,
       scrollWheelZoom: this.props.scrollWheelZoom,
       selectedMapViewMode: this.props.selectedMapViewMode,
       showHeatmap: this.props.showHeatmap,
+      showLabels: this.props.showLabels,
       showSatelliteView: this.props.showSatelliteView,
       zoom: this.props.zoom,
       zoomControl: this.props.zoomable,
@@ -182,6 +185,7 @@ MapBasic.propTypes = {
    * An array composed by lat and lng like: [lat, lng]
    */
   center: PropTypes.array,
+  currentGeoCode: PropTypes.string,
   /**
    * Heat map url is the source where we are going to get the heatMap layers
    */
@@ -215,6 +219,7 @@ MapBasic.propTypes = {
    * A number used to lock the min zoom or zoom out that a user can do.
    */
   minZoom: PropTypes.number,
+  onLayerClick: PropTypes.func,
   onMapClick: PropTypes.func,
   onMapDragEnd: PropTypes.func,
   onMapLoad: PropTypes.func,
@@ -242,6 +247,7 @@ MapBasic.propTypes = {
    * Whether our map should show the heat map. The usage of this prop is attached to our heatMapUrl.
    */
   showHeatmap: PropTypes.bool,
+  showLabels: PropTypes.bool,
   /**
    * Used to call setView internal function and force to show the Satellite view.
    */
@@ -300,12 +306,14 @@ MapBasic.defaultProps = {
   attribution:
     'Map &copy; 1987-2017 <a href="http://developer.here.com">HERE</a>',
   center: [40.00237, -3.99902],
+  currentGeoCode: '',
   id: 'map-container',
   isInteractable: true,
   language: mapLanguages.ENGLISH,
   mapViewModes: [mapViewModes.NORMAL, mapViewModes.SATELLITE],
   maxZoom: 20,
   minZoom: 6,
+  onLayerClick: NO_OP,
   onMapClick: NO_OP,
   onMapDragEnd: NO_OP,
   onMapLoad: NO_OP,
@@ -319,6 +327,7 @@ MapBasic.defaultProps = {
   onSatelliteView: NO_OP,
   scrollWheelZoom: true,
   selectedMapViewMode: 0,
+  showLabels: false,
   zoom: 14,
   zoomable: false,
   zoomControlPosition: 'bottomleft'
