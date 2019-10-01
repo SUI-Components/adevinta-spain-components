@@ -37,7 +37,7 @@ class CookieBanner extends Component {
     document.cookie = `${value};${expires}`
   }
 
-  _handleClick = () => {
+  handleClick = () => {
     this._onAcceptCookies()
   }
 
@@ -65,7 +65,12 @@ class CookieBanner extends Component {
   _renderCookiePolicy({message, link}) {
     if (message && link) {
       return (
-        <a className="sui-CookieBanner-link" href={link} target="_blank">
+        <a
+          className="sui-CookieBanner-link"
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {message}
         </a>
       )
@@ -112,7 +117,7 @@ class CookieBanner extends Component {
           </span>
           <button
             className="sui-CookieBanner-closeButton"
-            onClick={this._handleClick}
+            onClick={this.handleClick}
           >
             {iconClose}
           </button>
