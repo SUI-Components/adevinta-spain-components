@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import ScriptLoader from '@schibstedspain/sui-script-loader'
 import {useMount} from '@schibstedspain/sui-react-hooks'
@@ -47,7 +47,7 @@ const FormCaptcha = ({siteKey, locale, onSubmit = () => {}}) => {
   })
 
   return (
-    <Fragment>
+    <>
       {showCaptcha && (
         <div id={CAPTCHA_ID}>
           <ScriptLoader
@@ -58,7 +58,7 @@ const FormCaptcha = ({siteKey, locale, onSubmit = () => {}}) => {
           />
         </div>
       )}
-    </Fragment>
+    </>
   )
 }
 
