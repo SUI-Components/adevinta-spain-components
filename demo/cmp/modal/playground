@@ -19,7 +19,7 @@ class ModalPlayground extends React.Component {
   render() {
     const {retrieveConsentsFromCmp, showModal} = this.state
     return (
-      <React.Fragment>
+      <>
         <p>
           La modal del CMP puede ser mostrada en dos lugares. Uno es nada más
           entrar el usuario a nuestra aplicación. Por lo tanto, el usuario no
@@ -67,7 +67,7 @@ class ModalPlayground extends React.Component {
           logo="https://www.schibsted.es/wp-content/themes/Schibsted-spn/img/logo.png"
           privacyUrl='#privacy-url-to-configure'
         />
-      </React.Fragment>
+      </>
     )
   }
 }

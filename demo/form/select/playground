@@ -7,11 +7,11 @@ const OPTIONS = [
 ]
 
 return (
-  <React.Fragment>
+  <>
     <h2>Normal behaviour</h2>
     <FormSelect options={OPTIONS} onChange={(e, data) => console.log(data)} />
     <br /><br />
     <h2>Disabled</h2>
     <FormSelect disabled options={OPTIONS} onChange={(e, data) => console.log(data)} />
-  </React.Fragment>
+  </>
   )

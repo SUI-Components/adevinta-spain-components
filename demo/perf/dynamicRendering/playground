@@ -2,7 +2,7 @@ const clientUserAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWe
 const botUserAgent = 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; Google Web Preview Analytics) Chrome/27.0.1453 Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
 
 return (
-  <React.Fragment>
+  <>
     <PerfDynamicRendering userAgent={botUserAgent}>Hola! Soy un bot!</PerfDynamicRendering>
 
     <PerfDynamicRendering userAgent={clientUserAgent}>
@@ -20,5 +20,5 @@ return (
         </PerfDynamicRendering>
       </div>
     </div>
-  </React.Fragment>
+  </>
 )
