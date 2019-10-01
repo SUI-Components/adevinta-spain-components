@@ -4,7 +4,7 @@ const getNumber = str => {
 }
 
 export const getWidth = element =>
-  getNumber(window.getComputedStyle(element)['width'])
+  getNumber(window.getComputedStyle(element).width)
 
 export const matchQueries = BREAKPOINTS => width =>
   Object.entries(BREAKPOINTS).reduce((query, [size, breakpoint]) => {
