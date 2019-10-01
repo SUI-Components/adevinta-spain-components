@@ -25,7 +25,7 @@ $ npm install @schibstedspain/react-perf-dynamic-rendering --save
 import PerfDynamicRendering from '@schibstedspain/react-perf-dynamic-rendering'
 
 return (
-  <React.Fragment>
+  <>
     <PerfDynamicRendering userAgent={navigator.userAgent}>
       <img src='https://huge-image.com/panda.jpg'/>
     </PerfDynamicRendering>
@@ -45,7 +45,7 @@ return (
       <img src='https://huge-image.com/panda_02.jpg'/>
     </PerfDynamicRendering>
 
-  </React.Fragment>
+  </>
 )
 ```
 
