@@ -84,7 +84,6 @@ export default class SearchMapPolygons {
               polygonWithHover.classList.remove(that.HOVER_CLASSNAME)
 
             // add the hover classname to the new polygon
-            debugger //eslint-disable-line
             e.originalEvent.target.classList.add(that.HOVER_CLASSNAME)
 
             const tooltipElement = getTooltipElement(this)
