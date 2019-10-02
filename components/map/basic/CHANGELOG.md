@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.28.0"></a>
+# 1.28.0 (2019-10-02)
+
+
+### Bug Fixes
+
+* fix map basic hover problems with markers and polygons ([b46067f](https://github.com/SUI-Components/schibsted-spain-components/commit/b46067f))
+* remove debugger ([e1275bf](https://github.com/SUI-Components/schibsted-spain-components/commit/e1275bf))
+
+
+### Features
+
+* support multiple geo codes ([b78d840](https://github.com/SUI-Components/schibsted-spain-components/commit/b78d840))
+
+
+
 <a name="1.27.0"></a>
 # 1.27.0 (2019-09-17)
 
