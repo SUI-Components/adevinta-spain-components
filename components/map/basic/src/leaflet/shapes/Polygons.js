@@ -13,6 +13,7 @@ export default class SearchMapPolygons {
   SPAIN_POLYGON_NAME = 'geom_724_0_0_0_0_0_0_0_0'
 
   BASE_CLASSNAME = 'scm-map__area'
+
   HOVER_CLASSNAME = 'is-hover'
 
   constructor({
@@ -63,31 +64,32 @@ export default class SearchMapPolygons {
             if (elementAfterOut) {
               // if the element is a marker, avoid removing the hover class
               if (!elementAfterOut.classList.contains('leaflet-marker-icon')) {
-                originalEvent.target.classList.remove(this.HOVER_CLASSNAME)
+                originalEvent.target.classList.remove(that.HOVER_CLASSNAME)
               }
             }
 
             polygonGeoJSon.resetStyle(this)
             const tooltipElement = getTooltipElement(this)
             if (tooltipElement)
-              tooltipElement.classList.remove(this.HOVER_CLASSNAME)
+              tooltipElement.classList.remove(that.HOVER_CLASSNAME)
           },
           mouseover: function(e) {
             this.setStyle(hoverStyles)
             // remove previous hovered polygons
             const polygonWithHover = document.querySelector(
-              `.${this.HOVER_CLASSNAME}`
+              `.${that.HOVER_CLASSNAME}`
             )
             // if there's a previous polygon, remove the hover class
             polygonWithHover &&
-              polygonWithHover.classList.remove(this.HOVER_CLASSNAME)
+              polygonWithHover.classList.remove(that.HOVER_CLASSNAME)
 
             // add the hover classname to the new polygon
-            e.originalEvent.target.classList.add(this.HOVER_CLASSNAME)
+            debugger //eslint-disable-line
+            e.originalEvent.target.classList.add(that.HOVER_CLASSNAME)
 
             const tooltipElement = getTooltipElement(this)
             if (tooltipElement)
-              tooltipElement.classList.add(this.HOVER_CLASSNAME)
+              tooltipElement.classList.add(that.HOVER_CLASSNAME)
 
             if (!L.Browser.ie && !L.Browser.opera) {
               this.bringToFront()
@@ -98,7 +100,7 @@ export default class SearchMapPolygons {
 
             const {Code} = layer.feature.properties
 
-            return that.currentGeoCode !== Code
+            return !that.currentGeoCode.includes(Code)
               ? that.onLayerClick(event)
               : () => {}
           }
@@ -121,7 +123,7 @@ export default class SearchMapPolygons {
         try {
           const {Code, LocationName} = layer.feature.properties
 
-          that.currentGeoCode !== Code &&
+          !that.currentGeoCode.includes(Code) &&
             layer
               .bindTooltip(LocationName, {
                 permanent: true,
