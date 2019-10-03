@@ -1,7 +1,5 @@
 import L from 'leaflet'
 
-const HIGHLIGHTED_CLASS = 'marker--highlighted'
-
 class MarkerManager {
   constructor(mapDOMInstance) {
     this.setMapDOMInstance(mapDOMInstance)
@@ -138,19 +136,6 @@ class MarkerManager {
     this._markerType = markerType
   }
 
-  // Coupled FC, should be removed in the future
-  isHighlighted = ({propertyInfo} = {}) =>
-    propertyInfo && propertyInfo.highlighted
-
-  isVisited = ({propertyInfo} = {}) =>
-    !!propertyInfo && !!propertyInfo.isVisited
-
-  isFavorite = ({propertyInfo} = {}) =>
-    !!propertyInfo && !!propertyInfo.isFavorite
-
-  isContacted = ({propertyInfo} = {}) =>
-    !!propertyInfo && !!propertyInfo.isContacted
-
   addIconMarkersToMap({icons = [], map}) {
     icons.forEach(icon => {
       const iconInstance = L.icon({
@@ -174,31 +159,6 @@ class MarkerManager {
   }
 
   // Coupled FC, should be removed in the future
-  addClassModifier(iconClassName, options) {
-    const classModifiers = {
-      '--contacted': this.isContacted,
-      '--fav': this.isFavorite,
-      '--visited': this.isVisited
-    }
-
-    const checkModifier = className => {
-      return classModifiers[className](options)
-    }
-
-    const matchingModifier = Object.keys(classModifiers).find(checkModifier)
-
-    const modifier = matchingModifier
-      ? `${iconClassName}${matchingModifier}`
-      : ''
-
-    const highlightedModifer = this.isHighlighted(options)
-      ? HIGHLIGHTED_CLASS
-      : ''
-
-    return `${modifier} ${highlightedModifer}`
-  }
-
-  // Coupled FC, should be removed in the future
   hasValidPrice({propertyInfo}) {
     return (
       propertyInfo !== undefined &&
@@ -212,6 +172,7 @@ class MarkerManager {
 
   // FIXME: This should be passed as a prop
   getIconFor({item}, deprecatedLabelNoPrice) {
+    const {customClassName, isSelected} = item
     let className = this.getInitialIcon()
     let priceText = ''
     let extendedIconClassName = className
@@ -224,13 +185,13 @@ class MarkerManager {
         ' ' +
         className +
         (this.isFullAddressVisible(item) ? '--dotted' : '--approx')
-      extendedIconClassName += ' ' + this.addClassModifier(className, item)
+      extendedIconClassName += ' ' + customClassName
     }
 
     className =
       extendedIconClassName +
       ' ' +
-      (item.isSelected ? ' ' + this._selectedPoiSelector : '')
+      (isSelected ? ' ' + this._selectedPoiSelector : '')
 
     return this.getDivIconFor({className, html: priceText})
   }
