@@ -73,8 +73,10 @@ class TopbarUser extends Component {
    */
   _unlockBodyScroll = () => {
     const {elementsToKeepScrollOnToggleMenu} = this.props
+
     elementsToKeepScrollOnToggleMenu.forEach(selector => {
-      document.querySelector(selector).style.transform = ''
+      const element = document.querySelector(selector)
+      if (element) element.style.transform = ''
     })
     window.document.documentElement.classList.remove(HTML_HAS_SCROLL_DISABLED)
     window.document.body.classList.remove(BODY_HAS_SCROLL_DISABLED)
