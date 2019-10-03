@@ -58,7 +58,6 @@ class MapBasic extends Component {
 
   getMapConfig() {
     return {
-      _deprecatedLabelNoPrice: this.props._deprecatedLabelNoPrice,
       appCode: this.props.appCode,
       appId: this.props.appId,
       attribution: this.props.attribution,
@@ -144,7 +143,7 @@ class MapBasic extends Component {
     showHeatmap,
     showSatelliteView
   }) {
-    this.mapInstance.displayPois(pois, this.props._deprecatedLabelNoPrice)
+    this.mapInstance.displayPois(pois)
     this.checkIfHeatMapShouldBeDisplayed(showHeatmap, heatMapUrl)
     this.checkWhichViewShouldBeDisplayed(showSatelliteView)
   }
@@ -154,10 +153,7 @@ class MapBasic extends Component {
 
     this.subscribeToMapEvents()
     this.mapInstance = new LeafletMap(this.getMapConfig())
-    this.mapInstance.displayPois(
-      this.props.pois,
-      this.props._deprecatedLabelNoPrice
-    )
+    this.mapInstance.displayPois(this.props.pois)
   }
 
   render() {
@@ -294,15 +290,10 @@ MapBasic.propTypes = {
   /**
    * This property indicates the action to be performed with the polygon. By DEFAULT it does a fitBounds.
    */
-  onPolygonWithBounds: PropTypes.func,
-  /**
-   * TODO: Remove this deprecated prop attached to Fotocasa logic
-   */
-  _deprecatedLabelNoPrice: PropTypes.string
+  onPolygonWithBounds: PropTypes.func
 }
 
 MapBasic.defaultProps = {
-  _deprecatedLabelNoPrice: '',
   attribution:
     'Map &copy; 1987-2017 <a href="http://developer.here.com">HERE</a>',
   center: [40.00237, -3.99902],
