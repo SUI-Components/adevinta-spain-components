@@ -28,7 +28,7 @@ class MarkerManager {
     this.mapDOM.dispatchEvent(event)
   }
 
-  createMarker(item, deprecatedLabelNoPrice) {
+  createMarker(item) {
     const events = [
       {
         eventName: 'add',
@@ -49,7 +49,7 @@ class MarkerManager {
     } = item
 
     const marker = L.marker([latitude, longitude], {
-      icon: this.getIconFor({item}, deprecatedLabelNoPrice)
+      icon: this.getIconFor({item})
     })
     marker.propertyInfo = propertyInfo
     marker.markerType = markerType
@@ -105,15 +105,6 @@ class MarkerManager {
     )
   }
 
-  // Coupled with FC code, we should remove from here
-  getPriceText(options, deprecatedLabelNoPrice) {
-    const formattedValue = this.hasValidPrice(options)
-      ? options.propertyInfo.price
-      : deprecatedLabelNoPrice
-
-    return `<span>${formattedValue}</span>`
-  }
-
   isPoiClicked = evt => {
     const {propertyInfo, markerType} = evt.target
     if (markerType === 0) {
@@ -158,28 +149,16 @@ class MarkerManager {
     })
   }
 
-  // Coupled FC, should be removed in the future
-  hasValidPrice({propertyInfo}) {
-    return (
-      propertyInfo !== undefined &&
-      typeof propertyInfo.price !== 'undefined' &&
-      propertyInfo.price !== '' &&
-      propertyInfo.price !== '0' &&
-      propertyInfo.price !== null &&
-      propertyInfo.price !== false
-    )
-  }
-
-  // FIXME: This should be passed as a prop
-  getIconFor({item}, deprecatedLabelNoPrice) {
-    const {customClassName, isSelected} = item
+  getIconFor({item}) {
+    const {customClassName, isSelected, propertyInfo} = item
+    const {price} = propertyInfo
     let className = this.getInitialIcon()
     let priceText = ''
     let extendedIconClassName = className
 
     if (className !== this.DEFAULT_MARKER_TYPE) {
       if (className === 'label') {
-        priceText = this.getPriceText(item, deprecatedLabelNoPrice)
+        priceText = price
       }
       extendedIconClassName +=
         ' ' +
