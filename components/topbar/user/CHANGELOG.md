@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.32.0"></a>
+# 1.32.0 (2019-10-03)
+
+
+### Bug Fixes
+
+* check if element exists before try to modify it style ([59a3c9b](https://github.com/SUI-Components/schibsted-spain-components/commit/59a3c9b))
+* commit to close the issue ([0072ef8](https://github.com/SUI-Components/schibsted-spain-components/commit/0072ef8)), closes [#131](https://github.com/SUI-Components/schibsted-spain-components/issues/131)
+* remove local eslint and use project sui lint ([d63e380](https://github.com/SUI-Components/schibsted-spain-components/commit/d63e380))
+
+
+
 <a name="1.31.0"></a>
 # 1.31.0 (2019-08-14)
 
