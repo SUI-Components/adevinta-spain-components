@@ -6,9 +6,9 @@ class MapBasic extends Component {
   constructor(props) {
     super(props)
     this.setMapEventDefinition()
-    this.mapInstance = undefined
     this.isHeatmapVisible = false
     this.isSatelliteView = false
+    this.mapInstance = undefined
   }
 
   setMapEventDefinition() {
