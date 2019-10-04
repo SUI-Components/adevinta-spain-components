@@ -97,14 +97,6 @@ class MarkerManager {
     })
   }
 
-  isFullAddressVisible(options) {
-    return (
-      options.propertyInfo !== undefined &&
-      options.propertyInfo.isFullAddressVisible !== undefined &&
-      !!options.propertyInfo.isFullAddressVisible
-    )
-  }
-
   isPoiClicked = evt => {
     const {propertyInfo, markerType} = evt.target
     if (markerType === 0) {
@@ -160,10 +152,7 @@ class MarkerManager {
       if (className === 'label') {
         priceText = price
       }
-      extendedIconClassName +=
-        ' ' +
-        className +
-        (this.isFullAddressVisible(item) ? '--dotted' : '--approx')
+      extendedIconClassName += ' ' + className
       extendedIconClassName += ' ' + customClassName
     }
 
