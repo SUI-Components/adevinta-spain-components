@@ -142,7 +142,7 @@ class MarkerManager {
   }
 
   getIconFor({item}) {
-    const {customClassName, isSelected, propertyInfo} = item
+    const {customClassName, propertyInfo} = item
     const {price} = propertyInfo
     let className = this.getInitialIcon()
     let priceText = ''
@@ -156,10 +156,7 @@ class MarkerManager {
       extendedIconClassName += ' ' + customClassName
     }
 
-    className =
-      extendedIconClassName +
-      ' ' +
-      (isSelected ? ' ' + this._selectedPoiSelector : '')
+    className = extendedIconClassName
 
     return this.getDivIconFor({className, html: priceText})
   }
