@@ -63,7 +63,10 @@ export default class SearchMapPolygons {
 
             if (elementAfterOut) {
               // if the element is a marker, avoid removing the hover class
-              if (!elementAfterOut.classList.contains('leaflet-marker-icon')) {
+              if (
+                !elementAfterOut.classList.contains('leaflet-marker-icon') &&
+                elementAfterOut !== originalEvent.target
+              ) {
                 originalEvent.target.classList.remove(that.HOVER_CLASSNAME)
               }
             }
