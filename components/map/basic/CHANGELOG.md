@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.29.0"></a>
+# 1.29.0 (2019-10-08)
+
+
+### Features
+
+* get price label by prop ([0fe3232](https://github.com/SUI-Components/schibsted-spain-components/commit/0fe3232))
+* order prop ([132ee89](https://github.com/SUI-Components/schibsted-spain-components/commit/132ee89))
+* refactor ([73a8896](https://github.com/SUI-Components/schibsted-spain-components/commit/73a8896))
+* remove coupled FC ([298d94c](https://github.com/SUI-Components/schibsted-spain-components/commit/298d94c))
+* remove coupled FC about properties status like highlighted, visited, favourite and ([91cb5f3](https://github.com/SUI-Components/schibsted-spain-components/commit/91cb5f3))
+* remove isSelected property ([a1582c5](https://github.com/SUI-Components/schibsted-spain-components/commit/a1582c5))
+* remove unnecesary prop ([b5f4807](https://github.com/SUI-Components/schibsted-spain-components/commit/b5f4807))
+
+
+
 <a name="1.28.0"></a>
 # 1.28.0 (2019-10-02)
 
