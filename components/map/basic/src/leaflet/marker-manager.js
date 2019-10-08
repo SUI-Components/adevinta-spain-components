@@ -40,20 +40,13 @@ class MarkerManager {
       {eventName: 'mousemove', eventHandler: e => this.onMouseMove(e)}
     ]
 
-    const {
-      latitude,
-      longitude,
-      isSelected,
-      markerType,
-      propertyInfo = {}
-    } = item
+    const {latitude, longitude, markerType, propertyInfo = {}} = item
 
     const marker = L.marker([latitude, longitude], {
       icon: this.getIconFor({item})
     })
     marker.propertyInfo = propertyInfo
     marker.markerType = markerType
-    marker.isSelected = isSelected
     marker.Id = propertyInfo.propertyId
     marker.latlon = latitude + ',' + longitude
     events.map(event => marker.on(event.eventName, event.eventHandler))
@@ -110,7 +103,6 @@ class MarkerManager {
   }
 
   setMarkerDefaults() {
-    this._selectedPoiSelector = 'marker--selected'
     this.markerTypeEquivalences = ['minipoi', 'poi', 'label']
     this.DEFAULT_MARKER_TYPE = 'minipoi'
   }
