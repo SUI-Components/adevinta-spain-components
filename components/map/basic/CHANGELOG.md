@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.30.0"></a>
+# 1.30.0 (2019-10-08)
+
+
+### Features
+
+* fix hover on map ([73d248d](https://github.com/SUI-Components/schibsted-spain-components/commit/73d248d))
+
+
+
 <a name="1.29.0"></a>
 # 1.29.0 (2019-10-08)
 
