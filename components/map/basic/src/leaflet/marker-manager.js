@@ -1,7 +1,5 @@
 import L from 'leaflet'
 
-const HIGHLIGHTED_CLASS = 'marker--highlighted'
-
 class MarkerManager {
   constructor(mapDOMInstance) {
     this.setMapDOMInstance(mapDOMInstance)
@@ -30,7 +28,7 @@ class MarkerManager {
     this.mapDOM.dispatchEvent(event)
   }
 
-  createMarker(item, deprecatedLabelNoPrice) {
+  createMarker(item) {
     const events = [
       {
         eventName: 'add',
@@ -42,20 +40,13 @@ class MarkerManager {
       {eventName: 'mousemove', eventHandler: e => this.onMouseMove(e)}
     ]
 
-    const {
-      latitude,
-      longitude,
-      isSelected,
-      markerType,
-      propertyInfo = {}
-    } = item
+    const {latitude, longitude, markerType, propertyInfo = {}} = item
 
     const marker = L.marker([latitude, longitude], {
-      icon: this.getIconFor({item}, deprecatedLabelNoPrice)
+      icon: this.getIconFor({item})
     })
     marker.propertyInfo = propertyInfo
     marker.markerType = markerType
-    marker.isSelected = isSelected
     marker.Id = propertyInfo.propertyId
     marker.latlon = latitude + ',' + longitude
     events.map(event => marker.on(event.eventName, event.eventHandler))
@@ -99,23 +90,6 @@ class MarkerManager {
     })
   }
 
-  isFullAddressVisible(options) {
-    return (
-      options.propertyInfo !== undefined &&
-      options.propertyInfo.isFullAddressVisible !== undefined &&
-      !!options.propertyInfo.isFullAddressVisible
-    )
-  }
-
-  // Coupled with FC code, we should remove from here
-  getPriceText(options, deprecatedLabelNoPrice) {
-    const formattedValue = this.hasValidPrice(options)
-      ? options.propertyInfo.price
-      : deprecatedLabelNoPrice
-
-    return `<span>${formattedValue}</span>`
-  }
-
   isPoiClicked = evt => {
     const {propertyInfo, markerType} = evt.target
     if (markerType === 0) {
@@ -129,7 +103,6 @@ class MarkerManager {
   }
 
   setMarkerDefaults() {
-    this._selectedPoiSelector = 'marker--selected'
     this.markerTypeEquivalences = ['minipoi', 'poi', 'label']
     this.DEFAULT_MARKER_TYPE = 'minipoi'
   }
@@ -137,19 +110,6 @@ class MarkerManager {
   resetMarkerType(markerType) {
     this._markerType = markerType
   }
-
-  // Coupled FC, should be removed in the future
-  isHighlighted = ({propertyInfo} = {}) =>
-    propertyInfo && propertyInfo.highlighted
-
-  isVisited = ({propertyInfo} = {}) =>
-    !!propertyInfo && !!propertyInfo.isVisited
-
-  isFavorite = ({propertyInfo} = {}) =>
-    !!propertyInfo && !!propertyInfo.isFavorite
-
-  isContacted = ({propertyInfo} = {}) =>
-    !!propertyInfo && !!propertyInfo.isContacted
 
   addIconMarkersToMap({icons = [], map}) {
     icons.forEach(icon => {
@@ -173,64 +133,22 @@ class MarkerManager {
     })
   }
 
-  // Coupled FC, should be removed in the future
-  addClassModifier(iconClassName, options) {
-    const classModifiers = {
-      '--contacted': this.isContacted,
-      '--fav': this.isFavorite,
-      '--visited': this.isVisited
-    }
-
-    const checkModifier = className => {
-      return classModifiers[className](options)
-    }
-
-    const matchingModifier = Object.keys(classModifiers).find(checkModifier)
-
-    const modifier = matchingModifier
-      ? `${iconClassName}${matchingModifier}`
-      : ''
-
-    const highlightedModifer = this.isHighlighted(options)
-      ? HIGHLIGHTED_CLASS
-      : ''
-
-    return `${modifier} ${highlightedModifer}`
-  }
-
-  // Coupled FC, should be removed in the future
-  hasValidPrice({propertyInfo}) {
-    return (
-      propertyInfo !== undefined &&
-      typeof propertyInfo.price !== 'undefined' &&
-      propertyInfo.price !== '' &&
-      propertyInfo.price !== '0' &&
-      propertyInfo.price !== null &&
-      propertyInfo.price !== false
-    )
-  }
-
-  // FIXME: This should be passed as a prop
-  getIconFor({item}, deprecatedLabelNoPrice) {
+  getIconFor({item}) {
+    const {customClassName, propertyInfo} = item
+    const {price} = propertyInfo
     let className = this.getInitialIcon()
     let priceText = ''
     let extendedIconClassName = className
 
     if (className !== this.DEFAULT_MARKER_TYPE) {
       if (className === 'label') {
-        priceText = this.getPriceText(item, deprecatedLabelNoPrice)
+        priceText = price
       }
-      extendedIconClassName +=
-        ' ' +
-        className +
-        (this.isFullAddressVisible(item) ? '--dotted' : '--approx')
-      extendedIconClassName += ' ' + this.addClassModifier(className, item)
+      extendedIconClassName += ' ' + className
+      extendedIconClassName += ' ' + customClassName
     }
 
-    className =
-      extendedIconClassName +
-      ' ' +
-      (item.isSelected ? ' ' + this._selectedPoiSelector : '')
+    className = extendedIconClassName
 
     return this.getDivIconFor({className, html: priceText})
   }

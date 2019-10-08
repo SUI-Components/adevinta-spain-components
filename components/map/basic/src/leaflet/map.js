@@ -246,16 +246,28 @@ export default class LeafletMap {
   }
 
   // Returns the elements in arrayToCompare that are not present in the arrayOrigin
-  getPositiveDiffOfArraysOfPoints(arrayOrigin, arrayToCompare) {
-    return arrayOrigin.reduce((accumulate, originalArrayPoint) => {
-      !arrayToCompare.some(comparedArrayPoint => {
-        const {Id, isSelected, propertyInfo} = comparedArrayPoint
-        const {isFavorite, highlighted} = propertyInfo
+  getPositiveDiffOfArraysOfPoints({pois, currentMarkers}) {
+    return pois.reduce((accumulate, originalArrayPoint) => {
+      !currentMarkers.some(comparedArrayPoint => {
         return (
-          Id === originalArrayPoint.Id &&
-          isSelected === originalArrayPoint.isSelected &&
-          isFavorite === originalArrayPoint.propertyInfo.isFavorite &&
-          highlighted === originalArrayPoint.propertyInfo.highlighted
+          comparedArrayPoint.Id === originalArrayPoint.Id &&
+          comparedArrayPoint.options.icon.options.className.includes(
+            originalArrayPoint.customClassName
+          )
+        )
+      }) && accumulate.push(originalArrayPoint)
+      return accumulate
+    }, [])
+  }
+
+  getPositiveDiffOfArraysOfPointsAux({pois, currentMarkers}) {
+    return currentMarkers.reduce((accumulate, originalArrayPoint) => {
+      !pois.some(comparedArrayPoint => {
+        return (
+          comparedArrayPoint.Id === originalArrayPoint.Id &&
+          originalArrayPoint.options.icon.options.className.includes(
+            comparedArrayPoint.customClassName
+          )
         )
       }) && accumulate.push(originalArrayPoint)
       return accumulate
@@ -278,16 +290,16 @@ export default class LeafletMap {
     this.mapDOM.dispatchEvent(event)
   }
 
-  addLayersToMap(layerDataArray, groupName, deprecatedLabelNoPrice) {
+  addLayersToMap(layerDataArray, groupName) {
     const layers = layerDataArray.map(layerData =>
-      this.markerManager.createMarker(layerData, deprecatedLabelNoPrice)
+      this.markerManager.createMarker(layerData)
     )
     this.layerManager.addLayersToGroup(layers, groupName)
     this.addLayerGroupToMap(this.layerManager.layers[groupName])
   }
 
   // We should check if there's a better solution for cluster poi's like the use of plugins http://leafletjs.com/plugins.html#clusteringdecluttering
-  displayPois(pois, deprecatedLabelNoPrice) {
+  displayPois(pois) {
     if (!pois || !pois.length) {
       this.clearMarkersLayer()
     } else {
@@ -305,14 +317,14 @@ export default class LeafletMap {
       )
 
       // To prevent repaint all POIs that are already visible, get the news to Add and the ones to be Removed.
-      const pointsToAdd = this.getPositiveDiffOfArraysOfPoints(
+      const pointsToAdd = this.getPositiveDiffOfArraysOfPoints({
         pois,
         currentMarkers
-      )
-      const pointsToDelete = this.getPositiveDiffOfArraysOfPoints(
+      })
+      const pointsToDelete = this.getPositiveDiffOfArraysOfPointsAux({
         currentMarkers,
         pois
-      )
+      })
       const pointsAreClickable = markerType > 0
 
       // Keep the current lat/lng of a POI that is going to be repaint due to selection with a new random lat/lng.
@@ -338,8 +350,7 @@ export default class LeafletMap {
       // Remove pointsToDelete, and Add new POI's to map.
       pointsToDelete.length &&
         this.layerManager.removeLayersFromGroup(pointsToDelete, 'markers')
-      pointsToAdd.length &&
-        this.addLayersToMap(pointsToAdd, 'markers', deprecatedLabelNoPrice)
+      pointsToAdd.length && this.addLayersToMap(pointsToAdd, 'markers')
     }
   }
 }
