@@ -7,6 +7,6 @@ export default function useMount(effect) {
       clean = await effect()
     }
     doEffect()
-    return () => clean()
+    return () => typeof clean === 'function' && clean()
   }, []) // eslint-disable-line
 }
