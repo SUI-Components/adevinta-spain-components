@@ -99,7 +99,7 @@ return (
     <ImageSlider { ...props } />
     <br />
     <h2>Slider with counter on the left</h2>
-    <ImageSlider { ...props } enableCounter />
+    <ImageSlider { ...props } enableCounter counterPosition='bottomLeft' />
     <br />
     <h2>Slider with counter on the center and custom counter factory</h2>
     <ImageSlider { ...props } counterPatternFactory={({current, total}) => `${current}-${total}`} enableCounter counterPosition='bottomCenter' />

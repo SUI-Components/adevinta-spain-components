@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import ReactSlidy from 'react-slidy'
 import cloneDeep from 'lodash.clonedeep'
@@ -13,52 +13,37 @@ export const IMAGE_SLIDER_COUNTER_POSITIONS = {
 const NO_OP = () => {}
 const TARGET_BLANK = '_blank'
 
-class ImageSlider extends Component {
-  constructor(props) {
-    super(props)
-    const {sliderOptions} = props
-    // In order to accept a custom doAfterSlide callback, and to avoid altering props.sliderOptions
-    // sliderOptions is deeply cloned.
-    this._sliderOptions = cloneDeep(sliderOptions)
-    this._sliderOptions.doAfterSlide = currentSlide => {
-      this.setState(currentSlide)
-      sliderOptions.doAfterSlide && sliderOptions.doAfterSlide(currentSlide)
-    }
-
-    this.state = {currentSlide: this._sliderOptions.initialSlide || 0}
+function ImageSlider(props) {
+  const {
+    counterPosition,
+    counterIcon,
+    counterPatternFactory,
+    sliderOptions: initialSliderOptions
+  } = props
+  const sliderOptions = cloneDeep(initialSliderOptions)
+  sliderOptions.doAfterSlide = doAfterSlideParams => {
+    const {currentSlide} = doAfterSlideParams
+    setCurrentSlide(currentSlide)
+    initialSliderOptions.doAfterSlide &&
+      initialSliderOptions.doAfterSlide(doAfterSlideParams)
   }
 
-  render() {
-    const {enableCounter, handleClick, images, linkFactory} = this.props
+  const [currentSlide, setCurrentSlide] = useState(
+    sliderOptions.initialSlide || 0
+  )
 
-    const slides = this._getSlides(images, linkFactory)
-
-    return (
-      slides.length > 0 && (
-        <div onClick={handleClick} className="sui-ImageSlider">
-          {slides.length > 1 ? (
-            <ReactSlidy {...this._sliderOptions}>{slides}</ReactSlidy>
-          ) : (
-            slides
-          )}
-          {enableCounter && this._buildCounter(slides.length)}
-        </div>
-      )
-    )
-  }
-
-  _buildCounter(totalImages) {
+  const buildCounter = totalImages => {
     const classNames = cx(
       'sui-ImageSlider-counter',
-      `sui-ImageSlider-counter--${this.props.counterPosition}`
+      `sui-ImageSlider-counter--${counterPosition}`
     )
-    const Icon = this.props.counterIcon
+    const Icon = counterIcon
     return (
       <div className={classNames}>
         <Icon svgClass="sui-ImageSlider-counterIcon" />
         <span className="sui-ImageSlider-counterText">
-          {this.props.counterPatternFactory({
-            current: this.state.currentSlide + 1,
+          {counterPatternFactory({
+            current: currentSlide + 1,
             total: totalImages
           })}
         </span>
@@ -70,7 +55,7 @@ class ImageSlider extends Component {
    * @param {Array} images List given by props.images.
    * @return {Array} List of img elements.
    */
-  _getSlides(images, linkFactory) {
+  const getSlides = (images, linkFactory) => {
     if (images && images.length) {
       return images.map((image, index) => {
         const {
@@ -106,6 +91,22 @@ class ImageSlider extends Component {
       return []
     }
   }
+
+  const {enableCounter, handleClick, images, linkFactory} = props
+  const slides = getSlides(images, linkFactory)
+
+  return (
+    slides.length > 0 && (
+      <div onClick={handleClick} className="sui-ImageSlider">
+        {slides.length > 1 ? (
+          <ReactSlidy {...sliderOptions}>{slides}</ReactSlidy>
+        ) : (
+          slides
+        )}
+        {enableCounter && buildCounter(slides.length)}
+      </div>
+    )
+  )
 }
 
 ImageSlider.propTypes = {
