@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import cx from 'classnames'
 import Chevronbottom from '@schibstedspain/sui-svgiconset/lib/Chevronbottom'
 
@@ -19,6 +19,12 @@ const CollapsibleBasic = ({
   label
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(collapsed)
+  useEffect(
+    () => {
+      setIsCollapsed(collapsed)
+    },
+    [collapsed]
+  )
   const handleClick = () => {
     const nextIsCollapsed = !isCollapsed
     setIsCollapsed(nextIsCollapsed)
