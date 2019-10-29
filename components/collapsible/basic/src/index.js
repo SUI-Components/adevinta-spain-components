@@ -19,12 +19,9 @@ const CollapsibleBasic = ({
   label
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(collapsed)
-  useEffect(
-    () => {
-      setIsCollapsed(collapsed)
-    },
-    [collapsed]
-  )
+  useEffect(() => {
+    setIsCollapsed(collapsed)
+  }, [collapsed])
   const handleClick = () => {
     const nextIsCollapsed = !isCollapsed
     setIsCollapsed(nextIsCollapsed)
