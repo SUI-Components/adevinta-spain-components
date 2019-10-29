@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="2.8.0"></a>
+# 2.8.0 (2019-10-29)
+
+
+### Features
+
+* avoid breaking change ([4de27b6](https://github.com/SUI-Components/schibsted-spain-components/commit/4de27b6))
+* rewrite component ([1ae91c7](https://github.com/SUI-Components/schibsted-spain-components/commit/1ae91c7))
+
+
+
 <a name="2.7.0"></a>
 # 2.7.0 (2019-08-14)
 
