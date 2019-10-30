@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.31.0"></a>
+# 1.31.0 (2019-10-30)
+
+
+### Features
+
+* show labels counter ([57b2423](https://github.com/SUI-Components/schibsted-spain-components/commit/57b2423))
+
+
+
 <a name="1.30.0"></a>
 # 1.30.0 (2019-10-08)
 
