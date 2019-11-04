@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, {Component} from 'react'
+import React, {useRef, useState}  from 'react'
 import SuggestsList from './suggests-list'
 import cx from 'classnames'
 
@@ -9,147 +9,121 @@ const DOWN = 'ArrowDown'
 const ENTER = 'Enter'
 const ESCAPE = 'Escape'
 
-export default class FormAutocompleted extends Component {
-  constructor(...args) {
-    super(...args)
+export default function FormAutocompleted ({
+  selectFirstByDefault,
+  initialValue,
+  handleSelect: onSelect,
+  handleSubmit: onSubmit,
+  focus,
+  suggests}) {
+  const defaultPosition = selectFirstByDefault ? 0 : -1
+  const [active, setActive] = useState(defaultPosition)
+  const [value, setValue] = useState(initialValue)
+  const [showSuggestsList, setShowSuggestsList] = useState(false)
+  const [focus, setFocus] = useState(focus)
 
-    const {selectFirstByDefault, initialValue, focus} = this.props
+  const inputDOMEl = useRef()
+  const submitDOMEl = useRef()
+  const suggestListDOMEl = useRef()
 
-    this.input = null
-    this.submit = null
-    this.suggestList = null
-
-    this.excludeFromOutsideClick = []
-    this.defaultPosition = selectFirstByDefault ? 0 : -1
-    this.state = {
-      active: this.defaultPosition,
-      value: initialValue,
-      showSuggestsList: false,
-      focus
-    }
-  }
-
-  _moveDown = () => {
-    const {active} = this.state
-    const lastPosition = this.props.suggests.length - 1
+  const moveDown = () => {
+    const lastPosition = suggests.length - 1
     return active === lastPosition ? active : active + DELTA_MOVE
   }
 
-  _moveUp = () => {
-    const {active} = this.state
-    return active === this.defaultPosition ? active : active - DELTA_MOVE
+  const moveUp = () => {
+    return active === defaultPosition ? active : active - DELTA_MOVE
   }
 
-  _upDownHandler = event => {
-    // Never go to negative values or value higher than the list length
-    const active = event.key === DOWN ? this._moveDown() : this._moveUp()
-    this.setState({active})
+  const upDownHandler = event => {
     event.stopPropagation()
     event.preventDefault()
+    // Never go to negative values or value higher than the list length
+    const active = event.key === DOWN ? moveDown() : moveUp()
+    setActive(active)
   }
 
-  _enterHandler = () => {
-    const suggest = this.props.suggests[this.state.active]
+  const enterHandler = () => {
+    const suggest = suggests[active]
 
     if (suggest) {
       const value = suggest.literal || suggest.content
-      this.setState({value})
-      this._handleSelect(suggest)
+      setValue(value)
+      handleSelect(suggest)
     } else {
-      this._handleSubmit()
+      handleSubmit()
     }
   }
 
-  _escapeHandler = () => {
-    this.setState({
-      showSuggestsList: false,
-      active: null
-    })
+  const escapeHandler = () => {
+    setActive(null)
+    setShowSuggestsList(false)
   }
 
-  focusInput = () => {
-    this.input.focus()
+  const focusInput = () => {
+    inputDOMEl.current.focus()
   }
 
-  setValue = value => {
-    this.setState({
-      value
-    })
+  const handleChange = event => {
+    const {value} = event.target
+    setValue(value)
+    setActive(defaultPosition)
+    onChange(value)
   }
 
-  _handleChange = event => {
-    const value = event.target.value
-    this.setState({
-      value,
-      active: this.defaultPosition
-    })
-    this.props.handleChange(value)
+  const handleSubmit = () => {
+    onSubmit(value)
   }
 
-  _handleSubmit = () => {
-    this.props.handleSubmit(this.state.value)
-  }
-
-  _handleClear = () => {
-    this._handleChange({
+  const handleClear = () => {
+    handleChange({
       target: {
         value: ''
       }
     })
-    this.focusInput()
+    focusInput()
   }
 
-  _handleSelect = suggest => {
-    this.setState({
-      value: suggest.literal || suggest.content
-    })
-    this.props.handleSelect(suggest)
+  const handleSelect = suggest => {
+    setValue(suggest.literal || suggest.content)
+    onSelect(suggest)
   }
 
-  _handleKeyDown = event => {
-    this.setState({
-      showSuggestsList: true
-    })
+  const handleKeyDown = event => {
+    setShowSuggestsList(true)
 
     switch (event.key) {
       case UP:
       case DOWN:
-        this._upDownHandler(event)
+        upDownHandler(event)
         break
       case ENTER:
-        this._enterHandler()
+        enterHandler()
         break
       case ESCAPE:
-        this._escapeHandler()
+        escapeHandler()
         break
     }
   }
 
-  _renderSubmitButton = ({text, icon: Icon}) => (
+  const renderSubmitButton = ({text, icon: Icon}) => (
     <button
       className="sui-FormAutocompleted-submit"
       onClick={this._handleSubmit}
-      ref={node => {
-        this.submit = node
-      }}
+      ref={submitDOMEl}
     >
       {Icon && <Icon svgClass="sui-FormAutocompleted-submitIcon" />}
       {text}
     </button>
   )
 
-  _renderSuggestsList() {
-    const {suggests} = this.props
-    const {active} = this.state
-
+  const renderSuggestsList = () => {
     return suggests && suggests.length > 0 ? (
       <SuggestsList
-        {...this.props}
-        handleSelect={this._handleSelect}
+        {...props}
+        handleSelect={handleSelect}
         active={active}
-        ref={node => {
-          this.suggestList = node
-        }}
+        ref={suggestListDOMEl}
       />
     ) : null
   }
