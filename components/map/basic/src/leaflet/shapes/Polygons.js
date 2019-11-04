@@ -71,13 +71,13 @@ export default class SearchMapPolygons {
               }
             }
 
-            polygonGeoJSon.resetStyle(this)
+            hoverStyles && polygonGeoJSon.resetStyle(this)
             const tooltipElement = getTooltipElement(this)
             if (tooltipElement)
               tooltipElement.classList.remove(that.HOVER_CLASSNAME)
           },
           mouseover: function(e) {
-            this.setStyle(hoverStyles)
+            hoverStyles && this.setStyle(hoverStyles)
             // remove previous hovered polygons
             const polygonWithHover = document.querySelector(
               `.${that.HOVER_CLASSNAME}`
@@ -123,11 +123,17 @@ export default class SearchMapPolygons {
           return
 
         try {
-          const {Code, LocationName} = layer.feature.properties
+          const {Code, LocationName, counter = ''} = layer.feature.properties
+          const tooltipLabelBlock = `<span class="leaflet-tooltip-label">${LocationName}</span>`
+          const tooltipCounterBlock = `<span class="leaflet-tooltip-counter">${counter}</span>`
+
+          const allTooltipLabel = counter
+            ? `${tooltipLabelBlock}${tooltipCounterBlock}`
+            : tooltipLabelBlock
 
           !that.currentGeoCode.includes(Code) &&
             layer
-              .bindTooltip(LocationName, {
+              .bindTooltip(allTooltipLabel, {
                 permanent: true,
                 direction: 'center',
                 className: fitBound ? 'is-fit-bound' : ''

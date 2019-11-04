@@ -26,12 +26,6 @@ export default function PerfDynamicRendering({
   rootMargin,
   botsUserAgents
 }) {
-  if (typeof height !== 'undefined' && typeof placeholder !== 'undefined') {
-    console.warn(
-      'If both height and placeholder props are present height is ignored'
-    )
-  }
-
   const isBot = checkUserAgentIsBot(userAgent, botsUserAgents)
   const isOnBrowser = typeof window !== 'undefined'
 
