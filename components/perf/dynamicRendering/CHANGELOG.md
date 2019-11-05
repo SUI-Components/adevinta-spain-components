@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.9.0"></a>
+# 1.9.0 (2019-11-05)
+
+
+### Bug Fixes
+
+* dynamicRendering MUST have a 1px padding ([0064517](https://github.com/SUI-Components/schibsted-spain-components/commit/0064517))
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2019-11-04)
 
