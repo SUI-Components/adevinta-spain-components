@@ -19,11 +19,13 @@ export default class SearchMapPolygons {
   constructor({
     currentGeoCode,
     hoverStyles,
+    i18n,
     onLayerClick,
     onPolygonWithBounds,
     showLabels
   }) {
     this.currentGeoCode = currentGeoCode
+    this.i18n = i18n
     this.hoverStyles = hoverStyles
     this.onLayerClick = onLayerClick
     this.onPolygonWithBounds = onPolygonWithBounds
@@ -115,6 +117,7 @@ export default class SearchMapPolygons {
     polygonGeoJSon.addTo(map)
 
     if (this.showLabels) {
+      const i18n = this.i18n
       polygonGeoJSon.eachLayer(function(layer) {
         if (
           !layer?.feature?.properties?.LocationName ||
@@ -123,9 +126,12 @@ export default class SearchMapPolygons {
           return
 
         try {
-          const {Code, LocationName, counter = ''} = layer.feature.properties
+          const {Code, LocationName, counter} = layer.feature.properties
+          const formattedCounter =
+            typeof counter === 'number' ? i18n.n(counter) : counter || ''
+
           const tooltipLabelBlock = `<span class="leaflet-tooltip-label">${LocationName}</span>`
-          const tooltipCounterBlock = `<span class="leaflet-tooltip-counter">${counter}</span>`
+          const tooltipCounterBlock = `<span class="leaflet-tooltip-counter">${formattedCounter}</span>`
 
           const allTooltipLabel = counter
             ? `${tooltipLabelBlock}${tooltipCounterBlock}`

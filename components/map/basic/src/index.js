@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {mapLanguages, mapViewModes, NO_OP} from './leaflet/constants'
+import {I18N_FALLBACK} from './config'
 
 class MapBasic extends Component {
   constructor(props) {
@@ -66,6 +67,7 @@ class MapBasic extends Component {
       enableViewMenu: this.props.enableViewMenu,
       heatMapUrl: this.props.heatMapUrl,
       hoverStyles: this.props.hoverStyles,
+      i18n: this.props.i18n,
       icons: this.props.icons,
       id: this.props.id,
       language: this.props.language,
@@ -198,6 +200,10 @@ MapBasic.propTypes = {
    */
   hoverStyles: PropTypes.object,
   /**
+   * Internationalization tools.
+   */
+  i18n: PropTypes.object,
+  /**
    * The DOM Id that we would like to have on our map div if none is provided 'map-container' will be its id.
    */
   id: PropTypes.string,
@@ -301,6 +307,7 @@ MapBasic.defaultProps = {
     'Map &copy; 1987-2017 <a href="http://developer.here.com">HERE</a>',
   center: [40.00237, -3.99902],
   currentGeoCode: [],
+  i18n: I18N_FALLBACK,
   id: 'map-container',
   isInteractable: true,
   language: mapLanguages.ENGLISH,

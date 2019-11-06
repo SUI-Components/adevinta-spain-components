@@ -6,6 +6,7 @@ import LayerManager from './layer-manager'
 
 export default class LeafletMap {
   constructor(properties) {
+    this.i18n = properties.i18n
     this.setMapDOMInstance(properties.mapDOMInstance)
     this.createMarkerManager(properties.mapDOMInstance)
     this.createLayerManager(properties.id)
@@ -66,6 +67,7 @@ export default class LeafletMap {
     this.polygons = new Polygons({
       currentGeoCode,
       hoverStyles,
+      i18n: this.i18n,
       onLayerClick,
       onPolygonWithBounds,
       showLabels
