@@ -16,21 +16,21 @@ export default function ImageLazyLoad({
   showSpinner = true,
   src
 }) {
-  const nearScreen = useNearScreen({offset: `${offsetVertical}px`})
+  const [isNearScreen, fromRef] = useNearScreen({offset: `${offsetVertical}px`})
 
   const lazyLoadWrapClassName = cx(BASE_CLASS, {
     [`${BASE_CLASS}--ratio-${aspectRatio.replace(':', '-')}`]: aspectRatio
   })
 
   return (
-    <div className={lazyLoadWrapClassName}>
-      {!nearScreen && showSpinner && (
+    <div className={lazyLoadWrapClassName} ref={fromRef}>
+      {!isNearScreen && showSpinner && (
         <div className={`${BASE_CLASS}-spinner`}>
           <SpinnerBasic />
         </div>
       )}
       <div className={`${BASE_CLASS}-imageWrap`}>
-        {nearScreen && (
+        {isNearScreen && (
           <img className={`${BASE_CLASS}-image`} src={src} alt={alt} />
         )}
       </div>
