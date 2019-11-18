@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "intersection-observer": "0.5.1"
+    "intersection-observer": "0.7.0"
   },
   "keywords": [],
   "author": "",

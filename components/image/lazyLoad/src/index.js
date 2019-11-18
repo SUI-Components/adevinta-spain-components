@@ -1,67 +1,44 @@
 import PropTypes from 'prop-types'
-import React, {Component} from 'react'
+import React from 'react'
 import cx from 'classnames'
-import LazyLoad from '@schibstedspain/react-lazy-load'
 import SpinnerBasic from '@schibstedspain/sui-spinner-basic'
+import {useNearScreen} from '@schibstedspain/sui-react-hooks'
 
+const BASE_CLASS = 'sui-ImageLazyLoad'
 /**
  * Component that will print defer loading images with an optional and specific
  * aspect ratio.
  */
-export default class ImageLazyLoad extends Component {
-  state = {
-    loading: true
-  }
+export default function ImageLazyLoad({
+  alt = '',
+  aspectRatio = '',
+  offsetVertical = 100,
+  showSpinner = true,
+  src
+}) {
+  const [isNearScreen, fromRef] = useNearScreen({offset: `${offsetVertical}px`})
 
-  _hideSpinner = () => {
-    this.setState({loading: false})
-  }
+  const lazyLoadWrapClassName = cx(BASE_CLASS, {
+    [`${BASE_CLASS}--ratio-${aspectRatio.replace(':', '-')}`]: aspectRatio
+  })
 
-  _doNothing = () => {}
-
-  render() {
-    const {loading} = this.state
-    const {
-      debounce,
-      offsetVertical,
-      src,
-      alt,
-      showSpinner,
-      aspectRatio = ''
-    } = this.props
-    const lazyLoadWrapClassName = cx('sui-ImageLazyLoad', {
-      [`sui-ImageLazyLoad--ratio-${aspectRatio.replace(':', '-')}`]: aspectRatio
-    })
-
-    return (
-      <div className={lazyLoadWrapClassName}>
-        {loading && showSpinner && (
-          <div className="sui-ImageLazyLoad-spinner">
-            <SpinnerBasic />
-          </div>
-        )}
-        <div className="sui-ImageLazyLoad-imageWrap">
-          <LazyLoad
-            debounce={debounce}
-            offsetVertical={offsetVertical}
-            onContentVisible={showSpinner ? this._hideSpinner : this._doNothing}
-          >
-            <img className="sui-ImageLazyLoad-image" src={src} alt={alt} />
-          </LazyLoad>
+  return (
+    <div className={lazyLoadWrapClassName} ref={fromRef}>
+      {!isNearScreen && showSpinner && (
+        <div className={`${BASE_CLASS}-spinner`}>
+          <SpinnerBasic />
         </div>
+      )}
+      <div className={`${BASE_CLASS}-imageWrap`}>
+        {isNearScreen && (
+          <img className={`${BASE_CLASS}-image`} src={src} alt={alt} />
+        )}
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 ImageLazyLoad.propTypes = {
-  /**
-   * By default the throttling function is actually a debounce function so that
-   * the checking function is only triggered after a user stops scrolling. To
-   * use traditional throttling where it will only check the loadable content
-   * every throttle milliseconds, set debounce to false.
-   */
-  debounce: PropTypes.bool,
   /**
    * This option allows you to specify how far above and below the viewport you
    * want to begin displaying your content.
@@ -91,13 +68,6 @@ ImageLazyLoad.propTypes = {
     '16:9',
     '3:1'
   ])
-}
-
-ImageLazyLoad.defaultProps = {
-  debounce: false,
-  offsetVertical: 100,
-  alt: '',
-  showSpinner: true
 }
 
 ImageLazyLoad.displayName = 'ImageLazyLoad'
