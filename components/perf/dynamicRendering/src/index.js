@@ -51,7 +51,7 @@ export default function PerfDynamicRendering({
     // so, we're on the server side or the component is disabled
     return placeholder
   } else {
-    return <div style={{height: `${height}px`}} />
+    return <div style={{height: `${height}px`, marginBottom: '1px'}} />
   }
 }
 PerfDynamicRendering.displayName = 'PerfDynamicRendering'

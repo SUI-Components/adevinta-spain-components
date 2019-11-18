@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/abtesting-optimizely-x",
-  "version": "1.16.0",
+  "version": "1.17.0",
   "description": "<AbTestOptimizelyXExperiment experimentId />",
   "main": "lib/index.js",
   "scripts": {
@@ -14,6 +14,6 @@
   "dependencies": {
     "@s-ui/abtesting-hooks": "1",
     "@s-ui/abtesting-toggle": "1",
-    "@s-ui/js": "1"
+    "@s-ui/js": "2"
   }
 }

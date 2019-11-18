@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.17.0"></a>
+# 1.17.0 (2019-11-04)
+
+
+### Features
+
+* upgrade s-ui/js dependency ([5f74f52](https://github.com/SUI-Components/schibsted-spain-components/commit/5f74f52))
+
+
+
 <a name="1.16.0"></a>
 # 1.16.0 (2019-08-05)
 
