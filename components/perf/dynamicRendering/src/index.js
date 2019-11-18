@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {LazyContent} from './lazyContent'
+import LazyContent from './lazyContent'
 
 const BOTS_USER_AGENTS = [
   'googlebot',
@@ -17,14 +17,14 @@ function checkUserAgentIsBot(userAgent, botsUserAgents) {
 }
 
 export default function PerfDynamicRendering({
+  botsUserAgents = BOTS_USER_AGENTS,
   children,
   disabled,
   forceRender,
-  height,
-  userAgent,
+  height = 0,
   placeholder,
   rootMargin,
-  botsUserAgents
+  userAgent
 }) {
   const isBot = checkUserAgentIsBot(userAgent, botsUserAgents)
   const isOnBrowser = typeof window !== 'undefined'
@@ -54,12 +54,8 @@ export default function PerfDynamicRendering({
     return <div style={{height: `${height}px`, marginBottom: '1px'}} />
   }
 }
-PerfDynamicRendering.displayName = 'PerfDynamicRendering'
 
-PerfDynamicRendering.defaultProps = {
-  height: 0,
-  botsUserAgents: BOTS_USER_AGENTS
-}
+PerfDynamicRendering.displayName = 'PerfDynamicRendering'
 
 PerfDynamicRendering.propTypes = {
   /**
