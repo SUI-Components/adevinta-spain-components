@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2019-11-18)
+
+
+### Features
+
+* show message only on other than production to remove the dead code on pro ([d488b42](https://github.com/SUI-Components/schibsted-spain-components/commit/d488b42))
+* update intersection-observer version ([35714ec](https://github.com/SUI-Components/schibsted-spain-components/commit/35714ec))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2019-07-24)
 
