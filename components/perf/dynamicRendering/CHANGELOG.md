@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2019-11-18)
+
+
+### Bug Fixes
+
+* use stable sui-lint version ([e58201c](https://github.com/SUI-Components/schibsted-spain-components/commit/e58201c))
+
+
+### Features
+
+* reuse hook for intersection observer and simplify code ([6773707](https://github.com/SUI-Components/schibsted-spain-components/commit/6773707))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2019-11-05)
 
