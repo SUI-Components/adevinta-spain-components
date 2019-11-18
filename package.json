@@ -30,7 +30,8 @@
     "enzyme-adapter-react-16": "1.14.0",
     "husky": "0.13.4",
     "jest": "24.8.0",
-    "validate-commit-msg": "2.12.2"
+    "validate-commit-msg": "2.12.2",
+    "@s-ui/lint": "3"
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
@@ -54,17 +55,18 @@
   "commit-msg": [
     "validate-commit-msg"
   ],
+  "babel": {
+    "presets": [
+      "sui"
+    ]
+  },
   "eslintConfig": {
     "extends": [
       "./node_modules/@s-ui/lint/eslintrc.js"
     ]
   },
+  "prettier": "./node_modules/@s-ui/lint/.prettierrc.js",
   "stylelint": {
     "extends": "./node_modules/@s-ui/lint/stylelint.config.js"
-  },
-  "babel": {
-    "presets": [
-      "sui"
-    ]
   }
 }

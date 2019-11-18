@@ -7,7 +7,7 @@ const BOTS_USER_AGENTS = [
   'google-structured-data-testing-tool',
   'bingbot',
   'linkedinbot',
-  'mediapartners-google',
+  'mediapartners-google'
 ]
 
 function checkUserAgentIsBot(userAgent, botsUserAgents) {
@@ -24,7 +24,7 @@ export default function PerfDynamicRendering({
   height = 0,
   placeholder,
   rootMargin,
-  userAgent,
+  userAgent
 }) {
   const isBot = checkUserAgentIsBot(userAgent, botsUserAgents)
   const isOnBrowser = typeof window !== 'undefined'
@@ -97,5 +97,5 @@ PerfDynamicRendering.propTypes = {
   /**
    * An Array of strings that is used to set the lists of userAgents for which the element is always rendered
    */
-  botsUserAgents: PropTypes.arrayOf(PropTypes.string),
+  botsUserAgents: PropTypes.arrayOf(PropTypes.string)
 }

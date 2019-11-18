@@ -6,7 +6,7 @@ export default function LazyContent({
   children,
   rootMargin = '100px 0px 0px',
   placeholder,
-  height,
+  height
 }) {
   const [isNearScreen, fromRef] = useNearScreen({offset: rootMargin})
 
@@ -39,5 +39,5 @@ LazyContent.propTypes = {
    * String in the format of the css margin property. the values serves to grow or shrink
    * each side of the root element's bounding box before computing intersections.
    */
-  rootMargin: PropTypes.string,
+  rootMargin: PropTypes.string
 }
