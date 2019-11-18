@@ -1,73 +1,22 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
+import {useNearScreen} from '@schibstedspain/sui-react-hooks'
 
-export class LazyContent extends Component {
-  constructor(props) {
-    super(props)
-    this.refTarget = React.createRef()
+export default function LazyContent({
+  children,
+  rootMargin = '100px 0px 0px',
+  placeholder,
+  height,
+}) {
+  const [isNearScreen, fromRef] = useNearScreen({offset: rootMargin})
+
+  if (isNearScreen) {
+    return children
+  } else if (placeholder) {
+    return <div ref={fromRef}>{placeholder}</div>
+  } else {
+    return <div ref={fromRef} style={{height: `${height}px`}} />
   }
-
-  _observer = null
-
-  state = {
-    isIntersecting: false
-  }
-
-  handleChange = ([{isIntersecting}]) => {
-    if (isIntersecting) {
-      this.unobserve()
-      this._observer = null
-      this.setState({isIntersecting})
-    }
-  }
-
-  unobserve = () => {
-    try {
-      this._observer.unobserve(this.refTarget.current)
-    } catch (e) {
-      console.warn(e)
-    }
-  }
-
-  _startIntersectionObserver = () => {
-    this._observer = new window.IntersectionObserver(this.handleChange)
-    try {
-      this._observer.observe(this.refTarget.current, {
-        rootMargin: this.props.rootMargin
-      })
-    } catch (e) {
-      console.warn(e)
-    }
-  }
-
-  componentDidMount() {
-    if (!('IntersectionObserver' in window)) {
-      import('intersection-observer').then(this._startIntersectionObserver)
-    } else {
-      this._startIntersectionObserver()
-    }
-  }
-
-  componentWillUnmount() {
-    this._observer && this.unobserve()
-  }
-
-  render() {
-    const {isIntersecting: isVisible} = this.state
-    const {children, placeholder, height} = this.props
-
-    if (isVisible) {
-      return children
-    } else if (placeholder) {
-      return <div ref={this.refTarget}>{placeholder}</div>
-    } else {
-      return <div ref={this.refTarget} style={{height: `${height}px`}} />
-    }
-  }
-}
-
-LazyContent.defaultProps = {
-  rootMargin: '100px 0 0'
 }
 
 LazyContent.propTypes = {
@@ -90,5 +39,5 @@ LazyContent.propTypes = {
    * String in the format of the css margin property. the values serves to grow or shrink
    * each side of the root element's bounding box before computing intersections.
    */
-  rootMargin: PropTypes.string
+  rootMargin: PropTypes.string,
 }
