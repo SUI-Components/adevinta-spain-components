@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import cx from 'classnames'
 import SpinnerBasic from '@schibstedspain/sui-spinner-basic'
-import {useNearScreen} from '../../../react/hooks/src/useOnScreen'
+import {useNearScreen} from '@schibstedspain/sui-react-hooks'
 
 const BASE_CLASS = 'sui-ImageLazyLoad'
 /**
