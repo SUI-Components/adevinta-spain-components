@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.13.0"></a>
+# 1.13.0 (2019-11-18)
+
+
+### Bug Fixes
+
+* fix import module ([f782139](https://github.com/SUI-Components/schibsted-spain-components/commit/f782139))
+* fix wrong usage of useNearScreen ([86323ec](https://github.com/SUI-Components/schibsted-spain-components/commit/86323ec))
+
+
+### Features
+
+* remove ReactLazyLoad dependency ([d54a408](https://github.com/SUI-Components/schibsted-spain-components/commit/d54a408))
+
+
+
 <a name="1.12.0"></a>
 # 1.12.0 (2019-04-02)
 
