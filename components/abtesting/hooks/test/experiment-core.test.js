@@ -317,6 +317,37 @@ describe('Experiment', () => {
         'B'
       )
     })
+
+    it('should run a custom function for onActivation event and pass the new experiment data to it', () => {
+      let dataFromOnActivation
+
+      const Component = () => {
+        const experimentData = useExperiment({
+          experimentId: 40000,
+          onActivation: experimentData => {
+            dataFromOnActivation = experimentData
+          },
+          variations: [
+            {id: 700000, isDefault: true},
+            {id: 700001},
+            {id: 700002}
+          ]
+        })
+        const {variationName} = experimentData
+        return variationName
+      }
+
+      let mounted
+      act(() => {
+        mounted = mount(<Component />)
+      })
+
+      act(() => {
+        activationHandler(700002)
+      })
+      mounted.update()
+      expect(dataFromOnActivation.isVariationC).toBe(true)
+    })
   })
 
   describe('from useExperiment acting as a CONTEXT CONSUMER and OptimizelyXExperiment as a CORE RUNNER', () => {

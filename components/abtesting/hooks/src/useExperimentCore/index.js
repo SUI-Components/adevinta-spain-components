@@ -3,12 +3,15 @@ import {useEffect, useState} from 'react'
 
 import OptimizelyX from './optimizely-x'
 
+const noop = () => {}
+
 export default params => {
   const {
     experimentId,
     forceActivation,
     forceActivationDelay = 1000,
     forceVariation,
+    onActivation = noop,
     variations: rawVariations
   } = params
 
@@ -94,7 +97,13 @@ export default params => {
 
   const activationHandler = rawVariationId => {
     const variationId = parseVariationId(rawVariationId)
-    return setState(buildExperimentState({...state, variationId, active: true}))
+    const newExperimentState = buildExperimentState({
+      ...state,
+      variationId,
+      active: true
+    })
+    onActivation(newExperimentState)
+    return setState(newExperimentState)
   }
 
   const logWatchOutMessage = message => {
