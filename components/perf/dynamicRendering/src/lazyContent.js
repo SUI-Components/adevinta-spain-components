@@ -15,7 +15,9 @@ export default function LazyContent({
   } else if (placeholder) {
     return <div ref={fromRef}>{placeholder}</div>
   } else {
-    return <div ref={fromRef} style={{height: `${height}px`}} />
+    return (
+      <div ref={fromRef} style={{height: `${height}px`, marginBottom: '1px'}} />
+    )
   }
 }
 
