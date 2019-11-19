@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2019-11-19)
+
+
+### Features
+
+* add onActivation event param to useExperimentCore ([67ab4af](https://github.com/SUI-Components/schibsted-spain-components/commit/67ab4af))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2019-09-19)
 
