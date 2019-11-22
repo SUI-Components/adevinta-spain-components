@@ -42,9 +42,13 @@
     }
   }
 
-  @if $bdrs-thumbnail-basic > 0 {
-    picture {
-      border-radius: $bdrs-thumbnail-basic;
+  picture {
+    display: block;
+
+    @if $bdrs-thumbnail-basic > 0 {
+      picture {
+        border-radius: $bdrs-thumbnail-basic;
+      }
     }
   }
 }
