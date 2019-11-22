@@ -6,7 +6,9 @@
   @include reset-basic;
   background: $bgc-thumbnail-basic;
   border: $bd-thumbnail-basic;
+  border-radius: $bdrs-thumbnail-basic;
   display: inline-block;
+  overflow: hidden;
   padding: $p-thumbnail-basic;
   position: relative;
   width: 100%;
@@ -37,6 +39,12 @@
   &:hover {
     .sui-ThumbnailBasic-caption {
       max-height: 100%;
+    }
+  }
+
+  @if $bdrs-thumbnail-basic > 0 {
+    picture {
+      border-radius: $bdrs-thumbnail-basic;
     }
   }
 }
