@@ -42,7 +42,6 @@ export default function FormSelect({
 FormSelect.displayName = 'FormSelect'
 
 // Remove these comments if you need
-// FormSelect.contextTypes = {i18n: PropTypes.object}
 FormSelect.propTypes = {
   /**
    * Classname to be added along
