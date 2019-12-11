@@ -32,7 +32,11 @@ export default function CmpUiContainer({
   const _handleAccept = async evt => {
     evt && evt.preventDefault()
     try {
-      await getPurposesAndVendors.execute()
+      const {
+        purposeConsents,
+        vendorConsents
+      } = await getPurposesAndVendors.execute()
+      await sendConsents.execute({purposeConsents, vendorConsents})
     } catch (error) {
       console.log(error)
     }
