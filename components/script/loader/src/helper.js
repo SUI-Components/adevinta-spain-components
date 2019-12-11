@@ -2,9 +2,12 @@ const scriptPromises = []
 
 /**
  * Loads the given script. If the script was already loaded it will immediately resolve.
- * @param  {string} src
- * @param  {func} verifier
- * @param  {bool} isAsync
+ * @param  {object} params
+ * @param  {string} params.src
+ * @param  {function} params.verifier
+ * @param  {boolean} params.isAsync
+ * @param  {number} params.detectionDelay
+ * @param  {string} params.stylesheet
  * @return {Promise}
  */
 const loadScript = ({src, verifier, isAsync, detectionDelay, stylesheet}) => {
@@ -28,8 +31,9 @@ const loadScript = ({src, verifier, isAsync, detectionDelay, stylesheet}) => {
 
 /**
  * Injects the script into the dom.
- * @param  {string} src
- * @param  {bool} isAsync
+ * @param  {object} params
+ * @param  {string} params.src
+ * @param  {boolean} params.isAsync
  * @return {void}
  */
 const injectScript = ({src, isAsync}) => {
@@ -43,7 +47,7 @@ const injectScript = ({src, isAsync}) => {
 
 /**
  * Injects the styles file into the head.
- * @param  {string} styles
+ * @param  {string} stylesheet
  * @return {void}
  */
 const injectStyles = stylesheet => {
@@ -57,10 +61,10 @@ const injectStyles = stylesheet => {
 
 /**
  * Waits until truthyFn returns a truthy value, then calls callback.
- * @param  {func} truthyFn
- * @param  {func} callback
- * @param  {integer} delay
- * @param  {integer} interval
+ * @param  {function} truthyFn
+ * @param  {function} callback
+ * @param  {number} delay
+ * @param  {number} interval
  * @return {void}
  */
 const waitUntil = (
