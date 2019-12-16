@@ -298,7 +298,7 @@ MapBasic.propTypes = {
 
 MapBasic.defaultProps = {
   attribution:
-    'Map &copy; 1987-2017 <a href="http://developer.here.com">HERE</a>',
+    'Map &copy; 1987-2019 <a href="http://developer.here.com">HERE</a>',
   center: [40.00237, -3.99902],
   currentGeoCode: [],
   id: 'map-container',
