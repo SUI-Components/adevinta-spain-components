@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.32.0"></a>
+# 1.32.0 (2019-12-16)
+
+
+### Features
+
+* change year ([dabdd06](https://github.com/SUI-Components/schibsted-spain-components/commit/dabdd06))
+
+
+
 <a name="1.31.0"></a>
 # 1.31.0 (2019-10-30)
 
