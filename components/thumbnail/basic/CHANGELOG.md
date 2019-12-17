@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2019-12-17)
+
+
+### Features
+
+* onclick on anchor ([b9c0ef6](https://github.com/SUI-Components/schibsted-spain-components/commit/b9c0ef6))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2019-04-02)
 
