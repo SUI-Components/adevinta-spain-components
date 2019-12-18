@@ -4,7 +4,7 @@
   "description": "Mono repo containing all Schibsted Spain React Components.",
   "private": true,
   "scripts": {
-    "build": "sui-mono phoenix --no-root --no-audit --no-progress && npm run install:demos -- --no-audit --no-progress && sui-studio build",
+    "build": "npm run phoenix:ci && sui-studio build",
     "co": "sui-studio commit",
     "commitmsg": "validate-commit-msg",
     "dev": "sui-studio dev",
@@ -14,6 +14,7 @@
     "lint:sass": "sui-lint sass",
     "install:demos": "cd demo && sui-mono phoenix",
     "phoenix": "sui-mono phoenix && npm run install:demos -- --no-audit",
+    "phoenix:ci": "sui-mono phoenix --no-root --no-audit --no-progress && npm run install:demos -- --no-audit --no-progress",
     "precommit": "sui-precommit run",
     "start": "sui-studio start",
     "test": "jest"
