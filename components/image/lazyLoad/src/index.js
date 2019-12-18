@@ -11,6 +11,7 @@ const BASE_CLASS = 'sui-ImageLazyLoad'
  */
 export default function ImageLazyLoad({
   alt = '',
+  title = '',
   aspectRatio = '',
   offsetVertical = 100,
   showSpinner = true,
@@ -31,7 +32,7 @@ export default function ImageLazyLoad({
       )}
       <div className={`${BASE_CLASS}-imageWrap`}>
         {isNearScreen && (
-          <img className={`${BASE_CLASS}-image`} src={src} alt={alt} />
+          <img className={`${BASE_CLASS}-image`} src={src} alt={alt} title={title} />
         )}
       </div>
     </div>
@@ -52,6 +53,10 @@ ImageLazyLoad.propTypes = {
    * Image alternative text.
    */
   alt: PropTypes.string,
+  /**
+   * Image title text.
+   */
+  title: PropTypes.string,
   /**
    * Flag to show a spinner while the image resource is loading.
    */
