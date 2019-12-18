@@ -32,7 +32,12 @@ export default function ImageLazyLoad({
       )}
       <div className={`${BASE_CLASS}-imageWrap`}>
         {isNearScreen && (
-          <img className={`${BASE_CLASS}-image`} src={src} alt={alt} title={title} />
+          <img
+            className={`${BASE_CLASS}-image`}
+            src={src}
+            alt={alt}
+            title={title}
+          />
         )}
       </div>
     </div>
