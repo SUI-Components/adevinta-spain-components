@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.14.0"></a>
+# 1.14.0 (2019-12-18)
+
+
+### Features
+
+* added title attribute to improve the SEO ([877024c](https://github.com/SUI-Components/schibsted-spain-components/commit/877024c))
+* magic linter ([7ff16af](https://github.com/SUI-Components/schibsted-spain-components/commit/7ff16af))
+
+
+
 <a name="1.13.0"></a>
 # 1.13.0 (2019-11-18)
 
