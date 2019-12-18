@@ -12,20 +12,17 @@ const ThumbnailList = ({
 }) => (
   <ul className="sui-ThumbnailList">
     {items.map((item, index) => (
-      <li
-        className="sui-ThumbnailList-item"
-        key={index}
-        onClick={ev => onClick(ev, index)}
-      >
+      <li className="sui-ThumbnailList-item" key={index}>
         <ThumbnailBasic
           alt={item.alt}
           captionText={captionText}
           fallback={fallback}
           href={item.href}
+          imgSources={item.sources}
+          onClick={ev => onClick(ev, index)}
           placeholder={placeholder}
           src={item.src}
           target={target}
-          imgSources={item.sources}
         />
       </li>
     ))}

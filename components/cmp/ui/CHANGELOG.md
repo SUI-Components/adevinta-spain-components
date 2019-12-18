@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.16.0"></a>
+# 1.16.0 (2019-12-11)
+
+
+### Bug Fixes
+
+* undo removed line ([fe1bba3](https://github.com/SUI-Components/schibsted-spain-components/commit/fe1bba3))
+
+
+### Features
+
+* do not break on getvendors error ([24d0ed0](https://github.com/SUI-Components/schibsted-spain-components/commit/24d0ed0))
+
+
+
 <a name="1.15.0"></a>
 # 1.15.0 (2019-09-22)
 

@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Thumbnail from './Thumbnail'
 
-const ThumbnailBasic = function({href, target, ...thumbnailProps}) {
+const ThumbnailBasic = function({href, target, onClick, ...thumbnailProps}) {
   return href ? (
-    <a href={href} target={target}>
+    <a href={href} target={target} onClick={onClick}>
       <Thumbnail {...thumbnailProps} />
     </a>
   ) : (
@@ -46,7 +46,11 @@ ThumbnailBasic.propTypes = {
   /**
    * html picture sources, object {media, srcset} expected
    */
-  imgSources: PropTypes.array
+  imgSources: PropTypes.array,
+  /**
+   * onClick callback
+   */
+  onClick: PropTypes.func
 }
 
 ThumbnailBasic.defaultProps = {

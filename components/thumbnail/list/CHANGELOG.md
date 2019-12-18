@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2019-12-17)
+
+
+### Bug Fixes
+
+* onClick on anchor instead of list ([5c7e89e](https://github.com/SUI-Components/schibsted-spain-components/commit/5c7e89e))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2019-04-02)
 
