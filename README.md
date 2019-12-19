@@ -4,7 +4,7 @@
 
 ## 📦 What are you going to find here?
 
-Presentational React components designed for some Adevinta Spain products. Generally speaking, the components are being used in production in some of our products in Adevinta Spain. Like [Fotocasa](https://www.fotocasa.es), [Habitaclia](https://www.habitaclia.com/), [Coches.net](https://www.coches.net), [Motos.net](https://motos.coches.net),[MilAnuncios](https://www.milanuncios.com/) or [Infojobs](https://www.infojobs.net/).
+Presentational React components designed for some Adevinta Spain products. Generally speaking, the components are being used in production in some of our products in Adevinta Spain. Like [Fotocasa](https://www.fotocasa.es), [Habitaclia](https://www.habitaclia.com/), [Coches.net](https://www.coches.net), [Motos.net](https://motos.coches.net),[Milanuncios](https://www.milanuncios.com/) or [Infojobs](https://www.infojobs.net/).
 
 ## 🖥 Environment Support
 
