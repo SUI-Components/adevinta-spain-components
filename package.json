@@ -1,10 +1,10 @@
 {
   "name": "@schibstedspain/react-components",
-  "version": "1.2.0",
+  "version": "1.0.0",
   "description": "Mono repo containing all Schibsted Spain React Components.",
   "private": true,
   "scripts": {
-    "build": "sui-studio build",
+    "build": "npm run phoenix:ci && sui-studio build",
     "co": "sui-studio commit",
     "commitmsg": "validate-commit-msg",
     "dev": "sui-studio dev",
@@ -12,8 +12,9 @@
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",
-    "phoenix": "sui-mono phoenix && (cd demo && sui-mono phoenix)",
-    "phoenix:ci": "sui-mono run-parallel npm install && (cd demo && sui-mono run-parallel npm install)",
+    "install:demos": "cd demo && sui-mono phoenix --ci",
+    "phoenix": "sui-mono phoenix && npm run install:demos",
+    "phoenix:ci": "sui-mono phoenix --no-root --ci && npm run install:demos -- --ci",
     "precommit": "sui-precommit run",
     "start": "sui-studio start",
     "test": "jest"
@@ -23,14 +24,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "7.4.0",
+    "@babel/plugin-transform-modules-commonjs": "7.7.5",
     "@s-ui/precommit": "2",
-    "@s-ui/studio": "6",
+    "@s-ui/studio": "7",
     "enzyme": "3.10.0",
-    "enzyme-adapter-react-16": "1.14.0",
+    "enzyme-adapter-react-16": "1.15.1",
     "husky": "0.13.4",
-    "jest": "24.8.0",
-    "validate-commit-msg": "2.12.2",
+    "jest": "24.9.0",
+    "validate-commit-msg": "2.14.0",
     "@s-ui/lint": "3"
   },
   "dependencies": {
@@ -39,9 +40,9 @@
   },
   "config": {
     "sui-studio": {
-      "logo": "<img width='50' src='https://pbs.twimg.com/profile_images/575607908940931073/gGXmL_b3.jpeg' />",
+      "logo": "<img width='50' src='https://camo.githubusercontent.com/60172890c1c8e95d3d0f51f09399a3504f89ef88/68747470733a2f2f7777772e61646576696e74612e636f6d2f77702d636f6e74656e742f7468656d65732f73636f6d2f6173736574732f696d672f41646576696e74612d6c6f676f2e737667' />",
       "font": "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i",
-      "name": "Schibsted Spain Components"
+      "name": "Adevinta Spain Components"
     },
     "sui-mono": {
       "access": "public",

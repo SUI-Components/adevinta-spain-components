@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 import MoleculeSelectField from '@s-ui/react-molecule-select-field'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 
-import IconAngleDown from '@schibstedspain/mt-svg-icons/lib/IconAngleDown'
-import IconClose from '@schibstedspain/mt-svg-icons/lib/IconClose'
+import IconAngleDown from './IconAngleDown'
+import IconClose from './IconClose'
 
 import WithValidator from '../validatorHoC/WithValidator'
 

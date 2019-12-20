@@ -1,6 +1,8 @@
 {
+  "name": "schibsted-spain-components",
   "version": 2,
-  "name": "schibstedspain-react-components",
-  "public": true,
-  "alias": "schibstedspain-react-components"
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
+  ]
 }

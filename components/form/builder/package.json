@@ -14,8 +14,7 @@
     "@s-ui/react-molecule-dropdown-option": "1",
     "@s-ui/react-molecule-input-field": "2",
     "@s-ui/react-molecule-select-field": "1",
-    "@s-ui/react-molecule-textarea-field": "2",
-    "@schibstedspain/mt-svg-icons": "1"
+    "@s-ui/react-molecule-textarea-field": "2"
   },
   "keywords": [],
   "author": "",
