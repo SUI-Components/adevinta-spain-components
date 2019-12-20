@@ -12,9 +12,9 @@
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",
-    "install:demos": "cd demo && sui-mono phoenix",
-    "phoenix": "sui-mono phoenix && npm run install:demos -- --no-audit",
-    "phoenix:ci": "sui-mono phoenix --no-root --no-audit --no-progress && npm run install:demos -- --no-audit --no-progress",
+    "install:demos": "cd demo && sui-mono phoenix --ci",
+    "phoenix": "sui-mono phoenix && npm run install:demos",
+    "phoenix:ci": "sui-mono phoenix --no-root --ci && npm run install:demos -- --ci",
     "precommit": "sui-precommit run",
     "start": "sui-studio start",
     "test": "jest"
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/mono": "1"
+    "@s-ui/mono": "beta"
   },
   "config": {
     "sui-studio": {
