@@ -40,9 +40,9 @@
   },
   "config": {
     "sui-studio": {
-      "logo": "<img width='50' src='https://pbs.twimg.com/profile_images/575607908940931073/gGXmL_b3.jpeg' />",
+      "logo": "<img width='50' src='https://camo.githubusercontent.com/60172890c1c8e95d3d0f51f09399a3504f89ef88/68747470733a2f2f7777772e61646576696e74612e636f6d2f77702d636f6e74656e742f7468656d65732f73636f6d2f6173736574732f696d672f41646576696e74612d6c6f676f2e737667' />",
       "font": "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i",
-      "name": "Schibsted Spain Components"
+      "name": "Adevinta Spain Components"
     },
     "sui-mono": {
       "access": "public",
