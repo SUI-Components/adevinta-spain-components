@@ -78,7 +78,7 @@ class FormBuilder extends Component {
    * @param {Object} currentField
    * @param {string} currentValueId
    */
-  _getSelectedFormValues = (nextField, currentField, currentValuedId) => {
+  _getSelectedFormValues = (nextField, currentField, currentValueId) => {
     const maxIndex = this._formFields.indexOf(nextField)
     const selectedFields = this._formFields.filter(
       (_, index) => index < maxIndex
@@ -86,7 +86,7 @@ class FormBuilder extends Component {
     const selectedFormValues = this._getFormValues(
       selectedFields,
       currentField,
-      currentValuedId
+      currentValueId
     )
     return selectedFormValues
   }
@@ -366,7 +366,7 @@ FormBuilder.propTypes = {
     /** Refers to the formfield label */
     label: PropTypes.string,
     /** Refers to the formfield errors */
-    errors: PropTypes.Object,
+    errors: PropTypes.object,
     /** Refers to whether formField is persistent */
     persists: PropTypes.bool,
     /** Refers to the formfield input type */
