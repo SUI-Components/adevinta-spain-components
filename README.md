@@ -1,4 +1,4 @@
-# Schibsted Spain (Aka Adevinta) React Components
+# Adevinta Spain React Components
 
 <img src="https://www.adevinta.com/wp-content/themes/scom/assets/img/Adevinta-logo.svg" alt="Adevinta Logo" width="150">
 
