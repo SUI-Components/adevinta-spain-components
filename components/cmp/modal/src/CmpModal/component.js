@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Button from '@schibstedspain/sui-atom-button'
+import Button from '@s-ui/react-atom-button'
 
 import {CmpModalAdvertisementStep} from '../CmpModalAdvertisementStep'
 import {CmpModalGeneralStep} from '../CmpModalGeneralStep'
