@@ -1,4 +1,4 @@
-import {Component} from 'react'
+import {useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {
   initListener,
@@ -8,34 +8,24 @@ import {
   removeOnLogoutSubscriber
 } from './helper'
 
-class GigyaGlobalEvents extends Component {
-  _registerEvents = ({onLogin, onLogout}) => {
+export default function GigyaGlobalEvents({onLogin, onLogout}) {
+  const registerEvents = ({onLogin, onLogout}) => {
     onLogin && addOnLoginSubscriber(onLogin)
     onLogout && addOnLogoutSubscriber(onLogout)
   }
 
-  _unregisterEvents = ({onLogin, onLogout}) => {
+  const unregisterEvents = ({onLogin, onLogout}) => {
     onLogin && removeOnLoginSubscriber(onLogin)
     onLogout && removeOnLogoutSubscriber(onLogout)
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line
-    this._unregisterEvents(this.props)
-    this._registerEvents(nextProps)
-  }
-
-  UNSAFE_componentWillMount() { // eslint-disable-line
+  useEffect(function() {
     initListener()
-    this._registerEvents(this.props)
-  }
+    registerEvents({onLogin, onLogout})
+    return () => unregisterEvents({onLogin, onLogout})
+  })
 
-  componentWillUnmount() {
-    this._unregisterEvents(this.props)
-  }
-
-  render() {
-    return null
-  }
+  return null
 }
 
 GigyaGlobalEvents.displayName = 'GigyaGlobalEvents'
@@ -44,16 +34,9 @@ GigyaGlobalEvents.propTypes = {
   /**
    * A listener to be executed onLogin gigya event
    */
-  onLogin: PropTypes.func, // eslint-disable-line react/no-unused-prop-types
+  onLogin: PropTypes.func,
   /**
    * A listener to be executed onLogout gigya event
    */
-  onLogout: PropTypes.func // eslint-disable-line react/no-unused-prop-types
+  onLogout: PropTypes.func
 }
-
-GigyaGlobalEvents.defaultProps = {
-  onLogin: null,
-  onLogout: null
-}
-
-export default GigyaGlobalEvents
