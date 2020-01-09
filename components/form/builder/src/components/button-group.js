@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import MoleculeButtonGroup from '@s-ui/react-molecule-button-group'
-import AtomButtom from '@schibstedspain/sui-atom-button'
+import AtomButtom from '@s-ui/react-atom-button'
 import MoleculeField from '@s-ui/react-molecule-field'
 
 import WithValidator from '../validatorHoC/WithValidator'
