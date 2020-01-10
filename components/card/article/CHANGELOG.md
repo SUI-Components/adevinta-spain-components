@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.24.0 (2020-01-10)
+
+
+### Bug Fixes
+
+* remove unnecessary prop tagClassName ([b8741dd](https://github.com/SUI-Components/schibsted-spain-components/commit/b8741dde35232df9269ff08810e2f3b81799dec1))
+
+
+### Features
+
+* make use of SUI's AtomTag ([46c0387](https://github.com/SUI-Components/schibsted-spain-components/commit/46c03879f1fcec4785cf9b7f3ccb739c58750cf1))
+* update deps to make use of SUI's AtomTag ([de91405](https://github.com/SUI-Components/schibsted-spain-components/commit/de914057214f6a6c5d6865b7df36c460ea2f1af7))
+
+
+
 # 1.23.0 (2020-01-10)
 
 
