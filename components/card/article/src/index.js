@@ -6,7 +6,7 @@ import cx from 'classnames'
 import Commentsquare from '@schibstedspain/sui-svgiconset/lib/Commentsquare'
 import MediaPlay from '@schibstedspain/sui-svgiconset/lib/Mediaplay'
 import ImageLazyLoad from '@schibstedspain/sui-image-lazy-load'
-import SuiTagChip from '@schibstedspain/sui-tag-chip'
+import SuiAtomTag from '@s-ui/react-atom-tag'
 
 const cardArticleMediaClassName = video =>
   cx('sui-CardArticle-media', {
@@ -71,9 +71,8 @@ export default function CardArticle({
             <TagChip
               rel={tag.rel}
               label={tag.text}
-              link={tag.url}
+              href={tag.url}
               linkFactory={Link}
-              className={suiTagClassName}
               type={tag.type}
             />
           )}
@@ -185,7 +184,7 @@ CardArticle.propTypes = {
 }
 
 CardArticle.defaultProps = {
-  tagChip: SuiTagChip,
+  tagChip: SuiAtomTag,
   featured: false,
   linkFactory: ({children, ...rest}) => <a {...rest}>{children}</a>
 }
