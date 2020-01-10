@@ -44,16 +44,13 @@ export default function CardArticle({
   tagChip: TagChip,
   comments,
   lazyLoad,
-  tagClassName,
   featured,
   video
 }) {
-  const suiTagClassName = cx('sui-CardArticle-tag', tagClassName)
   const cardInfoClassName = cx('sui-CardArticle-info', {
     'is-featured': featured
   })
   const MediaIcon = media.icon || MediaPlay
-
   return (
     <div className="sui-CardArticle">
       <Link href={link} className="sui-CardArticle-link" title={title}>
@@ -74,7 +71,7 @@ export default function CardArticle({
               label={tag.text}
               link={tag.url}
               linkFactory={Link}
-              className={suiTagClassName}
+              type={tag.type}
             />
           )}
           {comments && _renderComments(comments, Link)}
