@@ -44,9 +44,11 @@ export default function CardArticle({
   tagChip: TagChip,
   comments,
   lazyLoad,
+  tagClassName,
   featured,
   video
 }) {
+  const suiTagClassName = cx('sui-CardArticle-tag', tagClassName)
   const cardInfoClassName = cx('sui-CardArticle-info', {
     'is-featured': featured
   })
@@ -71,6 +73,7 @@ export default function CardArticle({
               label={tag.text}
               link={tag.url}
               linkFactory={Link}
+              className={suiTagClassName}
               type={tag.type}
             />
           )}
