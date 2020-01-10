@@ -53,7 +53,6 @@ export default function CardArticle({
     'is-featured': featured
   })
   const MediaIcon = media.icon || MediaPlay
-
   return (
     <div className="sui-CardArticle">
       <Link href={link} className="sui-CardArticle-link" title={title}>
@@ -75,6 +74,7 @@ export default function CardArticle({
               link={tag.url}
               linkFactory={Link}
               className={suiTagClassName}
+              type={tag.type}
             />
           )}
           {comments && _renderComments(comments, Link)}
