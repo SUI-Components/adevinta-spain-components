@@ -44,11 +44,9 @@ export default function CardArticle({
   tagChip: TagChip,
   comments,
   lazyLoad,
-  tagClassName,
   featured,
   video
 }) {
-  const suiTagClassName = cx('sui-CardArticle-tag', tagClassName)
   const cardInfoClassName = cx('sui-CardArticle-info', {
     'is-featured': featured
   })
@@ -165,10 +163,6 @@ CardArticle.propTypes = {
    * Featured flag
    */
   featured: PropTypes.bool,
-  /**
-   *  Custom tag class name
-   */
-  tagClassName: PropTypes.string,
   /**
    * Lazy load flag / config.
    */
