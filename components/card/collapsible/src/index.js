@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, {Component} from 'react'
-import Button from '@schibstedspain/sui-atom-button'
+import Button from '@s-ui/react-atom-button'
 import Collapsible from '@schibstedspain/sui-collapsible-basic'
 import IconX from '@schibstedspain/sui-svgiconset/lib/X'
 import cx from 'classnames'

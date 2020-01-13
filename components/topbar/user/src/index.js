@@ -6,7 +6,7 @@ import cx from 'classnames'
 import Menu from '@schibstedspain/sui-svgiconset/lib/Menu'
 import DropdownBasic from '@schibstedspain/sui-dropdown-basic'
 import DropdownUser from '@schibstedspain/sui-dropdown-user'
-import AtomButton from '@schibstedspain/sui-atom-button'
+import AtomButton from '@s-ui/react-atom-button'
 
 const DEFAULT_NAV_WRAP_STYLE = {
   top: 'inherit',

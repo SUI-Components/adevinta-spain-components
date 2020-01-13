@@ -9,7 +9,7 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@schibstedspain/sui-atom-button": "1",
+    "@s-ui/react-atom-button": "1",
     "@s-ui/component-dependencies": "1",
     "@s-ui/react-molecule-notification": "1",
     "@schibstedspain/react-cmp-modal": "1",
