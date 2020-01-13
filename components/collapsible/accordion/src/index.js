@@ -1,62 +1,40 @@
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
-import React, {Component} from 'react'
 import CollapsibleBasic from '@schibstedspain/sui-collapsible-basic'
 
-class CollapsibleAccordion extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {items: props.items}
-    this._handleClick = this._handleClick.bind(this)
-    this._collapseItems = this._collapseItems.bind(this)
+function CollapsibleAccordion({
+  preserveState = false,
+  onItemChange = (collapsed, id) => {},
+  items,
+  icon
+}) {
+  const [openIndex, setOpenIndex] = useState(null)
+
+  const handleClick = id => {
+    return collapsed => !preserveState && collapseItems(collapsed, id)
   }
 
-  UNSAFE_componentWillMount() { // eslint-disable-line
-    this._collapseItems(
-      false,
-      this.props.items.findIndex(item => !item.collapsed)
-    )
+  const collapseItems = (collapsed, id) => {
+    const newOpenIndex = id === openIndex ? null : id
+    setOpenIndex(newOpenIndex)
+    onItemChange(collapsed, id)
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line
-    const nextOpenIndex = nextProps.items.findIndex(function(item) {
-      return !item.collapsed
-    })
-    this.setState({openIndex: nextOpenIndex})
-  }
-
-  _handleClick(id) {
-    const {preserveState} = this.props
-    return collapsed => !preserveState && this._collapseItems(collapsed, id)
-  }
-
-  _collapseItems(collapsed, id) {
-    this._setOpenIndex(id)
-    this.props.onItemChange(collapsed, id)
-  }
-
-  _setOpenIndex(id) {
-    this.setState({openIndex: id === this.state.openIndex ? null : id})
-  }
-
-  render() {
-    const {items} = this.props
-    const {openIndex} = this.state
-    return (
-      <div>
-        {items.map((item, index) => (
-          <CollapsibleBasic
-            key={index}
-            {...item}
-            collapsed={openIndex !== index}
-            handleClick={this._handleClick(index)}
-            icon={this.props.icon}
-          >
-            {item.content}
-          </CollapsibleBasic>
-        ))}
-      </div>
-    )
-  }
+  return (
+    <div>
+      {items.map((item, index) => (
+        <CollapsibleBasic
+          key={index}
+          {...item}
+          collapsed={openIndex !== index}
+          handleClick={handleClick(index)}
+          icon={icon}
+        >
+          {item.content}
+        </CollapsibleBasic>
+      ))}
+    </div>
+  )
 }
 
 CollapsibleAccordion.displayName = 'CollapsibleAccordion'
@@ -94,11 +72,6 @@ CollapsibleAccordion.propTypes = {
       collapsed: PropTypes.bool
     })
   ).isRequired
-}
-
-CollapsibleAccordion.defaultProps = {
-  preserveState: false,
-  onItemChange: () => {}
 }
 
 export default CollapsibleAccordion

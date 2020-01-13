@@ -6,7 +6,7 @@ import cx from 'classnames'
 import Commentsquare from '@schibstedspain/sui-svgiconset/lib/Commentsquare'
 import MediaPlay from '@schibstedspain/sui-svgiconset/lib/Mediaplay'
 import ImageLazyLoad from '@schibstedspain/sui-image-lazy-load'
-import SuiTagChip from '@schibstedspain/sui-tag-chip'
+import SuiAtomTag from '@s-ui/react-atom-tag'
 
 const cardArticleMediaClassName = video =>
   cx('sui-CardArticle-media', {
@@ -44,16 +44,13 @@ export default function CardArticle({
   tagChip: TagChip,
   comments,
   lazyLoad,
-  tagClassName,
   featured,
   video
 }) {
-  const suiTagClassName = cx('sui-CardArticle-tag', tagClassName)
   const cardInfoClassName = cx('sui-CardArticle-info', {
     'is-featured': featured
   })
   const MediaIcon = media.icon || MediaPlay
-
   return (
     <div className="sui-CardArticle">
       <Link href={link} className="sui-CardArticle-link" title={title}>
@@ -72,9 +69,9 @@ export default function CardArticle({
             <TagChip
               rel={tag.rel}
               label={tag.text}
-              link={tag.url}
+              href={tag.url}
               linkFactory={Link}
-              className={suiTagClassName}
+              type={tag.type}
             />
           )}
           {comments && _renderComments(comments, Link)}
@@ -167,10 +164,6 @@ CardArticle.propTypes = {
    */
   featured: PropTypes.bool,
   /**
-   *  Custom tag class name
-   */
-  tagClassName: PropTypes.string,
-  /**
    * Lazy load flag / config.
    */
   lazyLoad: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
@@ -185,7 +178,7 @@ CardArticle.propTypes = {
 }
 
 CardArticle.defaultProps = {
-  tagChip: SuiTagChip,
+  tagChip: SuiAtomTag,
   featured: false,
   linkFactory: ({children, ...rest}) => <a {...rest}>{children}</a>
 }
