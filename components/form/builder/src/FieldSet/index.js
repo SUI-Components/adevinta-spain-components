@@ -5,7 +5,7 @@ import {field} from '../prop-types'
 
 import ProxyField from '../ProxyField'
 
-const baseClass = 'ma-FormBuilder'
+const baseClass = 'sui-FormBuilder'
 
 const FieldSet = ({fieldset, tabIndex, onChange, fieldSize, errors}) => {
   const {fields = [], label} = fieldset

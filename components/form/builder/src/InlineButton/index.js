@@ -33,7 +33,7 @@ const InlineButton = ({inlineButton, tabIndex, onChange, errors}) => {
 
   return (
     <div
-      className={`ma-FormBuilder-field ma-FormBuilder-InlineButton ma-FormBuilder-${inlineButtonProps.id ||
+      className={`sui-FormBuilder-field sui-FormBuilder-InlineButton sui-FormBuilder-${inlineButtonProps.id ||
         tabIndex}`}
     >
       <MoleculeButtonGroup>

@@ -56,7 +56,7 @@ const Checkbox = ({checkbox, tabIndex, onChange, errors}) => {
   }
   return (
     <div
-      className={`ma-FormBuilder-field ma-FormBuilder-Switch ma-FormBuilder-${checkboxProps.id ||
+      className={`sui-FormBuilder-field sui-FormBuilder-Switch sui-FormBuilder-${checkboxProps.id ||
         tabIndex}`}
     >
       <MoleculeCheckboxField {...checkboxProps} />

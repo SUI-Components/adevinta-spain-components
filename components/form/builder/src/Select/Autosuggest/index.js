@@ -85,10 +85,10 @@ const AutosuggestSelect = ({select, tabIndex, onChange, size, errors}) => {
 
   return (
     <div
-      className={`ma-FormBuilder-field ma-FormBuilder-AutosuggestSelect ma-FormBuilder-${autosuggestProps.id}`}
+      className={`sui-FormBuilder-field sui-FormBuilder-AutosuggestSelect sui-FormBuilder-${autosuggestProps.id}`}
     >
       {autosuggestProps.label && (
-        <label className="ma-FormBuilder-label" htmlFor={autosuggestProps.id}>
+        <label className="sui-FormBuilder-label" htmlFor={autosuggestProps.id}>
           {autosuggestProps.label}
         </label>
       )}

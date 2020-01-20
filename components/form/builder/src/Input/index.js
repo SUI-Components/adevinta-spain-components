@@ -118,7 +118,7 @@ const Input = ({
 
   return (
     <div
-      className={`ma-FormBuilder-field ma-FormBuilder-Input ma-FormBuilder-${inputProps.id}`}
+      className={`sui-FormBuilder-field sui-FormBuilder-Input sui-FormBuilder-${inputProps.id}`}
     >
       <MoleculeInputField {...inputProps} />
     </div>

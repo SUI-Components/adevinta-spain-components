@@ -40,7 +40,7 @@ const Switch = ({switchField, tabIndex, onChange, errors}) => {
 
   return (
     <div
-      className={`ma-FormBuilder-field ma-FormBuilder-Switch ma-FormBuilder-${switchProps.id ||
+      className={`sui-FormBuilder-field sui-FormBuilder-Switch sui-FormBuilder-${switchProps.id ||
         tabIndex}`}
     >
       <MoleculeSwitch {...switchProps} />

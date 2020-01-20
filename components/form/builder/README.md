@@ -7,14 +7,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/ma-form-builder --save
+$ npm install @s-ui/form-builder --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import FormBuilder from '@schibstedspain/ma-form-builder'
+import FormBuilder from '@s-ui/form-builder'
 
 return (<FormBuilder />)
 ```

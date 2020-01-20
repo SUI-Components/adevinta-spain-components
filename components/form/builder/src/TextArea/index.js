@@ -67,7 +67,7 @@ const TextArea = ({textArea, tabIndex, onChange, errors}) => {
 
   return (
     <div
-      className={`ma-FormBuilder-field ma-FormBuilder-TextArea ma-FormBuilder-${textAreaProps.id}`}
+      className={`sui-FormBuilder-field sui-FormBuilder-TextArea sui-FormBuilder-${textAreaProps.id}`}
     >
       <MoleculeTextAreaField
         {...textAreaProps}

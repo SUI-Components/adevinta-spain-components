@@ -60,10 +60,10 @@ const DefaultSelect = ({select, tabIndex, onChange, size, errors}) => {
 
   return (
     <div
-      className={`ma-FormBuilder-field ma-FormBuilder-DefaultSelect ma-FormBuilder-${selectProps.id}`}
+      className={`sui-FormBuilder-field sui-FormBuilder-DefaultSelect sui-FormBuilder-${selectProps.id}`}
     >
       {selectProps.label && (
-        <label className="ma-FormBuilder-label" htmlFor={selectProps.id}>
+        <label className="sui-FormBuilder-label" htmlFor={selectProps.id}>
           {selectProps.label}
         </label>
       )}
