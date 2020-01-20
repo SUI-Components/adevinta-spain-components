@@ -1,0 +1,32 @@
+{
+  "name": "@s-ui/form-builder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "npx rimraf ./lib && npx mkdirp ./lib && npm run build:js && npm run build:styles",
+    "build:js": "../../../node_modules/.bin/babel --presets sui ./src --out-dir ./lib",
+    "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
+  },
+  "dependencies": {
+    "@s-ui/component-dependencies": "1",
+    "@s-ui/react-atom-button": "1",
+    "@s-ui/react-atom-spinner": "1",
+    "@s-ui/react-atom-switch": "1",
+    "@s-ui/react-molecule-autosuggest-field": "2",
+    "@s-ui/react-molecule-button-group": "2",
+    "@s-ui/react-molecule-checkbox-field": "2",
+    "@s-ui/react-molecule-dropdown-option": "1",
+    "@s-ui/react-molecule-input-field": "3",
+    "@s-ui/react-molecule-select-field": "1",
+    "@s-ui/react-molecule-textarea-field": "2",
+    "@schibstedspain/ma-iconset": "3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.schibsted.io:scmspain/frontend-ma--uilib-components.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}

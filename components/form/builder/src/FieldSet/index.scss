@@ -1,0 +1,17 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+$self: 'ma-FormBuilder-FieldSet';
+
+.#{$self} {
+  border: none;
+  margin: 0;
+  padding: 0;
+
+  &Container {
+    align-items: flex-end;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
