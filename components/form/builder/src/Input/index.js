@@ -109,7 +109,7 @@ const Input = ({
   }
 
   if (!nextProps.type) {
-    return <span>Unkown Input type {input.type}</span>
+    return <span>Unknown Input type {input.type}</span>
   }
 
   if (nextProps.hidden) {
