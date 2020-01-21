@@ -1,0 +1,24 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+
+.sui-TableBasic {
+  border-collapse: collapse;
+  font-size: $fz-s;
+  padding: 0;
+  color: $c-gray-dark;
+
+  &-header {
+    th {
+      font-weight: $fw-regular;
+      text-align: left;
+    }
+  }
+
+  &-cell {
+    border-bottom: 1px solid $c-gray-light-5;
+    padding: $p-l;
+
+    &--noWrap {
+      white-space: nowrap;
+    }
+  }
+}
