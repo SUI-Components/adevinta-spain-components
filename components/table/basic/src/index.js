@@ -10,14 +10,18 @@ const CELL_TYPE = {
 const TableBasic = ({contentHead, contentBody, contentFoot}) => {
   const hasHead = Boolean(contentHead?.length)
   const hasFoot = Boolean(contentFoot?.length)
+  const baseClass = 'sui-TableBasic'
 
   return (
-    <table className="sui-TableBasic sui-TableBasic--noWrap">
+    <table className={`${baseClass}`}>
       {hasHead && (
-        <thead className="sui-TableBasic-header">
+        <thead>
           <tr>
             {contentHead.map((element, index) => (
-              <th key={index} className="sui-TableBasic-cell">
+              <th
+                key={index}
+                className={`${baseClass}-cell ${baseClass}-headerCell`}
+              >
                 {element}
               </th>
             ))}
@@ -26,31 +30,29 @@ const TableBasic = ({contentHead, contentBody, contentFoot}) => {
       )}
 
       <tbody>
-        {contentBody.map((row, index) => {
-          return (
-            <tr key={index}>
-              {row.map((cell, index) => {
-                const {type: Element = CELL_TYPE.data} = cell
-                const cellClassName = cx('sui-TableBasic-cell', {
-                  'sui-TableBasic-cell--noWrap': cell.isNowrap
-                })
+        {contentBody.map((row, index) => (
+          <tr key={index}>
+            {row.map((cell, index) => {
+              const {type: Element = CELL_TYPE.data} = cell
+              const cellClassName = cx(`${baseClass}-cell`, {
+                'sui-TableBasic-cell--noWrap': cell.isNowrap
+              })
 
-                return (
-                  <Element key={index} className={cellClassName}>
-                    {cell.content}
-                  </Element>
-                )
-              })}
-            </tr>
-          )
-        })}
+              return (
+                <Element key={index} className={cellClassName}>
+                  {cell.content}
+                </Element>
+              )
+            })}
+          </tr>
+        ))}
       </tbody>
 
       {hasFoot && (
-        <tfoot className="sui-TableBasic-header">
+        <tfoot className={`${baseClass}-header`}>
           <tr>
             {contentHead.map((element, index) => (
-              <td key={index} className="sui-TableBasic-cell">
+              <td key={index} className={`${baseClass}-cell`}>
                 {element}
               </td>
             ))}

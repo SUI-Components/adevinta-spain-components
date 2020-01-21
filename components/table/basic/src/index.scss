@@ -6,11 +6,9 @@
   padding: 0;
   color: $c-gray-dark;
 
-  &-header {
-    th {
-      font-weight: $fw-regular;
-      text-align: left;
-    }
+  &-headerCell {
+    font-weight: $fw-regular;
+    text-align: left;
   }
 
   &-cell {

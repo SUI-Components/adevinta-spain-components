@@ -7,7 +7,7 @@
 ## Installation
 
 ```sh
-$ npm install @s-ui/sui-table-basic --save
+$ npm install @s-ui/react-table-basic --save
 ```
 
 ## Usage
@@ -15,9 +15,47 @@ $ npm install @s-ui/sui-table-basic --save
 ### Basic usage
 
 ```js
-import TableBasic from '@s-ui/sui-table-basic'
+import TableBasic from '@s-ui/react-table-basic'
 
-return <TableBasic />
+const contentHeadMook = [
+  'Versión',
+  'Año',
+  'Combustible',
+  'Potencia',
+  'Precio',
+  ''
+]
+
+const contentBodyMook = [
+  [
+    {
+      content: 'Volkswagen Golf Edition 1.0 TSI 85kW',
+      type: 'th',
+      isNowrap: true
+    },
+    {content: '2019'},
+    {content: 'Gasolina'},
+    {content: '115vc'},
+    {content: 'Desde 24.000€'},
+    {content: 'Más información'}
+  ],
+  [
+    {
+      content: 'Volkswagen Golf Edition 1.0 TSI 85kW',
+      type: 'th',
+      isNowrap: true
+    },
+    {content: '2019'},
+    {content: 'Gasolina'},
+    {content: '115vc'},
+    {content: 'Desde 24.000€'},
+    {content: 'Más información'}
+  ]
+]
+
+return (
+  <TableBasic contentHead={contentHeadMook} contentBody={contentBodyMook} />
+)
 ```
 
 > **Find full description and more examples in the [demo page](#).**
