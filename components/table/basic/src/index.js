@@ -2,7 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-export default function TableBasic({contentHead, contentBody, contentFoot}) {
+const CELL_TYPE = {
+  header: 'th',
+  data: 'td'
+}
+
+const TableBasic = ({contentHead, contentBody, contentFoot}) => {
   const hasHead = Boolean(contentHead?.length)
   const hasFoot = Boolean(contentFoot?.length)
 
@@ -25,18 +30,15 @@ export default function TableBasic({contentHead, contentBody, contentFoot}) {
           return (
             <tr key={index}>
               {row.map((cell, index) => {
+                const {type: Element = CELL_TYPE.data} = cell
                 const cellClassName = cx('sui-TableBasic-cell', {
                   'sui-TableBasic-cell--noWrap': cell.isNowrap
                 })
 
-                return cell.isHeader ? (
-                  <th key={index} className={cellClassName}>
+                return (
+                  <Element key={index} className={cellClassName}>
                     {cell.content}
-                  </th>
-                ) : (
-                  <td key={index} className={cellClassName}>
-                    {cell.content}
-                  </td>
+                  </Element>
                 )
               })}
             </tr>
@@ -63,6 +65,17 @@ TableBasic.displayName = 'TableBasic'
 
 TableBasic.propTypes = {
   contentHead: PropTypes.array,
-  contentBody: PropTypes.array.isRequired,
+  contentBody: PropTypes.arrayOf(
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        content: PropTypes.string.isRequired,
+        type: PropTypes.oneOf(Object.values(CELL_TYPE)),
+        isNowrap: PropTypes.bool
+      })
+    )
+  ).isRequired,
   contentFoot: PropTypes.array
 }
+
+export {CELL_TYPE as tableBasicTypes}
+export default TableBasic
