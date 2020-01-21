@@ -235,7 +235,7 @@ export const json = {
         label: 'Industrial Building',
         hidden: true,
         type: 'picker',
-        display: 'switch',
+        display: 'switch'
       },
       {
         id: 'energyCertificateGroup',
@@ -530,7 +530,10 @@ export const json = {
           then: {
             data: {
               value: '3',
-              datalist: [{value: '1', text: 'Sale'}, {value: '3', text: 'Rent'}]
+              datalist: [
+                {value: '1', text: 'Sale'},
+                {value: '3', text: 'Rent'}
+              ]
             }
           }
         },
