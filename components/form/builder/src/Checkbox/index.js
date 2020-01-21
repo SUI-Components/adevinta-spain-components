@@ -3,7 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {field} from '../prop-types'
 import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
-import IconCheck from '@schibstedspain/ma-iconset/lib/IconCheck'
+import IconCheck from '../Icons/IconCheck'
 
 const Checkbox = ({checkbox, tabIndex, onChange, errors}) => {
   const errorMessages = errors[checkbox.id]

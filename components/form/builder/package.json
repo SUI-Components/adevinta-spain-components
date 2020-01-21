@@ -19,8 +19,7 @@
     "@s-ui/react-molecule-dropdown-option": "1",
     "@s-ui/react-molecule-input-field": "3",
     "@s-ui/react-molecule-select-field": "1",
-    "@s-ui/react-molecule-textarea-field": "2",
-    "@schibstedspain/ma-iconset": "3"
+    "@s-ui/react-molecule-textarea-field": "2"
   },
   "repository": {
     "type": "git",
