@@ -51,7 +51,7 @@ const TableBasic = ({contentHead, contentBody, contentFoot}) => {
       {hasFoot && (
         <tfoot className={`${baseClass}-header`}>
           <tr>
-            {contentHead.map((element, index) => (
+            {contentFoot.map((element, index) => (
               <td key={index} className={`${baseClass}-cell`}>
                 {element}
               </td>
