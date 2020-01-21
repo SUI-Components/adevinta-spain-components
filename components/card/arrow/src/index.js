@@ -20,7 +20,7 @@ const CardArrow = ({media, text, icon, linkFactory: Link, link}) => {
           </div>
         )}
         <div className="sui-CardArrow-inner">
-          <h1 className="sui-CardArrow-innerTitle">{text.title}</h1>
+          <h3 className="sui-CardArrow-innerTitle">{text.title}</h3>
           {text.description && (
             <p className="sui-CardArrow-innerDescription">{text.description}</p>
           )}
