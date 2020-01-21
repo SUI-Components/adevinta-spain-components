@@ -4,9 +4,11 @@
 @import '~@s-ui/react-atom-image/lib/index';
 
 $w-card-arrow-img: 150px !default;
+$bdrs-card-arrow: 0 !default;
 
 .sui-CardArrow {
   @include sui-card;
+  border-radius: $bdrs-card-arrow;
 
   &-link {
     @include reset-link;
@@ -26,6 +28,7 @@ $w-card-arrow-img: 150px !default;
     &Title {
       font-size: $fz-s;
       margin-top: 0;
+      margin-bottom: 0;
     }
     flex: 1;
     padding: $p-l;
