@@ -39,8 +39,8 @@ const CONSTRAINTS = {
   minlength: 'tooShort'
 }
 
-const errorMessagesFromField = (fields, fieldId) => {
-  const field = pickFieldById(fields, fieldId)
+const checkConstrainstsFactory = json => ({for: fieldID, all}) => {
+  const field = pickFieldById(json.form.fields, fieldID)
   let errorMessages = []
   const constraints = field.constraints || []
   const elementValidity = document.getElementById(field.id)?.validity
@@ -96,4 +96,4 @@ const errorMessagesFromField = (fields, fieldId) => {
   return errorMessages
 }
 
-export {FIELDS, DISPLAYS, CONSTRAINTS, errorMessagesFromField}
+export {FIELDS, DISPLAYS, CONSTRAINTS, checkConstrainstsFactory}

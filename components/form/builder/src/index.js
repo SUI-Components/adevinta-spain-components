@@ -9,8 +9,6 @@ import ProxyField from './ProxyField'
 import {inputSizes as fieldSizes} from '@s-ui/react-atom-input'
 import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
 
-import {errorMessagesFromField} from './Standard'
-
 const FormBuilder = ({
   json,
   initFields,
@@ -56,7 +54,7 @@ const FormBuilder = ({
       // __META__: datalistEntries(nextStateFields)
     })
     setStateShowSpinner(false)
-  }, []) // eslint-disable-line
+    }, []) // eslint-disable-line
 
   useEffect(() => {
     const reducerWithRules = reducer(
@@ -89,7 +87,7 @@ const FormBuilder = ({
         setStateFields(nextFields)
         setStateShowSpinner(false)
       })
-  }, []) // eslint-disable-line
+    }, []) // eslint-disable-line
 
   return (
     <div className="sui-FormBuilder">
@@ -133,5 +131,5 @@ FormBuilder.defaultProps = {
 }
 
 export {fieldSizes as formBuilderFieldSizes}
-export {errorMessagesFromField}
+export {checkConstrainstsFactory} from './Standard'
 export default FormBuilder
