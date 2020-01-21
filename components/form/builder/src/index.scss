@@ -1,0 +1,65 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/react-atom-spinner/lib/index';
+@import '~@s-ui/react-atom-button/lib/index';
+@import './Checkbox/index';
+@import './Input/index';
+@import './Switch/index';
+@import './Select/index';
+@import './FieldSet/index';
+@import './TextArea/index';
+
+$self: 'sui-FormBuilder';
+
+$bg-form-builder: transparent !default;
+$p-form-builder: 0 !default;
+$bdrs-form-builder: 0 !default;
+$fz-form-builder-label: $fz-base !default;
+
+// TODO: Remove after SUI comp allows hidden accessible labels
+@mixin visually-hidden {
+  &:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+
+.#{$self} {
+  background: $bg-form-builder;
+  border-radius: $bdrs-form-builder;
+  padding: $p-form-builder;
+
+  > .sui-FormBuilder-field,
+  > .sui-FormBuilder-fieldSet {
+    width: calc(100% - #{$m-l});
+  }
+
+  &-label {
+    display: block;
+    font-size: $fz-form-builder-label;
+    margin-bottom: $m-s;
+
+    @include visually-hidden();
+  }
+
+  &-field {
+    box-sizing: border-box;
+    flex-grow: 1;
+    margin-bottom: $m-l;
+    margin-left: $m-m;
+    margin-right: $m-m;
+
+    @include media-breakpoint-up(s) {
+      flex-grow: 0;
+      width: calc(50% - #{$m-m});
+    }
+
+    @include media-breakpoint-up(l) {
+      width: calc(32% - #{$m-m});
+    }
+  }
+}

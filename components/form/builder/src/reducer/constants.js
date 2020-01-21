@@ -1,0 +1,7 @@
+export const REMOTE = 'remote'
+export const IN = 'IN'
+export const NIN = 'NIN'
+export const CHANGED = 'CHANGED'
+export const CHANGE = 'CHANGE'
+export const EXISTS = 'EXISTS'
+export const NEXISTS = 'NEXISTS'
