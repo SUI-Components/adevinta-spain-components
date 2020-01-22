@@ -1,0 +1,20 @@
+@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/react-atom-button/lib/index.scss';
+
+.sui-CollapsibleShowmore {
+  margin-bottom: $m-l;
+
+  &-container {
+    overflow: hidden;
+    transition: height 0.3s;
+  }
+
+  &-actionButton {
+    display: block;
+    margin: $m-xl auto $m-l;
+
+    &.is-hidden {
+      display: none;
+    }
+  }
+}
