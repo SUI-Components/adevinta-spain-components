@@ -2,7 +2,7 @@
 
 > Table basic to show tabular information.
 
-![Table Basic](./assets/preview.png)
+![Table Basic](https://github.com/SUI-Components/adevinta-spain-components/blob/master/components/table/basic/assets/preview.png)
 
 ## Installation
 
