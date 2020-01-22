@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.5.0 (2020-01-22)
+
+
+### Features
+
+* add box shadow variables on card arrow component ([f93af56](https://github.com/SUI-Components/schibsted-spain-components/commit/f93af568c04c6e92eb24213425397deeb47ee043))
+* fix lint error duplicate hover selector ([fd6fc5c](https://github.com/SUI-Components/schibsted-spain-components/commit/fd6fc5c66a929badb8b93746b46afea604445d89))
+
+
+
 # 1.4.0 (2020-01-21)
 
 
