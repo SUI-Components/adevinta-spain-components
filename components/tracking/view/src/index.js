@@ -24,7 +24,8 @@ class TrackingView extends Component {
   render() {
     if (
       typeof window !== 'undefined' &&
-      window.document.location.href.match('disable-tealium')
+      window.document.location.href.match('disable-tealium') ||
+      sessionStorage.getItem('disable-tealium')
     ) {
       return null
     }
