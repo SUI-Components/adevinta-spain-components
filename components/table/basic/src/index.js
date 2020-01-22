@@ -7,9 +7,9 @@ const CELL_TYPE = {
   data: 'td'
 }
 
-const TableBasic = ({contentHead, contentBody, contentFoot}) => {
-  const hasHead = Boolean(contentHead?.length)
-  const hasFoot = Boolean(contentFoot?.length)
+const TableBasic = ({head, body, foot}) => {
+  const hasHead = Boolean(head?.length)
+  const hasFoot = Boolean(foot?.length)
   const baseClass = 'sui-TableBasic'
 
   return (
@@ -17,7 +17,7 @@ const TableBasic = ({contentHead, contentBody, contentFoot}) => {
       {hasHead && (
         <thead>
           <tr>
-            {contentHead.map((element, index) => (
+            {head.map((element, index) => (
               <th
                 key={index}
                 className={`${baseClass}-cell ${baseClass}-headerCell`}
@@ -30,7 +30,7 @@ const TableBasic = ({contentHead, contentBody, contentFoot}) => {
       )}
 
       <tbody>
-        {contentBody.map((row, index) => (
+        {body.map((row, index) => (
           <tr key={index}>
             {row.map((cell, index) => {
               const {type: Element = CELL_TYPE.data} = cell
@@ -49,9 +49,9 @@ const TableBasic = ({contentHead, contentBody, contentFoot}) => {
       </tbody>
 
       {hasFoot && (
-        <tfoot className={`${baseClass}-header`}>
+        <tfoot>
           <tr>
-            {contentFoot.map((element, index) => (
+            {foot.map((element, index) => (
               <td key={index} className={`${baseClass}-cell`}>
                 {element}
               </td>
@@ -66,8 +66,8 @@ const TableBasic = ({contentHead, contentBody, contentFoot}) => {
 TableBasic.displayName = 'TableBasic'
 
 TableBasic.propTypes = {
-  contentHead: PropTypes.array,
-  contentBody: PropTypes.arrayOf(
+  head: PropTypes.array,
+  body: PropTypes.arrayOf(
     PropTypes.arrayOf(
       PropTypes.shape({
         content: PropTypes.string.isRequired,
@@ -76,7 +76,7 @@ TableBasic.propTypes = {
       })
     )
   ).isRequired,
-  contentFoot: PropTypes.array
+  foot: PropTypes.array
 }
 
 export {CELL_TYPE as tableBasicTypes}
