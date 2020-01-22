@@ -5,10 +5,26 @@
 
 $w-card-arrow-img: 150px !default;
 $bdrs-card-arrow: 0 !default;
+$bxsh-card-arrow: $bxsh-m !default;
+$bxsh-card-arrow-hover: $bxsh-l !default;
+$bxsh-card-arrow-active: $bxsh-l !default;
 
 .sui-CardArrow {
   @include sui-card;
   border-radius: $bdrs-card-arrow;
+  box-shadow: $bxsh-card-arrow;
+
+  &:hover {
+    box-shadow: $bxsh-card-arrow-hover;
+
+    .sui-CardArrow-icon {
+      fill: $c-gray !important;
+    }
+  }
+
+  &:active {
+    box-shadow: $bxsh-card-arrow-active;
+  }
 
   &-link {
     @include reset-link;
@@ -43,11 +59,5 @@ $bdrs-card-arrow: 0 !default;
     fill: $c-gray-light !important;
     padding-right: $p-l;
     width: $sz-icon-xl;
-  }
-
-  &:hover {
-    .sui-CardArrow-icon {
-      fill: $c-gray !important;
-    }
   }
 }
