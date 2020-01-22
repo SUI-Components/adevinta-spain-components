@@ -79,23 +79,23 @@ return (
 
     <h2>Version with thead, tbody and tfoot</h2>
     <TableBasic 
-      contentHead={contentHeadMook}
-      contentBody={contentBodyMook}
-      contentFoot={contentFootMook}
+      head={contentHeadMook}
+      body={contentBodyMook}
+      foot={contentFootMook}
     />
     <br/>
     <hr/>
 
     <h2>Version with thead and tbody</h2>
     <TableBasic 
-      contentHead={contentHeadMook}
-      contentBody={contentBodyMook}
+      head={contentHeadMook}
+      body={contentBodyMook}
     />
     <br/>
     <hr/>
 
     <h2>Version only with tbody</h2>
-    <TableBasic contentBody={contentBodyMook} />
+    <TableBasic body={contentBodyMook} />
     <br/>
   </div>
 )
