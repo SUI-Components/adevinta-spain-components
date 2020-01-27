@@ -53,9 +53,7 @@ const contentBodyMook = [
   ]
 ]
 
-return (
-  <TableBasic contentHead={contentHeadMook} contentBody={contentBodyMook} />
-)
+return <TableBasic head={contentHeadMook} body={contentBodyMook} />
 ```
 
 > **Find full description and more examples in the [demo page](#).**
