@@ -1,10 +1,10 @@
+import React, {forwardRef} from 'react'
 import PropTypes from 'prop-types'
-import React from 'react'
 import ListItem from './list-item'
 
-export default function SuggestsList(props) {
+const SuggestsList = forwardRef((props, ref) => {
   return (
-    <ul className="sui-FormAutocompleted-suggests">
+    <ul ref={ref} className="sui-FormAutocompleted-suggests">
       {props.suggests.map((suggest, index) => (
         <ListItem
           {...props}
@@ -15,9 +15,11 @@ export default function SuggestsList(props) {
       ))}
     </ul>
   )
-}
+})
 
 SuggestsList.propTypes = {
   suggests: PropTypes.array.isRequired,
   active: PropTypes.number
 }
+
+export default SuggestsList
