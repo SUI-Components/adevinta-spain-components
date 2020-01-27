@@ -1,173 +1,136 @@
-import React, {Component} from 'react'
+import React, {memo, useEffect, useRef} from 'react'
 import PropTypes from 'prop-types'
+import LeafletMap from './leaflet/map'
 import {mapLanguages, mapViewModes, NO_OP} from './leaflet/constants'
 
-class MapBasic extends Component {
-  constructor(props) {
-    super(props)
-    this.setMapEventDefinition()
-    this.isHeatmapVisible = false
-    this.isSatelliteView = false
-    this.mapInstance = undefined
-  }
+function MapBasic(props) {
+  const isHeatmapVisible = useRef(false)
+  const isSatelliteView = useRef(false)
+  const mapDOMInstance = useRef()
+  const mapInstance = useRef({
+    displayPois: pois => {},
+    setView: view => {},
+    showHeatMap: url => {},
+    removeHeatMapLayer: NO_OP
+  })
+  const mapEventList = useRef([])
 
-  setMapEventDefinition() {
-    this.mapEventList = [
+  const setMapEventDefinition = () => {
+    mapEventList.current = [
       {
         name: 'leaflet_map_click',
-        handleFunction: evt => this.props.onMapClick(evt.detail)
+        handleFunction: ({detail}) => props.onMapClick(detail)
       },
       {
         name: 'leaflet_map_dragend',
-        handleFunction: evt => this.props.onMapDragEnd(evt.detail)
+        handleFunction: ({detail}) => props.onMapDragEnd(detail)
       },
       {
         name: 'leaflet_map_loaded',
-        handleFunction: evt => this.props.onMapLoad(evt.detail)
+        handleFunction: ({detail}) => props.onMapLoad(detail)
       },
       {
         name: 'leaflet_map_zoomend',
-        handleFunction: evt => this.props.onMapZoomEnd(evt.detail)
+        handleFunction: ({detail}) => props.onMapZoomEnd(detail)
       },
       {
         name: 'leaflet_map_layer_normal',
-        handleFunction: evt => this.props.onNormalView(evt.detail)
+        handleFunction: ({detail}) => props.onNormalView(detail)
       },
       {
         name: 'leaflet_map_poiclick',
-        handleFunction: evt => this.props.onPoiClick(evt.detail)
+        handleFunction: ({detail}) => props.onPoiClick(detail)
       },
       {
         name: 'leaflet_map_poimouseout',
-        handleFunction: () => this.props.onPoiMouseOut()
+        handleFunction: () => props.onPoiMouseOut()
       },
       {
         name: 'leaflet_map_poimouseover',
-        handleFunction: evt => this.props.onPoiMouseOver(evt.detail)
+        handleFunction: ({detail}) => props.onPoiMouseOver(detail)
       },
       {
         name: 'leaflet_map_poimousemove',
-        handleFunction: evt => this.props.onPoiMouseMove(evt.detail)
+        handleFunction: ({detail}) => props.onPoiMouseMove(detail)
       },
       {
         name: 'leaflet_map_layer_satellite',
-        handleFunction: evt => this.props.onSatelliteView(evt.detail)
+        handleFunction: ({detail}) => props.onSatelliteView(detail)
       }
     ]
   }
 
-  getMapConfig() {
-    return {
-      appCode: this.props.appCode,
-      appId: this.props.appId,
-      attribution: this.props.attribution,
-      currentGeoCode: this.props.currentGeoCode,
-      dragging: this.props.isInteractable,
-      enableViewMenu: this.props.enableViewMenu,
-      heatMapUrl: this.props.heatMapUrl,
-      hoverStyles: this.props.hoverStyles,
-      icons: this.props.icons,
-      id: this.props.id,
-      language: this.props.language,
-      latitude: this.props.center[0],
-      literals: this.props.literals,
-      longitude: this.props.center[1],
-      mapDOMInstance: this.mapDOMInstance,
-      mapViewModes: this.props.mapViewModes,
-      maxZoom: this.props.maxZoom,
-      minZoom: this.props.minZoom,
-      onLayerClick: this.props.onLayerClick,
-      onPolygonWithBounds: this.props.onPolygonWithBounds,
-      polygons: this.props.polygons,
-      scrollWheelZoom: this.props.scrollWheelZoom,
-      selectedMapViewMode: this.props.selectedMapViewMode,
-      showHeatmap: this.props.showHeatmap,
-      showLabels: this.props.showLabels,
-      showSatelliteView: this.props.showSatelliteView,
-      zoom: this.props.zoom,
-      zoomControl: this.props.zoomable,
-      zoomControlPosition: this.props.zoomControlPosition
-    }
-  }
+  setMapEventDefinition()
 
-  subscribeToMapEvents() {
-    this.mapEventList.forEach(mapEvent =>
-      this.mapDOMInstance.addEventListener(
-        mapEvent.name,
-        mapEvent.handleFunction
-      )
+  const subscribeToMapEvents = () => {
+    mapEventList.current.forEach(({name, handleFunction}) =>
+      mapDOMInstance.current.addEventListener(name, handleFunction)
     )
   }
 
-  unsubscribeFromMapEvents() {
-    this.mapEventList.forEach(mapEvent =>
-      this.mapDOMInstance.removeEventListener(
-        mapEvent.name,
-        mapEvent.handleFunction
-      )
+  const unsubscribeFromMapEvents = () => {
+    mapEventList.current.forEach(({name, handleFunction}) =>
+      mapDOMInstance.current.removeEventListener(name, handleFunction)
     )
   }
 
-  checkWhichViewShouldBeDisplayed(showSatelliteView) {
-    if (showSatelliteView && !this.isSatelliteView) {
-      this.isSatelliteView = true
-      this.mapInstance.setView(mapViewModes.SATELLITE)
-    } else if (!showSatelliteView && this.isSatelliteView) {
-      this.isSatelliteView = false
-      this.mapInstance.setView(mapViewModes.NORMAL)
+  const checkWhichViewShouldBeDisplayed = showSatelliteView => {
+    if (showSatelliteView && !isSatelliteView.current) {
+      isSatelliteView.current = true
+      mapInstance.current.setView(mapViewModes.SATELLITE)
+    } else if (!showSatelliteView && isSatelliteView.current) {
+      isSatelliteView.current = false
+      mapInstance.current.setView(mapViewModes.NORMAL)
     }
   }
 
-  checkIfHeatMapShouldBeDisplayed(showHeatmap, url) {
-    if (showHeatmap && !this.isHeatmapVisible) {
-      this.isHeatmapVisible = true
-      this.mapInstance.showHeatMap(url)
-    } else if (!showHeatmap && this.isHeatmapVisible) {
-      this.isHeatmapVisible = false
-      this.mapInstance.removeHeatMapLayer()
+  const checkIfHeatMapShouldBeDisplayed = (showHeatmap, url) => {
+    if (showHeatmap && !isHeatmapVisible.current) {
+      isHeatmapVisible.current = true
+      mapInstance.current.showHeatMap(url)
+    } else if (!showHeatmap && isHeatmapVisible.current) {
+      isHeatmapVisible.current = false
+      mapInstance.current.removeHeatMapLayer()
     }
   }
 
-  componentWillUnmount() {
-    this.unsubscribeFromMapEvents()
-  }
+  useEffect(
+    function() {
+      const getMapConfig = () => ({
+        ...props,
+        dragging: props.isInteractable,
+        latitude: props.center[0],
+        longitude: props.center[1],
+        mapDOMInstance,
+        zoomControl: props.zoomable
+      })
 
-  shouldComponentUpdate() {
-    // The component itself has no changes. All changes are managed through leaflet maps api.
-    return false
-  }
+      const {heatMapUrl, pois, showHeatmap, showSatelliteView} = props
+      subscribeToMapEvents()
 
-  UNSAFE_componentWillReceiveProps({ // eslint-disable-line
-    heatMapUrl,
-    pois,
-    showHeatmap,
-    showSatelliteView
-  }) {
-    this.mapInstance.displayPois(pois)
-    this.checkIfHeatMapShouldBeDisplayed(showHeatmap, heatMapUrl)
-    this.checkWhichViewShouldBeDisplayed(showSatelliteView)
-  }
+      if (mapInstance.current === null) {
+        subscribeToMapEvents()
+        mapInstance.current = new LeafletMap(getMapConfig())
+        mapInstance.current.displayPois(pois)
+      } else {
+        mapInstance.current.displayPois(pois)
+        checkIfHeatMapShouldBeDisplayed(showHeatmap, heatMapUrl)
+        checkWhichViewShouldBeDisplayed(showSatelliteView)
+      }
 
-  componentDidMount() {
-    const LeafletMap = require('./leaflet/map').default
+      return () => unsubscribeFromMapEvents()
+    },
+    [props]
+  )
 
-    this.subscribeToMapEvents()
-    this.mapInstance = new LeafletMap(this.getMapConfig())
-    this.mapInstance.displayPois(this.props.pois)
-  }
-
-  render() {
-    return (
-      <div
-        className="re-Wrapper sui-MapBasic"
-        style={this.props.height && {height: this.props.height}}
-        ref={ele => {
-          this.mapDOMInstance = ele
-        }}
-        id={this.props.id}
-      />
-    )
-  }
+  return (
+    <div
+      className="re-Wrapper sui-MapBasic"
+      style={props.height && {height: props.height}}
+      id={props.id}
+      ref={mapDOMInstance}
+    />
+  )
 }
 
 MapBasic.propTypes = {
@@ -329,5 +292,5 @@ MapBasic.defaultProps = {
 
 MapBasic.displayName = 'MapBasic'
 
-export default MapBasic
+export default memo(MapBasic, () => true)
 export {mapLanguages}
