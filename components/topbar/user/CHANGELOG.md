@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.34.0 (2020-01-27)
+
+
+### Bug Fixes
+
+* refactor code to remove react 17 deprecated feats ([70d34d9](https://github.com/SUI-Components/schibsted-spain-components/commit/70d34d9f735563d9faec38986937e1e0bd9cc7d4))
+
+
+
 # 1.33.0 (2020-01-13)
 
 
