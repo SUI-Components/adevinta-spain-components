@@ -47,7 +47,7 @@ const FormBuilder = ({
       {value}
     )
     setStateFields(nextFields)
-    onChange({...nextFields, __FIELD_CHANGED__: id})
+    onChange({...fieldsToObject(nextFields), __FIELD_CHANGED__: id})
     clearTimeout(timerShowSpinner)
 
     const nextStateFields = await reducerWithRules(
