@@ -35,10 +35,10 @@ export default function TopbarUser({
 }) {
   const _topbarUserNode = useRef(null)
   const _topbarUserToggleNode = useRef(null)
+  const _windowWidth = useRef()
   const [menuExpanded, setMenuExpanded] = useState(false)
   const [isToggleHidden, setToggleHidden] = useState(false)
   const [navWrapStyle, setNavWrapStyle] = useState(DEFAULT_NAV_WRAP_STYLE)
-  let _windowWidth
 
   /**
    * Set navigation wrap inline styles.
@@ -81,9 +81,9 @@ export default function TopbarUser({
      */
     const _setToggleDisplayState = () => {
       // Only go on if user has been resized the browser window horizontally.
-      if (window.innerWidth === _windowWidth) return
+      if (window.innerWidth === _windowWidth.current) return
       // Then save the new global value again.
-      _windowWidth = window.innerWidth // eslint-disable-line
+      _windowWidth.current = window.innerWidth
       const {display} = window.getComputedStyle(_topbarUserToggleNode.current)
       const isToggleCurrentlyHidden = display === 'none'
 
