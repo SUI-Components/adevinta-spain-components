@@ -1,10 +1,16 @@
-import React, {useState, useEffect, useCallback} from 'react'
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+import React, {useState, useEffect, useCallback, useRef} from 'react'
 import PropTypes from 'prop-types'
 
 import {json} from './prop-types'
 import {reducer} from './reducer'
-import {CHANGE} from './reducer/constants'
-import {fieldsToObject, fieldsNamesInOrderOfDefinition} from './reducer/fields'
+import {CHANGE, RULES} from './reducer/constants'
+import {
+  fieldsToObject,
+  fieldsNamesInOrderOfDefinition,
+  changeFieldById
+} from './reducer/fields'
 import ProxyField from './ProxyField'
 import {inputSizes as fieldSizes} from '@s-ui/react-atom-input'
 import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
@@ -21,11 +27,9 @@ const FormBuilder = ({
 }) => {
   const {fields = [], rules = {}, id: formID} = json.form
   const [stateFields, setStateFields] = useState(fields)
-  const HACK_KEY = `__PERFORMANCE_UGLY_HACK_STATE_FIELDS_${formID}__`
   const [stateShowSpinner, setStateShowSpinner] = useState(false)
-  if (typeof window !== 'undefined') {
-    window[HACK_KEY] = stateFields
-  }
+  const __PERFORMANCE_UGLY_HACK_STATE_FIELDS__ = useRef()
+  __PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current = stateFields
 
   const handlerChange = useCallback(async (id, value) => {
     const reducerWithRules = reducer(
@@ -38,10 +42,20 @@ const FormBuilder = ({
       () => setStateShowSpinner(true),
       FormBuilder.USER_MINIMAL_DELAY
     )
+
+    const nextFields = changeFieldById(
+      __PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current,
+      id,
+      {value}
+    )
+    setStateFields(nextFields)
+    onChange({...nextFields, __FIELD_CHANGED__: id})
+    clearTimeout(timerShowSpinner)
+
     const nextStateFields = await reducerWithRules(
-      window[HACK_KEY], // safe for SSR
+      __PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current,
       {
-        type: CHANGE,
+        type: RULES,
         id,
         value
       }
@@ -51,10 +65,10 @@ const FormBuilder = ({
     onChange({
       ...fieldsToObject(nextStateFields),
       __FIELD_CHANGED__: id
-      // __META__: datalistEntries(nextStateFields)
     })
+
     setStateShowSpinner(false)
-    }, []) // eslint-disable-line
+  }, []) // eslint-disable-line
 
   useEffect(() => {
     const reducerWithRules = reducer(
@@ -81,13 +95,13 @@ const FormBuilder = ({
           value: initFields[field]
         })
         return nextFields
-      }, Promise.resolve(window[HACK_KEY]))
+      }, Promise.resolve(__PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current))
       .then(nextFields => {
         clearTimeout(timerShowSpinner)
         setStateFields(nextFields)
         setStateShowSpinner(false)
       })
-    }, []) // eslint-disable-line
+        }, []) // eslint-disable-line
 
   return (
     <div className="sui-FormBuilder">
