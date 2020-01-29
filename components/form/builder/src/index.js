@@ -94,7 +94,7 @@ const FormBuilder = ({
           __FIELD_CHANGED__: fieldId
         })
 
-        const nextFieldsWithRules = await reducerWithRules(previousFields, {
+        const nextFieldsWithRules = await reducerWithRules(nextFieldsChanged, {
           type: RULES,
           id: fieldId
         })
