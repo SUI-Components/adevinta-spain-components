@@ -47,4 +47,4 @@ Select.propTypes = {
   errors: PropTypes.object
 }
 
-export default React.memo(Select)
+export default Select

@@ -50,4 +50,4 @@ ProxyField.propTypes = {
   errors: PropTypes.object
 }
 
-export default React.memo(ProxyField)
+export default ProxyField

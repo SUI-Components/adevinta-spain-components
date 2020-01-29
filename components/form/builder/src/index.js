@@ -29,6 +29,20 @@ const FormBuilder = ({
   const __PERFORMANCE_UGLY_HACK_STATE_FIELDS__ = useRef()
   __PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current = stateFields
 
+  const changeField = (fieldId, fieldValue) => {
+    const nextFields = changeFieldById(
+      __PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current,
+      fieldId,
+      {value: fieldValue}
+    )
+    setStateFields(nextFields)
+    onChange({
+      ...fieldsToObject(nextFields),
+      __FIELD_CHANGED__: fieldId
+    })
+    return nextFields
+  }
+
   const handlerChange = useCallback(async (id, value) => {
     const reducerWithRules = reducer(
       rules,
@@ -41,13 +55,7 @@ const FormBuilder = ({
       FormBuilder.USER_MINIMAL_DELAY
     )
 
-    const nextFields = changeFieldById(
-      __PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current,
-      id,
-      {value}
-    )
-    setStateFields(nextFields)
-    onChange({...fieldsToObject(nextFields), __FIELD_CHANGED__: id})
+    const nextFields = changeField(id, value)
     clearTimeout(timerShowSpinner)
 
     const nextStateFields = await reducerWithRules(nextFields, {
@@ -83,21 +91,13 @@ const FormBuilder = ({
           return previousFields
         }
 
-        const nextFieldsChanged = changeFieldById(
-          __PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current,
-          fieldId,
-          {value: initFields[fieldId]}
-        )
-        setStateFields(nextFieldsChanged)
-        onChange({
-          ...fieldsToObject(nextFieldsChanged),
-          __FIELD_CHANGED__: fieldId
-        })
+        const nextFieldsChanged = changeField(fieldId, initFields[fieldId])
 
         const nextFieldsWithRules = await reducerWithRules(nextFieldsChanged, {
           type: RULES,
           id: fieldId
         })
+
         return nextFieldsWithRules
       }, Promise.resolve(__PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current))
       .then(nextFields => {
