@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {useMount} from '@schibstedspain/sui-react-hooks'
 
 import Notification from '@s-ui/react-molecule-notification'
-import Button from '@schibstedspain/sui-atom-button'
+import Button from '@s-ui/react-atom-button'
 
 import {CLASS, I18N} from '../settings'
 

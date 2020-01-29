@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import AtomPanel from '@schibstedspain/sui-atom-panel'
+import AtomPanel from '@s-ui/react-atom-panel'
 import React from 'react'
 import PropTypes from 'prop-types'
 import SuiTagChip from '@schibstedspain/sui-tag-chip'

@@ -1,0 +1,101 @@
+const PriceComponent = () => (
+  <div>
+    <span>Desde </span>
+    <strong>000.000€</strong>
+  </div>
+)
+
+const LinkComponent = () => (
+  <div>
+    <button>Ocasión</button>
+    <button>Más info</button>
+  </div>
+)
+
+const contentHeadMook = [
+  'Versión',
+  'Año',
+  'Combustible',
+  'Potencia',
+  'Precio',
+  ''
+]
+
+const contentBodyMook = [
+  [
+    {
+      content: 'Volkswagen Golf Edition 1.0 TSI 85kW',
+      type: 'th',
+      isNowrap: true
+    },
+    {content: '2019'},
+    {content: 'Gasolina'},
+    {content: '115vc'},
+    {content: <PriceComponent />},
+    {content: <LinkComponent />}
+  ],
+  [
+    {
+      content: 'Volkswagen Golf Edition 1.0 TSI 85kW',
+      type: 'th',
+      isNowrap: true
+    },
+    {content: '2019'},
+    {content: 'Gasolina'},
+    {content: '115vc'},
+    {content: <PriceComponent />},
+    {content: <LinkComponent />}
+  ],
+  [
+    {
+      content: 'Volkswagen Golf Edition 1.0 TSI 85kW',
+      type: 'th',
+      isNowrap: true
+    },
+    {content: '2019'},
+    {content: 'Gasolina'},
+    {content: '115vc'},
+    {content: <PriceComponent />},
+    {content: <LinkComponent />}
+  ]
+]
+
+const contentFootMook = [
+  'Versión',
+  'Año',
+  'Combustible',
+  'Potencia',
+  'Precio',
+  ''
+]
+
+
+return (
+  <div style={{ maxWidth: 800, padding: 16 }}>
+    <h1>Table Basic</h1>
+    <p>Table basic to show tabular information.</p>
+
+    <hr/>
+
+    <h2>Version with thead, tbody and tfoot</h2>
+    <TableBasic 
+      head={contentHeadMook}
+      body={contentBodyMook}
+      foot={contentFootMook}
+    />
+    <br/>
+    <hr/>
+
+    <h2>Version with thead and tbody</h2>
+    <TableBasic 
+      head={contentHeadMook}
+      body={contentBodyMook}
+    />
+    <br/>
+    <hr/>
+
+    <h2>Version only with tbody</h2>
+    <TableBasic body={contentBodyMook} />
+    <br/>
+  </div>
+)

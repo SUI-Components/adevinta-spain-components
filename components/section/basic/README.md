@@ -12,7 +12,7 @@ $ npm install @schibstedspain/sui-section-basic --save
 
 ### Basic usage
 ```js
-import SectionBasic, {sectionBasicBottomSpacing} from '@schibstedspain/sui-atom-panel'
+import SectionBasic, {sectionBasicBottomSpacing} from '@s-ui/react-atom-panel'
 
 return (
   <div>

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, {Component} from 'react'
 import cx from 'classnames'
-import Button from '@schibstedspain/sui-atom-button'
+import Button from '@s-ui/react-atom-button'
 
 const baseClass = 'sui-CoverBasic'
 class CoverBasic extends Component {

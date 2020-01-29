@@ -14,12 +14,16 @@ const CardArrow = ({media, text, icon, linkFactory: Link, link}) => {
   return (
     <div className="sui-CardArrow">
       <Link className="sui-CardArrow-link" href={link}>
-        <div className="sui-CardArrow-img">
-          <AtomImage src={media.src} alt={media.alt} />
-        </div>
+        {media && (
+          <div className="sui-CardArrow-img">
+            <AtomImage src={media.src} alt={media.alt} />
+          </div>
+        )}
         <div className="sui-CardArrow-inner">
-          <h1 className="sui-CardArrow-innerTitle">{text.title}</h1>
-          <p className="sui-CardArrow-innerDescription">{text.description}</p>
+          <h3 className="sui-CardArrow-innerTitle">{text.title}</h3>
+          {text.description && (
+            <p className="sui-CardArrow-innerDescription">{text.description}</p>
+          )}
         </div>
         <Icon svgClass="sui-CardArrow-icon" className="sui-CardArrow-icon" />
       </Link>
@@ -36,13 +40,13 @@ CardArrow.propTypes = {
   media: PropTypes.shape({
     src: PropTypes.string.isRequired,
     alt: PropTypes.string
-  }).isRequired,
+  }),
   /**
    * Text title/description props
    */
   text: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired
+    description: PropTypes.string
   }).isRequired,
   /**
    * Icon optional prop

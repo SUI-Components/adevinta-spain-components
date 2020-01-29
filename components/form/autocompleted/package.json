@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-form-autocompleted",
-  "version": "1.14.0",
+  "version": "1.15.0",
   "description": "sui-form-autocompleted",
   "main": "lib/index.js",
   "scripts": {
@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/component-dependencies": "1",
+    "@schibstedspain/sui-react-hooks": "1"
   }
 }
