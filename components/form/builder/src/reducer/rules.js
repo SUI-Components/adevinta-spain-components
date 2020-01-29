@@ -10,7 +10,8 @@ const fetch = url =>
     request.onreadystatechange = function() {
       if (request.readyState === window.XMLHttpRequest.DONE) {
         if (request.status === 200) {
-          resolve(request.response)
+          // 1 ms setTimeout to avoid IE 11 error - Access is denied - XMLHttpRequest
+          setTimeout(resolve(request.response), 1)
         } else {
           reject(Error(request.status))
         }
