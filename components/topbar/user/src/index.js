@@ -34,7 +34,6 @@ export default function TopbarUser({
   elementsToKeepScrollOnToggleMenu = []
 }) {
   const _topbarUserNode = useRef(null)
-  const _topbarUserWrapNode = useRef(null)
   const _topbarUserToggleNode = useRef(null)
   const [menuExpanded, setMenuExpanded] = useState(false)
   const [isToggleHidden, setToggleHidden] = useState(false)
@@ -182,7 +181,7 @@ export default function TopbarUser({
 
   return (
     <div ref={_topbarUserNode} className="sui-TopbarUser">
-      <div ref={_topbarUserWrapNode} className="sui-TopbarUser-wrap">
+      <div className="sui-TopbarUser-wrap">
         <button
           ref={_topbarUserToggleNode}
           className={toggleMenuClassName}
