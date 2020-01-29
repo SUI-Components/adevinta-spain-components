@@ -43,7 +43,7 @@ const checkConstraintsFromField = field => {
   let errorMessages = []
   const constraints = field.constraints || []
   const elementNode = document.getElementById(field.id)
-  const elementValidity = document.getElementById(field.id)?.validity
+  const elementValidity = elementNode?.validity
   // if element has no validity is not a form element
   // if element has not constraints there is no need to validate
   if (elementValidity && !!constraints) {
