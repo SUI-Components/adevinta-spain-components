@@ -101,7 +101,7 @@ export default function TopbarUser({
     return () => {
       window.removeEventListener('resize', _setToggleDisplayState)
     }
-  }, [_windowWidth, isToggleHidden])
+  }, [isToggleHidden])
 
   useEffect(() => {
     let _verticalScrollPosition
