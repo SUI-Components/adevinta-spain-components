@@ -7,11 +7,11 @@ const fetch = url =>
   new Promise((resolve, reject) => {
     const request = new window.XMLHttpRequest()
     request.responseType = 'json'
+    request.withCredentials = true
     request.onreadystatechange = function() {
       if (request.readyState === window.XMLHttpRequest.DONE) {
         if (request.status === 200) {
-          // 1 ms setTimeout to avoid IE 11 error - Access is denied - XMLHttpRequest
-          setTimeout(resolve(request.response), 1)
+          resolve(request.response)
         } else {
           reject(Error(request.status))
         }
