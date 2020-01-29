@@ -98,15 +98,15 @@ const checkConstraintsFromField = field => {
 }
 
 const checkConstrainstsFactory = json => ({for: fieldID, all}) => {
-  let fields = {}
+  let fieldsToValidate = {}
   if (all && fieldID) {
     window.console.warn(
       '[form/builder]: checkConstrainstsFactory: both modes validate all fields and validate a concrete field are not compatible, please use one of them'
     )
   } else if (all) {
-    fields = fieldsNamesInOrderOfDefinition(json?.form?.fields)
+    fieldsToValidate = fieldsNamesInOrderOfDefinition(json?.form?.fields)
   } else if (fieldID) {
-    fields[fieldID] = pickFieldById(json.form.fields, fieldID)
+    fieldsToValidate = [fieldID]
   } else {
     window.console.warn(
       '[form/builder]: checkConstrainstsFactory: Specify if you want to validate a specific field or all the fields'
@@ -114,14 +114,13 @@ const checkConstrainstsFactory = json => ({for: fieldID, all}) => {
   }
 
   let fieldsWithErrors = {}
-  fieldsWithErrors = Object.values(fields).reduce(
-    (acc, field) => ({
+  fieldsWithErrors = fieldsToValidate.reduce((acc, fieldID) => {
+    const field = pickFieldById(json.form.fields, fieldID)
+    return {
       ...acc,
       [field.id]: checkConstraintsFromField(field)
-    }),
-    fieldsWithErrors
-  )
-
+    }
+  }, fieldsWithErrors)
   return fieldsWithErrors
 }
 
