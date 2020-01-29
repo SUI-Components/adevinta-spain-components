@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
-import React, {Component} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
+import {useMount} from '@schibstedspain/sui-react-hooks'
 import SuggestsList from './suggests-list'
 import cx from 'classnames'
 
@@ -9,218 +10,186 @@ const DOWN = 'ArrowDown'
 const ENTER = 'Enter'
 const ESCAPE = 'Escape'
 
-export default class FormAutocompleted extends Component {
-  constructor(...args) {
-    super(...args)
+export default function FormAutocompleted(props) {
+  const {
+    initialValue = '',
+    suggests,
+    handleChange,
+    handleSubmit,
+    handleSelect,
+    handleFocus,
+    handleBlur,
+    selectFirstByDefault = true,
+    focus = false,
+    closeOnOutsideClick = false,
+    placeholder,
+    submit,
+    collapsed
+  } = props
+  const inputEl = useRef(null)
+  const submitEl = useRef(null)
+  const suggestList = useRef(null)
+  let excludeFromOutsideClick = []
+  const defaultPosition = selectFirstByDefault ? 0 : -1
+  const [active, setActive] = useState(defaultPosition)
+  const [value, setValue] = useState(initialValue)
+  const [showSuggestsList, setShowSuggestsList] = useState(false)
+  const formAutocompletedClassName = cx('sui-FormAutocompleted', {
+    'is-collapsed': submit && collapsed
+  })
 
-    const {selectFirstByDefault, initialValue, focus} = this.props
+  const _moveDown = () => {
+    const lastPosition = suggests.length - 1
 
-    this.input = null
-    this.submit = null
-    this.suggestList = null
-
-    this.excludeFromOutsideClick = []
-    this.defaultPosition = selectFirstByDefault ? 0 : -1
-    this.state = {
-      active: this.defaultPosition,
-      value: initialValue,
-      showSuggestsList: false,
-      focus
-    }
-  }
-
-  _moveDown = () => {
-    const {active} = this.state
-    const lastPosition = this.props.suggests.length - 1
     return active === lastPosition ? active : active + DELTA_MOVE
   }
 
-  _moveUp = () => {
-    const {active} = this.state
-    return active === this.defaultPosition ? active : active - DELTA_MOVE
+  const _moveUp = () => {
+    return active === defaultPosition ? active : active - DELTA_MOVE
   }
 
-  _upDownHandler = event => {
-    // Never go to negative values or value higher than the list length
-    const active = event.key === DOWN ? this._moveDown() : this._moveUp()
-    this.setState({active})
+  const _upDownHandler = event => {
+    // Never go to negative values or value higher than the list length.
+    const active = event.key === DOWN ? _moveDown() : _moveUp()
+
+    setActive(active)
     event.stopPropagation()
     event.preventDefault()
   }
 
-  _enterHandler = () => {
-    const suggest = this.props.suggests[this.state.active]
+  const _enterHandler = () => {
+    const suggest = suggests[active]
 
     if (suggest) {
       const value = suggest.literal || suggest.content
-      this.setState({value})
-      this._handleSelect(suggest)
+
+      setValue(value)
+      _handleSelect(suggest)
     } else {
-      this._handleSubmit()
+      _handleSubmit()
     }
   }
 
-  _escapeHandler = () => {
-    this.setState({
-      showSuggestsList: false,
-      active: null
-    })
+  const _escapeHandler = () => {
+    setShowSuggestsList(false)
+    setActive(null)
   }
 
-  focusInput = () => {
-    this.input.focus()
+  const _handleChange = event => {
+    const {value} = event.target
+
+    setValue(value)
+    setActive(defaultPosition)
+    handleChange(value)
   }
 
-  setValue = value => {
-    this.setState({
-      value
-    })
+  const _handleSubmit = () => {
+    handleSubmit(value)
   }
 
-  _handleChange = event => {
-    const value = event.target.value
-    this.setState({
-      value,
-      active: this.defaultPosition
-    })
-    this.props.handleChange(value)
-  }
-
-  _handleSubmit = () => {
-    this.props.handleSubmit(this.state.value)
-  }
-
-  _handleClear = () => {
-    this._handleChange({
+  const _handleClear = () => {
+    _handleChange({
       target: {
         value: ''
       }
     })
-    this.focusInput()
+    _focusInput()
   }
 
-  _handleSelect = suggest => {
-    this.setState({
-      value: suggest.literal || suggest.content
-    })
-    this.props.handleSelect(suggest)
+  const _handleSelect = suggest => {
+    setValue(suggest.literal || suggest.content)
+    handleSelect(suggest)
   }
 
-  _handleKeyDown = event => {
-    this.setState({
-      showSuggestsList: true
-    })
+  const _handleKeyDown = event => {
+    setShowSuggestsList(true)
 
     switch (event.key) {
       case UP:
       case DOWN:
-        this._upDownHandler(event)
+        _upDownHandler(event)
         break
       case ENTER:
-        this._enterHandler()
+        _enterHandler()
         break
       case ESCAPE:
-        this._escapeHandler()
+        _escapeHandler()
         break
     }
   }
 
-  _renderSubmitButton = ({text, icon: Icon}) => (
+  const _handleOutsideClick = event =>
+    !excludeFromOutsideClick.includes(event.target) &&
+    setShowSuggestsList(false)
+
+  const _focusInput = () => {
+    inputEl.current.focus()
+  }
+
+  const _renderSubmitButton = (
+    {text, icon: Icon} // eslint-disable-line
+  ) => (
     <button
       className="sui-FormAutocompleted-submit"
-      onClick={this._handleSubmit}
-      ref={node => {
-        this.submit = node
-      }}
+      onClick={_handleSubmit}
+      ref={submitEl}
     >
       {Icon && <Icon svgClass="sui-FormAutocompleted-submitIcon" />}
       {text}
     </button>
   )
 
-  _renderSuggestsList() {
-    const {suggests} = this.props
-    const {active} = this.state
-
-    return suggests && suggests.length > 0 ? (
+  const _renderSuggestsList = () =>
+    suggests && suggests.length > 0 ? (
       <SuggestsList
-        {...this.props}
-        handleSelect={this._handleSelect}
+        {...props}
+        handleSelect={_handleSelect}
         active={active}
-        ref={node => {
-          this.suggestList = node
-        }}
+        ref={suggestList}
       />
     ) : null
-  }
 
-  _handleOutsideClick = event =>
-    !this.excludeFromOutsideClick.includes(event.target) &&
-    this.setState({
-      showSuggestsList: false
-    })
+  useMount(() => {
+    excludeFromOutsideClick = [inputEl, submitEl, suggestList]
+    closeOnOutsideClick === true &&
+      window.addEventListener('click', _handleOutsideClick, false)
 
-  componentDidMount() {
-    if (this.state.focus) {
-      this.focusInput()
+    return () => {
+      window.removeEventListener('click', this._handleOutsideClick, false)
     }
-    this.excludeFromOutsideClick = [this.input, this.submit, this.suggestList]
-    this.props.closeOnOutsideClick === true &&
-      window.addEventListener('click', this._handleOutsideClick, false)
-  }
+  })
 
-  UNSAFE_componentWillReceiveProps({focus}) { // eslint-disable-line
-    if (this.state.focus !== focus) {
-      this.setState({focus})
-    }
-  }
+  useEffect(() => {
+    if (focus) _focusInput()
+  }, [focus])
 
-  UNSAFE_componentWillUpdate(nextProps, {focus}) { // eslint-disable-line
-    if (focus) {
-      this.focusInput()
-    }
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('click', this._handleOutsideClick, false)
-  }
-
-  render() {
-    const {placeholder, handleFocus, handleBlur, submit, collapsed} = this.props
-    const {value, showSuggestsList} = this.state
-    const formAutocompletedClassName = cx('sui-FormAutocompleted', {
-      'is-collapsed': submit && collapsed
-    })
-    return (
-      <div className="sui-FormAutocompleted-wrap">
-        <div className={formAutocompletedClassName}>
-          <div className="sui-FormAutocompleted-inputWrap">
-            <input
-              ref={node => {
-                this.input = node
-              }}
-              value={value}
-              placeholder={placeholder}
-              className="sui-FormAutocompleted-input"
-              type="text"
-              onChange={this._handleChange}
-              onKeyDown={this._handleKeyDown}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
+  return (
+    <div className="sui-FormAutocompleted-wrap">
+      <div className={formAutocompletedClassName}>
+        <div className="sui-FormAutocompleted-inputWrap">
+          <input
+            ref={inputEl}
+            value={value}
+            placeholder={placeholder}
+            className="sui-FormAutocompleted-input"
+            type="text"
+            onChange={_handleChange}
+            onKeyDown={_handleKeyDown}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+          />
+          {value && (
+            <span
+              className="sui-FormAutocompleted-clear"
+              onClick={_handleClear}
             />
-            {value && (
-              <span
-                className="sui-FormAutocompleted-clear"
-                onClick={this._handleClear}
-              />
-            )}
-          </div>
-          {submit && this._renderSubmitButton(submit)}
+          )}
         </div>
-        {showSuggestsList && this._renderSuggestsList()}
+        {submit && _renderSubmitButton(submit)}
       </div>
-    )
-  }
+      {showSuggestsList && _renderSuggestsList()}
+    </div>
+  )
 }
 
 FormAutocompleted.propTypes = {
@@ -228,68 +197,51 @@ FormAutocompleted.propTypes = {
    * This function is called everytime user exits the input
    */
   handleBlur: PropTypes.func,
-
   /**
    * This function is called everytime user change the input field value
    */
   handleChange: PropTypes.func.isRequired,
-
   /**
    * This function is called everytime user focus on the input
    */
   handleFocus: PropTypes.func,
-
-  /**
-   * This function is called everytime user click on clear icon
-   */
-  handleClear: PropTypes.func,
-
   /**
    * This function is called when one suggestion is selected (via click or
    * enter pressed)
    */
   handleSelect: PropTypes.func.isRequired,
-
   /**
    * This function is called everytime user click the submit button
    */
   handleSubmit: PropTypes.func,
-
   /**
    * Close suggestions on click ouside the form
    */
   closeOnOutsideClick: PropTypes.bool,
-
   /**
    * Inicial input value
    */
   initialValue: PropTypes.string,
-
   /**
    * Input placeholder
    */
   placeholder: PropTypes.string,
-
   /**
    * Suggest content
    */
   suggests: PropTypes.array.isRequired,
-
   /**
    * Auto select first suggested item
    */
   selectFirstByDefault: PropTypes.bool,
-
   /**
    * Input focus state
    */
   focus: PropTypes.bool,
-
   /**
    * Stick input and button
    */
   collapsed: PropTypes.bool,
-
   /**
    * Submit button
    */
@@ -297,13 +249,6 @@ FormAutocompleted.propTypes = {
     icon: PropTypes.func,
     text: PropTypes.string
   })
-}
-
-FormAutocompleted.defaultProps = {
-  initialValue: '',
-  selectFirstByDefault: true,
-  focus: false,
-  closeOnOutsideClick: false
 }
 
 FormAutocompleted.displayName = 'FormAutocompleted'

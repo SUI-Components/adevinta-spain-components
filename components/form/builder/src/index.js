@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import {json} from './prop-types'
 import {reducer} from './reducer'
-import {CHANGE, RULES} from './reducer/constants'
+import {RULES} from './reducer/constants'
 import {
   fieldsToObject,
   fieldsNamesInOrderOfDefinition,
@@ -50,14 +50,11 @@ const FormBuilder = ({
     onChange({...fieldsToObject(nextFields), __FIELD_CHANGED__: id})
     clearTimeout(timerShowSpinner)
 
-    const nextStateFields = await reducerWithRules(
-      __PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current,
-      {
-        type: RULES,
-        id,
-        value
-      }
-    )
+    const nextStateFields = await reducerWithRules(nextFields, {
+      type: RULES,
+      id
+    })
+
     clearTimeout(timerShowSpinner)
     setStateFields(nextStateFields)
     onChange({
@@ -80,26 +77,35 @@ const FormBuilder = ({
       FormBuilder.USER_MINIMAL_DELAY
     )
     fieldsNamesInOrderOfDefinition(fields)
-      .reduce(async (previousPromise, field) => {
+      .reduce(async (previousPromise, fieldId) => {
         const previousFields = await previousPromise
-
-        if (!initFields[field] || initFields[field] === '') {
+        if (!initFields[fieldId] || initFields[fieldId] === '') {
           return previousFields
         }
 
-        const nextFields = await reducerWithRules(previousFields, {
-          type: CHANGE,
-          id: field,
-          value: initFields[field]
+        const nextFieldsChanged = changeFieldById(
+          __PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current,
+          fieldId,
+          {value: initFields[fieldId]}
+        )
+        setStateFields(nextFieldsChanged)
+        onChange({
+          ...fieldsToObject(nextFieldsChanged),
+          __FIELD_CHANGED__: fieldId
         })
-        return nextFields
+
+        const nextFieldsWithRules = await reducerWithRules(nextFieldsChanged, {
+          type: RULES,
+          id: fieldId
+        })
+        return nextFieldsWithRules
       }, Promise.resolve(__PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current))
       .then(nextFields => {
         clearTimeout(timerShowSpinner)
         setStateFields(nextFields)
         setStateShowSpinner(false)
       })
-        }, []) // eslint-disable-line
+  }, []) // eslint-disable-line
 
   return (
     <div className="sui-FormBuilder">

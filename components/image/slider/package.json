@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-image-slider",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -14,7 +14,6 @@
   "dependencies": {
     "@s-ui/component-dependencies": "1",
     "@schibstedspain/sui-svgiconset": "1",
-    "lodash.clonedeep": "4.5.0",
     "react-slidy": "4"
   }
 }

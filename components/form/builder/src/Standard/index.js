@@ -43,7 +43,7 @@ const checkConstraintsFromField = field => {
   let errorMessages = []
   const constraints = field.constraints || []
   const elementNode = document.getElementById(field.id)
-  const elementValidity = document.getElementById(field.id)?.validity
+  const elementValidity = elementNode?.validity
   // if element has no validity is not a form element
   // if element has not constraints there is no need to validate
   if (elementValidity && !!constraints) {
@@ -98,7 +98,7 @@ const checkConstraintsFromField = field => {
 }
 
 const checkConstrainstsFactory = json => ({for: fieldID, all}) => {
-  let fieldsToValidate = {}
+  let fieldsToValidate = []
   if (all && fieldID) {
     window.console.warn(
       '[form/builder]: checkConstrainstsFactory: both modes validate all fields and validate a concrete field are not compatible, please use one of them'
@@ -113,14 +113,11 @@ const checkConstrainstsFactory = json => ({for: fieldID, all}) => {
     )
   }
 
-  let fieldsWithErrors = {}
-  fieldsWithErrors = fieldsToValidate.reduce((acc, fieldID) => {
-    const field = pickFieldById(json.form.fields, fieldID)
-    return {
-      ...acc,
-      [field.id]: checkConstraintsFromField(field)
-    }
-  }, fieldsWithErrors)
+  const fieldsWithErrors = {}
+  fieldsToValidate.forEach(fieldId => {
+    const field = pickFieldById(json.form.fields, fieldId)
+    fieldsWithErrors[field.id] = checkConstraintsFromField(field)
+  })
   return fieldsWithErrors
 }
 

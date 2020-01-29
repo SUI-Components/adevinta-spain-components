@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types'
-
-import React, {Component} from 'react'
+import React, {useState, useEffect, useLayoutEffect, useRef} from 'react'
 import cx from 'classnames'
 import Menu from '@schibstedspain/sui-svgiconset/lib/Menu'
 import DropdownBasic from '@schibstedspain/sui-dropdown-basic'
@@ -20,124 +19,133 @@ const BODY_HAS_SCROLL_DISABLED = 'body-has-scroll-disabled'
 /**
  * Topbar containing a dropdown with user data (login, logout, secured links...).
  */
-class TopbarUser extends Component {
-  constructor(...args) {
-    super(...args)
-
-    this._topbarUserNode = null
-    this._topbarUserToggleNode = null
-    this._verticalScrollPosition = null
-
-    this.state = {
-      menuExpanded: false,
-      isToggleHidden: false,
-      navWrapStyle: DEFAULT_NAV_WRAP_STYLE
-    }
-  }
-
-  componentDidMount() {
-    this._setToggleDisplayState()
-    window.addEventListener('resize', this._setToggleDisplayState)
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this._setToggleDisplayState)
-  }
-
-  UNSAFE_componentWillUpdate(nextProps, {menuExpanded, isToggleHidden}) { // eslint-disable-line
-    if (menuExpanded && !isToggleHidden) {
-      this._lockBodyScroll()
-    } else {
-      this._unlockBodyScroll()
-    }
-  }
-
-  /**
-   * Lock body element scroll.
-   */
-  _lockBodyScroll = () => {
-    const {elementsToKeepScrollOnToggleMenu} = this.props
-    this._verticalScrollPosition = window.scrollY
-    const transformStyleToKeepScroll = `translate3d(0, -${this._verticalScrollPosition}px, 0)`
-    window.document.documentElement.classList.add(HTML_HAS_SCROLL_DISABLED)
-    window.document.body.classList.add(BODY_HAS_SCROLL_DISABLED)
-    elementsToKeepScrollOnToggleMenu.forEach(selector => {
-      document.querySelector(
-        selector
-      ).style.transform = transformStyleToKeepScroll
-    })
-  }
-
-  /**
-   * Unlock body element scroll.
-   */
-  _unlockBodyScroll = () => {
-    const {elementsToKeepScrollOnToggleMenu} = this.props
-
-    elementsToKeepScrollOnToggleMenu.forEach(selector => {
-      const element = document.querySelector(selector)
-      if (element) element.style.transform = ''
-    })
-    window.document.documentElement.classList.remove(HTML_HAS_SCROLL_DISABLED)
-    window.document.body.classList.remove(BODY_HAS_SCROLL_DISABLED)
-    elementsToKeepScrollOnToggleMenu.length &&
-      window.scrollTo(0, this._verticalScrollPosition)
-  }
-
-  /**
-   * Set the display state for toggle button.
-   */
-  _setToggleDisplayState = () => {
-    // Only go on if user has been resized the browser window horizontally.
-    if (window.innerWidth === this._windowWidth) return
-    // Then save the new global value again.
-    this._windowWidth = window.innerWidth
-    const {display} = window.getComputedStyle(this._topbarUserToggleNode)
-    const isToggleHidden = display === 'none'
-
-    if (!isToggleHidden) {
-      this._setNavWrapStyles()
-    }
-    if (isToggleHidden !== this.state.isToggleHidden) {
-      this.setState({isToggleHidden})
-    }
-  }
+export default function TopbarUser({
+  shouldDisplayNavUser = true,
+  toggleIcon = Menu,
+  brand,
+  navMain,
+  navUser,
+  navCTA,
+  linkFactory = ({href, className, children, target, title}) => (
+    <a href={href} className={className} target={target} title={title}>
+      {children}
+    </a>
+  ),
+  elementsToKeepScrollOnToggleMenu = []
+}) {
+  const _topbarUserNode = useRef(null)
+  const _topbarUserToggleNode = useRef(null)
+  const _windowWidth = useRef()
+  const [menuExpanded, setMenuExpanded] = useState(false)
+  const [isToggleHidden, setToggleHidden] = useState(false)
+  const [navWrapStyle, setNavWrapStyle] = useState(DEFAULT_NAV_WRAP_STYLE)
 
   /**
    * Set navigation wrap inline styles.
    */
-  _setNavWrapStyles = () => {
+  const _setNavWrapStyles = () => {
     const {
       top,
       left,
       height,
       width
-    } = this._topbarUserNode.getBoundingClientRect()
+    } = _topbarUserNode.current.getBoundingClientRect()
     const navWrapTop = top + height
-
-    this.setState({
-      navWrapStyle: {
-        top: navWrapTop,
-        left,
-        height: window.innerHeight - navWrapTop,
-        width
-      }
+    setNavWrapStyle({
+      top: navWrapTop,
+      left,
+      height: window.innerHeight - navWrapTop,
+      width
     })
   }
 
   /**
    * Toggle menu state: expanded/collapsed.
    */
-  _toggleMenu = () => {
-    const {menuExpanded} = this.state
-
-    this.setState({menuExpanded: !menuExpanded})
+  const _toggleMenu = () => {
+    setMenuExpanded(!menuExpanded)
   }
+
+  /**
+   * Handle click on navigation wrap.
+   */
+  const _handleNavWrapClick = ({target, currentTarget}) => {
+    if (menuExpanded && target === currentTarget) {
+      _toggleMenu()
+    }
+  }
+
+  useLayoutEffect(() => {
+    /**
+     * Set the display state for toggle button.
+     */
+    const _setToggleDisplayState = () => {
+      // Only go on if user has been resized the browser window horizontally.
+      if (window.innerWidth === _windowWidth.current) return
+      // Then save the new global value again.
+      _windowWidth.current = window.innerWidth
+      const {display} = window.getComputedStyle(_topbarUserToggleNode.current)
+      const isToggleCurrentlyHidden = display === 'none'
+
+      if (!isToggleCurrentlyHidden) {
+        _setNavWrapStyles()
+      }
+      if (isToggleCurrentlyHidden !== isToggleHidden) {
+        setToggleHidden(isToggleCurrentlyHidden)
+      }
+    }
+
+    _setToggleDisplayState()
+    window.addEventListener('resize', _setToggleDisplayState)
+
+    return () => {
+      window.removeEventListener('resize', _setToggleDisplayState)
+    }
+  }, [isToggleHidden])
+
+  useEffect(() => {
+    let _verticalScrollPosition
+
+    /**
+     * Lock body element scroll.
+     */
+    const _lockBodyScroll = () => {
+      _verticalScrollPosition = window.scrollY
+      const transformStyleToKeepScroll = `translate3d(0, -${_verticalScrollPosition}px, 0)`
+      window.document.documentElement.classList.add(HTML_HAS_SCROLL_DISABLED)
+      window.document.body.classList.add(BODY_HAS_SCROLL_DISABLED)
+      elementsToKeepScrollOnToggleMenu.forEach(selector => {
+        document.querySelector(
+          selector
+        ).style.transform = transformStyleToKeepScroll
+      })
+    }
+
+    /**
+     * Unlock body element scroll.
+     */
+    const _unlockBodyScroll = () => {
+      elementsToKeepScrollOnToggleMenu.forEach(selector => {
+        const element = document.querySelector(selector)
+        if (element) element.style.transform = ''
+      })
+      window.document.documentElement.classList.remove(HTML_HAS_SCROLL_DISABLED)
+      window.document.body.classList.remove(BODY_HAS_SCROLL_DISABLED)
+      elementsToKeepScrollOnToggleMenu.length &&
+        window.scrollTo(0, _verticalScrollPosition)
+    }
+
+    if (menuExpanded && !isToggleHidden) {
+      _lockBodyScroll()
+    } else {
+      _unlockBodyScroll()
+    }
+  }, [menuExpanded, isToggleHidden, elementsToKeepScrollOnToggleMenu])
 
   /**
    * Render main navigation function.
    */
-  _renderNavMain = isToggleHidden => (
+  const _renderNavMain = isToggleHidden => (
     {icon, label: text, menu, arrowButtonIcon},
     index
   ) => {
@@ -147,113 +155,85 @@ class TopbarUser extends Component {
         button={{icon, text, arrowButtonIcon}}
         menu={menu}
         expandOnMouseOver={isToggleHidden}
-        linkFactory={this.props.linkFactory}
+        linkFactory={linkFactory}
       />
     )
   }
 
-  /**
-   * Handle click on navigation wrap.
-   */
-  _handleNavWrapClick = ({target, currentTarget}) => {
-    const {menuExpanded} = this.state
+  const Link = linkFactory
+  const ToggleIcon = toggleIcon
+  const {name: brandName, url: brandUrl} = brand
+  const {avatar, name, menu} = navUser
+  const navWrapClassName = cx('sui-TopbarUser-navWrap', {
+    'is-expanded': menuExpanded
+  })
+  const hasNotifications = navUser.menu.some(({notifications}) =>
+    Boolean(notifications)
+  )
+  const toggleMenuClassName = cx('sui-TopbarUser-toggle', {
+    'has-notifications': hasNotifications
+  })
+  const {
+    url: navCtaUrl,
+    text: navCtaText,
+    onClick: onCTAClick = () => {}
+  } = navCTA
 
-    if (menuExpanded && target === currentTarget) {
-      this._toggleMenu()
-    }
-  }
-
-  render() {
-    const {menuExpanded, isToggleHidden, navWrapStyle} = this.state
-    const {
-      toggleIcon: ToggleIcon,
-      brand,
-      navMain,
-      navUser,
-      navCTA,
-      linkFactory: Link,
-      shouldDisplayNavUser
-    } = this.props
-    const {name: brandName, url: brandUrl} = brand
-    const {avatar, name, menu} = navUser
-    const navWrapClassName = cx('sui-TopbarUser-navWrap', {
-      'is-expanded': menuExpanded
-    })
-    const hasNotifications = navUser.menu.some(({notifications}) =>
-      Boolean(notifications)
-    )
-    const toggleMenuClassName = cx('sui-TopbarUser-toggle', {
-      'has-notifications': hasNotifications
-    })
-    const {
-      url: navCtaUrl,
-      text: navCtaText,
-      onClick: onCTAClick = () => {}
-    } = navCTA
-
-    return (
-      <div
-        ref={node => {
-          this._topbarUserNode = node
-        }}
-        className="sui-TopbarUser"
-      >
-        <div className="sui-TopbarUser-wrap">
-          <button
-            ref={node => {
-              this._topbarUserToggleNode = node
-            }}
-            className={toggleMenuClassName}
-            onClick={this._toggleMenu}
-          >
-            <ToggleIcon svgClass="sui-TopbarUser-toggleIcon" />
-          </button>
-          <Link
-            href={brandUrl}
-            className="sui-TopbarUser-brand"
-            title={brandName}
-          >
-            {brandName}
-          </Link>
-          <div
-            className={navWrapClassName}
-            style={isToggleHidden ? DEFAULT_NAV_WRAP_STYLE : navWrapStyle}
-            onClick={this._handleNavWrapClick}
-          >
-            <div className="sui-TopbarUser-nav">
-              <div className="sui-TopbarUser-navMain">
-                {navMain.map(this._renderNavMain(isToggleHidden))}
-              </div>
-              {shouldDisplayNavUser && (
-                <div className="sui-TopbarUser-navUser">
-                  <DropdownUser
-                    user={{avatar, name}}
-                    menu={menu}
-                    expandOnMouseOver
-                    hasNotifications={hasNotifications && !menuExpanded}
-                    linkFactory={this.props.linkFactory}
-                  />
-                </div>
-              )}
+  return (
+    <div ref={_topbarUserNode} className="sui-TopbarUser">
+      <div className="sui-TopbarUser-wrap">
+        <button
+          ref={_topbarUserToggleNode}
+          className={toggleMenuClassName}
+          onClick={_toggleMenu}
+        >
+          <ToggleIcon svgClass="sui-TopbarUser-toggleIcon" />
+        </button>
+        <Link
+          href={brandUrl}
+          className="sui-TopbarUser-brand"
+          title={brandName}
+        >
+          {brandName}
+        </Link>
+        <div
+          className={navWrapClassName}
+          style={isToggleHidden ? DEFAULT_NAV_WRAP_STYLE : navWrapStyle}
+          onClick={_handleNavWrapClick}
+        >
+          <div className="sui-TopbarUser-nav">
+            <div className="sui-TopbarUser-navMain">
+              {navMain.map(_renderNavMain(isToggleHidden))}
             </div>
+            {shouldDisplayNavUser && (
+              <div className="sui-TopbarUser-navUser">
+                <DropdownUser
+                  user={{avatar, name}}
+                  menu={menu}
+                  expandOnMouseOver
+                  hasNotifications={hasNotifications && !menuExpanded}
+                  linkFactory={linkFactory}
+                />
+              </div>
+            )}
           </div>
         </div>
-        <div className="sui-TopbarUser-ctaButton">
-          <AtomButton
-            link
-            href={navCtaUrl}
-            title={navCtaText}
-            leftIcon={<navCTA.icon svgClass="sui-TopbarUser-ctaButtonIcon" />}
-            size="small"
-            type="primary"
-            onClick={onCTAClick}
-          >
-            {navCtaText}
-          </AtomButton>
-        </div>
       </div>
-    )
-  }
+      <div className="sui-TopbarUser-ctaButton">
+        <AtomButton
+          link
+          href={navCtaUrl}
+          title={navCtaText}
+          leftIcon={<navCTA.icon svgClass="sui-TopbarUser-ctaButtonIcon" />}
+          size="small"
+          type="primary"
+          onClick={onCTAClick}
+        >
+          {navCtaText}
+        </AtomButton>
+      </div>
+    </div>
+  )
 }
 
 TopbarUser.displayName = 'TopbarUser'
@@ -392,16 +372,3 @@ TopbarUser.propTypes = {
    */
   elementsToKeepScrollOnToggleMenu: PropTypes.arrayOf(PropTypes.string)
 }
-
-TopbarUser.defaultProps = {
-  shouldDisplayNavUser: true,
-  toggleIcon: Menu,
-  linkFactory: ({href, className, children, target, title}) => (
-    <a href={href} className={className} target={target} title={title}>
-      {children}
-    </a>
-  ),
-  elementsToKeepScrollOnToggleMenu: []
-}
-
-export default TopbarUser

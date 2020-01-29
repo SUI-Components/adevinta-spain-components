@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.2.0 (2020-01-28)
+
+
+### Features
+
+* added new prop & CSS to render the table full width ([6a09c1e](https://github.com/SUI-Components/schibsted-spain-components/commit/6a09c1e8acf613e3dc3eca8c0d10fe54cdf8a043))
+
+
+
 # 1.1.0 (2020-01-22)
 
 

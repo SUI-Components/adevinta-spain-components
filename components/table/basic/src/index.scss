@@ -2,9 +2,13 @@
 
 .sui-TableBasic {
   border-collapse: collapse;
+  color: $c-gray-dark;
   font-size: $fz-s;
   padding: 0;
-  color: $c-gray-dark;
+
+  &--fullWidth {
+    width: 100%;
+  }
 
   &-headerCell {
     font-weight: $fw-regular;

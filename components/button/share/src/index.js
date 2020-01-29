@@ -42,7 +42,7 @@ const getShareDefinition = (url, shareText, type) => {
   }
 }
 
-const ButtonShare = ({type, icon, onClick, shareText, url}) => {
+const ButtonShare = ({type, icon, onClick, shareText = '', url}) => {
   const shareDefinition = getShareDefinition(url, shareText, type)
   const Icon = icon || shareDefinition.icon
   return (
@@ -80,10 +80,6 @@ ButtonShare.propTypes = {
    * A valid scheme url. Starting with http:// or https:// if non protocol is provided the component will fall setting http:// by default
    */
   url: PropTypes.string
-}
-
-ButtonShare.defaultProps = {
-  shareText: ''
 }
 
 export default ButtonShare
