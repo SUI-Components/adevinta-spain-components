@@ -102,6 +102,7 @@ const Input = ({
     tabIndex,
     onChange: onChangeCallback,
     size,
+    value: input.value || '',
     leftAddon,
     rightAddon,
     ...nextProps
