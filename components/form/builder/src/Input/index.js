@@ -136,4 +136,11 @@ Input.propTypes = {
   errors: PropTypes.object
 }
 
-export default Input
+export default React.memo(Input, (nextProps, prevProps) => {
+  return (
+    JSON.stringify(nextProps.input) === JSON.stringify(prevProps.input) &&
+    nextProps.errors[nextProps.input.id] ===
+      prevProps.errors[prevProps.input.id] &&
+    nextProps.onChange === prevProps.onChange
+  )
+})

@@ -41,4 +41,4 @@ FieldSet.propTypes = {
   errors: PropTypes.object
 }
 
-export default FieldSet
+export default React.memo(FieldSet)

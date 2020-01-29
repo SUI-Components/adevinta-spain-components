@@ -56,4 +56,12 @@ Switch.propTypes = {
   errors: PropTypes.objects
 }
 
-export default Switch
+export default React.memo(Switch, (nextProps, prevProps) => {
+  return (
+    JSON.stringify(nextProps.switchField) ===
+      JSON.stringify(prevProps.switchField) &&
+    nextProps.errors[nextProps.switchField.id] ===
+      prevProps.errors[prevProps.switchField.id] &&
+    nextProps.onChange === prevProps.onChange
+  )
+})

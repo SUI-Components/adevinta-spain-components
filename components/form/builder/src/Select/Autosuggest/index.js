@@ -115,4 +115,11 @@ AutosuggestSelect.propTypes = {
   errors: PropTypes.object
 }
 
-export default AutosuggestSelect
+export default React.memo(AutosuggestSelect, (nextProps, prevProps) => {
+  return (
+    JSON.stringify(nextProps.select) === JSON.stringify(prevProps.select) &&
+    nextProps.errors[nextProps.select.id] ===
+      prevProps.errors[prevProps.select.id] &&
+    nextProps.onChange === prevProps.onChange
+  )
+})

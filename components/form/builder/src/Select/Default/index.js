@@ -87,4 +87,11 @@ DefaultSelect.propTypes = {
   errors: PropTypes.object
 }
 
-export default React.memo(DefaultSelect)
+export default React.memo(DefaultSelect, (nextProps, prevProps) => {
+  return (
+    JSON.stringify(nextProps.select) === JSON.stringify(prevProps.select) &&
+    nextProps.errors[nextProps.select.id] ===
+      prevProps.errors[prevProps.select.id] &&
+    nextProps.onChange === prevProps.onChange
+  )
+})

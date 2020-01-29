@@ -86,4 +86,11 @@ TextArea.propTypes = {
   errors: PropTypes.object
 }
 
-export default TextArea
+export default React.memo(TextArea, (nextProps, prevProps) => {
+  return (
+    JSON.stringify(nextProps.textArea) === JSON.stringify(prevProps.textArea) &&
+    nextProps.errors[nextProps.textArea.id] ===
+      prevProps.errors[prevProps.textArea.id] &&
+    nextProps.onChange === prevProps.onChange
+  )
+})

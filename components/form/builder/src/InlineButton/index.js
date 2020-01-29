@@ -61,4 +61,12 @@ InlineButton.propTypes = {
   errors: PropTypes.object
 }
 
-export default InlineButton
+export default React.memo(InlineButton, (nextProps, prevProps) => {
+  return (
+    JSON.stringify(nextProps.inlineButton) ===
+      JSON.stringify(prevProps.inlineButton) &&
+    nextProps.errors[nextProps.inlineButton.id] ===
+      prevProps.errors[prevProps.inlineButton.id] &&
+    nextProps.onChange === prevProps.onChange
+  )
+})

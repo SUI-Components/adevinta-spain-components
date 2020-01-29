@@ -72,4 +72,11 @@ Checkbox.propTypes = {
   errors: PropTypes.object
 }
 
-export default Checkbox
+export default React.memo(Checkbox, (nextProps, prevProps) => {
+  return (
+    JSON.stringify(nextProps.checkbox) === JSON.stringify(prevProps.checkbox) &&
+    nextProps.errors[nextProps.checkbox.id] ===
+      prevProps.errors[prevProps.checkbox.id] &&
+    nextProps.onChange === prevProps.onChange
+  )
+})
