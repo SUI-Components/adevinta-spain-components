@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.9.0 (2020-01-29)
+
+
+### Bug Fixes
+
+* add request.withCredentials = true and remove timeout ([984f5f0](https://github.com/SUI-Components/schibsted-spain-components/commit/984f5f0bf7accfc8b86a28669419d4831c4c776b))
+
+
+
 # 1.8.0 (2020-01-29)
 
 
