@@ -98,7 +98,7 @@ const checkConstraintsFromField = field => {
 }
 
 const checkConstrainstsFactory = json => ({for: fieldID, all}) => {
-  let fieldsToValidate = {}
+  let fieldsToValidate = []
   if (all && fieldID) {
     window.console.warn(
       '[form/builder]: checkConstrainstsFactory: both modes validate all fields and validate a concrete field are not compatible, please use one of them'
