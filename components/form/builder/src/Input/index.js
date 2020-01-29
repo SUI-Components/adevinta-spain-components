@@ -100,7 +100,6 @@ const Input = ({
     name: input.id,
     label: input.label || '',
     tabIndex,
-    value: input.value || '',
     onChange: onChangeCallback,
     size,
     leftAddon,
