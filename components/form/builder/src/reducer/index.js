@@ -1,6 +1,5 @@
-import {changeFieldById} from './fields'
 import {applyRules} from './rules'
-import {CHANGE} from './constants'
+import {RULES} from './constants'
 
 export const reducer = (
   rules,
@@ -8,13 +7,12 @@ export const reducer = (
   requestInterceptor,
   urlInterceptor
 ) => async (fields, action) => {
-  const {type, id, value} = action
+  const {type, id} = action
   let nextFields
   switch (type) {
-    case CHANGE:
-      nextFields = changeFieldById(fields, id, {value})
+    case RULES:
       nextFields = await applyRules(
-        nextFields,
+        fields,
         rules,
         id,
         formID,
