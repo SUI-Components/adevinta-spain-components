@@ -113,14 +113,11 @@ const checkConstrainstsFactory = json => ({for: fieldID, all}) => {
     )
   }
 
-  let fieldsWithErrors = {}
-  fieldsWithErrors = fieldsToValidate.reduce((acc, fieldID) => {
-    const field = pickFieldById(json.form.fields, fieldID)
-    return {
-      ...acc,
-      [field.id]: checkConstraintsFromField(field)
-    }
-  }, fieldsWithErrors)
+  const fieldsWithErrors = {}
+  fieldsToValidate.forEach(fieldId => {
+    const field = pickFieldById(json.form.fields, fieldId)
+    fieldsWithErrors[field.id] = checkConstraintsFromField(field)
+  })
   return fieldsWithErrors
 }
 
