@@ -85,7 +85,8 @@ export const changeFieldById = (fields, id, nextField) => {
       return field
     }
 
-    return {...field, fields: changeFieldById(field.fields, id, nextField)}
+    field.fields = changeFieldById(field.fields, id, nextField)
+    return field
   })
 
   return nextFields
