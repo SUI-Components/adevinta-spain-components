@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types'
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect, useLayoutEffect, useRef} from 'react'
 import cx from 'classnames'
 import Menu from '@schibstedspain/sui-svgiconset/lib/Menu'
 import DropdownBasic from '@schibstedspain/sui-dropdown-basic'
@@ -76,8 +76,7 @@ export default function TopbarUser({
     }
   }
 
-  useEffect(() => {
-    const MIN_TIME_TO_GET_DOM_READY = 1
+  useLayoutEffect(() => {
     /**
      * Set the display state for toggle button.
      */
@@ -97,9 +96,7 @@ export default function TopbarUser({
       }
     }
 
-    window.setTimeout(() => {
-      _setToggleDisplayState()
-    }, MIN_TIME_TO_GET_DOM_READY)
+    _setToggleDisplayState()
     window.addEventListener('resize', _setToggleDisplayState)
 
     return () => {
