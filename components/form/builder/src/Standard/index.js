@@ -1,6 +1,6 @@
 // map the DSL standard to JS: https://docs.mpi-internal.com/scmspain/all--lib-form-builder-docs/form-specification/field/
 
-import {pickFieldById} from '../reducer/fields'
+import {pickFieldById, fieldsNamesInOrderOfDefinition} from '../reducer/fields'
 
 const FIELDS = {
   TEXT: 'text',
@@ -39,12 +39,11 @@ const CONSTRAINTS = {
   minlength: 'tooShort'
 }
 
-const checkConstrainstsFactory = json => ({for: fieldID, all}) => {
-  const field = pickFieldById(json.form.fields, fieldID)
+const checkConstraintsFromField = field => {
   let errorMessages = []
   const constraints = field.constraints || []
+  const elementNode = document.getElementById(field.id)
   const elementValidity = document.getElementById(field.id)?.validity
-
   // if element has no validity is not a form element
   // if element has not constraints there is no need to validate
   if (elementValidity && !!constraints) {
@@ -62,13 +61,16 @@ const checkConstrainstsFactory = json => ({for: fieldID, all}) => {
 
   // custom validation: minlength constraint in html textarea is not working as expected, need to handle it manually
   if (
+    // if is a field text and display multiline
     field.type === FIELDS.TEXT &&
-    field.display === DISPLAYS[FIELDS.TEXT].MULTILINE
+    field.display === DISPLAYS[FIELDS.TEXT].MULTILINE &&
+    // if element validity is tooShort means that it is working as expected and it is not required manual validation
+    !elementValidity.tooShort
   ) {
     const textAreaHasMinLength = field.constraints.find(
       constraint => constraint.property?.minlength
     )
-    const textAreaValue = document.getElementById(field.id)?.value
+    const textAreaValue = elementNode?.value
 
     if (
       textAreaValue?.length <
@@ -82,7 +84,7 @@ const checkConstrainstsFactory = json => ({for: fieldID, all}) => {
     field.type === FIELDS.PICKER &&
     field.display === DISPLAYS[FIELDS.PICKER].CHECKBOX
   ) {
-    const checkboxValue = JSON.parse(document.getElementById(field.id)?.value)
+    const checkboxValue = JSON.parse(elementNode?.value)
 
     const checkboxShouldBeTrueConstraint = field.constraints.find(
       constraint => constraint.property?.pattern === '^true$'
@@ -92,8 +94,35 @@ const checkConstrainstsFactory = json => ({for: fieldID, all}) => {
     if (checkboxShouldBeTrueConstraint && !checkboxValue)
       errorMessages = [checkboxShouldBeTrueConstraint.message, ...errorMessages]
   }
-
   return errorMessages
+}
+
+const checkConstrainstsFactory = json => ({for: fieldID, all}) => {
+  let fields = {}
+  if (all && fieldID) {
+    window.console.warn(
+      '[form/builder]: checkConstrainstsFactory: both modes validate all fields and validate a concrete field are not compatible, please use one of them'
+    )
+  } else if (all) {
+    fields = fieldsNamesInOrderOfDefinition(json?.form?.fields)
+  } else if (fieldID) {
+    fields[fieldID] = pickFieldById(json.form.fields, fieldID)
+  } else {
+    window.console.warn(
+      '[form/builder]: checkConstrainstsFactory: Specify if you want to validate a specific field or all the fields'
+    )
+  }
+
+  let fieldsWithErrors = {}
+  fieldsWithErrors = Object.values(fields).reduce(
+    (acc, field) => ({
+      ...acc,
+      [field.id]: checkConstraintsFromField(field)
+    }),
+    fieldsWithErrors
+  )
+
+  return fieldsWithErrors
 }
 
 export {FIELDS, DISPLAYS, CONSTRAINTS, checkConstrainstsFactory}
