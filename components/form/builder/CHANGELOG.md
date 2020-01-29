@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.8.0 (2020-01-29)
+
+
+### Bug Fixes
+
+* 1 ms setTimeout to avoid IE 11 error - Access is denied - XMLHttpRequest ([3ff9a34](https://github.com/SUI-Components/schibsted-spain-components/commit/3ff9a3432185708103514291ffaf6a8c88cc483f))
+
+
+
 # 1.7.0 (2020-01-21)
 
 
