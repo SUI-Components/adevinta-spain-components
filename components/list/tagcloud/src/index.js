@@ -2,7 +2,13 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import TagChip from '@schibstedspain/sui-tag-chip'
 
-const ListTagcloud = ({tags, linkFactory}) => (
+const defaultLinkFactory = ({href, className, children}) => ( // eslint-disable-line
+  <a href={href} className={className}>
+    {children}
+  </a>
+)
+
+const ListTagcloud = ({tags, linkFactory = defaultLinkFactory}) => (
   <div className="sui-ListTagcloud">
     {tags.map((tagProps, index) => (
       <TagChip key={index} linkFactory={linkFactory} {...tagProps} />
@@ -32,14 +38,6 @@ ListTagcloud.propTypes = {
    * Factory used to create navigation links
    */
   linkFactory: PropTypes.func
-}
-
-ListTagcloud.defaultProps = {
-  linkFactory: ({href, className, children} = {}) => ( // eslint-disable-line
-    <a href={href} className={className}>
-      {children}
-    </a>
-  )
 }
 
 export default ListTagcloud
