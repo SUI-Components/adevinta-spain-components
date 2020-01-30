@@ -17,8 +17,8 @@ const TITLE_SIZES = Object.keys(TAG_FOR_SIZE)
  * Builds an HTML/React Element depending on the size declared (xs: H5, s: H4, m: H3, l: H2, xl = H1).
  * @param size {string} Size (xs, s, m, l, xl) of title element.
  * @param className {string} CSS classNames to apply to element.
- * @param content {element} Children of title element. Could be an element (HTML/React Element), string, or an array of both.
- * @returns {element} React Title Element.
+ * @param content {React.ElementType} Children of title element. Could be an element (HTML/React Element), string, or an array of both.
+ * @returns {any} React Title Element.
  */
 const buildTitleElement = (size, className, content) => {
   const Tag = TAG_FOR_SIZE[size]
@@ -27,13 +27,13 @@ const buildTitleElement = (size, className, content) => {
 
 const TitleMultisize = ({
   className,
-  orientation,
+  orientation = 'vertical',
   postTitle,
-  postTitleSize,
+  postTitleSize = 's',
   preTitle,
-  preTitleSize,
+  preTitleSize = 'xs',
   title,
-  titleSize
+  titleSize = 'xl'
 }) => (
   <div
     className={cx(
@@ -101,13 +101,6 @@ TitleMultisize.propTypes = {
    * Size of title: xs = h5, s = h4, m = h3, l = h2, xl = h1.
    */
   titleSize: PropTypes.oneOf(TITLE_SIZES)
-}
-
-TitleMultisize.defaultProps = {
-  orientation: 'vertical',
-  postTitleSize: 's',
-  preTitleSize: 'xs',
-  titleSize: 'xl'
 }
 
 export default TitleMultisize
