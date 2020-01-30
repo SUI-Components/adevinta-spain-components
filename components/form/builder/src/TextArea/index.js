@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react'
 
 import PropTypes from 'prop-types'
-import {field} from '../prop-types'
+import {field, createComponentMemo} from '../prop-types'
 
 import MoleculeTextAreaField from '@s-ui/react-molecule-textarea-field'
 
@@ -86,11 +86,4 @@ TextArea.propTypes = {
   errors: PropTypes.object
 }
 
-export default React.memo(TextArea, (nextProps, prevProps) => {
-  return (
-    JSON.stringify(nextProps.textArea) === JSON.stringify(prevProps.textArea) &&
-    nextProps.errors[nextProps.textArea.id] ===
-      prevProps.errors[prevProps.textArea.id] &&
-    nextProps.onChange === prevProps.onChange
-  )
-})
+export default React.memo(TextArea, createComponentMemo('textArea'))

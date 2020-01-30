@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from 'react'
 
 import PropTypes from 'prop-types'
-import {field} from '../../prop-types'
+import {field, createComponentMemo} from '../../prop-types'
 
 import MoleculeAutosuggestField from '@s-ui/react-molecule-autosuggest-field'
 import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
@@ -115,11 +115,4 @@ AutosuggestSelect.propTypes = {
   errors: PropTypes.object
 }
 
-export default React.memo(AutosuggestSelect, (nextProps, prevProps) => {
-  return (
-    JSON.stringify(nextProps.select) === JSON.stringify(prevProps.select) &&
-    nextProps.errors[nextProps.select.id] ===
-      prevProps.errors[prevProps.select.id] &&
-    nextProps.onChange === prevProps.onChange
-  )
-})
+export default React.memo(AutosuggestSelect, createComponentMemo('select'))

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import PropTypes from 'prop-types'
-import {field} from '../prop-types'
+import {field, createComponentMemo} from '../prop-types'
 import MoleculeButtonGroup from '@s-ui/react-molecule-button-group'
 import Button from '@s-ui/react-atom-button'
 
@@ -61,12 +61,4 @@ InlineButton.propTypes = {
   errors: PropTypes.object
 }
 
-export default React.memo(InlineButton, (nextProps, prevProps) => {
-  return (
-    JSON.stringify(nextProps.inlineButton) ===
-      JSON.stringify(prevProps.inlineButton) &&
-    nextProps.errors[nextProps.inlineButton.id] ===
-      prevProps.errors[prevProps.inlineButton.id] &&
-    nextProps.onChange === prevProps.onChange
-  )
-})
+export default React.memo(InlineButton, createComponentMemo('inlineButton'))
