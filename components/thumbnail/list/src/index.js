@@ -5,7 +5,7 @@ import ThumbnailBasic from '@schibstedspain/sui-thumbnail-basic'
 const ThumbnailList = ({
   captionText,
   fallback,
-  items,
+  items = [],
   onClick,
   placeholder,
   target
@@ -57,10 +57,6 @@ ThumbnailList.propTypes = {
    * onClick callback
    */
   onClick: PropTypes.func
-}
-
-ThumbnailList.defaultProps = {
-  items: []
 }
 
 export default ThumbnailList
