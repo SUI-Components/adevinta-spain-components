@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.5.0 (2020-01-30)
+
+
+### Features
+
+* Stop using defaultProps ([c5425b2](https://github.com/SUI-Components/schibsted-spain-components/commit/c5425b2806df4b2d35b103344204fcaccf0ae537))
+
+
+
 # 2.4.0 (2020-01-13)
 
 
