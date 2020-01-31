@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.26.0 (2020-01-31)
+
+
+### Performance Improvements
+
+* Remove not needed code ([01494f9](https://github.com/SUI-Components/schibsted-spain-components/commit/01494f92476dd3e765e892f450dfe253d9c69184))
+
+
+
 # 1.25.0 (2020-01-13)
 
 
