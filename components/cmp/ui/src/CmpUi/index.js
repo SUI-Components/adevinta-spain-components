@@ -9,7 +9,7 @@ const NO_OP = () => {}
 const CmpUiBanner = React.lazy(() => import('../CmpUiBanner'))
 const CmpUiModal = React.lazy(() => import('../CmpUiModal'))
 const CmpModalConsents = React.lazy(() =>
-  import('@schibstedspain/react-cmp-modal')
+  import('@s-ui/react-cmp-modal')
 )
 
 export default function CmpUiContainer({
