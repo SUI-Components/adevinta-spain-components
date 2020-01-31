@@ -1,7 +1,7 @@
 import React from 'react'
 
 import PropTypes from 'prop-types'
-import {field} from '../prop-types'
+import {field, createComponentMemo} from '../prop-types'
 import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
 import IconCheck from '../Icons/IconCheck'
 
@@ -72,4 +72,4 @@ Checkbox.propTypes = {
   errors: PropTypes.object
 }
 
-export default Checkbox
+export default React.memo(Checkbox, createComponentMemo('checkbox'))

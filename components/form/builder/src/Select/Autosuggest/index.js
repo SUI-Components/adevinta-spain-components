@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from 'react'
 
 import PropTypes from 'prop-types'
-import {field} from '../../prop-types'
+import {field, createComponentMemo} from '../../prop-types'
 
 import MoleculeAutosuggestField from '@s-ui/react-molecule-autosuggest-field'
 import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
@@ -115,4 +115,4 @@ AutosuggestSelect.propTypes = {
   errors: PropTypes.object
 }
 
-export default AutosuggestSelect
+export default React.memo(AutosuggestSelect, createComponentMemo('select'))

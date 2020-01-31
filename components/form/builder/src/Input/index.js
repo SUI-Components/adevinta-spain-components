@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react'
 
 import PropTypes from 'prop-types'
-import {field} from '../prop-types'
+import {field, createComponentMemo} from '../prop-types'
 
 import MoleculeInputField from '@s-ui/react-molecule-input-field'
 
@@ -136,4 +136,4 @@ Input.propTypes = {
   errors: PropTypes.object
 }
 
-export default Input
+export default React.memo(Input, createComponentMemo('input'))
