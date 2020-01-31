@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.11.0 (2020-01-31)
+
+
+### Features
+
+* remove default memos ([d5ee375](https://github.com/SUI-Components/schibsted-spain-components/commit/d5ee375b1aef2c3b4ab771cb814e585ae58712c0))
+
+
+
 # 1.10.0 (2020-01-29)
 
 
@@ -29,6 +38,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+* add memoize in all components ([89959ca](https://github.com/SUI-Components/schibsted-spain-components/commit/89959ca705e5a9f522182f8797dc6bbf31f885ca))
 * improve validations check: validate one field or validate all fields ([860b669](https://github.com/SUI-Components/schibsted-spain-components/commit/860b669babe403a604a5b809f5c67c0aad446153))
 * rename reducer base case to RULES ([fd04740](https://github.com/SUI-Components/schibsted-spain-components/commit/fd047408f90d61ffa1fc31ae7f728ab501f32ef4))
 * replace window[HACK_KEY] by useRef hook ([f67a62f](https://github.com/SUI-Components/schibsted-spain-components/commit/f67a62fd9907bf8afc9c7f96a6771108dd64537a))
