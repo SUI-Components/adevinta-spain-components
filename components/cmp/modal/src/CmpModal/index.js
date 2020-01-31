@@ -37,7 +37,7 @@ export class CmpModalContainer extends Component {
     return `${consentToUpdate}Consents`
   }
 
-  _handleToggleConsent = ({enabled, id, isVendor}) => {
+  handleToggleConsent = ({enabled, id, isVendor}) => {
     const key = this._getKeyOfConsentToUpdate({isVendor})
 
     this.setState(state => ({
@@ -48,7 +48,7 @@ export class CmpModalContainer extends Component {
     }))
   }
 
-  _handleToggleAll = ({event, enabled, isVendor}) => {
+  handleToggleAll = ({event, enabled, isVendor}) => {
     event.preventDefault()
     event.nativeEvent.stopImmediatePropagation()
 
@@ -63,20 +63,20 @@ export class CmpModalContainer extends Component {
     })
   }
 
-  _handleAccept = async () => {
+  handleAccept = async () => {
     const {sendConsents, onExit} = this.props
     const {purposeConsents, vendorConsents} = this.state
     await sendConsents.execute({purposeConsents, vendorConsents})
     onExit()
   }
 
-  _handleBack = e => {
+  handleBack = e => {
     e.preventDefault()
     e.nativeEvent.stopImmediatePropagation()
     this.setState({step: STEPS.GENERAL}, this._scrollTopContent)
   }
 
-  _handleOpenAdsStep = e => {
+  handleOpenAdsStep = e => {
     e.preventDefault()
     e.nativeEvent.stopImmediatePropagation()
     this.setState({step: STEPS.ADVERTISEMENT}, this._scrollTopContent)
@@ -107,11 +107,11 @@ export class CmpModalContainer extends Component {
         fetchingPurposes={fetchingPurposes}
         lang={lang}
         logo={logo}
-        onAccept={this._handleAccept}
-        onBack={this._handleBack}
-        onOpenAdsStep={this._handleOpenAdsStep}
-        onToggleAll={this._handleToggleAll}
-        onToggleConsent={this._handleToggleConsent}
+        onAccept={this.handleAccept}
+        onBack={this.handleBack}
+        onOpenAdsStep={this.handleOpenAdsStep}
+        onToggleAll={this.handleToggleAll}
+        onToggleConsent={this.handleToggleConsent}
         privacyUrl={privacyUrl}
         purposeConsents={purposeConsents}
         purposes={purposes}
