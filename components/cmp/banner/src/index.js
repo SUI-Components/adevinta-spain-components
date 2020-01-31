@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import CmpServices from '@schibstedspain/react-cmp-services'
+import CmpServices from '@s-ui/react-cmp-services'
 
 import CmpBannerContainer from './CmpBanner/index'
 
