@@ -1,6 +1,6 @@
 {
-  "name": "@s-ui/react-cmp-banner",
-  "version": "1.21.1",
+  "name": "@schibstedspain/react-cmp-banner",
+  "version": "1.22.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
