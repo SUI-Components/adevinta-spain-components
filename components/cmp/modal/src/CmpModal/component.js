@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Button from '@s-ui/react-atom-button'
+import {dispatchEvent} from '@s-ui/js/lib/events'
 
 import {CmpModalAdvertisementStep} from '../CmpModalAdvertisementStep'
 import {CmpModalGeneralStep} from '../CmpModalGeneralStep'
@@ -27,7 +28,6 @@ export function CmpModal({
   vendors
 }) {
   const i18n = I18N[lang]
-
   return (
     <div className={CLASS}>
       <div className={`${CLASS}-content`}>
@@ -58,12 +58,26 @@ export function CmpModal({
         </section>
         <footer className={`${CLASS}-footer`}>
           {step === STEPS.ADVERTISEMENT && (
-            <Button onClick={onBack} type="tertiary" size="small">
+            <Button
+              onClick={evt => {
+                onBack(evt)
+                dispatchEvent({eventName: 'CMP_MODAL_BACK'})
+              }}
+              type="tertiary"
+              size="small"
+            >
               {i18n.BACK}
             </Button>
           )}
 
-          <Button disabled={fetchingPurposes} onClick={onAccept} type="primary">
+          <Button
+            disabled={fetchingPurposes}
+            onClick={evt => {
+              onAccept(evt)
+              dispatchEvent({eventName: 'CMP_MODAL_SAVE'})
+            }}
+            type="primary"
+          >
             {i18n.ACCEPT}
           </Button>
         </footer>
