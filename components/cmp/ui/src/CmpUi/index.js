@@ -8,9 +8,7 @@ const NO_OP = () => {}
 
 const CmpUiBanner = React.lazy(() => import('../CmpUiBanner'))
 const CmpUiModal = React.lazy(() => import('../CmpUiModal'))
-const CmpModalConsents = React.lazy(() =>
-  import('@s-ui/react-cmp-modal')
-)
+const CmpModalConsents = React.lazy(() => import('@s-ui/react-cmp-modal'))
 
 export default function CmpUiContainer({
   companyName,
