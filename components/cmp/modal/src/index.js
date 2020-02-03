@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 
 import {CmpModalContainer} from './CmpModal'
-import CmpServices from '@schibstedspain/react-cmp-services'
+import CmpServices from '@s-ui/react-cmp-services'
 
 export default function CmpModal(props) {
   const {elementToOpenOnClick} = props

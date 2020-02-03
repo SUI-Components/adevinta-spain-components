@@ -12,14 +12,14 @@ The available methods are:
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/react-cmp-services --save
+$ npm install @s-ui/react-cmp-services --save
 ```
 
 ## Usage of CmpServices
 
 ### Basic usage
 ```js
-import CmpServices from '@schibstedspain/react-cmp-services'
+import CmpServices from '@s-ui/react-cmp-services'
 
 return (
   <CmpServices>
