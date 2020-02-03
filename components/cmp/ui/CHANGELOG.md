@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.19.0 (2020-02-03)
+
+
+### Features
+
+* use new [@s-ui](https://github.com/s-ui) package name for cmp ([2e6d205](https://github.com/SUI-Components/schibsted-spain-components/commit/2e6d205a6fd482dba5b583af8baca754ae038657))
+
+
+
 # 1.18.0 (2020-02-03)
 
 
