@@ -120,16 +120,20 @@ $ta-sui-cmp-modal-content: left !default;
       }
     }
 
+    &Icon {
+      height: 24px;
+      fill: none;
+      stroke-width: 1px;
+      stroke: currentColor;
+      width: 24px;
+    }
+
     &Description {
       border-top: 1px dashed $c-gray-lightest;
-      display: none;
+      display: block;
       margin-top: $p-s;
       padding: $p-l 0;
       word-break: break-word;
-
-      &--expanded {
-        display: block;
-      }
     }
 
     &Link {

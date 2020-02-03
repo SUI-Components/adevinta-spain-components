@@ -8,13 +8,13 @@ import RatingStar from './RatingStar'
 function AdSmartbanner({
   buttonText,
   customRatingIcons,
-  icon: IconClose,
+  icon: IconClose = IconCloseDefault,
   imageUrl,
   onClick,
   onClose,
   ratingMax,
-  ratingValue,
-  staticPosition,
+  ratingValue = null,
+  staticPosition = false,
   text,
   title
 }) {
@@ -60,12 +60,6 @@ AdSmartbanner.propTypes = {
   staticPosition: PropTypes.bool,
   text: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired
-}
-
-AdSmartbanner.defaultProps = {
-  icon: IconCloseDefault,
-  ratingValue: null,
-  staticPosition: false
 }
 
 AdSmartbanner.displayName = 'AdSmartbanner'

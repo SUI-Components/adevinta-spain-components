@@ -9,14 +9,14 @@ The banner will be shown only if the user hasn't accepted yet the consents.
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/react-cmp-ui --save
+$ npm install @s-ui/react-cmp-ui --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import CmpUi from '@schibstedspain/react-cmp-ui'
+import CmpUi from '@s-ui/react-cmp-ui'
 
 return (
   <CmpUi

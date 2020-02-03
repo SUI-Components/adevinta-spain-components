@@ -6,10 +6,9 @@ const CONSENT_STATUS_NOT_ACCEPTED = 'NOT_ACCEPTED'
 const NO_OP = () => {}
 
 const CmpBanner = React.lazy(() => import('./component'))
-const CmpModal = React.lazy(() => import('@schibstedspain/react-cmp-modal'))
+const CmpModal = React.lazy(() => import('@s-ui/react-cmp-modal'))
 
 export default function CmpBannerContainer({
-  companyName,
   lang,
   logo,
   privacyUrl,
@@ -87,7 +86,6 @@ export default function CmpBannerContainer({
           <CmpBanner
             onAccept={_handleAccept}
             onConfigure={_handleReadMore}
-            companyName={companyName}
             lang={lang}
           />
         </Suspense>
@@ -108,7 +106,6 @@ export default function CmpBannerContainer({
 }
 
 CmpBannerContainer.propTypes = {
-  companyName: PropTypes.string.isRequired,
   getConsentStatus: PropTypes.object.isRequired,
   getPurposesAndVendors: PropTypes.object.isRequired,
   lang: PropTypes.string,

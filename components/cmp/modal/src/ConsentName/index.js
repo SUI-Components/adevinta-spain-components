@@ -5,17 +5,7 @@ import cx from 'classnames'
 import {CLASS} from '../settings'
 
 const chevron = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    fill="none"
-    stroke="currentColor"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    strokeWidth="2"
-    className="feather feather-chevron-down"
-  >
+  <svg className={`${CLASS}-consentIcon`}>
     <path d="M6 9l6 6 6-6" />
   </svg>
 )
@@ -40,12 +30,7 @@ export function ConsentName({name, renderDescription, url}) {
         {chevron}
       </span>
       {expanded && (
-        <div
-          className={cx(
-            `${CLASS}-consentDescription`,
-            `${CLASS}-consentDescription--expanded`
-          )}
-        >
+        <div className={cx(`${CLASS}-consentDescription`)}>
           {renderDescription()}
         </div>
       )}

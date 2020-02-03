@@ -2,7 +2,15 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import cx from 'classnames'
 
-function ButtonBasic({disabled, icon, text, layout, onClick, size, type}) {
+function ButtonBasic({
+  disabled,
+  icon,
+  text,
+  layout,
+  onClick,
+  size = 'medium',
+  type = 'primary'
+}) {
   const className = cx(
     'sui-ButtonBasic',
     `sui-ButtonBasic--${size}`,
@@ -21,11 +29,6 @@ function ButtonBasic({disabled, icon, text, layout, onClick, size, type}) {
 }
 
 ButtonBasic.displayName = 'ButtonBasic'
-
-ButtonBasic.defaultProps = {
-  size: 'medium',
-  type: 'primary'
-}
 
 ButtonBasic.propTypes = {
   disabled: PropTypes.bool,

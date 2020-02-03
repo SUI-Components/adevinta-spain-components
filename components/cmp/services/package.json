@@ -1,6 +1,6 @@
 {
-  "name": "@schibstedspain/react-cmp-services",
-  "version": "1.16.0",
+  "name": "@s-ui/react-cmp-services",
+  "version": "1.17.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {

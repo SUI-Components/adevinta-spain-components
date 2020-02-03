@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react'
 
 import PropTypes from 'prop-types'
-import {field} from '../../prop-types'
+import {field, createComponentMemo} from '../../prop-types'
 
 import MoleculeSelectField from '@s-ui/react-molecule-select-field'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
@@ -87,4 +87,4 @@ DefaultSelect.propTypes = {
   errors: PropTypes.object
 }
 
-export default React.memo(DefaultSelect)
+export default React.memo(DefaultSelect, createComponentMemo('select'))

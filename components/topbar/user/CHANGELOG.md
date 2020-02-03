@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.35.0 (2020-01-29)
+
+
+### Bug Fixes
+
+* make sure dom elements are ready to make calculations from their style properties ([dde63ad](https://github.com/SUI-Components/schibsted-spain-components/commit/dde63adae9d97d35b3f019f1e6733c1fec8cf862))
+* remove not needed dep ([343fc44](https://github.com/SUI-Components/schibsted-spain-components/commit/343fc447aa45123d4c316dc5496a9145e772edcd))
+* remove not needed node ref ([c718ac7](https://github.com/SUI-Components/schibsted-spain-components/commit/c718ac7e9a510fa4257e057e3b9fb8f5fa4edf1c))
+* remove not needed param ([413447d](https://github.com/SUI-Components/schibsted-spain-components/commit/413447de6a9241a2193b3ff67ae4938ff19309ff))
+* use better layout effect ([dd95417](https://github.com/SUI-Components/schibsted-spain-components/commit/dd95417e02b66e84aef623d71d95a0528bc6f3c1))
+* use ref for storing a window attribute value ([a0c508a](https://github.com/SUI-Components/schibsted-spain-components/commit/a0c508a5489ca99a63d7813aaed04971f61f86cd))
+
+
+
 # 1.34.0 (2020-01-27)
 
 

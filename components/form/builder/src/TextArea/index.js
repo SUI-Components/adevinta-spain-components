@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react'
 
 import PropTypes from 'prop-types'
-import {field} from '../prop-types'
+import {field, createComponentMemo} from '../prop-types'
 
 import MoleculeTextAreaField from '@s-ui/react-molecule-textarea-field'
 
@@ -86,4 +86,4 @@ TextArea.propTypes = {
   errors: PropTypes.object
 }
 
-export default TextArea
+export default React.memo(TextArea, createComponentMemo('textArea'))

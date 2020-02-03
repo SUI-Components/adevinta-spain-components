@@ -8,7 +8,15 @@ const baseNumber = 0.5
 const checkRatingValue = ({ratingValue, ratingMax}) =>
   ratingValue % baseNumber === 0 && ratingValue <= ratingMax
 
-const RatingStar = ({ratingValue, ratingMax, icons}) => {
+const RatingStar = ({
+  ratingValue = 0,
+  ratingMax = 5,
+  icons = {
+    starEmpty: IconStarEmptyDefault,
+    starFull: IconStarFullDefault,
+    starHalf: IconStarHalfDefault
+  }
+}) => {
   const svgIconsType = {
     half: icons.starHalf,
     full: icons.starFull,
@@ -63,16 +71,6 @@ RatingStar.propTypes = {
     starFull: PropTypes.func,
     starHalf: PropTypes.func
   })
-}
-
-RatingStar.defaultProps = {
-  icons: {
-    starEmpty: IconStarEmptyDefault,
-    starFull: IconStarFullDefault,
-    starHalf: IconStarHalfDefault
-  },
-  ratingValue: 0,
-  ratingMax: 5
 }
 
 RatingStar.displayName = 'RatingStar'
