@@ -1,6 +1,7 @@
 import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 import {useMount} from '@schibstedspain/sui-react-hooks'
+import {dispatchEvent} from '@s-ui/js/lib/events'
 
 import Notification from '@s-ui/react-molecule-notification'
 import Button from '@s-ui/react-atom-button'
@@ -55,7 +56,13 @@ export default function CmpBanner({lang, onAccept, onConfigure}) {
             >
               {I18N[lang].PARTNERS_LINK}
             </Button>
-            <Button className={`${CLASS}-button`} onClick={onAccept}>
+            <Button
+              className={`${CLASS}-button`}
+              onClick={evt => {
+                onAccept(evt)
+                dispatchEvent({eventName: 'CMP_BANNER_ACCEPT'})
+              }}
+            >
               {I18N[lang].ACCEPT_BUTTON}
             </Button>
           </div>
