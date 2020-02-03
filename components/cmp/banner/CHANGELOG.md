@@ -2,7 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.23.0 (2020-02-03)
+
+
+
 # 1.22.0 (2020-01-31)
+
+
+### Features
+
+* Use new [@s-ui](https://github.com/s-ui) instead [@schibstedspain](https://github.com/schibstedspain) ([514de60](https://github.com/SUI-Components/schibsted-spain-components/commit/514de607d0b7e1e549ca5eec92cc60af06a4ad6f))
 
 
 ### Performance Improvements
