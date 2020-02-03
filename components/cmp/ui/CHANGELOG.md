@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.18.0 (2020-02-03)
+
+
+### Bug Fixes
+
+* fix linter errors ([b9e2e78](https://github.com/SUI-Components/schibsted-spain-components/commit/b9e2e788d7b5d28c6c681cc0d648999f3f341842))
+
+
+### Features
+
+* Use new [@s-ui](https://github.com/s-ui) instead [@schibstedspain](https://github.com/schibstedspain) ([d0ab516](https://github.com/SUI-Components/schibsted-spain-components/commit/d0ab516411940c49e85a866358bc4b2b9b440cb8))
+
+
+
 # 1.17.0 (2020-01-13)
 
 
