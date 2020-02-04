@@ -49,7 +49,10 @@ function DropdownMenu({caret, classname, entries, icon, label, renderOnClick}) {
   )
 }
 
-export default React.memo(DropdownMenu, () => true)
+export default React.memo(
+  DropdownMenu,
+  (prevProps, nextProps) => prevProps.classname === nextProps.classname
+)
 
 DropdownMenu.propTypes = {
   caret: PropTypes.element,
