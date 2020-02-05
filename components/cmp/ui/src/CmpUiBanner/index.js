@@ -50,14 +50,14 @@ export default function CmpBanner({lang, onAccept, onConfigure}) {
             />
           </div>
           <div className={`${CLASS}-actions`}>
-            <Button onClick={onBack} type="tertiary" size="small">
+            <Button
+              type="secondary"
+              className={`${CLASS}-button ${CLASS}-partnersButton`}
+              onClick={onConfigure}
+            >
               {I18N[lang].PARTNERS_LINK}
             </Button>
-            <Button
-              disabled={fetchingPurposes}
-              onClick={onAccept}
-              type="primary"
-            >
+            <Button className={`${CLASS}-button`} onClick={onAccept}>
               {I18N[lang].ACCEPT_BUTTON}
             </Button>
           </div>
