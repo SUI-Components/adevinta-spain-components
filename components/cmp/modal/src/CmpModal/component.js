@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Button from '@s-ui/react-atom-button'
-import {dispatchEvent} from '@s-ui/js/lib/events'
 
 import {CmpModalAdvertisementStep} from '../CmpModalAdvertisementStep'
 import {CmpModalGeneralStep} from '../CmpModalGeneralStep'
