@@ -58,26 +58,12 @@ export function CmpModal({
         </section>
         <footer className={`${CLASS}-footer`}>
           {step === STEPS.ADVERTISEMENT && (
-            <Button
-              onClick={evt => {
-                onBack(evt)
-                dispatchEvent({eventName: 'CMP_MODAL_BACK'})
-              }}
-              type="tertiary"
-              size="small"
-            >
+            <Button onClick={onBack} type="tertiary" size="small">
               {i18n.BACK}
             </Button>
           )}
 
-          <Button
-            disabled={fetchingPurposes}
-            onClick={evt => {
-              onAccept(evt)
-              dispatchEvent({eventName: 'CMP_MODAL_SAVE'})
-            }}
-            type="primary"
-          >
+          <Button disabled={fetchingPurposes} onClick={onAccept} type="primary">
             {i18n.ACCEPT}
           </Button>
         </footer>
