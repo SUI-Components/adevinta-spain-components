@@ -17,6 +17,7 @@ export default function CmpBanner({lang, onAccept, onConfigure}) {
     const {current: textDOM} = textRef
     const openCookiesDOM = textDOM.querySelector(`.${CLASS}-link`)
     openCookiesDOM.addEventListener('click', _handleOpenCookies)
+    dispatchEvent({eventName: 'CMP_BANNER_SHOW'})
 
     return () =>
       openCookiesDOM &&
@@ -49,19 +50,13 @@ export default function CmpBanner({lang, onAccept, onConfigure}) {
             />
           </div>
           <div className={`${CLASS}-actions`}>
-            <Button
-              type="secondary"
-              className={`${CLASS}-button ${CLASS}-partnersButton`}
-              onClick={onConfigure}
-            >
+            <Button onClick={onBack} type="tertiary" size="small">
               {I18N[lang].PARTNERS_LINK}
             </Button>
             <Button
-              className={`${CLASS}-button`}
-              onClick={evt => {
-                onAccept(evt)
-                dispatchEvent({eventName: 'CMP_BANNER_ACCEPT'})
-              }}
+              disabled={fetchingPurposes}
+              onClick={onAccept}
+              type="primary"
             >
               {I18N[lang].ACCEPT_BUTTON}
             </Button>
