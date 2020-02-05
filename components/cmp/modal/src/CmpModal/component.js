@@ -27,6 +27,7 @@ export function CmpModal({
   vendors
 }) {
   const i18n = I18N[lang]
+
   return (
     <div className={CLASS}>
       <div className={`${CLASS}-content`}>
