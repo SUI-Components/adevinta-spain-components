@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.16.0 (2020-02-06)
+
+
+### Bug Fixes
+
+* remove this usage ([dfdc86c](https://github.com/SUI-Components/schibsted-spain-components/commit/dfdc86c4d5dcf62a36a1550e63c308576c6b0a50))
+
+
+
 # 1.15.0 (2020-01-27)
 
 
