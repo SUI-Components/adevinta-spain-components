@@ -3,5 +3,5 @@
 @import '~@schibstedspain/sui-theme/lib/index';
 
 .sui-ThumbnailList {
-  @include sui-list('grow');
+  @include sui-list('grow', $gutter);
 }
