@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.9.0 (2020-02-07)
+
+
+### Features
+
+* add gutter 16px ([14a1476](https://github.com/SUI-Components/schibsted-spain-components/commit/14a1476027b4ec76238204321f26ee6412cf9462))
+
+
+
 # 1.8.0 (2020-01-30)
 
 
