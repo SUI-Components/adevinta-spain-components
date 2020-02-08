@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-dropdown-basic",
+  "name": "@s-ui/react-dropdown-basic",
   "version": "1.32.0",
   "description": "SUI Dropdown Basic",
   "main": "lib/index.js",
