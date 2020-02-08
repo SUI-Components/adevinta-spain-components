@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.12.0 (2020-02-06)
+
+
+### Features
+
+* add rounded border ([9e1a4f6](https://github.com/SUI-Components/schibsted-spain-components/commit/9e1a4f641ffb4ebed8f1682797897a379cccfc8b))
+
+
+
 # 1.11.0 (2020-01-30)
 
 

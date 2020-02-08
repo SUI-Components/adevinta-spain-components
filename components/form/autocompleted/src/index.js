@@ -155,7 +155,7 @@ export default function FormAutocompleted(props) {
       window.addEventListener('click', _handleOutsideClick, false)
 
     return () => {
-      window.removeEventListener('click', this._handleOutsideClick, false)
+      window.removeEventListener('click', _handleOutsideClick, false)
     }
   })
 

@@ -36,7 +36,7 @@ class ErrorAppBoundary extends Component {
     return nextState.errorCount <= nextProps.errorThreshold
   }
 
-  _onCloseNotification = () => {
+  handleCloseNotification = () => {
     setTimeout(() => this.setState({hasError: false}), CLOSE_ANIMATION_TIME)
   }
 
@@ -55,10 +55,10 @@ class ErrorAppBoundary extends Component {
                     type: 'secondary',
                     negative: true,
                     children: buttonLabel,
-                    onClick: this._onCloseNotification
+                    onClick: this.handleCloseNotification
                   }
                 ]}
-                onClose={this._onCloseNotification}
+                onClose={this.handleCloseNotification}
                 type="warning"
                 text={message}
                 position="bottom"
