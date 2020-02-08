@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.12.0 (2020-02-08)
+
+
+### Features
+
+* move to @s-ui/react-topbar-composable ([4ab30f7](https://github.com/SUI-Components/schibsted-spain-components/commit/4ab30f7a6f9585c4ded289bccd521d01f659a0c8))
+
+
+
 # 1.11.0 (2020-02-04)
 
 
