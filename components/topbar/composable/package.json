@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-topbar-composable",
+  "name": "@s-ui/react-topbar-composable",
   "version": "1.11.0",
   "description": "",
   "main": "lib/index.js",
