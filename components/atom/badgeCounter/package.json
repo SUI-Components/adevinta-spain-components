@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-atom-badge-counter",
+  "name": "@s-ui/react-atom-badge-counter",
   "version": "1.2.0",
   "description": "",
   "main": "lib/index.js",
