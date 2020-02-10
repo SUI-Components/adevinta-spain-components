@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-button-share",
+  "name": "@s-ui/react-button-share",
   "version": "1.6.0",
   "description": "",
   "main": "lib/index.js",

@@ -7,14 +7,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-button-share --save
+$ npm install @s-ui/react-button-share --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import ButtonShare from '@schibstedspain/sui-button-share'
+import ButtonShare from '@s-ui/react-button-share'
 
 return (<ButtonShare />)
 ```
