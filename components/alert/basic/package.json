@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-alert-basic",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "SUI alert basic",
   "main": "lib/index.js",
   "scripts": {
