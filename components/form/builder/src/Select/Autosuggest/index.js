@@ -32,10 +32,6 @@ const AutosuggestSelect = ({select, tabIndex, onChange, size, errors}) => {
   if (textFromValueProp && textFromValueProp !== localStateText)
     setLocalStateText(textFromValueProp)
 
-  // case: a reset is forced from outside the component
-  // if value from prop is 'reset', update local text state to empty
-  if (select.value === 'reset' && localStateText !== '') setLocalStateText('')
-
   const onChangeCallback = useCallback(
     (evt, {value: text}) => {
       const value = fromTextToValueWithDatalist(text)
