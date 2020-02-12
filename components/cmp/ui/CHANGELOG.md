@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.20.0 (2020-02-12)
+
+
+### Features
+
+* fix error ([2d34c86](https://github.com/SUI-Components/schibsted-spain-components/commit/2d34c867616a06c08747502c63c18686d2c6acd1))
+* remove callback events ([ef87a01](https://github.com/SUI-Components/schibsted-spain-components/commit/ef87a01d9e27168590c41f201e1f4cb25af686d6))
+
+
+
 # 1.19.0 (2020-02-03)
 
 
@@ -21,6 +31,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+* add event onAccept ([5682f33](https://github.com/SUI-Components/schibsted-spain-components/commit/5682f33917711507ffe9a2174d5a5d03a7ca4c43))
 * Use new [@s-ui](https://github.com/s-ui) instead [@schibstedspain](https://github.com/schibstedspain) ([d0ab516](https://github.com/SUI-Components/schibsted-spain-components/commit/d0ab516411940c49e85a866358bc4b2b9b440cb8))
 
 
