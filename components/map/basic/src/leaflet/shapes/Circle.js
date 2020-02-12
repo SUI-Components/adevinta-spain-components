@@ -3,10 +3,11 @@ import L from 'leaflet'
 export default class SearchMapCircle {
   _circle = {}
 
-  constructor({latitude, longitude, radius}) {
+  constructor({latitude, longitude, radius, onPolygonWithBounds}) {
     this.latitude = latitude
     this.longitude = longitude
     this.radius = radius
+    this.onPolygonWithBounds = onPolygonWithBounds
   }
 
   removeCircleFromMap(map) {
@@ -29,5 +30,8 @@ export default class SearchMapCircle {
   setCircleOnMap({map}) {
     this.removeCircleFromMap(map)
     this.printCircleOnMap({map})
+
+    const bounds = this._circle.getBounds()
+    this.onPolygonWithBounds({bounds, map})
   }
 }

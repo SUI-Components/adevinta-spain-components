@@ -75,8 +75,8 @@ export default class LeafletMap {
     this.polygons.setPolygonsOnMap({map: this._map, polygons})
   }
 
-  buildCircle({latitude, longitude, radius}) {
-    this.circle = new Circle({latitude, longitude, radius})
+  buildCircle({latitude, longitude, radius, onPolygonWithBounds}) {
+    this.circle = new Circle({latitude, longitude, radius, onPolygonWithBounds})
     this.circle.setCircleOnMap({map: this._map})
   }
 
