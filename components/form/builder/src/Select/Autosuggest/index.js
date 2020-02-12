@@ -7,18 +7,19 @@ import MoleculeAutosuggestField from '@s-ui/react-molecule-autosuggest-field'
 import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
 import IconClose from '../../Icons/IconClose'
 
-const AutosuggestSelect = ({select, tabIndex, onChange, size, errors}) => {
-  const fromValueToText = datalist => value => {
-    const item = datalist.find(item => item.value === value)
-    return item?.text
-  }
+const fromValueToText = datalist => value => {
+  const item = datalist.find(item => item.value === value)
+  return item?.text
+}
 
-  const fromTextToValue = datalist => text => {
-    const item = datalist.find(
-      item => item.text.toLowerCase() === text.toLowerCase()
-    )
-    return item?.value
-  }
+const fromTextToValue = datalist => text => {
+  const item = datalist.find(
+    item => item.text.toLowerCase() === text.toLowerCase()
+  )
+  return item?.value
+}
+
+const AutosuggestSelect = ({select, tabIndex, onChange, size, errors}) => {
   const errorMessages = errors[select.id]
   const {datalist = []} = select
   const fromTextToValueWithDatalist = fromTextToValue(datalist)
