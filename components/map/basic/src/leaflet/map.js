@@ -1,5 +1,6 @@
 import L from 'leaflet'
 import Polygons from './shapes/Polygons'
+import Circle from './shapes/Circle'
 import {mapViewModes} from './constants'
 import MarkerManager from './marker-manager'
 import LayerManager from './layer-manager'
@@ -49,6 +50,7 @@ export default class LeafletMap {
 
   buildShapes(properties) {
     properties.polygons && this.buildPolygons({...properties})
+    properties.radius && this.buildCircle({...properties})
   }
 
   setMapDOMInstance(mapDOMInstance) {
@@ -71,6 +73,12 @@ export default class LeafletMap {
       showLabels
     })
     this.polygons.setPolygonsOnMap({map: this._map, polygons})
+  }
+
+  buildCircle({latitude, longitude, radius}) {
+    this.circle = new Circle()
+    const circle = {latitude, longitude, radius}
+    this.circle.setCircleOnMap({map: this._map, circle})
   }
 
   createMarkerManager(mapId) {
