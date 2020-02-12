@@ -7,30 +7,38 @@ import MoleculeAutosuggestField from '@s-ui/react-molecule-autosuggest-field'
 import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
 import IconClose from '../../Icons/IconClose'
 
-const fromValueToText = datalist => value => {
-  const item = datalist.find(item => item.value === value)
-  return item?.text
-}
-
-const fromTextToValue = datalist => text => {
-  const item = datalist.find(
-    item => item.text.toLowerCase() === text.toLowerCase()
-  )
-  return item?.value
-}
-
 const AutosuggestSelect = ({select, tabIndex, onChange, size, errors}) => {
+  const fromValueToText = datalist => value => {
+    const item = datalist.find(item => item.value === value)
+    return item?.text
+  }
+
+  const fromTextToValue = datalist => text => {
+    const item = datalist.find(
+      item => item.text.toLowerCase() === text.toLowerCase()
+    )
+    return item?.value
+  }
   const errorMessages = errors[select.id]
   const {datalist = []} = select
   const fromTextToValueWithDatalist = fromTextToValue(datalist)
   const fromValueToTextWithDatalist = fromValueToText(datalist)
-  const text = fromValueToTextWithDatalist(select.value)
-  const [stateText, setStateText] = useState(text)
+  const textFromValueProp = fromValueToTextWithDatalist(select.value)
+  const [localStateText, setLocalStateText] = useState('')
+
+  // case: a value is forced from outside the component
+  // if text from prop is different from current local state text, update local text state
+  if (textFromValueProp && textFromValueProp !== localStateText)
+    setLocalStateText(textFromValueProp)
+
+  // case: a reset is forced from outside the component
+  // if value from prop is 'reset', update local text state to empty
+  if (select.value === 'reset' && localStateText !== '') setLocalStateText('')
 
   const onChangeCallback = useCallback(
     (evt, {value: text}) => {
       const value = fromTextToValueWithDatalist(text)
-      setStateText(text)
+      setLocalStateText(text)
       onChange(select.id, value)
     },
     [fromTextToValueWithDatalist, onChange, select]
@@ -57,7 +65,7 @@ const AutosuggestSelect = ({select, tabIndex, onChange, size, errors}) => {
     placeholder: select.hint,
     onChange: onChangeCallback,
     iconClear: <IconClose />,
-    value: stateText,
+    value: localStateText,
     tabIndex,
 
     ...(select.disabled && {
@@ -77,9 +85,9 @@ const AutosuggestSelect = ({select, tabIndex, onChange, size, errors}) => {
     return null
   }
 
-  const suggestions = stateText
+  const suggestions = localStateText
     ? datalist.filter(({text, value}) =>
-        text.toLowerCase().match(stateText.toLowerCase())
+        text.toLowerCase().match(localStateText.toLowerCase())
       )
     : datalist
 
