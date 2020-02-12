@@ -1,10 +1,16 @@
 import L from 'leaflet'
 
-export default class SearchMapPolygons {
-  _radius = {}
+export default class SearchMapCircle {
+  _circle = {}
+
+  constructor({latitude, longitude, radius}) {
+    this.latitude = latitude
+    this.longitude = longitude
+    this.radius = radius
+  }
 
   removeCircleFromMap(map) {
-    map.removeLayer(this._radius)
+    map.removeLayer(this._circle)
   }
 
   static zoomIn(evt) {
@@ -12,19 +18,16 @@ export default class SearchMapPolygons {
     map.setView(evt.latlng, map.getZoom() + 2)
   }
 
-  printCircleOnMap({map, circle}) {
-    this._radius = L.circle([circle.latitude, circle.longitude], {
-      radius: circle.radius
+  printCircleOnMap({map}) {
+    this._circle = L.circle([this.latitude, this.longitude], {
+      radius: this.radius
     })
 
-    this._radius.addTo(map)
+    this._circle.addTo(map)
   }
 
-  setCircleOnMap({map, circle}) {
+  setCircleOnMap({map}) {
     this.removeCircleFromMap(map)
-
-    this.printCircleOnMap({map, circle})
-
-    return true
+    this.printCircleOnMap({map})
   }
 }

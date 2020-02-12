@@ -76,9 +76,8 @@ export default class LeafletMap {
   }
 
   buildCircle({latitude, longitude, radius}) {
-    this.circle = new Circle()
-    const circle = {latitude, longitude, radius}
-    this.circle.setCircleOnMap({map: this._map, circle})
+    this.circle = new Circle({latitude, longitude, radius})
+    this.circle.setCircleOnMap({map: this._map})
   }
 
   createMarkerManager(mapId) {
