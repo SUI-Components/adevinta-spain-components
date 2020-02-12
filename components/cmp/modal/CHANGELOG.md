@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.28.0 (2020-02-12)
+
+
+
 # 1.27.0 (2020-02-03)
 
 
