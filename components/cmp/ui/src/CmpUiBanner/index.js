@@ -1,6 +1,7 @@
 import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 import {useMount} from '@schibstedspain/sui-react-hooks'
+import {dispatchEvent} from '@s-ui/js/lib/events'
 
 import Notification from '@s-ui/react-molecule-notification'
 import Button from '@s-ui/react-atom-button'
@@ -16,6 +17,7 @@ export default function CmpBanner({lang, onAccept, onConfigure}) {
     const {current: textDOM} = textRef
     const openCookiesDOM = textDOM.querySelector(`.${CLASS}-link`)
     openCookiesDOM.addEventListener('click', _handleOpenCookies)
+    dispatchEvent({eventName: 'CMP_BANNER_SHOW'})
 
     return () =>
       openCookiesDOM &&
