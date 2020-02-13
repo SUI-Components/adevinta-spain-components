@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.12.0 (2020-02-13)
+
+
+### Features
+
+* add reset state and force update from outside ([bc0fdd6](https://github.com/SUI-Components/schibsted-spain-components/commit/bc0fdd617515faa904aa0bc524563779f9ca01ad))
+* move outside component function stateless ([fff9951](https://github.com/SUI-Components/schibsted-spain-components/commit/fff9951d2b128b42b4b75bd9f46a009fe5a820f2))
+* remve reset ([7b76260](https://github.com/SUI-Components/schibsted-spain-components/commit/7b762602398462f5b2adbcf06c39bbb8879a0e56))
+
+
+
 # 1.11.0 (2020-01-31)
 
 
