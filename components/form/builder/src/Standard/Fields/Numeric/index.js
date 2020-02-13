@@ -5,13 +5,14 @@ import Input from '../../../Input'
 
 import {FIELDS, DISPLAYS} from '../../index'
 
-const NumericField = ({field, tabIndex, onChange, errors}) => {
+const NumericField = ({field, tabIndex, onChange, onBlur, errors}) => {
   /* TODO: add the possibility to customize rightAddon in the DSL */
   if (field.display === DISPLAYS[FIELDS.NUMERIC].MONEY) {
     return (
       <Input
         input={field}
         onChange={onChange}
+        onBlur={onBlur}
         tabIndex={tabIndex}
         rightAddon="€"
         errors={errors}
@@ -22,6 +23,7 @@ const NumericField = ({field, tabIndex, onChange, errors}) => {
       <Input
         input={field}
         onChange={onChange}
+        onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
       />

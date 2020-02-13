@@ -19,7 +19,14 @@ const fromTextToValue = datalist => text => {
   return item?.value
 }
 
-const AutosuggestSelect = ({select, tabIndex, onChange, size, errors}) => {
+const AutosuggestSelect = ({
+  select,
+  tabIndex,
+  onChange,
+  onBlur,
+  size,
+  errors
+}) => {
   const errorMessages = errors[select.id]
   const {datalist = []} = select
   const fromTextToValueWithDatalist = fromTextToValue(datalist)
@@ -41,6 +48,8 @@ const AutosuggestSelect = ({select, tabIndex, onChange, size, errors}) => {
     [fromTextToValueWithDatalist, onChange, select]
   )
 
+  const onBlurCallback = () => onBlur(select.id)
+
   // transform constraints to props
   const constraints = select.constraints || []
   let constraintsProps = {}
@@ -61,10 +70,10 @@ const AutosuggestSelect = ({select, tabIndex, onChange, size, errors}) => {
     name: select.name,
     placeholder: select.hint,
     onChange: onChangeCallback,
+    onBlur: onBlurCallback,
     iconClear: <IconClose />,
     value: localStateText,
     tabIndex,
-
     ...(select.disabled && {
       disabled: true
     }),
@@ -74,8 +83,8 @@ const AutosuggestSelect = ({select, tabIndex, onChange, size, errors}) => {
     ...(!!errorMessages && {
       errorText: errorMessages.join('\n')
     }),
-    ...constraintsProps,
-    selectSize: size
+    selectSize: size,
+    ...constraintsProps
   }
 
   if (autosuggestProps.hidden) {
@@ -116,6 +125,7 @@ AutosuggestSelect.propTypes = {
   select: field,
   tabIndex: PropTypes.number,
   onChange: PropTypes.func,
+  onBlur: PropTypes.func,
   size: PropTypes.string,
   errors: PropTypes.object
 }

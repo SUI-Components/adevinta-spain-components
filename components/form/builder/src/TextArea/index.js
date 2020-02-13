@@ -5,7 +5,7 @@ import {field, createComponentMemo} from '../prop-types'
 
 import MoleculeTextAreaField from '@s-ui/react-molecule-textarea-field'
 
-const TextArea = ({textArea, tabIndex, onChange, errors}) => {
+const TextArea = ({textArea, tabIndex, onChange, onBlur, errors}) => {
   const errorMessages = errors[textArea.id]
 
   const onChangeCallback = useCallback(
@@ -14,6 +14,8 @@ const TextArea = ({textArea, tabIndex, onChange, errors}) => {
     },
     [onChange, textArea]
   )
+
+  const onBlurCallback = () => onBlur(textArea.id)
 
   let nextProps = {}
 
@@ -58,6 +60,7 @@ const TextArea = ({textArea, tabIndex, onChange, errors}) => {
     tabIndex,
     value: textArea.value || '',
     onChange: onChangeCallback,
+    onBlur: onBlurCallback,
     ...nextProps
   }
 
@@ -83,6 +86,7 @@ TextArea.propTypes = {
   textArea: field,
   tabIndex: PropTypes.number,
   onChange: PropTypes.func,
+  onBlur: PropTypes.func,
   errors: PropTypes.object
 }
 

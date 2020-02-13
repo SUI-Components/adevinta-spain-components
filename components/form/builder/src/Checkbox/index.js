@@ -5,7 +5,7 @@ import {field, createComponentMemo} from '../prop-types'
 import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
 import IconCheck from '../Icons/IconCheck'
 
-const Checkbox = ({checkbox, tabIndex, onChange, errors}) => {
+const Checkbox = ({checkbox, tabIndex, onChange, onBlur, errors}) => {
   const errorMessages = errors[checkbox.id]
   let checked = 'false'
   try {
@@ -17,6 +17,8 @@ const Checkbox = ({checkbox, tabIndex, onChange, errors}) => {
   const onChangeCallback = e => {
     return onChange(checkbox.id, JSON.stringify(e.target.checked))
   }
+
+  const onBlurCallback = () => onBlur(checkbox.id)
 
   // transform constraints to props
   const constraints = checkbox.constraints || []
@@ -38,6 +40,7 @@ const Checkbox = ({checkbox, tabIndex, onChange, errors}) => {
     value: checked,
     checkedIcon: IconCheck,
     onChange: onChangeCallback,
+    onBlur: onBlurCallback,
     tabIndex: tabIndex,
     intermediate: false,
     ...(checkbox.disabled && {
@@ -69,6 +72,7 @@ Checkbox.propTypes = {
   tabIndex: PropTypes.number,
   checkbox: field,
   onChange: PropTypes.func,
+  onBlur: PropTypes.func,
   errors: PropTypes.object
 }
 

@@ -8,12 +8,13 @@ import InlineButton from '../../../InlineButton'
 
 import {FIELDS, DISPLAYS} from '../../index'
 
-const PickerField = ({field, tabIndex, onChange, errors}) => {
+const PickerField = ({field, tabIndex, onChange, onBlur, errors}) => {
   if (field.display === DISPLAYS[FIELDS.PICKER].SWITCH) {
     return (
       <Switch
         switchField={field}
         onChange={onChange}
+        onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
       />
@@ -26,6 +27,7 @@ const PickerField = ({field, tabIndex, onChange, errors}) => {
       <Select
         select={field}
         onChange={onChange}
+        onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
       />
@@ -37,6 +39,7 @@ const PickerField = ({field, tabIndex, onChange, errors}) => {
       <Checkbox
         checkbox={field}
         onChange={onChange}
+        onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
       />
@@ -46,6 +49,7 @@ const PickerField = ({field, tabIndex, onChange, errors}) => {
       <InlineButton
         inlineButton={field}
         onChange={onChange}
+        onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
       />
@@ -56,6 +60,7 @@ const PickerField = ({field, tabIndex, onChange, errors}) => {
       <Select
         select={field}
         onChange={onChange}
+        onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
       />
@@ -65,6 +70,7 @@ const PickerField = ({field, tabIndex, onChange, errors}) => {
 
 PickerField.propTypes = {
   onChange: PropTypes.func,
+  onBlur: PropTypes.func,
   tabIndex: PropTypes.number,
   field: PropTypes.object,
   errors: PropTypes.object
