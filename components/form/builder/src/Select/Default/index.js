@@ -7,7 +7,7 @@ import MoleculeSelectField from '@s-ui/react-molecule-select-field'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 import IconChevronDown from '../../Icons/IconChevronDown'
 
-const DefaultSelect = ({select, tabIndex, onChange, size, errors}) => {
+const DefaultSelect = ({select, tabIndex, onChange, onBlur, size, errors}) => {
   const errorMessages = errors[select.id]
 
   const onChangeCallback = useCallback(
@@ -16,6 +16,9 @@ const DefaultSelect = ({select, tabIndex, onChange, size, errors}) => {
     },
     [onChange, select]
   )
+
+  const onBlurCallback = () => onBlur(select.id)
+
   const {datalist = []} = select
 
   // transform constraints to props
@@ -40,6 +43,7 @@ const DefaultSelect = ({select, tabIndex, onChange, size, errors}) => {
     iconArrowDown: <IconChevronDown />,
     value: select.value || '',
     onChange: onChangeCallback,
+    onBlur: onBlurCallback,
     tabIndex,
     ...(select.disabled && {
       disabled: true
@@ -83,6 +87,7 @@ DefaultSelect.propTypes = {
   select: field,
   tabIndex: PropTypes.number,
   onChange: PropTypes.func,
+  onBlur: PropTypes.func,
   size: PropTypes.string,
   errors: PropTypes.object
 }

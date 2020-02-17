@@ -104,6 +104,7 @@ const checkConstrainstsFactory = json => ({for: fieldID, all}) => {
       '[form/builder]: checkConstrainstsFactory: both modes validate all fields and validate a concrete field are not compatible, please use one of them'
     )
   } else if (all) {
+    debugger // eslint-disable-line
     fieldsToValidate = fieldsNamesInOrderOfDefinition(json?.form?.fields)
   } else if (fieldID) {
     fieldsToValidate = [fieldID]

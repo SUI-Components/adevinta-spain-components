@@ -19,6 +19,7 @@ const Input = ({
   input,
   tabIndex,
   onChange,
+  onBlur,
   size,
   leftAddon,
   rightAddon,
@@ -31,6 +32,7 @@ const Input = ({
     },
     [input, onChange]
   )
+  const onBlurCallback = () => onBlur(input.id)
 
   let nextProps = {}
   switch (input.type) {
@@ -102,6 +104,7 @@ const Input = ({
     tabIndex,
     value: input.value || '',
     onChange: onChangeCallback,
+    onBlur: onBlurCallback,
     size,
     leftAddon,
     rightAddon,
@@ -130,6 +133,7 @@ Input.propTypes = {
   input: field,
   tabIndex: PropTypes.number,
   onChange: PropTypes.func,
+  onBlur: PropTypes.func,
   size: PropTypes.string,
   leftAddon: PropTypes.string,
   rightAddon: PropTypes.string,

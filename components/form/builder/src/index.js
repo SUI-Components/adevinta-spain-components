@@ -17,6 +17,7 @@ const FormBuilder = ({
   json,
   initFields,
   onChange,
+  onBlur,
   requestInterceptor,
   urlInterceptor,
   loader,
@@ -115,6 +116,7 @@ const FormBuilder = ({
           field={field}
           tabIndex={index + 1}
           onChange={handlerChange}
+          onBlur={onBlur}
           fieldSize={fieldSize}
           errors={errors}
         />
@@ -133,6 +135,7 @@ FormBuilder.propTypes = {
   initFields: PropTypes.arrayOf(PropTypes.object),
   json,
   onChange: PropTypes.func,
+  onBlur: PropTypes.func,
   requestInterceptor: PropTypes.func,
   urlInterceptor: PropTypes.func,
   loader: PropTypes.object,
@@ -143,6 +146,7 @@ FormBuilder.propTypes = {
 FormBuilder.defaultProps = {
   initFields: {},
   onChange: () => {},
+  onBlur: () => {},
   requestInterceptor: ({response}) => response,
   urlInterceptor: () => {},
   errors: {}

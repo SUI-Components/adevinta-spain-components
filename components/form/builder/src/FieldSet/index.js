@@ -7,7 +7,14 @@ import ProxyField from '../ProxyField'
 
 const baseClass = 'sui-FormBuilder'
 
-const FieldSet = ({fieldset, tabIndex, onChange, fieldSize, errors}) => {
+const FieldSet = ({
+  fieldset,
+  tabIndex,
+  onChange,
+  onBlur,
+  fieldSize,
+  errors
+}) => {
   const {fields = [], label} = fieldset
   return (
     <fieldset className={`${baseClass}-FieldSet`}>
@@ -20,6 +27,7 @@ const FieldSet = ({fieldset, tabIndex, onChange, fieldSize, errors}) => {
         {fields.map((field, index) => (
           <ProxyField
             onChange={onChange}
+            onBlur={onBlur}
             key={field.id}
             field={field}
             tabIndex={tabIndex + index * 0.1}
@@ -35,6 +43,7 @@ const FieldSet = ({fieldset, tabIndex, onChange, fieldSize, errors}) => {
 FieldSet.displayName = 'FieldSet'
 FieldSet.propTypes = {
   onChange: PropTypes.func,
+  onBlur: PropTypes.func,
   fieldset: field,
   tabIndex: PropTypes.number,
   fieldSize: PropTypes.string,
