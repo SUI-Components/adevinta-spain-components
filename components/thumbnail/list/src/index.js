@@ -8,7 +8,8 @@ const ThumbnailList = ({
   items = [],
   onClick,
   placeholder,
-  target
+  target,
+  rounded
 }) => (
   <ul className="sui-ThumbnailList">
     {items.map((item, index) => (
@@ -23,6 +24,7 @@ const ThumbnailList = ({
           placeholder={placeholder}
           src={item.src}
           target={target}
+          rounded={rounded}
         />
       </li>
     ))}
@@ -56,7 +58,9 @@ ThumbnailList.propTypes = {
   /**
    * onClick callback
    */
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  /** rounded inner image */
+  rounded: PropTypes.bool
 }
 
 export default ThumbnailList
