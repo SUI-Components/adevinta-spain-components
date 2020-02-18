@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.6.0 (2020-02-18)
+
+
+### Features
+
+* add rounded type ([e910404](https://github.com/SUI-Components/schibsted-spain-components/commit/e910404ee2ad1783eaa78d154b9a3cf87f852f25))
+
+
+
 # 2.5.0 (2020-02-06)
 
 
