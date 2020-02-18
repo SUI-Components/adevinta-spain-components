@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.14.0 (2020-02-18)
+
+
+### Features
+
+* bump version ([ae436a5](https://github.com/SUI-Components/schibsted-spain-components/commit/ae436a56ca9144ce36f8a9d01417effb9b2e7771))
+* release ([c778152](https://github.com/SUI-Components/schibsted-spain-components/commit/c7781522da6dba76845986bddb08db2b99015511))
+* super prop drilling onBlur callback ([43b43f1](https://github.com/SUI-Components/schibsted-spain-components/commit/43b43f1290fe0e0c382889de5ed96652eccab63f))
+
+
+
 # 1.12.0 (2020-02-13)
 
 
