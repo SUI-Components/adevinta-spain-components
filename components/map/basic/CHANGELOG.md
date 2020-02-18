@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.34.0 (2020-02-18)
+
+
+### Features
+
+* Add circle shape ([#183](https://github.com/SUI-Components/schibsted-spain-components/issues/183)) ([bfe72c7](https://github.com/SUI-Components/schibsted-spain-components/commit/bfe72c72b1b073d1a77d8569ab0b96f64058a2cf))
+
+
+
 # 1.33.0 (2020-02-03)
 
 
