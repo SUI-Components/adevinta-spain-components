@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.10.0 (2020-02-18)
+
+
+### Features
+
+* rounded prop for inner image ([53b47ed](https://github.com/SUI-Components/schibsted-spain-components/commit/53b47ed88b007b729996af44a98d33b3db86e927))
+
+
+
 # 1.9.0 (2020-02-07)
 
 
