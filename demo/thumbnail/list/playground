@@ -27,5 +27,5 @@ const items = [
 ]
 
 return (
-  <ThumbnailList items={items} captionText='Lorem' placeholder={placeholder} fallback={fallback} />
+  <ThumbnailList items={items} captionText='Lorem' placeholder={placeholder} fallback={fallback} rounded/>
 )
