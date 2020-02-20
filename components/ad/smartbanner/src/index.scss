@@ -15,6 +15,7 @@
   z-index: $z-ad-smartbanner;
 
   &-logo {
+    border-radius: $bdrs-ad-smartbanner-logo;
     height: $h-ad-smartbanner-logo;
     margin: $m-ad-smartbanner-logo;
     width: $w-ad-smartbanner-logo;
@@ -25,7 +26,8 @@
   }
 
   &-title {
-    @include h5;
+    font-size: $fz-ad-smartbanner-title;
+    font-weight: $fw-ad-smartbanner-title;
     margin: $m-ad-smartbanner-title;
   }
 
