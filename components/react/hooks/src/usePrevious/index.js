@@ -9,7 +9,7 @@ export default function usePrevious(value) {
   return ref.current
 }
 
-usePrevious.displayName = 'HookUseOnScreen'
+usePrevious.displayName = 'HookUsePrevious'
 usePrevious.propTypes = {
   value: PropTypes.any
 }
