@@ -7,6 +7,7 @@ const fetch = url =>
   new Promise((resolve, reject) => {
     const request = new window.XMLHttpRequest()
     request.responseType = 'json'
+    request.withCredentials = true
     request.onreadystatechange = function() {
       if (request.readyState === window.XMLHttpRequest.DONE) {
         if (request.status === 200) {

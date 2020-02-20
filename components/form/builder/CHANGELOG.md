@@ -2,6 +2,86 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.14.0 (2020-02-18)
+
+
+### Features
+
+* bump version ([ae436a5](https://github.com/SUI-Components/schibsted-spain-components/commit/ae436a56ca9144ce36f8a9d01417effb9b2e7771))
+* release ([c778152](https://github.com/SUI-Components/schibsted-spain-components/commit/c7781522da6dba76845986bddb08db2b99015511))
+* super prop drilling onBlur callback ([43b43f1](https://github.com/SUI-Components/schibsted-spain-components/commit/43b43f1290fe0e0c382889de5ed96652eccab63f))
+
+
+
+# 1.12.0 (2020-02-13)
+
+
+### Features
+
+* add reset state and force update from outside ([bc0fdd6](https://github.com/SUI-Components/schibsted-spain-components/commit/bc0fdd617515faa904aa0bc524563779f9ca01ad))
+* move outside component function stateless ([fff9951](https://github.com/SUI-Components/schibsted-spain-components/commit/fff9951d2b128b42b4b75bd9f46a009fe5a820f2))
+* remve reset ([7b76260](https://github.com/SUI-Components/schibsted-spain-components/commit/7b762602398462f5b2adbcf06c39bbb8879a0e56))
+
+
+
+# 1.11.0 (2020-01-31)
+
+
+### Features
+
+* remove default memos ([d5ee375](https://github.com/SUI-Components/schibsted-spain-components/commit/d5ee375b1aef2c3b4ab771cb814e585ae58712c0))
+
+
+
+# 1.10.0 (2020-01-29)
+
+
+### Bug Fixes
+
+* use nextFields instead of __PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current in reduc ([4ec5458](https://github.com/SUI-Components/schibsted-spain-components/commit/4ec54580a34b6516448bfc1c7e49462128ce8bf1))
+
+
+### Features
+
+* use nextFieldsChanged ([1e02c2e](https://github.com/SUI-Components/schibsted-spain-components/commit/1e02c2ed9b5e2da83c81c551036e2631ded0a91b))
+
+
+
+# 1.9.0 (2020-01-29)
+
+
+### Bug Fixes
+
+* add request.withCredentials = true and remove timeout ([984f5f0](https://github.com/SUI-Components/schibsted-spain-components/commit/984f5f0bf7accfc8b86a28669419d4831c4c776b))
+* initialize as arra ([d9b0b6c](https://github.com/SUI-Components/schibsted-spain-components/commit/d9b0b6c2270720ebc60c4316efc696d7bd459cf0))
+* transform fields to object on onchange ([bc179b8](https://github.com/SUI-Components/schibsted-spain-components/commit/bc179b86162a73819fe9354df8ead9b2feae60b5))
+* use fieldsToValidate as array instead of object ([7e791db](https://github.com/SUI-Components/schibsted-spain-components/commit/7e791dba49187e5a71f8946767e04cdac79fd224))
+
+
+### Features
+
+* add memoize in all components ([89959ca](https://github.com/SUI-Components/schibsted-spain-components/commit/89959ca705e5a9f522182f8797dc6bbf31f885ca))
+* improve validations check: validate one field or validate all fields ([860b669](https://github.com/SUI-Components/schibsted-spain-components/commit/860b669babe403a604a5b809f5c67c0aad446153))
+* rename reducer base case to RULES ([fd04740](https://github.com/SUI-Components/schibsted-spain-components/commit/fd047408f90d61ffa1fc31ae7f728ab501f32ef4))
+* replace window[HACK_KEY] by useRef hook ([f67a62f](https://github.com/SUI-Components/schibsted-spain-components/commit/f67a62fd9907bf8afc9c7f96a6771108dd64537a))
+* use input from props value ([3f02883](https://github.com/SUI-Components/schibsted-spain-components/commit/3f0288312c8425ba80282052ef19c0c7064d2a1c))
+
+
+### Performance Improvements
+
+* reuse same object to improve performance ([1dd3929](https://github.com/SUI-Components/schibsted-spain-components/commit/1dd3929b1a4e115fdd7e0ba857f3f516daf0f781))
+
+
+
+# 1.8.0 (2020-01-29)
+
+
+### Bug Fixes
+
+* 1 ms setTimeout to avoid IE 11 error - Access is denied - XMLHttpRequest ([3ff9a34](https://github.com/SUI-Components/schibsted-spain-components/commit/3ff9a3432185708103514291ffaf6a8c88cc483f))
+
+
+
 # 1.7.0 (2020-01-21)
 
 

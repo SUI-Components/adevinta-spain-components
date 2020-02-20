@@ -7,7 +7,7 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-ad-blocker-extension-detector --save
+$ npm install @s-ui/react-ad-blocker-extension-detector --save
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ This class is the key because if offseight is equal to 0 is when adblock is enab
 
 #### Display a simple message:
 ```js
-import AdBlockerExtensionDetector from '@schibstedspain/sui-ad-blocker-extension-detector'
+import AdBlockerExtensionDetector from '@s-ui/react-ad-blocker-extension-detector'
 
 return (<AdBlockerExtensionDetector> 
           <p>Simple message</p>
@@ -33,7 +33,7 @@ return (<AdBlockerExtensionDetector>
 
 #### Display your custom component:
 ```js
-import AdBlockerExtensionDetector from '@schibstedspain/sui-ad-blocker-extension-detector'
+import AdBlockerExtensionDetector from '@s-ui/react-ad-blocker-extension-detector'
 
 return (<AdBlockerExtensionDetector> 
           <CustomComponent/>

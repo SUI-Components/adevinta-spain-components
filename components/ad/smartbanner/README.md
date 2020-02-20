@@ -9,5 +9,5 @@ SUI `AdSmartbanner` component is a banner with:
 
 ## Installation
 ```
-$ npm install --save @schibstedspain/sui-ad-smartbanner
+$ npm install --save @s-ui/react-ad-smartbanner
 ```

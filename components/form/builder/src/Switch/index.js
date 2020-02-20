@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react'
 
 import PropTypes from 'prop-types'
-import {field} from '../prop-types'
+import {field, createComponentMemo} from '../prop-types'
 import MoleculeSwitch from '@s-ui/react-atom-switch'
 
 const Switch = ({switchField, tabIndex, onChange, errors}) => {
@@ -56,4 +56,4 @@ Switch.propTypes = {
   errors: PropTypes.objects
 }
 
-export default Switch
+export default React.memo(Switch, createComponentMemo('switchField'))

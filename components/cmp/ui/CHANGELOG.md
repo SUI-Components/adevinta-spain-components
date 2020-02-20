@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.20.0 (2020-02-12)
+
+
+### Features
+
+* fix error ([2d34c86](https://github.com/SUI-Components/schibsted-spain-components/commit/2d34c867616a06c08747502c63c18686d2c6acd1))
+* remove callback events ([ef87a01](https://github.com/SUI-Components/schibsted-spain-components/commit/ef87a01d9e27168590c41f201e1f4cb25af686d6))
+
+
+
+# 1.19.0 (2020-02-03)
+
+
+### Features
+
+* use new [@s-ui](https://github.com/s-ui) package name for cmp ([2e6d205](https://github.com/SUI-Components/schibsted-spain-components/commit/2e6d205a6fd482dba5b583af8baca754ae038657))
+
+
+
+# 1.18.0 (2020-02-03)
+
+
+### Bug Fixes
+
+* fix linter errors ([b9e2e78](https://github.com/SUI-Components/schibsted-spain-components/commit/b9e2e788d7b5d28c6c681cc0d648999f3f341842))
+
+
+### Features
+
+* add event onAccept ([5682f33](https://github.com/SUI-Components/schibsted-spain-components/commit/5682f33917711507ffe9a2174d5a5d03a7ca4c43))
+* Use new [@s-ui](https://github.com/s-ui) instead [@schibstedspain](https://github.com/schibstedspain) ([d0ab516](https://github.com/SUI-Components/schibsted-spain-components/commit/d0ab516411940c49e85a866358bc4b2b9b440cb8))
+
+
+
 # 1.17.0 (2020-01-13)
 
 

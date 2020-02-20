@@ -1,6 +1,6 @@
 {
-  "name": "@schibstedspain/sui-dropdown-basic",
-  "version": "1.32.0",
+  "name": "@s-ui/react-dropdown-basic",
+  "version": "1.33.0",
   "description": "SUI Dropdown Basic",
   "main": "lib/index.js",
   "scripts": {

@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from 'react'
 
 import PropTypes from 'prop-types'
-import {field} from '../../prop-types'
+import {field, createComponentMemo} from '../../prop-types'
 
 import MoleculeAutosuggestField from '@s-ui/react-molecule-autosuggest-field'
 import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
@@ -19,22 +19,36 @@ const fromTextToValue = datalist => text => {
   return item?.value
 }
 
-const AutosuggestSelect = ({select, tabIndex, onChange, size, errors}) => {
+const AutosuggestSelect = ({
+  select,
+  tabIndex,
+  onChange,
+  onBlur,
+  size,
+  errors
+}) => {
   const errorMessages = errors[select.id]
   const {datalist = []} = select
   const fromTextToValueWithDatalist = fromTextToValue(datalist)
   const fromValueToTextWithDatalist = fromValueToText(datalist)
-  const text = fromValueToTextWithDatalist(select.value)
-  const [stateText, setStateText] = useState(text)
+  const textFromValueProp = fromValueToTextWithDatalist(select.value)
+  const [localStateText, setLocalStateText] = useState('')
+
+  // case: a value is forced from outside the component
+  // if text from prop is different from current local state text, update local text state
+  if (textFromValueProp && textFromValueProp !== localStateText)
+    setLocalStateText(textFromValueProp)
 
   const onChangeCallback = useCallback(
     (evt, {value: text}) => {
       const value = fromTextToValueWithDatalist(text)
-      setStateText(text)
+      setLocalStateText(text)
       onChange(select.id, value)
     },
     [fromTextToValueWithDatalist, onChange, select]
   )
+
+  const onBlurCallback = () => onBlur(select.id)
 
   // transform constraints to props
   const constraints = select.constraints || []
@@ -56,10 +70,10 @@ const AutosuggestSelect = ({select, tabIndex, onChange, size, errors}) => {
     name: select.name,
     placeholder: select.hint,
     onChange: onChangeCallback,
+    onBlur: onBlurCallback,
     iconClear: <IconClose />,
-    value: stateText,
+    value: localStateText,
     tabIndex,
-
     ...(select.disabled && {
       disabled: true
     }),
@@ -69,17 +83,17 @@ const AutosuggestSelect = ({select, tabIndex, onChange, size, errors}) => {
     ...(!!errorMessages && {
       errorText: errorMessages.join('\n')
     }),
-    ...constraintsProps,
-    selectSize: size
+    selectSize: size,
+    ...constraintsProps
   }
 
   if (autosuggestProps.hidden) {
     return null
   }
 
-  const suggestions = stateText
+  const suggestions = localStateText
     ? datalist.filter(({text, value}) =>
-        text.toLowerCase().match(stateText.toLowerCase())
+        text.toLowerCase().match(localStateText.toLowerCase())
       )
     : datalist
 
@@ -111,8 +125,9 @@ AutosuggestSelect.propTypes = {
   select: field,
   tabIndex: PropTypes.number,
   onChange: PropTypes.func,
+  onBlur: PropTypes.func,
   size: PropTypes.string,
   errors: PropTypes.object
 }
 
-export default AutosuggestSelect
+export default React.memo(AutosuggestSelect, createComponentMemo('select'))

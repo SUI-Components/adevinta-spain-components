@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.28.0 (2020-02-12)
+
+
+
+# 1.27.0 (2020-02-03)
+
+
+
+# 1.26.0 (2020-01-31)
+
+
+### Features
+
+* Use new [@s-ui](https://github.com/s-ui) instead [@schibstedspain](https://github.com/schibstedspain) ([8980a58](https://github.com/SUI-Components/schibsted-spain-components/commit/8980a589e9e6b7c3b4881a558397c0acf9f88c0d))
+
+
+### Performance Improvements
+
+* Remove not needed code ([01494f9](https://github.com/SUI-Components/schibsted-spain-components/commit/01494f92476dd3e765e892f450dfe253d9c69184))
+
+
+
 # 1.25.0 (2020-01-13)
 
 

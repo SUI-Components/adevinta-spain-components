@@ -40,3 +40,12 @@ export const form = PropTypes.shape({
 export const json = PropTypes.shape({
   form
 }).isRequired
+
+export const createComponentMemo = field => (nextProps, prevProps) => {
+  return (
+    JSON.stringify(nextProps[field]) === JSON.stringify(prevProps[field]) &&
+    nextProps.errors[nextProps[field].id] ===
+      prevProps.errors[prevProps[field].id] &&
+    nextProps.onChange === prevProps.onChange
+  )
+}

@@ -2,7 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Thumbnail from './Thumbnail'
 
-const ThumbnailBasic = function({href, target, onClick, ...thumbnailProps}) {
+const ThumbnailBasic = function({
+  href,
+  target = '_blank',
+  onClick,
+  ...thumbnailProps
+}) {
   return href ? (
     <a href={href} target={target} onClick={onClick}>
       <Thumbnail {...thumbnailProps} />
@@ -51,10 +56,6 @@ ThumbnailBasic.propTypes = {
    * onClick callback
    */
   onClick: PropTypes.func
-}
-
-ThumbnailBasic.defaultProps = {
-  target: '_blank'
 }
 
 export default ThumbnailBasic

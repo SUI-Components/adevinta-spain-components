@@ -79,6 +79,7 @@ class MapBasic extends Component {
       onLayerClick: this.props.onLayerClick,
       onPolygonWithBounds: this.props.onPolygonWithBounds,
       polygons: this.props.polygons,
+      radius: this.props.radius,
       scrollWheelZoom: this.props.scrollWheelZoom,
       selectedMapViewMode: this.props.selectedMapViewMode,
       showHeatmap: this.props.showHeatmap,
@@ -237,6 +238,10 @@ MapBasic.propTypes = {
    * An array of polygons. Where we can build forms on our map.
    */
   polygons: PropTypes.object,
+  /**
+   * A number used to render a radius shape.
+   */
+  radius: PropTypes.number,
   /**
    * A number to specify which of our map view modes is selected.
    * For example if our mapViewModes are: [mapViewModes.NORMAL, mapViewModes.SATELLITE] and we set this to 0 our selected map will be NORMAL.

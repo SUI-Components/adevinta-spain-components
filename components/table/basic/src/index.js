@@ -7,13 +7,16 @@ const CELL_TYPE = {
   data: 'td'
 }
 
-const TableBasic = ({head, body, foot}) => {
+const TableBasic = ({head, body, foot, fullWidth}) => {
   const hasHead = Boolean(head?.length)
   const hasFoot = Boolean(foot?.length)
   const baseClass = 'sui-TableBasic'
+  const tableClass = cx(`${baseClass}`, {
+    'sui-TableBasic--fullWidth': fullWidth
+  })
 
   return (
-    <table className={`${baseClass}`}>
+    <table className={tableClass}>
       {hasHead && (
         <thead>
           <tr>
@@ -76,7 +79,8 @@ TableBasic.propTypes = {
       })
     )
   ).isRequired,
-  foot: PropTypes.array
+  foot: PropTypes.array,
+  fullWidth: PropTypes.bool
 }
 
 export {CELL_TYPE as tableBasicTypes}

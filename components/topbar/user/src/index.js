@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types'
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect, useLayoutEffect, useRef} from 'react'
 import cx from 'classnames'
-import {useMount} from '@schibstedspain/sui-react-hooks'
 import Menu from '@schibstedspain/sui-svgiconset/lib/Menu'
 import DropdownBasic from '@schibstedspain/sui-dropdown-basic'
 import DropdownUser from '@schibstedspain/sui-dropdown-user'
@@ -36,29 +35,10 @@ export default function TopbarUser({
 }) {
   const _topbarUserNode = useRef(null)
   const _topbarUserToggleNode = useRef(null)
+  const _windowWidth = useRef()
   const [menuExpanded, setMenuExpanded] = useState(false)
   const [isToggleHidden, setToggleHidden] = useState(false)
   const [navWrapStyle, setNavWrapStyle] = useState(DEFAULT_NAV_WRAP_STYLE)
-  let _windowWidth
-
-  /**
-   * Set the display state for toggle button.
-   */
-  const _setToggleDisplayState = () => {
-    // Only go on if user has been resized the browser window horizontally.
-    if (window.innerWidth === _windowWidth) return
-    // Then save the new global value again.
-    _windowWidth = window.innerWidth
-    const {display} = window.getComputedStyle(_topbarUserToggleNode.current)
-    const isToggleCurrentlyHidden = display === 'none'
-
-    if (!isToggleCurrentlyHidden) {
-      _setNavWrapStyles()
-    }
-    if (isToggleCurrentlyHidden !== isToggleHidden) {
-      setToggleHidden(isToggleCurrentlyHidden)
-    }
-  }
 
   /**
    * Set navigation wrap inline styles.
@@ -71,7 +51,6 @@ export default function TopbarUser({
       width
     } = _topbarUserNode.current.getBoundingClientRect()
     const navWrapTop = top + height
-
     setNavWrapStyle({
       top: navWrapTop,
       left,
@@ -96,14 +75,33 @@ export default function TopbarUser({
     }
   }
 
-  useMount(() => {
+  useLayoutEffect(() => {
+    /**
+     * Set the display state for toggle button.
+     */
+    const _setToggleDisplayState = () => {
+      // Only go on if user has been resized the browser window horizontally.
+      if (window.innerWidth === _windowWidth.current) return
+      // Then save the new global value again.
+      _windowWidth.current = window.innerWidth
+      const {display} = window.getComputedStyle(_topbarUserToggleNode.current)
+      const isToggleCurrentlyHidden = display === 'none'
+
+      if (!isToggleCurrentlyHidden) {
+        _setNavWrapStyles()
+      }
+      if (isToggleCurrentlyHidden !== isToggleHidden) {
+        setToggleHidden(isToggleCurrentlyHidden)
+      }
+    }
+
     _setToggleDisplayState()
     window.addEventListener('resize', _setToggleDisplayState)
 
     return () => {
       window.removeEventListener('resize', _setToggleDisplayState)
     }
-  })
+  }, [isToggleHidden])
 
   useEffect(() => {
     let _verticalScrollPosition

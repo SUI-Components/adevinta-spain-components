@@ -9,7 +9,7 @@ const fallback= {
 }
 
 return (
-  <div>
+  <div style={{margin: '8px 8px'}}>
     <h2>Placeholder</h2>
     <div style={{width: '20%'}}>
       <ImagePlaceholder
@@ -48,6 +48,15 @@ return (
           alt: ''
         }}
       />
+    </div>
+    <h2>Rounded corner</h2>
+    <div style={{width: '20%'}}>
+      <ImagePlaceholder
+        src='https://satyr.io/1000?delay=3g'
+        alt='Some alt'
+        placeholder={placeholder}
+        onLoad={() => console.log('custom onLoad')}
+        rounded />
     </div>
   </div>
 )

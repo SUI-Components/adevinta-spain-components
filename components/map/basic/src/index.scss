@@ -1,11 +1,15 @@
 @import '~@schibstedspain/theme-basic/lib/index';
-@import '~leaflet/dist/leaflet';
+@import './leaflet';
 
 $bgc-minipoi: #2899b6 !default;
 $bdc-minipoi: 1px solid $c-white !default;
 $bdrs-minipoi-half: 50%;
 
 .sui-MapBasic {
+  .leaflet-default-icon-path {
+    background-image: url('https://raw.githubusercontent.com/Leaflet/Leaflet/master/dist/images/marker-icon.png');
+  }
+
   .leaflet-control-layers-toggle {
     // We should put base leaflet resources into our CDN
     background-image: url('https://raw.githubusercontent.com/Leaflet/Leaflet/master/dist/images/layers-2x.png');

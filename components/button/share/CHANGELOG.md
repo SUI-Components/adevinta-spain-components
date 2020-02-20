@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.7.0 (2020-02-10)
+
+
+### Features
+
+* Move to [@s-ui](https://github.com/s-ui) organization ([cfc1200](https://github.com/SUI-Components/schibsted-spain-components/commit/cfc1200b80d8e6f4d43914ea8901c838d5784da8))
+
+
+
 # 1.6.0 (2020-01-28)
 
 

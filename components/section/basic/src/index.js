@@ -10,13 +10,13 @@ const getSpacingClassName = modifier => `${CLASS}-bottomSpacing--${modifier}`
 
 const SectionBasic = ({
   children,
-  contentBottomSpacing,
-  headerBottomSpacing,
-  sectionBottomSpacing,
-  separator,
+  contentBottomSpacing = SPACING.LARGE,
+  customContentWhenEmpty = null,
+  headerBottomSpacing = SPACING.LARGE,
+  sectionBottomSpacing = SPACING.NONE,
+  separator = false,
   textContent,
-  title,
-  customContentWhenEmpty
+  title
 }) => (
   <section className={cx(CLASS, getSpacingClassName(sectionBottomSpacing))}>
     {title && (
@@ -77,14 +77,6 @@ SectionBasic.propTypes = {
    * If not set, no custom content will be displayed when section is empty.
    */
   customContentWhenEmpty: PropTypes.node
-}
-
-SectionBasic.defaultProps = {
-  contentBottomSpacing: SPACING.LARGE,
-  headerBottomSpacing: SPACING.LARGE,
-  sectionBottomSpacing: SPACING.NONE,
-  customContentWhenEmpty: null,
-  separator: false
 }
 
 export default SectionBasic

@@ -5,13 +5,13 @@
 ## Installation
 
 ```sh
-npm install @schibstedspain/sui-atom-badge-counter --save
+npm install @s-ui/react-atom-badge-counter --save
 ```
 
 ## Usage
 
 ```js
-import BadgeCounter from '@schibstedspain/sui-atom-badge-counter'
+import BadgeCounter from '@s-ui/react-atom-badge-counter'
 
 render {
   return (

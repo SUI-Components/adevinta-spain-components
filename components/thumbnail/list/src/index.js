@@ -5,10 +5,11 @@ import ThumbnailBasic from '@schibstedspain/sui-thumbnail-basic'
 const ThumbnailList = ({
   captionText,
   fallback,
-  items,
+  items = [],
   onClick,
   placeholder,
-  target
+  target,
+  rounded
 }) => (
   <ul className="sui-ThumbnailList">
     {items.map((item, index) => (
@@ -23,6 +24,7 @@ const ThumbnailList = ({
           placeholder={placeholder}
           src={item.src}
           target={target}
+          rounded={rounded}
         />
       </li>
     ))}
@@ -56,11 +58,9 @@ ThumbnailList.propTypes = {
   /**
    * onClick callback
    */
-  onClick: PropTypes.func
-}
-
-ThumbnailList.defaultProps = {
-  items: []
+  onClick: PropTypes.func,
+  /** rounded inner image */
+  rounded: PropTypes.bool
 }
 
 export default ThumbnailList

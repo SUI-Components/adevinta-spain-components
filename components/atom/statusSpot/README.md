@@ -8,14 +8,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-atom-status-spot --save
+$ npm install @s-ui/react-atom-status-spot --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import AtomStatusSpot from '@schibstedspain/sui-atom-status-spot'
+import AtomStatusSpot from '@s-ui/react-atom-status-spot'
 
 return (<AtomStatusSpot />)
 ```

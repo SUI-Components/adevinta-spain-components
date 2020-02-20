@@ -1,10 +1,14 @@
-import React, {useState, useEffect, useCallback} from 'react'
+import React, {useState, useEffect, useCallback, useRef} from 'react'
 import PropTypes from 'prop-types'
 
 import {json} from './prop-types'
 import {reducer} from './reducer'
-import {CHANGE} from './reducer/constants'
-import {fieldsToObject, fieldsNamesInOrderOfDefinition} from './reducer/fields'
+import {RULES} from './reducer/constants'
+import {
+  fieldsToObject,
+  fieldsNamesInOrderOfDefinition,
+  changeFieldById
+} from './reducer/fields'
 import ProxyField from './ProxyField'
 import {inputSizes as fieldSizes} from '@s-ui/react-atom-input'
 import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
@@ -13,6 +17,7 @@ const FormBuilder = ({
   json,
   initFields,
   onChange,
+  onBlur,
   requestInterceptor,
   urlInterceptor,
   loader,
@@ -21,10 +26,22 @@ const FormBuilder = ({
 }) => {
   const {fields = [], rules = {}, id: formID} = json.form
   const [stateFields, setStateFields] = useState(fields)
-  const HACK_KEY = `__PERFORMANCE_UGLY_HACK_STATE_FIELDS_${formID}__`
   const [stateShowSpinner, setStateShowSpinner] = useState(false)
-  if (typeof window !== 'undefined') {
-    window[HACK_KEY] = stateFields
+  const __PERFORMANCE_UGLY_HACK_STATE_FIELDS__ = useRef()
+  __PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current = stateFields
+
+  const changeField = (fieldId, fieldValue) => {
+    const nextFields = changeFieldById(
+      __PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current,
+      fieldId,
+      {value: fieldValue}
+    )
+    setStateFields(nextFields)
+    onChange({
+      ...fieldsToObject(nextFields),
+      __FIELD_CHANGED__: fieldId
+    })
+    return nextFields
   }
 
   const handlerChange = useCallback(async (id, value) => {
@@ -38,23 +55,24 @@ const FormBuilder = ({
       () => setStateShowSpinner(true),
       FormBuilder.USER_MINIMAL_DELAY
     )
-    const nextStateFields = await reducerWithRules(
-      window[HACK_KEY], // safe for SSR
-      {
-        type: CHANGE,
-        id,
-        value
-      }
-    )
+
+    const nextFields = changeField(id, value)
+    clearTimeout(timerShowSpinner)
+
+    const nextStateFields = await reducerWithRules(nextFields, {
+      type: RULES,
+      id
+    })
+
     clearTimeout(timerShowSpinner)
     setStateFields(nextStateFields)
     onChange({
       ...fieldsToObject(nextStateFields),
       __FIELD_CHANGED__: id
-      // __META__: datalistEntries(nextStateFields)
     })
+
     setStateShowSpinner(false)
-    }, []) // eslint-disable-line
+  }, []) // eslint-disable-line
 
   useEffect(() => {
     const reducerWithRules = reducer(
@@ -68,26 +86,27 @@ const FormBuilder = ({
       FormBuilder.USER_MINIMAL_DELAY
     )
     fieldsNamesInOrderOfDefinition(fields)
-      .reduce(async (previousPromise, field) => {
+      .reduce(async (previousPromise, fieldId) => {
         const previousFields = await previousPromise
-
-        if (!initFields[field] || initFields[field] === '') {
+        if (!initFields[fieldId] || initFields[fieldId] === '') {
           return previousFields
         }
 
-        const nextFields = await reducerWithRules(previousFields, {
-          type: CHANGE,
-          id: field,
-          value: initFields[field]
+        const nextFieldsChanged = changeField(fieldId, initFields[fieldId])
+
+        const nextFieldsWithRules = await reducerWithRules(nextFieldsChanged, {
+          type: RULES,
+          id: fieldId
         })
-        return nextFields
-      }, Promise.resolve(window[HACK_KEY]))
+
+        return nextFieldsWithRules
+      }, Promise.resolve(__PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current))
       .then(nextFields => {
         clearTimeout(timerShowSpinner)
         setStateFields(nextFields)
         setStateShowSpinner(false)
       })
-    }, []) // eslint-disable-line
+  }, []) // eslint-disable-line
 
   return (
     <div className="sui-FormBuilder">
@@ -97,6 +116,7 @@ const FormBuilder = ({
           field={field}
           tabIndex={index + 1}
           onChange={handlerChange}
+          onBlur={onBlur}
           fieldSize={fieldSize}
           errors={errors}
         />
@@ -115,6 +135,7 @@ FormBuilder.propTypes = {
   initFields: PropTypes.arrayOf(PropTypes.object),
   json,
   onChange: PropTypes.func,
+  onBlur: PropTypes.func,
   requestInterceptor: PropTypes.func,
   urlInterceptor: PropTypes.func,
   loader: PropTypes.object,
@@ -125,6 +146,7 @@ FormBuilder.propTypes = {
 FormBuilder.defaultProps = {
   initFields: {},
   onChange: () => {},
+  onBlur: () => {},
   requestInterceptor: ({response}) => response,
   urlInterceptor: () => {},
   errors: {}

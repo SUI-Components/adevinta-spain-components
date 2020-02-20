@@ -8,11 +8,39 @@ const BASE_CLASS = 'sui-DropdownBasic'
 const MENU_CLASS = `${BASE_CLASS}Menu`
 const NO_OP = () => {}
 
+const defaultLinkFactory = ({
+  href,
+  className,
+  children,
+  onClick,
+  rel,
+  target,
+  title
+}) => (
+  <a
+    href={href}
+    className={className}
+    onClick={onClick}
+    rel={rel || undefined}
+    target={target}
+    title={title}
+  >
+    {children}
+  </a>
+)
+
 /**
  * Dropdown menu containing sections of links, triggered from a simple button
  * with an optional icon.
  */
-export default function DropdownBasic(props) {
+export default function DropdownBasic({
+  button,
+  closeOnDocumentClick = false,
+  closeOnItemClick = false,
+  expandOnMouseOver = false,
+  linkFactory = defaultLinkFactory,
+  menu
+}) {
   const [expanded, setExpanded] = useState(false)
   const [collapseByTouch, setCollapseByTouch] = useState(false)
   const wrapper = useRef(null)
@@ -36,15 +64,13 @@ export default function DropdownBasic(props) {
         const {target} = event
         const isClickOutsideDropdown = !wrapper.current.contains(target)
 
-        isClickOutsideDropdown &&
-          props.closeOnDocumentClick &&
-          toggleMenu(false)
+        isClickOutsideDropdown && closeOnDocumentClick && toggleMenu(false)
       }
 
       handleListener(expanded)
       return () => handleListener(false)
     },
-    [expanded, props.closeOnDocumentClick, toggleMenu]
+    [expanded, closeOnDocumentClick, toggleMenu]
   )
 
   const onClick = e => {
@@ -81,10 +107,10 @@ export default function DropdownBasic(props) {
    * Function rendering a simple list item link.
    */
   const renderLink = ({onClick, rel, target, text, url}, index) => {
-    const Link = props.linkFactory
+    const Link = linkFactory
     const onClickHandler = e => {
       onClick && onClick(e)
-      props.closeOnItemClick && toggleMenu(false)
+      closeOnItemClick && toggleMenu(false)
     }
 
     return (
@@ -103,7 +129,6 @@ export default function DropdownBasic(props) {
     )
   }
 
-  const {button, menu, expandOnMouseOver} = props
   const {text, icon: Icon} = button
   const ArrowButtonIcon = button.arrowButtonIcon || Chevronbottom
   const wrapperClassName = cx(BASE_CLASS, {
@@ -210,22 +235,4 @@ DropdownBasic.propTypes = {
    * Flag to close list on document click.
    */
   closeOnDocumentClick: PropTypes.bool
-}
-
-DropdownBasic.defaultProps = {
-  expandOnMouseOver: false,
-  linkFactory: ({href, className, children, onClick, rel, target, title}) => (
-    <a
-      href={href}
-      className={className}
-      onClick={onClick}
-      rel={rel || undefined}
-      target={target}
-      title={title}
-    >
-      {children}
-    </a>
-  ),
-  closeOnItemClick: false,
-  closeOnDocumentClick: false
 }

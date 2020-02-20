@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-topbar-user",
-  "version": "1.34.0",
+  "version": "1.35.0",
   "description": "SUI Topbar User",
   "main": "lib/index.js",
   "scripts": {
@@ -16,7 +16,6 @@
     "@s-ui/react-atom-button": "1",
     "@schibstedspain/sui-dropdown-basic": "1",
     "@schibstedspain/sui-dropdown-user": "1",
-    "@schibstedspain/sui-react-hooks": "1",
     "@schibstedspain/sui-svgiconset": "1"
   }
 }

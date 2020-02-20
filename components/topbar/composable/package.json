@@ -1,6 +1,6 @@
 {
-  "name": "@schibstedspain/sui-topbar-composable",
-  "version": "1.10.0",
+  "name": "@s-ui/react-topbar-composable",
+  "version": "1.12.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {

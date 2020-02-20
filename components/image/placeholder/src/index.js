@@ -5,6 +5,7 @@ import {filterObjectKeys} from './libs'
 
 class ImagePlaceholder extends Component {
   static IMAGE_CLASS = 'sui-ImagePlaceholder-image'
+  static CLASSNAME = 'sui-ImagePlaceholder'
 
   state = {
     imageLoaded: false,
@@ -26,7 +27,12 @@ class ImagePlaceholder extends Component {
   }
 
   get _classNames() {
-    return classnames('sui-ImagePlaceholder', this.props.className)
+    const {className, rounded} = this.props
+    return classnames(
+      ImagePlaceholder.CLASSNAME,
+      className,
+      rounded && `${ImagePlaceholder.CLASSNAME}--rounded`
+    )
   }
 
   get _imageClassNames() {
@@ -131,6 +137,8 @@ ImagePlaceholder.propTypes = {
    * html picture sources, object {media, srcset} expected
    */
   imgSources: PropTypes.array,
+  /** rounded corners */
+  rounded: PropTypes.bool,
   /**
    * <img> prop
    */

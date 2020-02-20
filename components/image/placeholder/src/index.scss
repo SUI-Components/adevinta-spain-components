@@ -1,3 +1,4 @@
+@import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
 @import '~@schibstedspain/theme-basic/lib/index';
 
 $c-image-placeholder-fill: $c-gray;
@@ -6,10 +7,14 @@ $c-image-placeholder-fill: $c-gray;
   &-image {
     display: block;
     width: 100%;
-
     &--hidden {
       display: none;
     }
+  }
+
+  &--rounded {
+    border-radius: $bdrs-l;
+    overflow: hidden;
   }
 
   svg {
