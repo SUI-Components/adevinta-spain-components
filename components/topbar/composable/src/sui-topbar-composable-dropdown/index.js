@@ -25,7 +25,7 @@ function DropdownMenu({
     /**
      * Only run open events:
      *  - After first render
-     *  - When isOpen actually changes
+     *  - When displayMenu actually changes
      **/
     if (
       typeof previousDisplayMenu === 'undefined' ||
