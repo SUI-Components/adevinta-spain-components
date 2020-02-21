@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.8.0 (2020-02-21)
+
+
+### Bug Fixes
+
+* usePrevious displayName ([1d4f385](https://github.com/SUI-Components/schibsted-spain-components/commit/1d4f385152bb5f69458c39c6f9e0da5a301da0a1))
+
+
+### Features
+
+* add usePrevious hook ([c50c155](https://github.com/SUI-Components/schibsted-spain-components/commit/c50c1559efcff98a9657ab0875bcb8df008fe7d9))
+
+
+
 # 1.7.0 (2020-02-04)
 
 
