@@ -2,10 +2,40 @@ import React, {useEffect, useRef, useState} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-function DropdownMenu({caret, classname, entries, icon, label, renderOnClick}) {
+import {usePrevious} from '@schibstedspain/sui-react-hooks'
+
+const noop = () => {}
+
+function DropdownMenu({
+  caret,
+  classname,
+  entries,
+  icon,
+  label,
+  onClose = noop,
+  onOpen = noop,
+  renderOnClick
+}) {
   const [displayMenu, setDisplayMenu] = useState(false)
   const [renderBody, setRenderBody] = useState(false)
   const wrapperRef = useRef()
+
+  const previousDisplayMenu = usePrevious(displayMenu)
+  useEffect(() => {
+    /**
+     * Only run open events:
+     *  - After first render
+     *  - When displayMenu actually changes
+     **/
+    if (
+      typeof previousDisplayMenu === 'undefined' ||
+      displayMenu === previousDisplayMenu
+    ) {
+      return
+    }
+    const openEvent = displayMenu ? onOpen : onClose
+    openEvent()
+  }, [displayMenu, onClose, onOpen, previousDisplayMenu])
 
   const closeMenu = ({target}) => {
     const isClickOutsideDropdown = !wrapperRef.current.contains(target)
@@ -60,5 +90,7 @@ DropdownMenu.propTypes = {
   entries: PropTypes.array,
   icon: PropTypes.element,
   label: PropTypes.string,
+  onClose: PropTypes.func,
+  onOpen: PropTypes.func,
   renderOnClick: PropTypes.bool
 }
