@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.13.0 (2020-02-21)
+
+
+### Features
+
+* add open events to topbar composable ([1d5cb9f](https://github.com/SUI-Components/schibsted-spain-components/commit/1d5cb9ff3fdfe6644c87dbe5c656a6e2f78ea789))
+
+
+
 # 1.12.0 (2020-02-08)
 
 
