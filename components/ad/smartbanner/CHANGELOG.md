@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.4.0 (2020-02-24)
+
+
+### Features
+
+* back to default value ([1c02929](https://github.com/SUI-Components/schibsted-spain-components/commit/1c02929cc837bba7f1cfe7e50ddcdc31514e824f))
+* set vars for smart banner ([a7aaa1b](https://github.com/SUI-Components/schibsted-spain-components/commit/a7aaa1b8d4245a4c9c7b05e015015294cb912799))
+* Use new [@s-ui](https://github.com/s-ui) react icons ([c272cf6](https://github.com/SUI-Components/schibsted-spain-components/commit/c272cf635cfdaa59d2c9541298728c83cde8570f))
+
+
+
 # 2.3.0 (2020-02-10)
 
 
