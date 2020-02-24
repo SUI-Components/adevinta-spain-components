@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, {useState, useEffect} from 'react'
 import cx from 'classnames'
-import Chevronbottom from '@schibstedspain/sui-svgiconset/lib/Chevronbottom'
+import Chevronbottom from '@s-ui/react-icons/lib/Chevronbottom'
 
 const ANIMATION_SPEED_CLASSNAMES = {
   normal: 'sui-CollapsibleBasic-transitionNormal',
