@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.9.0 (2020-02-24)
+
+
+### Features
+
+* useMediaQuery hook ([2781d00](https://github.com/SUI-Components/schibsted-spain-components/commit/2781d00d4996903de7d396137bd99857f6d74812))
+
+
+
 # 1.8.0 (2020-02-21)
 
 
