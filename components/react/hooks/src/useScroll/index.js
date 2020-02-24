@@ -33,7 +33,7 @@ export default function useScroll({axis = 'Y'} = {}) {
     return () => {
       window.removeEventListener('scroll', onScroll)
     }
-  }, [])
+  })
 
   return {
     position: Math.round(scroll.position),
