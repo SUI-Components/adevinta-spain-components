@@ -16,6 +16,11 @@ const FieldSet = ({
   errors
 }) => {
   const {fields = [], label} = fieldset
+
+  if (fieldset.hidden) {
+    return null
+  }
+
   return (
     <fieldset className={`${baseClass}-FieldSet`}>
       {label && (
