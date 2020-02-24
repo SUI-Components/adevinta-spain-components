@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, {Component} from 'react'
-import Chevronright from '@schibstedspain/sui-svgiconset/lib/Chevronright'
+import Chevronright from '@s-ui/react-icons/lib/Chevronright'
 import FormCheckbox from '@schibstedspain/sui-form-checkbox'
 import cx from 'classnames'
 
