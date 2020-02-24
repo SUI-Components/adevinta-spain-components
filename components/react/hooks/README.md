@@ -138,4 +138,20 @@ export default () => {
 }
 ```
 
+### useMediaQuery
+
+This is a CSS media query hook for React. It listens for matches to a CSS media query. It allows the rendering of components based on whether the query matches or not.
+
+Hook `useMediaQuery` always returns a boolean and it indicates if query matches or not.
+
+```js
+import {useMediaQuery} from '@schibstedspain/sui-react-hooks'
+
+export default function Demo() {
+  const isMatching = useMediaQuery('(min-width:600px)');
+
+  return <span>{`(min-width:600px) matches: ${isMatching}`}</span>;
+}
+```
+
 > **Find full description and more examples in the [demo page](#).**
