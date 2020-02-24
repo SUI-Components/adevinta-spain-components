@@ -1,10 +1,8 @@
 import {useState, useEffect} from 'react'
 
 export default function useScroll({axis = 'Y'} = {}) {
-  const getBounding = () =>
-    typeof window === 'undefined' || !window.document
-      ? 0
-      : document.body.getBoundingClientRect()
+  const getBoundingClientRect = () =>
+    window?.document ? document.body.getBoundingClientRect() : 0
 
   const AXIS_MAP = {
     Y: 'top',
@@ -13,13 +11,13 @@ export default function useScroll({axis = 'Y'} = {}) {
   const boundingKey = AXIS_MAP[axis]
 
   const [scroll, setScroll] = useState({
-    bodyOffset: getBounding(),
-    position: getBounding()[boundingKey],
+    bodyOffset: getBoundingClientRect(),
+    position: getBoundingClientRect()[boundingKey],
     scrollDirection: null
   })
 
   const onScroll = e => {
-    const currentBounding = getBounding()
+    const currentBounding = getBoundingClientRect()
     const currentPosition = -currentBounding[boundingKey]
 
     setScroll(({position: prevPosition}) => ({
