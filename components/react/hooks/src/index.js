@@ -7,6 +7,7 @@ export default function ReactHooks() {
   return null
 }
 
+export {default as useMediaQuery} from './useMediaQuery'
 export {default as useLegacyState} from './useLegacyState'
 export {default as useMount} from './useMount'
 export {default as useOnScreen, useNearScreen} from './useOnScreen'

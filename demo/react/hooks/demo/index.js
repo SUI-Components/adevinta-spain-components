@@ -3,7 +3,8 @@ import React, {useState} from 'react'
 import {
   useMount,
   useOnScreen,
-  useNearScreen
+  useNearScreen,
+  useMediaQuery
 } from '../../../../components/react/hooks/src'
 import LegacyStateDemo from './LegacyStateDemo'
 
@@ -18,6 +19,7 @@ export default () => {
 
   const [isIntersecting, outerRef] = useOnScreen({once: false})
   const [isNear, outerRefNear] = useNearScreen()
+  const isMatching = useMediaQuery('(min-width:600px)')
 
   return (
     <div>
@@ -73,6 +75,11 @@ export default () => {
       <div>
         <h1>useLegacyState</h1>
         <LegacyStateDemo />
+      </div>
+
+      <div>
+        <h1>useMediaQuery</h1>
+        <span>{`(min-width:600px) matches: ${isMatching}`}</span>
       </div>
     </div>
   )
