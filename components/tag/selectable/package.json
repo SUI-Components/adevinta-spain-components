@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/sui-tag-selectable",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "SUI tag selectable",
   "main": "lib/index.js",
   "scripts": {
