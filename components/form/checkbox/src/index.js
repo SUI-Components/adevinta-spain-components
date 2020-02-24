@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import CheckboxChecked from '@schibstedspain/sui-svgiconset/lib/Checkboxchecked'
-import CheckboxUnchecked from '@schibstedspain/sui-svgiconset/lib/Checkboxunchecked'
+import CheckboxChecked from '@s-ui/react-icons/lib/Checkboxchecked'
+import CheckboxUnchecked from '@s-ui/react-icons/lib/Checkboxunchecked'
 import cx from 'classnames'
 
 const getCheckboxIcon = (checked, customIcons) => {
