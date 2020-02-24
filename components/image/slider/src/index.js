@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import ReactSlidy from 'react-slidy'
 import cx from 'classnames'
-import IconCamera from '@schibstedspain/sui-svgiconset/lib/Camera'
+import IconCamera from '@s-ui/react-icons/lib/Camera'
 
 export const IMAGE_SLIDER_COUNTER_POSITIONS = {
   BOTTOM_CENTER: 'bottomCenter',
