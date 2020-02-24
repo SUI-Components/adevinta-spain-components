@@ -4,7 +4,7 @@ import React, {Component} from 'react'
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
 import ButtonBasic from '@schibstedspain/sui-button-basic'
-import Chevronbottom from '@schibstedspain/sui-svgiconset/lib/Chevronbottom'
+import Chevronbottom from '@s-ui/react-icons/lib/Chevronbottom'
 
 const locale = 'es-es'
 
