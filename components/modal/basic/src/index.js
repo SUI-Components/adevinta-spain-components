@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, {Component} from 'react'
 import {createPortal} from 'react-dom'
-import IconX from '@schibstedspain/sui-svgiconset/lib/X'
+import IconX from '@s-ui/react-icons/lib/X'
 import cx from 'classnames'
 
 const CLASS_MODAL_OPEN = 'is-modal-open'

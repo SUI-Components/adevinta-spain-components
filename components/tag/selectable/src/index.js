@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import cx from 'classnames'
-import Check from '@schibstedspain/sui-svgiconset/lib/Check'
+import Check from '@s-ui/react-icons/lib/Check'
 
 const tagSelectableClassName = ({isSelected}) =>
   cx('sui-TagSelectable', {

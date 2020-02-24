@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import Chevronbottom from '@schibstedspain/sui-svgiconset/lib/Chevronbottom'
+import Chevronbottom from '@s-ui/react-icons/lib/Chevronbottom'
 
 const CLASS = 'sui-CollapsibleReadmore'
 

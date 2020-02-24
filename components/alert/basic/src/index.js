@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 import React from 'react'
 import cx from 'classnames'
-import Info from '@schibstedspain/sui-svgiconset/lib/Info'
-import Bell from '@schibstedspain/sui-svgiconset/lib/Bell'
-import Check from '@schibstedspain/sui-svgiconset/lib/Check'
+import Info from '@s-ui/react-icons/lib/Info'
+import Bell from '@s-ui/react-icons/lib/Bell'
+import Check from '@s-ui/react-icons/lib/Check'
 
 const icons = {
   info: Info,

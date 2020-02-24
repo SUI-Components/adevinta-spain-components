@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, {Component} from 'react'
-import IconX from '@schibstedspain/sui-svgiconset/lib/X'
+import IconX from '@s-ui/react-icons/lib/X'
 
 const COOKIE_TTL = 31557600000
 

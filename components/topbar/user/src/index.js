@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types'
 import React, {useState, useEffect, useLayoutEffect, useRef} from 'react'
 import cx from 'classnames'
-import Menu from '@schibstedspain/sui-svgiconset/lib/Menu'
+import Menu from '@s-ui/react-icons/lib/Menu'
 import DropdownBasic from '@schibstedspain/sui-dropdown-basic'
 import DropdownUser from '@schibstedspain/sui-dropdown-user'
 import AtomButton from '@s-ui/react-atom-button'

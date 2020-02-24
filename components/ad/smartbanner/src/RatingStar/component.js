@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import IconStarFullDefault from '@schibstedspain/sui-svgiconset/lib/Star'
-import IconStarHalfDefault from '@schibstedspain/sui-svgiconset/lib/Starhalf'
-import IconStarEmptyDefault from '@schibstedspain/sui-svgiconset/lib/Starempty'
+import IconStarFullDefault from '@s-ui/react-icons/lib/Star'
+import IconStarHalfDefault from '@s-ui/react-icons/lib/Starhalf'
+import IconStarEmptyDefault from '@s-ui/react-icons/lib/Starempty'
 
 const baseNumber = 0.5
 const checkRatingValue = ({ratingValue, ratingMax}) =>

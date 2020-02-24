@@ -4,7 +4,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import AtomImage from '@s-ui/react-atom-image'
 
-import Chevronright from '@schibstedspain/sui-svgiconset/lib/Chevronright'
+import Chevronright from '@s-ui/react-icons/lib/Chevronright'
 
 const CardArrow = ({media, text, icon, linkFactory: Link, link}) => {
   /**
