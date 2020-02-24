@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.25.0 (2020-02-24)
+
+
+### Features
+
+* Use new [@s-ui](https://github.com/s-ui) react icons ([cef3164](https://github.com/SUI-Components/schibsted-spain-components/commit/cef3164647e56233adf565bfea914d4f87bbbe91))
+
+
+
 # 1.24.0 (2020-01-10)
 
 
