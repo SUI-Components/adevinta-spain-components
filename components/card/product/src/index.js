@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React, {Component} from 'react'
 import cx from 'classnames'
 import CardProductSlider from './card-product-slider'
-import Star from '@schibstedspain/sui-svgiconset/lib/Star'
+import Star from '@s-ui/react-icons/lib/Star'
 import TagChip from '@schibstedspain/sui-tag-chip'
 
 /**
