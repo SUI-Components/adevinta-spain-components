@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 
 import React from 'react'
 import cx from 'classnames'
-import Commentsquare from '@schibstedspain/sui-svgiconset/lib/Commentsquare'
-import MediaPlay from '@schibstedspain/sui-svgiconset/lib/Mediaplay'
+import Commentsquare from '@s-ui/react-icons/lib/Commentsquare'
+import MediaPlay from '@s-ui/react-icons/lib/Mediaplay'
 import ImageLazyLoad from '@schibstedspain/sui-image-lazy-load'
 import SuiAtomTag from '@s-ui/react-atom-tag'
 

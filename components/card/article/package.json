@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@schibstedspain/sui-image-lazy-load": "1",
-    "@schibstedspain/sui-svgiconset": "1",
+    "@s-ui/react-icons": "1",
     "@s-ui/react-atom-tag": "2",
     "@s-ui/component-dependencies": "1"
   }
