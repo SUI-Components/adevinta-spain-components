@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-title-multisize",
+  "name": "@s-ui/react-title-multisize",
   "version": "1.11.0",
   "description": "",
   "main": "lib/index.js",
