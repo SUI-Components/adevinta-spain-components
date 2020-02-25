@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-error-app-boundary",
+  "name": "@s-ui/react-error-app-boundary",
   "version": "2.3.0",
   "description": "",
   "main": "lib/index.js",

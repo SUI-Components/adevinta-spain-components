@@ -9,12 +9,12 @@ The simplest way to use a boundary is to wrap it around any component that may t
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-error-appBoundary --save
+$ npm install @s-ui/react-error-appBoundary --save
 ```
 
 ### Basic usage
 ```js
-import ErrorAppBoundary from '@schibstedspain/sui-error-appBoundary'
+import ErrorAppBoundary from '@s-ui/react-error-appBoundary'
 
 return (
   <ErrorAppBoundary
