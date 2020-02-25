@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import SuiLazyLoadImage from '@schibstedspain/sui-image-lazy-load'
+import SuiLazyLoadImage from '@s-ui/react-image-lazy-load'
 import cx from 'classnames'
 
 const ensureFunction = func => {
