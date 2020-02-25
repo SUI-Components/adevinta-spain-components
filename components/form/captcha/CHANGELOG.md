@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.4.0 (2020-02-25)
+
+
+### Features
+
+* Use latest [@s-ui](https://github.com/s-ui) packages ([c858e8c](https://github.com/SUI-Components/schibsted-spain-components/commit/c858e8cc845f9193e4ae6668977a0734243fe745))
+* Use new @s-ui/react-hooks ([d1d6180](https://github.com/SUI-Components/schibsted-spain-components/commit/d1d6180d0a2a7a88e982f1a234ad952fa193d370))
+
+
+
 # 1.3.0 (2020-02-25)
 
 
