@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-card-article",
-  "version": "1.26.0",
+  "version": "1.27.0",
   "description": "SUI Card Article",
   "main": "lib/index.js",
   "scripts": {
