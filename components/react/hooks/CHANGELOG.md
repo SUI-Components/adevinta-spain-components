@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.10.0 (2020-02-25)
+
+
+### Features
+
+* added useScroll hook ([413a529](https://github.com/SUI-Components/schibsted-spain-components/commit/413a52956fc2ef37bfdca1496c909d7fade0f141))
+* applied the Pull Request suggestions ([de39585](https://github.com/SUI-Components/schibsted-spain-components/commit/de395850fcaeb71a23e5547875672604bc0ea816))
+* improve and optimize the code ([aaf0ede](https://github.com/SUI-Components/schibsted-spain-components/commit/aaf0ede0d1497605afd2cc670eabe28adfb69095))
+* removed unnecessary array argument ([daf7da0](https://github.com/SUI-Components/schibsted-spain-components/commit/daf7da0567b3a6139fbea39abe067f7ad4fe67b6))
+
+
+
 # 1.9.0 (2020-02-24)
 
 
