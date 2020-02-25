@@ -5,14 +5,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-sticky-content --save
+$ npm install @s-ui/react-sticky-content --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import StickyContent from '@schibstedspain/sui-sticky-content'
+import StickyContent from '@s-ui/react-sticky-content'
 
 return (
   <div>

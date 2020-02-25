@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-script-criteo",
+  "name": "@s-ui/react-script-criteo",
   "version": "1.2.0",
   "description": "React component to load criteo with given props.",
   "main": "lib/index.js",

@@ -5,13 +5,13 @@ SUI `CardArticle` component is a card containing a media object, title, descript
 
 ## Installation
 ```
-$ npm install --save @schibstedspain/sui-card-article
+$ npm install --save @s-ui/react-card-article
 ```
 
 ## Usage
 ```
 import React, { Component } from 'react'
-import CardArticle from '@schibstedspain/sui-card-article'
+import CardArticle from '@s-ui/react-card-article'
 
 class MyComponent extends Component {
   render () {

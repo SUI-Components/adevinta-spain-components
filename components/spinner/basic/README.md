@@ -4,13 +4,13 @@ SUI `SpinnerBasic` component is a loading spinner that gives feedback to users a
 
 ## Installation
 ```
-$ npm install --save @schibstedspain/sui-spinner-basic
+$ npm install --save @s-ui/react-spinner-basic
 ```
 
 ## Usage
 ```
 import React, { Component } from 'react'
-import SpinnerBasic from '@schibstedspain/sui-spinner-basic'
+import SpinnerBasic from '@s-ui/react-spinner-basic'
 
 class MyComponent extends Component {
   render () {

@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/react-components",
+  "name": "@adv-ui/react-components",
   "version": "1.0.0",
   "description": "Mono repo containing all Schibsted Spain React Components.",
   "private": true,
@@ -8,7 +8,7 @@
     "co": "sui-studio commit",
     "commitmsg": "validate-commit-msg",
     "dev": "sui-studio dev",
-    "generate": "sui-studio generate -S schibstedspain",
+    "generate": "sui-studio generate -S s-ui",
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",

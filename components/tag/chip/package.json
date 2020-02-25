@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-tag-chip",
+  "name": "@s-ui/react-tag-chip",
   "version": "1.11.0",
   "description": "",
   "main": "lib/index.js",

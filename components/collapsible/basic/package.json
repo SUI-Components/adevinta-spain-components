@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-collapsible-basic",
+  "name": "@s-ui/react-collapsible-basic",
   "version": "2.9.0",
   "description": "",
   "main": "lib/index.js",

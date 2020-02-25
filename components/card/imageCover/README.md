@@ -5,7 +5,7 @@ SUI `CardImageCover` component is a card containing a background image, an optio
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-card-image-cover --save
+$ npm install @s-ui/react-card-image-cover --save
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ $ npm install @schibstedspain/sui-card-image-cover --save
 ### Basic usage
 
 ```js
-import CardImageCover from '@schibstedspain/sui-card-image-cover'
+import CardImageCover from '@s-ui/react-card-image-cover'
 
 const cardData = {
   media: {

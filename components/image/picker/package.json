@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-image-picker",
+  "name": "@s-ui/react-image-picker",
   "version": "1.3.0",
   "description": "",
   "main": "lib/index.js",

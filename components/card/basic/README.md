@@ -4,13 +4,13 @@ SUI `CardBasic` component is a basic card containing a media object, an optional
 
 ## Installation
 ```
-$ npm install --save @schibstedspain/sui-card-basic
+$ npm install --save @s-ui/react-card-basic
 ```
 
 ## Usage
 ```
 import React, { Component } from 'react'
-import CardBasic from '@schibstedspain/sui-card-basic'
+import CardBasic from '@s-ui/react-card-basic'
 
 class MyComponent extends Component {
   render () {

@@ -7,14 +7,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-list-link --save
+$ npm install @s-ui/react-list-link --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import ListLink from '@schibstedspain/sui-list-link'
+import ListLink from '@s-ui/react-list-link'
 
 const listOfLinks = [
   {

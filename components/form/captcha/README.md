@@ -7,14 +7,14 @@ See [documentation](https://developers.google.com/recaptcha/docs/display)
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-form-captcha --save
+$ npm install @s-ui/react-form-captcha --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import FormCaptcha from '@schibstedspain/sui-form-captcha'
+import FormCaptcha from '@s-ui/react-form-captcha'
 
 return (
   <FormCaptcha

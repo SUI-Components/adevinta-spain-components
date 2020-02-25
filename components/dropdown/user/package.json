@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-dropdown-user",
+  "name": "@s-ui/react-dropdown-user",
   "version": "1.23.0",
   "description": "SUI Dropdown User",
   "main": "lib/index.js",

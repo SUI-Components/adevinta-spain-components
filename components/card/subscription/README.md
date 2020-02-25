@@ -8,13 +8,13 @@ In case of `responseError`, the component will render the `responseContent` next
 
 ## Installation
 ```
-$ npm install --save @schibstedspain/sui-card-subscription
+$ npm install --save @s-ui/react-card-subscription
 ```
 
 ## Usage
 ```js
 import React, { Component } from 'react'
-import CardSubscription from '@schibstedspain/sui-card-subscription'
+import CardSubscription from '@s-ui/react-card-subscription'
 const errorEmail = 'error@test.com'
 const placeholder = 'Escribe tu email'
 const title = 'Recibe todas las novedades'

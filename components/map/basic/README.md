@@ -6,7 +6,7 @@ A map component inspired and rebuilded form Fotocasa map component. Includes, po
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-map-basic --save
+$ npm install @s-ui/react-map-basic --save
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ $ npm install @schibstedspain/sui-map-basic --save
 Let's suppose that you wan't a map with an interactive behavior, what properties should you need?
 
 ```js
-import MapBasic from '@schibstedspain/sui-map-basic'
+import MapBasic from '@s-ui/react-map-basic'
 
 return (<MapBasic
         appId="<HERE APP_ID>"

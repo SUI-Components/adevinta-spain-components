@@ -7,14 +7,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-collapsible-accordion --save
+$ npm install @s-ui/react-collapsible-accordion --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import CollapsibleAccordion from '@schibstedspain/sui-collapsible-accordion'
+import CollapsibleAccordion from '@s-ui/react-collapsible-accordion'
 
 
 

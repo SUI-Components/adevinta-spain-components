@@ -12,14 +12,14 @@ This solution allow us to register as many listeners as we want, and provide us 
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-gigya-global-events --save
+$ npm install @s-ui/react-gigya-global-events --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import GigyaGlobalEvents from '@schibstedspain/sui-gigya-global-events'
+import GigyaGlobalEvents from '@s-ui/react-gigya-global-events'
 
 return (<GigyaGlobalEvents onLogin={event => console.log('This will be executed onLogin')} onLogout={event => console.log('This will be executed onLogout')} />)
 ```

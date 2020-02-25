@@ -9,14 +9,14 @@ Injects a Gigya Screenset (Widget) into a container
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-gigya-screenset --save
+$ npm install @s-ui/react-gigya-screenset --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import GigyaScreenset from '@schibstedspain/sui-gigya-screenset'
+import GigyaScreenset from '@s-ui/react-gigya-screenset'
 
 const screenSetOptions = {
   lang: 'es',

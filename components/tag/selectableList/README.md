@@ -1,20 +1,20 @@
 ### TagSelectableList
 
 
-# @schibstedspain/sui-tag-selectableList
+# @s-ui/react-tag-selectableList
 > A React component that show a selectable tag list with optional button "all" for select or unselect all items
 
 ## Installation
 
 ```sh
-npm install @schibstedspain/sui-tag-selectableList --save
+npm install @s-ui/react-tag-selectableList --save
 ```
 
 
 ## Usage
 
 ```javascript
-import TagSelectableList from '@schibstedspain/sui-tag-selectableList'
+import TagSelectableList from '@s-ui/react-tag-selectableList'
 ```
 
 ```html

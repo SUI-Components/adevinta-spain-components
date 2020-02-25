@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-layout-breakpoint-split",
+  "name": "@s-ui/react-layout-breakpoint-split",
   "version": "1.4.0",
   "description": "",
   "main": "lib/index.js",

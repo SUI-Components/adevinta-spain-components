@@ -7,14 +7,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-collapsible-basic --save
+$ npm install @s-ui/react-collapsible-basic --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import CollapsibleBasic from '@schibstedspain/sui-collapsible-basic'
+import CollapsibleBasic from '@s-ui/react-collapsible-basic'
 
 return (<CollapsibleBasic 
           hideTriggerIcon={hideTriggerIcon} 

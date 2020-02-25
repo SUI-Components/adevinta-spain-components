@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-image-slider",
+  "name": "@s-ui/react-image-slider",
   "version": "3.3.0",
   "description": "",
   "main": "lib/index.js",

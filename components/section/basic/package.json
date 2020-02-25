@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-section-basic",
+  "name": "@s-ui/react-section-basic",
   "version": "2.5.0",
   "description": "",
   "main": "lib/index.js",

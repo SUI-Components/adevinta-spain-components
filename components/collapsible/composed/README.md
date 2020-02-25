@@ -7,14 +7,14 @@ All the content can be initially displayed and it can be disposed inline. Also, 
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-collapsible-composed --save
+$ npm install @s-ui/react-collapsible-composed --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import CollapsibleComposed from '@schibstedspain/sui-collapsible-composed'
+import CollapsibleComposed from '@s-ui/react-collapsible-composed'
 
 const callback = (collapse) => alert('Is collapsing? ' + collapse)
 

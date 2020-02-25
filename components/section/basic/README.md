@@ -5,7 +5,7 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-section-basic --save
+$ npm install @s-ui/react-section-basic --save
 ```
 
 ## Usage

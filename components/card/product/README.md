@@ -4,13 +4,13 @@ SUI `CardProduct` component is a card containing a slider of images, title, desc
 
 ## Installation
 ```
-$ npm install --save @schibstedspain/sui-card-product
+$ npm install --save @s-ui/react-card-product
 ```
 
 ## Usage
 ```
 import React, { Component } from 'react'
-import CardProduct from '@schibstedspain/sui-card-product'
+import CardProduct from '@s-ui/react-card-product'
 
 class MyCardProduct extends Component {
   render () {

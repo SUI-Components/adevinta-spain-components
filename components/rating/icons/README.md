@@ -7,7 +7,7 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-rating-icons --save
+$ npm install @s-ui/react-rating-icons --save
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ The ProfileRating accepts the following properties:
 - *emptyColor[OPTIONAL]*: The color used for the *EMPTY* mask. If you don't provide any color, it will fallback to our component scss variable $fill-profile-rating-empty
 
 ```js
-import ProfileRating from '@schibstedspain/sui-rating-icons'
+import ProfileRating from '@s-ui/react-rating-icons'
 
 return (<ProfileRating
                         rating={9}

@@ -9,14 +9,14 @@ Ensures Gigya SDK is loaded before allowing to render the child content
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/react-gigya-loader --save
+$ npm install @s-ui/react-gigya-loader --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import GigyaLoader from '@schibstedspain/react-gigya-loader'
+import GigyaLoader from '@s-ui/react-gigya-loader'
 
 return (
   <GigyaLoader render={() => 'You can use Gigya SDK now!'} />

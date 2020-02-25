@@ -3,7 +3,7 @@
 ## Installation
 
 ```sh
-> npm install @schibstedspain/sui-header-actions --save
+> npm install @s-ui/react-header-actions --save
 ```
 
 ## Usage
@@ -11,7 +11,7 @@
 ### Basic usage
 
 ```js
-import HeaderActions from '@schibstedspain/sui-header-actions'
+import HeaderActions from '@s-ui/react-header-actions'
 
 return <HeaderActions
   buttonLabel='Accept'

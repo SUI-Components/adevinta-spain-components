@@ -7,14 +7,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-layout-breakpoint-split --save
+$ npm install @s-ui/react-layout-breakpoint-split --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import LayoutBreakpointSplit from '@schibstedspain/sui-layout-breakpoint-split'
+import LayoutBreakpointSplit from '@s-ui/react-layout-breakpoint-split'
 
 setView(current) {
   this.setState({current})
