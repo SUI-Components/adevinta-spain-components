@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-cookie-banner",
+  "name": "@s-ui/react-cookie-banner",
   "version": "1.12.0",
   "description": "",
   "main": "lib/index.js",
