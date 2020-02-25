@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-list-image",
+  "name": "@s-ui/react-list-image",
   "version": "1.10.0",
   "description": "Displays a list of sui-image-lazy-load, with a customisable limit and onClick callbacks.",
   "main": "lib/index.js",
