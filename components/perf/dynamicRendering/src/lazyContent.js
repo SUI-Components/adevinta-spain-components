@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {useNearScreen} from '@schibstedspain/sui-react-hooks'
+import {useNearScreen} from '@s-ui/react-hooks'
 
 export default function LazyContent({
   children,
