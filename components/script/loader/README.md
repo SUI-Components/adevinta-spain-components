@@ -11,14 +11,14 @@ Also you can safely call this component in multiple places with the same src and
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-script-loader --save
+$ npm install @s-ui/react-script-loader --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import ScriptLoader from '@schibstedspain/sui-script-loader'
+import ScriptLoader from '@s-ui/react-script-loader'
 
 const src = 'javascript file url'
 const stylesheet = 'stylesheet file url'

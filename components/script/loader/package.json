@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-script-loader",
+  "name": "@s-ui/react-script-loader",
   "version": "1.7.0",
   "description": "",
   "main": "lib/index.js",
