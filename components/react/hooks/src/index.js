@@ -1,7 +1,7 @@
 export default function ReactHooks() {
   if (process.env.NODE_ENV !== 'production') {
     console.warn(
-      "[@schibstedspain/sui-react-hooks] can't be used as a standalone package.\nYou must import a specific hook."
+      "[@s-ui/react-hooks] can't be used as a standalone package.\nYou must import a specific hook."
     )
   }
   return null
