@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.13.0 (2020-02-25)
+
+
+### Features
+
+* Use new @s-ui/react-hooks ([0f94d07](https://github.com/SUI-Components/schibsted-spain-components/commit/0f94d07b6102c3fe9db2ce7ae3b51b2c2a5e52be))
+
+
+
 # 1.12.0 (2020-02-25)
 
 
