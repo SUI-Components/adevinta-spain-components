@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-form-checkbox",
+  "name": "@s-ui/react-form-checkbox",
   "version": "1.8.0",
   "description": "",
   "main": "lib/index.js",
