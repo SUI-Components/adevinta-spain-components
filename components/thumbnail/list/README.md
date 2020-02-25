@@ -5,14 +5,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-thumbnail-list --save
+$ npm install @s-ui/react-thumbnail-list --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import ThumbnailList from '@schibstedspain/sui-thumbnail-list'
+import ThumbnailList from '@s-ui/react-thumbnail-list'
 
 return (
   <ThumbnailList
