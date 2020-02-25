@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-card-arrow",
+  "name": "@s-ui/react-card-arrow",
   "version": "1.6.0",
   "description": "",
   "main": "lib/index.js",

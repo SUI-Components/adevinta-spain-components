@@ -7,14 +7,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-card-arrow --save
+$ npm install @s-ui/react-card-arrow --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import CardArrow from '@schibstedspain/sui-card-arrow'
+import CardArrow from '@s-ui/react-card-arrow'
 
 const link = 'https://www.lorem.com/'
 
