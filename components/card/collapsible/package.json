@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-card-collapsible",
+  "name": "@s-ui/react-card-collapsible",
   "version": "1.13.0",
   "description": "",
   "main": "lib/index.js",

@@ -13,14 +13,14 @@ Displays an expandable/collapsible card, hiding it's content that must be passed
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-card-collapsible --save
+$ npm install @s-ui/react-card-collapsible --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import CardCollapsible from '@schibstedspain/sui-card-collapsible'
+import CardCollapsible from '@s-ui/react-card-collapsible'
 
 return (<CardCollapsible />)
 ```
