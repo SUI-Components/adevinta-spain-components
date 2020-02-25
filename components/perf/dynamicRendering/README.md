@@ -15,14 +15,14 @@ You could completely disable the behaviour of the component using the prop `disa
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/react-perf-dynamic-rendering --save
+$ npm install @s-ui/react-perf-dynamic-rendering --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import PerfDynamicRendering from '@schibstedspain/react-perf-dynamic-rendering'
+import PerfDynamicRendering from '@s-ui/react-perf-dynamic-rendering'
 
 return (
   <>
