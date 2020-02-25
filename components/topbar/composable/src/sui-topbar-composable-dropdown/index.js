@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import {usePrevious} from '@schibstedspain/sui-react-hooks'
+import {usePrevious} from '@s-ui/react-hooks'
 
 const noop = () => {}
 
