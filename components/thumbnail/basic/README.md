@@ -5,14 +5,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-thumbnail-basic --save
+$ npm install @s-ui/react-thumbnail-basic --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import ThumbnailBasic from '@schibstedspain/sui-thumbnail-basic'
+import ThumbnailBasic from '@s-ui/react-thumbnail-basic'
 
 return (
   <ThumbnailBasic
