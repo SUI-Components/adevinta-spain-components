@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-tab-basic",
+  "name": "@s-ui/react-tab-basic",
   "version": "1.6.0",
   "description": "",
   "main": "lib/index.js",
