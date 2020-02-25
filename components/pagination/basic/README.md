@@ -7,14 +7,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-pagination-basic --save
+$ npm install @s-ui/react-pagination-basic --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import PaginationBasic from '@schibstedspain/sui-pagination-basic'
+import PaginationBasic from '@s-ui/react-pagination-basic'
 
 return (
   <PaginationBasic

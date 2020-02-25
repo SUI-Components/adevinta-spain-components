@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-pagination-basic",
+  "name": "@s-ui/react-pagination-basic",
   "version": "1.5.0",
   "description": "",
   "main": "lib/index.js",
