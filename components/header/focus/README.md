@@ -5,14 +5,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-header-focus --save
+$ npm install @s-ui/react-header-focus --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import HeaderFocus from '@schibstedspain/sui-header-focus'
+import HeaderFocus from '@s-ui/react-header-focus'
 const SVGElement = <svg ... />
 return (<HeaderFocus logo={SVGElement} />)
 ```
