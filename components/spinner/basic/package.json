@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-spinner-basic",
+  "name": "@s-ui/react-spinner-basic",
   "version": "1.6.0",
   "description": "SUI Spinner Basic",
   "main": "lib/index.js",
