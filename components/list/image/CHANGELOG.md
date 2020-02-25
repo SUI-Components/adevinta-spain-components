@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.12.0 (2020-02-25)
+
+
+### Features
+
+* Use latest [@s-ui](https://github.com/s-ui) packages ([13d466a](https://github.com/SUI-Components/schibsted-spain-components/commit/13d466a6862851f78ee25acb92cf0ca984e0a900))
+
+
+
 # 1.11.0 (2020-02-25)
 
 
