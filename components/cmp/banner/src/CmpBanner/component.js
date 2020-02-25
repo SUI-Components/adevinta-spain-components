@@ -1,6 +1,6 @@
 import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
-import {useMount} from '@schibstedspain/sui-react-hooks'
+import {useMount} from '@s-ui/react-hooks'
 
 import Notification from '@s-ui/react-molecule-notification'
 
