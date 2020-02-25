@@ -8,14 +8,14 @@ It also adds an ellipsis (with customisable text and icon) at the bottom, which 
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-collapsible-readmore --save
+$ npm install @s-ui/react-collapsible-readmore --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import CollapsibleReadmore from '@schibstedspain/sui-collapsible-readmore'
+import CollapsibleReadmore from '@s-ui/react-collapsible-readmore'
 
 return (
   const ellipsisTextsToDisplay = {
