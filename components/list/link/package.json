@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-list-link",
+  "name": "@s-ui/react-list-link",
   "version": "1.5.0",
   "description": "",
   "main": "lib/index.js",
