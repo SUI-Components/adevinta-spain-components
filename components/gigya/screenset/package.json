@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-gigya-screenset",
+  "name": "@s-ui/react-gigya-screenset",
   "version": "1.2.0",
   "description": "",
   "main": "lib/index.js",
