@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-card-product",
+  "name": "@s-ui/react-card-product",
   "version": "1.9.0",
   "description": "SUI Card Product",
   "main": "lib/index.js",
