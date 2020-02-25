@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@schibstedspain/sui-image-lazy-load": "1",
+    "@s-ui/react-image-lazy-load": "1",
     "@s-ui/component-dependencies": "1"
   }
 }

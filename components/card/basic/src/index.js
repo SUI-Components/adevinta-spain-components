@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import React from 'react'
 import cx from 'classnames'
-import ImageLazyLoad from '@schibstedspain/sui-image-lazy-load'
+import ImageLazyLoad from '@s-ui/react-image-lazy-load'
 
 const CardBasicMedia = ({src, alt = ''}) => (
   <div className="sui-CardBasic-media">
