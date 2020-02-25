@@ -7,14 +7,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-breakpoint-toggle --save
+$ npm install @s-ui/react-breakpoint-toggle --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import BreakpointToggle from '@schibstedspain/sui-breakpoint-toggle'
+import BreakpointToggle from '@s-ui/react-breakpoint-toggle'
 
 return (<div>
   <button>Normal button</button>

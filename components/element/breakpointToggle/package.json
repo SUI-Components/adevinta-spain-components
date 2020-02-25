@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-breakpoint-toggle",
+  "name": "@s-ui/react-breakpoint-toggle",
   "version": "1.4.0",
   "description": "",
   "main": "lib/index.js",
