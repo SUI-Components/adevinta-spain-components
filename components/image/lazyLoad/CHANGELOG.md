@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.16.0 (2020-02-25)
+
+
+### Features
+
+* Use latest [@s-ui](https://github.com/s-ui) packages ([a744f82](https://github.com/SUI-Components/schibsted-spain-components/commit/a744f8214c69dfba762b6f276c4eb8331eefebe5))
+* Use new @s-ui/react-hooks ([6d65818](https://github.com/SUI-Components/schibsted-spain-components/commit/6d6581898544535d7d06cd13b9b2f82366b364c6))
+
+
+
 # 1.15.0 (2020-02-25)
 
 
@@ -50,7 +60,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* use only the major version of @s-ui/react-image-lazy-load ([c0d657c](https://github.com/SUI-Components/schibsted-spain-components/commit/c0d657c68107d3c1c4101a4ac4c25258585f80d2))
+* use only the major version of @schibstedspain/sui-image-lazy-load ([c0d657c](https://github.com/SUI-Components/schibsted-spain-components/commit/c0d657c68107d3c1c4101a4ac4c25258585f80d2))
 
 
 
