@@ -8,14 +8,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-list-bullet --save
+$ npm install @s-ui/react-list-bullet --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import ListBullet from '@schibstedspain/sui-list-bullet'
+import ListBullet from '@s-ui/react-list-bullet'
 
 const listItems = [
   {
