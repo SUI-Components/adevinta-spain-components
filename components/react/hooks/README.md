@@ -154,4 +154,25 @@ export default function Demo() {
 }
 ```
 
+### useScroll
+
+Hook to get the scroll position and the direction of scroll, limited to the Y axis.
+
+The hook `useScroll` always returns an object with **position** and **direction of scroll**
+
+```js
+import {useScroll} from '@schibstedspain/sui-react-hooks'
+
+export default function Demo() {
+  const {position, direction} = useScroll()
+
+  return (
+    <>
+      <p>{`Scroll position: ${position}`}</p>
+      <p>{`Scroll direction: ${direction}`}</p>
+    </>
+  )
+}
+```
+
 > **Find full description and more examples in the [demo page](#).**

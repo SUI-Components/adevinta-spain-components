@@ -4,7 +4,8 @@ import {
   useMount,
   useOnScreen,
   useNearScreen,
-  useMediaQuery
+  useMediaQuery,
+  useScroll
 } from '../../../../components/react/hooks/src'
 import LegacyStateDemo from './LegacyStateDemo'
 
@@ -20,6 +21,7 @@ export default () => {
   const [isIntersecting, outerRef] = useOnScreen({once: false})
   const [isNear, outerRefNear] = useNearScreen()
   const isMatching = useMediaQuery('(min-width:600px)')
+  const {position, direction} = useScroll()
 
   return (
     <div>
@@ -80,6 +82,24 @@ export default () => {
       <div>
         <h1>useMediaQuery</h1>
         <span>{`(min-width:600px) matches: ${isMatching}`}</span>
+      </div>
+
+      <div
+        style={{
+          backgroundColor: 'black',
+          borderRadius: '4px',
+          color: 'white',
+          minWidth: '170px',
+          opacity: '0.6',
+          padding: '8px',
+          position: 'fixed',
+          right: '1em',
+          top: '1em'
+        }}
+      >
+        <h3>useScroll</h3>
+        <p>{`Scroll position: ${position}`}</p>
+        <p>{`Scroll direction: ${direction}`}</p>
       </div>
     </div>
   )
