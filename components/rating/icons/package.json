@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-rating-icons",
+  "name": "@s-ui/react-rating-icons",
   "version": "1.3.0",
   "description": "",
   "main": "lib/index.js",
