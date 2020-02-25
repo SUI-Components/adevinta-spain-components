@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-tag-selectable",
+  "name": "@s-ui/react-tag-selectable",
   "version": "2.5.0",
   "description": "SUI tag selectable",
   "main": "lib/index.js",
