@@ -7,14 +7,14 @@ Panel with the selected image and a list of images that will replace the selecte
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-image-picker --save
+$ npm install @s-ui/react-image-picker --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import ImagePicker from '@schibstedspain/sui-image-picker'
+import ImagePicker from '@s-ui/react-image-picker'
 
 const images = [
   {
