@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-image-lazy-load",
-  "version": "1.14.0",
+  "version": "1.15.0",
   "description": "SUI Image Lazy Load",
   "main": "lib/index.js",
   "scripts": {
