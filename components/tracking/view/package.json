@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-tracking-view",
+  "name": "@s-ui/react-tracking-view",
   "version": "1.7.0",
   "description": "",
   "main": "lib/index.js",
