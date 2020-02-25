@@ -3,14 +3,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-css-transition --save
+$ npm install @s-ui/react-css-transition --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import CssTransition from '@schibstedspain/sui-css-transition'
+import CssTransition from '@s-ui/react-css-transition'
 
 return (<CssTransition />)
 ```

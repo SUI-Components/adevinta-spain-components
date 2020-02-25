@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-css-transition",
+  "name": "@s-ui/react-css-transition",
   "version": "1.2.0",
   "description": "",
   "main": "lib/index.js",
