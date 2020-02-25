@@ -7,7 +7,7 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-script-criteo --save
+$ npm install @s-ui/react-script-criteo --save
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ $ npm install @schibstedspain/sui-script-criteo --save
 ### Basic usage
 
 ```js
-import ScriptCriteo from '@schibstedspain/sui-script-criteo'
+import ScriptCriteo from '@s-ui/react-script-criteo'
 
 return (
   <ScriptCriteo
