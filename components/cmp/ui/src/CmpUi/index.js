@@ -1,6 +1,6 @@
 import React, {useState, useRef, Suspense} from 'react'
 import PropTypes from 'prop-types'
-import {useMount} from '@schibstedspain/sui-react-hooks'
+import {useMount} from '@s-ui/react-hooks'
 import {UI_TYPES} from '../settings'
 
 const CONSENT_STATUS_NOT_ACCEPTED = 'NOT_ACCEPTED'
