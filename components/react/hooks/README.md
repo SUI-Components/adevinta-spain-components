@@ -5,7 +5,7 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-react-hooks --save
+$ npm install @s-ui/react-hooks --save
 ```
 
 ## Avaiable hooks
@@ -15,7 +15,7 @@ $ npm install @schibstedspain/sui-react-hooks --save
 Hook that will be executed when the component mounts. Similar behaviour to old `componentDidMount` but `useMount` could return a function that will executed when the component unmounts. Useful for clearing events or timers.
 
 ```js
-import { useMount } from '@schibstedspain/sui-react-hooks'
+import { useMount } from '@s-ui/react-hooks'
 
 export default () => {
   useMount(() => {
@@ -46,7 +46,7 @@ Hook to detect if an element is on the screen. Useful for lazy loading component
 You could configure if it should only be fired `once` by using the parameter with the same name (default: `true`).
 
 ```js
-import { useOnScreen } from '@schibstedspain/sui-react-hooks'
+import { useOnScreen } from '@s-ui/react-hooks'
 
 export default () => {
   const [isIntersecting, outerRef] = useOnScreen({ once: true })
@@ -66,7 +66,7 @@ export default () => {
 Similar to `useOnScreen` but it let you configure when the distance is enough to return true. By default if the element is 200px near the screen it will change the inner state of the hook. You could define the `offset` in pixels to fire the event sooner or later.
 
 ```js
-import { useNearScreen } from '@schibstedspain/sui-react-hooks'
+import { useNearScreen } from '@s-ui/react-hooks'
 
 export default () => {
   const [isNear, outerRef] = useNearScreen({ offset: '300px' })
@@ -89,7 +89,7 @@ Useful to cover quick functional migrations in components with complex states th
 If you apply this when migrating to a functional component, please take in mind that you may later rethink the strategy of its state.
 
 ```js
-import {useLegacyState} from '@schibstedspain/sui-react-hooks'
+import {useLegacyState} from '@s-ui/react-hooks'
 
 export default () => {
   const initialState = {
@@ -145,7 +145,7 @@ This is a CSS media query hook for React. It listens for matches to a CSS media 
 Hook `useMediaQuery` always returns a boolean and it indicates if query matches or not.
 
 ```js
-import {useMediaQuery} from '@schibstedspain/sui-react-hooks'
+import {useMediaQuery} from '@s-ui/react-hooks'
 
 export default function Demo() {
   const isMatching = useMediaQuery('(min-width:600px)');
@@ -161,7 +161,7 @@ Hook to get the scroll position and the direction of scroll, limited to the Y ax
 The hook `useScroll` always returns an object with **position** and **direction of scroll**
 
 ```js
-import {useScroll} from '@schibstedspain/sui-react-hooks'
+import {useScroll} from '@s-ui/react-hooks'
 
 export default function Demo() {
   const {position, direction} = useScroll()
