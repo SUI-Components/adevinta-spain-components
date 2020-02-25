@@ -50,7 +50,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* use only the major version of @schibstedspain/sui-image-lazy-load ([c0d657c](https://github.com/SUI-Components/schibsted-spain-components/commit/c0d657c68107d3c1c4101a4ac4c25258585f80d2))
+* use only the major version of @s-ui/react-image-lazy-load ([c0d657c](https://github.com/SUI-Components/schibsted-spain-components/commit/c0d657c68107d3c1c4101a4ac4c25258585f80d2))
 
 
 
