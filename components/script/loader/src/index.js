@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import {useMount} from '@schibstedspain/sui-react-hooks'
+import {useMount} from '@s-ui/react-hooks'
 import PropTypes from 'prop-types'
 import {loadScript} from './helper.js'
 
