@@ -12,7 +12,7 @@ Component to show a list of checkboxes with parent checkbox.
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/form-checkboxes-with-parent --save
+$ npm install @s-ui/react-form-checkboxes-with-parent --save
 ```
 
 
@@ -20,7 +20,7 @@ $ npm install @schibstedspain/form-checkboxes-with-parent --save
 
 ### Basic usage
 ```js
-import FormCheckboxesWithParent from '@schibstedspain/form-checkboxes-with-parent'
+import FormCheckboxesWithParent from '@s-ui/react-form-checkboxes-with-parent'
 
 return (<FormCheckboxesWithParent />)
 ```
@@ -28,7 +28,7 @@ return (<FormCheckboxesWithParent />)
 ### Add component styles to index.scss file:
 
 ```sass
-@import '~@schibstedspain/form-checkboxes-with-parent/lib/index'
+@import '~@s-ui/react-form-checkboxes-with-parent/lib/index'
 ```
 
 

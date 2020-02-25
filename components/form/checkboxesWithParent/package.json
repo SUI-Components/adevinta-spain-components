@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/form-checkboxes-with-parent",
+  "name": "@s-ui/react-form-checkboxes-with-parent",
   "version": "1.3.0",
   "description": "",
   "main": "lib/index.js",
