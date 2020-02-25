@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.15.0 (2020-02-25)
+
+
+### Features
+
+* add check of hidden property on fieldset component ([e1f6e9f](https://github.com/SUI-Components/schibsted-spain-components/commit/e1f6e9f78b62ea59e3e698af89bf9e1e9b836df6))
+
+
+
 # 1.14.0 (2020-02-18)
 
 
