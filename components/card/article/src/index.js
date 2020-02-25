@@ -5,7 +5,7 @@ import React from 'react'
 import cx from 'classnames'
 import Commentsquare from '@s-ui/react-icons/lib/Commentsquare'
 import MediaPlay from '@s-ui/react-icons/lib/Mediaplay'
-import ImageLazyLoad from '@schibstedspain/sui-image-lazy-load'
+import ImageLazyLoad from '@s-ui/react-image-lazy-load'
 import SuiAtomTag from '@s-ui/react-atom-tag'
 
 const cardArticleMediaClassName = video =>
