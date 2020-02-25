@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-modal-basic",
+  "name": "@s-ui/react-modal-basic",
   "version": "1.17.0",
   "description": "sui-modal-basic",
   "main": "lib/index.js",
