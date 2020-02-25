@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-form-textarea",
+  "name": "@s-ui/react-form-textarea",
   "version": "1.8.0",
   "description": "",
   "main": "lib/index.js",
