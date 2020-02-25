@@ -30,7 +30,7 @@ render(){
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-tracking-view --save
+$ npm install @s-ui/react-tracking-view --save
 ```
 
 ## Usage
@@ -38,7 +38,7 @@ $ npm install @schibstedspain/sui-tracking-view --save
 ### Basic usage
 
 ```js
-import TrackingView from "@schibstedspain/sui-tracking-view";
+import TrackingView from "@s-ui/react-tracking-view";
 
 return (
   <TrackingView
