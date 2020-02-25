@@ -4,13 +4,13 @@ SUI `ImageLazyLoad` component is an image element that can be loaded in a deferr
 
 ## Installation
 ```
-$ npm install --save @schibstedspain/sui-image-lazy-load
+$ npm install --save @s-ui/react-image-lazy-load
 ```
 
 ## Usage
 ```
 import React, { Component } from 'react'
-import ImageLazyLoad from '@schibstedspain/sui-image-lazy-load'
+import ImageLazyLoad from '@s-ui/react-image-lazy-load'
 
 class MyCard extends Component {
   render () {
