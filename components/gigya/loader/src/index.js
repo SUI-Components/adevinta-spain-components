@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import React from 'react'
 import PropTypes from 'prop-types'
-import ScriptLoader from '@schibstedspain/sui-script-loader'
+import ScriptLoader from '@s-ui/react-script-loader'
 
 const getGigya = () => window && window.gigya
 const gigyaUrl = 'https://cdns.gigya.com/js/gigya.js?apiKey='
