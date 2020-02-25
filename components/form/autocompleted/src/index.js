@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, {useState, useEffect, useRef} from 'react'
-import {useMount} from '@schibstedspain/sui-react-hooks'
+import {useMount} from '@s-ui/react-hooks'
 import SuggestsList from './suggests-list'
 import cx from 'classnames'
 
