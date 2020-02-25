@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-collapsible-readmore",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Collapsible read more component for truncating long content and adding an ellipsis.",
   "main": "lib/index.js",
   "scripts": {
