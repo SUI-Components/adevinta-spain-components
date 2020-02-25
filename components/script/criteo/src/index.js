@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import ScriptLoader from '@schibstedspain/sui-script-loader'
+import ScriptLoader from '@s-ui/react-script-loader'
 
 const CRITEO_SCRIPT_URL = '//static.criteo.net/js/ld/ld.js'
 
