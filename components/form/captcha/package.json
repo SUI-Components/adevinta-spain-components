@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-form-captcha",
+  "name": "@s-ui/react-form-captcha",
   "version": "1.2.0",
   "description": "",
   "main": "lib/index.js",
