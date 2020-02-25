@@ -5,14 +5,14 @@
 ## Installation
 
 ```sh
-$ npm install @schibstedspain/sui-image-placeholder --save
+$ npm install @s-ui/react-image-placeholder --save
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import ImagePlaceholder from '@schibstedspain/sui-image-placeholder'
+import ImagePlaceholder from '@s-ui/react-image-placeholder'
 
 return (
   <ImagePlaceholder

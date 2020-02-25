@@ -1,5 +1,5 @@
 {
-  "name": "@schibstedspain/sui-image-placeholder",
+  "name": "@s-ui/react-image-placeholder",
   "version": "2.6.0",
   "description": "",
   "main": "lib/index.js",
