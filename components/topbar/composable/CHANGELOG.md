@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.15.0 (2020-02-26)
+
+
+### Bug Fixes
+
+* fix problem with AB Testing not changing classname ([e454a97](https://github.com/SUI-Components/schibsted-spain-components/commit/e454a97650580ec4d0e0daa2cb6c68c96e85c400))
+
+
+
 # 1.14.0 (2020-02-25)
 
 
