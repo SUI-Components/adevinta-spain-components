@@ -7,8 +7,17 @@ import MoleculeSelectField from '@s-ui/react-molecule-select-field'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 import IconChevronDown from '../../Icons/IconChevronDown'
 
-const DefaultSelect = ({select, tabIndex, onChange, onBlur, size, errors}) => {
+const DefaultSelect = ({
+  select,
+  tabIndex,
+  onChange,
+  onBlur,
+  size,
+  errors,
+  alerts
+}) => {
   const errorMessages = errors[select.id]
+  const alertMessages = alerts[select.id]
 
   const onChangeCallback = useCallback(
     (evt, {value}) => {
@@ -54,6 +63,9 @@ const DefaultSelect = ({select, tabIndex, onChange, onBlur, size, errors}) => {
     ...(!!errorMessages && {
       errorText: errorMessages.join('\n')
     }),
+    ...(!!alertMessages && {
+      alertText: alertMessages.join('\n')
+    }),
     selectSize: size,
     ...constraintsProps
   }
@@ -89,7 +101,8 @@ DefaultSelect.propTypes = {
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   size: PropTypes.string,
-  errors: PropTypes.object
+  errors: PropTypes.object,
+  alerts: PropTypes.object
 }
 
 export default React.memo(DefaultSelect, createComponentMemo('select'))

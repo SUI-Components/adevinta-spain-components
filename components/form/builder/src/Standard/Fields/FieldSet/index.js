@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import FieldSet from '../../../FieldSet'
 
-const FieldSetField = ({field, tabIndex, onChange, onBlur, errors}) => {
+const FieldSetField = ({field, tabIndex, onChange, onBlur, errors, alerts}) => {
   return (
     <FieldSet
       fieldset={field}
@@ -11,6 +11,7 @@ const FieldSetField = ({field, tabIndex, onChange, onBlur, errors}) => {
       onBlur={onBlur}
       tabIndex={tabIndex}
       errors={errors}
+      alerts={alerts}
     />
   )
 }
@@ -20,7 +21,8 @@ FieldSetField.propTypes = {
   onBlur: PropTypes.func,
   tabIndex: PropTypes.number,
   field: PropTypes.object,
-  errors: PropTypes.object
+  errors: PropTypes.object,
+  alerts: PropTypes.object
 }
 
 export default FieldSetField

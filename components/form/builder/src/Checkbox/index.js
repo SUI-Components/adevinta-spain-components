@@ -5,8 +5,10 @@ import {field, createComponentMemo} from '../prop-types'
 import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
 import IconCheck from '../Icons/IconCheck'
 
-const Checkbox = ({checkbox, tabIndex, onChange, onBlur, errors}) => {
+const Checkbox = ({checkbox, tabIndex, onChange, onBlur, errors, alerts}) => {
   const errorMessages = errors[checkbox.id]
+  const alertMessages = alerts[checkbox.id]
+
   let checked = 'false'
   try {
     checked = JSON.parse(checkbox.value)
@@ -51,6 +53,9 @@ const Checkbox = ({checkbox, tabIndex, onChange, onBlur, errors}) => {
     }),
     ...(!!errorMessages && {
       errorText: errorMessages.join('\n')
+    }),
+    ...(!!alertMessages && {
+      alertText: alertMessages.join('\n')
     })
   }
 
@@ -73,7 +78,8 @@ Checkbox.propTypes = {
   checkbox: field,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
-  errors: PropTypes.object
+  errors: PropTypes.object,
+  alerts: PropTypes.object
 }
 
 export default React.memo(Checkbox, createComponentMemo('checkbox'))

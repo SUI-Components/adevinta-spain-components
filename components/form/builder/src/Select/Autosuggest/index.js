@@ -25,9 +25,12 @@ const AutosuggestSelect = ({
   onChange,
   onBlur,
   size,
-  errors
+  errors,
+  alerts
 }) => {
   const errorMessages = errors[select.id]
+  const alertMessages = alerts[select.id]
+
   const {datalist = []} = select
   const fromTextToValueWithDatalist = fromTextToValue(datalist)
   const fromValueToTextWithDatalist = fromValueToText(datalist)
@@ -83,6 +86,9 @@ const AutosuggestSelect = ({
     ...(!!errorMessages && {
       errorText: errorMessages.join('\n')
     }),
+    ...(!!alertMessages && {
+      alertText: alertMessages.join('\n')
+    }),
     selectSize: size,
     ...constraintsProps
   }
@@ -127,7 +133,8 @@ AutosuggestSelect.propTypes = {
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   size: PropTypes.string,
-  errors: PropTypes.object
+  errors: PropTypes.object,
+  alerts: PropTypes.object
 }
 
 export default React.memo(AutosuggestSelect, createComponentMemo('select'))

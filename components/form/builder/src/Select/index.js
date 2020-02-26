@@ -8,7 +8,7 @@ import {FIELDS, DISPLAYS} from '../Standard'
 import DefaultSelect from './Default'
 import AutosuggestSelect from './Autosuggest'
 
-const Select = ({select, onChange, onBlur, tabIndex, size, errors}) => {
+const Select = ({select, onChange, onBlur, tabIndex, size, errors, alerts}) => {
   let Field
   switch (select.display) {
     case DISPLAYS[FIELDS.PICKER].AUTOCOMPLETE:
@@ -20,6 +20,7 @@ const Select = ({select, onChange, onBlur, tabIndex, size, errors}) => {
           tabIndex={tabIndex}
           size={size}
           errors={errors}
+          alerts={alerts}
         />
       )
       break
@@ -34,6 +35,7 @@ const Select = ({select, onChange, onBlur, tabIndex, size, errors}) => {
           tabIndex={tabIndex}
           size={size}
           errors={errors}
+          alerts={alerts}
         />
       )
   }
@@ -47,7 +49,8 @@ Select.propTypes = {
   tabIndex: PropTypes.number,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
-  errors: PropTypes.object
+  errors: PropTypes.object,
+  alerts: PropTypes.object
 }
 
 export default Select

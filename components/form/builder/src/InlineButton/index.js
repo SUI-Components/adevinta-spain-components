@@ -5,8 +5,9 @@ import {field, createComponentMemo} from '../prop-types'
 import MoleculeButtonGroup from '@s-ui/react-molecule-button-group'
 import Button from '@s-ui/react-atom-button'
 
-const InlineButton = ({inlineButton, tabIndex, onChange, errors}) => {
+const InlineButton = ({inlineButton, tabIndex, onChange, errors, alerts}) => {
   const errorMessages = errors[inlineButton.id]
+  const alertMessages = alerts[inlineButton.id]
 
   const onClickHandler = value => {
     return onChange(inlineButton.id, value)
@@ -24,6 +25,9 @@ const InlineButton = ({inlineButton, tabIndex, onChange, errors}) => {
     }),
     ...(!!errorMessages && {
       errorText: errorMessages.join('\n')
+    }),
+    ...(!!alertMessages && {
+      alertText: alertMessages.join('\n')
     })
   }
 
@@ -58,7 +62,8 @@ InlineButton.propTypes = {
   inlineButton: field,
   tabIndex: PropTypes.number,
   onChange: PropTypes.func,
-  errors: PropTypes.object
+  errors: PropTypes.object,
+  alerts: PropTypes.object
 }
 
 export default React.memo(InlineButton, createComponentMemo('inlineButton'))

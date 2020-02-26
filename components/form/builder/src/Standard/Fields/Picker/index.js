@@ -8,7 +8,7 @@ import InlineButton from '../../../InlineButton'
 
 import {FIELDS, DISPLAYS} from '../../index'
 
-const PickerField = ({field, tabIndex, onChange, onBlur, errors}) => {
+const PickerField = ({field, tabIndex, onChange, onBlur, errors, alerts}) => {
   if (field.display === DISPLAYS[FIELDS.PICKER].SWITCH) {
     return (
       <Switch
@@ -17,6 +17,7 @@ const PickerField = ({field, tabIndex, onChange, onBlur, errors}) => {
         onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
+        alerts={alerts}
       />
     )
   } else if (
@@ -30,6 +31,7 @@ const PickerField = ({field, tabIndex, onChange, onBlur, errors}) => {
         onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
+        alerts={alerts}
       />
     )
   } else if (field.display === DISPLAYS[FIELDS.PICKER].RADIO) {
@@ -42,6 +44,7 @@ const PickerField = ({field, tabIndex, onChange, onBlur, errors}) => {
         onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
+        alerts={alerts}
       />
     )
   } else if (field.display === DISPLAYS[FIELDS.PICKER].BUTTON_INLINE) {
@@ -52,6 +55,7 @@ const PickerField = ({field, tabIndex, onChange, onBlur, errors}) => {
         onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
+        alerts={alerts}
       />
     )
   } else {
@@ -63,6 +67,7 @@ const PickerField = ({field, tabIndex, onChange, onBlur, errors}) => {
         onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
+        alerts={alerts}
       />
     )
   }
@@ -73,7 +78,8 @@ PickerField.propTypes = {
   onBlur: PropTypes.func,
   tabIndex: PropTypes.number,
   field: PropTypes.object,
-  errors: PropTypes.object
+  errors: PropTypes.object,
+  alerts: PropTypes.object
 }
 
 export default PickerField

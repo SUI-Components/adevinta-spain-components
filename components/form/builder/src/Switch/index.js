@@ -4,8 +4,9 @@ import PropTypes from 'prop-types'
 import {field, createComponentMemo} from '../prop-types'
 import MoleculeSwitch from '@s-ui/react-atom-switch'
 
-const Switch = ({switchField, tabIndex, onChange, errors}) => {
+const Switch = ({switchField, tabIndex, onChange, errors, alerts}) => {
   const errorMessages = errors[switchField.id]
+  const alertMessages = alerts[switchField.id]
 
   const onChangeCallback = useCallback(
     value => {
@@ -31,6 +32,9 @@ const Switch = ({switchField, tabIndex, onChange, errors}) => {
     }),
     ...(!!errorMessages && {
       errorText: errorMessages.join('\n')
+    }),
+    ...(!!alertMessages && {
+      alertText: alertMessages.join('\n')
     })
   }
 
@@ -53,7 +57,8 @@ Switch.propTypes = {
   tabIndex: PropTypes.number,
   switchField: field,
   onChange: PropTypes.func,
-  errors: PropTypes.objects
+  errors: PropTypes.objects,
+  alerts: PropTypes.objects
 }
 
 export default React.memo(Switch, createComponentMemo('switchField'))

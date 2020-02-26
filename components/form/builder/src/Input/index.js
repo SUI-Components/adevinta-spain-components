@@ -23,9 +23,12 @@ const Input = ({
   size,
   leftAddon,
   rightAddon,
-  errors
+  errors,
+  alerts
 }) => {
   const errorMessages = errors[input.id]
+  const alertMessages = alerts[input.id]
+
   const onChangeCallback = useCallback(
     evt => {
       return onChange(input.id, evt.target.value)
@@ -93,6 +96,9 @@ const Input = ({
     }),
     ...(!!errorMessages && {
       errorText: errorMessages.join('\n')
+    }),
+    ...(!!alertMessages && {
+      alertText: alertMessages.join('\n')
     })
   }
 
@@ -137,7 +143,8 @@ Input.propTypes = {
   size: PropTypes.string,
   leftAddon: PropTypes.string,
   rightAddon: PropTypes.string,
-  errors: PropTypes.object
+  errors: PropTypes.object,
+  alerts: PropTypes.object
 }
 
 export default React.memo(Input, createComponentMemo('input'))

@@ -22,7 +22,8 @@ const FormBuilder = ({
   urlInterceptor,
   loader,
   fieldSize,
-  errors
+  errors,
+  alerts
 }) => {
   const {fields = [], rules = {}, id: formID} = json.form
   const [stateFields, setStateFields] = useState(fields)
@@ -119,6 +120,7 @@ const FormBuilder = ({
           onBlur={onBlur}
           fieldSize={fieldSize}
           errors={errors}
+          alerts={alerts}
         />
       ))}
       {stateShowSpinner && (
@@ -140,7 +142,8 @@ FormBuilder.propTypes = {
   urlInterceptor: PropTypes.func,
   loader: PropTypes.object,
   fieldSize: PropTypes.oneOf(Object.values(fieldSizes)),
-  errors: PropTypes.object
+  errors: PropTypes.object,
+  alerts: PropTypes.object
 }
 
 FormBuilder.defaultProps = {
@@ -149,7 +152,8 @@ FormBuilder.defaultProps = {
   onBlur: () => {},
   requestInterceptor: ({response}) => response,
   urlInterceptor: () => {},
-  errors: {}
+  errors: {},
+  alerts: {}
 }
 
 export {fieldSizes as formBuilderFieldSizes}
