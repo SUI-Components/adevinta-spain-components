@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.16.0 (2020-02-26)
+
+
+### Features
+
+* add field alerts ([99fc1a9](https://github.com/SUI-Components/schibsted-spain-components/commit/99fc1a9a9f2a74f9d34dfb0bb08405118061d66b))
+
+
+
 # 1.15.0 (2020-02-25)
 
 
