@@ -13,7 +13,8 @@ const FieldSet = ({
   onChange,
   onBlur,
   fieldSize,
-  errors
+  errors,
+  alerts
 }) => {
   const {fields = [], label} = fieldset
 
@@ -38,6 +39,7 @@ const FieldSet = ({
             tabIndex={tabIndex + index * 0.1}
             fieldSize={fieldSize}
             errors={errors}
+            alerts={alerts}
           />
         ))}
       </div>
@@ -52,7 +54,8 @@ FieldSet.propTypes = {
   fieldset: field,
   tabIndex: PropTypes.number,
   fieldSize: PropTypes.string,
-  errors: PropTypes.object
+  errors: PropTypes.object,
+  alerts: PropTypes.object
 }
 
 export default FieldSet

@@ -11,23 +11,31 @@ import NumericField from '../Standard/Fields/Numeric'
 import FieldSetField from '../Standard/Fields/FieldSet'
 import PickerField from '../Standard/Fields/Picker'
 
-const ProxyField = ({field, tabIndex, onChange, onBlur, fieldSize, errors}) => {
+const ProxyField = ({
+  field,
+  tabIndex,
+  onChange,
+  onBlur,
+  fieldSize,
+  errors,
+  alerts
+}) => {
   let Field
   switch (field.type) {
     case FIELDS.TEXT:
-      Field = TextField({field, tabIndex, onChange, onBlur, errors})
+      Field = TextField({field, tabIndex, onChange, onBlur, errors, alerts})
       break
 
     case FIELDS.NUMERIC:
-      Field = NumericField({field, tabIndex, onChange, onBlur, errors})
+      Field = NumericField({field, tabIndex, onChange, onBlur, errors, alerts})
       break
 
     case FIELDS.FIELDSET:
-      Field = FieldSetField({field, tabIndex, onChange, onBlur, errors})
+      Field = FieldSetField({field, tabIndex, onChange, onBlur, errors, alerts})
       break
 
     case FIELDS.PICKER:
-      Field = PickerField({field, tabIndex, onChange, onBlur, errors})
+      Field = PickerField({field, tabIndex, onChange, onBlur, errors, alerts})
       break
 
     default:
@@ -48,7 +56,8 @@ ProxyField.propTypes = {
   tabIndex: PropTypes.number,
   field,
   fieldSize: PropTypes.string,
-  errors: PropTypes.object
+  errors: PropTypes.object,
+  alerts: PropTypes.object
 }
 
 export default ProxyField

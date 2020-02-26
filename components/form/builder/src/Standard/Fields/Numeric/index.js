@@ -5,7 +5,7 @@ import Input from '../../../Input'
 
 import {FIELDS, DISPLAYS} from '../../index'
 
-const NumericField = ({field, tabIndex, onChange, onBlur, errors}) => {
+const NumericField = ({field, tabIndex, onChange, onBlur, errors, alerts}) => {
   /* TODO: add the possibility to customize rightAddon in the DSL */
   if (field.display === DISPLAYS[FIELDS.NUMERIC].MONEY) {
     return (
@@ -16,6 +16,7 @@ const NumericField = ({field, tabIndex, onChange, onBlur, errors}) => {
         tabIndex={tabIndex}
         rightAddon="€"
         errors={errors}
+        alerts={alerts}
       />
     )
   } else {
@@ -26,6 +27,7 @@ const NumericField = ({field, tabIndex, onChange, onBlur, errors}) => {
         onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
+        alerts={alerts}
       />
     )
   }
@@ -35,7 +37,8 @@ NumericField.propTypes = {
   onChange: PropTypes.func,
   tabIndex: PropTypes.number,
   field: PropTypes.object,
-  errors: PropTypes.object
+  errors: PropTypes.object,
+  alerts: PropTypes.object
 }
 
 export default NumericField
