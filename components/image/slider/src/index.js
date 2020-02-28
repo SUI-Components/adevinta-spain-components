@@ -64,7 +64,7 @@ export default function ImageSlider({
     sliderOptions.initialSlide || 0
   )
   const slides = getSlides(images, linkFactory)
-  const hasSingleImage = slides.length === 0
+  const hasSingleImage = slides.length === 1
 
   const BASE_CLASS = cx('sui-ImageSlider', {
     'sui-ImageSlider--single': hasSingleImage
