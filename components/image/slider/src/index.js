@@ -64,6 +64,11 @@ export default function ImageSlider({
     sliderOptions.initialSlide || 0
   )
   const slides = getSlides(images, linkFactory)
+  const hasSingleImage = Boolean(slides.length === 1)
+
+  const BASE_CLASS = cx('sui-ImageSlider', {
+    'sui-ImageSlider--single': hasSingleImage
+  })
 
   const buildCounter = totalImages => {
     const classNames = cx(
@@ -91,7 +96,7 @@ export default function ImageSlider({
 
   return (
     slides.length > 0 && (
-      <div onClick={handleClick} className="sui-ImageSlider">
+      <div onClick={handleClick} className={BASE_CLASS}>
         {slides.length > 1 ? (
           <ReactSlidy {...sliderOptions} doAfterSlide={handleAfterSlide}>
             {slides}
