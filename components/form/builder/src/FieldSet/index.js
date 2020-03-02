@@ -23,7 +23,7 @@ const FieldSet = ({
   }
 
   return (
-    <fieldset className={`${baseClass}-FieldSet`}>
+    <fieldset className={`${baseClass}-FieldSet ${baseClass}-${fieldset.id}`}>
       {label && (
         <legend>
           <span>{label}</span>
