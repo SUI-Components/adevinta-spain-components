@@ -5,7 +5,7 @@ import {field} from '../prop-types'
 
 import ProxyField from '../ProxyField'
 
-const baseClass = 'sui-FormBuilder'
+const baseClass = 'sui-FormBuilder-FieldSet'
 
 const FieldSet = ({
   fieldset,
@@ -23,13 +23,13 @@ const FieldSet = ({
   }
 
   return (
-    <fieldset className={`${baseClass}-FieldSet ${baseClass}-${fieldset.id}`}>
+    <fieldset className={`${baseClass} ${baseClass}-${fieldset.id}`}>
       {label && (
         <legend>
           <span>{label}</span>
         </legend>
       )}
-      <div className={`${baseClass}-FieldSetContainer`}>
+      <div className={`${baseClass}Container`}>
         {fields.map((field, index) => (
           <ProxyField
             onChange={onChange}
