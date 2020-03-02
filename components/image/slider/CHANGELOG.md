@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# 3.5.0 (2020-03-02)
+
+
+### Bug Fixes
+
+* single image center position ([8fa1215](https://github.com/SUI-Components/schibsted-spain-components/commit/8fa121582509a8c1321727a00122c6144a53c9f6))
+
+
+### Features
+
+* fix image length ([4e9f4eb](https://github.com/SUI-Components/schibsted-spain-components/commit/4e9f4ebe2504d0a63284bb7341d230ee6c56348f))
+* remove unnecessary boolean ([a869b42](https://github.com/SUI-Components/schibsted-spain-components/commit/a869b426dc5f19312d27c7e9c47dee66310c16d2))
+
+
+
 # 3.4.0 (2020-02-25)
 
 
