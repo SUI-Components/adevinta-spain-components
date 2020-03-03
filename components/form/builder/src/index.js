@@ -5,10 +5,12 @@ import {json} from './prop-types'
 import {reducer} from './reducer'
 import {RULES} from './reducer/constants'
 import {
+  pickFieldById,
   fieldsToObject,
   fieldsNamesInOrderOfDefinition,
   changeFieldById
 } from './reducer/fields'
+
 import ProxyField from './ProxyField'
 import {inputSizes as fieldSizes} from '@s-ui/react-atom-input'
 import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
@@ -157,5 +159,6 @@ FormBuilder.defaultProps = {
 }
 
 export {fieldSizes as formBuilderFieldSizes}
+export {pickFieldById as formBuilderPickFieldById}
 export {checkConstrainstsFactory} from './Standard'
 export default FormBuilder
