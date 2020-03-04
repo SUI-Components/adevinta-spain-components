@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.21.0 (2020-03-04)
+
+
+### Features
+
+* export changeFieldById func ([538f459](https://github.com/SUI-Components/adevinta-spain-components/commit/538f459e8e338ced06fa13ffe873c0bac5bd6ae8))
+
+
+
 # 1.20.0 (2020-03-04)
 
 
