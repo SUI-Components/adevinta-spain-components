@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.20.0 (2020-03-04)
+
+
+### Features
+
+* export pickFieldById from component ([64612a9](https://github.com/SUI-Components/adevinta-spain-components/commit/64612a9bc39474e4c2d7682985d99fe01e338d55))
+
+
+
 # 1.18.0 (2020-03-02)
 
 
