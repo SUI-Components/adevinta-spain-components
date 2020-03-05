@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import React, {useState, useEffect, useLayoutEffect, useRef} from 'react'
 import cx from 'classnames'
 import Menu from '@s-ui/react-icons/lib/Menu'
-import DropdownBasic from '@schibstedspain/sui-dropdown-basic'
-import DropdownUser from '@schibstedspain/sui-dropdown-user'
+import DropdownBasic from '@s-ui/react-dropdown-basic'
+import DropdownUser from '@s-ui/react-dropdown-user'
 import AtomButton from '@s-ui/react-atom-button'
 
 const DEFAULT_NAV_WRAP_STYLE = {
