@@ -4,7 +4,7 @@ import React, {Component} from 'react'
 import cx from 'classnames'
 import CardProductSlider from './card-product-slider'
 import Star from '@s-ui/react-icons/lib/Star'
-import TagChip from '@schibstedspain/sui-tag-chip'
+import TagChip from '@s-ui/react-tag-chip'
 
 /**
  * Product card containing a slider of images, title, description and some
