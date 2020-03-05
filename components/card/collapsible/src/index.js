@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, {Component} from 'react'
 import Button from '@s-ui/react-atom-button'
-import Collapsible from '@schibstedspain/sui-collapsible-basic'
+import Collapsible from '@s-ui/react-collapsible-basic'
 import IconX from '@s-ui/react-icons/lib/X'
 import cx from 'classnames'
 
