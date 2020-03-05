@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, {Component} from 'react'
 import Chevronright from '@s-ui/react-icons/lib/Chevronright'
-import FormCheckbox from '@schibstedspain/sui-form-checkbox'
+import FormCheckbox from '@s-ui/react-form-checkbox'
 import cx from 'classnames'
 
 export default class CardSubscription extends Component {
