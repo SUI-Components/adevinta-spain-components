@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ImagePlaceholder from '@schibstedspain/sui-image-placeholder'
+import ImagePlaceholder from '@s-ui/react-image-placeholder'
 
 const BASE_CLASS = 'sui-ThumbnailBasic'
 const CAPTION_CLASS = 'sui-ThumbnailBasic-caption'

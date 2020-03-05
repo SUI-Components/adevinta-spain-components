@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import ImagePlaceholder from '@schibstedspain/sui-image-placeholder'
+import ImagePlaceholder from '@s-ui/react-image-placeholder'
 
 class ImagePicker extends Component {
   constructor(props) {

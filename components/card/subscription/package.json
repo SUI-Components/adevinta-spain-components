@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@schibstedspain/sui-form-checkbox": "1",
+    "@s-ui/react-form-checkbox": "1",
     "@s-ui/react-icons": "1",
     "@s-ui/component-dependencies": "1"
   }

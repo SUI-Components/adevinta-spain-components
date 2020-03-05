@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import TagChip from '@schibstedspain/sui-tag-chip'
+import TagChip from '@s-ui/react-tag-chip'
 
 const TagDeletableList = ({tags, onDelete}) => (
   <div className="sui-TagDeletableList">

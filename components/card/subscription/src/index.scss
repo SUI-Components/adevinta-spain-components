@@ -1,7 +1,7 @@
 /* sass-lint:disable no-css-comments, class-name-format, no-important */
 @import '~@schibstedspain/sui-theme/lib/settings-compat-v7/index';
 @import '~@schibstedspain/sui-theme/lib/index';
-@import '~@schibstedspain/sui-form-checkbox/lib/index';
+@import '~@s-ui/react-form-checkbox/lib/index';
 
 .sui-CardSubscription {
   @include sui-card;

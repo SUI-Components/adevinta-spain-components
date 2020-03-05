@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import SuiModal from '@schibstedspain/sui-modal-basic'
+import SuiModal from '@s-ui/react-modal-basic'
 import ImageSlider from '@schibstedspain/sui-image-slider'
 
 const NO_OP = () => {}
