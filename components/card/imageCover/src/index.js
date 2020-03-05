@@ -2,7 +2,7 @@
 import AtomPanel from '@s-ui/react-atom-panel'
 import React from 'react'
 import PropTypes from 'prop-types'
-import SuiTagChip from '@schibstedspain/sui-tag-chip'
+import SuiTagChip from '@s-ui/react-tag-chip'
 
 const CardImageCover = ({
   media,
