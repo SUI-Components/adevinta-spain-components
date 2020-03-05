@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-list-tagcloud",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "description": "SUI TagCloud",
   "main": "lib/index.js",
   "scripts": {
