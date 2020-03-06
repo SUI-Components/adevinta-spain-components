@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.22.0 (2020-03-06)
+
+
+### Features
+
+* pass props to buttonInline's button component ([0ea6b21](https://github.com/SUI-Components/adevinta-spain-components/commit/0ea6b21ab72661978fa2ecb735020de406acd306))
+
+
+
 # 1.21.0 (2020-03-04)
 
 
