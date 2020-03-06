@@ -48,6 +48,7 @@ const InlineButton = ({inlineButton, tabIndex, onChange, errors, alerts}) => {
             onClick={() => onClickHandler(button.value)}
             isSubmit={false}
             isButton
+            {...inlineButtonProps}
           >
             {button.text}
           </Button>
