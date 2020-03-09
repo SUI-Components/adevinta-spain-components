@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-list-image",
-  "version": "1.12.0",
+  "version": "1.13.0",
   "description": "Displays a list of sui-image-lazy-load, with a customisable limit and onClick callbacks.",
   "main": "lib/index.js",
   "scripts": {
