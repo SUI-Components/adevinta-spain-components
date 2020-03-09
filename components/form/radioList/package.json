@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-form-radio-list",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Form radio list",
   "main": "lib/index.js",
   "scripts": {
