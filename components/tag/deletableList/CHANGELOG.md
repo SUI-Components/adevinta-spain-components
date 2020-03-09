@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.7.0 (2020-03-09)
+
+
+### Features
+
+* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([eaec74e](https://github.com/SUI-Components/schibsted-spain-components/commit/eaec74ee150ef4e2cebd5a136af4386d4c15c9b2))
+
+
+
 # 1.6.0 (2020-03-05)
 
 
