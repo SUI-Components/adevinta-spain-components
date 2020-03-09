@@ -26,7 +26,7 @@ return (
 ```
 
 ```sass
-@import '~@schibstedspain/sui-theme/lib/index';
+@import '~@s-ui/theme/lib/index';
 
 .myMarkdownFile {
   padding: $p-l;
