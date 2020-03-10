@@ -6,6 +6,7 @@ import {field, createComponentMemo} from '../../prop-types'
 import MoleculeAutosuggestField from '@s-ui/react-molecule-autosuggest-field'
 import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
 import IconClose from '../../Icons/IconClose'
+import {removeAccents} from '@s-ui/js/lib/string'
 
 const fromValueToText = datalist => value => {
   const item = datalist.find(item => item.value === value)
@@ -91,9 +92,11 @@ const AutosuggestSelect = ({
     return null
   }
 
+  const normalize = str => removeAccents(str.toLowerCase())
+
   const suggestions = localStateText
     ? datalist.filter(({text, value}) =>
-        text.toLowerCase().match(localStateText.toLowerCase())
+        normalize(text).match(normalize(localStateText))
       )
     : datalist
 
