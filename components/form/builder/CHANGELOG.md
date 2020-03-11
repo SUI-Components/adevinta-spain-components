@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.24.0 (2020-03-11)
+
+
+### Features
+
+* autosuggest accent insensitive ([7357e5b](https://github.com/SUI-Components/schibsted-spain-components/commit/7357e5bc78f53dae3fea51b8fd83f7bfbfa2dff1))
+
+
+
 # 1.23.0 (2020-03-09)
 
 
