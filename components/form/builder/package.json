@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
+    "@s-ui/js": "2",
     "@s-ui/react-atom-button": "1",
     "@s-ui/react-atom-spinner": "1",
     "@s-ui/react-atom-switch": "1",
