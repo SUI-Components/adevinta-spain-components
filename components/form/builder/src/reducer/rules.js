@@ -6,8 +6,6 @@ import {changeFieldById, fieldsToQP} from './fields'
 const fetch = url =>
   new Promise((resolve, reject) => {
     const request = new window.XMLHttpRequest()
-    request.responseType = 'json'
-    request.withCredentials = true
     request.onreadystatechange = function() {
       if (request.readyState === window.XMLHttpRequest.DONE) {
         if (request.status === 200) {
@@ -22,6 +20,8 @@ const fetch = url =>
       reject(Error('Network Error'))
     }
     request.open('GET', url, true)
+    request.responseType = 'json'
+    request.withCredentials = true
     request.send()
   })
 
@@ -79,11 +79,19 @@ export const fetchRemoteFields = (
         const {remote, ...resetValue} = nextValue
         return fetch(url)
           .then(json => {
-            const nextJSON = requestInterceptor({url, response: json})
+            const nextJSON = requestInterceptor({
+              url,
+              response:
+                typeof json === 'string' || json instanceof String
+                  ? JSON.parse(json)
+                  : json
+            })
             return [field, {...resetValue, ...nextJSON}]
           })
-          .catch(() => {
-            console.error(`FAIL requesting remote nextValue for ${field}`)
+          .catch(error => {
+            console.error(
+              `FAILED requesting remote nextValue for ${field} with error: ${error}`
+            )
             return [field, {}]
           })
       })
