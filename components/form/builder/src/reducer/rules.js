@@ -90,7 +90,7 @@ export const fetchRemoteFields = (
           })
           .catch(error => {
             console.error(
-              `FAILED requesting remote nextValue for ${field} with error: ${error} `
+              `FAILED requesting remote nextValue for ${field} with error: ${error}`
             )
             return [field, {}]
           })
