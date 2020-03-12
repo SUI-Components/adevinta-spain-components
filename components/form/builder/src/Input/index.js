@@ -97,11 +97,12 @@ const Input = ({
   }
 
   const inputProps = {
-    placeholder: input.hint,
     id: input.id,
     name: input.id,
     label: input.label || '',
     tabIndex,
+    placeholder: input.hint,
+    helpText: input.help,
     value: input.value || '',
     onChange: onChangeCallback,
     onBlur: onBlurCallback,

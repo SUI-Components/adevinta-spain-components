@@ -71,7 +71,7 @@ const DefaultSelect = ({select, tabIndex, onChange, onBlur, size, errors}) => {
           {selectProps.label}
         </label>
       )}
-      <MoleculeSelectField {...selectProps}>
+      <MoleculeSelectField {...selectProps} size="large">
         {datalist.map(data => (
           <MoleculeSelectOption key={data.value} value={data.value}>
             {data.text}

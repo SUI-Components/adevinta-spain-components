@@ -72,11 +72,7 @@ const TextArea = ({textArea, tabIndex, onChange, onBlur, errors}) => {
     <div
       className={`sui-FormBuilder-field sui-FormBuilder-TextArea sui-FormBuilder-${textAreaProps.id}`}
     >
-      <MoleculeTextAreaField
-        {...textAreaProps}
-        textCharacters="caracteres"
-        size="long"
-      />
+      <MoleculeTextAreaField {...textAreaProps} size="long" />
     </div>
   )
 }

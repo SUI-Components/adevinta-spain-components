@@ -109,7 +109,7 @@ const AutosuggestSelect = ({
           {autosuggestProps.label}
         </label>
       )}
-      <MoleculeAutosuggestField {...autosuggestProps}>
+      <MoleculeAutosuggestField {...autosuggestProps} size="large">
         {suggestions.map((suggestion, i) => (
           <MoleculeAutosuggestOption
             key={suggestion.value}
