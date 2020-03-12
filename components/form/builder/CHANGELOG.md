@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.25.0 (2020-03-12)
+
+
+### Bug Fixes
+
+* fetchRemoteFields xhr request ([bbf9dba](https://github.com/SUI-Components/schibsted-spain-components/commit/bbf9dbaa1fb4e3d2c65d59ed3bfa21ab96cf5edd))
+
+
+
 # 1.24.0 (2020-03-11)
 
 
