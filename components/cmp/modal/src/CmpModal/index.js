@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import {dispatchEvent} from '@s-ui/js/lib/events'
 
 import {CmpModal} from './component'
 
@@ -51,6 +52,8 @@ export class CmpModalContainer extends Component {
   handleToggleAll = ({event, enabled, isVendor}) => {
     event.preventDefault()
     event.nativeEvent.stopImmediatePropagation()
+
+    !enabled && dispatchEvent({eventName: 'CMP_MODAL_DISABLED_ALL'})
 
     const key = this._getKeyOfConsentToUpdate({isVendor})
 
