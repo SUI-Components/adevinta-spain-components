@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.31.0 (2020-03-13)
+
+
+### Features
+
+* send custom event when disable all ([5147da9](https://github.com/SUI-Components/schibsted-spain-components/commit/5147da9a52446aa4508157af4cfe39cb2db6bc0b))
+
+
+
 # 1.30.0 (2020-03-09)
 
 
