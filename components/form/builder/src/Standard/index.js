@@ -15,6 +15,7 @@ const DISPLAYS = {
     EMAIL: 'email',
     PHONE: 'phone', // not part of the DSL standard
     TEXT: 'text', // not part of the DSL standard
+    NUMERIC: 'numeric', // not part of the DSL standard
     DEFAULT: ''
   },
   [FIELDS.NUMERIC]: {
