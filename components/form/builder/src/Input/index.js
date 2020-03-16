@@ -11,8 +11,13 @@ import {FIELDS, DISPLAYS} from '../Standard'
 const DISPLAY = {
   [DISPLAYS[FIELDS.TEXT].EMAIL]: 'email',
   [DISPLAYS[FIELDS.TEXT].PHONE]: 'tel',
+  [DISPLAYS[FIELDS.TEXT].NUMERIC]: 'text',
   [DISPLAYS[FIELDS.TEXT].TEXT]: 'text',
   [DISPLAYS[FIELDS.TEXT].DEFAULT]: 'text'
+}
+
+const INPUT_MODES = {
+  DECIMAL: 'decimal'
 }
 
 const Input = ({
@@ -41,6 +46,10 @@ const Input = ({
   switch (input.type) {
     case FIELDS.TEXT: {
       nextProps = {type: DISPLAY[input.display] || 'text'} // this is the html input type (not the field type related to DSL form-builder)
+
+      if (input.display === DISPLAYS[FIELDS.TEXT].NUMERIC) {
+        nextProps.inputMode = INPUT_MODES.DECIMAL
+      }
 
       const constraints = input.constraints || []
 
@@ -94,7 +103,6 @@ const Input = ({
     ...(input.disabled && {
       disabled: true
     }),
-    ...(input.inputmode && {inputMode: input.inputmode}),
     ...(!!errorMessages && {
       errorText: errorMessages.join('\n')
     }),
