@@ -94,6 +94,7 @@ const Input = ({
     ...(input.disabled && {
       disabled: true
     }),
+    ...(input.inputmode && {inputMode: input.inputmode}),
     ...(!!errorMessages && {
       errorText: errorMessages.join('\n')
     }),
