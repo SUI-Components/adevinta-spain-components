@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.40.0 (2020-03-18)
+
+
+### Features
+
+* onToggle prop ([b09208e](https://github.com/SUI-Components/schibsted-spain-components/commit/b09208e64855649284d1560280f3585dcf8f1c99))
+
+
+
 # 1.39.0 (2020-03-09)
 
 
