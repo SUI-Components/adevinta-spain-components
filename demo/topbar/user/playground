@@ -130,5 +130,6 @@ return (
     navMain={navMain}
     navUser={navUser}
     navCTA={navCTA}
+    onToggle={console.log}
   />
 )

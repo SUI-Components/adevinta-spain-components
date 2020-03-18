@@ -31,6 +31,7 @@ export default function TopbarUser({
       {children}
     </a>
   ),
+  onToggle = () => {},
   elementsToKeepScrollOnToggleMenu = []
 }) {
   const _topbarUserNode = useRef(null)
@@ -63,7 +64,12 @@ export default function TopbarUser({
    * Toggle menu state: expanded/collapsed.
    */
   const _toggleMenu = () => {
-    setMenuExpanded(!menuExpanded)
+    const nextState = !menuExpanded
+
+    setMenuExpanded(nextState)
+    onToggle({
+      isOpen: nextState
+    })
   }
 
   /**
@@ -370,5 +376,9 @@ TopbarUser.propTypes = {
    * Array of elements to keep scroll while side menu is being toggled (since
    * we are fixing the `body` element position due to momentum scrolling on iOS).
    */
-  elementsToKeepScrollOnToggleMenu: PropTypes.arrayOf(PropTypes.string)
+  elementsToKeepScrollOnToggleMenu: PropTypes.arrayOf(PropTypes.string),
+  /**
+   * Function that is being executed each time use toggle topbar with the state
+   */
+  onToggle: PropTypes.func
 }
