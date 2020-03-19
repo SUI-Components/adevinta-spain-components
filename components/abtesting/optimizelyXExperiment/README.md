@@ -1,7 +1,7 @@
 # @s-ui/abtesting-optimizely-x
 > A React component that renders one single variation according to OptimizelyX's experiment decision.
 
-```html
+```js
 <OptimizelyExperiment experimentId={100}>
   <button variationId={1001} defaultVariation>Original</button>
   <button variationId={1002}>Variation #1</button>
@@ -28,7 +28,7 @@ Navigate to: https://app.optimizely.com/v2/ **>** Edit Experiment **>** API Name
 ```javascript
 import OptimizelyXExperiment from '@s-ui/abtesting-optimizely-x'
 ```
-```html
+```jsx
 <OptimizelyXExperiment experimentId={8470306415}>
   <button variationId={8463707014} defaultVariation>Original</button>
   <button variationId={8480321136}>Variation #1</button>
@@ -40,6 +40,21 @@ import OptimizelyXExperiment from '@s-ui/abtesting-optimizely-x'
 Component will obtain OptimizelyX's decision for given `experimentId` and display chosen variation.
 
 If no variation is provided or OptimizelyX API is unavailable, `defaultVariation` will be displayed.
+
+### Optional: Empty variation
+
+If you need to put an empty variation, **do not use `<Fragment>` component as you will get a lot of warnings message in the console**. Instead, use the `<EmptyVariation>` component and pass the props of the experiment.
+
+```jsx
+import OptimizelyXExperiment, {EmptyVariation} from '@s-ui/abtesting-optimizely-x'
+```
+
+```jsx
+<OptimizelyXExperiment experimentId={8470306415}>
+  <EmptyVariation variationId={8463707014} defaultVariation />
+  <button variationId={8480321136}>Variation #1</button>
+</OptimizelyXExperiment>
+```
 
 ## Advanced Usage
 
@@ -62,7 +77,7 @@ The following data is set in a plain object to the experiment context.
 
 So for a given experiment:
 
-```html
+```js
 <OptimizelyXExperiment experimentId={8470306415}>
   <NiceComponent variationId={8463707014} defaultVariation />
   <NiceComponent variationId={8480321136} />
@@ -83,7 +98,7 @@ const NiceComponent = () => {
 
 You may need to check which variation has been chosen down in the children, specially when the experiment has 3 or more possible variations. For the sake of simplicity, OptimizelyXExperiment will automatically assign an uppercase letter for each variation based on the order of children, but you could override it by using `variationName` prop directly into a variation.
 
-```html
+```js
 <OptimizelyXExperiment experimentId={8470306415}>
   <TestedComponent variationId={8463707014} defaultVariation />
   <TestedComponent variationId={8480321136} />
@@ -130,7 +145,7 @@ const TestedComponent = () => {
 
 While developing in localhost you may need to test different variations:
 
-```html
+```js
 <OptimizelyXExperiment experimentId={8470306415} forceVariation={8480321136}>
   <button variationId={8463707014} defaultVariation>Cats</button>
   <button variationId={8480321136}>Dogs</button>
@@ -139,7 +154,7 @@ While developing in localhost you may need to test different variations:
 
 In the above example, "Dogs" variation will be always displayed. You can also use variation name instead:
 
-```html
+```js
 <OptimizelyXExperiment experimentId={8470306415} forceVariation="B">
   <button variationId={8463707014} defaultVariation>Cats</button>
   <button variationId={8480321136}>Dogs</button>
@@ -152,7 +167,7 @@ NOTE: Since this prop is meant to be used in development environment only, `forc
 
 This prop is similar to `forceVariation` prop, but it simulates an actual activation, so default variation is displayed first and then it gets swapped by the passed variation after X milliseconds (the number of milliseconds can be changed via `forceActivationDelay` prop). This is the closest behaviour to an actual experiment that you could configure in Optimizely's panel because you get the same "flash" effect. This way you can check that nothing gets broken despite the flash, without the need of actually configuring an experiment in Optimizely's panel.
 
-```html
+```js
 <OptimizelyXExperiment experimentId={8470306415} forceActivation={8480321136}>
   <button variationId={8463707014} defaultVariation>Cats</button>
   <button variationId={8480321136}>Dogs</button>
@@ -161,7 +176,7 @@ This prop is similar to `forceVariation` prop, but it simulates an actual activa
 
 In the above example, "Cats" variation will be displayed first, then after a few milliseconds "Dogs" variation will be definitely displayed. You can also use variation name instead:
 
-```html
+```js
 <OptimizelyXExperiment experimentId={8470306415} forceActivation="B">
   <button variationId={8463707014} defaultVariation>Cats</button>
   <button variationId={8480321136}>Dogs</button>
@@ -184,7 +199,7 @@ Moreover, depending on how you load Optimizely's snippet, the clipping may also 
 
 All the props passed to OptimizelyXExperiment component will be automatically set on the experiment context. This is why experimentId is available in the context.
 
-```html
+```js
 <OptimizelyXExperiment experimentId={8470306415} propX="foo" propY="boo">
    <VariationA ...>
    <VariationB ...>
