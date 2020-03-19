@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import ExperimentContext from './experiment-context'
@@ -23,7 +23,7 @@ AbTestOptimizelyXExperiment.propTypes = {
   feed: PropTypes.object
 }
 
-const EmptyVariation = props => <Fragment {...props} />
+const EmptyVariation = props => null
 
 EmptyVariation.propTypes = {
   defaultVariation: PropTypes.bool,
