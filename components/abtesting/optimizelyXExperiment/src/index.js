@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 
 import ExperimentContext from './experiment-context'
@@ -23,5 +23,12 @@ AbTestOptimizelyXExperiment.propTypes = {
   feed: PropTypes.object
 }
 
+const EmptyVariation = props => <Fragment {...props} />
+
+EmptyVariation.propTypes = {
+  defaultVariation: PropTypes.bool,
+  variationId: PropTypes.number.isRequired
+}
+
 export default AbTestOptimizelyXExperiment
-export {ExperimentContext}
+export {EmptyVariation, ExperimentContext}
