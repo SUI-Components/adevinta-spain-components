@@ -43,7 +43,7 @@ If no variation is provided or OptimizelyX API is unavailable, `defaultVariation
 
 ### Optional: Empty variation
 
-If you need to put an empty variation, **do not use `<Fragment>` component as you will get a lot of warnings message in the console**. Instead, use the `<EmptyVariation>` component and pass the props of the experiment.
+If you need to use an empty variation, **do not use `<Fragment>` component as you will get a lot of warning messages in the console**. Instead, use the `<EmptyVariation>` component and pass by the experiment's props.
 
 ```jsx
 import OptimizelyXExperiment, {EmptyVariation} from '@s-ui/abtesting-optimizely-x'
