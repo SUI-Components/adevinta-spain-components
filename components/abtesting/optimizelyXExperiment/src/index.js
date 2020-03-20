@@ -23,5 +23,12 @@ AbTestOptimizelyXExperiment.propTypes = {
   feed: PropTypes.object
 }
 
+const EmptyVariation = props => null
+
+EmptyVariation.propTypes = {
+  defaultVariation: PropTypes.bool,
+  variationId: PropTypes.number.isRequired
+}
+
 export default AbTestOptimizelyXExperiment
-export {ExperimentContext}
+export {EmptyVariation, ExperimentContext}
