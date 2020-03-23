@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.9.0 (2020-03-23)
+
+
+### Bug Fixes
+
+* avoid duplicated import pkg ([62bcf6e](https://github.com/SUI-Components/schibsted-spain-components/commit/62bcf6e536c885ee273e6c64cb13b363b581480e))
+
+
+### Features
+
+* Use new [@s-ui](https://github.com/s-ui) and [@adv-ui](https://github.com/adv-ui) organization pkgs ([6beb0ae](https://github.com/SUI-Components/schibsted-spain-components/commit/6beb0ae7fd6c275f493017f3121f55868560148a))
+
+
+
 # 2.8.0 (2020-03-09)
 
 
