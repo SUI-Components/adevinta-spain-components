@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.6.0 (2020-03-23)
+
+
+### Features
+
+* Use new [@s-ui](https://github.com/s-ui) and [@adv-ui](https://github.com/adv-ui) organization pkgs ([37ee5cb](https://github.com/SUI-Components/schibsted-spain-components/commit/37ee5cb99ddb8ce64bd1902ad80b12a2c9d82a4b))
+
+
+
 # 1.5.0 (2020-02-25)
 
 
