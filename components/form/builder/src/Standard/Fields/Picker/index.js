@@ -5,6 +5,7 @@ import Switch from '../../../Switch'
 import Select from '../../../Select'
 import Checkbox from '../../../Checkbox'
 import InlineButton from '../../../InlineButton'
+import Radio from '../../../Radio'
 
 import {FIELDS, DISPLAYS} from '../../index'
 
@@ -33,7 +34,15 @@ const PickerField = ({field, tabIndex, onChange, onBlur, errors}) => {
       />
     )
   } else if (field.display === DISPLAYS[FIELDS.PICKER].RADIO) {
-    return <p>radio button TODO</p>
+    return (
+      <Radio
+        radio={field}
+        onChange={onChange}
+        onBlur={onBlur}
+        tabIndex={tabIndex}
+        errors={errors}
+      />
+    )
   } else if (field.display === DISPLAYS[FIELDS.PICKER].CHECKBOX) {
     return (
       <Checkbox
