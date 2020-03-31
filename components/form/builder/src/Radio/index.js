@@ -6,7 +6,6 @@ import MoleculeRadioButtonGroup from '@s-ui/react-molecule-radio-button-group'
 import MoleculeRadioButtonField from '@s-ui/react-molecule-radio-button-field'
 
 const Radio = ({radio, tabIndex, onChange, errors, alerts}) => {
-  if (!errors || !alerts) debugger // eslint-disable-line
   const errorMessages = errors[radio.id]
   const alertMessages = alerts[radio.id]
 
