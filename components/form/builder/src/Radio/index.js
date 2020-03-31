@@ -5,8 +5,10 @@ import {field, createComponentMemo} from '../prop-types'
 import MoleculeRadioButtonGroup from '@s-ui/react-molecule-radio-button-group'
 import MoleculeRadioButtonField from '@s-ui/react-molecule-radio-button-field'
 
-const Radio = ({radio, tabIndex, onChange, errors}) => {
+const Radio = ({radio, tabIndex, onChange, errors, alerts}) => {
+  if (!errors || !alerts) debugger // eslint-disable-line
   const errorMessages = errors[radio.id]
+  const alertMessages = alerts[radio.id]
 
   const onChangeHandler = value => {
     return onChange(radio.id, value)
@@ -24,6 +26,9 @@ const Radio = ({radio, tabIndex, onChange, errors}) => {
     }),
     ...(!!errorMessages && {
       errorText: errorMessages.join('\n')
+    }),
+    ...(!!alertMessages && {
+      alertText: alertMessages.join('\n')
     })
   }
 
@@ -40,7 +45,7 @@ const Radio = ({radio, tabIndex, onChange, errors}) => {
         onChange={(_, {value}) => {
           onChangeHandler(value)
         }}
-        value={radio.value}
+        id={radio.id}
       >
         {radio?.datalist.map(button => (
           <MoleculeRadioButtonField
@@ -61,7 +66,8 @@ Radio.propTypes = {
   radio: field,
   tabIndex: PropTypes.number,
   onChange: PropTypes.func,
-  errors: PropTypes.object
+  errors: PropTypes.object,
+  alerts: PropTypes.object
 }
 
 export default React.memo(Radio, createComponentMemo('radio'))

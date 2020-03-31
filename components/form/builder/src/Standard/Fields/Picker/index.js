@@ -43,6 +43,7 @@ const PickerField = ({field, tabIndex, onChange, onBlur, errors, alerts}) => {
         onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
+        alerts={alerts}
       />
     )
   } else if (field.display === DISPLAYS[FIELDS.PICKER].CHECKBOX) {
