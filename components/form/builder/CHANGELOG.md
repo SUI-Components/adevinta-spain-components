@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.28.0 (2020-03-31)
+
+
+### Features
+
+* add alert to radio button ([c5b407a](https://github.com/SUI-Components/schibsted-spain-components/commit/c5b407a307120e4e8aa460598818f9b6d314f2c2))
+* add value ([dd82304](https://github.com/SUI-Components/schibsted-spain-components/commit/dd823047a648b3d650ac43f43d9fc6ea90cb7503))
+* remove debugger ([1894d85](https://github.com/SUI-Components/schibsted-spain-components/commit/1894d852aa7a488fdd2bcbfc16ca833413c319e7))
+
+
+
 # 1.27.0 (2020-03-25)
 
 
