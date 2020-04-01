@@ -1,7 +1,7 @@
 import React from 'react'
 
 import PropTypes from 'prop-types'
-import {field} from '../prop-types'
+import {field, createComponentMemo} from '../prop-types'
 import MoleculeRadioButtonGroup from '@s-ui/react-molecule-radio-button-group'
 import MoleculeRadioButtonField from '@s-ui/react-molecule-radio-button-field'
 
@@ -70,4 +70,4 @@ Radio.propTypes = {
   alerts: PropTypes.object
 }
 
-export default Radio
+export default React.memo(Radio, createComponentMemo('radio'))
