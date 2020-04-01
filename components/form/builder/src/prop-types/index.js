@@ -44,10 +44,10 @@ export const json = PropTypes.shape({
 export const createComponentMemo = field => (nextProps, prevProps) => {
   return (
     JSON.stringify(nextProps[field]) === JSON.stringify(prevProps[field]) &&
-    nextProps.errors[nextProps[field].id] ===
-      prevProps.errors[prevProps[field].id] &&
-    nextProps.alerts[nextProps[field].id] ===
-      prevProps.alerts[prevProps[field].id] &&
+    nextProps.errors?.[nextProps[field].id] ===
+      prevProps.errors?.[prevProps[field].id] &&
+    nextProps.alerts?.[nextProps[field].id] ===
+      prevProps.alerts?.[prevProps[field].id] &&
     nextProps.onChange === prevProps.onChange
   )
 }
