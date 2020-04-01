@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.29.0 (2020-04-01)
+
+
+### Bug Fixes
+
+* avoid breaking if alerts or error is not passed ([2d93fa6](https://github.com/SUI-Components/schibsted-spain-components/commit/2d93fa6fb5a6e261c8b17f725d5a210563093264))
+* remove memo from radio button ([804d7d8](https://github.com/SUI-Components/schibsted-spain-components/commit/804d7d84f48a65d23e3c12426eaca054e4aa37cd))
+
+
+### Features
+
+* undop  changes ([8beb75c](https://github.com/SUI-Components/schibsted-spain-components/commit/8beb75c74c856adcf846280448e492e812f157b5))
+
+
+
 # 1.28.0 (2020-03-31)
 
 
