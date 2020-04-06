@@ -1,4 +1,12 @@
-import {IN, NIN, EXISTS, NEXISTS, CHANGED} from './constants'
+import {
+  IN,
+  NIN,
+  EXISTS,
+  NEXISTS,
+  CHANGED,
+  EQUALS,
+  GREATERTHAN
+} from './constants'
 import {pickFieldById} from './fields'
 
 export const operators = {
@@ -17,5 +25,15 @@ export const operators = {
   [NEXISTS]: (id, fields) => {
     return !operators.EXISTS(id, fields)
   },
-  [CHANGED]: (id, changeField) => id === changeField
+  [CHANGED]: (id, changeField) => id === changeField,
+  [EQUALS]: (id, values, fields) => {
+    const field = pickFieldById(fields, id)
+    const shouldApply = values[0] === field.value
+    return shouldApply
+  },
+  [GREATERTHAN]: (id, values, fields) => {
+    const field = pickFieldById(fields, id)
+    const shouldApply = values[0] > field.value
+    return shouldApply
+  }
 }
