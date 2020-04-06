@@ -8,7 +8,8 @@ import {
   CHANGED,
   REMOTE,
   EQUALS,
-  GREATERTHAN
+  GREATERTHAN,
+  LESSTHAN
 } from './constants'
 import {changeFieldById, fieldsToQP} from './fields'
 
@@ -59,15 +60,13 @@ export const shouldApplyRule = (fields, changeField) => when => {
         isValid = operators.CHANGED(rule.id, changeField)
         break
       case EQUALS:
-        isValid = operators.EQUALS(rule.id, rule.value, fields, changeField)
+        isValid = operators.EQUALS(rule.id, rule.value, fields)
         break
       case GREATERTHAN:
-        isValid = operators.GREATERTHAN(
-          rule.id,
-          rule.value,
-          fields,
-          changeField
-        )
+        isValid = operators.GREATERTHAN(rule.id, rule.value, fields)
+        break
+      case LESSTHAN:
+        isValid = operators.LESSTHAN(rule.id, rule.value, fields)
         break
       default:
         console.warn(`Unkown operator ${rule.operator}`)

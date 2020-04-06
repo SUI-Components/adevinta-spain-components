@@ -35,5 +35,10 @@ export const operators = {
     const field = pickFieldById(fields, id)
     const shouldApply = values[0] > field.value
     return shouldApply
+  },
+  [LESSTHAN]: (id, values, fields) => {
+    const field = pickFieldById(fields, id)
+    const shouldApply = values[0] < field.value
+    return shouldApply
   }
 }
