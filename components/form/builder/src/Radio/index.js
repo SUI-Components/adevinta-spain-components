@@ -17,7 +17,6 @@ const Radio = ({radio, tabIndex, onChange, errors, alerts}) => {
     id: radio.id,
     label: radio.label,
     tabIndex: tabIndex,
-    value: radio.value,
     ...(radio.disabled && {
       disabled: true
     }),
@@ -45,7 +44,8 @@ const Radio = ({radio, tabIndex, onChange, errors, alerts}) => {
         onChange={(_, {value}) => {
           onChangeHandler(value)
         }}
-        {...radioProps}
+        id={radio.id}
+        value={radio.value}
       >
         {radio?.datalist.map(button => (
           <MoleculeRadioButtonField
