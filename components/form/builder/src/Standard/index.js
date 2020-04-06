@@ -134,7 +134,6 @@ const checkConstrainstsFactory = json => ({for: fieldID, all}) => {
 
   const fieldsWithErrors = {}
   fieldsToValidate.forEach(fieldId => {
-    if(fieldId === 'carMake') debugger // eslint-disable-line
     const field = pickFieldById(json.form.fields, fieldId)
     fieldsWithErrors[field.id] = checkConstraintsFromField(field)
   })
