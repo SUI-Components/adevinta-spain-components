@@ -2,7 +2,7 @@ import React from 'react'
 
 import PropTypes from 'prop-types'
 import {field, createComponentMemo} from '../prop-types'
-import MoleculeButtonGroup from '@s-ui/react-molecule-button-group'
+import MoleculeButtonGroupField from '@s-ui/react-molecule-button-group-field'
 import Button from '@s-ui/react-atom-button'
 
 const InlineButton = ({inlineButton, tabIndex, onChange, errors, alerts}) => {
@@ -40,7 +40,7 @@ const InlineButton = ({inlineButton, tabIndex, onChange, errors, alerts}) => {
       className={`sui-FormBuilder-field sui-FormBuilder-InlineButton sui-FormBuilder-${inlineButtonProps.id ||
         tabIndex}`}
     >
-      <MoleculeButtonGroup>
+      <MoleculeButtonGroupField {...inlineButtonProps}>
         {inlineButton?.datalist.map(button => (
           <Button
             key={button.text}
@@ -48,12 +48,11 @@ const InlineButton = ({inlineButton, tabIndex, onChange, errors, alerts}) => {
             onClick={() => onClickHandler(button.value)}
             isSubmit={false}
             isButton
-            {...inlineButtonProps}
           >
             {button.text}
           </Button>
         ))}
-      </MoleculeButtonGroup>
+      </MoleculeButtonGroupField>
     </div>
   )
 }
