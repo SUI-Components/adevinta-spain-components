@@ -5,7 +5,8 @@ import {
   NEXISTS,
   CHANGED,
   EQUALS,
-  GREATERTHAN
+  GREATERTHAN,
+  LESSTHAN
 } from './constants'
 import {pickFieldById} from './fields'
 
