@@ -87,7 +87,10 @@ const Input = ({
             min: constraint?.property?.min
           }),
           ...(constraint?.property?.notnull === '' && {
-            required: constraint?.property?.notnull
+            required: true
+          }),
+          ...(constraint?.property?.pattern && {
+            pattern: constraint?.property?.pattern
           })
         }
       }, nextProps)
