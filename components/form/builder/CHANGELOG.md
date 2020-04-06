@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.30.0 (2020-04-06)
+
+
+### Features
+
+* reorder dependencies ([849f47d](https://github.com/SUI-Components/schibsted-spain-components/commit/849f47ddc4674d8572c498b203518c46638ed0e2))
+* use molecule-button-group-field instead of molecule-button-group ([9e8d3f7](https://github.com/SUI-Components/schibsted-spain-components/commit/9e8d3f7c9694d4af975e47c339ef752b9782fc49))
+
+
+
 # 1.29.0 (2020-04-01)
 
 
