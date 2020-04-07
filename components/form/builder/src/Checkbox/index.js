@@ -37,7 +37,7 @@ const Checkbox = ({checkbox, tabIndex, onChange, onBlur, errors, alerts}) => {
   checkboxProps = {
     ...checkboxProps,
     id: checkbox.id,
-    nodeLabel: checkbox.label,
+    label: checkbox.label,
     checked,
     value: checked,
     checkedIcon: IconCheck,
