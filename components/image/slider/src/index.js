@@ -137,7 +137,8 @@ ImageSlider.propTypes = {
     classNameArrows: PropTypes.string,
     doAfterSlide: PropTypes.func,
     lazyLoadSlider: PropTypes.bool,
-    initialSlide: PropTypes.number
+    initialSlide: PropTypes.number,
+    numOfSlides: PropTypes.number
   }),
   linkFactory: PropTypes.func,
   /**
