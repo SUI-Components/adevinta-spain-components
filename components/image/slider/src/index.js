@@ -12,7 +12,9 @@ export const IMAGE_SLIDER_COUNTER_POSITIONS = {
 const NO_OP = () => {}
 const TARGET_BLANK = '_blank'
 
-const defaultLinkFactory = ({href, target, className, children, key}) => ( // eslint-disable-line
+const defaultLinkFactory = (
+  {href, target, className, children, key} // eslint-disable-line
+) => (
   <a href={href} target={target} className={className} key={key}>
     {children}
   </a>
@@ -24,7 +26,7 @@ const defaultCounterPatternFactory = ({current, total}) => `${current}/${total}`
  * @param {Array} images List given by props.images.
  * @return {Array} List of img elements.
  */
-const getSlides = (images = [], linkFactory) => {
+const getSlides = (currentSlide, images = [], linkFactory) => {
   return images.map((image, index) => {
     const {alt, key: imageKey, link, src, target = TARGET_BLANK, title} = image
 
@@ -32,6 +34,7 @@ const getSlides = (images = [], linkFactory) => {
     const img = (
       <img
         alt={alt}
+        aria-selected={currentSlide === index}
         className="sui-ImageSlider-image"
         key={key}
         src={src}
@@ -63,7 +66,7 @@ export default function ImageSlider({
   const [currentSlide, setCurrentSlide] = useState(
     sliderOptions.initialSlide || 0
   )
-  const slides = getSlides(images, linkFactory)
+  const slides = getSlides(currentSlide, images, linkFactory)
   const hasSingleImage = slides.length === 1
 
   const BASE_CLASS = cx('sui-ImageSlider', {
