@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.9.0 (2020-04-09)
+
+
+### Bug Fixes
+
+* fix styles ([38e5e90](https://github.com/SUI-Components/schibsted-spain-components/commit/38e5e904604a5cd1b3bb3b2c5c2fa5f9a2834375))
+
+
+
 # 1.8.0 (2020-03-09)
 
 
