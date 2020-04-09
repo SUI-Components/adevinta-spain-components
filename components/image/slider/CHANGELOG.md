@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 3.7.0 (2020-04-09)
+
+
+### Features
+
+* accept numOfSlides prop as one of sliderOptions properties ([fcd3702](https://github.com/SUI-Components/schibsted-spain-components/commit/fcd37021c480618b8e810e8f9eb4204a325fa3f2))
+* add aria-selected attribute to images ([bc189d0](https://github.com/SUI-Components/schibsted-spain-components/commit/bc189d0df470f9c7a045c58b3aaa0efa4d700fbc))
+
+
+
 # 3.6.0 (2020-03-09)
 
 
