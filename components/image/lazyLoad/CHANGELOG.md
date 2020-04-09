@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.19.0 (2020-04-09)
+
+
+### Bug Fixes
+
+* fix position value ([e46e33e](https://github.com/SUI-Components/schibsted-spain-components/commit/e46e33e9bde0f97b23217cb811254c88e5e38da4))
+
+
+
 # 1.18.0 (2020-03-09)
 
 
