@@ -68,7 +68,7 @@ const checkConstraintsFromField = field => {
     // if element validity is tooShort means that it is working as expected and it is not required manual validation
     !elementValidity.tooShort
   ) {
-    const textAreaHasMinLength = field.constraints.find(
+    const textAreaHasMinLength = field.constraints?.find(
       constraint => constraint.property?.minlength
     )
     const textAreaValue = elementNode?.value
@@ -79,6 +79,24 @@ const checkConstraintsFromField = field => {
     )
       errorMessages = [...errorMessages, textAreaHasMinLength.message]
   }
+  // custom validation: since SUI select and autocomplete add disabled and readOnly props to input the default validity function marks allways as valid the field
+  if (
+    field.type === FIELDS.PICKER &&
+    (field.display === DISPLAYS[FIELDS.PICKER].AUTOCOMPLETE ||
+      field.display === DISPLAYS[FIELDS.PICKER].DROPDOWN ||
+      field.display === '')
+  ) {
+    const pickerValue = elementNode?.value
+    const pickerShouldNotBeNullConstraint = field.constraints?.find(
+      constraint => constraint.property?.notnull === ''
+    )
+    if (pickerShouldNotBeNullConstraint && !pickerValue) {
+      errorMessages = [
+        pickerShouldNotBeNullConstraint.message,
+        ...errorMessages
+      ]
+    }
+  }
 
   // custom validation: pattern constraint in html input (type=checkbox) is not natively supported, need to handle it manually
   if (
@@ -87,7 +105,7 @@ const checkConstraintsFromField = field => {
   ) {
     const checkboxValue = JSON.parse(elementNode?.value)
 
-    const checkboxShouldBeTrueConstraint = field.constraints.find(
+    const checkboxShouldBeTrueConstraint = field.constraints?.find(
       constraint => constraint.property?.pattern === '^true$'
     )
 
@@ -95,6 +113,7 @@ const checkConstraintsFromField = field => {
     if (checkboxShouldBeTrueConstraint && !checkboxValue)
       errorMessages = [checkboxShouldBeTrueConstraint.message, ...errorMessages]
   }
+
   return errorMessages
 }
 

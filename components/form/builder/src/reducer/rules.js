@@ -1,6 +1,16 @@
 /* eslint-disable no-console */
 import {operators} from './operators'
-import {IN, NIN, EXISTS, NEXISTS, CHANGED, REMOTE} from './constants'
+import {
+  IN,
+  NIN,
+  EXISTS,
+  NEXISTS,
+  CHANGED,
+  REMOTE,
+  EQUALS,
+  GREATERTHAN,
+  LESSTHAN
+} from './constants'
 import {changeFieldById, fieldsToQP} from './fields'
 
 const fetch = url =>
@@ -32,7 +42,6 @@ export const shouldApplyRule = (fields, changeField) => when => {
     if (!when.some(rule => rule.id === changeField)) {
       return false
     }
-
     let isValid
     switch (rule.operator) {
       case IN:
@@ -49,6 +58,15 @@ export const shouldApplyRule = (fields, changeField) => when => {
         break
       case CHANGED:
         isValid = operators.CHANGED(rule.id, changeField)
+        break
+      case EQUALS:
+        isValid = operators.EQUALS(rule.id, rule.value, fields)
+        break
+      case GREATERTHAN:
+        isValid = operators.GREATERTHAN(rule.id, rule.value, fields)
+        break
+      case LESSTHAN:
+        isValid = operators.LESSTHAN(rule.id, rule.value, fields)
         break
       default:
         console.warn(`Unkown operator ${rule.operator}`)
