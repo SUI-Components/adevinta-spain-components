@@ -2,11 +2,31 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.31.0 (2020-04-14)
+
+
+### Features
+
+* add chain operator ([4314138](https://github.com/SUI-Components/schibsted-spain-components/commit/4314138109bac3c3670f6c125d3ef3f8dd3a940d))
+* add custom validation for select and autocomplete ([1ed9819](https://github.com/SUI-Components/schibsted-spain-components/commit/1ed9819e9a7ee2a0e25f7812e32917b57d3e672a))
+* add nodelabel to checkbox ([e45523b](https://github.com/SUI-Components/schibsted-spain-components/commit/e45523bacda5ed2d51bb32efbc575ec816946829))
+* add radioprops ([d38afbc](https://github.com/SUI-Components/schibsted-spain-components/commit/d38afbc4e991a0f8e7fa8c6421a5b55c4f15b727))
+* add some styles ([5ad3c7d](https://github.com/SUI-Components/schibsted-spain-components/commit/5ad3c7da195e72482d0699d592abf309fe188b8a))
+* change nodelabel by label ([d76be9e](https://github.com/SUI-Components/schibsted-spain-components/commit/d76be9e00e3870d537966e14e7f79883615543cd))
+* remove checked prop ([4a86b47](https://github.com/SUI-Components/schibsted-spain-components/commit/4a86b470052fea7cd8b32d75db28e177683277c2))
+* remove debugger ([c7bc992](https://github.com/SUI-Components/schibsted-spain-components/commit/c7bc9922f514ed384247c30b3730daa765f7a7ee))
+* undo last commit ([bebf381](https://github.com/SUI-Components/schibsted-spain-components/commit/bebf3818b171065cc35c72e431a7cda4200859c2))
+
+
+
 # 1.30.0 (2020-04-06)
 
 
 ### Features
 
+* add EQUALS and GREATERTHAN operators ([1480725](https://github.com/SUI-Components/schibsted-spain-components/commit/1480725eb397f59c44d06f48e16f0a98401f71d2))
+* add lessthan ([5ad63e0](https://github.com/SUI-Components/schibsted-spain-components/commit/5ad63e0aacee3d09002854a3cd3893b4ecfb2352))
+* add LESSTHAN operator ([28e2411](https://github.com/SUI-Components/schibsted-spain-components/commit/28e2411d30d1a2e80246aa5fd7114b3d0db8dfc1))
 * reorder dependencies ([849f47d](https://github.com/SUI-Components/schibsted-spain-components/commit/849f47ddc4674d8572c498b203518c46638ed0e2))
 * use molecule-button-group-field instead of molecule-button-group ([9e8d3f7](https://github.com/SUI-Components/schibsted-spain-components/commit/9e8d3f7c9694d4af975e47c339ef752b9782fc49))
 
