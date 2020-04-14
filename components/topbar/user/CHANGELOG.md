@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.41.0 (2020-04-14)
+
+
+### Bug Fixes
+
+* button icon current color fix ([24f23be](https://github.com/SUI-Components/schibsted-spain-components/commit/24f23bed4997d1ecedb11d1416db2c3564cae0cb))
+
+
+
 # 1.40.0 (2020-03-18)
 
 
