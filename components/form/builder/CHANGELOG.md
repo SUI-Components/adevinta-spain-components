@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.33.0 (2020-04-14)
+
+
+### Features
+
+* add value to checkbox ([b777adb](https://github.com/SUI-Components/schibsted-spain-components/commit/b777adb25e57cc7c7d3b94efc4b0d23fe8139a62))
+* bump version ([32b4f0b](https://github.com/SUI-Components/schibsted-spain-components/commit/32b4f0bc56ed5faf3a3dff01243a58f851bdf9bc))
+
+
+
 # 1.32.0 (2020-04-14)
 
 
