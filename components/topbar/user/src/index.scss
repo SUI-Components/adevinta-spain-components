@@ -39,6 +39,10 @@ $maw-topbar-user-nav: 350px !default;
   padding: 0 $p-h;
   position: relative;
 
+  &-ctaButtonIcon {
+    fill: currentColor !important;
+  }
+
   &-wrap {
     display: flex;
     flex: 1;
