@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.32.0 (2020-04-14)
+
+
+### Features
+
+* change value by checked ([0810eb3](https://github.com/SUI-Components/schibsted-spain-components/commit/0810eb39683ad0599f39a2f0408552f280be75ba))
+
+
+
 # 1.31.0 (2020-04-14)
 
 
