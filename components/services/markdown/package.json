@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "marked": "0.4.0"
+    "marked": "0.8.2"
   },
   "keywords": [],
   "author": "",
