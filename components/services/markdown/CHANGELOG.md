@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.10.0 (2020-04-15)
+
+
+### Features
+
+* upgrade marked ([01843e6](https://github.com/SUI-Components/schibsted-spain-components/commit/01843e62a606b18f5ba27c76fe9ae3bf4a311609))
+
+
+
 # 1.9.0 (2020-03-09)
 
 
