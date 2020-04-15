@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import SuiSwitch from '@s-ui/react-atom-switch'
 import SuiButton from '@s-ui/react-atom-button'
@@ -21,6 +21,12 @@ const InfoCard = ({description, purposes}) => {
     </>
   )
 }
+
+InfoCard.displayName = 'InfoCard'
+InfoCard.propTypes = {
+  purposes: PropTypes.arrayOf(PropTypes.object),
+  description: PropTypes.string
+}
 export default function TcfFirstLayer({purposes}) {
   const [saveButtonDisabled, setSaveButtonDisabled] = useState(true)
   const [purposesState, setPurposesState] = useState(purposes)
@@ -34,12 +40,12 @@ export default function TcfFirstLayer({purposes}) {
     return null
   }
   const handleAcceptAll = () => {
-    debugger // eslint-disable-line
     const updatedPurposes = purposesState.map(purpose => {
       purpose.initialValue = true
       return purpose
     })
     setPurposesState(updatedPurposes)
+    setSaveButtonDisabled(false)
     console.log('should accept all pruposes')
     return null
   }
