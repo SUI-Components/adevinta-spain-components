@@ -1,8 +1,6 @@
-import {TcfServicesUseCasesFactory} from './service/factory'
-
 class Service {
-  constructor() {
-    this._sendConsentsUseCase = TcfServicesUseCasesFactory.sendConsentUseCase()
+  constructor(sendConsentUseCase) {
+    this._sendConsentsUseCase = sendConsentUseCase
   }
 
   sendConsents() {
