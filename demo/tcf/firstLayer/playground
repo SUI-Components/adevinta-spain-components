@@ -1,5 +1,5 @@
 const literals = {
-  purposes: [
+  purposeConsents: [
     {
       index: 1,
       text:
@@ -62,4 +62,8 @@ const literals = {
     }
   ]
 }
-return (<TcfFirstLayer purposes={literals.purposes}/>)
+
+const loadUserConsent = () => Promise.resolve(literals)
+const saveUserConsent = () => {console.log('saveUserConsent called')}
+const openSecondLayer = () => {console.log('openSecondLayer called')}
+return (<TcfFirstLayer loadUserConsent={loadUserConsent} saveUserConsent={saveUserConsent} openSecondLayer={openSecondLayer} />)
