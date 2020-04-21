@@ -8,7 +8,9 @@ export default function TcfServices({children}) {
   useEffect(function() {
     Promise.resolve()
       .then(() => ServiceInitializer.init())
-      .then(service => setService(service))
+      .then(service => {
+        setService(service)
+      })
   }, [])
 
   return service && children(service)

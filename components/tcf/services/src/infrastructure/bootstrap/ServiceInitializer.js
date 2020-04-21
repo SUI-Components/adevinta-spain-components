@@ -1,15 +1,27 @@
 import {Service} from '../../application/Service'
-import {sendConsentUseCaseFactory} from '../../application/service/factory'
+import {
+  saveUserConsentUseCaseFactory,
+  loadUserConsentUseCaseFactory,
+  getConsentStatusUseCaseFactory
+} from '../../application/service/factory'
 import {tcfRepositoryFactory} from '../Tcf/factory'
 
 class ServiceInitializer {
   static init() {
     const tcfRepository = tcfRepositoryFactory()
-    const sendConsentUseCase = sendConsentUseCaseFactory({
+    const saveUserConsentUseCase = saveUserConsentUseCaseFactory({
+      repository: tcfRepository
+    })
+    const loadUserConsentUseCase = loadUserConsentUseCaseFactory({
+      repository: tcfRepository
+    })
+    const getConsentStatusUseCase = getConsentStatusUseCaseFactory({
       repository: tcfRepository
     })
     return new Service({
-      sendConsentUseCase
+      saveUserConsentUseCase,
+      loadUserConsentUseCase,
+      getConsentStatusUseCase
     })
   }
 }

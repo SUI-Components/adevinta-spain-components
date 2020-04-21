@@ -1,21 +1,7 @@
 import {TcfRepository} from './TcfRepository'
+import {BorosTCF} from './borosMock'
 
-const borosTCF = {
-  init: () => ({
-    getConsentStatus: () => 'NOT_ACCEPTED',
-    loadUserConsent: () =>
-      Promise.resolve({
-        specialFeatureOptins: [],
-        purposeConsents: [],
-        purposeLegitimateInterests: [],
-        publisherConsents: [],
-        publisherLegitimateInterests: [],
-        vendorConsents: [],
-        vendorLegitimateInterests: []
-      }),
-    saveUserConsent: () => null
-  })
-}
+const borosTCF = BorosTCF.init()
 
 export function tcfRepositoryFactory() {
   return new TcfRepository({borosTCF, window})

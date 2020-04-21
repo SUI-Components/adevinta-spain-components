@@ -1,10 +1,24 @@
 class Service {
-  constructor(sendConsentUseCase) {
-    this._sendConsentsUseCase = sendConsentUseCase
+  constructor({
+    getConsentStatusUseCase,
+    loadUserConsentUseCase,
+    saveUserConsentUseCase
+  }) {
+    this._getConsentStatusUseCase = getConsentStatusUseCase
+    this._loadUserConsentUseCase = loadUserConsentUseCase
+    this._saveUserConsentUseCase = saveUserConsentUseCase
   }
 
-  sendConsents() {
-    return this._sendConsentsUseCase.execute()
+  getConsentStatus() {
+    return this._getConsentStatusUseCase.execute()
+  }
+
+  loadUserConsent() {
+    return this._loadUserConsentUseCase.execute()
+  }
+
+  saveUserConsent({purposeConsents, vendorConsents}) {
+    this._saveUserConsentUseCase.execute({purposeConsents, vendorConsents})
   }
 }
 
