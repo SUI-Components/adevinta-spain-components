@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import SuiSwitch from '@s-ui/react-atom-switch'
 import SuiButton from '@s-ui/react-atom-button'
@@ -15,6 +15,10 @@ const IconClose = () => (
 
 const InfoCard = ({description, purposes, onPurposesChange}) => {
   const [purposesState, setPurposesState] = useState(purposes)
+
+  useEffect(() => {
+    setPurposesState(purposes)
+  }, [purposes])
 
   const handleToggle = ({index, value}) => {
     const updatedPurposes = purposesState
@@ -53,17 +57,29 @@ InfoCard.propTypes = {
   description: PropTypes.string,
   onPurposesChange: PropTypes.func
 }
-export default function TcfFirstLayer({purposes}) {
+export default function TcfFirstLayer({
+  loadUserConsent,
+  saveUserConsent,
+  openSecondLayer
+}) {
   const [saveButtonDisabled, setSaveButtonDisabled] = useState(true)
-  const [purposesState, setPurposesState] = useState(purposes)
+  const [purposesState, setPurposesState] = useState([])
   const [modalOpen, setModalOpen] = useState(true)
 
+  useEffect(() => {
+    const loadConsent = async () => {
+      const {purposeConsents} = await loadUserConsent()
+      setPurposesState(purposeConsents)
+    }
+    loadConsent()
+  }, [])
+
   const handleSettingsClick = () => {
-    console.log('should open second layer')
+    openSecondLayer()
     return null
   }
   const handleSaveExitClick = () => {
-    console.log('should send purposes to TCF api')
+    saveUserConsent({purposeConsents: purposesState})
     setModalOpen(false)
     return null
   }
@@ -113,5 +129,7 @@ export default function TcfFirstLayer({purposes}) {
 
 TcfFirstLayer.displayName = 'TcfFirstLayer'
 TcfFirstLayer.propTypes = {
-  purposes: PropTypes.arrayOf(PropTypes.object)
+  openSecondLayer: PropTypes.func,
+  loadUserConsent: PropTypes.func,
+  saveUserConsent: PropTypes.func
 }
