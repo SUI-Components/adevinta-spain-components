@@ -8,6 +8,10 @@ class TcfRepository {
     return this._borosTCF.getConsentStatus()
   }
 
+  getVendorList() {
+    return this._borosTCF.getVendorList()
+  }
+
   loadUserConsent() {
     return this._borosTCF.loadUserConsent()
   }
