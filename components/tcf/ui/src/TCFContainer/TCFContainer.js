@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 const CONSENT_STATUS_NOT_ACCEPTED = 'NOT_ACCEPTED'
 const FirstLayer = React.lazy(() => import('@s-ui/sui-tcf-first-layer'))
-// const SecondLayer = React.lazy(() => import('@s-ui/sui-tcf-second-layer'))
-const SecondLayer = () => <div>SECOND LAYER MOCK</div>
+const SecondLayer = React.lazy(() => import('@s-ui/sui-tcf-second-layer'))
 
 export default function TCFContainer({
+  getVendorList,
   getConsentStatus,
   loadUserConsent,
   saveUserConsent
@@ -35,6 +35,7 @@ export default function TCFContainer({
       {showFirstLayer && (
         <Suspense fallback={<div />}>
           <FirstLayer
+            getVendorList={getVendorList}
             loadUserConsent={loadUserConsent}
             saveUserConsent={saveUserConsent}
             openSecondLayer={handleOpenSecondLayer}
@@ -44,8 +45,10 @@ export default function TCFContainer({
       {showSecondLayer && (
         <Suspense fallback={<div />}>
           <SecondLayer
+            isOpen={showSecondLayer}
             loadUserConsent={loadUserConsent}
             saveUserConsent={saveUserConsent}
+            getVendorList={getVendorList}
           />
         </Suspense>
       )}
@@ -57,6 +60,7 @@ TCFContainer.displayName = 'TcfUi'
 
 TCFContainer.propTypes = {
   getConsentStatus: PropTypes.func,
+  getVendorList: PropTypes.func,
   loadUserConsent: PropTypes.func,
   saveUserConsent: PropTypes.func
 }

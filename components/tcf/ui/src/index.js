@@ -1,5 +1,4 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
 import TCFServices from '@s-ui/sui-tcf-services'
 
 import TCFContainer from './TCFContainer/TCFContainer'
@@ -9,9 +8,10 @@ export default function TcfUi() {
       {service => (
         <TCFContainer
           getConsentStatus={() => service.getConsentStatus()}
+          getVendorList={() => service.getVendorList()}
           loadUserConsent={() => service.loadUserConsent()}
-          saveUserConsent={({purposeConsents, vendorConsents}) =>
-            service.saveUserConsent({purposeConsents, vendorConsents})
+          saveUserConsent={({purpose, vendor}) =>
+            service.saveUserConsent({purpose, vendor})
           }
         />
       )}
@@ -20,5 +20,3 @@ export default function TcfUi() {
 }
 
 TcfUi.displayName = 'TcfUi'
-
-TcfUi.propTypes = {}
