@@ -8,6 +8,7 @@ const RESPONSIVE = {
   responsive: 'responsive',
   responsiveBlock: 'responsiveBlock'
 }
+
 const ListBullet = ({listItems, responsive, smallFont, isString}) => {
   const listBulletClass = cx(BASE_CLASS, {
     [`${BASE_CLASS}--${responsive}`]: Boolean(responsive),
