@@ -4,10 +4,13 @@ import Bullet from './bullet.js'
 import cx from 'classnames'
 
 const BASE_CLASS = 'sui-ListBullet'
-
-const ListBullet = ({listItems, responsive, smallFont}) => {
+const RESPONSIVE = {
+  responsive: 'responsive',
+  responsiveBlock: 'responsiveBlock'
+}
+const ListBullet = ({listItems, responsive, smallFont, isString}) => {
   const listBulletClass = cx(BASE_CLASS, {
-    [`${BASE_CLASS}--responsive`]: responsive,
+    [`${BASE_CLASS}--${responsive}`]: Boolean(responsive),
     [`${BASE_CLASS}--smallFont`]: smallFont
   })
 
@@ -15,7 +18,12 @@ const ListBullet = ({listItems, responsive, smallFont}) => {
     <div className={listBulletClass}>
       {listItems &&
         listItems.map((item, index) => (
-          <Bullet {...item} key={index} baseClass={BASE_CLASS} />
+          <Bullet
+            {...item}
+            isString={isString}
+            key={index}
+            baseClass={BASE_CLASS}
+          />
         ))}
     </div>
   )
@@ -38,11 +46,15 @@ ListBullet.propTypes = {
   /**
    * Responsive behaviour
    */
-  responsive: PropTypes.bool,
+  responsive: PropTypes.oneOf(Object.values(RESPONSIVE)),
   /**
    * Small font size
    */
-  smallFont: PropTypes.bool
+  smallFont: PropTypes.bool,
+  /**
+   * Is a String insted of an image
+   */
+  isString: PropTypes.bool
 }
 
 ListBullet.defaultProps = {

@@ -18,11 +18,40 @@ const listItems = [
   }
 ]
 
+const listNumbersItems = [
+  {
+    illustration: '70%',
+    title: '',
+    text: 'de los compradores sólo visita coches.net'
+  },
+  {
+    illustration: '+18M',
+    title: '',
+    text: 'visitas mensuales a las que impactar'
+  },
+  {
+    illustration: 'x18',
+    title: '',
+    text: 'veces más tiempo de uso frente a otros portales'
+  }
+]
+
 return (
   <div>
-    <h2>Standard</h2>
-    <ListBullet listItems={listItems}/>
-    <h2>Responsive</h2>
-    <ListBullet listItems={listItems} responsive />
+    <div style={{marginBottom: "80px", padding: "20px"}}>
+      <h2 style={{marginBottom: "20px"}}>Standard</h2>
+      <ListBullet listItems={listItems}/>
+    </div>
+    
+    <div style={{marginBottom: "80px", padding: "20px"}}>
+      <h2 style={{marginBottom: "20px"}}>Responsive</h2>
+      <ListBullet listItems={listItems} responsive='responsive' />
+    </div>
+    
+    <div style={{marginBottom: "80px", padding: "20px"}}>
+      <h2 style={{marginBottom: "20px"}}>Responsive Block</h2>
+      <ListBullet listItems={listNumbersItems} isString responsive='responsiveBlock' />
+    </div>
+    
   </div>
 )
