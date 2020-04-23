@@ -18,10 +18,8 @@ export default function TcfSecondLayer({
   const [vendorsVLState, setVendorsVLState] = useState(null)
 
   useEffect(() => {
-    if (isOpen !== modalOpen) {
-      setModalOpen(isOpen)
-    }
-  }, [isOpen, modalOpen])
+    setModalOpen(isOpen)
+  }, [isOpen])
 
   useEffect(() => {
     const loadConsent = async () => {
@@ -80,6 +78,7 @@ export default function TcfSecondLayer({
       consents[index] = !value
       return {...prevState, purposes: {...prevState.purposes, consents}}
     })
+    setSaveButtonActive(true)
   }
 
   const handlePurposesLIChange = ({index, value}) => {
@@ -92,6 +91,7 @@ export default function TcfSecondLayer({
         purposes: {...prevState.purposes, legitimateInterests}
       }
     })
+    setSaveButtonActive(true)
   }
 
   const handleVendorsConsentsChange = ({index, value}) => {
@@ -101,6 +101,7 @@ export default function TcfSecondLayer({
       consents[index] = !value
       return {...prevState, vendors: {...prevState.vendors, consents}}
     })
+    setSaveButtonActive(true)
   }
 
   const handleVendorsLIChange = ({index, value}) => {
@@ -113,6 +114,7 @@ export default function TcfSecondLayer({
         vendors: {...prevState.vendors, legitimateInterests}
       }
     })
+    setSaveButtonActive(true)
   }
 
   return (
