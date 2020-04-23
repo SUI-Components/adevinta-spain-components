@@ -47,13 +47,6 @@ $mb-list-bullet-responsive-block-text: $m-xxxl * 2 !default;
       text-align: center;
     }
 
-    #{$prefix}-illustration {
-      height: $sz-list-bullet-illustration-l;
-      margin-bottom: $m-xl;
-      margin-right: 0;
-      width: $sz-list-bullet-illustration-l;
-    }
-
     #{$prefix}-text {
       font-size: $fz-m;
       margin-bottom: $mb-list-bullet-responsive-block-text;
