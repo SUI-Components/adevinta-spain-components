@@ -1,100 +1,62 @@
 import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
-import SuiSwitch from '@s-ui/react-atom-switch'
 import SuiButton from '@s-ui/react-atom-button'
 import SuiModal from '@s-ui/react-molecule-modal'
+import IconClose from './components/IconClose'
+import InfoCard from './components/InfoCard'
 
-const IconClose = () => (
-  <svg viewBox="0 0 24 24">
-    <path
-      id="a"
-      d="M13.42 12l4.79-4.8a1 1 0 0 0-1.41-1.41L12 10.58 7.21 5.79A1 1 0 0 0 5.8 7.2l4.79 4.8-4.79 4.79a1 1 0 1 0 1.41 1.41L12 13.41l4.8 4.79a1 1 0 0 0 1.41-1.41L13.42 12z"
-    />
-  </svg>
-)
-
-const InfoCard = ({description, purposes, onPurposesChange}) => {
-  const [purposesState, setPurposesState] = useState(purposes)
-
-  useEffect(() => {
-    setPurposesState(purposes)
-  }, [purposes])
-
-  const handleToggle = ({index, value}) => {
-    const updatedPurposes = purposesState
-    updatedPurposes[index - 1].initialValue = !value
-    setPurposesState([...updatedPurposes])
-    onPurposesChange(purposesState)
-  }
-
-  return (
-    <>
-      <h3>{description}</h3>
-      {purposesState.map(purpose => (
-        <>
-          <p>{purpose.text}</p>
-          <SuiSwitch
-            key={`purpose-${purpose.index}`}
-            label=""
-            name={`purpose-${purpose.index}`}
-            value={purpose.initialValue}
-            onToggle={() =>
-              handleToggle({
-                index: purpose.index,
-                value: purpose.initialValue
-              })
-            }
-          />
-        </>
-      ))}
-    </>
-  )
-}
-
-InfoCard.displayName = 'InfoCard'
-InfoCard.propTypes = {
-  purposes: PropTypes.arrayOf(PropTypes.object),
-  description: PropTypes.string,
-  onPurposesChange: PropTypes.func
-}
 export default function TcfFirstLayer({
   loadUserConsent,
+  getVendorList,
   saveUserConsent,
   openSecondLayer
 }) {
   const [saveButtonDisabled, setSaveButtonDisabled] = useState(true)
-  const [purposesState, setPurposesState] = useState([])
+  const [state, setState] = useState(null)
+  const [VLState, setVLState] = useState(null)
   const [modalOpen, setModalOpen] = useState(true)
 
   useEffect(() => {
     const loadConsent = async () => {
-      const {purposeConsents} = await loadUserConsent()
-      setPurposesState(purposeConsents)
+      const {purpose} = await loadUserConsent()
+      setState({purposes: purpose})
+    }
+    const getVL = async () => {
+      const {purposes} = await getVendorList()
+      setVLState({purposes})
     }
     loadConsent()
-  }, [])
+    getVL()
+  }, [getVendorList, loadUserConsent])
 
   const handleSettingsClick = () => {
     openSecondLayer()
-    return null
   }
   const handleSaveExitClick = () => {
-    saveUserConsent({purposeConsents: purposesState})
+    saveUserConsent({purpose: state.purposes})
     setModalOpen(false)
-    return null
   }
   const handleAcceptAll = () => {
-    const updatedPurposes = purposesState.map(purpose => {
-      purpose.initialValue = true
-      return purpose
+    setState(prevState => {
+      const {purposes} = prevState
+      const {consents} = purposes
+      for (const key in consents) {
+        consents[key] = true
+      }
+      return {
+        purposes: {consents}
+      }
     })
-    setPurposesState(updatedPurposes)
     setSaveButtonDisabled(false)
-    return null
   }
-  const handlePurposesChange = purposes => {
+  const handlePurposesChange = ({index, value}) => {
     setSaveButtonDisabled(false)
-    setPurposesState([...purposes])
+    setState(prevState => {
+      const {purposes} = prevState
+      const {consents} = purposes
+      consents[index] = !value
+      return {purposes: {consents}}
+    })
   }
 
   const handleCloseModal = () => {
@@ -110,11 +72,14 @@ export default function TcfFirstLayer({
         iconClose={<IconClose />}
         onClose={handleCloseModal}
       >
-        <InfoCard
-          description="We care about your privacy"
-          purposes={purposesState}
-          onPurposesChange={handlePurposesChange}
-        />
+        {state && VLState && (
+          <InfoCard
+            title="We care about your privacy"
+            descriptions={VLState.purposes}
+            state={state.purposes}
+            onStateChange={handlePurposesChange}
+          />
+        )}
         <br />
         <br />
         <SuiButton onClick={handleSettingsClick}>Manage Settings</SuiButton>
@@ -131,5 +96,6 @@ TcfFirstLayer.displayName = 'TcfFirstLayer'
 TcfFirstLayer.propTypes = {
   openSecondLayer: PropTypes.func,
   loadUserConsent: PropTypes.func,
+  getVendorList: PropTypes.func,
   saveUserConsent: PropTypes.func
 }
