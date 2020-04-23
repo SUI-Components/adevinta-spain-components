@@ -23,8 +23,8 @@ class Service {
     return this._loadUserConsentUseCase.execute()
   }
 
-  saveUserConsent({purposeConsents, vendorConsents}) {
-    this._saveUserConsentUseCase.execute({purposeConsents, vendorConsents})
+  saveUserConsent({purpose, vendor}) {
+    this._saveUserConsentUseCase.execute({purpose, vendor})
   }
 }
 

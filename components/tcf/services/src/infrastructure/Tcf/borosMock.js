@@ -3,7 +3,11 @@ const BorosTCF = {
     getConsentStatus: () => Promise.resolve(mockedConsentStatus),
     getVendorList: () => Promise.resolve(mockedVendorList),
     loadUserConsent: () => Promise.resolve(mockedUserConsent),
-    saveUserConsent: () => null
+    saveUserConsent: ({purpose, vendor}) => {
+      console.log('purpose', purpose)
+      console.log('vendor', vendor)
+      return null
+    }
   })
 }
 

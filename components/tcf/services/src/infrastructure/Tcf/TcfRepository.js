@@ -16,8 +16,8 @@ class TcfRepository {
     return this._borosTCF.loadUserConsent()
   }
 
-  saveUserConsent({purposeConsents, vendorConsents}) {
-    this._borosTCF.saveUserConsent({purposeConsents, vendorConsents})
+  saveUserConsent({purpose, vendor}) {
+    this._borosTCF.saveUserConsent({purpose, vendor})
   }
 }
 
