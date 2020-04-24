@@ -3,11 +3,15 @@
 $sz-list-bullet-illustration-s: 42px !default;
 $sz-list-bullet-illustration-m: 64px !default;
 $sz-list-bullet-illustration-l: 72px !default;
+$fz-list-bullet-illustration-string-l: $fz-xl * 2 !default;
+$lh-list-bullet-illustration-string-l: $lh-xxl * 2 !default;
+$mb-list-bullet-responsive-block-text: $m-xxxl * 2 !default;
 
 .sui-ListBullet {
   $prefix: &;
 
-  &--responsive {
+  &--responsive,
+  &--responsiveBlock {
     @include media-breakpoint-up(l) {
       display: flex;
 
@@ -32,6 +36,20 @@ $sz-list-bullet-illustration-l: 72px !default;
         margin-right: 0;
         width: $sz-list-bullet-illustration-l;
       }
+    }
+  }
+
+  &--responsiveBlock {
+    #{$prefix}-item {
+      flex: 1;
+      flex-direction: column;
+      margin: 0 $m-m;
+      text-align: center;
+    }
+
+    #{$prefix}-text {
+      font-size: $fz-m;
+      margin-bottom: $mb-list-bullet-responsive-block-text;
     }
   }
 
@@ -60,6 +78,13 @@ $sz-list-bullet-illustration-l: 72px !default;
     height: $sz-list-bullet-illustration-s;
     margin-right: $m-l;
     width: $sz-list-bullet-illustration-s;
+  }
+
+  &-illustrationString {
+    color: $c-primary;
+    font-size: $fz-list-bullet-illustration-string-l;
+    line-height: $lh-list-bullet-illustration-string-l;
+    margin: 0 0 $m-l;
   }
 
   &-title {
