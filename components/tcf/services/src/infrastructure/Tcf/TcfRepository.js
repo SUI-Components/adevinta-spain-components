@@ -1,6 +1,5 @@
 class TcfRepository {
-  constructor({borosTCF, window}) {
-    this._window = window
+  constructor({borosTCF}) {
     this._borosTCF = borosTCF
   }
 
