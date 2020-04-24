@@ -21,12 +21,14 @@ export default class SearchMapPolygons {
     hoverStyles,
     onLayerClick,
     onPolygonWithBounds,
+    radius,
     showLabels
   }) {
     this.currentGeoCode = currentGeoCode
     this.hoverStyles = hoverStyles
     this.onLayerClick = onLayerClick
     this.onPolygonWithBounds = onPolygonWithBounds
+    this.radius = radius
     this.showLabels = showLabels
   }
 
@@ -43,7 +45,8 @@ export default class SearchMapPolygons {
 
   printPolygonOnMap({fitBound, map, polygon}) {
     const {BASE_CLASSNAME, hoverStyles} = this
-    const className = fitBound ? `${BASE_CLASSNAME} fitBound` : BASE_CLASSNAME
+    const className =
+      fitBound && !this.radius ? `${BASE_CLASSNAME} fitBound` : BASE_CLASSNAME
 
     const that = this
 

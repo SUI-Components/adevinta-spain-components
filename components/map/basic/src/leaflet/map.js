@@ -63,6 +63,7 @@ export default class LeafletMap {
     onLayerClick,
     onPolygonWithBounds,
     polygons,
+    radius,
     showLabels
   }) {
     this.polygons = new Polygons({
@@ -70,6 +71,7 @@ export default class LeafletMap {
       hoverStyles,
       onLayerClick,
       onPolygonWithBounds,
+      radius,
       showLabels
     })
     this.polygons.setPolygonsOnMap({map: this._map, polygons})
