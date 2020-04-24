@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.8.0 (2020-04-24)
+
+
+### Features
+
+* apply changes to have responsive block & string ([f7cd78a](https://github.com/SUI-Components/schibsted-spain-components/commit/f7cd78aa0bfd171558a83b4a872aef1bc4a52c5f))
+* minor syntax fixed ([290b644](https://github.com/SUI-Components/schibsted-spain-components/commit/290b6440c903d1c5356b4fcbb6792e4fa012ea78))
+* removed unnecessary CSS code ([0c2caa4](https://github.com/SUI-Components/schibsted-spain-components/commit/0c2caa4fcfaea05d44b06ea23d7171eb91a8cbe5))
+
+
+
 # 1.7.0 (2020-03-09)
 
 
