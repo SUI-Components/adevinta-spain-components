@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.9.0 (2020-04-27)
+
+
+### Features
+
+* export responsiveTypes ([f854e7b](https://github.com/SUI-Components/schibsted-spain-components/commit/f854e7bb76610171cb53874e1baf6074b07f52f8))
+
+
+
 # 1.8.0 (2020-04-24)
 
 
