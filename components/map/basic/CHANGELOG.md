@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.37.0 (2020-04-27)
+
+
+### Features
+
+* styles for circle shape ([c20ea23](https://github.com/SUI-Components/schibsted-spain-components/commit/c20ea239ee962a0a2be6cf6b97dec0236a422245))
+
+
+
 # 1.36.0 (2020-03-23)
 
 
