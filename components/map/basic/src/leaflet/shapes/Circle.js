@@ -3,6 +3,8 @@ import L from 'leaflet'
 export default class SearchMapCircle {
   _circle = {}
 
+  BASE_CLASSNAME = 'scm-map__circle'
+
   constructor({latitude, longitude, radius, onPolygonWithBounds}) {
     this.latitude = latitude
     this.longitude = longitude
@@ -20,7 +22,9 @@ export default class SearchMapCircle {
   }
 
   printCircleOnMap({map}) {
+    const className = this.BASE_CLASSNAME
     this._circle = L.circle([this.latitude, this.longitude], {
+      className,
       radius: this.radius
     })
 
