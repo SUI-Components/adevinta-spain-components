@@ -1,5 +1,5 @@
 /* eslint-env jest */
-import {SaveUserConsentUseCase} from '../../../../../components/tcf/services/src/application/Service/SaveUserConsentUseCase'
+import {SaveUserConsentUseCase} from '../../../src/application/Service/SaveUserConsentUseCase'
 import {TcfRepositoryMock} from '../../helpers/TcfRepositoryMock'
 describe('SaveUserConsentUseCase test', () => {
   const borosMethods = {

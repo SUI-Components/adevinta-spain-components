@@ -1,5 +1,5 @@
 /* eslint-env jest */
-import {LoadUserConsentUseCase} from '../../../../../components/tcf/services/src/application/Service/LoadUserConsentUseCase'
+import {LoadUserConsentUseCase} from '../../../src/application/Service/LoadUserConsentUseCase'
 import {TcfRepositoryMock} from '../../helpers/TcfRepositoryMock'
 describe('LoadUserConsentUseCase test', () => {
   const givenUserConsent = {
