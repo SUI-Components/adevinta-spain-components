@@ -1,5 +1,5 @@
 /* eslint-env jest */
-import {GetConsentStatusUseCase} from '../../../src/application/service/GetConsentStatusUseCase'
+import {GetConsentStatusUseCase} from '../../../../../components/tcf/services/src/application/service/GetConsentStatusUseCase'
 import {TcfRepositoryMock} from '../../helpers/TcfRepositoryMock'
 describe('GetConsentStatusUseCase test', () => {
   const givenConsentStatus = 'givenConsentStatus'

@@ -1,5 +1,5 @@
 /* eslint-env jest */
-import {GetVendorListUseCase} from '../../../src/application/service/GetVendorListUseCase'
+import {GetVendorListUseCase} from '../../../../../components/tcf/services/src/application/service/GetVendorListUseCase'
 import {TcfRepositoryMock} from '../../helpers/TcfRepositoryMock'
 describe('GetVendorListUseCase test', () => {
   const givenVendorList = {
