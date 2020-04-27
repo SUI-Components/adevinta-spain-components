@@ -3,11 +3,12 @@ import React from 'react'
 import Bullet from './bullet.js'
 import cx from 'classnames'
 
-const BASE_CLASS = 'sui-ListBullet'
-const RESPONSIVE = {
+export const responsiveTypes = {
   responsive: 'responsive',
   responsiveBlock: 'responsiveBlock'
 }
+
+const BASE_CLASS = 'sui-ListBullet'
 
 const ListBullet = ({listItems, responsive, smallFont, isString}) => {
   const listBulletClass = cx(BASE_CLASS, {
@@ -47,7 +48,7 @@ ListBullet.propTypes = {
   /**
    * Responsive behaviour
    */
-  responsive: PropTypes.oneOf(Object.values(RESPONSIVE)),
+  responsive: PropTypes.oneOf(Object.values(responsiveTypes)),
   /**
    * Small font size
    */
