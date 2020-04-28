@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback, useRef} from 'react'
+import React, {useState, useEffect, useCallback, useRef, memo} from 'react'
 import PropTypes from 'prop-types'
 
 import {json} from './prop-types'
@@ -69,11 +69,6 @@ const FormBuilder = ({
 
     clearTimeout(timerShowSpinner)
     setStateFields(nextStateFields)
-    onChange({
-      ...fieldsToObject(nextStateFields),
-      __FIELD_CHANGED__: id
-    })
-
     setStateShowSpinner(false)
   }, []) // eslint-disable-line
 
@@ -162,4 +157,4 @@ export {fieldSizes as formBuilderFieldSizes}
 export {pickFieldById as formBuilderPickFieldById}
 export {changeFieldById as formBuilderChangeFieldById}
 export {checkConstrainstsFactory} from './Standard'
-export default FormBuilder
+export default memo(FormBuilder)
