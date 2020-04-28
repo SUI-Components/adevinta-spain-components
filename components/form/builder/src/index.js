@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback, useRef, memo} from 'react'
+import React, {useState, useEffect, useCallback, useRef} from 'react'
 import PropTypes from 'prop-types'
 
 import {json} from './prop-types'
@@ -157,4 +157,4 @@ export {fieldSizes as formBuilderFieldSizes}
 export {pickFieldById as formBuilderPickFieldById}
 export {changeFieldById as formBuilderChangeFieldById}
 export {checkConstrainstsFactory} from './Standard'
-export default memo(FormBuilder)
+export default FormBuilder
