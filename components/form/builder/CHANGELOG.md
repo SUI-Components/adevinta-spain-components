@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.0.0 (2020-04-28)
+
+
+### Features
+
+* request config & interceptor props rename ([1851756](https://github.com/SUI-Components/schibsted-spain-components/commit/1851756dd33424e44c4ff212f36991b13697d170))
+
+
+### BREAKING CHANGES
+
+* Renamed the interceptor props
+
+
+
 # 1.33.0 (2020-04-14)
 
 
