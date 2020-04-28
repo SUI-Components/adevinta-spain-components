@@ -20,8 +20,8 @@ const FormBuilder = ({
   initFields,
   onChange,
   onBlur,
+  responseInterceptor,
   requestInterceptor,
-  urlInterceptor,
   loader,
   fieldSize,
   errors,
@@ -51,8 +51,8 @@ const FormBuilder = ({
     const reducerWithRules = reducer(
       rules,
       formID,
-      requestInterceptor,
-      urlInterceptor
+      responseInterceptor,
+      requestInterceptor
     )
     const timerShowSpinner = setTimeout(
       () => setStateShowSpinner(true),
@@ -81,8 +81,8 @@ const FormBuilder = ({
     const reducerWithRules = reducer(
       rules,
       formID,
-      requestInterceptor,
-      urlInterceptor
+      responseInterceptor,
+      requestInterceptor
     )
     const timerShowSpinner = setTimeout(
       () => setStateShowSpinner(true),
@@ -140,8 +140,8 @@ FormBuilder.propTypes = {
   json,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
+  responseInterceptor: PropTypes.func,
   requestInterceptor: PropTypes.func,
-  urlInterceptor: PropTypes.func,
   loader: PropTypes.object,
   fieldSize: PropTypes.oneOf(Object.values(fieldSizes)),
   errors: PropTypes.object,
@@ -152,8 +152,8 @@ FormBuilder.defaultProps = {
   initFields: {},
   onChange: () => {},
   onBlur: () => {},
-  requestInterceptor: ({response}) => response,
-  urlInterceptor: () => {},
+  responseInterceptor: ({response}) => response,
+  requestInterceptor: () => {},
   errors: {},
   alerts: {}
 }
