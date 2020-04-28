@@ -13,8 +13,9 @@ import {
 } from './constants'
 import {changeFieldById, fieldsToQP} from './fields'
 
-const fetch = url =>
+const fetch = config =>
   new Promise((resolve, reject) => {
+    const {url, headers} = config
     const request = new window.XMLHttpRequest()
     request.onreadystatechange = function() {
       if (request.readyState === window.XMLHttpRequest.DONE) {
@@ -30,6 +31,11 @@ const fetch = url =>
       reject(Error('Network Error'))
     }
     request.open('GET', url, true)
+    headers &&
+      Object.entries(headers).map(([header, value]) =>
+        request.setRequestHeader(header, value)
+      )
+
     request.responseType = 'json'
     request.withCredentials = true
     request.send()
@@ -81,23 +87,33 @@ export const shouldApplyRule = (fields, changeField) => when => {
 export const fetchRemoteFields = (
   fields,
   formID,
-  requestInterceptor,
-  urlInterceptor
+  responseInterceptor,
+  requestInterceptor
 ) => async fieldsToChanges => {
   const remoteFieldsToChange = await Promise.all(
     Object.entries(fieldsToChanges)
       .filter(([field, nextValue]) => nextValue.remote === REMOTE)
-      .map(([field, nextValue]) => {
-        const url =
-          urlInterceptor({fieldID: field, fields}) ||
-          `https://ptaformbuilder-classifiedads.spain.schibsted.io/fieldrules/${field}?${fieldsToQP(
-            fields,
-            formID
-          )}`
+      .map(async ([field, nextValue]) => {
+        const defaultUrl = `https://ptaformbuilder-classifiedads.spain.schibsted.io/fieldrules/${field}?${fieldsToQP(
+          fields,
+          formID
+        )}`
+
+        const defaultConfig = {url: defaultUrl}
+
+        const requestInterceptorConfig = await requestInterceptor({
+          fieldID: field,
+          fields
+        })
+        // Config must be follow the Axios pattern
+        // https://github.com/axios/axios
+        const config = requestInterceptorConfig || defaultConfig
+
         const {remote, ...resetValue} = nextValue
-        return fetch(url)
-          .then(json => {
-            const nextJSON = requestInterceptor({
+        return fetch(config)
+          .then(async json => {
+            const {url} = config
+            const nextJSON = await responseInterceptor({
               url,
               response:
                 typeof json === 'string' || json instanceof String
@@ -122,8 +138,8 @@ export const applyRules = async (
   rules,
   changeField,
   formID,
-  requestInterceptor,
-  urlInterceptor
+  responseInterceptor,
+  requestInterceptor
 ) => {
   const shouldApplyRuleForFieldsAndChangeField = shouldApplyRule(
     fields,
@@ -132,8 +148,8 @@ export const applyRules = async (
   const fetchRemoteFieldsForFieldsAndFormID = fetchRemoteFields(
     fields,
     formID,
-    requestInterceptor,
-    urlInterceptor
+    responseInterceptor,
+    requestInterceptor
   )
 
   const fieldsToChanges = Object.entries(rules).reduce(
