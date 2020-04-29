@@ -18,14 +18,12 @@ const TcfFirstLayerDemo = () => {
   }
 
   return (
-    <>
-      <TcfFirstLayer
-        loadUserConsent={loadUserConsent}
-        saveUserConsent={saveUserConsent}
-        getVendorList={getVendorList}
-        openSecondLayer={openSecondLayer}
-      />
-    </>
+    <TcfFirstLayer
+      loadUserConsent={loadUserConsent}
+      saveUserConsent={saveUserConsent}
+      getVendorList={getVendorList}
+      openSecondLayer={openSecondLayer}
+    />
   )
 }
 
