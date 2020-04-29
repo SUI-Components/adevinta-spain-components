@@ -13,7 +13,7 @@ export default function TcfFirstLayer({
 }) {
   const [saveButtonDisabled, setSaveButtonDisabled] = useState(true)
   const [state, setState] = useState(null)
-  const [VendorListState, setVendorListState] = useState(null)
+  const [vendorListState, setVendorListState] = useState(null)
   const [modalOpen, setModalOpen] = useState(true)
 
   useEffect(() => {
@@ -72,10 +72,10 @@ export default function TcfFirstLayer({
         iconClose={<IconClose />}
         onClose={handleCloseModal}
       >
-        {state && VendorListState && (
+        {state && vendorListState && (
           <InfoCard
             title="We care about your privacy"
-            descriptions={VendorListState.purposes}
+            descriptions={vendorListState.purposes}
             state={state.purposes}
             onStateChange={handlePurposesChange}
           />
