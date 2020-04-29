@@ -10,14 +10,6 @@ export default function PurposeGroup({
   onConsentsChange,
   onLegitimateInterestsChange
 }) {
-  const handleConsentToggle = ({index, value}) => {
-    onConsentsChange({index, value})
-  }
-
-  const handleLegitimateInterestsToggle = ({index, value}) => {
-    onLegitimateInterestsChange({index, value})
-  }
-
   return (
     <>
       <h2>{name}</h2>
@@ -33,7 +25,7 @@ export default function PurposeGroup({
                 name={`${name}-consents-${key}`}
                 value={state.consents[key]}
                 onToggle={() =>
-                  handleConsentToggle({
+                  onConsentsChange({
                     index: key,
                     value: state.consents[key]
                   })
@@ -45,7 +37,7 @@ export default function PurposeGroup({
                 name={`${name}-legitimateInterests-${key}`}
                 value={state.legitimateInterests[key]}
                 onToggle={() =>
-                  handleLegitimateInterestsToggle({
+                  onLegitimateInterestsChange({
                     index: key,
                     value: state.legitimateInterests[key]
                   })
