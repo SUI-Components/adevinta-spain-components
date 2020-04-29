@@ -11,28 +11,25 @@ export default function TCFContainer({
   loadUserConsent,
   saveUserConsent
 }) {
-  const [showFirstLayer, setShowFirstLayer] = useState(false)
-  const [showSecondLayer, setShowSecondLayer] = useState(false)
+  const [showLayer, setShowLayer] = useState(false)
 
   useEffect(() => {
     async function checkConsentStatus() {
       const consentStatus = await getConsentStatus()
-      const isConsentNotAccepted = consentStatus === CONSENT_STATUS_NOT_ACCEPTED
-      if (showFirstLayer !== isConsentNotAccepted) {
-        setShowFirstLayer(isConsentNotAccepted)
+      if (consentStatus === CONSENT_STATUS_NOT_ACCEPTED) {
+        setShowLayer(1)
       }
     }
     checkConsentStatus()
   }, [])
 
   const handleOpenSecondLayer = () => {
-    setShowSecondLayer(true)
-    setShowFirstLayer(false)
+    setShowLayer(2)
   }
 
   return (
     <>
-      {showFirstLayer && (
+      {showLayer === 1 && (
         <Suspense fallback={<div />}>
           <FirstLayer
             getVendorList={getVendorList}
@@ -42,10 +39,10 @@ export default function TCFContainer({
           />
         </Suspense>
       )}
-      {showSecondLayer && (
+      {showLayer === 2 && (
         <Suspense fallback={<div />}>
           <SecondLayer
-            isOpen={showSecondLayer}
+            isOpen
             loadUserConsent={loadUserConsent}
             saveUserConsent={saveUserConsent}
             getVendorList={getVendorList}
