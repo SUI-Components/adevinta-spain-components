@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.1.0 (2020-04-29)
+
+
+### Features
+
+* prevent onchange miltiple calls ([46721ca](https://github.com/SUI-Components/schibsted-spain-components/commit/46721ca3d6930af4c8c735ade40e59704bd0f04a))
+* remove memo ([cee1962](https://github.com/SUI-Components/schibsted-spain-components/commit/cee196269efaa1e6e69795a7a3d59df149c64ba3))
+
+
+
 # 2.0.0 (2020-04-28)
 
 
