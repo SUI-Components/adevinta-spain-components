@@ -16,14 +16,12 @@ const TcfSecondLayerDemo = () => {
   }
 
   return (
-    <>
-      <TcfSecondLayer
-        isOpen
-        loadUserConsent={loadUserConsent}
-        saveUserConsent={saveUserConsent}
-        getVendorList={getVendorList}
-      />
-    </>
+    <TcfSecondLayer
+      isOpen
+      loadUserConsent={loadUserConsent}
+      saveUserConsent={saveUserConsent}
+      getVendorList={getVendorList}
+    />
   )
 }
 
