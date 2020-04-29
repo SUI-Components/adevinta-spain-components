@@ -13,7 +13,7 @@ export default function TcfFirstLayer({
 }) {
   const [saveButtonDisabled, setSaveButtonDisabled] = useState(true)
   const [state, setState] = useState(null)
-  const [VLState, setVLState] = useState(null)
+  const [VendorListState, setVendorListState] = useState(null)
   const [modalOpen, setModalOpen] = useState(true)
 
   useEffect(() => {
@@ -21,12 +21,12 @@ export default function TcfFirstLayer({
       const {purpose} = await loadUserConsent()
       setState({purposes: purpose})
     }
-    const getVL = async () => {
+    const loadVendorList = async () => {
       const {purposes} = await getVendorList()
-      setVLState({purposes})
+      setVendorListState({purposes})
     }
     loadConsent()
-    getVL()
+    loadVendorList()
   }, [getVendorList, loadUserConsent])
 
   const handleSettingsClick = () => {
@@ -72,10 +72,10 @@ export default function TcfFirstLayer({
         iconClose={<IconClose />}
         onClose={handleCloseModal}
       >
-        {state && VLState && (
+        {state && VendorListState && (
           <InfoCard
             title="We care about your privacy"
-            descriptions={VLState.purposes}
+            descriptions={VendorListState.purposes}
             state={state.purposes}
             onStateChange={handlePurposesChange}
           />
