@@ -1,5 +1,5 @@
 import React from 'react'
-import TCFServices from '@s-ui/sui-tcf-services'
+import TCFServices from '@s-ui/react-tcf-services'
 
 import TCFContainer from './TCFContainer/TCFContainer'
 export default function TcfUi() {

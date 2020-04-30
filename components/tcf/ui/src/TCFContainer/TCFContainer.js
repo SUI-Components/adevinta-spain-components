@@ -2,8 +2,8 @@ import React, {Suspense, useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 
 const CONSENT_STATUS_NOT_ACCEPTED = 'NOT_ACCEPTED'
-const FirstLayer = React.lazy(() => import('@s-ui/sui-tcf-first-layer'))
-const SecondLayer = React.lazy(() => import('@s-ui/sui-tcf-second-layer'))
+const FirstLayer = React.lazy(() => import('@s-ui/react-tcf-first-layer'))
+const SecondLayer = React.lazy(() => import('@s-ui/react-tcf-second-layer'))
 
 export default function TCFContainer({
   getVendorList,
