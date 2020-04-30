@@ -7,17 +7,17 @@
 ## Installation
 
 ```sh
-$ npm install @s-ui/sui-tcf-second-layer
+$ npm install @s-ui/react-tcf-second-layer
 ```
 
 ## Usage
 
 ### Basic usage
+
 ```js
-import TcfSecondLayer from '@s-ui/sui-tcf-second-layer'
+import TcfSecondLayer from '@s-ui/react-tcf-second-layer'
 
-return (<TcfSecondLayer />)
+return <TcfSecondLayer isOpen loadUserConsent saveUserConsent getVendorList />
 ```
-
 
 > **Find full description and more examples in the [demo page](#).**
