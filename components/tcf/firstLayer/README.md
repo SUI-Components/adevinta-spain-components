@@ -7,17 +7,24 @@
 ## Installation
 
 ```sh
-$ npm install @s-ui/sui-tcf-first-layer
+$ npm install @s-ui/react-tcf-first-layer
 ```
 
 ## Usage
 
 ### Basic usage
+
 ```js
-import TcfFirstLayer from '@s-ui/sui-tcf-first-layer'
+import TcfFirstLayer from '@s-ui/react-tcf-first-layer'
 
-return (<TcfFirstLayer />)
+return (
+  <TcfFirstLayer
+    loadUserConsent
+    getVendorList
+    saveUserConsent
+    openSecondLayer
+  />
+)
 ```
-
 
 > **Find full description and more examples in the [demo page](#).**
