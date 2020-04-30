@@ -1,5 +1,5 @@
 {
-  "name": "@s-ui/sui-tcf-services",
+  "name": "@s-ui/react-tcf-services",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
