@@ -1,5 +1,5 @@
 {
-    "name": "sui-tcf-ui",
+    "name": "react-tcf-ui",
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
