@@ -7,14 +7,14 @@
 ## Installation
 
 ```sh
-$ npm install @s-ui/sui-tcf-ui
+$ npm install @s-ui/react-tcf-ui
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import TcfUi from '@s-ui/sui-tcf-ui'
+import TcfUi from '@s-ui/react-tcf-ui'
 
 return (<TcfUi />)
 ```
