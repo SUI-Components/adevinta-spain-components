@@ -7,16 +7,28 @@
 ## Installation
 
 ```sh
-$ npm install @s-ui/sui-tcf-services
+$ npm install @s-ui/react-tcf-services
 ```
 
 ## Usage
 
 ### Basic usage
 ```js
-import TcfServices from '@s-ui/sui-tcf-services'
+import TcfServices from '@s-ui/react-tcf-services'
 
-return (<TcfServices />)
+return (
+<TcfServices>
+    {service => (
+        <TCFContainer
+          getConsentStatus={() => service.getConsentStatus()}
+          getVendorList={() => service.getVendorList()}
+          loadUserConsent={() => service.loadUserConsent()}
+          saveUserConsent={({purpose, vendor}) =>
+            service.saveUserConsent({purpose, vendor})
+          }
+        />
+    )}
+  </TCFServices>)
 ```
 
 
