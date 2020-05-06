@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.13.0 (2020-05-06)
+
+
+### Bug Fixes
+
+* fix useMediaQuery mismatch ([be0bf3a](https://github.com/SUI-Components/schibsted-spain-components/commit/be0bf3aeb7172edee06a802de5a01a3167a5bc15))
+
+
+
 # 1.12.0 (2020-02-25)
 
 
