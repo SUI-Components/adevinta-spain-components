@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.14.0 (2020-05-06)
+
+
+### Features
+
+* use latest intersection-observer to only load one version on our apps ([5115e75](https://github.com/SUI-Components/schibsted-spain-components/commit/5115e753926f7eaa1ba9e79fc34ac409dcb12cb3))
+
+
+
 # 1.13.0 (2020-05-06)
 
 
