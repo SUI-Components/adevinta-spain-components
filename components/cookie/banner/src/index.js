@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import Notification from '@s-ui/react-molecule-notification'
 import Button from '@s-ui/react-atom-button'
+import {useMount} from '@s-ui/react-hooks'
 
 import {CLASS, I18N} from './settings'
 
@@ -15,9 +16,7 @@ function CookieBanner({
   link,
   onAccept = NO_OP
 }) {
-  const [hasAcceptedCookies, setHasAcceptedCookies] = useState(
-    getHasAcceptedCookie
-  )
+  const [hasAcceptedCookies, setHasAcceptedCookies] = useState(true)
 
   const i18n = I18N[lang]
 
@@ -43,6 +42,11 @@ function CookieBanner({
     setHasAcceptedCookies(true)
     onAccept()
   }
+
+  useMount(function() {
+    const hasAccepted = getHasAcceptedCookie()
+    setHasAcceptedCookies(hasAccepted)
+  })
 
   if (hasAcceptedCookies) return null
 
