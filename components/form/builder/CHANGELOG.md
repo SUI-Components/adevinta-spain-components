@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.3.0 (2020-05-06)
+
+
+### Features
+
+* field side margins as default variable ([89d1a77](https://github.com/SUI-Components/schibsted-spain-components/commit/89d1a77332d24987c20475275986714d2d8edd72))
+
+
+
 # 2.2.0 (2020-05-06)
 
 
