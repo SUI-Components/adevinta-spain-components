@@ -16,6 +16,7 @@ $bg-form-builder: transparent !default;
 $p-form-builder: 0 !default;
 $bdrs-form-builder: 0 !default;
 $fz-form-builder-label: $fz-base !default;
+$m-form-builder-field: $m-m !default;
 
 // TODO: Remove after SUI comp allows hidden accessible labels
 @mixin visually-hidden {
@@ -52,8 +53,8 @@ $fz-form-builder-label: $fz-base !default;
     box-sizing: border-box;
     flex-grow: 1;
     margin-bottom: $m-l;
-    margin-left: $m-m;
-    margin-right: $m-m;
+    margin-left: $m-form-builder-field;
+    margin-right: $m-form-builder-field;
 
     @include media-breakpoint-up(s) {
       flex-grow: 0;
