@@ -14,7 +14,6 @@
   "dependencies": {
     "@s-ui/component-dependencies": "1",
     "@s-ui/react-atom-button": "1",
-    "@s-ui/react-icons": "1",
     "@s-ui/react-molecule-notification": "1"
   }
 }
