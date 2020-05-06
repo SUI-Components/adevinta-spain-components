@@ -1,16 +1,13 @@
 import {useState, useEffect} from 'react'
 
-function useMediaQuery(queryInput) {
+const supportMatchMedia =
+  typeof window !== 'undefined' && typeof window.matchMedia !== 'undefined'
+
+function useMediaQuery(queryInput, {defaultMatches = false} = {}) {
   const query = queryInput.replace(/^@media( ?)/m, '')
-  const supportMatchMedia =
-    typeof window !== 'undefined' && typeof window.matchMedia !== 'undefined'
-  const defaultMatches = false
   const matchMedia = supportMatchMedia ? window.matchMedia : null
 
-  const [match, setMatch] = useState(() => {
-    if (supportMatchMedia) return matchMedia(query).matches
-    return defaultMatches
-  })
+  const [match, setMatch] = useState(defaultMatches)
 
   useEffect(() => {
     let active = true
@@ -28,7 +25,7 @@ function useMediaQuery(queryInput) {
       active = false
       queryList.removeListener(updateMatch)
     }
-  }, [query, matchMedia, supportMatchMedia])
+  }, [query, matchMedia])
 
   return match
 }

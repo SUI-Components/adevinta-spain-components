@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-cookie-banner",
-  "version": "1.14.0",
+  "version": "2.0.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -13,6 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/react-icons": "1"
+    "@s-ui/react-atom-button": "1",
+    "@s-ui/react-hooks": "1",
+    "@s-ui/react-molecule-notification": "1"
   }
 }
