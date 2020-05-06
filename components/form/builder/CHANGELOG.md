@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.2.0 (2020-05-06)
+
+
+### Bug Fixes
+
+* fix fields passed to onChange method ([f298760](https://github.com/SUI-Components/schibsted-spain-components/commit/f298760348c4385564864efd96568abb0c380ac1))
+* fix onChange behaviour ([85133d3](https://github.com/SUI-Components/schibsted-spain-components/commit/85133d3cf82f1bd8f9d471dd1c349040fcfb14aa))
+
+
+
 # 2.1.0 (2020-04-29)
 
 
