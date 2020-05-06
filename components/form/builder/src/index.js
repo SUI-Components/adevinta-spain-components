@@ -40,10 +40,7 @@ const FormBuilder = ({
       {value: fieldValue}
     )
     setStateFields(nextFields)
-    onChange({
-      ...fieldsToObject(nextFields),
-      __FIELD_CHANGED__: fieldId
-    })
+
     return nextFields
   }
 
@@ -69,6 +66,10 @@ const FormBuilder = ({
 
     clearTimeout(timerShowSpinner)
     setStateFields(nextStateFields)
+    onChange({
+      ...fieldsToObject(nextStateFields),
+      __FIELD_CHANGED__: id
+    })
     setStateShowSpinner(false)
   }, []) // eslint-disable-line
 
