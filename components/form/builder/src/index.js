@@ -67,7 +67,7 @@ const FormBuilder = ({
     clearTimeout(timerShowSpinner)
     setStateFields(nextStateFields)
     onChange({
-      ...fieldsToObject(nextFields),
+      ...fieldsToObject(nextStateFields),
       __FIELD_CHANGED__: id
     })
     setStateShowSpinner(false)
