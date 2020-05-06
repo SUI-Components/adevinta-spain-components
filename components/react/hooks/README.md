@@ -154,6 +154,19 @@ export default function Demo() {
 }
 ```
 
+**On the server, by default, the mediaQuery doesn't match** but you could pass an option to change this.
+
+```js
+import {useMediaQuery} from '@s-ui/react-hooks'
+
+export default function Demo() {
+  const isMatching = useMediaQuery('(min-width:600px)', { defaultMatches: true});
+  return <span>{`(min-width:600px) matches: ${isMatching}`}</span>;
+}
+```
+
+Keep in mind this functionality if you want to prioritize one design over other. For example, to be sure you render on the server the mobile layout and keep for the client.
+
 ### useScroll
 
 Hook to get the scroll position and the direction of scroll, limited to the Y axis.
