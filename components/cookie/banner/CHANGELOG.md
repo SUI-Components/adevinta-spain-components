@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.0.0 (2020-05-06)
+
+
+### Bug Fixes
+
+* remove package ([88ffa31](https://github.com/SUI-Components/schibsted-spain-components/commit/88ffa3112637eec118034c3d3b509476e7040e4b))
+* sass vars ([fa3ee20](https://github.com/SUI-Components/schibsted-spain-components/commit/fa3ee2052dc2794de37feca8bb3f9b13275a83b5))
+* use useMount ([a22b9b4](https://github.com/SUI-Components/schibsted-spain-components/commit/a22b9b45bcb51556477bdfae930c62740e44f6f0))
+
+
+### Features
+
+* create new cookie banner ([627e4c5](https://github.com/SUI-Components/schibsted-spain-components/commit/627e4c5197ce713b48677236c417187ea286bb4d))
+
+
+### BREAKING CHANGES
+
+* cmp new style
+
+
+
 # 1.14.0 (2020-03-09)
 
 
