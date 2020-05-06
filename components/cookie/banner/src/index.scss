@@ -2,14 +2,14 @@
 @import '~@s-ui/theme/lib/index';
 @import '~@s-ui/react-molecule-notification/lib/index';
 
-$bgc-cmp-ui: #fff !default;
-$ta-cmp-ui-content: left !default;
-$fz-cmp-ui-text-mobile: $fz-xs !default;
-$fz-cmp-ui-text-desktop: $fz-m !default;
+$bgc-cookie-banner: #fff !default;
+$ta-cookie-banner-content: left !default;
+$fz-cookie-banner-text-mobile: $fz-xs !default;
+$fz-cookie-banner-text-desktop: $fz-m !default;
 
 .sui-CookieBanner {
   .sui-MoleculeNotification {
-    background-color: $bgc-cmp-ui !important; /* no matter the type, should be the color defined */
+    background-color: $bgc-cookie-banner !important; /* no matter the type, should be the color defined */
     box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.05);
     padding-bottom: $p-xl;
     @include media-breakpoint-up(s) {
@@ -39,7 +39,7 @@ $fz-cmp-ui-text-desktop: $fz-m !default;
   &-content {
     display: flex;
     flex-direction: column;
-    text-align: $ta-cmp-ui-content;
+    text-align: $ta-cookie-banner-content;
     @include media-breakpoint-up(s) {
       flex-direction: row;
       max-width: 1220px;
@@ -59,14 +59,14 @@ $fz-cmp-ui-text-desktop: $fz-m !default;
 
   &-text {
     color: $c-gray-dark;
-    font-size: $fz-cmp-ui-text-mobile;
+    font-size: $fz-cookie-banner-text-mobile;
     line-height: 18px;
     display: block;
     padding-bottom: $p-l;
 
     @include media-breakpoint-up(s) {
       color: $c-black;
-      font-size: $fz-cmp-ui-text-desktop;
+      font-size: $fz-cookie-banner-text-desktop;
       line-height: 1.5;
       padding-bottom: $p-xl;
     }
