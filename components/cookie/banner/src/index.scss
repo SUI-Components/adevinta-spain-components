@@ -1,48 +1,74 @@
 @import '~@s-ui/theme/lib/settings-compat-v7/index';
 @import '~@s-ui/theme/lib/index';
+@import '~@s-ui/react-molecule-notification/lib/index';
+
+$bgc-cmp-ui: #fff !default;
+$ta-cmp-ui-content: left !default;
+$fz-cmp-ui-text-mobile: $fz-xs !default;
+$fz-cmp-ui-text-desktop: $fz-m !default;
 
 .sui-CookieBanner {
-  background-color: $bgc-cookie-banner;
-  bottom: 0;
-  color: $c-cookie-banner;
-  font-size: $fz-cookie-banner;
-  left: 0;
-  position: fixed;
-  right: 0;
-  z-index: $z-cookie-banner;
+  .sui-MoleculeNotification {
+    background-color: $bgc-cmp-ui !important; /* no matter the type, should be the color defined */
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.05);
+    padding-bottom: $p-xl;
+    @include media-breakpoint-up(s) {
+      box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
+      display: flex;
+      min-height: 30%;
+      max-height: none;
+      justify-content: center;
+    }
 
-  &-content {
-    display: flex;
-    margin: 0 auto;
-    max-width: $maw-cookie-banner-content;
-    padding: $p-cookie-banner-content;
-    text-align: $ta-cookie-banner-context;
-  }
+    &-content {
+      align-items: center;
+    }
 
-  &-message {
-    margin-right: 8px;
-  }
-
-  &-link {
-    color: $c-cookie-banner-link;
-    margin-left: 4px;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
+    &-children {
+      width: 100%;
     }
   }
 
-  &-closeButton {
-    @include reset-button;
-    margin-left: auto;
+  &-actions {
+    @include media-breakpoint-up(s) {
+      margin-top: 36px;
+      padding-left: $p-xl;
+    }
   }
 
-  &-closeIcon {
-    cursor: pointer;
-    fill: $c-cookie-banner-close-icon !important;
-    &:hover {
-      fill: $c-cookie-banner-close-icon-hover !important;
+  &-content {
+    display: flex;
+    flex-direction: column;
+    text-align: $ta-cmp-ui-content;
+    @include media-breakpoint-up(s) {
+      flex-direction: row;
+      max-width: 1220px;
+      position: relative;
+    }
+  }
+
+  &-title {
+    font-size: $fz-m;
+    margin: 0 0 $m-l;
+
+    @include media-breakpoint-up(s) {
+      font-size: $fz-xxl;
+      margin: 0 0 $m-m;
+    }
+  }
+
+  &-text {
+    color: $c-gray-dark;
+    font-size: $fz-cmp-ui-text-mobile;
+    line-height: 18px;
+    display: block;
+    padding-bottom: $p-l;
+
+    @include media-breakpoint-up(s) {
+      color: $c-black;
+      font-size: $fz-cmp-ui-text-desktop;
+      line-height: 1.5;
+      padding-bottom: $p-xl;
     }
   }
 }

@@ -1,34 +1,35 @@
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
-import React, {Component} from 'react'
-import IconX from '@s-ui/react-icons/lib/X'
+import Notification from '@s-ui/react-molecule-notification'
+import Button from '@s-ui/react-atom-button'
+
+import {CLASS, I18N} from './settings'
 
 const COOKIE_TTL = 31557600000
+const NO_OP = () => {}
+const EmptyIcon = () => null
 
-class CookieBanner extends Component {
-  state = {
-    hasAcceptedCookies: true,
-    listeningScroll: false
-  }
+function CookieBanner({
+  cookieKey = 'user-has-accepted-cookies',
+  lang,
+  link,
+  onAccept = NO_OP
+}) {
+  const [hasAcceptedCookies, setHasAcceptedCookies] = useState(
+    getHasAcceptedCookie
+  )
 
-  _addScrollListener = () => {
-    if (!this.state.hasAcceptedCookies && this.props.dismissOnScroll) {
-      window.addEventListener('scroll', this._onScroll, false)
-      this.setState({listeningScroll: true})
-    }
-  }
+  const i18n = I18N[lang]
 
-  _getHasAcceptedCookie() {
-    // based on https://github.com/litejs/browser-cookie-lite/blob/master/index.js#L26
+  function getHasAcceptedCookie() {
     return decodeURIComponent(
-      (
-        `; ${document.cookie}`.split(`; ${this.props.cookieKey}=`)[1] || ''
-      ).split(';')[0]
+      (`; ${document.cookie}`.split(`; ${cookieKey}=`)[1] || '').split(';')[0]
     )
   }
 
-  _setHasAcceptedCookie() {
+  function setCookie() {
     // save the cookie with a true value
-    const value = `${this.props.cookieKey}=true`
+    const value = `${cookieKey}=true`
     // set the expiration date for a better browser support (IE11 has problems with max-age)
     const expires = `expires=${new Date(
       +new Date() + COOKIE_TTL
@@ -37,140 +38,59 @@ class CookieBanner extends Component {
     document.cookie = `${value};${expires}`
   }
 
-  handleClick = () => {
-    this._onAcceptCookies()
+  function handleClick() {
+    setCookie()
+    setHasAcceptedCookies(true)
+    onAccept()
   }
 
-  _onAcceptCookies() {
-    this._setHasAcceptedCookie()
-    this._removeScrollListener()
-    this.setState({hasAcceptedCookies: true}, () =>
-      this.props.onChange(!this.state.hasAcceptedCookies)
-    )
-  }
+  if (hasAcceptedCookies) return null
 
-  _onScroll = () => {
-    if (window.pageYOffset > this.props.dismissOnScrollThreshold) {
-      this._onAcceptCookies()
-    }
-  }
-
-  _removeScrollListener = () => {
-    if (this.state.listeningScroll) {
-      window.removeEventListener('scroll', this._onScroll)
-      this.setState({listeningScroll: false})
-    }
-  }
-
-  _renderCookiePolicy({message, link}) {
-    if (message && link) {
-      return (
-        <a
-          className="sui-CookieBanner-link"
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {message}
-        </a>
-      )
-    }
-  }
-
-  componentDidMount() {
-    // when mounting, to avoid showing the banner on the server, get the cookie
-    const hasAcceptedCookies = this._getHasAcceptedCookie()
-    // we set the state with the value, and add the scroll listener then if user hasn't accepted the cookies
-    this.setState(
-      {
-        hasAcceptedCookies
-      },
-      () => {
-        this._addScrollListener(this.state)
-        this.props.onChange(!this.state.hasAcceptedCookies)
-      }
-    )
-  }
-
-  componentWillUnmount() {
-    this._removeScrollListener()
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.state.hasAcceptedCookies !== nextState.hasAcceptedCookies
-  }
-
-  render() {
-    const {hasAcceptedCookies} = this.state
-    if (hasAcceptedCookies) {
-      return null
-    }
-
-    const {cookiePolicy, iconClose, message} = this.props
-
-    return (
-      <div className="sui-CookieBanner">
-        <div className="sui-CookieBanner-content">
-          <span className="sui-CookieBanner-message">
-            {message}
-            {this._renderCookiePolicy(cookiePolicy)}
-          </span>
-          <button
-            className="sui-CookieBanner-closeButton"
-            onClick={this.handleClick}
-          >
-            {iconClose}
-          </button>
-        </div>
-      </div>
-    )
-  }
+  return (
+    <div className={CLASS}>
+      <Notification
+        autoClose="manual"
+        icon={<EmptyIcon />}
+        position="bottom"
+        show
+        showCloseButton={false}
+        variation="positive"
+        type="system"
+      >
+        <section className={`${CLASS}-content`}>
+          <div>
+            <h3 className={`${CLASS}-title`}>{i18n.TITLE}</h3>
+            <span className={`${CLASS}-text`}>
+              Utilizamos cookies propias y de terceros, y tecnología similar,
+              para recordar tus preferencias, elaborar estadísticas, crear
+              perfiles publicitarios, mostrarte publicidad y contenido
+              personalizado, por ejemplo analizando tu navegación. Si continúas
+              navegando o haces clic en el botón "Seguir navegando", aceptas su
+              uso. Puedes revocar el consentimiento en{' '}
+              <a className="sui-CmpUi-link" href={link}>
+                nuestra política de cookies
+              </a>
+              .
+            </span>
+          </div>
+          <div className={`${CLASS}-actions`}>
+            <Button className={`${CLASS}-button`} onClick={handleClick}>
+              Seguir navegando
+            </Button>
+          </div>
+        </section>
+      </Notification>
+    </div>
+  )
 }
 
 CookieBanner.displayName = 'CookieBanner'
 
-CookieBanner.defaultProps = {
-  cookieKey: 'user-has-accepted-cookies',
-  dismissOnScroll: true,
-  dismissOnScrollThreshold: 0,
-  onChange: isDisplayed => isDisplayed,
-  iconClose: (
-    <IconX svgClass="sui-CookieBanner-closeIcon" fill="#000" size={16} />
-  )
-}
-
 CookieBanner.propTypes = {
-  /**
-   * onChange is a function that return a boolean that means if cookieBanner is or isn't displayed.
-   */
-  onChange: PropTypes.func,
-  /**
-   * Cookie-key used to save user's decision about you cookie-policy
-   */
   cookieKey: PropTypes.string,
-  /**
-   * Object with infos used to render a link to your cookie-policy page
-   */
-  cookiePolicy: PropTypes.shape({
-    message: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired
-  }),
-  /**
-   * Whether the cookie banner should be dismissed on scroll or not
-   */
-  dismissOnScroll: PropTypes.bool,
-  /**
-   * Number of pixels that the user has scrolled before dismissing banner scrolling
-   */
-  dismissOnScrollThreshold: PropTypes.number,
-  /**
-   * Icon to close the cookie banner
-   */
-  iconClose: PropTypes.element,
-  /**
-   * Message written inside default cookie banner
-   */
-  message: PropTypes.string.isRequired
+  lang: PropTypes.string.isRequired,
+  link: PropTypes.string,
+  onAccept: PropTypes.func
 }
 
 export default CookieBanner
