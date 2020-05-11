@@ -13,6 +13,7 @@ const Checkbox = ({checkbox, tabIndex, onChange, onBlur, errors, alerts}) => {
   try {
     checked = JSON.parse(checkbox.value)
   } catch (e) {
+    debugger // eslint-disable-line
     console.error('Impossible to convert to json checkbox value', checkbox)
   }
 
