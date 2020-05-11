@@ -40,7 +40,6 @@ export const operators = {
   [LESSTHAN]: (id, values, fields) => {
     const field = pickFieldById(fields, id)
     const shouldApply = field.value < values[0]
-    debugger // eslint-disable-line
     return shouldApply
   }
 }
