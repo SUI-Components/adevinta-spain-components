@@ -188,4 +188,35 @@ export default function Demo() {
 }
 ```
 
+### useDebounce
+
+Hook to debounce any fast changing value.
+
+The hook `useDebounce` always returns a given value after some miliseconds.
+
+```js
+import {useDebounce} from '@s-ui/react-hooks'
+
+export default function Demo() {
+  const [searchTerm, setSearchTerm] = useState('')
+  const debouncedSearchTerm = useDebounce(searchTerm, 500)
+
+  useEffect(
+    () => {
+      if (debouncedSearchTerm) {
+        //do something with the debounced value
+      } 
+    },
+    [debouncedSearchTerm] 
+  )
+
+  return (
+    <input
+        placeholder="Search anything"
+        onChange={e => setSearchTerm(e.target.value)}
+      />
+  )
+}
+```
+
 > **Find full description and more examples in the [demo page](#).**
