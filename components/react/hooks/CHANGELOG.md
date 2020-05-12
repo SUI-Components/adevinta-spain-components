@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.15.0 (2020-05-12)
+
+
+### Features
+
+* add useDebounce hook ([a567915](https://github.com/SUI-Components/schibsted-spain-components/commit/a567915a3395dd5c0131788064b166f1ebd6afc7))
+
+
+
 # 1.14.0 (2020-05-06)
 
 
