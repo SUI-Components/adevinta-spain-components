@@ -1,3 +1,4 @@
+import React from 'react'
 import PropTypes from 'prop-types'
 import {field} from '../prop-types'
 
@@ -69,8 +70,8 @@ const ProxyField = ({
       })
       break
 
-    default:
-      Field = renderer({
+    default: {
+      const rendererResponse = renderer({
         id: field.id,
         innerProps: {
           field,
@@ -81,6 +82,17 @@ const ProxyField = ({
           alerts
         }
       })
+      if (React.isValidElement(rendererResponse)) {
+        Field = rendererResponse
+      } else {
+        Field = (
+          <p>
+            Unknown Field type <span>{field.type}</span>
+          </p>
+        )
+      }
+      break
+    }
   }
 
   return Field
