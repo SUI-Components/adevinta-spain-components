@@ -1,5 +1,3 @@
-import React from 'react'
-
 import PropTypes from 'prop-types'
 import {field} from '../prop-types'
 
@@ -18,32 +16,71 @@ const ProxyField = ({
   onBlur,
   fieldSize,
   errors,
-  alerts
+  alerts,
+  renderer
 }) => {
   let Field
   switch (field.type) {
     case FIELDS.TEXT:
-      Field = TextField({field, tabIndex, onChange, onBlur, errors, alerts})
+      Field = TextField({
+        field,
+        tabIndex,
+        onChange,
+        onBlur,
+        errors,
+        alerts,
+        renderer
+      })
       break
 
     case FIELDS.NUMERIC:
-      Field = NumericField({field, tabIndex, onChange, onBlur, errors, alerts})
+      Field = NumericField({
+        field,
+        tabIndex,
+        onChange,
+        onBlur,
+        errors,
+        alerts,
+        renderer
+      })
       break
 
     case FIELDS.FIELDSET:
-      Field = FieldSetField({field, tabIndex, onChange, onBlur, errors, alerts})
+      Field = FieldSetField({
+        field,
+        tabIndex,
+        onChange,
+        onBlur,
+        errors,
+        alerts,
+        renderer
+      })
       break
 
     case FIELDS.PICKER:
-      Field = PickerField({field, tabIndex, onChange, onBlur, errors, alerts})
+      Field = PickerField({
+        field,
+        tabIndex,
+        onChange,
+        onBlur,
+        errors,
+        alerts,
+        renderer
+      })
       break
 
     default:
-      Field = (
-        <p>
-          Unknown Field type <span>{field.type}</span>
-        </p>
-      )
+      Field = renderer({
+        id: field.id,
+        innerProps: {
+          field,
+          tabIndex,
+          onChange,
+          onBlur,
+          errors,
+          alerts
+        }
+      })
   }
 
   return Field

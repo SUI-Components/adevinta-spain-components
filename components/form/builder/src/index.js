@@ -25,7 +25,8 @@ const FormBuilder = ({
   loader,
   fieldSize,
   errors,
-  alerts
+  alerts,
+  children: renderer
 }) => {
   const {fields = [], rules = {}, id: formID} = json.form
   const [stateFields, setStateFields] = useState(fields)
@@ -119,6 +120,7 @@ const FormBuilder = ({
           fieldSize={fieldSize}
           errors={errors}
           alerts={alerts}
+          renderer={renderer}
         />
       ))}
       {stateShowSpinner && (
@@ -141,7 +143,8 @@ FormBuilder.propTypes = {
   loader: PropTypes.object,
   fieldSize: PropTypes.oneOf(Object.values(fieldSizes)),
   errors: PropTypes.object,
-  alerts: PropTypes.object
+  alerts: PropTypes.object,
+  children: PropTypes.func
 }
 
 FormBuilder.defaultProps = {
@@ -151,7 +154,8 @@ FormBuilder.defaultProps = {
   responseInterceptor: ({response}) => response,
   requestInterceptor: () => {},
   errors: {},
-  alerts: {}
+  alerts: {},
+  children: () => ({})
 }
 
 export {fieldSizes as formBuilderFieldSizes}

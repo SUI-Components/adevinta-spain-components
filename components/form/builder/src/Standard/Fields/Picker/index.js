@@ -9,7 +9,15 @@ import Radio from '../../../Radio'
 
 import {FIELDS, DISPLAYS} from '../../index'
 
-const PickerField = ({field, tabIndex, onChange, onBlur, errors, alerts}) => {
+const PickerField = ({
+  field,
+  tabIndex,
+  onChange,
+  onBlur,
+  errors,
+  alerts,
+  renderer
+}) => {
   if (field.display === DISPLAYS[FIELDS.PICKER].SWITCH) {
     return (
       <Switch
@@ -19,6 +27,7 @@ const PickerField = ({field, tabIndex, onChange, onBlur, errors, alerts}) => {
         tabIndex={tabIndex}
         errors={errors}
         alerts={alerts}
+        renderer={renderer}
       />
     )
   } else if (
@@ -33,6 +42,7 @@ const PickerField = ({field, tabIndex, onChange, onBlur, errors, alerts}) => {
         tabIndex={tabIndex}
         errors={errors}
         alerts={alerts}
+        renderer={renderer}
       />
     )
   } else if (field.display === DISPLAYS[FIELDS.PICKER].RADIO) {
@@ -44,6 +54,7 @@ const PickerField = ({field, tabIndex, onChange, onBlur, errors, alerts}) => {
         tabIndex={tabIndex}
         errors={errors}
         alerts={alerts}
+        renderer={renderer}
       />
     )
   } else if (field.display === DISPLAYS[FIELDS.PICKER].CHECKBOX) {
@@ -55,6 +66,7 @@ const PickerField = ({field, tabIndex, onChange, onBlur, errors, alerts}) => {
         tabIndex={tabIndex}
         errors={errors}
         alerts={alerts}
+        renderer={renderer}
       />
     )
   } else if (field.display === DISPLAYS[FIELDS.PICKER].BUTTON_INLINE) {
@@ -66,6 +78,7 @@ const PickerField = ({field, tabIndex, onChange, onBlur, errors, alerts}) => {
         tabIndex={tabIndex}
         errors={errors}
         alerts={alerts}
+        renderer={renderer}
       />
     )
   } else {
@@ -78,6 +91,7 @@ const PickerField = ({field, tabIndex, onChange, onBlur, errors, alerts}) => {
         tabIndex={tabIndex}
         errors={errors}
         alerts={alerts}
+        renderer={renderer}
       />
     )
   }
@@ -89,7 +103,8 @@ PickerField.propTypes = {
   tabIndex: PropTypes.number,
   field: PropTypes.object,
   errors: PropTypes.object,
-  alerts: PropTypes.object
+  alerts: PropTypes.object,
+  renderer: PropTypes.func
 }
 
 export default PickerField

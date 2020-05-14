@@ -5,7 +5,15 @@ import {field, createComponentMemo} from '../prop-types'
 
 import MoleculeTextAreaField from '@s-ui/react-molecule-textarea-field'
 
-const TextArea = ({textArea, tabIndex, onChange, onBlur, errors, alerts}) => {
+const TextArea = ({
+  textArea,
+  tabIndex,
+  onChange,
+  onBlur,
+  errors,
+  alerts,
+  renderer
+}) => {
   const errorMessages = errors[textArea.id]
   const alertMessages = alerts[textArea.id]
 
@@ -72,11 +80,20 @@ const TextArea = ({textArea, tabIndex, onChange, onBlur, errors, alerts}) => {
     return null
   }
 
+  const rendererResponse = renderer({
+    id: textArea.id,
+    innerProps: textAreaProps
+  })
+
+  // render custom component
+  if (React.isValidElement(rendererResponse)) return rendererResponse
+
+  // render SUI component
   return (
     <div
       className={`sui-FormBuilder-field sui-FormBuilder-TextArea sui-FormBuilder-${textAreaProps.id}`}
     >
-      <MoleculeTextAreaField {...textAreaProps} size="long" />
+      <MoleculeTextAreaField {...textAreaProps} {...rendererResponse} />
     </div>
   )
 }
@@ -88,7 +105,8 @@ TextArea.propTypes = {
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   errors: PropTypes.object,
-  alerts: PropTypes.object
+  alerts: PropTypes.object,
+  renderer: PropTypes.func
 }
 
 export default React.memo(TextArea, createComponentMemo('textArea'))

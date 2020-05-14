@@ -6,7 +6,15 @@ import TextArea from '../../../TextArea'
 
 import {FIELDS, DISPLAYS} from '../../index'
 
-const TextField = ({field, tabIndex, onChange, onBlur, errors, alerts}) => {
+const TextField = ({
+  field,
+  tabIndex,
+  onChange,
+  onBlur,
+  errors,
+  alerts,
+  renderer
+}) => {
   if (field.display === DISPLAYS[FIELDS.TEXT].MULTILINE)
     return (
       <TextArea
@@ -16,6 +24,7 @@ const TextField = ({field, tabIndex, onChange, onBlur, errors, alerts}) => {
         tabIndex={tabIndex}
         errors={errors}
         alerts={alerts}
+        renderer={renderer}
       />
     )
   return (
@@ -26,6 +35,7 @@ const TextField = ({field, tabIndex, onChange, onBlur, errors, alerts}) => {
       tabIndex={tabIndex}
       errors={errors}
       alerts={alerts}
+      renderer={renderer}
     />
   )
 }
@@ -36,7 +46,8 @@ TextField.propTypes = {
   tabIndex: PropTypes.number,
   field: PropTypes.object,
   errors: PropTypes.object,
-  alerts: PropTypes.object
+  alerts: PropTypes.object,
+  renderer: PropTypes.func
 }
 
 export default TextField

@@ -14,7 +14,8 @@ const FieldSet = ({
   onBlur,
   fieldSize,
   errors,
-  alerts
+  alerts,
+  renderer
 }) => {
   const {fields = [], label} = fieldset
 
@@ -40,6 +41,7 @@ const FieldSet = ({
             fieldSize={fieldSize}
             errors={errors}
             alerts={alerts}
+            renderer={renderer}
           />
         ))}
       </div>
@@ -55,7 +57,8 @@ FieldSet.propTypes = {
   tabIndex: PropTypes.number,
   fieldSize: PropTypes.string,
   errors: PropTypes.object,
-  alerts: PropTypes.object
+  alerts: PropTypes.object,
+  renderer: PropTypes.func
 }
 
 export default FieldSet

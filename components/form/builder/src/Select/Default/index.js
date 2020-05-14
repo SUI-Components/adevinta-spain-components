@@ -14,7 +14,8 @@ const DefaultSelect = ({
   onBlur,
   size,
   errors,
-  alerts
+  alerts,
+  renderer
 }) => {
   const errorMessages = errors[select.id]
   const alertMessages = alerts[select.id]
@@ -74,6 +75,15 @@ const DefaultSelect = ({
     return null
   }
 
+  const rendererResponse = renderer({
+    id: select.id,
+    innerProps: {...selectProps, datalist}
+  })
+
+  // render custom component
+  if (React.isValidElement(rendererResponse)) return rendererResponse
+
+  // render SUI component
   return (
     <div
       className={`sui-FormBuilder-field sui-FormBuilder-DefaultSelect sui-FormBuilder-${selectProps.id}`}
@@ -83,7 +93,7 @@ const DefaultSelect = ({
           {selectProps.label}
         </label>
       )}
-      <MoleculeSelectField {...selectProps} size="large">
+      <MoleculeSelectField {...selectProps} {...rendererResponse}>
         {datalist.map(data => (
           <MoleculeSelectOption key={data.value} value={data.value}>
             {data.text}
@@ -102,7 +112,8 @@ DefaultSelect.propTypes = {
   onBlur: PropTypes.func,
   size: PropTypes.string,
   errors: PropTypes.object,
-  alerts: PropTypes.object
+  alerts: PropTypes.object,
+  renderer: PropTypes.func
 }
 
 export default React.memo(DefaultSelect, createComponentMemo('select'))

@@ -27,7 +27,8 @@ const AutosuggestSelect = ({
   onBlur,
   size,
   errors,
-  alerts
+  alerts,
+  renderer
 }) => {
   const errorMessages = errors[select.id]
   const alertMessages = alerts[select.id]
@@ -106,6 +107,15 @@ const AutosuggestSelect = ({
       )
     : datalist
 
+  const rendererResponse = renderer({
+    id: select.id,
+    innerProps: {...autosuggestProps, datalist}
+  })
+
+  // render custom component
+  if (React.isValidElement(rendererResponse)) return rendererResponse
+
+  // render SUI component
   return (
     <div
       className={`sui-FormBuilder-field sui-FormBuilder-AutosuggestSelect sui-FormBuilder-${autosuggestProps.id}`}
@@ -115,7 +125,7 @@ const AutosuggestSelect = ({
           {autosuggestProps.label}
         </label>
       )}
-      <MoleculeAutosuggestField {...autosuggestProps} size="large">
+      <MoleculeAutosuggestField {...autosuggestProps} {...rendererResponse}>
         {suggestions.map((suggestion, i) => (
           <MoleculeAutosuggestOption
             key={suggestion.value}
@@ -137,7 +147,8 @@ AutosuggestSelect.propTypes = {
   onBlur: PropTypes.func,
   size: PropTypes.string,
   errors: PropTypes.object,
-  alerts: PropTypes.object
+  alerts: PropTypes.object,
+  renderer: PropTypes.func
 }
 
 export default React.memo(AutosuggestSelect, createComponentMemo('select'))
