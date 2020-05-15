@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 3.0.0 (2020-05-15)
+
+
+### Features
+
+* add helptext to select fields ([939a3ae](https://github.com/SUI-Components/schibsted-spain-components/commit/939a3aeaa78e3728fb5f2e3e017648f07d23640a))
+
+
+
 # 2.5.0 (2020-05-14)
 
 
@@ -12,7 +21,14 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+* children prop is a function prop (renderer) that has the avility of customize th ([7d00545](https://github.com/SUI-Components/schibsted-spain-components/commit/7d00545779746a8074bf4fe71482b0c77880d90b))
+* define a custom display field only if it is a react element ([61f69f1](https://github.com/SUI-Components/schibsted-spain-components/commit/61f69f13e7e071e3aaf18e728eb3e5a3bdad34b1))
 * remove debuggers ([c391aa4](https://github.com/SUI-Components/schibsted-spain-components/commit/c391aa4195408117528240169c1e455926f7609c))
+
+
+### BREAKING CHANGES
+
+* remove hardcoded values like size="long" inside some components
 
 
 
