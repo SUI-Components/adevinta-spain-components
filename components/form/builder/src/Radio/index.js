@@ -45,13 +45,17 @@ const Radio = ({radio, tabIndex, onChange, errors, alerts, renderer}) => {
 
   // render custom component
   if (React.isValidElement(rendererResponse)) return rendererResponse
-
   // render SUI component
   return (
     <div
       className={`sui-FormBuilder-field sui-FormBuilder-Radio sui-FormBuilder-${radioProps.id ||
         tabIndex}`}
     >
+      {radio.label && (
+        <label className="sui-FormBuilder-label sui-FormBuilder-Radio-label">
+          {radio.label}
+        </label>
+      )}
       <MoleculeRadioButtonGroup
         onChange={(_, {value}) => {
           onChangeHandler(value)
