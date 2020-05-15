@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.5.0 (2020-05-14)
+
+
+### Bug Fixes
+
+* reverse greaterthan and lessthan ([ba80d83](https://github.com/SUI-Components/schibsted-spain-components/commit/ba80d83e9a59f3d6c1173a14b11e01454a309c8e))
+
+
+### Features
+
+* remove debuggers ([c391aa4](https://github.com/SUI-Components/schibsted-spain-components/commit/c391aa4195408117528240169c1e455926f7609c))
+
+
+
 # 2.4.0 (2020-05-07)
 
 

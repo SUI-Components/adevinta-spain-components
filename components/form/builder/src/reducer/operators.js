@@ -34,12 +34,12 @@ export const operators = {
   },
   [GREATERTHAN]: (id, values, fields) => {
     const field = pickFieldById(fields, id)
-    const shouldApply = values[0] > field.value
+    const shouldApply = field.value > values[0]
     return shouldApply
   },
   [LESSTHAN]: (id, values, fields) => {
     const field = pickFieldById(fields, id)
-    const shouldApply = values[0] < field.value
+    const shouldApply = field.value < values[0]
     return shouldApply
   }
 }
