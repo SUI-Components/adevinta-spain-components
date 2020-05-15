@@ -75,6 +75,7 @@ const AutosuggestSelect = ({
     name: select.name,
     placeholder: select.hint,
     onChange: onChangeCallback,
+    helpText: select.help,
     onBlur: onBlurCallback,
     iconClear: <IconClose />,
     value: localStateText,
