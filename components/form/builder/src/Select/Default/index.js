@@ -53,6 +53,7 @@ const DefaultSelect = ({
     value: select.value || '',
     onChange: onChangeCallback,
     onBlur: onBlurCallback,
+    helpText: select.help,
     tabIndex,
     ...(select.disabled && {
       disabled: true
