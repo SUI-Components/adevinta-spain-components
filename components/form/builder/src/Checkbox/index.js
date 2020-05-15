@@ -5,7 +5,15 @@ import {field, createComponentMemo} from '../prop-types'
 import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
 import IconCheck from '../Icons/IconCheck'
 
-const Checkbox = ({checkbox, tabIndex, onChange, onBlur, errors, alerts}) => {
+const Checkbox = ({
+  checkbox,
+  tabIndex,
+  onChange,
+  onBlur,
+  errors,
+  alerts,
+  renderer
+}) => {
   const errorMessages = errors[checkbox.id]
   const alertMessages = alerts[checkbox.id]
 
@@ -62,12 +70,24 @@ const Checkbox = ({checkbox, tabIndex, onChange, onBlur, errors, alerts}) => {
   if (checkboxProps.hidden) {
     return null
   }
+
+  const rendererResponse = renderer({
+    id: checkbox.id,
+    innerProps: checkboxProps
+  })
+
+  // render custom component
+  if (React.isValidElement(rendererResponse)) {
+    return rendererResponse
+  }
+
+  // render SUI component
   return (
     <div
       className={`sui-FormBuilder-field sui-FormBuilder-Switch sui-FormBuilder-${checkboxProps.id ||
         tabIndex}`}
     >
-      <MoleculeCheckboxField {...checkboxProps} />
+      <MoleculeCheckboxField {...checkboxProps} {...rendererResponse} />
     </div>
   )
 }
@@ -79,7 +99,8 @@ Checkbox.propTypes = {
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   errors: PropTypes.object,
-  alerts: PropTypes.object
+  alerts: PropTypes.object,
+  renderer: PropTypes.func
 }
 
 export default React.memo(Checkbox, createComponentMemo('checkbox'))

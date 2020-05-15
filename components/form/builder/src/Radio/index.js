@@ -5,10 +5,10 @@ import {field, createComponentMemo} from '../prop-types'
 import MoleculeRadioButtonGroup from '@s-ui/react-molecule-radio-button-group'
 import MoleculeRadioButtonField from '@s-ui/react-molecule-radio-button-field'
 
-const Radio = ({radio, tabIndex, onChange, errors, alerts}) => {
+const Radio = ({radio, tabIndex, onChange, errors, alerts, renderer}) => {
   const errorMessages = errors[radio.id]
   const alertMessages = alerts[radio.id]
-
+  const datalist = radio.datalist
   const onChangeHandler = value => {
     return onChange(radio.id, value)
   }
@@ -35,6 +35,18 @@ const Radio = ({radio, tabIndex, onChange, errors, alerts}) => {
     return null
   }
 
+  const rendererResponse = renderer({
+    id: radio.id,
+    innerProps: {
+      ...radioProps,
+      datalist
+    }
+  })
+
+  // render custom component
+  if (React.isValidElement(rendererResponse)) return rendererResponse
+
+  // render SUI component
   return (
     <div
       className={`sui-FormBuilder-field sui-FormBuilder-Radio sui-FormBuilder-${radioProps.id ||
@@ -46,8 +58,9 @@ const Radio = ({radio, tabIndex, onChange, errors, alerts}) => {
         }}
         id={radio.id}
         value={radio.value}
+        {...rendererResponse}
       >
-        {radio?.datalist.map(button => (
+        {datalist.map(button => (
           <MoleculeRadioButtonField
             id={button.value}
             key={button.value}
@@ -67,7 +80,8 @@ Radio.propTypes = {
   tabIndex: PropTypes.number,
   onChange: PropTypes.func,
   errors: PropTypes.object,
-  alerts: PropTypes.object
+  alerts: PropTypes.object,
+  renderer: PropTypes.func
 }
 
 export default React.memo(Radio, createComponentMemo('radio'))

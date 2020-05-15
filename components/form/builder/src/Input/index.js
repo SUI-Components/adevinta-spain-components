@@ -29,7 +29,8 @@ const Input = ({
   leftAddon,
   rightAddon,
   errors,
-  alerts
+  alerts,
+  renderer
 }) => {
   const errorMessages = errors[input.id]
   const alertMessages = alerts[input.id]
@@ -138,11 +139,17 @@ const Input = ({
     return null
   }
 
+  const rendererResponse = renderer({id: input.id, innerProps: inputProps})
+
+  // render custom component
+  if (React.isValidElement(rendererResponse)) return rendererResponse
+
+  // render SUI component
   return (
     <div
       className={`sui-FormBuilder-field sui-FormBuilder-Input sui-FormBuilder-${inputProps.id}`}
     >
-      <MoleculeInputField {...inputProps} />
+      <MoleculeInputField {...inputProps} {...rendererResponse} />
     </div>
   )
 }
@@ -157,7 +164,8 @@ Input.propTypes = {
   leftAddon: PropTypes.string,
   rightAddon: PropTypes.string,
   errors: PropTypes.object,
-  alerts: PropTypes.object
+  alerts: PropTypes.object,
+  renderer: PropTypes.func
 }
 
 export default React.memo(Input, createComponentMemo('input'))
