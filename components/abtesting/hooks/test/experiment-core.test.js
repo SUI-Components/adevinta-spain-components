@@ -8,7 +8,7 @@ import OptimizelyX from '../src/useExperimentCore/optimizely-x'
 import {useExperiment as useExperimentRaw, useExperimentCore} from '../src'
 
 import AbTestOptimizelyXExperiment, {
-  ExperimentContext
+  getExperimentContext
 } from '../../optimizelyXExperiment/src'
 
 // configure tests
@@ -16,7 +16,12 @@ Enzyme.configure({adapter: new Adapter()})
 jest.useFakeTimers()
 
 // configure dependencies
-const useExperiment = params => useExperimentRaw({ExperimentContext, ...params})
+const useExperiment = params =>
+  useExperimentRaw(
+    typeof params === 'string'
+      ? {getExperimentContext, name: params}
+      : {getExperimentContext, ...params}
+  )
 const OptimizelyXExperiment = props => (
   <AbTestOptimizelyXExperiment {...props} deps={{useExperimentCore}} />
 )
@@ -25,10 +30,13 @@ describe('Experiment', () => {
   let activationHandler
 
   beforeEach(() => {
+    const noop = () => {}
+    activationHandler = {single: noop}
     jest
       .spyOn(OptimizelyX, 'addActivationListener')
       .mockImplementation((experimentId, handler) => {
-        activationHandler = handler
+        activationHandler.single = handler
+        activationHandler[experimentId] = handler
       })
   })
 
@@ -55,7 +63,13 @@ describe('Experiment', () => {
         })
       } else {
         act(() => {
-          activationHandler(variationId)
+          if (!Array.isArray(variationId)) {
+            activationHandler.single(variationId)
+            return
+          }
+          variationId.forEach(({experimentId, variationId}) => {
+            activationHandler[experimentId](variationId)
+          })
         })
       }
       mounted.update()
@@ -89,6 +103,154 @@ describe('Experiment', () => {
         'false:true:false',
         700001,
         'true:false:true'
+      )
+    })
+  })
+
+  describe('from useExperiment as CORE RUNNER + CONTEXT PROVIDER with experiment name', () => {
+    it("should output experimentData from children's useExperiment as CONTEXT CONSUMER with experiment name", () => {
+      const Child = () => {
+        const experimentData = useExperiment('myexperiment')
+        const {isActive, isDefault, isVariation} = experimentData
+        return `${isActive}:${isDefault}:${isVariation}`
+      }
+      assertActivation(
+        () => {
+          const experimentData = useExperiment({
+            name: 'myexperiment',
+            experimentId: 40000,
+            variations: [
+              {id: 700000, isDefault: true},
+              {id: 700001},
+              {id: 700002}
+            ]
+          })
+          return (
+            <OptimizelyXExperiment feed={experimentData}>
+              <Child />
+            </OptimizelyXExperiment>
+          )
+        },
+        'false:true:false',
+        700001,
+        'true:false:true'
+      )
+    })
+  })
+
+  describe('from multiple useExperiments as CORE RUNNER + CONTEXT PROVIDER with different experiment names', () => {
+    it("should output different experimentData from each children's useExperiment as CONTEXT CONSUMER with experiment names", () => {
+      const Child = () => {
+        const catsExperimentData = useExperiment('cats')
+        const dogsExperimentData = useExperiment('dogs')
+        const {
+          isActive: catsIsActive,
+          isDefault: catsIsDefault,
+          isVariationB: catsIsVariationB,
+          isVariationC: catsIsVariationC
+        } = catsExperimentData
+        const {
+          isActive: dogsIsActive,
+          isDefault: dogsIsDefault,
+          isVariationB: dogsIsVariationB,
+          isVariationC: dogsIsVariationC
+        } = dogsExperimentData
+        const catsOutput = `${catsIsActive}:${catsIsDefault}:${catsIsVariationB}:${catsIsVariationC}`
+        const dogsOutput = `${dogsIsActive}:${dogsIsDefault}:${dogsIsVariationB}:${dogsIsVariationC}`
+        return `${catsOutput}/${dogsOutput}`
+      }
+      assertActivation(
+        () => {
+          const catsExperimentData = useExperiment({
+            name: 'cats',
+            experimentId: 40000,
+            variations: [
+              {id: 700000, isDefault: true},
+              {id: 700001},
+              {id: 700002}
+            ]
+          })
+          const dogsExperimentData = useExperiment({
+            name: 'dogs',
+            experimentId: 50000,
+            variations: [
+              {id: 900000, isDefault: true},
+              {id: 900001},
+              {id: 900002}
+            ]
+          })
+          return (
+            <OptimizelyXExperiment feed={catsExperimentData}>
+              <OptimizelyXExperiment feed={dogsExperimentData}>
+                <Child />
+              </OptimizelyXExperiment>
+            </OptimizelyXExperiment>
+          )
+        },
+        'false:true:false:false/false:true:false:false',
+        [
+          {experimentId: 40000, variationId: 700001}, // cats: B
+          {experimentId: 50000, variationId: 900002} // dogs: C
+        ],
+        'true:false:true:false/true:false:false:true'
+      )
+    })
+  })
+
+  describe('from multiple useExperiments as CORE RUNNER + CONTEXT PROVIDER with mix of namend/non-named', () => {
+    it("should output different experimentData from each children's useExperiment as CONTEXT CONSUMER with only one named experiment", () => {
+      const Child = () => {
+        const nonNamedExperimentData = useExperiment()
+        const dogsExperimentData = useExperiment('dogs')
+        const {
+          isActive: nnIsActive,
+          isDefault: nnIsDefault,
+          isVariationB: nnIsVariationB,
+          isVariationC: nnIsVariationC
+        } = nonNamedExperimentData
+        const {
+          isActive: dogsIsActive,
+          isDefault: dogsIsDefault,
+          isVariationB: dogsIsVariationB,
+          isVariationC: dogsIsVariationC
+        } = dogsExperimentData
+        const nnOutput = `${nnIsActive}:${nnIsDefault}:${nnIsVariationB}:${nnIsVariationC}`
+        const dogsOutput = `${dogsIsActive}:${dogsIsDefault}:${dogsIsVariationB}:${dogsIsVariationC}`
+        return `${nnOutput}/${dogsOutput}`
+      }
+      assertActivation(
+        () => {
+          const catsExperimentData = useExperiment({
+            experimentId: 40000,
+            variations: [
+              {id: 700000, isDefault: true},
+              {id: 700001},
+              {id: 700002}
+            ]
+          })
+          const dogsExperimentData = useExperiment({
+            name: 'dogs',
+            experimentId: 50000,
+            variations: [
+              {id: 900000, isDefault: true},
+              {id: 900001},
+              {id: 900002}
+            ]
+          })
+          return (
+            <OptimizelyXExperiment feed={catsExperimentData}>
+              <OptimizelyXExperiment feed={dogsExperimentData}>
+                <Child />
+              </OptimizelyXExperiment>
+            </OptimizelyXExperiment>
+          )
+        },
+        'false:true:false:false/false:true:false:false',
+        [
+          {experimentId: 40000, variationId: 700001}, // non-named: B
+          {experimentId: 50000, variationId: 900002} // dogs: C
+        ],
+        'true:false:true:false/true:false:false:true'
       )
     })
   })
@@ -343,7 +505,7 @@ describe('Experiment', () => {
       })
 
       act(() => {
-        activationHandler(700002)
+        activationHandler.single(700002)
       })
       mounted.update()
       expect(dataFromOnActivation.isVariationC).toBe(true)
