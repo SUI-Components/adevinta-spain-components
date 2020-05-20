@@ -17,6 +17,7 @@ $p-form-builder: 0 !default;
 $bdrs-form-builder: 0 !default;
 $fz-form-builder-label: $fz-base !default;
 $m-form-builder-field: 0 $m-m $m-l $m-m !default;
+$m-form-builder-radio-label: 0 0 $m-l 0 !default;
 
 // TODO: Remove after SUI comp allows hidden accessible labels
 @mixin visually-hidden {
@@ -41,12 +42,16 @@ $m-form-builder-field: 0 $m-m $m-l $m-m !default;
     width: calc(100% - #{$m-l});
   }
 
-  &-label {
+  &-label:not(.#{$self}-Radio-label) {
     display: block;
     font-size: $fz-form-builder-label;
     margin-bottom: $m-s;
 
     @include visually-hidden();
+  }
+  .#{$self}-Radio-label {
+    display: inline-block;
+    margin: $m-form-builder-radio-label;
   }
 
   &-field {

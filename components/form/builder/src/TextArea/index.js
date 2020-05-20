@@ -69,6 +69,7 @@ const TextArea = ({
     id: textArea.id,
     name: textArea.id,
     label: textArea.label || '',
+    help: textArea.help,
     tabIndex,
     value: textArea.value || '',
     onChange: onChangeCallback,
