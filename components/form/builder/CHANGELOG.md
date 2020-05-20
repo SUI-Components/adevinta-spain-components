@@ -2,12 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+# 3.1.0 (2020-05-20)
+
+
+### Features
+
+* add help into textarea ([8e24364](https://github.com/SUI-Components/schibsted-spain-components/commit/8e243646a6ff3418b5781a845ee2c4f431bdffc5))
+
+
+
 # 3.0.0 (2020-05-15)
 
 
 ### Features
 
 * add helptext to select fields ([939a3ae](https://github.com/SUI-Components/schibsted-spain-components/commit/939a3aeaa78e3728fb5f2e3e017648f07d23640a))
+* add label into Radio type because there is no MoleculeRadioButtonGroupField comp ([ffea7ec](https://github.com/SUI-Components/schibsted-spain-components/commit/ffea7ecee8a9d2c94e5b7e35f72ce853647732b5))
 
 
 
