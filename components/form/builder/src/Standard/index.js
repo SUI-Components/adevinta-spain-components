@@ -103,7 +103,7 @@ const checkConstraintsFromField = field => {
     field.type === FIELDS.PICKER &&
     field.display === DISPLAYS[FIELDS.PICKER].CHECKBOX
   ) {
-    const checkboxValue = JSON.parse(elementNode?.value)
+    const checkboxValue = elementNode?.value === 'true'
 
     const checkboxShouldBeTrueConstraint = field.constraints?.find(
       constraint => constraint.property?.pattern === '^true$'
