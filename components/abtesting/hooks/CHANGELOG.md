@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.7.0 (2020-05-21)
+
+
+### Features
+
+* add unique contexts by experiment name (and tests) ([145b4bd](https://github.com/SUI-Components/schibsted-spain-components/commit/145b4bde09d9c94b5d06e2dd3195e35ab6576f59))
+
+
+
 # 1.6.0 (2020-02-25)
 
 
