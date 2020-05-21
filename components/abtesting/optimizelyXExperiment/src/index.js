@@ -1,19 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import ExperimentContext from './experiment-context'
+import {getExperimentContext} from './context'
 import ExperimentProviderOnly from './experiment-provider-only'
 import ExperimentProviderAndCore from './experiment-provider-and-core'
 
 function AbTestOptimizelyXExperiment(props) {
+  const isProviderOnly = !!props.feed
+  const experimentData = isProviderOnly ? props.feed : props
+
   // ACT AS AN EXPERIMENT CONTEXT PROVIDER ONLY
   // - feeds from an external experiment and provides data from it to the context
-  const {feed} = props
-  if (feed) return <ExperimentProviderOnly {...props} experimentData={feed} />
+  if (isProviderOnly)
+    return <ExperimentProviderOnly {...props} experimentData={experimentData} />
 
   // ACT AS AN EXPERIMENT CORE RUNNER AND CONTEXT PROVIDER
   // - internally runs the experiment and provides data from it to the context
-  return <ExperimentProviderAndCore {...props} />
+  return <ExperimentProviderAndCore {...experimentData} />
 }
 
 AbTestOptimizelyXExperiment.displayName = 'AbTestOptimizelyXExperiment'
@@ -31,4 +34,4 @@ EmptyVariation.propTypes = {
 }
 
 export default AbTestOptimizelyXExperiment
-export {EmptyVariation, ExperimentContext}
+export {EmptyVariation, getExperimentContext}

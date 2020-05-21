@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import ExperimentContext from '../experiment-context'
+import {getExperimentContext} from '../context'
 
 function ExperimentProviderOnly({children, experimentData}) {
+  const ExperimentContext = getExperimentContext(experimentData.name)
   return (
     <ExperimentContext.Provider value={experimentData}>
       {children}

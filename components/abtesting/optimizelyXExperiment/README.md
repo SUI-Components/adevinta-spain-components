@@ -78,7 +78,7 @@ The following data is set in a plain object to the experiment context.
 So for a given experiment:
 
 ```js
-<OptimizelyXExperiment experimentId={8470306415}>
+<OptimizelyXExperiment name="myexperiment" experimentId={8470306415}>
   <NiceComponent variationId={8463707014} defaultVariation />
   <NiceComponent variationId={8480321136} />
 </OptimizelyXExperiment>
@@ -90,16 +90,18 @@ The experiment context can be consumed at any child level by using the `useExper
 import {useExperiment} from '@s-ui/abtesting-hooks'
 
 const NiceComponent = () => {
-  const {isActive, isDefault, isVariation, ...} = useExperiment()
+  const {isActive, isDefault, isVariation, ...} = useExperiment('myexperiment')
 }
 ```
+
+**IMPORTANT:** Note the `'myexperiment'` value passed to `name` prop of the component which is also used as an argument in `useExperiment` consumer. This is the way for the package to keep a unique internal context instance per experiment in order to avoid undesired overridings when multiple experiment contexts live within the same hierarchy scope. So if you want multiple experiment contexts to coexist just pick different names for them and you will be ok.
 
 ### variationName
 
 You may need to check which variation has been chosen down in the children, specially when the experiment has 3 or more possible variations. For the sake of simplicity, OptimizelyXExperiment will automatically assign an uppercase letter for each variation based on the order of children, but you could override it by using `variationName` prop directly into a variation.
 
 ```js
-<OptimizelyXExperiment experimentId={8470306415}>
+<OptimizelyXExperiment name="myexperiment" experimentId={8470306415}>
   <TestedComponent variationId={8463707014} defaultVariation />
   <TestedComponent variationId={8480321136} />
   <TestedComponent variationId={8462843355} variationName="maneko" />
@@ -113,7 +115,7 @@ Considering the above example, if we look into TestedComponent we can access the
 import {useExperiment} from '@s-ui/abtesting-hooks'
 
 const TestedComponent = () => {
-  const {variationName} = useExperiment()
+  const {variationName} = useExperiment('myexperiment')
 
   // if 1st variation is chosen: variationName → "A"
   // if 2nd variation is chosen: variationName → "B"
@@ -131,7 +133,12 @@ Also, boolean keys are provided for simplicity:
 import {useExperiment} from '@s-ui/abtesting-hooks'
 
 const TestedComponent = () => {
-  const {isVariationA, isVariationB, isVariationManeko, isVariationD} = useExperiment()
+  const {
+    isVariationA,
+    isVariationB,
+    isVariationManeko,
+    isVariationD
+  } = useExperiment('myexperiment')
 
   // consider 'B' variation is chosen by optimizely, then:
   console.log(isVariationA) // → false

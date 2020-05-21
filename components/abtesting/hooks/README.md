@@ -19,10 +19,10 @@ $ npm install @s-ui/abtesting-hooks --save
 #### ⎡🧪👂⎦ Experiment Context Consumer
 
 ```js
-const {isActive, isDefault, isVariation, ...} = useExperiment()
+const {isActive, isDefault, isVariation, ...} = useExperiment('myexperiment')
 ```
 
-When it's used in some of the children of OptimizelyXExperiment (down in the rendering hierarchy) and no params are given, it just receives the context from an upper experiment component in the hierarchy.
+When it's used in some of the children of OptimizelyXExperiment (down in the rendering hierarchy) and only a name is given as a param, it just receives the context from an upper experiment component in the hierarchy.
 
 See OptimizelyXExperiment's readme to see advanced examples about consuming the experiment context: Advanced Usage → Experiment Context.
 
@@ -30,6 +30,7 @@ See OptimizelyXExperiment's readme to see advanced examples about consuming the 
 
 ```js
 const {isActive, isDefault, isVariation, ...} = useExperiment({
+  name: 'myexperiment',
   experimentId: 40000,
   variations: [
     {id: 700000, isDefault: true},
@@ -52,6 +53,7 @@ Also, you may be wondering how to provide experiment context in order to be cons
 ```js
 // Run experiment
 const experimentData = useExperiment({
+  name: 'myexperiment',
   experimentId: 40000,
   variations: [
     {id: 700000, isDefault: true},
@@ -69,7 +71,7 @@ return (
   <OptimizelyXExperiment feed={experimentData}>
     ...
     All the components rendered here are reached by the experiment context,
-    which can be consumed by `useExperiment()` as well.
+    which can be consumed by `useExperiment('myexperiment')` as well.
     ...
   </OptimizelyXExperiment>
 )
