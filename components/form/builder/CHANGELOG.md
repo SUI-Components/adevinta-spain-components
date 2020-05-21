@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 3.2.0 (2020-05-21)
+
+
+### Bug Fixes
+
+* avoid breaking if value is not 'true' or 'false' ([8a95a58](https://github.com/SUI-Components/schibsted-spain-components/commit/8a95a58567fc2875f14e02fa9c873dd9ae24d5e0))
+
+
+
 # 3.1.0 (2020-05-20)
 
 
