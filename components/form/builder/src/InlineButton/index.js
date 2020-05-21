@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useCallback} from 'react'
 
 import PropTypes from 'prop-types'
 import {field, createComponentMemo} from '../prop-types'
@@ -21,10 +21,19 @@ const InlineButton = ({
     return onChange(inlineButton.id, value)
   }
 
+  const onChangeCallback = useCallback(
+    value => {
+      return onChange(inlineButton.id, value)
+    },
+    [onChange, inlineButton]
+  )
+
   const inlineButtonProps = {
     id: inlineButton.id,
     label: inlineButton.label,
     tabIndex: tabIndex,
+    value: inlineButton.value || '',
+    onChange: onChangeCallback,
     ...(inlineButton.disabled && {
       disabled: true
     }),
