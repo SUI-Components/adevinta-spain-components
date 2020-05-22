@@ -52,9 +52,7 @@ const Radio = ({radio, tabIndex, onChange, errors, alerts, renderer}) => {
         tabIndex}`}
     >
       {radio.label && (
-        <label className="sui-FormBuilder-label sui-FormBuilder-Radio-label">
-          {radio.label}
-        </label>
+        <label className="sui-FormBuilder-Radio-label">{radio.label}</label>
       )}
       <MoleculeRadioButtonGroup
         onChange={(_, {value}) => {

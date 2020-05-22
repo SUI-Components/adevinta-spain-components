@@ -42,7 +42,7 @@ $m-form-builder-radio-label: 0 0 $m-l 0 !default;
     width: calc(100% - #{$m-l});
   }
 
-  &-label:not(.#{$self}-Radio-label) {
+  &-label {
     display: block;
     font-size: $fz-form-builder-label;
     margin-bottom: $m-s;
