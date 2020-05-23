@@ -116,6 +116,10 @@ export default params => {
       const getMessageForParam = param =>
         `[ExperimentCore] Watch out!! Optimizely response will be ignored because the ${param} param.`
 
+      /*
+       * [Fake activation]
+       * Activate variation via `forceActivation` API flag
+       */
       if (forceActivation) {
         setTimeout(
           () => activationHandler(checkVariationId(forceActivation)),
@@ -125,21 +129,57 @@ export default params => {
         return
       }
 
+      /*
+       * [Fake activation]
+       * Activate variation via `forceVariation` API flag
+       */
       if (forceVariation) {
         logWatchOutMessage(getMessageForParam('forceVariation'))
         return
       }
     }
 
+    /*
+     * [Fake activation]
+     * - Activate variation via `forceExperiment` browser query flag.
+     * - Also sets the flag into session storage to extend the effect during
+     *   the tab session.
+     */
+    if (typeof URLSearchParams !== 'undefined') {
+      const SESSION_STORAGE_KEY = '_suiAbtestingForceExperiment'
+      const urlParams = new URLSearchParams(window.location.search)
+      const forceExperiment =
+        urlParams.get('forceExperiment') ||
+        window.sessionStorage.getItem(SESSION_STORAGE_KEY)
+
+      if (forceExperiment) {
+        const [experimentName, variationName] = forceExperiment.split('|')
+        if (
+          !experimentName ||
+          !variationName ||
+          state.name !== experimentName
+        ) {
+          return
+        }
+
+        // fake activation is ready to trigger
+        setTimeout(
+          () => activationHandler(checkVariationId(variationName)),
+          forceActivationDelay
+        )
+
+        window.sessionStorage.setItem(SESSION_STORAGE_KEY, forceExperiment)
+        return
+      }
+    }
+
+    /*
+     * [Natural activation]
+     * Activate the right variation via Optimizely criteria
+     */
     OptimizelyX.addActivationListener(experimentId, activationHandler)
 
     return () => {
-      if (
-        process.env.NODE_ENV !== 'production' &&
-        (forceActivation || forceVariation)
-      ) {
-        return
-      }
       OptimizelyX.removeActivationListener(experimentId, activationHandler)
     }
   }, [])
