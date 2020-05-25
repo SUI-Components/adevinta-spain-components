@@ -192,6 +192,23 @@ In the above example, "Cats" variation will be displayed first, then after a few
 
 NOTE: Since this prop is meant to be used in development environment only, `forceActivation` is just ignored in production as a preventive measure.
 
+### forceExperiment — The Query Param
+
+Wanna take a quick look into a variation? You can add `forceExperiment` query param to the URL on the address bar, providing experiment name and variation you want to activate as a value:
+
+```
+?forceExperiment=<experiment-name>|<variation-name>
+```
+
+For example, an experiment whose name is `myexperiment` with a `biggerButton` variation would look like this:
+```
+?forceExperiment=myexperiment|biggerButton
+```
+
+Note that this gets stored into the session storage, so the variation will show up through the entire navigation process until the tab gets closed. This is intended to avoid unnecessarily repeating the process of adding the mentioned query param.
+
+This way, UX or other roles can check variations whenever they like without the need of setting up and publishing the AB Test on Optimizely Panel, which is slower, cumbersome and wastes traffic from the plan.
+
 ## Known issues
 
 ### Clipping of variations
