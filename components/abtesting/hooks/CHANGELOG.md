@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.8.0 (2020-05-25)
+
+
+### Features
+
+* add forceExperiment browser query flag ([3f97237](https://github.com/SUI-Components/schibsted-spain-components/commit/3f9723790d3c55c0f2fc16042a4ae520d730cbd5))
+
+
+
 # 1.7.0 (2020-05-21)
 
 
