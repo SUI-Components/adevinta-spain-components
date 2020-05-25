@@ -183,6 +183,15 @@ This prop is similar to `forceVariation` prop, but it simulates an actual activa
 
 In the above example, "Cats" variation will be displayed first, then after a few milliseconds "Dogs" variation will be definitely displayed. You can also use variation name instead:
 
+```js
+<OptimizelyXExperiment experimentId={8470306415} forceActivation="B">
+  <button variationId={8463707014} defaultVariation>Cats</button>
+  <button variationId={8480321136}>Dogs</button>
+</OptimizelyXExperiment>
+```
+
+NOTE: Since this prop is meant to be used in development environment only, `forceActivation` is just ignored in production as a preventive measure.
+
 ### forceExperiment — The Query Param
 
 Wanna take a quick look into a variation? You can add `forceExperiment` query param to the URL on the address bar, providing experiment name and variation you want to activate as a value:
