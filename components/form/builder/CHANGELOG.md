@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 3.5.0 (2020-05-26)
+
+
+### Bug Fixes
+
+* validate  only visible fields ([adda000](https://github.com/SUI-Components/schibsted-spain-components/commit/adda00027d7e61f1af51486d855430000f9eedb5))
+
+
+### Features
+
+* undo change ([120c637](https://github.com/SUI-Components/schibsted-spain-components/commit/120c63727b54e87285e1d33e8a6e6935a9ea289b))
+
+
+
 # 3.4.0 (2020-05-22)
 
 
