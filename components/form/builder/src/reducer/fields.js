@@ -24,8 +24,7 @@ export const datalistEntries = fields => {
 
 export const fieldsToArrayOfString = fields => {
   return Object.entries(fieldsToObject(fields)).map(field => {
-    const id = field[0]
-    const value = typeof field[1] === 'object' ? field[1].value : field[1]
+    const [id, value] = field
     return `${id}=${value}`
   })
 }
