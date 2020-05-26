@@ -146,14 +146,36 @@ export default params => {
      *   the tab session.
      */
     if (typeof URLSearchParams !== 'undefined') {
-      const SESSION_STORAGE_KEY = '_suiAbtestingForceExperiment'
+      const sessionStorageKey = `_suiAbtestingForceExperiment_${state.experimentId}`
       const urlParams = new URLSearchParams(window.location.search)
-      const forceExperiment =
-        urlParams.get('forceExperiment') ||
-        window.sessionStorage.getItem(SESSION_STORAGE_KEY)
+      const forceExperimentFromQueryParam = urlParams.get('forceExperiment')
+      const forceExperimentFromSessionStorage = window.sessionStorage.getItem(
+        sessionStorageKey
+      )
 
+      const splitNames = forceExperiment => forceExperiment.split('|')
+      const getForceExperimentToBeApplied = () => {
+        if (
+          forceExperimentFromQueryParam &&
+          forceExperimentFromSessionStorage
+        ) {
+          // When both query param and session storage entry are present,
+          // query param has preference BUT only if it's the same name,
+          // so it can override session storage entry.
+          const [nameFromQP] = splitNames(forceExperimentFromQueryParam)
+          const [nameFromSS] = splitNames(forceExperimentFromSessionStorage)
+          if (nameFromQP === nameFromSS) return forceExperimentFromQueryParam
+          return forceExperimentFromSessionStorage
+        }
+        // Otherwise, whether any of them are present preference rule is simple
+        return (
+          forceExperimentFromQueryParam || forceExperimentFromSessionStorage
+        )
+      }
+
+      const forceExperiment = getForceExperimentToBeApplied()
       if (forceExperiment) {
-        const [experimentName, variationName] = forceExperiment.split('|')
+        const [experimentName, variationName] = splitNames(forceExperiment)
         if (
           !experimentName ||
           !variationName ||
@@ -168,7 +190,7 @@ export default params => {
           forceActivationDelay
         )
 
-        window.sessionStorage.setItem(SESSION_STORAGE_KEY, forceExperiment)
+        window.sessionStorage.setItem(sessionStorageKey, forceExperiment)
         return
       }
     }
