@@ -138,6 +138,8 @@ const checkConstrainstsFactory = json => ({for: fieldID, all}) => {
     const field = pickFieldById(json.form.fields, fieldId)
     if (!field.hidden) {
       fieldsWithErrors[field.id] = checkConstraintsFromField(field)
+    } else {
+      fieldsWithErrors[field.id] = []
     }
   })
   return fieldsWithErrors
