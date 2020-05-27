@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 3.6.0 (2020-05-27)
+
+
+### Bug Fixes
+
+* add empty errors to field if it is hidden ([f4bb8df](https://github.com/SUI-Components/schibsted-spain-components/commit/f4bb8df044207038601f5357d239ee41a8f6ee1b))
+
+
+
 # 3.5.0 (2020-05-26)
 
 
