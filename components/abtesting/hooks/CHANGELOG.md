@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.9.0 (2020-05-27)
+
+
+### Features
+
+* improve code readability by using a ternary ([3fda183](https://github.com/SUI-Components/schibsted-spain-components/commit/3fda183398529e394fead82f70c8e863a2291ddf))
+* sequence of activations force experiment query param ([f7b9103](https://github.com/SUI-Components/schibsted-spain-components/commit/f7b9103e383358636eeee2762ef36608c82962d1))
+
+
+
 # 1.8.0 (2020-05-25)
 
 
