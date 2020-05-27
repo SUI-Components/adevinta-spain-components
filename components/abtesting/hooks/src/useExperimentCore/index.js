@@ -164,8 +164,9 @@ export default params => {
           // so it can override session storage entry.
           const [nameFromQP] = splitNames(forceExperimentFromQueryParam)
           const [nameFromSS] = splitNames(forceExperimentFromSessionStorage)
-          if (nameFromQP === nameFromSS) return forceExperimentFromQueryParam
-          return forceExperimentFromSessionStorage
+          return nameFromQP === nameFromSS
+            ? forceExperimentFromQueryParam
+            : forceExperimentFromSessionStorage
         }
         // Otherwise, whether any of them are present preference rule is simple
         return (
