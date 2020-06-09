@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 3.7.0 (2020-06-09)
+
+
+### Features
+
+* export fieldsNamesInOrderOfDefinition function ([ecf81bb](https://github.com/SUI-Components/schibsted-spain-components/commit/ecf81bbdac7c058547f76e78cbafbe7798231946))
+
+
+
 # 3.6.0 (2020-05-27)
 
 
