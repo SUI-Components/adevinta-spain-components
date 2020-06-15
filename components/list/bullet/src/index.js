@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import Bullet from './bullet.js'
+import Bullet, {headingTags} from './bullet.js'
 import cx from 'classnames'
 
 export const responsiveTypes = {
@@ -10,7 +10,13 @@ export const responsiveTypes = {
 
 const BASE_CLASS = 'sui-ListBullet'
 
-const ListBullet = ({listItems, responsive, smallFont, isString}) => {
+const ListBullet = ({
+  listItems,
+  responsive,
+  smallFont,
+  isString,
+  as: Heading = headingTags.h2
+}) => {
   const listBulletClass = cx(BASE_CLASS, {
     [`${BASE_CLASS}--${responsive}`]: Boolean(responsive),
     [`${BASE_CLASS}--smallFont`]: smallFont
@@ -25,6 +31,7 @@ const ListBullet = ({listItems, responsive, smallFont, isString}) => {
             isString={isString}
             key={index}
             baseClass={BASE_CLASS}
+            as={Heading}
           />
         ))}
     </div>
@@ -56,12 +63,18 @@ ListBullet.propTypes = {
   /**
    * Is a String insted of an image
    */
-  isString: PropTypes.bool
+  isString: PropTypes.bool,
+  /**
+   * Heading TAG to improve the SEO, from h1 to h6. Default: h2
+   */
+  as: PropTypes.oneOf(Object.values(headingTags))
 }
 
 ListBullet.defaultProps = {
   responsive: false,
   smallFont: false
 }
+
+export {headingTags as titleListBulletTags}
 
 export default ListBullet
