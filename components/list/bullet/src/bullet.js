@@ -50,4 +50,5 @@ Bullet.propTypes = {
   as: PropTypes.oneOf(Object.values(HEADING_TAGS))
 }
 
+export {HEADING_TAGS as headingTags}
 export default Bullet
