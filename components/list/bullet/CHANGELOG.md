@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.10.0 (2020-06-15)
+
+
+### Features
+
+* added suport Heading prop to improve the SEO ([eaa450a](https://github.com/SUI-Components/schibsted-spain-components/commit/eaa450add60aaaa63abc1d7ea6c482311bbd0dbf))
+* improve the code via PR suggestions ([9de7fd6](https://github.com/SUI-Components/schibsted-spain-components/commit/9de7fd63b97a5c0ed2ca0aef9c2d802fbe1da592))
+
+
+
 # 1.9.0 (2020-04-27)
 
 
