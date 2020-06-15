@@ -15,6 +15,7 @@ $c-image-slider: $c-white !default;
   position: relative;
 
   &--single {
+    align-items: center;
     display: flex;
     justify-content: center;
   }
