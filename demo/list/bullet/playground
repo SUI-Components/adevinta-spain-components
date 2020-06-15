@@ -50,7 +50,7 @@ return (
     
     <div style={{marginBottom: "80px", padding: "20px"}}>
       <h2 style={{marginBottom: "20px"}}>Responsive Block</h2>
-      <ListBullet listItems={listNumbersItems} isString responsive='responsiveBlock' />
+      <ListBullet listItems={listNumbersItems} as='h3' isString responsive='responsiveBlock' />
     </div>
     
   </div>

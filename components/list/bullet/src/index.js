@@ -8,9 +8,24 @@ export const responsiveTypes = {
   responsiveBlock: 'responsiveBlock'
 }
 
+const HEADING_TAGS = {
+  h1: 'h1',
+  h2: 'h2',
+  h3: 'h3',
+  h4: 'h4',
+  h5: 'h5',
+  h6: 'h6'
+}
+
 const BASE_CLASS = 'sui-ListBullet'
 
-const ListBullet = ({listItems, responsive, smallFont, isString}) => {
+const ListBullet = ({
+  listItems,
+  responsive,
+  smallFont,
+  isString,
+  as: Heading = HEADING_TAGS.h2
+}) => {
   const listBulletClass = cx(BASE_CLASS, {
     [`${BASE_CLASS}--${responsive}`]: Boolean(responsive),
     [`${BASE_CLASS}--smallFont`]: smallFont
@@ -25,6 +40,7 @@ const ListBullet = ({listItems, responsive, smallFont, isString}) => {
             isString={isString}
             key={index}
             baseClass={BASE_CLASS}
+            as={Heading}
           />
         ))}
     </div>
@@ -56,12 +72,18 @@ ListBullet.propTypes = {
   /**
    * Is a String insted of an image
    */
-  isString: PropTypes.bool
+  isString: PropTypes.bool,
+  /**
+   * Heading TAG to improve the SEO, from h1 to h6. Default: h2
+   */
+  as: PropTypes.oneOf(Object.values(HEADING_TAGS))
 }
 
 ListBullet.defaultProps = {
   responsive: false,
   smallFont: false
 }
+
+export {HEADING_TAGS as titleListBulletTags}
 
 export default ListBullet
