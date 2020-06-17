@@ -7,11 +7,10 @@ export default function TcfUi() {
     <TCFServices>
       {service => (
         <TCFContainer
-          getConsentStatus={() => service.getConsentStatus()}
           getVendorList={() => service.getVendorList()}
           loadUserConsent={() => service.loadUserConsent()}
-          saveUserConsent={({purpose, vendor}) =>
-            service.saveUserConsent({purpose, vendor})
+          saveUserConsent={({purpose, vendor, specialFeatures}) =>
+            service.saveUserConsent({purpose, vendor, specialFeatures})
           }
         />
       )}

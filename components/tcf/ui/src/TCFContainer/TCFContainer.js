@@ -1,13 +1,11 @@
 import React, {Suspense, useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 
-const CONSENT_STATUS_NOT_ACCEPTED = 'NOT_ACCEPTED'
 const FirstLayer = React.lazy(() => import('@s-ui/react-tcf-first-layer'))
 const SecondLayer = React.lazy(() => import('@s-ui/react-tcf-second-layer'))
 
 export default function TCFContainer({
   getVendorList,
-  getConsentStatus,
   loadUserConsent,
   saveUserConsent
 }) {
@@ -15,8 +13,8 @@ export default function TCFContainer({
 
   useEffect(() => {
     async function checkConsentStatus() {
-      const consentStatus = await getConsentStatus()
-      if (consentStatus === CONSENT_STATUS_NOT_ACCEPTED) {
+      const {valid} = await loadUserConsent()
+      if (!valid) {
         setShowLayer(1)
       }
     }
@@ -56,7 +54,6 @@ export default function TCFContainer({
 TCFContainer.displayName = 'TcfUi'
 
 TCFContainer.propTypes = {
-  getConsentStatus: PropTypes.func,
   getVendorList: PropTypes.func,
   loadUserConsent: PropTypes.func,
   saveUserConsent: PropTypes.func
