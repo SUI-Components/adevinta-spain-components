@@ -20,7 +20,6 @@ return (
 <TcfServices>
     {service => (
         <TCFContainer
-          getConsentStatus={() => service.getConsentStatus()}
           getVendorList={() => service.getVendorList()}
           loadUserConsent={() => service.loadUserConsent()}
           saveUserConsent={({purpose, vendor}) =>

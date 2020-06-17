@@ -1,8 +1,8 @@
 import {TcfRepository} from './TcfRepository'
-import {BorosTCF} from './borosMock'
+import TcfApiInitializer from '@adv-ui/boros-tcf'
 
-const borosTCF = BorosTCF.init()
+const tcfApi = TcfApiInitializer.init()
 
 export function tcfRepositoryFactory() {
-  return new TcfRepository({borosTCF, window})
+  return new TcfRepository({tcfApi, window})
 }

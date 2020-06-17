@@ -1,22 +1,18 @@
 class TcfRepository {
-  constructor({borosTCF}) {
-    this._borosTCF = borosTCF
-  }
-
-  getConsentStatus() {
-    return this._borosTCF.getConsentStatus()
+  constructor({tcfApi}) {
+    this._tcfApi = tcfApi
   }
 
   getVendorList() {
-    return this._borosTCF.getVendorList()
+    return this._tcfApi.getVendorList()
   }
 
   loadUserConsent() {
-    return this._borosTCF.loadUserConsent()
+    return this._tcfApi.loadUserConsent()
   }
 
-  saveUserConsent({purpose, vendor}) {
-    this._borosTCF.saveUserConsent({purpose, vendor})
+  saveUserConsent({purpose, vendor, specialFeatures}) {
+    this._tcfApi.saveUserConsent({purpose, vendor, specialFeatures})
   }
 }
 
