@@ -16,7 +16,6 @@ describe('GetVendorListUseCase test', () => {
   }
   const borosMethods = {
     getVendorList: () => Promise.resolve(givenVendorList),
-    getConsentStatus: () => Promise.resolve(null),
     loadUserConsent: () => Promise.resolve(null),
     saveUserConsent: () => null
   }
@@ -27,7 +26,7 @@ describe('GetVendorListUseCase test', () => {
 
   it('should return correct data when execute', async () => {
     const tcfRepositoryMock = new TcfRepositoryMock({
-      borosTCF: borosTCFMock.init()
+      tcfApi: borosTCFMock.init()
     })
     const getVendorListUseCase = new GetVendorListUseCase({
       repository: tcfRepositoryMock
