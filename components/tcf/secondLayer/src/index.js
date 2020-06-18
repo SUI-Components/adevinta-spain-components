@@ -196,46 +196,37 @@ export default function TcfSecondLayer({
           onAcceptAll={handleAcceptAll}
           onRejectAll={handleRejectAll}
         />
-        {state &&
-          state.purposes &&
-          vendorListState &&
-          vendorListState.purposes && (
-            <PurposeGroup
-              name="Purposes"
-              descriptionField="description"
-              descriptions={vendorListState.purposes}
-              state={state.purposes}
-              onConsentsChange={handlePurposesConsentsChange}
-              onLegitimateInterestsChange={handlePurposesLIChange}
-              hasLegitimateInterest
-            />
-          )}
-        {state &&
-          state.vendors &&
-          vendorListState &&
-          vendorListState.vendors && (
-            <PurposeGroup
-              name="Vendors"
-              descriptionField="name"
-              descriptions={vendorListState.vendors}
-              state={state.vendors}
-              onConsentsChange={handleVendorsConsentsChange}
-              onLegitimateInterestsChange={handleVendorsLIChange}
-              hasLegitimateInterest
-            />
-          )}
-        {state &&
-          state.specialFeatures &&
-          vendorListState &&
-          vendorListState.specialFeatures && (
-            <PurposeGroup
-              name="SpecialFeatures"
-              descriptionField="name"
-              descriptions={vendorListState.specialFeatures}
-              state={{consents: state.specialFeatures}}
-              onConsentsChange={handleSpecialFeaturesChange}
-            />
-          )}
+        {state?.purposes && vendorListState?.purposes && (
+          <PurposeGroup
+            name="Purposes"
+            descriptionField="description"
+            descriptions={vendorListState.purposes}
+            state={state.purposes}
+            onConsentsChange={handlePurposesConsentsChange}
+            onLegitimateInterestsChange={handlePurposesLIChange}
+            hasLegitimateInterest
+          />
+        )}
+        {state?.vendors && vendorListState?.vendors && (
+          <PurposeGroup
+            name="Vendors"
+            descriptionField="name"
+            descriptions={vendorListState.vendors}
+            state={state.vendors}
+            onConsentsChange={handleVendorsConsentsChange}
+            onLegitimateInterestsChange={handleVendorsLIChange}
+            hasLegitimateInterest
+          />
+        )}
+        {state?.specialFeatures && vendorListState?.specialFeatures && (
+          <PurposeGroup
+            name="SpecialFeatures"
+            descriptionField="name"
+            descriptions={vendorListState.specialFeatures}
+            state={{consents: state.specialFeatures}}
+            onConsentsChange={handleSpecialFeaturesChange}
+          />
+        )}
       </SuiModal>
     </div>
   )
