@@ -14,8 +14,7 @@ export default function TcfSecondLayer({
   const [state, setState] = useState(null)
   const [modalOpen, setModalOpen] = useState(false)
   const [saveButtonActive, setSaveButtonActive] = useState(false)
-  const [purposesVLState, setPurposesVLState] = useState(null)
-  const [vendorsVLState, setVendorsVLState] = useState(null)
+  const [vendorListState, setVendorListState] = useState(null)
 
   useEffect(() => {
     setModalOpen(isOpen)
@@ -23,41 +22,95 @@ export default function TcfSecondLayer({
 
   useEffect(() => {
     const loadConsent = async () => {
-      const {purpose, vendor} = await loadUserConsent()
-      setState({purposes: purpose, vendors: vendor})
+      const {purpose, vendor, specialFeatures} = await loadUserConsent()
+      setState({purposes: purpose, vendors: vendor, specialFeatures})
     }
-    const getVL = async () => {
-      const {purposes, vendors} = await getVendorList()
-      setPurposesVLState(purposes)
-      setVendorsVLState(vendors)
+    const getVendorListAsync = async () => {
+      const {purposes, vendors, specialFeatures} = await getVendorList()
+      setVendorListState({purposes, vendors, specialFeatures})
     }
     loadConsent()
-    getVL()
+    getVendorListAsync()
   }, [getVendorList, loadUserConsent])
 
   const handleCloseModal = () => {
     setModalOpen(false)
   }
+
+  const formatConsentObject = ({
+    purpose = {},
+    vendor = {},
+    specialFeatures = {}
+  }) => {
+    const format = ({reference, object}) => {
+      Object.keys(reference).forEach(key => {
+        if (!object[key]) {
+          object[key] = false
+        }
+      })
+      return object
+    }
+    purpose.consents = purpose.consents || {}
+    purpose.legitimateInterests = purpose.legitimateInterests || {}
+    vendor.consents = vendor.consents || {}
+    vendor.legitimateInterests = vendor.legitimateInterests || {}
+    vendorListState.purposes = vendorListState.purposes || {}
+    vendorListState.vendors = vendorListState.vendors || {}
+    vendorListState.specialFeatures = vendorListState.specialFeatures || {}
+
+    purpose.consents = format({
+      reference: vendorListState.purposes,
+      object: purpose.consents
+    })
+    purpose.legitimateInterests = format({
+      reference: vendorListState.purposes,
+      object: purpose.legitimateInterests
+    })
+    vendor.consents = format({
+      reference: vendorListState.vendors,
+      object: vendor.consents
+    })
+    vendor.legitimateInterests = format({
+      reference: vendorListState.vendors,
+      object: vendor.legitimateInterests
+    })
+    specialFeatures = format({
+      reference: vendorListState.specialFeatures,
+      object: specialFeatures
+    })
+    return {purpose, vendor, specialFeatures}
+  }
+
   const handleSaveExitClick = () => {
-    saveUserConsent({purpose: state.purposes, vendor: state.vendors})
+    saveUserConsent(
+      formatConsentObject({
+        purpose: state.purposes,
+        vendor: state.vendors,
+        specialFeatures: state.specialFeatures
+      })
+    )
     setModalOpen(false)
   }
   const changeAll = accept => {
     setState(prevState => {
-      const {purposes, vendors} = prevState
+      const {purposes, vendors, specialFeatures} = prevState
       const {consents: CP, legitimateInterests: LIP} = purposes
       const {consents: CV, legitimateInterests: LIV} = vendors
-      for (const key in CP) {
+      for (const key in vendorListState.purposes) {
         CP[key] = accept
         LIP[key] = accept
       }
-      for (const key in CV) {
+      for (const key in vendorListState.vendors) {
         CV[key] = accept
         LIV[key] = accept
       }
+      for (const key in vendorListState.specialFeatures) {
+        specialFeatures[key] = accept
+      }
       return {
         vendors: {consents: CV, legitimateInterests: LIV},
-        purposes: {consents: CP, legitimateInterests: LIP}
+        purposes: {consents: CP, legitimateInterests: LIP},
+        specialFeatures
       }
     })
   }
@@ -116,7 +169,17 @@ export default function TcfSecondLayer({
     })
     setSaveButtonActive(true)
   }
-
+  const handleSpecialFeaturesChange = ({index, value}) => {
+    setState(prevState => {
+      const {specialFeatures} = prevState
+      specialFeatures[index] = !value
+      return {
+        ...prevState,
+        specialFeatures
+      }
+    })
+    setSaveButtonActive(true)
+  }
   return (
     <div className="sui-TcfSecondLayer">
       <SuiModal
@@ -133,24 +196,35 @@ export default function TcfSecondLayer({
           onAcceptAll={handleAcceptAll}
           onRejectAll={handleRejectAll}
         />
-        {state && state.purposes && (
+        {state?.purposes && vendorListState?.purposes && (
           <PurposeGroup
             name="Purposes"
             descriptionField="description"
-            descriptions={purposesVLState}
+            descriptions={vendorListState.purposes}
             state={state.purposes}
             onConsentsChange={handlePurposesConsentsChange}
             onLegitimateInterestsChange={handlePurposesLIChange}
+            hasLegitimateInterest
           />
         )}
-        {state && state.vendors && (
+        {state?.vendors && vendorListState?.vendors && (
           <PurposeGroup
             name="Vendors"
             descriptionField="name"
-            descriptions={vendorsVLState}
+            descriptions={vendorListState.vendors}
             state={state.vendors}
             onConsentsChange={handleVendorsConsentsChange}
             onLegitimateInterestsChange={handleVendorsLIChange}
+            hasLegitimateInterest
+          />
+        )}
+        {state?.specialFeatures && vendorListState?.specialFeatures && (
+          <PurposeGroup
+            name="SpecialFeatures"
+            descriptionField="name"
+            descriptions={vendorListState.specialFeatures}
+            state={{consents: state.specialFeatures}}
+            onConsentsChange={handleSpecialFeaturesChange}
           />
         )}
       </SuiModal>

@@ -1,9 +1,6 @@
 import '../../../../components/tcf/secondLayer/src/index.scss'
 import TcfFirstLayer from '../../../../components/tcf/firstLayer/src'
-import {
-  mockedUserConsent,
-  mockedVendorList
-} from '../../../../components/tcf/services/src/infrastructure/Tcf/borosMock'
+import {mockedUserConsent, mockedVendorList} from '../../utils/borosMock'
 import React from 'react'
 
 const TcfFirstLayerDemo = () => {

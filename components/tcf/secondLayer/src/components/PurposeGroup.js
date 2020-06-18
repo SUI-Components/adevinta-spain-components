@@ -8,7 +8,8 @@ export default function PurposeGroup({
   descriptionField,
   state,
   onConsentsChange,
-  onLegitimateInterestsChange
+  onLegitimateInterestsChange,
+  hasLegitimateInterest
 }) {
   return (
     <>
@@ -31,18 +32,20 @@ export default function PurposeGroup({
                   })
                 }
               />
-              <SuiSwitch
-                label="Legitimate interest"
-                type="single"
-                name={`${name}-legitimateInterests-${key}`}
-                value={state.legitimateInterests[key]}
-                onToggle={() =>
-                  onLegitimateInterestsChange({
-                    index: key,
-                    value: state.legitimateInterests[key]
-                  })
-                }
-              />
+              {hasLegitimateInterest && (
+                <SuiSwitch
+                  label="Legitimate interest"
+                  type="single"
+                  name={`${name}-legitimateInterests-${key}`}
+                  value={state.legitimateInterests[key]}
+                  onToggle={() =>
+                    onLegitimateInterestsChange({
+                      index: key,
+                      value: state.legitimateInterests[key]
+                    })
+                  }
+                />
+              )}
             </div>
           )
         })}
@@ -58,5 +61,6 @@ PurposeGroup.propTypes = {
   state: PropTypes.object,
   legitimateInterests: PropTypes.object,
   onConsentsChange: PropTypes.func,
-  onLegitimateInterestsChange: PropTypes.func
+  onLegitimateInterestsChange: PropTypes.func,
+  hasLegitimateInterest: PropTypes.bool
 }

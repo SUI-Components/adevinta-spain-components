@@ -32,15 +32,28 @@ export default function TcfFirstLayer({
   const handleSettingsClick = () => {
     openSecondLayer()
   }
+  const formatConsentObject = ({purpose = {}}) => {
+    purpose.consents = purpose.consents || {}
+    purpose.legitimateInterests = purpose.legitimateInterests || {}
+    Object.keys(vendorListState.purposes).forEach(key => {
+      purpose.consents[key] = !!purpose.consents[key]
+      purpose.legitimateInterests[key] = !!purpose.legitimateInterests[key]
+    })
+    return purpose
+  }
   const handleSaveExitClick = () => {
-    saveUserConsent({purpose: state.purposes})
+    saveUserConsent(
+      formatConsentObject({
+        purpose: state.purposes
+      })
+    )
     setModalOpen(false)
   }
   const handleAcceptAll = () => {
     setState(prevState => {
       const {purposes} = prevState
       const {consents} = purposes
-      for (const key in consents) {
+      for (const key in vendorListState.purposes) {
         consents[key] = true
       }
       return {
@@ -49,13 +62,12 @@ export default function TcfFirstLayer({
     })
     setSaveButtonDisabled(false)
   }
-  const handlePurposesChange = ({index, value}) => {
+  const handlePurposesChange = ({index, value, name}) => {
     setSaveButtonDisabled(false)
     setState(prevState => {
-      const {purposes} = prevState
-      const {consents} = purposes
+      const {consents} = prevState[name]
       consents[index] = !value
-      return {purposes: {consents}}
+      return {[name]: {consents}}
     })
   }
 
@@ -74,6 +86,7 @@ export default function TcfFirstLayer({
       >
         {state && vendorListState && (
           <InfoCard
+            name="purposes"
             title="We care about your privacy"
             descriptions={vendorListState.purposes}
             state={state.purposes}

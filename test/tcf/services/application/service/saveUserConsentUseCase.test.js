@@ -4,7 +4,6 @@ import {TcfRepositoryMock} from '../../helpers/TcfRepositoryMock'
 describe('SaveUserConsentUseCase test', () => {
   const borosMethods = {
     saveUserConsent: () => Promise.resolve(null),
-    getConsentStatus: () => Promise.resolve(null),
     getVendorList: () => Promise.resolve(null),
     loadUserConsent: () => Promise.resolve(null)
   }
@@ -38,10 +37,11 @@ describe('SaveUserConsentUseCase test', () => {
           2: false,
           3: false
         }
-      }
+      },
+      specialFeatures: {1: false, 2: false, 3: false}
     }
     const tcfRepositoryMock = new TcfRepositoryMock({
-      borosTCF: borosTCFMock.init()
+      tcfApi: borosTCFMock.init()
     })
     const saveUserConsentUseCase = new SaveUserConsentUseCase({
       repository: tcfRepositoryMock

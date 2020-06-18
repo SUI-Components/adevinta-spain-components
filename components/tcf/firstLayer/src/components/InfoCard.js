@@ -2,9 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import SuiSwitch from '@s-ui/react-atom-switch'
 
-export default function InfoCard({title, descriptions, state, onStateChange}) {
+export default function InfoCard({
+  name,
+  title,
+  descriptions,
+  state,
+  onStateChange
+}) {
   const handleToggle = ({index, value}) => {
-    onStateChange({index, value})
+    onStateChange({index, value, name})
   }
 
   return (
@@ -35,6 +41,7 @@ export default function InfoCard({title, descriptions, state, onStateChange}) {
 
 InfoCard.displayName = 'InfoCard'
 InfoCard.propTypes = {
+  name: PropTypes.string,
   title: PropTypes.string,
   state: PropTypes.arrayOf(PropTypes.object),
   descriptions: PropTypes.string,

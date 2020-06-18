@@ -14,11 +14,24 @@ describe('LoadUserConsentUseCase test', () => {
         2: false,
         3: false
       }
-    }
+    },
+    vendor: {
+      consents: {
+        1: true,
+        2: true,
+        3: true
+      },
+      legitimateInterests: {
+        1: true,
+        2: true,
+        3: true
+      }
+    },
+    specialFeatures: {1: false, 2: false, 3: false},
+    valid: false
   }
   const borosMethods = {
     loadUserConsent: () => Promise.resolve(givenUserConsent),
-    getConsentStatus: () => Promise.resolve(),
     getVendorList: () => Promise.resolve(null),
     saveUserConsent: () => null
   }
@@ -29,7 +42,7 @@ describe('LoadUserConsentUseCase test', () => {
 
   it('should return correct data when execute', async () => {
     const tcfRepositoryMock = new TcfRepositoryMock({
-      borosTCF: borosTCFMock.init()
+      tcfApi: borosTCFMock.init()
     })
     const loadUserConsentUseCase = new LoadUserConsentUseCase({
       repository: tcfRepositoryMock

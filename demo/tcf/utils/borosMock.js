@@ -1,16 +1,3 @@
-const BorosTCF = {
-  init: () => ({
-    getConsentStatus: () => Promise.resolve(mockedConsentStatus),
-    getVendorList: () => Promise.resolve(mockedVendorList),
-    loadUserConsent: () => Promise.resolve(mockedUserConsent),
-    saveUserConsent: ({purpose, vendor}) => {
-      console.log('purpose', purpose)
-      console.log('vendor', vendor)
-      return null
-    }
-  })
-}
-
 const mockedUserConsent = {
   specialFeatureOptins: [],
   purpose: {
@@ -232,6 +219,4 @@ const mockedVendorList = {
   }
 }
 
-const mockedConsentStatus = 'NOT_ACCEPTED'
-
-export {mockedConsentStatus, mockedVendorList, mockedUserConsent, BorosTCF}
+export {mockedUserConsent, mockedVendorList}
