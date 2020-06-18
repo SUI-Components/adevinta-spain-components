@@ -33,19 +33,11 @@ export default function TcfFirstLayer({
     openSecondLayer()
   }
   const formatConsentObject = ({purpose = {}}) => {
-    if (!purpose.consents) {
-      purpose.consents = {}
-    }
-    if (!purpose.legitimateInterests) {
-      purpose.legitimateInterests = {}
-    }
+    purpose.consents = purpose.consents || {}
+    purpose.legitimateInterests = purpose.legitimateInterests || {}
     Object.keys(vendorListState.purposes).forEach(key => {
-      if (!purpose.consents[key]) {
-        purpose.consents[key] = false
-      }
-      if (!purpose.legitimateInterests[key]) {
-        purpose.legitimateInterests[key] = false
-      }
+      purpose.consents[key] = !!purpose.consents[key]
+      purpose.legitimateInterests[key] = !!purpose.legitimateInterests[key]
     })
     return purpose
   }
