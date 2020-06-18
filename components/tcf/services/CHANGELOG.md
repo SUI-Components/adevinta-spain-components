@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.2.0 (2020-06-18)
+
+
+### Features
+
+* import boros library and update data changes ([d29b4c1](https://github.com/SUI-Components/schibsted-spain-components/commit/d29b4c1ad5f6a78325d7da49d974ed770f83abb9))
+
+
+
 # 1.1.0 (2020-04-30)
 
 
