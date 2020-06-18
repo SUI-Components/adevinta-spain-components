@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.2.0 (2020-06-18)
+
+
+### Features
+
+* refactor with new data format comming from boros ([caf92b8](https://github.com/SUI-Components/schibsted-spain-components/commit/caf92b8270e9309475a708327ecd4071705373db))
+
+
+
 # 1.1.0 (2020-04-30)
 
 
