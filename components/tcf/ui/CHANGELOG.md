@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.3.0 (2020-06-19)
+
+
+### Features
+
+* update with boros methods ([38c1c3a](https://github.com/SUI-Components/schibsted-spain-components/commit/38c1c3a87f86e546522d8872eb459ef77eb7b908))
+
+
+
 # 1.2.0 (2020-05-06)
 
 
