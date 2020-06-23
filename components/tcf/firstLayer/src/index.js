@@ -125,7 +125,7 @@ export default function TcfFirstLayer({
 
   return (
     <div className={CLASS}>
-      {!isMobile && (
+      {isMobile && (
         <SuiModal
           isOpen={show}
           closeOnOutsideClick
@@ -145,7 +145,7 @@ export default function TcfFirstLayer({
           </div>
         </SuiModal>
       )}
-      {isMobile && (
+      {!isMobile && (
         <div className={`${CLASS}-notification`}>
           <SuiNotification
             position="bottom"
