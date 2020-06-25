@@ -54,17 +54,21 @@ export default function TcfFirstLayer({
   )
 
   let initialYOffset
-
+  let count = 0
   const checkScroll = () => {
+    count++
+    // use counter to avoid initial window.pageYOffset pointing erroneously to 0
+    if (count === 3) {
+      initialYOffset = window.pageYOffset
+    }
     if (
-      initialYOffset - window.pageYOffset >= 250 ||
+      (count >= 3 && initialYOffset - window.pageYOffset >= 250) ||
       initialYOffset - window.pageYOffset <= -250
     ) {
       handleSaveExitClick()
     }
   }
   useEffect(() => {
-    initialYOffset = window.pageYOffset
     document.addEventListener('scroll', checkScroll)
   }, [])
 
