@@ -7,35 +7,34 @@
 
 .sui-TcfFirstLayer {
   &-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 33.5px;
+    border-top: 1px solid #bbbbbb;
+    padding-top: 16px;
     & button {
       font-size: 14px;
       border-radius: 8px;
     }
   }
-  &-buttons--mobile {
-    border-top: 1px solid #bbbbbb;
-    margin-top: 33.5px;
-    padding-top: 16px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-  &-buttons.sui-TcfFirstLayer-buttons--desktop {
-    display: flex;
+  &-buttons.sui-TcfFirstLayer-buttons--footer {
     flex-direction: column-reverse;
     justify-content: flex-end;
+    margin-top: 0;
+    border-top: 0;
+    padding-top: 0;
     & button {
       margin-left: 0;
       margin-top: 15px;
+      width: 200px;
     }
   }
+  &-buttons--tablet {
+    padding-right: 8px;
+  }
   &-body {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding-bottom: 40px;
     &-info {
-      width: 70%;
       &-title {
         font-size: 14px;
         margin-top: 16px;
@@ -49,12 +48,35 @@
       }
     }
   }
+  &-body--footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 104px 40px 104px;
+    & .sui-TcfFirstLayer-body-info {
+      width: 75%;
+      &-title {
+        font-size: 20px;
+      }
+      &-text {
+        font-size: 14px;
+      }
+    }
+  }
+  &-body--tablet {
+    padding: 0 16px;
+    & .sui-TcfFirstLayer-body-info {
+      width: 63%;
+      padding-bottom: 12px;
+    }
+  }
   &-logo {
     width: 113px;
     height: 20px;
   }
+  // force as we want to change default MoleculeNotification
   .sui-MoleculeNotification-iconLeft {
-    display: none; // force as we want to get more space for text
+    display: none;
   }
   .sui-MoleculeNotification {
     background-color: white;

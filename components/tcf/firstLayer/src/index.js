@@ -12,6 +12,7 @@ export default function TcfFirstLayer({
   lang = 'es',
   logo,
   isMobile,
+  isTablet,
   getVendorList,
   saveUserConsent,
   openSecondLayer,
@@ -135,13 +136,15 @@ export default function TcfFirstLayer({
           onClose={handleCloseModal}
           fitContent
         >
-          <span
-            className={`${CLASS}-text`}
-            ref={textRef}
-            dangerouslySetInnerHTML={{__html: i18n.BODY}}
-          />
-          <div className={`${CLASS}-buttons ${CLASS}-buttons--mobile`}>
-            <Buttons />
+          <div className={`${CLASS}-body`}>
+            <span
+              className={`${CLASS}-body-info`}
+              ref={textRef}
+              dangerouslySetInnerHTML={{__html: i18n.BODY}}
+            />
+            <div className={`${CLASS}-buttons`}>
+              <Buttons />
+            </div>
           </div>
         </SuiModal>
       )}
@@ -155,13 +158,25 @@ export default function TcfFirstLayer({
             variation="positive"
             type="system"
           >
-            <div className={`${CLASS}-body`}>
+            <div
+              className={
+                isTablet
+                  ? `${CLASS}-body ${CLASS}-body ${CLASS}-body--footer ${CLASS}-body--tablet`
+                  : `${CLASS}-body ${CLASS}-body--footer`
+              }
+            >
               <span
                 className={`${CLASS}-body-info`}
                 ref={textRef}
                 dangerouslySetInnerHTML={{__html: i18n.BODY}}
               />
-              <div className={`${CLASS}-buttons ${CLASS}-buttons--desktop`}>
+              <div
+                className={
+                  isTablet
+                    ? `${CLASS}-buttons ${CLASS}-buttons--footer ${CLASS}-buttons--tablet`
+                    : `${CLASS}-buttons ${CLASS}-buttons--footer`
+                }
+              >
                 <Buttons />
               </div>
             </div>
@@ -179,6 +194,7 @@ TcfFirstLayer.propTypes = {
   getVendorList: PropTypes.func,
   saveUserConsent: PropTypes.func,
   isMobile: PropTypes.bool,
+  isTablet: PropTypes.bool,
   lang: PropTypes.string,
   logo: PropTypes.string
 }
