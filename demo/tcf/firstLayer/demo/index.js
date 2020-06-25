@@ -18,11 +18,33 @@ const TcfFirstLayerDemo = () => {
   }
 
   const [isMobile, setIsMobile] = useState(false)
+  const [isTablet, setIsTablet] = useState(false)
   // 3500px height added to be able to test the closing with scroll feature
   return (
     <div style={{height: '3500px'}}>
-      <button onClick={() => setIsMobile(!isMobile)}>
-        Change between mobile & desktop
+      <button
+        onClick={() => {
+          setIsMobile(false)
+          setIsTablet(false)
+        }}
+      >
+        Desktop
+      </button>
+      <button
+        onClick={() => {
+          setIsMobile(true)
+          setIsTablet(false)
+        }}
+      >
+        Mobile
+      </button>
+      <button
+        onClick={() => {
+          setIsMobile(false)
+          setIsTablet(true)
+        }}
+      >
+        Tablet
       </button>
       {isMobile && (
         <TcfFirstLayer
@@ -35,8 +57,19 @@ const TcfFirstLayerDemo = () => {
           logo="https://frtassets.fotocasa.es/img/fotocasa_logo.svg"
         />
       )}
-      {!isMobile && (
+      {!isMobile && !isTablet && (
         <TcfFirstLayer
+          loadUserConsent={loadUserConsent}
+          saveUserConsent={saveUserConsent}
+          getVendorList={getVendorList}
+          openSecondLayer={openSecondLayer}
+          openCookiepolicyLayer={openCookiepolicyLayer}
+          logo="https://frtassets.fotocasa.es/img/fotocasa_logo.svg"
+        />
+      )}
+      {isTablet && (
+        <TcfFirstLayer
+          isTablet
           loadUserConsent={loadUserConsent}
           saveUserConsent={saveUserConsent}
           getVendorList={getVendorList}
