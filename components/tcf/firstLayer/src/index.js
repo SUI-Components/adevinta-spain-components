@@ -7,6 +7,8 @@ import IconClose from './iconClose'
 import {I18N} from './settings'
 
 const CLASS = 'sui-TcfFirstLayer'
+// Adevinta rule of 250px of scroll to directly accept consent
+const SCROLL_TO_ACCEPT = 250
 
 export default function TcfFirstLayer({
   lang = 'es',
@@ -54,21 +56,16 @@ export default function TcfFirstLayer({
   )
 
   let initialYOffset
-  let count = 0
   const checkScroll = () => {
-    count++
-    // use counter to avoid initial window.pageYOffset pointing erroneously to 0
-    if (count === 3) {
-      initialYOffset = window.pageYOffset
-    }
     if (
-      (count >= 3 && initialYOffset - window.pageYOffset >= 250) ||
-      initialYOffset - window.pageYOffset <= -250
+      initialYOffset - window.pageYOffset >= SCROLL_TO_ACCEPT ||
+      initialYOffset - window.pageYOffset <= -SCROLL_TO_ACCEPT
     ) {
       handleSaveExitClick()
     }
   }
   useEffect(() => {
+    initialYOffset = window.pageYOffset
     document.addEventListener('scroll', checkScroll)
   }, [])
 
