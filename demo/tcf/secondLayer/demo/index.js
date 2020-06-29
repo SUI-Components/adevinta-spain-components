@@ -11,13 +11,18 @@ const TcfSecondLayerDemo = () => {
     console.log('purposes', purpose)
     console.log('vendors', vendor)
   }
+  const handleGoBack = () => {
+    console.log('go back button pressed')
+  }
 
   return (
     <TcfSecondLayer
       isOpen
+      logo="https://frtassets.fotocasa.es/img/fotocasa_logo.svg"
       loadUserConsent={loadUserConsent}
       saveUserConsent={saveUserConsent}
       getVendorList={getVendorList}
+      onGoBack={handleGoBack}
     />
   )
 }
