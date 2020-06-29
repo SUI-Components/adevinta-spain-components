@@ -12,7 +12,9 @@ export default function PurposeGroup({
   state,
   onConsentsChange,
   onAcceptAll,
-  onRejectAll
+  onRejectAll,
+  isVendor,
+  vendorList
 }) {
   return (
     <>
@@ -36,6 +38,9 @@ export default function PurposeGroup({
               baseClass={`${baseClass}-item`}
               itemInfo={descriptions[key]}
               itemValue={state.consents[key]}
+              isVendor={isVendor}
+              i18n={i18n}
+              vendorList={vendorList}
               onItemChange={value => onConsentsChange({index: key, value})}
             />
           )
@@ -53,5 +58,7 @@ PurposeGroup.propTypes = {
   state: PropTypes.object,
   onConsentsChange: PropTypes.func,
   onAcceptAll: PropTypes.func,
-  onRejectAll: PropTypes.func
+  onRejectAll: PropTypes.func,
+  vendorList: PropTypes.object,
+  isVendor: PropTypes.bool
 }

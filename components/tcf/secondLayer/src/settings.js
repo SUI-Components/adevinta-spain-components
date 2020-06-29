@@ -12,7 +12,15 @@ const DEFAULT_I18N = {
         TITLE: 'Autorizo'
       },
       SECOND: {
-        TITLE: 'Para los siguientes anunciantes y partners'
+        TITLE: 'Para los siguientes anunciantes y partners',
+        EXPANDED: {
+          PURPOSES: 'Propósitos',
+          LEGITIMATE_INTEREST_PURPOSES: 'Interés legítimo en:',
+          SPECIAL_PURPOSES: 'Propósitos especiales',
+          FEATURES: 'Características',
+          SPECIAL_FEATURES: 'Características especiales',
+          POLICY_URL: 'Política de privacidad'
+        }
       }
     }
   }

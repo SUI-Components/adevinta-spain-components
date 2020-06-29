@@ -20,17 +20,30 @@ $base-class: '.sui-TcfSecondLayer-group-item';
         height: 16px;
       }
     }
+    &--expanded {
+      border: solid 1px #cacaca;
+      padding: 16px;
+      & p {
+        margin: 0;
+        display: inline;
+      }
+      & h3 {
+        font-size: 14px;
+      }
+      & a {
+        margin: 0;
+      }
+    }
   }
   &-text {
     font-size: 12px;
     margin-left: 10px;
     max-width: 80%;
-  }
-  &-expanded-container {
-    border: solid 1px #cacaca;
-    padding: 16px;
-    & p {
-      margin: 0;
+    &--expanded#{$base-class}-text--expanded {
+      max-width: 100%;
     }
+  }
+  &-paragraph {
+    margin-bottom: 14px;
   }
 }

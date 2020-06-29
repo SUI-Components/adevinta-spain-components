@@ -30,10 +30,22 @@ export default function TcfSecondLayer({
 
   useEffect(() => {
     const getVendorListAsync = async () => {
-      const {purposes, vendors, specialFeatures} = await getVendorList({
+      const {
+        purposes,
+        specialPurposes,
+        features,
+        specialFeatures,
+        vendors
+      } = await getVendorList({
         language: lang
       })
-      setVendorListState({purposes, vendors, specialFeatures})
+      setVendorListState({
+        purposes,
+        specialPurposes,
+        features,
+        specialFeatures,
+        vendors
+      })
     }
     const loadConsent = async () => {
       const {purpose, vendor, specialFeatures} = await loadUserConsent()
@@ -147,6 +159,8 @@ export default function TcfSecondLayer({
               i18n={i18n}
               onAcceptAll={() => handleAcceptAll({group: 'vendors'})}
               onRejectAll={() => handleRejectAll({group: 'vendors'})}
+              isVendor
+              vendorList={vendorListState}
             />
           )}
         </div>
