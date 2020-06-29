@@ -19,6 +19,7 @@ const TcfFirstLayerDemo = () => {
 
   const [isMobile, setIsMobile] = useState(false)
   const [isTablet, setIsTablet] = useState(false)
+
   // 3500px height added to be able to test the closing with scroll feature
   return (
     <div style={{height: '3500px'}}>
