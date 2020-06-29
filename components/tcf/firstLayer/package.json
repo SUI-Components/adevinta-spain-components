@@ -12,7 +12,8 @@
     "@s-ui/component-dependencies": "1",
     "@s-ui/react-atom-button": "1",
     "@s-ui/react-atom-switch": "1",
-    "@s-ui/react-molecule-modal": "1"
+    "@s-ui/react-molecule-modal": "1",
+    "@s-ui/react-molecule-notification": "1"
   },
   "keywords": [],
   "author": "",
