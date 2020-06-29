@@ -1,0 +1,19 @@
+$base-class: '.sui-TcfSecondLayer-group';
+
+#{$base-class} {
+  &-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 30px 0 16px 0;
+  }
+  &-title {
+    font-size: 14px;
+  }
+  &-buttons {
+    & button {
+      font-size: 12px;
+      border-radius: 8px;
+    }
+  }
+}

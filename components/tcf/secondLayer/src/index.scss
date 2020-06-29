@@ -2,3 +2,32 @@
 @import '~@s-ui/react-atom-button/lib/index';
 @import '~@s-ui/react-molecule-modal/lib/index';
 @import '~@s-ui/react-atom-switch/lib/index';
+@import './components//iconClose';
+@import './components//iconAccordion';
+@import './components/purposeGroup';
+@import './components/groupItem';
+
+$base-class: '.sui-TcfSecondLayer';
+
+#{$base-class} {
+  &-container {
+    padding-right: 10px;
+  }
+  &-title {
+    font-size: 14px;
+  }
+  &-text {
+    font-size: 10px;
+  }
+  &-buttons {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+    padding-top: 15px;
+    border-top: solid 1px #dcdcdc;
+    & button {
+      font-size: 14px;
+      border-radius: 8px;
+    }
+  }
+}
