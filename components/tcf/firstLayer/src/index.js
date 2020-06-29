@@ -66,7 +66,7 @@ export default function TcfFirstLayer({
   }
   useEffect(() => {
     initialYOffset = window.pageYOffset
-    document.addEventListener('scroll', checkScroll)
+    document.addEventListener('scroll', checkScroll, {passive: true})
   }, [])
 
   const handleSettingsClick = () => {
