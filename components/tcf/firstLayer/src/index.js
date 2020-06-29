@@ -114,16 +114,37 @@ export default function TcfFirstLayer({
     setShow(false)
   }
 
-  const Buttons = () => (
-    <>
-      <SuiButton onClick={handleSettingsClick} design="outline">
-        {i18n.CONFIGURE_BUTTON}
-      </SuiButton>
-      <SuiButton onClick={handleSaveExitClick}>
-        {i18n.CONTINUE_NAVIGATION_BUTTON}
-      </SuiButton>
-    </>
-  )
+  const Content = ({modalType}) => {
+    const baseBodyClass = `${CLASS}-body`
+    const bodyClasses = isTablet
+      ? `${baseBodyClass} ${baseBodyClass}--footer ${baseBodyClass}--tablet`
+      : `${baseBodyClass} ${baseBodyClass}--footer`
+    const baseButtonsClass = `${CLASS}-buttons`
+    const buttonsClasses = isTablet
+      ? `${baseButtonsClass} ${baseButtonsClass}--footer ${baseButtonsClass}--tablet`
+      : `${baseButtonsClass} ${baseButtonsClass}--footer`
+
+    return (
+      <div className={modalType ? `${baseBodyClass}` : bodyClasses}>
+        <span
+          className={`${baseBodyClass}-info`}
+          ref={textRef}
+          dangerouslySetInnerHTML={{__html: i18n.BODY}}
+        />
+        <div className={modalType ? `${baseButtonsClass}` : buttonsClasses}>
+          <SuiButton onClick={handleSettingsClick} design="outline">
+            {i18n.CONFIGURE_BUTTON}
+          </SuiButton>
+          <SuiButton onClick={handleSaveExitClick}>
+            {i18n.CONTINUE_NAVIGATION_BUTTON}
+          </SuiButton>
+        </div>
+      </div>
+    )
+  }
+  Content.propTypes = {
+    modalType: PropTypes.bool
+  }
 
   return (
     <div className={CLASS}>
@@ -137,16 +158,7 @@ export default function TcfFirstLayer({
           onClose={handleCloseModal}
           fitContent
         >
-          <div className={`${CLASS}-body`}>
-            <span
-              className={`${CLASS}-body-info`}
-              ref={textRef}
-              dangerouslySetInnerHTML={{__html: i18n.BODY}}
-            />
-            <div className={`${CLASS}-buttons`}>
-              <Buttons />
-            </div>
-          </div>
+          <Content modalType />
         </SuiModal>
       )}
       {!isMobile && (
@@ -159,28 +171,7 @@ export default function TcfFirstLayer({
             variation="positive"
             type="system"
           >
-            <div
-              className={
-                isTablet
-                  ? `${CLASS}-body ${CLASS}-body ${CLASS}-body--footer ${CLASS}-body--tablet`
-                  : `${CLASS}-body ${CLASS}-body--footer`
-              }
-            >
-              <span
-                className={`${CLASS}-body-info`}
-                ref={textRef}
-                dangerouslySetInnerHTML={{__html: i18n.BODY}}
-              />
-              <div
-                className={
-                  isTablet
-                    ? `${CLASS}-buttons ${CLASS}-buttons--footer ${CLASS}-buttons--tablet`
-                    : `${CLASS}-buttons ${CLASS}-buttons--footer`
-                }
-              >
-                <Buttons />
-              </div>
-            </div>
+            <Content />
           </SuiNotification>
         </div>
       )}
