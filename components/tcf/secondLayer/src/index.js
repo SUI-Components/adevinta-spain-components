@@ -21,6 +21,7 @@ export default function TcfSecondLayer({
   const [state, setState] = useState(null)
   const [modalOpen, setModalOpen] = useState(false)
   const [vendorListState, setVendorListState] = useState(null)
+  const [isNew, setIsNew] = useState(null)
 
   const i18n = I18N[lang]
 
@@ -48,8 +49,9 @@ export default function TcfSecondLayer({
       })
     }
     const loadConsent = async () => {
-      const {purpose, vendor, specialFeatures} = await loadUserConsent()
+      const {purpose, vendor, specialFeatures, isNew} = await loadUserConsent()
       setState({purposes: purpose, vendors: vendor, specialFeatures})
+      setIsNew(isNew)
     }
     getVendorListAsync()
     loadConsent()
@@ -145,6 +147,7 @@ export default function TcfSecondLayer({
               state={state.purposes}
               onConsentsChange={handlePurposesConsentsChange}
               i18n={i18n}
+              isNew={isNew}
               onAcceptAll={() => handleAcceptAll({group: 'purposes'})}
               onRejectAll={() => handleRejectAll({group: 'purposes'})}
             />
@@ -157,6 +160,7 @@ export default function TcfSecondLayer({
               state={state.vendors}
               onConsentsChange={handleVendorsConsentsChange}
               i18n={i18n}
+              isNew={isNew}
               onAcceptAll={() => handleAcceptAll({group: 'vendors'})}
               onRejectAll={() => handleRejectAll({group: 'vendors'})}
               isVendor
