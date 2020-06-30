@@ -14,7 +14,6 @@ export default function PurposeGroup({
   onConsentsChange,
   onAcceptAll,
   onRejectAll,
-  isVendor,
   vendorList
 }) {
   const [consentValue, setConsentValue] = useState(state)
@@ -50,7 +49,6 @@ export default function PurposeGroup({
               baseClass={`${baseClass}-item`}
               itemInfo={descriptions[key]}
               itemValue={consentValue.consents[key]}
-              isVendor={isVendor}
               i18n={i18n}
               vendorList={vendorList}
               onItemChange={value => onConsentsChange({index: key, value})}
@@ -66,12 +64,10 @@ PurposeGroup.propTypes = {
   i18n: PropTypes.object,
   baseClass: PropTypes.string,
   descriptions: PropTypes.object,
-  consents: PropTypes.object,
   state: PropTypes.object,
   onConsentsChange: PropTypes.func,
   onAcceptAll: PropTypes.func,
   onRejectAll: PropTypes.func,
   vendorList: PropTypes.object,
-  isVendor: PropTypes.bool,
   isNew: PropTypes.bool
 }

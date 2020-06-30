@@ -10,7 +10,6 @@ export default function GroupItem({
   baseClass,
   itemInfo,
   itemValue,
-  isVendor,
   vendorList,
   i18n
 }) {
@@ -22,7 +21,7 @@ export default function GroupItem({
 
   const PolicyUrl = () => (
     <>
-      <h3>{i18n.VENDOR_PAGE.GROUPS.SECOND.EXPANDED.POLICY_URL}</h3>
+      <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.POLICY_URL}</h3>
       <a
         className={`${baseClass}-text ${baseClass}-text--expanded`}
         href={itemInfo.policyUrl}
@@ -45,71 +44,56 @@ export default function GroupItem({
       </div>
     ))
 
-  const ExpandedContent = () => {
-    if (!isVendor) {
-      return (
-        <p className={`${baseClass}-text ${baseClass}-text--expanded`}>
-          {itemInfo.description}
-        </p>
-      )
-    } else {
-      return (
-        <>
-          {itemInfo.policyUrl && <PolicyUrl />}
-          {!!itemInfo.purposes?.length && vendorList.purposes && (
-            <h3>{i18n.VENDOR_PAGE.GROUPS.SECOND.EXPANDED.PURPOSES}</h3>
-          )}
-          {!!itemInfo.purposes?.length && vendorList.purposes && (
-            <Information
-              purposeIds={itemInfo.purposes}
-              vendorList={vendorList.purposes}
-            />
-          )}
-          {!!itemInfo.legIntPurposes.length && vendorList.purposes && (
-            <h3>
-              {
-                i18n.VENDOR_PAGE.GROUPS.SECOND.EXPANDED
-                  .LEGITIMATE_INTEREST_PURPOSES
-              }
-            </h3>
-          )}
-          {!!itemInfo.legIntPurposes?.length && vendorList.purposes && (
-            <Information
-              purposeIds={itemInfo.legIntPurposes}
-              vendorList={vendorList.purposes}
-            />
-          )}
-          {!!itemInfo.specialPurposes?.length && vendorList.specialPurposes && (
-            <h3>{i18n.VENDOR_PAGE.GROUPS.SECOND.EXPANDED.SPECIAL_PURPOSES}</h3>
-          )}
-          {!!itemInfo.specialPurposes?.length && vendorList.specialPurposes && (
-            <Information
-              purposeIds={itemInfo.specialPurposes}
-              vendorList={vendorList.specialPurposes}
-            />
-          )}
-          {!!itemInfo.features?.length && vendorList.features && (
-            <h3>{i18n.VENDOR_PAGE.GROUPS.SECOND.EXPANDED.FEATURES}</h3>
-          )}
-          {!!itemInfo.features?.length && vendorList.features && (
-            <Information
-              featureIds={itemInfo.features}
-              vendorList={vendorList.features}
-            />
-          )}
-          {!!itemInfo.specialFeatures?.length && vendorList.specialFeatures && (
-            <h3>{i18n.VENDOR_PAGE.GROUPS.SECOND.EXPANDED.SPECIAL_FEATURES}</h3>
-          )}
-          {!!itemInfo.specialFeatures?.length && vendorList.specialFeatures && (
-            <Information
-              featureIds={itemInfo.specialFeatures}
-              vendorList={vendorList.specialFeatures}
-            />
-          )}
-        </>
-      )
-    }
-  }
+  const ExpandedContent = () => (
+    <>
+      {itemInfo.policyUrl && <PolicyUrl />}
+      {!!itemInfo.purposes?.length && vendorList.purposes && (
+        <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.PURPOSES}</h3>
+      )}
+      {!!itemInfo.purposes?.length && vendorList.purposes && (
+        <Information
+          purposeIds={itemInfo.purposes}
+          vendorList={vendorList.purposes}
+        />
+      )}
+      {!!itemInfo.legIntPurposes.length && vendorList.purposes && (
+        <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.LEGITIMATE_INTEREST_PURPOSES}</h3>
+      )}
+      {!!itemInfo.legIntPurposes?.length && vendorList.purposes && (
+        <Information
+          purposeIds={itemInfo.legIntPurposes}
+          vendorList={vendorList.purposes}
+        />
+      )}
+      {!!itemInfo.specialPurposes?.length && vendorList.specialPurposes && (
+        <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.SPECIAL_PURPOSES}</h3>
+      )}
+      {!!itemInfo.specialPurposes?.length && vendorList.specialPurposes && (
+        <Information
+          purposeIds={itemInfo.specialPurposes}
+          vendorList={vendorList.specialPurposes}
+        />
+      )}
+      {!!itemInfo.features?.length && vendorList.features && (
+        <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.FEATURES}</h3>
+      )}
+      {!!itemInfo.features?.length && vendorList.features && (
+        <Information
+          featureIds={itemInfo.features}
+          vendorList={vendorList.features}
+        />
+      )}
+      {!!itemInfo.specialFeatures?.length && vendorList.specialFeatures && (
+        <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.SPECIAL_FEATURES}</h3>
+      )}
+      {!!itemInfo.specialFeatures?.length && vendorList.specialFeatures && (
+        <Information
+          featureIds={itemInfo.specialFeatures}
+          vendorList={vendorList.specialFeatures}
+        />
+      )}
+    </>
+  )
 
   return (
     <>
@@ -143,7 +127,6 @@ GroupItem.propTypes = {
   itemValue: PropTypes.object,
   name: PropTypes.string,
   onItemChange: PropTypes.func,
-  isVendor: PropTypes.bool,
   vendorList: PropTypes.object,
   i18n: PropTypes.object
 }

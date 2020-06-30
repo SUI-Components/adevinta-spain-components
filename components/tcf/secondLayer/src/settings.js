@@ -8,19 +8,14 @@ const DEFAULT_I18N = {
     TEXT:
       'Nos importa mucho tu privacidad, por esta razón queremos informarte de las finalidades perseguidas por las cookies de publicidad personalizada además de con quién estamos compartiendo tus datos. Asimismo podrás definir las finalidades y los terceros con los que aceptas o no compartir tus datos de navegación, tus datos de localización y tus datos de carácter personal. Ten en cuenta que estas cookies van ligadas a tu sesión en el navegador por lo que si actualizas tus cookies, cambias de dispositivos o te conectas desde otro navegador, tendrás que volver a configurar tus preferencias.',
     GROUPS: {
-      FIRST: {
-        TITLE: 'Autorizo'
-      },
-      SECOND: {
-        TITLE: 'Para los siguientes anunciantes y partners',
-        EXPANDED: {
-          PURPOSES: 'Propósitos',
-          LEGITIMATE_INTEREST_PURPOSES: 'Interés legítimo en:',
-          SPECIAL_PURPOSES: 'Propósitos especiales',
-          FEATURES: 'Características',
-          SPECIAL_FEATURES: 'Características especiales',
-          POLICY_URL: 'Política de privacidad'
-        }
+      TITLE: 'Listado de partners con los que trabajamos',
+      EXPANDED: {
+        PURPOSES: 'Propósitos',
+        LEGITIMATE_INTEREST_PURPOSES: 'Interés legítimo en:',
+        SPECIAL_PURPOSES: 'Propósitos especiales',
+        FEATURES: 'Características',
+        SPECIAL_FEATURES: 'Características especiales',
+        POLICY_URL: 'Política de privacidad'
       }
     }
   }

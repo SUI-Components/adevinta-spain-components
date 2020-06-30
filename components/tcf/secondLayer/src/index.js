@@ -107,15 +107,6 @@ export default function TcfSecondLayer({
     changeAllGroup({group, value: true})
   }
 
-  const handlePurposesConsentsChange = ({index, value}) => {
-    setState(prevState => {
-      const {purposes} = prevState
-      const {consents} = purposes
-      consents[index] = !value
-      return {...prevState, purposes: {...prevState.purposes, consents}}
-    })
-  }
-
   const handleVendorsConsentsChange = ({index, value}) => {
     setState(prevState => {
       const {vendors} = prevState
@@ -139,22 +130,9 @@ export default function TcfSecondLayer({
         <div className={`${CLASS}-container`}>
           <h2 className={`${CLASS}-title`}>{i18n.VENDOR_PAGE.TITLE}</h2>
           <p className={`${CLASS}-text`}>{i18n.VENDOR_PAGE.TEXT}</p>
-          {state?.purposes && vendorListState?.purposes && (
-            <PurposeGroup
-              name={i18n.VENDOR_PAGE.GROUPS.FIRST.TITLE}
-              baseClass={`${CLASS}-group`}
-              descriptions={vendorListState.purposes}
-              state={state.purposes}
-              onConsentsChange={handlePurposesConsentsChange}
-              i18n={i18n}
-              isNew={isNew}
-              onAcceptAll={() => handleAcceptAll({group: 'purposes'})}
-              onRejectAll={() => handleRejectAll({group: 'purposes'})}
-            />
-          )}
           {state?.vendors && vendorListState?.vendors && (
             <PurposeGroup
-              name={i18n.VENDOR_PAGE.GROUPS.SECOND.TITLE}
+              name={i18n.VENDOR_PAGE.GROUPS.TITLE}
               baseClass={`${CLASS}-group`}
               descriptions={vendorListState.vendors}
               state={state.vendors}
@@ -163,7 +141,6 @@ export default function TcfSecondLayer({
               isNew={isNew}
               onAcceptAll={() => handleAcceptAll({group: 'vendors'})}
               onRejectAll={() => handleRejectAll({group: 'vendors'})}
-              isVendor
               vendorList={vendorListState}
             />
           )}
