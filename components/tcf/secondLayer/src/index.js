@@ -17,6 +17,7 @@ export default function TcfSecondLayer({
   loadUserConsent,
   saveUserConsent,
   getVendorList,
+  uiVisible,
   onGoBack
 }) {
   const [state, setState] = useState(null)
@@ -59,6 +60,7 @@ export default function TcfSecondLayer({
   }, [getVendorList, loadUserConsent, lang])
 
   const handleCloseModal = () => {
+    uiVisible({visible: false})
     setModalOpen(false)
   }
 
@@ -90,6 +92,7 @@ export default function TcfSecondLayer({
         vendor: state.vendors
       })
     )
+    uiVisible({visible: false})
     setModalOpen(false)
   }
 
@@ -197,6 +200,7 @@ TcfSecondLayer.propTypes = {
   loadUserConsent: PropTypes.func,
   saveUserConsent: PropTypes.func,
   getVendorList: PropTypes.func,
+  uiVisible: PropTypes.func,
   logo: PropTypes.string,
   lang: PropTypes.string,
   onGoBack: PropTypes.func
