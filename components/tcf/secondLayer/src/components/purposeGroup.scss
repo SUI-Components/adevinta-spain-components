@@ -5,10 +5,11 @@ $base-class: '.sui-TcfSecondLayer-group';
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    flex-flow: wrap;
     padding: 30px 0 16px 0;
   }
   &-title {
-    font-size: 14px;
+    font-size: 16px;
   }
   &-buttons {
     & button {

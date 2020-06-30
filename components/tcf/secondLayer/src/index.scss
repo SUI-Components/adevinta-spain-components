@@ -12,12 +12,21 @@ $base-class: '.sui-TcfSecondLayer';
 #{$base-class} {
   &-container {
     padding-right: 10px;
+    &--desktop {
+      padding-left: 8px;
+    }
   }
   &-title {
     font-size: 14px;
+    &--desktop {
+      font-size: 20px;
+    }
   }
   &-text {
     font-size: 10px;
+    &--desktop {
+      font-size: 14px;
+    }
   }
   &-buttons {
     display: flex;
@@ -28,6 +37,14 @@ $base-class: '.sui-TcfSecondLayer';
     & button {
       font-size: 14px;
       border-radius: 8px;
+    }
+  }
+  &-logo {
+    height: 20px;
+    margin: 8px 0 5px -8px;
+    &--desktop.sui-TcfSecondLayer-logo {
+      height: 24px;
+      margin: 18px 0 33px 8px;
     }
   }
 }

@@ -11,6 +11,7 @@ import {I18N} from './settings'
 const CLASS = 'sui-TcfSecondLayer'
 export default function TcfSecondLayer({
   isOpen,
+  isMobile,
   lang = 'es',
   logo,
   loadUserConsent,
@@ -115,21 +116,52 @@ export default function TcfSecondLayer({
       return {...prevState, vendors: {...prevState.vendors, consents}}
     })
   }
-
+  const Logo = () => (
+    <img
+      className={
+        isMobile ? `${CLASS}-logo` : `${CLASS}-logo ${CLASS}-logo--desktop`
+      }
+      src={logo}
+      alt="logo"
+    />
+  )
   return (
     <div className={CLASS}>
       <SuiModal
         isOpen={modalOpen}
         closeOnOutsideClick
         closeOnEscKeyDown
-        header={<img className={`${CLASS}-logo`} src={logo} alt="logo" />}
-        iconClose={<IconClose />}
+        header={isMobile ? <Logo /> : false}
+        iconClose={isMobile ? <IconClose /> : false}
         onClose={handleCloseModal}
         fitContent
       >
-        <div className={`${CLASS}-container`}>
-          <h2 className={`${CLASS}-title`}>{i18n.VENDOR_PAGE.TITLE}</h2>
-          <p className={`${CLASS}-text`}>{i18n.VENDOR_PAGE.TEXT}</p>
+        {!isMobile && <Logo />}
+        <div
+          className={
+            isMobile
+              ? `${CLASS}-container`
+              : `${CLASS}-container ${CLASS}-container--desktop`
+          }
+        >
+          <h2
+            className={
+              isMobile
+                ? `${CLASS}-title`
+                : `${CLASS}-title ${CLASS}-title--desktop`
+            }
+          >
+            {i18n.VENDOR_PAGE.TITLE}
+          </h2>
+          <p
+            className={
+              isMobile
+                ? `${CLASS}-text`
+                : `${CLASS}-text ${CLASS}-text--desktop`
+            }
+          >
+            {i18n.VENDOR_PAGE.TEXT}
+          </p>
           {state?.vendors && vendorListState?.vendors && (
             <PurposeGroup
               name={i18n.VENDOR_PAGE.GROUPS.TITLE}
@@ -161,6 +193,7 @@ export default function TcfSecondLayer({
 TcfSecondLayer.displayName = 'TcfSecondLayer'
 TcfSecondLayer.propTypes = {
   isOpen: PropTypes.bool,
+  isMobile: PropTypes.bool,
   loadUserConsent: PropTypes.func,
   saveUserConsent: PropTypes.func,
   getVendorList: PropTypes.func,

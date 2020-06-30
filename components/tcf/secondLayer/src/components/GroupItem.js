@@ -102,7 +102,13 @@ export default function GroupItem({
           className={`${baseClass}-container-clicklable`}
           onClick={handleItemClick}
         >
-          <IconAccordion />
+          <IconAccordion
+            baseClass={
+              expanded
+                ? `${baseClass}-icon-accordion ${baseClass}-icon-accordion--expanded`
+                : `${baseClass}-icon-accordion`
+            }
+          />
           <p className={`${baseClass}-text`}>{itemInfo.name}</p>
         </div>
         <SuiSwitch
