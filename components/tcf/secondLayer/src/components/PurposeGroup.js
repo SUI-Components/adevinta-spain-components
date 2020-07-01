@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import SuiButton from '@s-ui/react-atom-button'
@@ -56,6 +56,5 @@ PurposeGroup.propTypes = {
   onConsentsChange: PropTypes.func,
   onAcceptAll: PropTypes.func,
   onRejectAll: PropTypes.func,
-  vendorList: PropTypes.object,
-  isNew: PropTypes.bool
+  vendorList: PropTypes.object
 }
