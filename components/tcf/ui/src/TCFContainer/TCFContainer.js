@@ -7,7 +7,12 @@ const SecondLayer = React.lazy(() => import('@s-ui/react-tcf-second-layer'))
 export default function TCFContainer({
   getVendorList,
   loadUserConsent,
-  saveUserConsent
+  saveUserConsent,
+  uiVisible,
+  isMobile,
+  isTablet,
+  lang,
+  logo
 }) {
   const [showLayer, setShowLayer] = useState(false)
 
@@ -24,26 +29,56 @@ export default function TCFContainer({
   const handleOpenSecondLayer = () => {
     setShowLayer(2)
   }
+  const handleSecondLayerGoBack = () => {
+    setShowLayer(1)
+  }
+  const handleOpenCookiepolicyLayer = () => {
+    setShowLayer(3)
+  }
 
   return (
     <>
       {showLayer === 1 && (
         <Suspense fallback={<div />}>
           <FirstLayer
+            isMobile={isMobile}
+            isTablet={isTablet}
+            lang={lang}
+            logo={logo}
             getVendorList={getVendorList}
             loadUserConsent={loadUserConsent}
             saveUserConsent={saveUserConsent}
             openSecondLayer={handleOpenSecondLayer}
+            openCookiepolicyLayer={handleOpenCookiepolicyLayer}
           />
         </Suspense>
       )}
       {showLayer === 2 && (
         <Suspense fallback={<div />}>
           <SecondLayer
-            isOpen
+            isMobile={isMobile}
+            lang={lang}
+            logo={logo}
+            uiVisible={uiVisible}
             loadUserConsent={loadUserConsent}
             saveUserConsent={saveUserConsent}
             getVendorList={getVendorList}
+            onGoBack={handleSecondLayerGoBack}
+          />
+        </Suspense>
+      )}
+      {showLayer === 3 && (
+        <Suspense fallback={<div />}>
+          <SecondLayer
+            isVendorLayer
+            isMobile={isMobile}
+            lang={lang}
+            logo={logo}
+            uiVisible={uiVisible}
+            loadUserConsent={loadUserConsent}
+            saveUserConsent={saveUserConsent}
+            getVendorList={getVendorList}
+            onGoBack={handleSecondLayerGoBack}
           />
         </Suspense>
       )}
@@ -56,5 +91,10 @@ TCFContainer.displayName = 'TcfUi'
 TCFContainer.propTypes = {
   getVendorList: PropTypes.func,
   loadUserConsent: PropTypes.func,
-  saveUserConsent: PropTypes.func
+  uiVisible: PropTypes.func,
+  saveUserConsent: PropTypes.func,
+  isMobile: PropTypes.bool,
+  isTablet: PropTypes.bool,
+  lang: PropTypes.string,
+  logo: PropTypes.string
 }
