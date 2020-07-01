@@ -51,8 +51,8 @@ export default function TcfSecondLayer({
       })
     }
     const loadConsent = async () => {
-      const {purpose, vendor, specialFeatures, isNew} = await loadUserConsent()
-      setState({purposes: purpose, vendors: vendor, specialFeatures})
+      const {vendor, isNew} = await loadUserConsent()
+      setState({vendors: vendor})
       setIsNew(isNew)
     }
     getVendorListAsync()
@@ -64,7 +64,7 @@ export default function TcfSecondLayer({
     setModalOpen(false)
   }
 
-  const formatConsentObject = ({purpose = {}, vendor = {}}) => {
+  const formatConsentObject = ({vendor = {}}) => {
     const format = ({reference, object}) => {
       Object.keys(reference).forEach(key => {
         if (!object[key]) {
@@ -73,22 +73,16 @@ export default function TcfSecondLayer({
       })
       return object
     }
-
-    purpose.consents = format({
-      reference: vendorListState.purposes || {},
-      object: purpose.consents || {}
-    })
     vendor.consents = format({
       reference: vendorListState.vendors || {},
       object: vendor.consents || {}
     })
-    return {purpose, vendor}
+    return {vendor}
   }
 
   const handleSaveExitClick = () => {
     saveUserConsent(
       formatConsentObject({
-        purpose: state.purposes,
         vendor: state.vendors
       })
     )
