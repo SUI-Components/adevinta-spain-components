@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.3.0 (2020-06-29)
+
+
+### Features
+
+* add passive eventListener for scroll ([7df3463](https://github.com/SUI-Components/schibsted-spain-components/commit/7df3463eb0721af1eb9d9668dbe29bbcd2b0c576))
+* add tablet styling & update mobile/desktop ([d2c682b](https://github.com/SUI-Components/schibsted-spain-components/commit/d2c682ba635b72d816c35174eb8e85a169402f8a))
+* first layer implementation according to last mock up ([093ce20](https://github.com/SUI-Components/schibsted-spain-components/commit/093ce2079b239d971d7381616ed56ede42bd7a47))
+
+
+
 # 1.2.0 (2020-06-18)
 
 
