@@ -23,16 +23,14 @@ export default function TcfSecondLayer({
   const [state, setState] = useState(null)
   const [modalOpen, setModalOpen] = useState(false)
   const [vendorListState, setVendorListState] = useState(null)
-  const [isNew, setIsNew] = useState(null)
 
   const i18n = I18N[lang]
-
   useEffect(() => {
     setModalOpen(isOpen)
   }, [isOpen])
 
   useEffect(() => {
-    const getVendorListAsync = async () => {
+    const getVendorListAndConsent = async () => {
       const {
         purposes,
         specialPurposes,
@@ -49,30 +47,33 @@ export default function TcfSecondLayer({
         specialFeatures,
         vendors
       })
-    }
-    const loadConsent = async () => {
       const {vendor, isNew} = await loadUserConsent()
-      setState({vendors: vendor})
-      setIsNew(isNew)
+      const vendorsConsent = vendor
+      if (isNew) {
+        vendorsConsent.consents = format({
+          reference: vendors,
+          object: {},
+          value: true
+        })
+      }
+      setState({vendors: vendorsConsent})
     }
-    getVendorListAsync()
-    loadConsent()
+    getVendorListAndConsent()
   }, [getVendorList, loadUserConsent, lang])
 
   const handleCloseModal = () => {
     uiVisible({visible: false})
     setModalOpen(false)
   }
-
+  const format = ({reference, object, value = false}) => {
+    Object.keys(reference).forEach(key => {
+      if (!object[key]) {
+        object[key] = value
+      }
+    })
+    return object
+  }
   const formatConsentObject = ({vendor = {}}) => {
-    const format = ({reference, object}) => {
-      Object.keys(reference).forEach(key => {
-        if (!object[key]) {
-          object[key] = false
-        }
-      })
-      return object
-    }
     vendor.consents = format({
       reference: vendorListState.vendors || {},
       object: vendor.consents || {}
@@ -167,7 +168,6 @@ export default function TcfSecondLayer({
               state={state.vendors}
               onConsentsChange={handleVendorsConsentsChange}
               i18n={i18n}
-              isNew={isNew}
               onAcceptAll={() => handleAcceptAll({group: 'vendors'})}
               onRejectAll={() => handleRejectAll({group: 'vendors'})}
               vendorList={vendorListState}

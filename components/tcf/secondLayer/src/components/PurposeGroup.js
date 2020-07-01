@@ -7,7 +7,6 @@ import GroupItem from './GroupItem'
 export default function PurposeGroup({
   name,
   i18n,
-  isNew,
   baseClass,
   descriptions,
   state,
@@ -16,17 +15,6 @@ export default function PurposeGroup({
   onRejectAll,
   vendorList
 }) {
-  const [consentValue, setConsentValue] = useState(state)
-  useEffect(() => {
-    if (isNew) {
-      setConsentValue(prevState => {
-        Object.keys(descriptions).map(key => {
-          prevState.consents[key] = true
-        })
-        return {...prevState, consents: prevState.consents}
-      })
-    }
-  }, [isNew, descriptions])
   return (
     <>
       <div className={`${baseClass}-title-container`}>
@@ -40,7 +28,7 @@ export default function PurposeGroup({
           </SuiButton>
         </div>
       </div>
-      {consentValue &&
+      {state &&
         descriptions &&
         Object.keys(descriptions).map((key, index) => {
           return (
@@ -48,7 +36,7 @@ export default function PurposeGroup({
               key={`${key}-${index}`}
               baseClass={`${baseClass}-item`}
               itemInfo={descriptions[key]}
-              itemValue={consentValue.consents[key]}
+              itemValue={state.consents[key]}
               i18n={i18n}
               vendorList={vendorList}
               onItemChange={value => onConsentsChange({index: key, value})}
