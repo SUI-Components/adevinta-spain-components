@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.3.0 (2020-07-02)
+
+
+### Features
+
+* add boros uiVisible call when modal is closed ([e6747ca](https://github.com/SUI-Components/schibsted-spain-components/commit/e6747cae33273c312f2f9575ed8eecbc6e8939fd))
+* add isNew consent control ([a91a916](https://github.com/SUI-Components/schibsted-spain-components/commit/a91a916828a4bb4fd04a313f1c2249e92ae6166f))
+* add vendors expanded information ([404a14c](https://github.com/SUI-Components/schibsted-spain-components/commit/404a14c30836ec69a10e2a9702d0693dad2b147d))
+* second layer with vendors implementation ([f91edf8](https://github.com/SUI-Components/schibsted-spain-components/commit/f91edf8d4db113b1658048df590ed422194c92ef))
+
+
+
 # 1.2.0 (2020-06-18)
 
 
