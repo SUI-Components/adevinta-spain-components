@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.3.0 (2020-07-02)
+
+
+### Features
+
+* add uiVisible use case ([02d1d17](https://github.com/SUI-Components/schibsted-spain-components/commit/02d1d174ee8c29c529f188d3428595ed6afca63d))
+
+
+
 # 1.2.0 (2020-06-18)
 
 

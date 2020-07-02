@@ -10,7 +10,6 @@ import {I18N} from './settings'
 
 const CLASS = 'sui-TcfSecondLayer'
 export default function TcfSecondLayer({
-  isOpen,
   isMobile,
   lang = 'es',
   logo,
@@ -21,13 +20,10 @@ export default function TcfSecondLayer({
   onGoBack
 }) {
   const [state, setState] = useState(null)
-  const [modalOpen, setModalOpen] = useState(false)
+  const [modalOpen, setModalOpen] = useState(true)
   const [vendorListState, setVendorListState] = useState(null)
 
   const i18n = I18N[lang]
-  useEffect(() => {
-    setModalOpen(isOpen)
-  }, [isOpen])
 
   useEffect(() => {
     const getVendorListAndConsent = async () => {
@@ -189,7 +185,6 @@ export default function TcfSecondLayer({
 
 TcfSecondLayer.displayName = 'TcfSecondLayer'
 TcfSecondLayer.propTypes = {
-  isOpen: PropTypes.bool,
   isMobile: PropTypes.bool,
   loadUserConsent: PropTypes.func,
   saveUserConsent: PropTypes.func,

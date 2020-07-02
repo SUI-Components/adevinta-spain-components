@@ -2,11 +2,13 @@ class Service {
   constructor({
     getVendorListUseCase,
     loadUserConsentUseCase,
-    saveUserConsentUseCase
+    saveUserConsentUseCase,
+    uiVisibleUseCase
   }) {
     this._getVendorListUseCase = getVendorListUseCase
     this._loadUserConsentUseCase = loadUserConsentUseCase
     this._saveUserConsentUseCase = saveUserConsentUseCase
+    this._uiVisibleUseCase = uiVisibleUseCase
   }
 
   getVendorList() {
@@ -19,6 +21,10 @@ class Service {
 
   saveUserConsent({purpose, vendor, specialFeatures}) {
     this._saveUserConsentUseCase.execute({purpose, vendor, specialFeatures})
+  }
+
+  uiVisible({visible}) {
+    this._uiVisibleUseCase.execute({visible})
   }
 }
 
