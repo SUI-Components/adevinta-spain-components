@@ -1,0 +1,49 @@
+$base-class: '.sui-TcfSecondLayer-group-item';
+
+#{$base-class} {
+  &-container {
+    border: solid 1px #cacaca;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    &-clicklable {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      cursor: pointer;
+      & svg {
+        align-self: flex-end;
+        margin-left: 7px;
+        width: 16px;
+        height: 16px;
+      }
+    }
+    &--expanded {
+      border: solid 1px #cacaca;
+      padding: 16px;
+      & p {
+        margin: 0;
+        display: inline;
+      }
+      & h3 {
+        font-size: 14px;
+      }
+      & a {
+        margin: 0;
+      }
+    }
+  }
+  &-text {
+    font-size: 12px;
+    margin-left: 10px;
+    max-width: 80%;
+    &--expanded#{$base-class}-text--expanded {
+      max-width: 100%;
+    }
+  }
+  &-paragraph {
+    margin-bottom: 14px;
+  }
+}

@@ -1,150 +1,105 @@
 import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
+
 import SuiModal from '@s-ui/react-molecule-modal'
+import SuiButton from '@s-ui/react-atom-button'
 
 import IconClose from './components/IconClose'
-import ButtonsTriade from './components/ButtonsTriade'
 import PurposeGroup from './components/PurposeGroup'
+import {I18N} from './settings'
+
+const CLASS = 'sui-TcfSecondLayer'
 export default function TcfSecondLayer({
-  isOpen,
+  isMobile,
+  lang = 'es',
+  logo,
   loadUserConsent,
   saveUserConsent,
-  getVendorList
+  getVendorList,
+  uiVisible,
+  onGoBack
 }) {
   const [state, setState] = useState(null)
-  const [modalOpen, setModalOpen] = useState(false)
-  const [saveButtonActive, setSaveButtonActive] = useState(false)
+  const [modalOpen, setModalOpen] = useState(true)
   const [vendorListState, setVendorListState] = useState(null)
 
-  useEffect(() => {
-    setModalOpen(isOpen)
-  }, [isOpen])
+  const i18n = I18N[lang]
 
   useEffect(() => {
-    const loadConsent = async () => {
-      const {purpose, vendor, specialFeatures} = await loadUserConsent()
-      setState({purposes: purpose, vendors: vendor, specialFeatures})
+    const getVendorListAndConsent = async () => {
+      const {
+        purposes,
+        specialPurposes,
+        features,
+        specialFeatures,
+        vendors
+      } = await getVendorList({
+        language: lang
+      })
+      setVendorListState({
+        purposes,
+        specialPurposes,
+        features,
+        specialFeatures,
+        vendors
+      })
+      const {vendor, isNew} = await loadUserConsent()
+      const vendorsConsent = vendor
+      if (isNew) {
+        vendorsConsent.consents = format({
+          reference: vendors,
+          object: {},
+          value: true
+        })
+      }
+      setState({vendors: vendorsConsent})
     }
-    const getVendorListAsync = async () => {
-      const {purposes, vendors, specialFeatures} = await getVendorList()
-      setVendorListState({purposes, vendors, specialFeatures})
-    }
-    loadConsent()
-    getVendorListAsync()
-  }, [getVendorList, loadUserConsent])
+    getVendorListAndConsent()
+  }, [getVendorList, loadUserConsent, lang])
 
   const handleCloseModal = () => {
+    uiVisible({visible: false})
     setModalOpen(false)
   }
-
-  const formatConsentObject = ({
-    purpose = {},
-    vendor = {},
-    specialFeatures = {}
-  }) => {
-    const format = ({reference, object}) => {
-      Object.keys(reference).forEach(key => {
-        if (!object[key]) {
-          object[key] = false
-        }
-      })
-      return object
-    }
-    purpose.consents = purpose.consents || {}
-    purpose.legitimateInterests = purpose.legitimateInterests || {}
-    vendor.consents = vendor.consents || {}
-    vendor.legitimateInterests = vendor.legitimateInterests || {}
-    vendorListState.purposes = vendorListState.purposes || {}
-    vendorListState.vendors = vendorListState.vendors || {}
-    vendorListState.specialFeatures = vendorListState.specialFeatures || {}
-
-    purpose.consents = format({
-      reference: vendorListState.purposes,
-      object: purpose.consents
+  const format = ({reference, object, value = false}) => {
+    Object.keys(reference).forEach(key => {
+      if (!object[key]) {
+        object[key] = value
+      }
     })
-    purpose.legitimateInterests = format({
-      reference: vendorListState.purposes,
-      object: purpose.legitimateInterests
-    })
+    return object
+  }
+  const formatConsentObject = ({vendor = {}}) => {
     vendor.consents = format({
-      reference: vendorListState.vendors,
-      object: vendor.consents
+      reference: vendorListState.vendors || {},
+      object: vendor.consents || {}
     })
-    vendor.legitimateInterests = format({
-      reference: vendorListState.vendors,
-      object: vendor.legitimateInterests
-    })
-    specialFeatures = format({
-      reference: vendorListState.specialFeatures,
-      object: specialFeatures
-    })
-    return {purpose, vendor, specialFeatures}
+    return {vendor}
   }
 
   const handleSaveExitClick = () => {
     saveUserConsent(
       formatConsentObject({
-        purpose: state.purposes,
-        vendor: state.vendors,
-        specialFeatures: state.specialFeatures
+        vendor: state.vendors
       })
     )
+    uiVisible({visible: false})
     setModalOpen(false)
   }
-  const changeAll = accept => {
+
+  const changeAllGroup = ({group, value}) => {
     setState(prevState => {
-      const {purposes, vendors, specialFeatures} = prevState
-      const {consents: CP, legitimateInterests: LIP} = purposes
-      const {consents: CV, legitimateInterests: LIV} = vendors
-      for (const key in vendorListState.purposes) {
-        CP[key] = accept
-        LIP[key] = accept
+      for (const key in vendorListState[group]) {
+        prevState[group].consents[key] = value
       }
-      for (const key in vendorListState.vendors) {
-        CV[key] = accept
-        LIV[key] = accept
-      }
-      for (const key in vendorListState.specialFeatures) {
-        specialFeatures[key] = accept
-      }
-      return {
-        vendors: {consents: CV, legitimateInterests: LIV},
-        purposes: {consents: CP, legitimateInterests: LIP},
-        specialFeatures
-      }
+      return {...prevState, [group]: prevState[group]}
     })
   }
-
-  const handleAcceptAll = () => {
-    changeAll(true)
-    setSaveButtonActive(true)
+  const handleRejectAll = ({group}) => {
+    changeAllGroup({group, value: false})
   }
-  const handleRejectAll = () => {
-    changeAll(false)
-    setSaveButtonActive(true)
-  }
-
-  const handlePurposesConsentsChange = ({index, value}) => {
-    setState(prevState => {
-      const {purposes} = prevState
-      const {consents} = purposes
-      consents[index] = !value
-      return {...prevState, purposes: {...prevState.purposes, consents}}
-    })
-    setSaveButtonActive(true)
-  }
-
-  const handlePurposesLIChange = ({index, value}) => {
-    setState(prevState => {
-      const {purposes} = prevState
-      const {legitimateInterests} = purposes
-      legitimateInterests[index] = !value
-      return {
-        ...prevState,
-        purposes: {...prevState.purposes, legitimateInterests}
-      }
-    })
-    setSaveButtonActive(true)
+  const handleAcceptAll = ({group}) => {
+    changeAllGroup({group, value: true})
   }
 
   const handleVendorsConsentsChange = ({index, value}) => {
@@ -154,79 +109,75 @@ export default function TcfSecondLayer({
       consents[index] = !value
       return {...prevState, vendors: {...prevState.vendors, consents}}
     })
-    setSaveButtonActive(true)
   }
-
-  const handleVendorsLIChange = ({index, value}) => {
-    setState(prevState => {
-      const {vendors} = prevState
-      const {legitimateInterests} = vendors
-      legitimateInterests[index] = !value
-      return {
-        ...prevState,
-        vendors: {...prevState.vendors, legitimateInterests}
+  const Logo = () => (
+    <img
+      className={
+        isMobile ? `${CLASS}-logo` : `${CLASS}-logo ${CLASS}-logo--desktop`
       }
-    })
-    setSaveButtonActive(true)
-  }
-  const handleSpecialFeaturesChange = ({index, value}) => {
-    setState(prevState => {
-      const {specialFeatures} = prevState
-      specialFeatures[index] = !value
-      return {
-        ...prevState,
-        specialFeatures
-      }
-    })
-    setSaveButtonActive(true)
-  }
+      src={logo}
+      alt="logo"
+    />
+  )
   return (
-    <div className="sui-TcfSecondLayer">
+    <div className={CLASS}>
       <SuiModal
         isOpen={modalOpen}
         closeOnOutsideClick
         closeOnEscKeyDown
-        header={<strong>TcfSecondLayer</strong>}
-        iconClose={<IconClose />}
+        header={isMobile ? <Logo /> : false}
+        iconClose={isMobile ? <IconClose /> : false}
         onClose={handleCloseModal}
+        fitContent
       >
-        <ButtonsTriade
-          isSaveButtonActive={saveButtonActive}
-          onSaveExitClick={handleSaveExitClick}
-          onAcceptAll={handleAcceptAll}
-          onRejectAll={handleRejectAll}
-        />
-        {state?.purposes && vendorListState?.purposes && (
-          <PurposeGroup
-            name="Purposes"
-            descriptionField="description"
-            descriptions={vendorListState.purposes}
-            state={state.purposes}
-            onConsentsChange={handlePurposesConsentsChange}
-            onLegitimateInterestsChange={handlePurposesLIChange}
-            hasLegitimateInterest
-          />
-        )}
-        {state?.vendors && vendorListState?.vendors && (
-          <PurposeGroup
-            name="Vendors"
-            descriptionField="name"
-            descriptions={vendorListState.vendors}
-            state={state.vendors}
-            onConsentsChange={handleVendorsConsentsChange}
-            onLegitimateInterestsChange={handleVendorsLIChange}
-            hasLegitimateInterest
-          />
-        )}
-        {state?.specialFeatures && vendorListState?.specialFeatures && (
-          <PurposeGroup
-            name="SpecialFeatures"
-            descriptionField="name"
-            descriptions={vendorListState.specialFeatures}
-            state={{consents: state.specialFeatures}}
-            onConsentsChange={handleSpecialFeaturesChange}
-          />
-        )}
+        {!isMobile && <Logo />}
+        <div
+          className={
+            isMobile
+              ? `${CLASS}-container`
+              : `${CLASS}-container ${CLASS}-container--desktop`
+          }
+        >
+          <h2
+            className={
+              isMobile
+                ? `${CLASS}-title`
+                : `${CLASS}-title ${CLASS}-title--desktop`
+            }
+          >
+            {i18n.VENDOR_PAGE.TITLE}
+          </h2>
+          <p
+            className={
+              isMobile
+                ? `${CLASS}-text`
+                : `${CLASS}-text ${CLASS}-text--desktop`
+            }
+          >
+            {i18n.VENDOR_PAGE.TEXT}
+          </p>
+          {state?.vendors && vendorListState?.vendors && (
+            <PurposeGroup
+              name={i18n.VENDOR_PAGE.GROUPS.TITLE}
+              baseClass={`${CLASS}-group`}
+              descriptions={vendorListState.vendors}
+              state={state.vendors}
+              onConsentsChange={handleVendorsConsentsChange}
+              i18n={i18n}
+              onAcceptAll={() => handleAcceptAll({group: 'vendors'})}
+              onRejectAll={() => handleRejectAll({group: 'vendors'})}
+              vendorList={vendorListState}
+            />
+          )}
+        </div>
+        <footer className={`${CLASS}-buttons`}>
+          <SuiButton design="outline" onClick={onGoBack}>
+            {i18n.GO_BACK_BUTTON}
+          </SuiButton>
+          <SuiButton onClick={handleSaveExitClick}>
+            {i18n.ACCEPT_BUTTON}
+          </SuiButton>
+        </footer>
       </SuiModal>
     </div>
   )
@@ -234,8 +185,12 @@ export default function TcfSecondLayer({
 
 TcfSecondLayer.displayName = 'TcfSecondLayer'
 TcfSecondLayer.propTypes = {
-  isOpen: PropTypes.bool,
+  isMobile: PropTypes.bool,
   loadUserConsent: PropTypes.func,
   saveUserConsent: PropTypes.func,
-  getVendorList: PropTypes.func
+  getVendorList: PropTypes.func,
+  uiVisible: PropTypes.func,
+  logo: PropTypes.string,
+  lang: PropTypes.string,
+  onGoBack: PropTypes.func
 }

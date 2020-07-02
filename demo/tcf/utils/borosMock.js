@@ -1,17 +1,24 @@
-const mockedUserConsent = {
+/* eslint-disable no-unused-vars */
+const mockedEmptyUserConsent = {
+  isNew: true,
+  specialFeatureOptins: [],
+  purpose: {
+    consents: {},
+    legitimateInterests: {}
+  },
+  vendor: {
+    consents: {},
+    legitimateInterests: {}
+  }
+}
+const mockedFullUserConsent = {
+  isNew: false,
   specialFeatureOptins: [],
   purpose: {
     consents: {
       1: false,
       2: false,
-      3: false,
-      4: false,
-      5: false,
-      6: false,
-      7: false,
-      8: false,
-      9: false,
-      10: false
+      3: true
     },
     legitimateInterests: {
       1: false,
@@ -22,15 +29,14 @@ const mockedUserConsent = {
       6: false,
       7: false,
       8: false,
-      9: false,
-      10: false
+      9: true
     }
   },
   vendor: {
     consents: {
-      8: false,
-      9: false,
-      12: false,
+      8: true,
+      9: true,
+      12: true,
       28: false,
       25: false,
       6: false,
@@ -237,4 +243,5 @@ const mockedVendorList = {
   }
 }
 
+const mockedUserConsent = mockedEmptyUserConsent
 export {mockedUserConsent, mockedVendorList}

@@ -1,52 +1,46 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import SuiSwitch from '@s-ui/react-atom-switch'
 
+import SuiButton from '@s-ui/react-atom-button'
+
+import GroupItem from './GroupItem'
 export default function PurposeGroup({
   name,
+  i18n,
+  baseClass,
   descriptions,
-  descriptionField,
   state,
   onConsentsChange,
-  onLegitimateInterestsChange,
-  hasLegitimateInterest
+  onAcceptAll,
+  onRejectAll,
+  vendorList
 }) {
   return (
     <>
-      <h2>{name}</h2>
+      <div className={`${baseClass}-title-container`}>
+        <h2 className={`${baseClass}-title`}>{name}</h2>
+        <div className={`${baseClass}-buttons`}>
+          <SuiButton size="small" design="outline" onClick={onRejectAll}>
+            {i18n.DISABLE_BUTTON}
+          </SuiButton>
+          <SuiButton size="small" onClick={onAcceptAll}>
+            {i18n.ENABLE_BUTTON}
+          </SuiButton>
+        </div>
+      </div>
       {state &&
         descriptions &&
         Object.keys(descriptions).map((key, index) => {
           return (
-            <div key={`${key}-${index}`}>
-              <h3>{descriptions[key][descriptionField]}</h3>
-              <SuiSwitch
-                label="Consent"
-                type="single"
-                name={`${name}-consents-${key}`}
-                value={state.consents[key]}
-                onToggle={() =>
-                  onConsentsChange({
-                    index: key,
-                    value: state.consents[key]
-                  })
-                }
-              />
-              {hasLegitimateInterest && (
-                <SuiSwitch
-                  label="Legitimate interest"
-                  type="single"
-                  name={`${name}-legitimateInterests-${key}`}
-                  value={state.legitimateInterests[key]}
-                  onToggle={() =>
-                    onLegitimateInterestsChange({
-                      index: key,
-                      value: state.legitimateInterests[key]
-                    })
-                  }
-                />
-              )}
-            </div>
+            <GroupItem
+              key={`${key}-${index}`}
+              baseClass={`${baseClass}-item`}
+              itemInfo={descriptions[key]}
+              itemValue={state.consents[key]}
+              i18n={i18n}
+              vendorList={vendorList}
+              onItemChange={value => onConsentsChange({index: key, value})}
+            />
           )
         })}
     </>
@@ -55,12 +49,12 @@ export default function PurposeGroup({
 
 PurposeGroup.propTypes = {
   name: PropTypes.string,
+  i18n: PropTypes.object,
+  baseClass: PropTypes.string,
   descriptions: PropTypes.object,
-  descriptionField: PropTypes.string,
-  consents: PropTypes.object,
   state: PropTypes.object,
-  legitimateInterests: PropTypes.object,
   onConsentsChange: PropTypes.func,
-  onLegitimateInterestsChange: PropTypes.func,
-  hasLegitimateInterest: PropTypes.bool
+  onAcceptAll: PropTypes.func,
+  onRejectAll: PropTypes.func,
+  vendorList: PropTypes.object
 }

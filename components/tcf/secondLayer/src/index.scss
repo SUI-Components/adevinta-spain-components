@@ -2,3 +2,49 @@
 @import '~@s-ui/react-atom-button/lib/index';
 @import '~@s-ui/react-molecule-modal/lib/index';
 @import '~@s-ui/react-atom-switch/lib/index';
+@import './components//iconClose';
+@import './components//iconAccordion';
+@import './components/purposeGroup';
+@import './components/groupItem';
+
+$base-class: '.sui-TcfSecondLayer';
+
+#{$base-class} {
+  &-container {
+    padding-right: 10px;
+    &--desktop {
+      padding-left: 8px;
+    }
+  }
+  &-title {
+    font-size: 14px;
+    &--desktop {
+      font-size: 20px;
+    }
+  }
+  &-text {
+    font-size: 10px;
+    &--desktop {
+      font-size: 14px;
+    }
+  }
+  &-buttons {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+    padding-top: 15px;
+    border-top: solid 1px #dcdcdc;
+    & button {
+      font-size: 14px;
+      border-radius: 8px;
+    }
+  }
+  &-logo {
+    height: 20px;
+    margin: 8px 0 5px -8px;
+    &--desktop.sui-TcfSecondLayer-logo {
+      height: 24px;
+      margin: 18px 0 33px 8px;
+    }
+  }
+}
