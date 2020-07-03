@@ -162,9 +162,5 @@ export {fieldSizes as formBuilderFieldSizes}
 export {pickFieldById as formBuilderPickFieldById}
 export {changeFieldById as formBuilderChangeFieldById}
 export {fieldsNamesInOrderOfDefinition as formBuilderFieldsNamesInOrderOfDefinition}
-export {
-  checkConstraintsFactory,
-  // WARNING do not use the following export, it is kept for backwards compatibility
-  checkConstrainstsFactory
-} from './Standard'
+export {checkConstraintsFactory, checkConstrainstsFactory} from './Standard'
 export default FormBuilder
