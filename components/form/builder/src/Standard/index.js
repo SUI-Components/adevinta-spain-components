@@ -145,4 +145,17 @@ const checkConstraintsFactory = json => ({for: fieldID, all}) => {
   return fieldsWithErrors
 }
 
-export {FIELDS, DISPLAYS, CONSTRAINTS, checkConstraintsFactory}
+const checkConstrainstsFactory = json => {
+  window.console.warn(
+    '[form/builder]: checkConstrainstsFactory should not be used and should be DEPRECATED in the next major release'
+  )
+  return checkConstraintsFactory(json)
+}
+
+export {
+  FIELDS,
+  DISPLAYS,
+  CONSTRAINTS,
+  checkConstraintsFactory,
+  checkConstrainstsFactory
+}

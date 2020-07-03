@@ -165,6 +165,6 @@ export {fieldsNamesInOrderOfDefinition as formBuilderFieldsNamesInOrderOfDefinit
 export {
   checkConstraintsFactory,
   // WARNING do not use the following export, it is kept for backwards compatibility
-  checkConstraintsFactory as checkConstrainstsFactory
+  checkConstrainstsFactory
 } from './Standard'
 export default FormBuilder
