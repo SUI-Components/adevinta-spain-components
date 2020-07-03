@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 3.8.0 (2020-07-03)
+
+
+### Bug Fixes
+
+* fix typo on function and export ([86e151b](https://github.com/SUI-Components/schibsted-spain-components/commit/86e151b3595e38a8ff7b3ce26f4d2a5b06fac950))
+
+
+
 # 3.7.0 (2020-06-09)
 
 
