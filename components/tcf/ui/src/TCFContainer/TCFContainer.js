@@ -20,6 +20,9 @@ export default function TCFContainer({
     async function checkConsentStatus() {
       const {valid} = await loadUserConsent()
       if (!valid) {
+        // When controling the option of a valid userConsent, but showing UI anyway,
+        // uiVisible should also be called
+        uiVisible({visible: true})
         setShowLayer(1)
       }
     }
