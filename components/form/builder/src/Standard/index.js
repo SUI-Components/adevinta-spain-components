@@ -117,11 +117,11 @@ const checkConstraintsFromField = field => {
   return errorMessages
 }
 
-const checkConstrainstsFactory = json => ({for: fieldID, all}) => {
+const checkConstraintsFactory = json => ({for: fieldID, all}) => {
   let fieldsToValidate = []
   if (all && fieldID) {
     window.console.warn(
-      '[form/builder]: checkConstrainstsFactory: both modes validate all fields and validate a concrete field are not compatible, please use one of them'
+      '[form/builder]: checkConstraintsFactory: both modes validate all fields and validate a concrete field are not compatible, please use one of them'
     )
   } else if (all) {
     fieldsToValidate = fieldsNamesInOrderOfDefinition(json?.form?.fields)
@@ -129,7 +129,7 @@ const checkConstrainstsFactory = json => ({for: fieldID, all}) => {
     fieldsToValidate = [fieldID]
   } else {
     window.console.warn(
-      '[form/builder]: checkConstrainstsFactory: Specify if you want to validate a specific field or all the fields'
+      '[form/builder]: checkConstraintsFactory: Specify if you want to validate a specific field or all the fields'
     )
   }
 
@@ -145,4 +145,17 @@ const checkConstrainstsFactory = json => ({for: fieldID, all}) => {
   return fieldsWithErrors
 }
 
-export {FIELDS, DISPLAYS, CONSTRAINTS, checkConstrainstsFactory}
+const checkConstrainstsFactory = json => {
+  window.console.warn(
+    '[form/builder]: checkConstrainstsFactory should not be used and should be DEPRECATED in the next major release'
+  )
+  return checkConstraintsFactory(json)
+}
+
+export {
+  FIELDS,
+  DISPLAYS,
+  CONSTRAINTS,
+  checkConstraintsFactory,
+  checkConstrainstsFactory
+}
