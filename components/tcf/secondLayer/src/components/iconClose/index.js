@@ -2,7 +2,7 @@ import React from 'react'
 
 const CLASS = 'sui-TcfSecondLayer-icon-close'
 
-export default function IconClose() {
+export default function TcfSecondLayerIconClose() {
   return (
     <svg className={CLASS} width="24" height="24" viewBox="0 0 24 24">
       <path

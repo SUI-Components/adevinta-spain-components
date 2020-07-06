@@ -3,14 +3,15 @@ import PropTypes from 'prop-types'
 
 import SuiButton from '@s-ui/react-atom-button'
 
-import GroupItem from './GroupItem'
-export default function PurposeGroup({
+import TcfSecondLayerUserDecision from '../tcf-secondLayer-user-decision'
+export default function TcfSecondLayerDecisionGroup({
   name,
   i18n,
   baseClass,
   descriptions,
   state,
-  onConsentsChange,
+  onConsentChange,
+  onLegitimateInterestChange,
   onAcceptAll,
   onRejectAll,
   vendorList
@@ -32,14 +33,18 @@ export default function PurposeGroup({
         descriptions &&
         Object.keys(descriptions).map((key, index) => {
           return (
-            <GroupItem
+            <TcfSecondLayerUserDecision
               key={`${key}-${index}`}
               baseClass={`${baseClass}-item`}
-              itemInfo={descriptions[key]}
-              itemValue={state.consents[key]}
+              info={descriptions[key]}
+              consentValue={state.consents[key]}
+              legitimateInterestValue={state.legitimateInterests[key]}
               i18n={i18n}
               vendorList={vendorList}
-              onItemChange={value => onConsentsChange({index: key, value})}
+              onConsentChange={value => onConsentChange({index: key, value})}
+              onLegitimateInterestChange={value =>
+                onLegitimateInterestChange({index: key, value})
+              }
             />
           )
         })}
@@ -47,13 +52,14 @@ export default function PurposeGroup({
   )
 }
 
-PurposeGroup.propTypes = {
+TcfSecondLayerDecisionGroup.propTypes = {
   name: PropTypes.string,
   i18n: PropTypes.object,
   baseClass: PropTypes.string,
   descriptions: PropTypes.object,
   state: PropTypes.object,
-  onConsentsChange: PropTypes.func,
+  onConsentChange: PropTypes.func,
+  onLegitimateInterestChange: PropTypes.func,
   onAcceptAll: PropTypes.func,
   onRejectAll: PropTypes.func,
   vendorList: PropTypes.object

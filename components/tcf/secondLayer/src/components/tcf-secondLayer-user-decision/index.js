@@ -3,13 +3,17 @@ import PropTypes from 'prop-types'
 
 import SuiSwitch from '@s-ui/react-atom-switch'
 
-import IconAccordion from './iconAccordion'
+import TcfSecondLayerIconAccordion from '../iconAccordion'
 
-export default function GroupItem({
-  onItemChange,
+export default function TcfSecondLayerUserDecision({
+  onConsentChange,
+  onLegitimateInterestChange,
   baseClass,
-  itemInfo,
-  itemValue,
+  info,
+  consentValue,
+  legitimateInterestValue,
+  hasConsent = true,
+  hasLegitimateInterest = true,
   vendorList,
   i18n
 }) {
@@ -24,11 +28,11 @@ export default function GroupItem({
       <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.POLICY_URL}</h3>
       <a
         className={`${baseClass}-text ${baseClass}-text--expanded`}
-        href={itemInfo.policyUrl}
+        href={info.policyUrl}
         target="_blank"
         rel="noopener noreferrer"
       >
-        {itemInfo.policyUrl}
+        {info.policyUrl}
       </a>
     </>
   )
@@ -46,53 +50,76 @@ export default function GroupItem({
 
   const ExpandedContent = () => (
     <>
-      {itemInfo.policyUrl && <PolicyUrl />}
-      {!!itemInfo.purposes?.length && vendorList.purposes && (
+      {info.policyUrl && <PolicyUrl />}
+      {!!info.purposes?.length && vendorList.purposes && (
         <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.PURPOSES}</h3>
       )}
-      {!!itemInfo.purposes?.length && vendorList.purposes && (
+      {!!info.purposes?.length && vendorList.purposes && (
         <Information
-          purposeIds={itemInfo.purposes}
+          purposeIds={info.purposes}
           vendorList={vendorList.purposes}
         />
       )}
-      {!!itemInfo.legIntPurposes.length && vendorList.purposes && (
+      {!!info.legIntPurposes.length && vendorList.purposes && (
         <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.LEGITIMATE_INTEREST_PURPOSES}</h3>
       )}
-      {!!itemInfo.legIntPurposes?.length && vendorList.purposes && (
+      {!!info.legIntPurposes?.length && vendorList.purposes && (
         <Information
-          purposeIds={itemInfo.legIntPurposes}
+          purposeIds={info.legIntPurposes}
           vendorList={vendorList.purposes}
         />
       )}
-      {!!itemInfo.specialPurposes?.length && vendorList.specialPurposes && (
+      {!!info.specialPurposes?.length && vendorList.specialPurposes && (
         <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.SPECIAL_PURPOSES}</h3>
       )}
-      {!!itemInfo.specialPurposes?.length && vendorList.specialPurposes && (
+      {!!info.specialPurposes?.length && vendorList.specialPurposes && (
         <Information
-          purposeIds={itemInfo.specialPurposes}
+          purposeIds={info.specialPurposes}
           vendorList={vendorList.specialPurposes}
         />
       )}
-      {!!itemInfo.features?.length && vendorList.features && (
+      {!!info.features?.length && vendorList.features && (
         <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.FEATURES}</h3>
       )}
-      {!!itemInfo.features?.length && vendorList.features && (
+      {!!info.features?.length && vendorList.features && (
         <Information
-          featureIds={itemInfo.features}
+          purposeIds={info.features}
           vendorList={vendorList.features}
         />
       )}
-      {!!itemInfo.specialFeatures?.length && vendorList.specialFeatures && (
+      {!!info.specialFeatures?.length && vendorList.specialFeatures && (
         <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.SPECIAL_FEATURES}</h3>
       )}
-      {!!itemInfo.specialFeatures?.length && vendorList.specialFeatures && (
+      {!!info.specialFeatures?.length && vendorList.specialFeatures && (
         <Information
-          featureIds={itemInfo.specialFeatures}
+          purposeIds={info.specialFeatures}
           vendorList={vendorList.specialFeatures}
         />
       )}
     </>
+  )
+
+  const Switchs = () => (
+    <div className={`${baseClass}-switchs`}>
+      {hasConsent && (
+        <SuiSwitch
+          type="single"
+          name="groupItem"
+          value={consentValue}
+          label="Consentimiento"
+          onToggle={() => onConsentChange(consentValue)}
+        />
+      )}
+      {hasLegitimateInterest && (
+        <SuiSwitch
+          type="single"
+          name="groupItem"
+          value={legitimateInterestValue}
+          label="Interés legítimo"
+          onToggle={() => onLegitimateInterestChange(legitimateInterestValue)}
+        />
+      )}
+    </div>
   )
 
   return (
@@ -102,21 +129,16 @@ export default function GroupItem({
           className={`${baseClass}-container-clicklable`}
           onClick={handleItemClick}
         >
-          <IconAccordion
+          <TcfSecondLayerIconAccordion
             baseClass={
               expanded
                 ? `${baseClass}-icon-accordion ${baseClass}-icon-accordion--expanded`
                 : `${baseClass}-icon-accordion`
             }
           />
-          <p className={`${baseClass}-text`}>{itemInfo.name}</p>
+          <p className={`${baseClass}-text`}>{info.name}</p>
         </div>
-        <SuiSwitch
-          type="single"
-          name="groupItem"
-          value={itemValue}
-          onToggle={() => onItemChange(itemValue)}
-        />
+        {hasConsent || hasLegitimateInterest ? <Switchs /> : null}
       </div>
       {expanded && (
         <div className={`${baseClass}-container--expanded`}>
@@ -127,12 +149,20 @@ export default function GroupItem({
   )
 }
 
-GroupItem.propTypes = {
+TcfSecondLayerUserDecision.propTypes = {
   baseClass: PropTypes.string,
-  itemInfo: PropTypes.object,
-  itemValue: PropTypes.object,
-  name: PropTypes.string,
-  onItemChange: PropTypes.func,
+  hasConsent: PropTypes.bool,
+  hasLegitimateInterest: PropTypes.bool,
+  info: PropTypes.object,
+  consentValue: PropTypes.bool,
+  legitimateInterestValue: PropTypes.bool,
+  onConsentChange: PropTypes.func,
+  onLegitimateInterestChange: PropTypes.func,
   vendorList: PropTypes.object,
   i18n: PropTypes.object
+}
+
+TcfSecondLayerUserDecision.defaultProps = {
+  hasConsent: true,
+  hasLegitimateInterest: true
 }

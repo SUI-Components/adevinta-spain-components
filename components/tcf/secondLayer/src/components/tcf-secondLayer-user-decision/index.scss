@@ -35,6 +35,12 @@ $base-class: '.sui-TcfSecondLayer-group-item';
       }
     }
   }
+  &-switchs {
+    text-align: end;
+    & label {
+      font-size: small;
+    }
+  }
   &-text {
     font-size: 12px;
     margin-left: 10px;
