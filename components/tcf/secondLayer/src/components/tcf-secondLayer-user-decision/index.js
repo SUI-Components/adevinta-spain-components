@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import SuiSwitch from '@s-ui/react-atom-switch'
 
-import TcfSecondLayerIconAccordion from '../iconAccordion'
+import IconAccordion from '../iconAccordion'
 
 export default function TcfSecondLayerUserDecision({
   onConsentChange,
@@ -123,7 +123,7 @@ export default function TcfSecondLayerUserDecision({
           className={`${baseClass}-container-clicklable`}
           onClick={handleItemClick}
         >
-          <TcfSecondLayerIconAccordion
+          <IconAccordion
             baseClass={
               expanded
                 ? `${baseClass}-icon-accordion ${baseClass}-icon-accordion--expanded`

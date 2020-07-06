@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import SuiModal from '@s-ui/react-molecule-modal'
 import SuiButton from '@s-ui/react-atom-button'
 
-import TcfSecondLayerIconClose from './components/iconClose'
+import IconClose from './components/iconClose'
 import TcfSecondLayerDecisionGroup from './components/tcf-secondLayer-decision-group'
 import {I18N} from './settings'
 
@@ -138,7 +138,7 @@ export default function TcfSecondLayer({
         closeOnOutsideClick
         closeOnEscKeyDown
         header={isMobile ? <Logo /> : false}
-        iconClose={isMobile ? <TcfSecondLayerIconClose /> : false}
+        iconClose={isMobile ? <IconClose /> : false}
         onClose={handleCloseModal}
         fitContent
       >
