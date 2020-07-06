@@ -2,26 +2,43 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import LinkBasic from '@schibstedspain/sui-link-basic'
+import LinkBasic from '@s-ui/react-link-basic'
+
+function ListLinkItem({displayInline, item, useReactRouterLinks}) {
+  const className = cx('sui-ListLink-item', {
+    'sui-ListLink-item--inline': displayInline
+  })
+
+  return (
+    <li className={className}>
+      <LinkBasic {...item} useReactRouterLinks={useReactRouterLinks} />
+    </li>
+  )
+}
+
+ListLinkItem.propTypes = {
+  displayInline: PropTypes.bool,
+  item: PropTypes.object,
+  useReactRouterLinks: PropTypes.bool
+}
 
 export default function ListLink({
   displayInline,
   list = [],
   useReactRouterLinks
 }) {
-  const renderLink = (item, index) => {
-    const classListItem = cx('sui-ListLink-item', {
-      'sui-ListLink-item--inline': displayInline
-    })
-
-    return (
-      <li className={classListItem} key={index}>
-        <LinkBasic {...item} useReactRouterLinks={useReactRouterLinks} />
-      </li>
-    )
-  }
-
-  return <ul className="sui-ListLink">{list.map(renderLink)}</ul>
+  return (
+    <ul className="sui-ListLink">
+      {list.map((item, index) => (
+        <ListLinkItem
+          key={index}
+          item={item}
+          displayInline={displayInline}
+          useReactRouterLinks={useReactRouterLinks}
+        />
+      ))}
+    </ul>
+  )
 }
 
 ListLink.displayName = 'ListLink'
