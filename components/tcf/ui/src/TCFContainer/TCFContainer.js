@@ -12,16 +12,22 @@ export default function TCFContainer({
   isMobile,
   isTablet,
   lang,
-  logo
+  logo,
+  showVendors
 }) {
   const [showLayer, setShowLayer] = useState(false)
+
+  useEffect(() => {
+    if (showVendors) {
+      uiVisible({visible: true})
+      setShowLayer(3)
+    }
+  }, [showVendors, uiVisible])
 
   useEffect(() => {
     async function checkConsentStatus() {
       const {valid} = await loadUserConsent()
       if (!valid) {
-        // When controling the option of a valid userConsent, but showing UI anyway,
-        // uiVisible should also be called
         uiVisible({visible: true})
         setShowLayer(1)
       }
@@ -38,6 +44,10 @@ export default function TCFContainer({
   const handleOpenCookiepolicyLayer = () => {
     setShowLayer(3)
   }
+  const handleSaveUserConsent = ({purpose, vendor, specialFeatures}) => {
+    uiVisible({visible: false})
+    saveUserConsent({purpose, vendor, specialFeatures})
+  }
 
   return (
     <>
@@ -50,7 +60,7 @@ export default function TCFContainer({
             logo={logo}
             getVendorList={getVendorList}
             loadUserConsent={loadUserConsent}
-            saveUserConsent={saveUserConsent}
+            saveUserConsent={handleSaveUserConsent}
             openSecondLayer={handleOpenSecondLayer}
             openCookiepolicyLayer={handleOpenCookiepolicyLayer}
           />
@@ -62,9 +72,8 @@ export default function TCFContainer({
             isMobile={isMobile}
             lang={lang}
             logo={logo}
-            uiVisible={uiVisible}
             loadUserConsent={loadUserConsent}
-            saveUserConsent={saveUserConsent}
+            saveUserConsent={handleSaveUserConsent}
             getVendorList={getVendorList}
             onGoBack={handleSecondLayerGoBack}
           />
@@ -77,9 +86,8 @@ export default function TCFContainer({
             isMobile={isMobile}
             lang={lang}
             logo={logo}
-            uiVisible={uiVisible}
             loadUserConsent={loadUserConsent}
-            saveUserConsent={saveUserConsent}
+            saveUserConsent={handleSaveUserConsent}
             getVendorList={getVendorList}
             onGoBack={handleSecondLayerGoBack}
           />
@@ -98,6 +106,7 @@ TCFContainer.propTypes = {
   saveUserConsent: PropTypes.func,
   isMobile: PropTypes.bool,
   isTablet: PropTypes.bool,
+  showVendors: PropTypes.bool,
   lang: PropTypes.string,
   logo: PropTypes.string
 }
