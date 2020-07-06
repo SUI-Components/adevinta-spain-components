@@ -3,8 +3,8 @@ class TcfRepository {
     this._tcfApi = tcfApi
   }
 
-  getVendorList() {
-    return this._tcfApi.getVendorList()
+  getVendorList({language}) {
+    return this._tcfApi.getVendorList({language})
   }
 
   loadUserConsent() {

@@ -3,8 +3,8 @@ class GetVendorListUseCase {
     this._repository = repository
   }
 
-  execute() {
-    return this._repository.getVendorList()
+  execute({language} = {}) {
+    return this._repository.getVendorList({language})
   }
 }
 

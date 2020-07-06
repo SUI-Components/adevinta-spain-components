@@ -11,8 +11,8 @@ class Service {
     this._uiVisibleUseCase = uiVisibleUseCase
   }
 
-  getVendorList() {
-    return this._getVendorListUseCase.execute()
+  getVendorList({language}) {
+    return this._getVendorListUseCase.execute({language})
   }
 
   loadUserConsent() {
