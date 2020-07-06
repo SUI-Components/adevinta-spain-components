@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.4.0 (2020-07-06)
+
+
+### Features
+
+* add language as a param in getVendorList use case ([66644d6](https://github.com/SUI-Components/schibsted-spain-components/commit/66644d665144a0dcc5f5cc054c06c1a9c1cd9c96))
+
+
+
 # 1.3.0 (2020-07-02)
 
 
