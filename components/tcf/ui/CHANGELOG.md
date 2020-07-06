@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.4.0 (2020-07-06)
+
+
+### Features
+
+* add uiVisible call ([d713ddc](https://github.com/SUI-Components/schibsted-spain-components/commit/d713ddc4122638820db526d8496d4d16ad1389a3))
+* add VL language & second entrance option ([ba8eb2b](https://github.com/SUI-Components/schibsted-spain-components/commit/ba8eb2bf97885b95f9c2a02dc3703802f521c6a1))
+* improve ui component with necessary entrance  props and correct layers interation ([77587d4](https://github.com/SUI-Components/schibsted-spain-components/commit/77587d4cce0371d6b74055e2be1406e7ec100aca))
+
+
+
 # 1.3.0 (2020-06-19)
 
 
