@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.8.0 (2020-07-06)
+
+
+### Features
+
+* use new @s-ui/react-link-basic ([d7b016c](https://github.com/SUI-Components/schibsted-spain-components/commit/d7b016c61589153fda01a3172af4675652bdfa4a))
+
+
+
 # 1.7.0 (2020-03-23)
 
 
