@@ -1,17 +1,25 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import TCFServices from '@s-ui/react-tcf-services'
 
 import TCFContainer from './TCFContainer/TCFContainer'
-export default function TcfUi() {
+export default function TcfUi({lang, logo, isMobile, isTablet, showVendors}) {
   return (
     <TCFServices>
       {service => (
         <TCFContainer
-          getVendorList={() => service.getVendorList()}
+          lang={lang}
+          logo={logo}
+          isMobile={isMobile}
+          isTablet={isTablet}
+          getVendorList={({language}) => service.getVendorList({language})}
           loadUserConsent={() => service.loadUserConsent()}
           saveUserConsent={({purpose, vendor, specialFeatures}) =>
             service.saveUserConsent({purpose, vendor, specialFeatures})
           }
+          uiVisible={({visible}) => service.uiVisible({visible})}
+          showVendors={showVendors}
         />
       )}
     </TCFServices>
@@ -19,3 +27,10 @@ export default function TcfUi() {
 }
 
 TcfUi.displayName = 'TcfUi'
+TcfUi.propTypes = {
+  isMobile: PropTypes.bool,
+  showVendors: PropTypes.bool,
+  isTablet: PropTypes.bool,
+  lang: PropTypes.string,
+  logo: PropTypes.string
+}
