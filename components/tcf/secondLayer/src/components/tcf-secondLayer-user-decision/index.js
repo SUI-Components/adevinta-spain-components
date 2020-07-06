@@ -36,8 +36,8 @@ export default function TcfSecondLayerUserDecision({
       </a>
     </>
   )
-  const Information = ({purposeIds, vendorList}) =>
-    purposeIds.map(id => (
+  const Information = ({ids, vendorList}) =>
+    ids.map(id => (
       <div key={`${id}-purposes`} className={`${baseClass}-paragraph`}>
         <p className={`${baseClass}-text ${baseClass}-text--expanded`}>
           <strong>{vendorList && `${vendorList[id]?.name}: `}</strong>
@@ -55,17 +55,14 @@ export default function TcfSecondLayerUserDecision({
         <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.PURPOSES}</h3>
       )}
       {!!info.purposes?.length && vendorList.purposes && (
-        <Information
-          purposeIds={info.purposes}
-          vendorList={vendorList.purposes}
-        />
+        <Information ids={info.purposes} vendorList={vendorList.purposes} />
       )}
       {!!info.legIntPurposes.length && vendorList.purposes && (
         <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.LEGITIMATE_INTEREST_PURPOSES}</h3>
       )}
       {!!info.legIntPurposes?.length && vendorList.purposes && (
         <Information
-          purposeIds={info.legIntPurposes}
+          ids={info.legIntPurposes}
           vendorList={vendorList.purposes}
         />
       )}
@@ -74,7 +71,7 @@ export default function TcfSecondLayerUserDecision({
       )}
       {!!info.specialPurposes?.length && vendorList.specialPurposes && (
         <Information
-          purposeIds={info.specialPurposes}
+          ids={info.specialPurposes}
           vendorList={vendorList.specialPurposes}
         />
       )}
@@ -82,17 +79,14 @@ export default function TcfSecondLayerUserDecision({
         <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.FEATURES}</h3>
       )}
       {!!info.features?.length && vendorList.features && (
-        <Information
-          purposeIds={info.features}
-          vendorList={vendorList.features}
-        />
+        <Information ids={info.features} vendorList={vendorList.features} />
       )}
       {!!info.specialFeatures?.length && vendorList.specialFeatures && (
         <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.SPECIAL_FEATURES}</h3>
       )}
       {!!info.specialFeatures?.length && vendorList.specialFeatures && (
         <Information
-          purposeIds={info.specialFeatures}
+          ids={info.specialFeatures}
           vendorList={vendorList.specialFeatures}
         />
       )}
@@ -106,7 +100,7 @@ export default function TcfSecondLayerUserDecision({
           type="single"
           name="groupItem"
           value={consentValue}
-          label="Consentimiento"
+          label={i18n.CONSENT_COPY}
           onToggle={() => onConsentChange(consentValue)}
         />
       )}
@@ -115,7 +109,7 @@ export default function TcfSecondLayerUserDecision({
           type="single"
           name="groupItem"
           value={legitimateInterestValue}
-          label="Interés legítimo"
+          label={i18n.LEGITIMATE_INTEREST_COPY}
           onToggle={() => onLegitimateInterestChange(legitimateInterestValue)}
         />
       )}

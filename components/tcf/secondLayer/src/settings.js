@@ -1,4 +1,6 @@
 const DEFAULT_I18N = {
+  LEGITIMATE_INTEREST_COPY: 'Interés legítimo',
+  CONSENT_COPY: 'Consentimiento',
   GO_BACK_BUTTON: 'Volver atrás',
   ACCEPT_BUTTON: 'Aceptar',
   DISABLE_BUTTON: 'Deshabilitar todo',
