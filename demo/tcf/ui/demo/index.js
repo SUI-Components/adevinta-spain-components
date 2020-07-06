@@ -6,7 +6,7 @@ import React, {useState} from 'react'
 const TcfUiDemo = () => {
   const [isMobile, setIsMobile] = useState(false)
   const [isTablet, setIsTablet] = useState(false)
-
+  const [show, setShow] = useState(false)
   return (
     <div style={{height: '3500px'}}>
       <button
@@ -33,11 +33,19 @@ const TcfUiDemo = () => {
       >
         Tablet
       </button>
+      <button
+        onClick={() => {
+          setShow(true)
+        }}
+      >
+        Show vendors layer
+      </button>
       <TcfUi
         lang="es"
         logo="https://frtassets.fotocasa.es/img/fotocasa_logo.svg"
         isMobile={isMobile}
         isTablet={isTablet}
+        showVendors={show}
       />
     </div>
   )
