@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.4.0 (2020-07-07)
+
+
+### Features
+
+* add legitimate interest to ui and refactor names ([b312b74](https://github.com/SUI-Components/schibsted-spain-components/commit/b312b741020f5c89a03ba3f13da7ccfcac1f0ea2))
+
+
+
 # 1.3.0 (2020-07-02)
 
 
