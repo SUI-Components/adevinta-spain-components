@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 import SuiModal from '@s-ui/react-molecule-modal'
 import SuiButton from '@s-ui/react-atom-button'
 
-import IconClose from './components/IconClose'
-import PurposeGroup from './components/PurposeGroup'
+import IconClose from './components/iconClose'
+import TcfSecondLayerDecisionGroup from './components/tcf-secondLayer-decision-group'
 import {I18N} from './settings'
 
 const CLASS = 'sui-TcfSecondLayer'
@@ -16,7 +16,6 @@ export default function TcfSecondLayer({
   loadUserConsent,
   saveUserConsent,
   getVendorList,
-  uiVisible,
   onGoBack
 }) {
   const [state, setState] = useState(null)
@@ -58,7 +57,6 @@ export default function TcfSecondLayer({
   }, [getVendorList, loadUserConsent, lang])
 
   const handleCloseModal = () => {
-    uiVisible({visible: false})
     setModalOpen(false)
   }
   const format = ({reference, object, value = false}) => {
@@ -83,7 +81,6 @@ export default function TcfSecondLayer({
         vendor: state.vendors
       })
     )
-    uiVisible({visible: false})
     setModalOpen(false)
   }
 
@@ -91,6 +88,7 @@ export default function TcfSecondLayer({
     setState(prevState => {
       for (const key in vendorListState[group]) {
         prevState[group].consents[key] = value
+        prevState[group].legitimateInterests[key] = value
       }
       return {...prevState, [group]: prevState[group]}
     })
@@ -110,6 +108,19 @@ export default function TcfSecondLayer({
       return {...prevState, vendors: {...prevState.vendors, consents}}
     })
   }
+
+  const handleVendorsLegitimateInterestChange = ({index, value}) => {
+    setState(prevState => {
+      const {vendors} = prevState
+      const {legitimateInterests} = vendors
+      legitimateInterests[index] = !value
+      return {
+        ...prevState,
+        vendors: {...prevState.vendors, legitimateInterests}
+      }
+    })
+  }
+
   const Logo = () => (
     <img
       className={
@@ -119,6 +130,7 @@ export default function TcfSecondLayer({
       alt="logo"
     />
   )
+
   return (
     <div className={CLASS}>
       <SuiModal
@@ -157,12 +169,13 @@ export default function TcfSecondLayer({
             {i18n.VENDOR_PAGE.TEXT}
           </p>
           {state?.vendors && vendorListState?.vendors && (
-            <PurposeGroup
+            <TcfSecondLayerDecisionGroup
               name={i18n.VENDOR_PAGE.GROUPS.TITLE}
               baseClass={`${CLASS}-group`}
               descriptions={vendorListState.vendors}
               state={state.vendors}
-              onConsentsChange={handleVendorsConsentsChange}
+              onConsentChange={handleVendorsConsentsChange}
+              onLegitimateInterestChange={handleVendorsLegitimateInterestChange}
               i18n={i18n}
               onAcceptAll={() => handleAcceptAll({group: 'vendors'})}
               onRejectAll={() => handleRejectAll({group: 'vendors'})}
@@ -189,7 +202,6 @@ TcfSecondLayer.propTypes = {
   loadUserConsent: PropTypes.func,
   saveUserConsent: PropTypes.func,
   getVendorList: PropTypes.func,
-  uiVisible: PropTypes.func,
   logo: PropTypes.string,
   lang: PropTypes.string,
   onGoBack: PropTypes.func

@@ -2,10 +2,10 @@
 @import '~@s-ui/react-atom-button/lib/index';
 @import '~@s-ui/react-molecule-modal/lib/index';
 @import '~@s-ui/react-atom-switch/lib/index';
-@import './components//iconClose';
-@import './components//iconAccordion';
-@import './components/purposeGroup';
-@import './components/groupItem';
+@import './components/iconClose';
+@import './components/iconAccordion';
+@import './components/tcf-secondLayer-decision-group';
+@import './components/tcf-secondLayer-user-decision';
 
 $base-class: '.sui-TcfSecondLayer';
 

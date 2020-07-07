@@ -15,7 +15,7 @@ export default function TCFContainer({
   logo,
   showVendors
 }) {
-  const [showLayer, setShowLayer] = useState(false)
+  const [showLayer, setShowLayer] = useState(0)
 
   useEffect(() => {
     if (showVendors) {
