@@ -49,6 +49,7 @@ export default function TCFContainer({
     uiVisible({visible: false})
     saveUserConsent({purpose, vendor, specialFeatures})
     onCloseModal()
+    setShowLayer(0)
   }
 
   return (
