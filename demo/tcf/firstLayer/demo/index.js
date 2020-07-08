@@ -1,10 +1,10 @@
 import '../../../../components/tcf/secondLayer/src/index.scss'
 import TcfFirstLayer from '../../../../components/tcf/firstLayer/src'
-import {mockedVendorList} from '../../utils/borosMock'
+import {mockedVendorList, mockedUserConsent} from '../../utils/borosMock'
 import React, {useState} from 'react'
 
 const TcfFirstLayerDemo = () => {
-  const loadUserConsent = () => Promise.resolve()
+  const loadUserConsent = () => Promise.resolve(mockedUserConsent)
   const getVendorList = () => Promise.resolve(mockedVendorList)
   const saveUserConsent = ({purpose, vendor, specialFeatures}) => {
     console.log('saveUserConsent called with')
