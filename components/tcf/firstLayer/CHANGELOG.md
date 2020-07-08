@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.4.0 (2020-07-08)
+
+
+### Bug Fixes
+
+* do action before to parent unmount child ([8ef70bc](https://github.com/SUI-Components/schibsted-spain-components/commit/8ef70bc44ba02f3c584db4eb7af0bd480ce6bcce))
+
+
+
 # 1.3.0 (2020-06-29)
 
 
