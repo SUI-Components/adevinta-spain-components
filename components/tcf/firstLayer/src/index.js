@@ -7,7 +7,7 @@ import IconClose from './iconClose'
 import {I18N} from './settings'
 
 const CLASS = 'sui-TcfFirstLayer'
-// Adevinta rule of 250px of scroll to directly accept consent
+
 const SCROLL_TO_ACCEPT = 250
 
 export default function TcfFirstLayer({
@@ -104,9 +104,8 @@ export default function TcfFirstLayer({
     for (const key in VLSpecialFeatures) {
       specialFeatures[key] = true
     }
-
-    saveUserConsent(userConsent)
     handleCloseModal()
+    saveUserConsent(userConsent)
   }
 
   const handleCloseModal = () => {
