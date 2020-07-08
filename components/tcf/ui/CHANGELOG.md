@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.5.0 (2020-07-08)
+
+
+### Features
+
+* add prop to allow integration in sites ([fa1ecc6](https://github.com/SUI-Components/schibsted-spain-components/commit/fa1ecc63fcb6b35d9aef5af1cb723e31f57a0c56))
+* unmount the component when closed ([8970c34](https://github.com/SUI-Components/schibsted-spain-components/commit/8970c3490940af46257a751f0dbdc525b652d01b))
+
+
+
 # 1.4.0 (2020-07-06)
 
 
