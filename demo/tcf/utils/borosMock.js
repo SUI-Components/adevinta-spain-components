@@ -141,6 +141,70 @@ const mockedVendorList = {
         'To develop new products and improve products vendors can:\n* Use information to improve their existing products with new features and to develop new products\n* Create new models and algorithms through machine learning\nVendors cannot:\n* Conduct any other data processing operation allowed under a different purpose under this purpose'
     }
   },
+  features: {
+    '1': {
+      id: 1,
+      name: 'Cotejar y combinar fuentes de datos off line',
+      description:
+        'Los datos obtenidos de fuentes de datos off line pueden combinarse con su actividad on line para respaldar una o más finalidades.',
+      descriptionLegal:
+        'Los proveedores pueden: \n* Combinar los datos obtenidos off line con los datos recogidos on line en apoyo de una o más Finalidades o Finalidades especiales.'
+    },
+    '2': {
+      id: 2,
+      name: 'Vincular diferentes dispositivos',
+      description:
+        'Se puede determinar que diferentes dispositivos pertenecen a usted o a su hogar para una o más finalidades.',
+      descriptionLegal:
+        'Los proveedores pueden:\n* Determinar de forma determinista que dos o más dispositivos pertenecen al mismo usuario u hogar\n* Determinar de forma probabilística que dos o más dispositivos pertenecen al mismo usuario u hogar\n* Analizar activamente las características del dispositivo para encontrar su identificación probabilística si los usuarios han permitido a los proveedores analizar activamente las características del dispositivo para su identificación (Funcionalidad especial 2)\n'
+    },
+    '3': {
+      id: 3,
+      name:
+        'Recibir y utilizar para su identificación las características del dispositivo que    se envían automáticamente',
+      description:
+        'Su dispositivo puede distinguirse de otros dispositivos a partir de la información que envía automáticamente, como la dirección IP o el tipo de navegador.',
+      descriptionLegal:
+        'Los proveedores pueden:\n* Crear un identificador utilizando los datos recopilados automáticamente en un dispositivo para características específicas, por ejemplo, dirección IP o la cadena de agente de usuario.\n* Utilizar este identificador para intentar volver a identificar un dispositivo.\nLos proveedores no pueden:\n* Crear un identificador utilizando datos recogidos mediante el análisis activo de un dispositivo para hallar funcionalidads específicas, por ejemplo, fuentes instaladas o resolución de pantalla sin aceptación independiente del usuario para analizar de forma activa las características del dispositivo para su identificación.\n* Utilizar este identificador para volver a identificar un dispositivo.\n'
+    }
+  },
+  specialFeatures: {
+    1: {
+      id: 1,
+      name: 'Utilizar datos de localización geográfica precisa',
+      description:
+        'Sus datos de localización geográfica precisa se pu…ación puede tener una precisión de varios metros.',
+      descriptionLegal:
+        'Los proveedores pueden:↵* Recoger y tratar datos d…esto puede tener una precisión de varios metros.↵'
+    },
+    2: {
+      id: 2,
+      name:
+        'Analizar activamente las características del dispositivo para su identificación',
+      description:
+        'Su dispositivo puede identificarse basándose en un…n única de las características de su dispositivo.',
+      descriptionLegal:
+        'Los proveedores pueden:↵* Crear un identificador u…icador para volver a identificar un dispositivo.↵'
+    }
+  },
+  specialPurposes: {
+    '1': {
+      id: 1,
+      name: 'Garantizar la seguridad, evitar fraudes y depurar errores',
+      description:
+        'Sus datos pueden utilizarse para supervisar y evitar actividades fraudulentas, y para asegurar que los sistemas y procesos funcionen de forma correcta y segura.',
+      descriptionLegal:
+        'Para garantizar la seguridad, evitar fraudes y depurar errores, los proveedores pueden:\n* Asegurarse de que los datos se transmitan de forma segura \n* Detectar y evitar actividades maliciosas, fraudulentas, inaceptables o ilegales.\n* Asegurar el funcionamiento correcto y eficaz de los sistemas y procesos, lo que incluye supervisar y mejorar el rendimiento de los sistemas y procesos empleados en las finalidades permitidas\nLos proveedores no pueden:\n* Llevar a cabo ninguna otra operación de tratamiento de datos permitida en virtud de una finalidad distinta.\nNota: Los datos recopilados y utilizados para garantizar la seguridad, evitar el fraude y depurar errores pueden incluir características del dispositivo enviadas automáticamente para su identificación, datos de geolocalización precisos y datos obtenidos analizando de forma activa las características del dispositivo para su identificación sin que sea necesario revelar más información y/o una aceptación independiente.  \n'
+    },
+    '2': {
+      id: 2,
+      name: 'Servir técnicamente anuncios o contenido',
+      description:
+        'Su dispositivo puede recibir y enviar información que le permita ver e interactuar con anuncios y contenido.',
+      descriptionLegal:
+        'Para servir información y responder a solicitudes técnicas, los proveedores pueden:\n* Utilizar la dirección IP de un usuario para entregar un anuncio a través de Internet\n* Responder a la interacción de un usuario con un anuncio enviando al usuario a una página de destino\n* Utilizar la dirección IP de un usuario para entregar contenido a través de Internet\n* Responder a la interacción de un usuario con el contenido enviando al usuario a una página de destino\n* Utilizar información sobre el tipo de dispositivo y sus capacidades para entregar anuncios o contenido, por ejemplo, para entregar el archivo publicitario o de vídeo de tamaño adecuado en un formato compatible con el dispositivo\nLos proveedores no pueden:\n* Llevar a cabo, según esta finalidad, ninguna otra operación de tratamiento de datos permitida en virtud de una finalidad distinta.\n'
+    }
+  },
   vendors: {
     '8': {
       id: 8,
@@ -221,24 +285,6 @@ const mockedVendorList = {
       features: [1, 2, 3],
       specialFeatures: [],
       policyUrl: 'https://www.conversantmedia.eu/legal/privacy-policy'
-    }
-  },
-  specialFeatures: {
-    '1': {
-      id: 1,
-      name: 'Use precise geolocation data',
-      description:
-        'Your precise geolocation data can be used in support of one or more purposes. This means your location can be accurate to within several meters.',
-      descriptionLegal:
-        'Vendors can:\n* Collect and process precise geolocation data in support of one or more purposes.\nN.B. Precise geolocation means that there are no restrictions on the precision of a user’s location; this can be accurate to within several meters.'
-    },
-    '2': {
-      id: 2,
-      name: 'Actively scan device characteristics for identification',
-      description:
-        "Your device can be identified based on a scan of your device's unique combination of characteristics.",
-      descriptionLegal:
-        'Vendors can:\n* Create an identifier using data collected via actively scanning a device for specific characteristics, e.g. installed fonts or screen resolution.\n* Use such an identifier to re-identify a device.'
     }
   }
 }

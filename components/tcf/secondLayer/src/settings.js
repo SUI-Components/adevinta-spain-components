@@ -1,3 +1,10 @@
+export const ADEVINTA_COLLECTED_CONSENTS = {
+  purposes: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  specialPurposes: [1, 2],
+  features: [3],
+  specialFeatures: [1]
+}
+
 const DEFAULT_I18N = {
   LEGITIMATE_INTEREST_COPY: 'Interés legítimo',
   CONSENT_COPY: '',
@@ -6,7 +13,10 @@ const DEFAULT_I18N = {
   DISABLE_BUTTON: 'Deshabilitar todo',
   ENABLE_BUTTON: 'Habilitar todo',
   SECOND_LAYER: {
-    PURPOSES_TITLE: 'Autorizo'
+    PURPOSES_TITLE: 'Autorizo',
+    SPECIAL_PURPOSES_TITLE: 'Propósitos especiales',
+    FEATURES_TITLE: 'Características',
+    SPECIAL_FEATURES_TITLE: 'Características especiales'
   },
   VENDOR_PAGE: {
     TITLE: 'Cookies propios o de terceros para publicidad segmentada',
