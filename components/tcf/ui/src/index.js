@@ -4,7 +4,14 @@ import PropTypes from 'prop-types'
 import TCFServices from '@s-ui/react-tcf-services'
 
 import TCFContainer from './TCFContainer/TCFContainer'
-export default function TcfUi({lang, logo, isMobile, isTablet, showVendors}) {
+export default function TcfUi({
+  lang,
+  logo,
+  isMobile,
+  isTablet,
+  showVendors,
+  onCloseModal
+}) {
   return (
     <TCFServices>
       {service => (
@@ -20,6 +27,7 @@ export default function TcfUi({lang, logo, isMobile, isTablet, showVendors}) {
           }
           uiVisible={({visible}) => service.uiVisible({visible})}
           showVendors={showVendors}
+          onCloseModal={onCloseModal}
         />
       )}
     </TCFServices>
@@ -32,5 +40,6 @@ TcfUi.propTypes = {
   showVendors: PropTypes.bool,
   isTablet: PropTypes.bool,
   lang: PropTypes.string,
-  logo: PropTypes.string
+  logo: PropTypes.string,
+  onCloseModal: PropTypes.func
 }
