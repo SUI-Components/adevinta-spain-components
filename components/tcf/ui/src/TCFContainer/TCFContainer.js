@@ -7,6 +7,7 @@ const SecondLayer = React.lazy(() => import('@s-ui/react-tcf-second-layer'))
 export default function TCFContainer({
   getVendorList,
   loadUserConsent,
+  onCloseModal,
   saveUserConsent,
   uiVisible,
   isMobile,
@@ -47,6 +48,8 @@ export default function TCFContainer({
   const handleSaveUserConsent = ({purpose, vendor, specialFeatures}) => {
     uiVisible({visible: false})
     saveUserConsent({purpose, vendor, specialFeatures})
+    onCloseModal()
+    setShowLayer(0)
   }
 
   return (
@@ -103,6 +106,7 @@ TCFContainer.propTypes = {
   getVendorList: PropTypes.func,
   loadUserConsent: PropTypes.func,
   uiVisible: PropTypes.func,
+  onCloseModal: PropTypes.func,
   saveUserConsent: PropTypes.func,
   isMobile: PropTypes.bool,
   isTablet: PropTypes.bool,

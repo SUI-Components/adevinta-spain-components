@@ -1,5 +1,3 @@
-import '../../../../components/tcf/firstLayer/src/index.scss'
-import '../../../../components/tcf/secondLayer/src/index.scss'
 import TcfUi from '../../../../components/tcf/ui/src'
 import React, {useState} from 'react'
 
