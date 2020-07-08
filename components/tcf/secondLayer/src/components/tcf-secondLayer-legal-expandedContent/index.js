@@ -1,10 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export default function TcfSecondLayerPurposeExpandedContent({
-  baseClass,
-  info
-}) {
+export default function TcfSecondLayerLegalExpandedContent({baseClass, info}) {
   return (
     <>
       <h4>{info.description}</h4>
@@ -13,7 +10,7 @@ export default function TcfSecondLayerPurposeExpandedContent({
   )
 }
 
-TcfSecondLayerPurposeExpandedContent.propTypes = {
+TcfSecondLayerLegalExpandedContent.propTypes = {
   baseClass: PropTypes.string.isRequired,
   info: PropTypes.object.isRequired
 }

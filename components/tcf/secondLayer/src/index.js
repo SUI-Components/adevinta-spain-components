@@ -9,7 +9,7 @@ import TcfSecondLayerDecisionGroup from './components/tcf-secondLayer-decision-g
 import TcfSecondLayerVendorExpandedContent from './components/tcf-secondLayer-vendor-expandedContent'
 
 import {I18N, ADEVINTA_COLLECTED_CONSENTS} from './settings'
-import TcfSecondLayerPurposeExpandedContent from './components/tcf-secondLayer-purpose-expandedContent'
+import TcfSecondLayerLegalExpandedContent from './components/tcf-secondLayer-legal-expandedContent'
 
 const CLASS = 'sui-TcfSecondLayer'
 const groupBaseClass = `${CLASS}-group`
@@ -162,11 +162,8 @@ export default function TcfSecondLayer({
     />
   )
 
-  const purposeExpandedContent = props => (
-    <TcfSecondLayerPurposeExpandedContent
-      {...props}
-      baseClass={groupBaseClass}
-    />
+  const legalExpandedContent = props => (
+    <TcfSecondLayerLegalExpandedContent {...props} baseClass={groupBaseClass} />
   )
   return (
     <div className={CLASS}>
@@ -221,7 +218,7 @@ export default function TcfSecondLayer({
               onAcceptAll={() => handleAcceptAll({group: 'purposes'})}
               onRejectAll={() => handleRejectAll({group: 'purposes'})}
               vendorList={vendorListState}
-              expandedContent={purposeExpandedContent}
+              expandedContent={legalExpandedContent}
             />
           )}
           {!!vendorListState?.specialFeatures && !!state?.specialFeatures && (
@@ -240,7 +237,7 @@ export default function TcfSecondLayer({
               onAcceptAll={handleAcceptAllSpecialFeatures}
               onRejectAll={handleRejectAllSpecialFeatures}
               vendorList={vendorListState}
-              expandedContent={purposeExpandedContent}
+              expandedContent={legalExpandedContent}
             />
           )}
           {!!vendorListState?.specialPurposes && (
@@ -252,7 +249,7 @@ export default function TcfSecondLayer({
               hasLegitimateInterest={false}
               i18n={i18n}
               vendorList={vendorListState}
-              expandedContent={purposeExpandedContent}
+              expandedContent={legalExpandedContent}
             />
           )}
           {!!vendorListState?.features && (
@@ -264,7 +261,7 @@ export default function TcfSecondLayer({
               hasLegitimateInterest={false}
               i18n={i18n}
               vendorList={vendorListState}
-              expandedContent={purposeExpandedContent}
+              expandedContent={legalExpandedContent}
             />
           )}
           {!!state?.vendors && !!vendorListState?.vendors && (
