@@ -58,7 +58,7 @@ export default function TcfSecondLayer({
       setState({
         vendors: userConsent.vendor,
         purposes: userConsent.purpose,
-        specialFeatures: userConsent.specialFeatures
+        specialFeatures: userConsent.specialFeatureOptins
       })
     }
     getVendorListAndConsent()
@@ -108,6 +108,19 @@ export default function TcfSecondLayer({
     changeAllGroup({group, value: true})
   }
 
+  const handleAcceptAllSpecialFeatures = () => {
+    setState({
+      ...state,
+      specialFeatures: ADEVINTA_COLLECTED_CONSENTS.specialFeatures
+    })
+  }
+  const handleRejectAllSpecialFeatures = () => {
+    setState({
+      ...state,
+      specialFeatures: []
+    })
+  }
+
   const handleConsentsChange = ({group, index, value}) => {
     setState(prevState => {
       const {consents} = prevState[group]
@@ -119,15 +132,20 @@ export default function TcfSecondLayer({
     })
   }
 
-  // const handleFeaturesChange = ({group, index, value}) => {
-  //   setState(prevState => {
-  //     prevState[group][index] = !value
-  //     return {
-  //       ...prevState,
-  //       [group]: {...prevState[group]}
-  //     }
-  //   })
-  // }
+  const handleSpecialFeaturesChange = ({index}) => {
+    setState(prevState => {
+      let {specialFeatures} = prevState
+      if (specialFeatures.includes(index)) {
+        specialFeatures = specialFeatures.filter(value => index !== value)
+      } else {
+        specialFeatures.push(index)
+      }
+      return {
+        ...prevState,
+        specialFeatures
+      }
+    })
+  }
 
   const Logo = () => (
     <img
@@ -154,6 +172,7 @@ export default function TcfSecondLayer({
       baseClass={groupBaseClass}
     />
   )
+
   return (
     <div className={CLASS}>
       <SuiModal
@@ -206,6 +225,23 @@ export default function TcfSecondLayer({
               i18n={i18n}
               onAcceptAll={() => handleAcceptAll({group: 'purposes'})}
               onRejectAll={() => handleRejectAll({group: 'purposes'})}
+              vendorList={vendorListState}
+              expandedContent={purposeExpandedContent}
+            />
+          )}
+          {!!vendorListState?.specialFeatures && !!state?.specialFeatures && (
+            <TcfSecondLayerDecisionGroup
+              name={i18n.SECOND_LAYER.SPECIAL_FEATURES_TITLE}
+              baseClass={groupBaseClass}
+              descriptions={vendorListState.specialFeatures}
+              state={state.specialFeatures}
+              filteredIds={ADEVINTA_COLLECTED_CONSENTS.specialFeatures}
+              onConsentChange={handleSpecialFeaturesChange}
+              hasConsent
+              hasLegitimateInterest={false}
+              i18n={i18n}
+              onAcceptAll={handleAcceptAllSpecialFeatures}
+              onRejectAll={handleRejectAllSpecialFeatures}
               vendorList={vendorListState}
               expandedContent={purposeExpandedContent}
             />
