@@ -45,9 +45,9 @@ export default function TcfSecondLayerDecisionGroup({
         ) : null}
       </div>
       {descriptionKeys.map((key, index) => {
-        const consentValue = !Array.isArray(state)
-          ? state?.consents?.[key]
-          : state?.includes(key)
+        const consentValue = state?.consents
+          ? state.consents[key]
+          : state?.[key]
         return (
           <TcfSecondLayerUserDecision
             key={`${key}-${index}`}

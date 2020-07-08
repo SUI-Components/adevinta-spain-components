@@ -58,7 +58,7 @@ export default function TcfSecondLayer({
       setState({
         vendors: userConsent.vendor,
         purposes: userConsent.purpose,
-        specialFeatures: userConsent.specialFeatureOptins
+        specialFeatures: userConsent.specialFeatures
       })
     }
     getVendorListAndConsent()
@@ -109,40 +109,36 @@ export default function TcfSecondLayer({
   }
 
   const handleAcceptAllSpecialFeatures = () => {
+    const specialFeatures = {}
+    ADEVINTA_COLLECTED_CONSENTS.specialFeatures.forEach(
+      value => (specialFeatures[value] = true)
+    )
     setState({
       ...state,
-      specialFeatures: ADEVINTA_COLLECTED_CONSENTS.specialFeatures
+      specialFeatures
     })
   }
   const handleRejectAllSpecialFeatures = () => {
     setState({
       ...state,
-      specialFeatures: []
+      specialFeatures: {}
     })
   }
 
   const handleConsentsChange = ({group, index, value}) => {
     setState(prevState => {
       const {consents} = prevState[group]
-      consents[index] = !value
-      return {
-        ...prevState,
-        [group]: {...prevState[group], consents}
-      }
-    })
-  }
-
-  const handleSpecialFeaturesChange = ({index}) => {
-    setState(prevState => {
-      let {specialFeatures} = prevState
-      if (specialFeatures.includes(index)) {
-        specialFeatures = specialFeatures.filter(value => index !== value)
+      if (consents) {
+        consents[index] = !value
+        return {
+          ...prevState,
+          [group]: {...prevState[group], consents}
+        }
       } else {
-        specialFeatures.push(index)
-      }
-      return {
-        ...prevState,
-        specialFeatures
+        return {
+          ...prevState,
+          [group]: {...prevState[group], [index]: !value}
+        }
       }
     })
   }
@@ -172,7 +168,6 @@ export default function TcfSecondLayer({
       baseClass={groupBaseClass}
     />
   )
-
   return (
     <div className={CLASS}>
       <SuiModal
@@ -236,7 +231,9 @@ export default function TcfSecondLayer({
               descriptions={vendorListState.specialFeatures}
               state={state.specialFeatures}
               filteredIds={ADEVINTA_COLLECTED_CONSENTS.specialFeatures}
-              onConsentChange={handleSpecialFeaturesChange}
+              onConsentChange={props =>
+                handleConsentsChange({group: 'specialFeatures', ...props})
+              }
               hasConsent
               hasLegitimateInterest={false}
               i18n={i18n}
