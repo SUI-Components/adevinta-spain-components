@@ -6,9 +6,14 @@ import SuiButton from '@s-ui/react-atom-button'
 
 import IconClose from './components/iconClose'
 import TcfSecondLayerDecisionGroup from './components/tcf-secondLayer-decision-group'
+import TcfSecondLayerVendorExpandedContent from './components/tcf-secondLayer-vendor-expandedContent'
+
 import {I18N} from './settings'
+import TcfSecondLayerPurposeExpandedContent from './components/tcf-secondLayer-purpose-expandedContent'
 
 const CLASS = 'sui-TcfSecondLayer'
+const groupBaseClass = `${CLASS}-group`
+
 export default function TcfSecondLayer({
   isMobile,
   lang = 'es',
@@ -42,16 +47,15 @@ export default function TcfSecondLayer({
         specialFeatures,
         vendors
       })
-      const {vendor, isNew} = await loadUserConsent()
-      const vendorsConsent = vendor
-      if (isNew) {
-        vendorsConsent.consents = format({
+      const userConsent = await loadUserConsent()
+      if (userConsent.isNew) {
+        userConsent.vendor.consents = format({
           reference: vendors,
           object: {},
           value: true
         })
       }
-      setState({vendors: vendorsConsent})
+      setState({vendors: userConsent.vendor, purposes: userConsent.purpose})
     }
     getVendorListAndConsent()
   }, [getVendorList, loadUserConsent, lang])
@@ -108,16 +112,12 @@ export default function TcfSecondLayer({
       return {...prevState, vendors: {...prevState.vendors, consents}}
     })
   }
-
-  const handleVendorsLegitimateInterestChange = ({index, value}) => {
+  const handlePurposesConsentsChange = ({index, value}) => {
     setState(prevState => {
-      const {vendors} = prevState
-      const {legitimateInterests} = vendors
-      legitimateInterests[index] = !value
-      return {
-        ...prevState,
-        vendors: {...prevState.vendors, legitimateInterests}
-      }
+      const {purposes} = prevState
+      const {consents} = purposes
+      consents[index] = !value
+      return {...prevState, purposes: {...prevState.purposes, consents}}
     })
   }
 
@@ -131,6 +131,21 @@ export default function TcfSecondLayer({
     />
   )
 
+  const vendorExpandedContent = props => (
+    <TcfSecondLayerVendorExpandedContent
+      {...props}
+      i18n={i18n}
+      baseClass={groupBaseClass}
+      vendorList={vendorListState}
+    />
+  )
+
+  const purposeExpandedContent = props => (
+    <TcfSecondLayerPurposeExpandedContent
+      {...props}
+      baseClass={groupBaseClass}
+    />
+  )
   return (
     <div className={CLASS}>
       <SuiModal
@@ -168,18 +183,32 @@ export default function TcfSecondLayer({
           >
             {i18n.VENDOR_PAGE.TEXT}
           </p>
-          {state?.vendors && vendorListState?.vendors && (
+          {!!vendorListState?.purposes && !!state?.purposes && (
+            <TcfSecondLayerDecisionGroup
+              name={i18n.SECOND_LAYER.PURPOSES_TITLE}
+              baseClass={groupBaseClass}
+              descriptions={vendorListState.purposes}
+              state={state.purposes}
+              onConsentChange={handlePurposesConsentsChange}
+              i18n={i18n}
+              onAcceptAll={() => handleAcceptAll({group: 'purposes'})}
+              onRejectAll={() => handleRejectAll({group: 'purposes'})}
+              vendorList={vendorListState}
+              expandedContent={purposeExpandedContent}
+            />
+          )}
+          {!!state?.vendors && !!vendorListState?.vendors && (
             <TcfSecondLayerDecisionGroup
               name={i18n.VENDOR_PAGE.GROUPS.TITLE}
-              baseClass={`${CLASS}-group`}
+              baseClass={groupBaseClass}
               descriptions={vendorListState.vendors}
               state={state.vendors}
               onConsentChange={handleVendorsConsentsChange}
-              onLegitimateInterestChange={handleVendorsLegitimateInterestChange}
               i18n={i18n}
               onAcceptAll={() => handleAcceptAll({group: 'vendors'})}
               onRejectAll={() => handleRejectAll({group: 'vendors'})}
               vendorList={vendorListState}
+              expandedContent={vendorExpandedContent}
             />
           )}
         </div>

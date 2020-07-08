@@ -14,7 +14,8 @@ export default function TcfSecondLayerDecisionGroup({
   onLegitimateInterestChange,
   onAcceptAll,
   onRejectAll,
-  vendorList
+  vendorList,
+  expandedContent
 }) {
   return (
     <>
@@ -38,13 +39,11 @@ export default function TcfSecondLayerDecisionGroup({
               baseClass={`${baseClass}-item`}
               info={descriptions[key]}
               consentValue={state.consents[key]}
-              legitimateInterestValue={state.legitimateInterests[key]}
+              hasLegitimateInterest={false}
               i18n={i18n}
               vendorList={vendorList}
               onConsentChange={value => onConsentChange({index: key, value})}
-              onLegitimateInterestChange={value =>
-                onLegitimateInterestChange({index: key, value})
-              }
+              expandedContent={expandedContent}
             />
           )
         })}
@@ -62,5 +61,6 @@ TcfSecondLayerDecisionGroup.propTypes = {
   onLegitimateInterestChange: PropTypes.func,
   onAcceptAll: PropTypes.func,
   onRejectAll: PropTypes.func,
-  vendorList: PropTypes.object
+  vendorList: PropTypes.object,
+  expandedContent: PropTypes.func
 }

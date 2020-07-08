@@ -1,10 +1,13 @@
 const DEFAULT_I18N = {
   LEGITIMATE_INTEREST_COPY: 'Interés legítimo',
-  CONSENT_COPY: 'Consentimiento',
+  CONSENT_COPY: '',
   GO_BACK_BUTTON: 'Volver atrás',
   ACCEPT_BUTTON: 'Aceptar',
   DISABLE_BUTTON: 'Deshabilitar todo',
   ENABLE_BUTTON: 'Habilitar todo',
+  SECOND_LAYER: {
+    PURPOSES_TITLE: 'Autorizo'
+  },
   VENDOR_PAGE: {
     TITLE: 'Cookies propios o de terceros para publicidad segmentada',
     TEXT:
