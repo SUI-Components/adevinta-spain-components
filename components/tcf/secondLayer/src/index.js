@@ -210,6 +210,18 @@ export default function TcfSecondLayer({
               expandedContent={purposeExpandedContent}
             />
           )}
+          {!!vendorListState?.specialPurposes && (
+            <TcfSecondLayerDecisionGroup
+              name={i18n.SECOND_LAYER.SPECIAL_PURPOSES_TITLE}
+              baseClass={groupBaseClass}
+              descriptions={vendorListState.specialPurposes}
+              hasConsent={false}
+              hasLegitimateInterest={false}
+              i18n={i18n}
+              vendorList={vendorListState}
+              expandedContent={purposeExpandedContent}
+            />
+          )}
           {!!vendorListState?.features && (
             <TcfSecondLayerDecisionGroup
               name={i18n.SECOND_LAYER.FEATURES_TITLE}
