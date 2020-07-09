@@ -13,9 +13,6 @@ const TcfSecondLayerDemo = () => {
     console.log('purposes', purpose)
     console.log('vendors', vendor)
   }
-  const uiVisible = ({visible}) => {
-    console.log('uiVisible called with visible to', visible)
-  }
   const handleGoBack = () => {
     console.log('go back button pressed')
   }
@@ -31,24 +28,20 @@ const TcfSecondLayerDemo = () => {
       </button>
       {isMobile && (
         <TcfSecondLayer
-          isOpen
           logo="https://frtassets.fotocasa.es/img/fotocasa_logo.svg"
           loadUserConsent={loadUserConsent}
           saveUserConsent={saveUserConsent}
           getVendorList={getVendorList}
-          uiVisible={uiVisible}
           onGoBack={handleGoBack}
           isMobile
         />
       )}
       {!isMobile && (
         <TcfSecondLayer
-          isOpen
           logo="https://frtassets.fotocasa.es/img/fotocasa_logo.svg"
           loadUserConsent={loadUserConsent}
           saveUserConsent={saveUserConsent}
           getVendorList={getVendorList}
-          uiVisible={uiVisible}
           onGoBack={handleGoBack}
         />
       )}

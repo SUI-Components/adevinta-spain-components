@@ -6,9 +6,14 @@ import SuiButton from '@s-ui/react-atom-button'
 
 import IconClose from './components/iconClose'
 import TcfSecondLayerDecisionGroup from './components/tcf-secondLayer-decision-group'
-import {I18N} from './settings'
+import TcfSecondLayerVendorExpandedContent from './components/tcf-secondLayer-vendor-expandedContent'
+
+import {I18N, ADEVINTA_COLLECTED_CONSENTS} from './settings'
+import TcfSecondLayerLegalExpandedContent from './components/tcf-secondLayer-legal-expandedContent'
 
 const CLASS = 'sui-TcfSecondLayer'
+const groupBaseClass = `${CLASS}-group`
+
 export default function TcfSecondLayer({
   isMobile,
   lang = 'es',
@@ -42,16 +47,19 @@ export default function TcfSecondLayer({
         specialFeatures,
         vendors
       })
-      const {vendor, isNew} = await loadUserConsent()
-      const vendorsConsent = vendor
-      if (isNew) {
-        vendorsConsent.consents = format({
+      const userConsent = await loadUserConsent()
+      if (userConsent.isNew) {
+        userConsent.vendor.consents = format({
           reference: vendors,
           object: {},
           value: true
         })
       }
-      setState({vendors: vendorsConsent})
+      setState({
+        vendors: userConsent.vendor,
+        purposes: userConsent.purpose,
+        specialFeatures: userConsent.specialFeatures
+      })
     }
     getVendorListAndConsent()
   }, [getVendorList, loadUserConsent, lang])
@@ -88,7 +96,6 @@ export default function TcfSecondLayer({
     setState(prevState => {
       for (const key in vendorListState[group]) {
         prevState[group].consents[key] = value
-        prevState[group].legitimateInterests[key] = value
       }
       return {...prevState, [group]: prevState[group]}
     })
@@ -100,23 +107,37 @@ export default function TcfSecondLayer({
     changeAllGroup({group, value: true})
   }
 
-  const handleVendorsConsentsChange = ({index, value}) => {
-    setState(prevState => {
-      const {vendors} = prevState
-      const {consents} = vendors
-      consents[index] = !value
-      return {...prevState, vendors: {...prevState.vendors, consents}}
+  const handleAcceptAllSpecialFeatures = () => {
+    const specialFeatures = {}
+    ADEVINTA_COLLECTED_CONSENTS.specialFeatures.forEach(
+      value => (specialFeatures[value] = true)
+    )
+    setState({
+      ...state,
+      specialFeatures
+    })
+  }
+  const handleRejectAllSpecialFeatures = () => {
+    setState({
+      ...state,
+      specialFeatures: {}
     })
   }
 
-  const handleVendorsLegitimateInterestChange = ({index, value}) => {
+  const handleConsentsChange = ({group, index, value}) => {
     setState(prevState => {
-      const {vendors} = prevState
-      const {legitimateInterests} = vendors
-      legitimateInterests[index] = !value
-      return {
-        ...prevState,
-        vendors: {...prevState.vendors, legitimateInterests}
+      const {consents} = prevState[group]
+      if (consents) {
+        consents[index] = !value
+        return {
+          ...prevState,
+          [group]: {...prevState[group], consents}
+        }
+      } else {
+        return {
+          ...prevState,
+          [group]: {...prevState[group], [index]: !value}
+        }
       }
     })
   }
@@ -131,6 +152,18 @@ export default function TcfSecondLayer({
     />
   )
 
+  const vendorExpandedContent = props => (
+    <TcfSecondLayerVendorExpandedContent
+      {...props}
+      i18n={i18n}
+      baseClass={groupBaseClass}
+      vendorList={vendorListState}
+    />
+  )
+
+  const legalExpandedContent = props => (
+    <TcfSecondLayerLegalExpandedContent {...props} baseClass={groupBaseClass} />
+  )
   return (
     <div className={CLASS}>
       <SuiModal
@@ -168,18 +201,79 @@ export default function TcfSecondLayer({
           >
             {i18n.VENDOR_PAGE.TEXT}
           </p>
-          {state?.vendors && vendorListState?.vendors && (
+          {!!vendorListState?.purposes && !!state?.purposes && (
+            <TcfSecondLayerDecisionGroup
+              name={i18n.SECOND_LAYER.PURPOSES_TITLE}
+              baseClass={groupBaseClass}
+              descriptions={vendorListState.purposes}
+              state={state.purposes}
+              filteredIds={ADEVINTA_COLLECTED_CONSENTS.purposes}
+              onConsentChange={props =>
+                handleConsentsChange({group: 'purposes', ...props})
+              }
+              hasConsent
+              i18n={i18n}
+              onAcceptAll={() => handleAcceptAll({group: 'purposes'})}
+              onRejectAll={() => handleRejectAll({group: 'purposes'})}
+              vendorList={vendorListState}
+              expandedContent={legalExpandedContent}
+            />
+          )}
+          {!!vendorListState?.specialFeatures && !!state?.specialFeatures && (
+            <TcfSecondLayerDecisionGroup
+              name={i18n.SECOND_LAYER.SPECIAL_FEATURES_TITLE}
+              baseClass={groupBaseClass}
+              descriptions={vendorListState.specialFeatures}
+              state={state.specialFeatures}
+              filteredIds={ADEVINTA_COLLECTED_CONSENTS.specialFeatures}
+              onConsentChange={props =>
+                handleConsentsChange({group: 'specialFeatures', ...props})
+              }
+              hasConsent
+              i18n={i18n}
+              onAcceptAll={handleAcceptAllSpecialFeatures}
+              onRejectAll={handleRejectAllSpecialFeatures}
+              vendorList={vendorListState}
+              expandedContent={legalExpandedContent}
+            />
+          )}
+          {!!vendorListState?.specialPurposes && (
+            <TcfSecondLayerDecisionGroup
+              name={i18n.SECOND_LAYER.SPECIAL_PURPOSES_TITLE}
+              baseClass={groupBaseClass}
+              descriptions={vendorListState.specialPurposes}
+              hasConsent={false}
+              i18n={i18n}
+              vendorList={vendorListState}
+              expandedContent={legalExpandedContent}
+            />
+          )}
+          {!!vendorListState?.features && (
+            <TcfSecondLayerDecisionGroup
+              name={i18n.SECOND_LAYER.FEATURES_TITLE}
+              baseClass={groupBaseClass}
+              descriptions={vendorListState.features}
+              hasConsent={false}
+              i18n={i18n}
+              vendorList={vendorListState}
+              expandedContent={legalExpandedContent}
+            />
+          )}
+          {!!state?.vendors && !!vendorListState?.vendors && (
             <TcfSecondLayerDecisionGroup
               name={i18n.VENDOR_PAGE.GROUPS.TITLE}
-              baseClass={`${CLASS}-group`}
+              baseClass={groupBaseClass}
               descriptions={vendorListState.vendors}
               state={state.vendors}
-              onConsentChange={handleVendorsConsentsChange}
-              onLegitimateInterestChange={handleVendorsLegitimateInterestChange}
+              onConsentChange={props =>
+                handleConsentsChange({group: 'vendors', ...props})
+              }
+              hasConsent
               i18n={i18n}
               onAcceptAll={() => handleAcceptAll({group: 'vendors'})}
               onRejectAll={() => handleRejectAll({group: 'vendors'})}
               vendorList={vendorListState}
+              expandedContent={vendorExpandedContent}
             />
           )}
         </div>

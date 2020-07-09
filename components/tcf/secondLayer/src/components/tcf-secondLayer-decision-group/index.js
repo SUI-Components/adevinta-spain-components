@@ -10,44 +10,56 @@ export default function TcfSecondLayerDecisionGroup({
   baseClass,
   descriptions,
   state,
+  filteredIds,
+  hasConsent,
   onConsentChange,
-  onLegitimateInterestChange,
   onAcceptAll,
   onRejectAll,
-  vendorList
+  vendorList,
+  expandedContent
 }) {
+  let descriptionKeys =
+    descriptions && Object.keys(descriptions).map(key => parseInt(key))
+  if (filteredIds) {
+    descriptionKeys = descriptionKeys.filter(key => filteredIds.includes(key))
+  }
+  if (!descriptionKeys?.length) {
+    return null
+  }
+
   return (
     <>
       <div className={`${baseClass}-title-container`}>
         <h2 className={`${baseClass}-title`}>{name}</h2>
-        <div className={`${baseClass}-buttons`}>
-          <SuiButton size="small" design="outline" onClick={onRejectAll}>
-            {i18n.DISABLE_BUTTON}
-          </SuiButton>
-          <SuiButton size="small" onClick={onAcceptAll}>
-            {i18n.ENABLE_BUTTON}
-          </SuiButton>
-        </div>
+        {hasConsent ? (
+          <div className={`${baseClass}-buttons`}>
+            <SuiButton size="small" design="outline" onClick={onRejectAll}>
+              {i18n.DISABLE_BUTTON}
+            </SuiButton>
+            <SuiButton size="small" onClick={onAcceptAll}>
+              {i18n.ENABLE_BUTTON}
+            </SuiButton>
+          </div>
+        ) : null}
       </div>
-      {state &&
-        descriptions &&
-        Object.keys(descriptions).map((key, index) => {
-          return (
-            <TcfSecondLayerUserDecision
-              key={`${key}-${index}`}
-              baseClass={`${baseClass}-item`}
-              info={descriptions[key]}
-              consentValue={state.consents[key]}
-              legitimateInterestValue={state.legitimateInterests[key]}
-              i18n={i18n}
-              vendorList={vendorList}
-              onConsentChange={value => onConsentChange({index: key, value})}
-              onLegitimateInterestChange={value =>
-                onLegitimateInterestChange({index: key, value})
-              }
-            />
-          )
-        })}
+      {descriptionKeys.map((key, index) => {
+        const consentValue = state?.consents
+          ? state.consents[key]
+          : state?.[key]
+        return (
+          <TcfSecondLayerUserDecision
+            key={`${key}-${index}`}
+            baseClass={`${baseClass}-item`}
+            info={descriptions[key]}
+            consentValue={consentValue}
+            hasConsent={hasConsent}
+            i18n={i18n}
+            vendorList={vendorList}
+            onConsentChange={value => onConsentChange({index: key, value})}
+            expandedContent={expandedContent}
+          />
+        )
+      })}
     </>
   )
 }
@@ -58,9 +70,11 @@ TcfSecondLayerDecisionGroup.propTypes = {
   baseClass: PropTypes.string,
   descriptions: PropTypes.object,
   state: PropTypes.object,
+  filteredIds: PropTypes.arrayOf(PropTypes.number),
+  hasConsent: PropTypes.bool,
   onConsentChange: PropTypes.func,
-  onLegitimateInterestChange: PropTypes.func,
   onAcceptAll: PropTypes.func,
   onRejectAll: PropTypes.func,
-  vendorList: PropTypes.object
+  vendorList: PropTypes.object,
+  expandedContent: PropTypes.func
 }
