@@ -96,7 +96,6 @@ export default function TcfSecondLayer({
     setState(prevState => {
       for (const key in vendorListState[group]) {
         prevState[group].consents[key] = value
-        prevState[group].legitimateInterests[key] = value
       }
       return {...prevState, [group]: prevState[group]}
     })
@@ -213,7 +212,6 @@ export default function TcfSecondLayer({
                 handleConsentsChange({group: 'purposes', ...props})
               }
               hasConsent
-              hasLegitimateInterest={false}
               i18n={i18n}
               onAcceptAll={() => handleAcceptAll({group: 'purposes'})}
               onRejectAll={() => handleRejectAll({group: 'purposes'})}
@@ -232,7 +230,6 @@ export default function TcfSecondLayer({
                 handleConsentsChange({group: 'specialFeatures', ...props})
               }
               hasConsent
-              hasLegitimateInterest={false}
               i18n={i18n}
               onAcceptAll={handleAcceptAllSpecialFeatures}
               onRejectAll={handleRejectAllSpecialFeatures}
@@ -246,7 +243,6 @@ export default function TcfSecondLayer({
               baseClass={groupBaseClass}
               descriptions={vendorListState.specialPurposes}
               hasConsent={false}
-              hasLegitimateInterest={false}
               i18n={i18n}
               vendorList={vendorListState}
               expandedContent={legalExpandedContent}
@@ -258,7 +254,6 @@ export default function TcfSecondLayer({
               baseClass={groupBaseClass}
               descriptions={vendorListState.features}
               hasConsent={false}
-              hasLegitimateInterest={false}
               i18n={i18n}
               vendorList={vendorListState}
               expandedContent={legalExpandedContent}
@@ -274,7 +269,6 @@ export default function TcfSecondLayer({
                 handleConsentsChange({group: 'vendors', ...props})
               }
               hasConsent
-              hasLegitimateInterest={false}
               i18n={i18n}
               onAcceptAll={() => handleAcceptAll({group: 'vendors'})}
               onRejectAll={() => handleRejectAll({group: 'vendors'})}

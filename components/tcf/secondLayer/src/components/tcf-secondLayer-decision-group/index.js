@@ -12,9 +12,7 @@ export default function TcfSecondLayerDecisionGroup({
   state,
   filteredIds,
   hasConsent,
-  hasLegitimateInterest,
   onConsentChange,
-  onLegitimateInterestChange,
   onAcceptAll,
   onRejectAll,
   vendorList,
@@ -33,7 +31,7 @@ export default function TcfSecondLayerDecisionGroup({
     <>
       <div className={`${baseClass}-title-container`}>
         <h2 className={`${baseClass}-title`}>{name}</h2>
-        {hasConsent || hasLegitimateInterest ? (
+        {hasConsent ? (
           <div className={`${baseClass}-buttons`}>
             <SuiButton size="small" design="outline" onClick={onRejectAll}>
               {i18n.DISABLE_BUTTON}
@@ -54,15 +52,10 @@ export default function TcfSecondLayerDecisionGroup({
             baseClass={`${baseClass}-item`}
             info={descriptions[key]}
             consentValue={consentValue}
-            legitimateInterestValue={state?.legitimateInterestValue?.[key]}
             hasConsent={hasConsent}
-            hasLegitimateInterest={hasLegitimateInterest}
             i18n={i18n}
             vendorList={vendorList}
             onConsentChange={value => onConsentChange({index: key, value})}
-            onLegitimateInterestChange={value =>
-              onLegitimateInterestChange({index: key, value})
-            }
             expandedContent={expandedContent}
           />
         )
@@ -79,9 +72,7 @@ TcfSecondLayerDecisionGroup.propTypes = {
   state: PropTypes.object,
   filteredIds: PropTypes.arrayOf(PropTypes.number),
   hasConsent: PropTypes.bool,
-  hasLegitimateInterest: PropTypes.bool,
   onConsentChange: PropTypes.func,
-  onLegitimateInterestChange: PropTypes.func,
   onAcceptAll: PropTypes.func,
   onRejectAll: PropTypes.func,
   vendorList: PropTypes.object,
