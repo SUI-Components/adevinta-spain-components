@@ -15,6 +15,7 @@ export default function TcfSecondLayerUserDecision({
   hasConsent = true,
   hasLegitimateInterest = true,
   vendorList,
+  expandedContent,
   i18n
 }) {
   const [expanded, setExpanded] = useState(false)
@@ -22,76 +23,6 @@ export default function TcfSecondLayerUserDecision({
   const handleItemClick = () => {
     setExpanded(!expanded)
   }
-
-  const PolicyUrl = () => (
-    <>
-      <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.POLICY_URL}</h3>
-      <a
-        className={`${baseClass}-text ${baseClass}-text--expanded`}
-        href={info.policyUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {info.policyUrl}
-      </a>
-    </>
-  )
-  const Information = ({ids, vendorList}) =>
-    ids.map(id => (
-      <div key={`${id}-purposes`} className={`${baseClass}-paragraph`}>
-        <p className={`${baseClass}-text ${baseClass}-text--expanded`}>
-          <strong>{vendorList && `${vendorList[id]?.name}: `}</strong>
-        </p>
-        <p className={`${baseClass}-text ${baseClass}-text--expanded`}>
-          {vendorList && vendorList[id]?.description}
-        </p>
-      </div>
-    ))
-
-  const ExpandedContent = () => (
-    <>
-      {info.policyUrl && <PolicyUrl />}
-      {!!info.purposes?.length && vendorList.purposes && (
-        <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.PURPOSES}</h3>
-      )}
-      {!!info.purposes?.length && vendorList.purposes && (
-        <Information ids={info.purposes} vendorList={vendorList.purposes} />
-      )}
-      {!!info.legIntPurposes.length && vendorList.purposes && (
-        <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.LEGITIMATE_INTEREST_PURPOSES}</h3>
-      )}
-      {!!info.legIntPurposes?.length && vendorList.purposes && (
-        <Information
-          ids={info.legIntPurposes}
-          vendorList={vendorList.purposes}
-        />
-      )}
-      {!!info.specialPurposes?.length && vendorList.specialPurposes && (
-        <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.SPECIAL_PURPOSES}</h3>
-      )}
-      {!!info.specialPurposes?.length && vendorList.specialPurposes && (
-        <Information
-          ids={info.specialPurposes}
-          vendorList={vendorList.specialPurposes}
-        />
-      )}
-      {!!info.features?.length && vendorList.features && (
-        <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.FEATURES}</h3>
-      )}
-      {!!info.features?.length && vendorList.features && (
-        <Information ids={info.features} vendorList={vendorList.features} />
-      )}
-      {!!info.specialFeatures?.length && vendorList.specialFeatures && (
-        <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.SPECIAL_FEATURES}</h3>
-      )}
-      {!!info.specialFeatures?.length && vendorList.specialFeatures && (
-        <Information
-          ids={info.specialFeatures}
-          vendorList={vendorList.specialFeatures}
-        />
-      )}
-    </>
-  )
 
   const Switchs = () => (
     <div className={`${baseClass}-switchs`}>
@@ -136,7 +67,7 @@ export default function TcfSecondLayerUserDecision({
       </div>
       {expanded && (
         <div className={`${baseClass}-container--expanded`}>
-          <ExpandedContent />
+          {expandedContent({info, baseClass})}
         </div>
       )}
     </>
@@ -153,7 +84,8 @@ TcfSecondLayerUserDecision.propTypes = {
   onConsentChange: PropTypes.func,
   onLegitimateInterestChange: PropTypes.func,
   vendorList: PropTypes.object,
-  i18n: PropTypes.object
+  i18n: PropTypes.object,
+  expandedContent: PropTypes.func.isRequired
 }
 
 TcfSecondLayerUserDecision.defaultProps = {
