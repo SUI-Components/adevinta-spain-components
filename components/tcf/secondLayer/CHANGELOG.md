@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.5.0 (2020-07-09)
+
+
+### Bug Fixes
+
+* fix specialFeatures is not an array is an object ([5b0fa82](https://github.com/SUI-Components/schibsted-spain-components/commit/5b0fa82fc305a4ed0c341fbd85e7b311380495bf))
+
+
+### Features
+
+* add features ([20c6702](https://github.com/SUI-Components/schibsted-spain-components/commit/20c6702caba3e84c8aa9aea84d8e09d8ed13db88))
+* add purposes. first approach ([bda27ea](https://github.com/SUI-Components/schibsted-spain-components/commit/bda27ea1d98adbe284504d5246d5bc3284c198c9))
+* add specialFeatures ([f8ba5aa](https://github.com/SUI-Components/schibsted-spain-components/commit/f8ba5aa3ef5a6e14344443670fc16c215d68622b))
+* add specialPurposes ([04f7feb](https://github.com/SUI-Components/schibsted-spain-components/commit/04f7febc987eb9b57eaa4fc1586b232117109d42))
+
+
+
 # 1.4.0 (2020-07-07)
 
 
