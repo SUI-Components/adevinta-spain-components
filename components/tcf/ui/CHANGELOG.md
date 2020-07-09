@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.6.0 (2020-07-09)
+
+
+### Bug Fixes
+
+* check if onCloseModal is present ([42117e4](https://github.com/SUI-Components/schibsted-spain-components/commit/42117e4a3060aa96ea0c474349f509c7d6857b97))
+
+
+
 # 1.5.0 (2020-07-08)
 
 
