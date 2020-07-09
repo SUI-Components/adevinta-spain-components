@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 const mockedEmptyUserConsent = {
   isNew: true,
-  specialFeatures: [],
+  specialFeatures: {},
   purpose: {
     consents: {},
     legitimateInterests: {}
@@ -13,7 +13,7 @@ const mockedEmptyUserConsent = {
 }
 const mockedFullUserConsent = {
   isNew: false,
-  specialFeatures: [],
+  specialFeatures: {},
   purpose: {
     consents: {
       1: false,
