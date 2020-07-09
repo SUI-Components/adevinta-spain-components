@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.5.0 (2020-07-09)
+
+
+### Features
+
+* add adevinta rules for collected consent ([ec7af59](https://github.com/SUI-Components/schibsted-spain-components/commit/ec7af5962a297ce3d095452d6337bc183449f2d9))
+* add sui-theme variables ([d197832](https://github.com/SUI-Components/schibsted-spain-components/commit/d1978326bd315eb44ee04613f7b26e6565352ba9))
+* load consent, instead of hardcoded model ([d1b928b](https://github.com/SUI-Components/schibsted-spain-components/commit/d1b928b4d4ba54ba89e4191afb920d7e16b7311c))
+
+
+
 # 1.4.0 (2020-07-08)
 
 
