@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.6.0 (2020-07-09)
+
+
+### Features
+
+* remove legitimateInterest logic ([9d522b4](https://github.com/SUI-Components/schibsted-spain-components/commit/9d522b46e5e919d83a0f0b18d5760dd1faa4d04f))
+
+
+
 # 1.5.0 (2020-07-09)
 
 
