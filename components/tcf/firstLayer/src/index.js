@@ -4,7 +4,7 @@ import SuiButton from '@s-ui/react-atom-button'
 import SuiModal from '@s-ui/react-molecule-modal'
 import SuiNotification from '@s-ui/react-molecule-notification'
 import IconClose from './iconClose'
-import {I18N} from './settings'
+import {I18N, ADEVINTA_COLLECTED_CONSENTS} from './settings'
 
 const CLASS = 'sui-TcfFirstLayer'
 
@@ -16,6 +16,7 @@ export default function TcfFirstLayer({
   isMobile,
   isTablet,
   getVendorList,
+  loadUserConsent,
   saveUserConsent,
   openSecondLayer,
   openCookiepolicyLayer
@@ -79,33 +80,23 @@ export default function TcfFirstLayer({
       vendors: VLVendors,
       specialFeatures: VLSpecialFeatures
     } = await getVendorList({language: lang})
+    const {purpose, vendor, specialFeatures} = await loadUserConsent()
 
-    const userConsent = {
-      purpose: {
-        consents: {},
-        legitimateInterests: {}
-      },
-      vendor: {
-        consents: {},
-        legitimateInterests: {}
-      },
-      specialFeatures: {}
-    }
-
-    const {purpose, vendor, specialFeatures} = userConsent
-    for (const key in VLPurposes) {
-      purpose.consents[key] = true
-      purpose.legitimateInterests[key] = true
-    }
+    ADEVINTA_COLLECTED_CONSENTS.purposes.forEach(index => {
+      if (VLPurposes[index]) {
+        purpose.consents[index] = true
+      }
+    })
+    ADEVINTA_COLLECTED_CONSENTS.specialFeatures.forEach(index => {
+      if (VLSpecialFeatures[index]) {
+        specialFeatures[index] = true
+      }
+    })
     for (const key in VLVendors) {
       vendor.consents[key] = true
-      vendor.legitimateInterests[key] = true
-    }
-    for (const key in VLSpecialFeatures) {
-      specialFeatures[key] = true
     }
     handleCloseModal()
-    saveUserConsent(userConsent)
+    saveUserConsent({purpose, vendor, specialFeatures})
   }
 
   const handleCloseModal = () => {
@@ -183,6 +174,7 @@ TcfFirstLayer.propTypes = {
   openSecondLayer: PropTypes.func,
   openCookiepolicyLayer: PropTypes.func,
   getVendorList: PropTypes.func,
+  loadUserConsent: PropTypes.func,
   saveUserConsent: PropTypes.func,
   isMobile: PropTypes.bool,
   isTablet: PropTypes.bool,
