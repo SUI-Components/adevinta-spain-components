@@ -48,7 +48,7 @@ export default function TCFContainer({
   const handleSaveUserConsent = ({purpose, vendor, specialFeatures}) => {
     uiVisible({visible: false})
     saveUserConsent({purpose, vendor, specialFeatures})
-    onCloseModal()
+    onCloseModal && onCloseModal()
     setShowLayer(0)
   }
 
