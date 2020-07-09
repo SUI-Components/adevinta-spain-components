@@ -54,6 +54,21 @@ export default function TcfSecondLayer({
           object: {},
           value: true
         })
+        userConsent.vendor.legitimateInterests = {
+          ...userConsent.vendor.consents
+        }
+        userConsent.purpose.consents = format({
+          reference: purposes,
+          object: {},
+          value: true
+        })
+        userConsent.purpose.legitimateInterests = {
+          ...userConsent.purpose.consents
+        }
+        userConsent.specialFeatures = {}
+        ADEVINTA_COLLECTED_CONSENTS.specialFeatures.forEach(
+          key => (userConsent.specialFeatures[key] = true)
+        )
       }
       setState({
         vendors: userConsent.vendor,
@@ -75,18 +90,40 @@ export default function TcfSecondLayer({
     })
     return object
   }
-  const formatConsentObject = ({vendor = {}}) => {
+  const formatConsentObject = ({
+    vendor = {},
+    purpose = {},
+    specialFeatures = {}
+  }) => {
     vendor.consents = format({
       reference: vendorListState.vendors || {},
       object: vendor.consents || {}
     })
-    return {vendor}
+    vendor.legitimateInterests = format({
+      reference: vendorListState.vendors || {},
+      object: vendor.legitimateInterests || {}
+    })
+    purpose.consents = format({
+      reference: vendorListState.vendors || {},
+      object: vendor.consents || {}
+    })
+    purpose.legitimateInterests = format({
+      reference: vendorListState.purposes || {},
+      object: purpose.legitimateInterests || {}
+    })
+    const consentSpecialFeatures = format({
+      reference: vendorListState.specialFeatures || {},
+      object: specialFeatures
+    })
+    return {vendor, purpose, specialFeatures: consentSpecialFeatures}
   }
 
   const handleSaveExitClick = () => {
     saveUserConsent(
       formatConsentObject({
-        vendor: state.vendors
+        vendor: state.vendors,
+        purpose: state.purposes,
+        specialFeatures: state.specialFeatures
       })
     )
     setModalOpen(false)
@@ -96,6 +133,7 @@ export default function TcfSecondLayer({
     setState(prevState => {
       for (const key in vendorListState[group]) {
         prevState[group].consents[key] = value
+        prevState[group].legitimateInterests[key] = value
       }
       return {...prevState, [group]: prevState[group]}
     })
@@ -126,12 +164,13 @@ export default function TcfSecondLayer({
 
   const handleConsentsChange = ({group, index, value}) => {
     setState(prevState => {
-      const {consents} = prevState[group]
-      if (consents) {
+      const {consents, legitimateInterests} = prevState[group]
+      if (consents && legitimateInterests) {
         consents[index] = !value
+        legitimateInterests[index] = !value
         return {
           ...prevState,
-          [group]: {...prevState[group], consents}
+          [group]: {...prevState[group], consents, legitimateInterests}
         }
       } else {
         return {
