@@ -19,7 +19,8 @@ export default function TcfFirstLayer({
   loadUserConsent,
   saveUserConsent,
   openSecondLayer,
-  openCookiepolicyLayer
+  openCookiepolicyLayer,
+  isVariantB = false
 }) {
   const [show, setShow] = useState(true)
   const i18n = I18N[lang]
@@ -138,7 +139,7 @@ export default function TcfFirstLayer({
 
   return (
     <div className={CLASS}>
-      {isMobile && (
+      {isMobile && !isVariantB && (
         <SuiModal
           isOpen={show}
           closeOnOutsideClick
@@ -151,8 +152,12 @@ export default function TcfFirstLayer({
           <Content modalType />
         </SuiModal>
       )}
-      {!isMobile && (
-        <div className={`${CLASS}-notification`}>
+      {(!isMobile || isVariantB) && (
+        <div
+          className={`${CLASS}-notification ${
+            isVariantB && isMobile ? CLASS + '--variantB' : ''
+          }`}
+        >
           <SuiNotification
             position="bottom"
             autoClose="manual"
@@ -179,5 +184,6 @@ TcfFirstLayer.propTypes = {
   isMobile: PropTypes.bool,
   isTablet: PropTypes.bool,
   lang: PropTypes.string,
-  logo: PropTypes.string
+  logo: PropTypes.string,
+  isVariantB: PropTypes.bool
 }

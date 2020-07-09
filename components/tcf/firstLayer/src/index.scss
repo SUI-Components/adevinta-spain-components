@@ -95,4 +95,46 @@ $adv-c-tcf-first-layer-molecule-notification: rgba(0, 0, 0, 0.15);
       $adv-bxshspread-tcf-first-layer-molecule-notification
       $adv-c-tcf-first-layer-molecule-notification;
   }
+
+  &--variantB {
+    .sui-MoleculeNotification-content {
+      min-height: 30vh;
+      padding: 0px 24px;
+      display: block;
+    }
+    .sui-MoleculeNotification-children {
+      display: block;
+    }
+    .sui-TcfFirstLayer {
+      &-body {
+        flex-direction: column;
+        padding: 0px;
+
+        &-info {
+          width: 100%;
+
+          &-title {
+            font-size: 12px;
+          }
+
+          &-text {
+            font-size: 8px;
+          }
+        }
+      }
+
+      &-buttons {
+        flex-direction: row;
+        justify-content: center;
+        margin: 17px 0px 16px 0px;
+
+        button {
+          width: 140px;
+          height: 40px;
+          margin: 0px 8px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
 }
