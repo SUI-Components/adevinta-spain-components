@@ -82,6 +82,7 @@ export default function TcfFirstLayer({
     ADEVINTA_COLLECTED_CONSENTS.purposes.forEach(index => {
       if (VLPurposes[index]) {
         purpose.consents[index] = true
+        purpose.legitimateInterests[index] = true
       }
     })
     ADEVINTA_COLLECTED_CONSENTS.specialFeatures.forEach(index => {
@@ -91,6 +92,7 @@ export default function TcfFirstLayer({
     })
     for (const key in VLVendors) {
       vendor.consents[key] = true
+      vendor.legitimateInterests[key] = true
     }
     handleCloseModal()
     saveUserConsent({purpose, vendor, specialFeatures})
