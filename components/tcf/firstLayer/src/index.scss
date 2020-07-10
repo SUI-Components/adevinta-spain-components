@@ -5,94 +5,89 @@
 @import '~@s-ui/react-molecule-notification/lib/index';
 @import './iconClose//index';
 
-$adv-w-tcf-first-layer-buttons: 200px;
-$adv-p-tcf-first-layer-body: 104px;
-$adv-w-tcf-first-layer-body-info--footer: 75%;
-$adv-w-tcf-first-layer-body-info--tablet: 63%;
-$adv-pb-tcf-first-layer-body-info--tablet: 12px;
-$adv-w-tcf-first-layer-logo: 113px;
-$adv-h-tcf-first-layer-logo: 20px;
-$adv-bxshblur-tcf-first-layer-molecule-notification: 8px;
-$adv-bxshspread-tcf-first-layer-molecule-notification: 2px;
-$adv-c-tcf-first-layer-molecule-notification: rgba(0, 0, 0, 0.15);
+$fz-tcf-first-layer-base: $fz-s;
+$fz-tcf-first-layer-mobile: $fz-xxs;
+$maw-tcf-first-layer: 1200px;
+$maw-tcf-first-layer-buttons: 200px + $p-xxxl;
+$maw-tcf-first-layer-logo: 114px;
+$bxsh-tcf-first-layer: 0 0 8px 2px rgba(0, 0, 0, 0.15);
 
 .sui-TcfFirstLayer {
+  &-body {
+    font-size: $fz-tcf-first-layer-mobile;
+    padding: 0 0 $p-m 0;
+
+    .sui-MoleculeNotification & {
+      @include media-breakpoint-up(s) {
+        font-size: $fz-tcf-first-layer-base;
+        margin: 0 auto;
+        max-width: $maw-tcf-first-layer;
+        display: flex;
+        padding: $p-l 0 $p-xl;
+      }
+    }
+  }
+
+  &-title {
+    font-size: $fz-s;
+    margin-top: 0;
+    margin-bottom: $m-l;
+
+    .sui-MoleculeNotification & {
+      @include media-breakpoint-up(s) {
+        margin-bottom: $m-xl;
+        font-size: $fz-h5;
+      }
+    }
+  }
+
+  &-link {
+    text-decoration: none;
+    color: $c-primary;
+  }
+
   &-buttons {
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    margin-top: $m-xxl;
     border-top: $bdw-s solid $c-gray-light-2;
     padding-top: $p-l;
-    & button {
-      font-size: $fz-m;
+    margin-top: $m-xxl;
+
+    .sui-MoleculeNotification & {
+      @include media-breakpoint-up(s) {
+        flex-direction: column-reverse;
+        min-width: $maw-tcf-first-layer-buttons;
+        border-top: 0;
+        justify-content: flex-end;
+        padding-top: 0;
+        padding-left: $p-xxxl;
+        margin-top: 0;
+      }
+    }
+
+    & .sui-AtomButton {
       border-radius: $bdrs-xl;
-    }
-  }
-  &-buttons.sui-TcfFirstLayer-buttons--footer {
-    flex-direction: column-reverse;
-    justify-content: flex-end;
-    margin-top: 0;
-    border-top: 0;
-    padding-top: 0;
-    & button {
-      margin-left: 0;
-      margin-top: $m-l;
-      width: $adv-w-tcf-first-layer-buttons;
-    }
-  }
-  &-buttons--tablet {
-    padding-right: $p-m;
-  }
-  &-body {
-    &-info {
-      &-title {
-        font-size: $fz-m;
-        margin-top: $m-l;
-      }
-      &-text {
-        font-size: $fz-xs;
-      }
-      &-link {
-        text-decoration: none;
-        color: $c-primary;
+      font-size: $fz-tcf-first-layer-base;
+
+      .sui-MoleculeNotification & {
+        @include media-breakpoint-up(s) {
+          margin: 0 0 $m-l 0;
+          font-size: initial;
+        }
       }
     }
   }
-  &-body--footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 $adv-p-tcf-first-layer-body $p-xxxl $adv-p-tcf-first-layer-body;
-    & .sui-TcfFirstLayer-body-info {
-      width: $adv-w-tcf-first-layer-body-info--footer;
-      &-title {
-        font-size: $fz-h4;
-      }
-      &-text {
-        font-size: $fz-m;
-      }
-    }
-  }
-  &-body--tablet {
-    padding: 0 $p-l;
-    & .sui-TcfFirstLayer-body-info {
-      width: $adv-w-tcf-first-layer-body-info--tablet;
-      padding-bottom: $adv-pb-tcf-first-layer-body-info--tablet;
-    }
-  }
+
   &-logo {
-    width: $adv-w-tcf-first-layer-logo;
-    height: $adv-h-tcf-first-layer-logo;
+    width: $maw-tcf-first-layer-logo;
   }
-  // force as we want to change default MoleculeNotification
+
   .sui-MoleculeNotification-iconLeft {
     display: none;
   }
+
   .sui-MoleculeNotification {
     background-color: $c-white;
-    box-shadow: 0 0 $adv-bxshblur-tcf-first-layer-molecule-notification
-      $adv-bxshspread-tcf-first-layer-molecule-notification
-      $adv-c-tcf-first-layer-molecule-notification;
+    box-shadow: $bxsh-tcf-first-layer;
   }
 }

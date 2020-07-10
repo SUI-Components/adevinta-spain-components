@@ -14,7 +14,6 @@ export default function TcfFirstLayer({
   lang = 'es',
   logo,
   isMobile,
-  isTablet,
   getVendorList,
   loadUserConsent,
   saveUserConsent,
@@ -41,9 +40,7 @@ export default function TcfFirstLayer({
       }
 
       if (node) {
-        cookiesPolicyLink.current = node.querySelector(
-          `.${CLASS}-body-info-link`
-        )
+        cookiesPolicyLink.current = node.querySelector(`.${CLASS}-link`)
         if (cookiesPolicyLink) {
           cookiesPolicyLink.current.addEventListener(
             'click',
@@ -104,24 +101,15 @@ export default function TcfFirstLayer({
     setShow(false)
   }
 
-  const Content = ({modalType}) => {
-    const baseBodyClass = `${CLASS}-body`
-    const bodyClasses = isTablet
-      ? `${baseBodyClass} ${baseBodyClass}--footer ${baseBodyClass}--tablet`
-      : `${baseBodyClass} ${baseBodyClass}--footer`
-    const baseButtonsClass = `${CLASS}-buttons`
-    const buttonsClasses = isTablet
-      ? `${baseButtonsClass} ${baseButtonsClass}--footer ${baseButtonsClass}--tablet`
-      : `${baseButtonsClass} ${baseButtonsClass}--footer`
-
+  const Content = () => {
     return (
-      <div className={modalType ? `${baseBodyClass}` : bodyClasses}>
-        <span
-          className={`${baseBodyClass}-info`}
+      <div className={`${CLASS}-body`}>
+        <div
+          className={`${CLASS}-info`}
           ref={textRef}
           dangerouslySetInnerHTML={{__html: i18n.BODY}}
         />
-        <div className={modalType ? `${baseButtonsClass}` : buttonsClasses}>
+        <div className={`${CLASS}-buttons`}>
           <SuiButton onClick={handleSettingsClick} design="outline">
             {i18n.CONFIGURE_BUTTON}
           </SuiButton>
@@ -131,9 +119,6 @@ export default function TcfFirstLayer({
         </div>
       </div>
     )
-  }
-  Content.propTypes = {
-    modalType: PropTypes.bool
   }
 
   return (
@@ -148,22 +133,20 @@ export default function TcfFirstLayer({
           onClose={handleCloseModal}
           fitContent
         >
-          <Content modalType />
+          <Content />
         </SuiModal>
       )}
       {!isMobile && (
-        <div className={`${CLASS}-notification`}>
-          <SuiNotification
-            position="bottom"
-            autoClose="manual"
-            show={show}
-            showCloseButton={false}
-            variation="positive"
-            type="system"
-          >
-            <Content />
-          </SuiNotification>
-        </div>
+        <SuiNotification
+          position="bottom"
+          autoClose="manual"
+          show={show}
+          showCloseButton={false}
+          variation="positive"
+          type="system"
+        >
+          <Content />
+        </SuiNotification>
       )}
     </div>
   )
@@ -177,7 +160,6 @@ TcfFirstLayer.propTypes = {
   loadUserConsent: PropTypes.func,
   saveUserConsent: PropTypes.func,
   isMobile: PropTypes.bool,
-  isTablet: PropTypes.bool,
   lang: PropTypes.string,
   logo: PropTypes.string
 }
