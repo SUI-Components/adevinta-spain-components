@@ -57,14 +57,12 @@ export default function TcfSecondLayer({
         userConsent.vendor.legitimateInterests = {
           ...userConsent.vendor.consents
         }
-        userConsent.purpose.consents = format({
-          reference: purposes,
-          object: {},
-          value: true
+        userConsent.purpose.consents = {}
+        userConsent.purpose.legitimateInterests = {}
+        ADEVINTA_COLLECTED_CONSENTS.purposes.forEach(key => {
+          userConsent.purpose.consents[key] = true
+          userConsent.purpose.legitimateInterests[key] = true
         })
-        userConsent.purpose.legitimateInterests = {
-          ...userConsent.purpose.consents
-        }
         userConsent.specialFeatures = {}
         ADEVINTA_COLLECTED_CONSENTS.specialFeatures.forEach(
           key => (userConsent.specialFeatures[key] = true)
@@ -104,8 +102,8 @@ export default function TcfSecondLayer({
       object: vendor.legitimateInterests || {}
     })
     purpose.consents = format({
-      reference: vendorListState.vendors || {},
-      object: vendor.consents || {}
+      reference: vendorListState.purposes || {},
+      object: purpose.consents || {}
     })
     purpose.legitimateInterests = format({
       reference: vendorListState.purposes || {},
@@ -168,15 +166,17 @@ export default function TcfSecondLayer({
       if (consents && legitimateInterests) {
         consents[index] = !value
         legitimateInterests[index] = !value
-        return {
+        const nextState = {
           ...prevState,
           [group]: {...prevState[group], consents, legitimateInterests}
         }
+        return nextState
       } else {
-        return {
+        const nextState = {
           ...prevState,
           [group]: {...prevState[group], [index]: !value}
         }
+        return nextState
       }
     })
   }
