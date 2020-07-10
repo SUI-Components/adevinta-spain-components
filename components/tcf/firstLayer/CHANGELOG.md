@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.8.0 (2020-07-10)
+
+
+### Bug Fixes
+
+* add margin-top to title ([2ab950c](https://github.com/SUI-Components/schibsted-spain-components/commit/2ab950c7ef4fad006352598fc8b9beec09d80f0e))
+* fix conflicts because merge ([1520c77](https://github.com/SUI-Components/schibsted-spain-components/commit/1520c7784072f0dad694c0de56727f8e51e4193e))
+
+
+
 # 1.7.0 (2020-07-10)
 
 
@@ -16,6 +26,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+* add variantB for testAB ([e68b385](https://github.com/SUI-Components/schibsted-spain-components/commit/e68b3852c19b79811b0d2fe83ff52f782252f591))
 * remove variable ([dad98b3](https://github.com/SUI-Components/schibsted-spain-components/commit/dad98b3932e262f657fb7417f436ca2cbab31eab))
 * small changes in HTML and CSS ([c438d74](https://github.com/SUI-Components/schibsted-spain-components/commit/c438d74fa30423b89a34d8572a8297d37ba941fb))
 
