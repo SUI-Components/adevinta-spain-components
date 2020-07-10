@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.6.0 (2020-07-10)
+
+
+### Features
+
+* remove variable ([dad98b3](https://github.com/SUI-Components/schibsted-spain-components/commit/dad98b3932e262f657fb7417f436ca2cbab31eab))
+* small changes in HTML and CSS ([c438d74](https://github.com/SUI-Components/schibsted-spain-components/commit/c438d74fa30423b89a34d8572a8297d37ba941fb))
+
+
+
 # 1.5.0 (2020-07-09)
 
 
