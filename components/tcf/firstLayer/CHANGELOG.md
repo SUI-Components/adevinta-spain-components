@@ -2,7 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.7.0 (2020-07-10)
+
+
+
 # 1.6.0 (2020-07-10)
+
+
+### Bug Fixes
+
+* save consent and legitimateInterest data ([ab85894](https://github.com/SUI-Components/schibsted-spain-components/commit/ab8589461c3b31c169e7a42d7ff0e9154558d028))
 
 
 ### Features
