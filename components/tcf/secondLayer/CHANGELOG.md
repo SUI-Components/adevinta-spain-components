@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.7.0 (2020-07-10)
+
+
+### Bug Fixes
+
+* save purpose and specialFeatures data ([a665e29](https://github.com/SUI-Components/schibsted-spain-components/commit/a665e29d4488e41662790dcf8fd9257c815e2add))
+
+
+
 # 1.6.0 (2020-07-09)
 
 

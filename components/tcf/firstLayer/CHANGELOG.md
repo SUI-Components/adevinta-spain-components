@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.7.0 (2020-07-10)
+
+
+
+# 1.6.0 (2020-07-10)
+
+
+### Bug Fixes
+
+* save consent and legitimateInterest data ([ab85894](https://github.com/SUI-Components/schibsted-spain-components/commit/ab8589461c3b31c169e7a42d7ff0e9154558d028))
+
+
+### Features
+
+* remove variable ([dad98b3](https://github.com/SUI-Components/schibsted-spain-components/commit/dad98b3932e262f657fb7417f436ca2cbab31eab))
+* small changes in HTML and CSS ([c438d74](https://github.com/SUI-Components/schibsted-spain-components/commit/c438d74fa30423b89a34d8572a8297d37ba941fb))
+
+
+
+# 1.5.0 (2020-07-09)
+
+
+### Features
+
+* add adevinta rules for collected consent ([ec7af59](https://github.com/SUI-Components/schibsted-spain-components/commit/ec7af5962a297ce3d095452d6337bc183449f2d9))
+* add sui-theme variables ([d197832](https://github.com/SUI-Components/schibsted-spain-components/commit/d1978326bd315eb44ee04613f7b26e6565352ba9))
+* load consent, instead of hardcoded model ([d1b928b](https://github.com/SUI-Components/schibsted-spain-components/commit/d1b928b4d4ba54ba89e4191afb920d7e16b7311c))
+
+
+
 # 1.4.0 (2020-07-08)
 
 
