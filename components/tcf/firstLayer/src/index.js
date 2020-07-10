@@ -101,7 +101,7 @@ export default function TcfFirstLayer({
     setShow(false)
   }
 
-  const Content = ({modalType}) => {
+  const Content = () => {
     return (
       <div className={`${CLASS}-body`}>
         <div
@@ -120,9 +120,6 @@ export default function TcfFirstLayer({
       </div>
     )
   }
-  Content.propTypes = {
-    modalType: PropTypes.bool
-  }
 
   return (
     <div className={CLASS}>
@@ -136,7 +133,7 @@ export default function TcfFirstLayer({
           onClose={handleCloseModal}
           fitContent
         >
-          <Content modalType />
+          <Content />
         </SuiModal>
       )}
       {!isMobile && (
