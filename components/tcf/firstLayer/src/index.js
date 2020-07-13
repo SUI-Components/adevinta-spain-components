@@ -141,7 +141,7 @@ export default function TcfFirstLayer({
       ) : (
         <div
           className={`${CLASS}-notification ${
-            isMobile ? `${CLASS}--variantB` : ''
+            isMobile ? `${CLASS}--isMobile` : ''
           }`}
         >
           <SuiNotification
