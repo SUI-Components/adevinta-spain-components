@@ -133,7 +133,7 @@ export default function TcfFirstLayer({
           closeOnEscKeyDown
           header={<img className={`${CLASS}-logo`} src={logo} alt="logo" />}
           iconClose={<IconClose class={`${CLASS}-icon-close`} />}
-          onClose={handleCloseModal}
+          onClose={handleSaveExitClick}
           fitContent
         >
           <Content />
