@@ -203,7 +203,10 @@ export default function TcfSecondLayer({
   )
 
   const legalExpandedContent = props => (
-    <TcfSecondLayerLegalExpandedContent {...props} baseClass={groupBaseClass} />
+    <TcfSecondLayerLegalExpandedContent
+      {...props}
+      baseClass={`${groupBaseClass}-expanded`}
+    />
   )
 
   return (
@@ -261,6 +264,7 @@ export default function TcfSecondLayer({
                 onRejectAll={() => handleRejectAll({group: 'purposes'})}
                 vendorList={vendorListState}
                 expandedContent={legalExpandedContent}
+                isVendorLayer={isVendorLayer}
               />
             )}
           {!!vendorListState?.specialFeatures &&
@@ -281,6 +285,7 @@ export default function TcfSecondLayer({
                 onRejectAll={handleRejectAllSpecialFeatures}
                 vendorList={vendorListState}
                 expandedContent={legalExpandedContent}
+                isVendorLayer={isVendorLayer}
               />
             )}
           {!!vendorListState?.specialPurposes && !isVendorLayer && (
@@ -292,6 +297,7 @@ export default function TcfSecondLayer({
               i18n={i18n}
               vendorList={vendorListState}
               expandedContent={legalExpandedContent}
+              isVendorLayer={isVendorLayer}
             />
           )}
           {!!vendorListState?.features && !isVendorLayer && (
@@ -303,6 +309,7 @@ export default function TcfSecondLayer({
               i18n={i18n}
               vendorList={vendorListState}
               expandedContent={legalExpandedContent}
+              isVendorLayer={isVendorLayer}
             />
           )}
           {!!state?.vendors && !!vendorListState?.vendors && isVendorLayer && (
@@ -320,6 +327,7 @@ export default function TcfSecondLayer({
               onRejectAll={() => handleRejectAll({group: 'vendors'})}
               vendorList={vendorListState}
               expandedContent={vendorExpandedContent}
+              isVendorLayer={isVendorLayer}
             />
           )}
         </div>

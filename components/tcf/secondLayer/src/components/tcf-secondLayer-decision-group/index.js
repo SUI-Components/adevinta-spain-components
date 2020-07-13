@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import SuiButton from '@s-ui/react-atom-button'
 
 import TcfSecondLayerUserDecision from '../tcf-secondLayer-user-decision'
+import TcfSecondLayerVendorsUserDecision from '../tcf-secondLayer-vendors-user-decision'
 export default function TcfSecondLayerDecisionGroup({
   name,
   i18n,
@@ -16,7 +17,8 @@ export default function TcfSecondLayerDecisionGroup({
   onAcceptAll,
   onRejectAll,
   vendorList,
-  expandedContent
+  expandedContent,
+  isVendorLayer
 }) {
   let descriptionKeys =
     descriptions && Object.keys(descriptions).map(key => parseInt(key))
@@ -46,10 +48,22 @@ export default function TcfSecondLayerDecisionGroup({
         const consentValue = state?.consents
           ? state.consents[key]
           : state?.[key]
-        return (
+        return isVendorLayer ? (
           <TcfSecondLayerUserDecision
             key={`${key}-${index}`}
             baseClass={`${baseClass}-item`}
+            info={descriptions[key]}
+            consentValue={consentValue}
+            hasConsent={hasConsent}
+            i18n={i18n}
+            vendorList={vendorList}
+            onConsentChange={value => onConsentChange({index: key, value})}
+            expandedContent={expandedContent}
+          />
+        ) : (
+          <TcfSecondLayerVendorsUserDecision
+            key={`${key}-${index}`}
+            baseClass={`${baseClass}-item--vendors`}
             info={descriptions[key]}
             consentValue={consentValue}
             hasConsent={hasConsent}
@@ -72,6 +86,7 @@ TcfSecondLayerDecisionGroup.propTypes = {
   state: PropTypes.object,
   filteredIds: PropTypes.arrayOf(PropTypes.number),
   hasConsent: PropTypes.bool,
+  isVendorLayer: PropTypes.bool,
   onConsentChange: PropTypes.func,
   onAcceptAll: PropTypes.func,
   onRejectAll: PropTypes.func,

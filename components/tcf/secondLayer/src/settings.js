@@ -20,7 +20,9 @@ const DEFAULT_I18N = {
     SPECIAL_PURPOSES_TITLE: 'Propósitos especiales',
     FEATURES_TITLE: 'Características',
     SPECIAL_FEATURES_TITLE: 'Características especiales',
-    PARTNERS_LINK: 'Ver listado de socios'
+    PARTNERS_LINK: 'Ver listado de socios',
+    READ_MORE: 'Leer más',
+    READ_LESS: 'Leer menos'
   },
   VENDOR_PAGE: {
     TITLE: 'Cookies propios o de terceros para publicidad segmentada',
