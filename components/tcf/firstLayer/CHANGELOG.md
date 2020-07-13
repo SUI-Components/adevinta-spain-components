@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.9.0 (2020-07-13)
+
+
+### Features
+
+* modify class name ([1d233f6](https://github.com/SUI-Components/schibsted-spain-components/commit/1d233f69071e9eee170c482224cc51a7ede26fea))
+* modify prop variant b to show in modal for mobile ([d5e2e65](https://github.com/SUI-Components/schibsted-spain-components/commit/d5e2e6500b98d54b33e80d942cde66a8bd5a1cda))
+
+
+
 # 1.8.0 (2020-07-10)
 
 
