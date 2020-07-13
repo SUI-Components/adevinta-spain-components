@@ -14,7 +14,8 @@ export default function TCFContainer({
   isTablet,
   lang,
   logo,
-  showVendors
+  showVendors,
+  showInModalForMobile
 }) {
   const [showLayer, setShowLayer] = useState(0)
 
@@ -66,6 +67,7 @@ export default function TCFContainer({
             saveUserConsent={handleSaveUserConsent}
             openSecondLayer={handleOpenSecondLayer}
             openCookiepolicyLayer={handleOpenCookiepolicyLayer}
+            showInModalForMobile={showInModalForMobile}
           />
         </Suspense>
       )}
@@ -112,5 +114,6 @@ TCFContainer.propTypes = {
   isTablet: PropTypes.bool,
   showVendors: PropTypes.bool,
   lang: PropTypes.string,
-  logo: PropTypes.string
+  logo: PropTypes.string,
+  showInModalForMobile: PropTypes.bool
 }
