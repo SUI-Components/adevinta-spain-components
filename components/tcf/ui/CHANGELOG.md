@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.7.0 (2020-07-13)
+
+
+### Features
+
+* add new prop ([1277bab](https://github.com/SUI-Components/schibsted-spain-components/commit/1277babe509ed36d12f0a964ddf47a8be3c083cc))
+* add prop to first layer ([5d7ac6c](https://github.com/SUI-Components/schibsted-spain-components/commit/5d7ac6c5f2f37103d741ea7f61bd05fff9be46bd))
+
+
+
 # 1.6.0 (2020-07-09)
 
 
