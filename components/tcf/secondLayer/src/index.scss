@@ -31,12 +31,18 @@ $base-class: '.sui-TcfSecondLayer';
   &-buttons {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     padding-right: 10px;
     padding-top: 15px;
     border-top: solid 1px #dcdcdc;
     & button {
       font-size: 14px;
       border-radius: 8px;
+    }
+    &-link {
+      font-size: 14px;
+      color: $c-primary;
+      cursor: pointer;
     }
   }
   &-logo {

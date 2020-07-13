@@ -13,10 +13,14 @@ const DEFAULT_I18N = {
   DISABLE_BUTTON: 'Deshabilitar todo',
   ENABLE_BUTTON: 'Habilitar todo',
   SECOND_LAYER: {
-    PURPOSES_TITLE: 'Autorizo',
+    TITLE: 'Configuración',
+    TEXT:
+      'Usted permite tratar sus datos para esta web (o aplicación), navegador y dispositivo con los siguientes fines:',
+    PURPOSES_TITLE: 'Propósitos',
     SPECIAL_PURPOSES_TITLE: 'Propósitos especiales',
     FEATURES_TITLE: 'Características',
-    SPECIAL_FEATURES_TITLE: 'Características especiales'
+    SPECIAL_FEATURES_TITLE: 'Características especiales',
+    PARTNERS_LINK: 'Ver listado de socios'
   },
   VENDOR_PAGE: {
     TITLE: 'Cookies propios o de terceros para publicidad segmentada',
