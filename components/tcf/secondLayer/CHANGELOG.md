@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.8.0 (2020-07-13)
+
+
+### Bug Fixes
+
+* save consent on close modal ([ecf6536](https://github.com/SUI-Components/schibsted-spain-components/commit/ecf6536dbd81ad3105482fd9d1754d9cc57ea7a8))
+
+
+
 # 1.7.0 (2020-07-10)
 
 
