@@ -5,6 +5,7 @@ const TcfUiDemo = () => {
   const [isMobile, setIsMobile] = useState(false)
   const [isTablet, setIsTablet] = useState(false)
   const [show, setShow] = useState(false)
+  const [showInModalForMobile, setShowInModalForMobile] = useState(false)
   return (
     <div style={{height: '3500px'}}>
       <button
@@ -38,12 +39,16 @@ const TcfUiDemo = () => {
       >
         Show vendors layer
       </button>
+      <button onClick={() => setShowInModalForMobile(prev => !prev)}>
+        {showInModalForMobile ? 'Show in Notification' : 'Show in Modal'}
+      </button>
       <TcfUi
         lang="es"
         logo="https://frtassets.fotocasa.es/img/fotocasa_logo.svg"
         isMobile={isMobile}
         isTablet={isTablet}
         showVendors={show}
+        showInModalForMobile={showInModalForMobile}
       />
     </div>
   )

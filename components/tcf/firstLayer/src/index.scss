@@ -91,7 +91,7 @@ $bxsh-tcf-first-layer: 0 0 8px 2px rgba(0, 0, 0, 0.15);
     box-shadow: $bxsh-tcf-first-layer;
   }
 
-  &--variantB {
+  &--isMobile {
     .sui-MoleculeNotification-content {
       min-height: 30vh;
       padding: 0px 24px;

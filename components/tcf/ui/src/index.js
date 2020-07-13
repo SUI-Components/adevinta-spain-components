@@ -10,7 +10,8 @@ export default function TcfUi({
   isMobile,
   isTablet,
   showVendors,
-  onCloseModal
+  onCloseModal,
+  showInModalForMobile = false
 }) {
   return (
     <TCFServices>
@@ -28,6 +29,7 @@ export default function TcfUi({
           uiVisible={({visible}) => service.uiVisible({visible})}
           showVendors={showVendors}
           onCloseModal={onCloseModal}
+          showInModalForMobile={showInModalForMobile}
         />
       )}
     </TCFServices>
@@ -41,5 +43,6 @@ TcfUi.propTypes = {
   isTablet: PropTypes.bool,
   lang: PropTypes.string,
   logo: PropTypes.string,
-  onCloseModal: PropTypes.func
+  onCloseModal: PropTypes.func,
+  showInModalForMobile: PropTypes.bool
 }
