@@ -124,7 +124,7 @@ export default function TcfSecondLayer({
         specialFeatures: state.specialFeatures
       })
     )
-    setModalOpen(false)
+    handleCloseModal()
   }
 
   const changeAllGroup = ({group, value}) => {
@@ -211,7 +211,7 @@ export default function TcfSecondLayer({
         closeOnEscKeyDown
         header={isMobile ? <Logo /> : false}
         iconClose={isMobile ? <IconClose /> : false}
-        onClose={handleCloseModal}
+        onClose={handleSaveExitClick}
         fitContent
       >
         {!isMobile && <Logo />}
