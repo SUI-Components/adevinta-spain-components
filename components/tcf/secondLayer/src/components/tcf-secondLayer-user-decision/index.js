@@ -5,7 +5,7 @@ import SuiSwitch from '@s-ui/react-atom-switch'
 
 import IconAccordion from '../iconAccordion'
 
-export default function TcfSecondLayerUserDecision({
+export function TcfSecondLayerUserDecision({
   onConsentChange,
   baseClass,
   info,
@@ -21,7 +21,7 @@ export default function TcfSecondLayerUserDecision({
     setExpanded(!expanded)
   }
 
-  const Switchs = () => (
+  const Switchs = React.memo(() => (
     <div className={`${baseClass}-switchs`}>
       {hasConsent && (
         <SuiSwitch
@@ -33,7 +33,7 @@ export default function TcfSecondLayerUserDecision({
         />
       )}
     </div>
-  )
+  ))
 
   return (
     <>
@@ -76,3 +76,4 @@ TcfSecondLayerUserDecision.propTypes = {
 TcfSecondLayerUserDecision.defaultProps = {
   hasConsent: true
 }
+export default React.memo(TcfSecondLayerUserDecision)

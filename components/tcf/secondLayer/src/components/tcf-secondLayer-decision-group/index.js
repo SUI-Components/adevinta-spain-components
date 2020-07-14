@@ -5,7 +5,7 @@ import SuiButton from '@s-ui/react-atom-button'
 
 import TcfSecondLayerUserDecision from '../tcf-secondLayer-user-decision'
 import TcfSecondLayerVendorsUserDecision from '../tcf-secondLayer-vendors-user-decision'
-export default function TcfSecondLayerDecisionGroup({
+export function TcfSecondLayerDecisionGroup({
   name,
   i18n,
   baseClass,
@@ -29,20 +29,22 @@ export default function TcfSecondLayerDecisionGroup({
     return null
   }
 
+  const ButtonAll = React.memo(() => (
+    <div className={`${baseClass}-buttons`}>
+      <SuiButton size="small" design="outline" onClick={onRejectAll}>
+        {i18n.DISABLE_BUTTON}
+      </SuiButton>
+      <SuiButton size="small" onClick={onAcceptAll}>
+        {i18n.ENABLE_BUTTON}
+      </SuiButton>
+    </div>
+  ))
+
   return (
     <>
       <div className={`${baseClass}-title-container`}>
         <h2 className={`${baseClass}-title`}>{name}</h2>
-        {hasConsent ? (
-          <div className={`${baseClass}-buttons`}>
-            <SuiButton size="small" design="outline" onClick={onRejectAll}>
-              {i18n.DISABLE_BUTTON}
-            </SuiButton>
-            <SuiButton size="small" onClick={onAcceptAll}>
-              {i18n.ENABLE_BUTTON}
-            </SuiButton>
-          </div>
-        ) : null}
+        {hasConsent ? <ButtonAll /> : null}
       </div>
       {descriptionKeys.map((key, index) => {
         const consentValue = state?.consents
@@ -93,3 +95,5 @@ TcfSecondLayerDecisionGroup.propTypes = {
   vendorList: PropTypes.object,
   expandedContent: PropTypes.func
 }
+
+export default React.memo(TcfSecondLayerDecisionGroup)
