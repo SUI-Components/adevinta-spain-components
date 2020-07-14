@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.8.0 (2020-07-14)
+
+
+### Features
+
+* add vendors link from second layer ([fdba69e](https://github.com/SUI-Components/schibsted-spain-components/commit/fdba69e59e018bc37f1816e63e4bad04f333b293))
+
+
+
 # 1.7.0 (2020-07-13)
 
 
