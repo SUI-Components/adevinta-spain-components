@@ -11,7 +11,6 @@ export default function TCFContainer({
   saveUserConsent,
   uiVisible,
   isMobile,
-  isTablet,
   lang,
   logo,
   showVendors,
@@ -22,7 +21,7 @@ export default function TCFContainer({
   useEffect(() => {
     if (showVendors) {
       uiVisible({visible: true})
-      setShowLayer(3)
+      setShowLayer(2)
     }
   }, [showVendors, uiVisible])
 
@@ -44,7 +43,15 @@ export default function TCFContainer({
     setShowLayer(3)
   }
   const handleSecondLayerGoBack = () => {
-    setShowLayer(1)
+    if (showVendors) {
+      onCloseModal && onCloseModal()
+      setShowLayer(0)
+    } else {
+      setShowLayer(1)
+    }
+  }
+  const handleThirdLayerGoBack = () => {
+    setShowLayer(2)
   }
   const handleOpenCookiepolicyLayer = () => {
     setShowLayer(3)
@@ -62,7 +69,6 @@ export default function TCFContainer({
         <Suspense fallback={<div />}>
           <FirstLayer
             isMobile={isMobile}
-            isTablet={isTablet}
             lang={lang}
             logo={logo}
             getVendorList={getVendorList}
@@ -98,7 +104,7 @@ export default function TCFContainer({
             loadUserConsent={loadUserConsent}
             saveUserConsent={handleSaveUserConsent}
             getVendorList={getVendorList}
-            onGoBack={handleSecondLayerGoBack}
+            onGoBack={handleThirdLayerGoBack}
           />
         </Suspense>
       )}
@@ -115,7 +121,6 @@ TCFContainer.propTypes = {
   onCloseModal: PropTypes.func,
   saveUserConsent: PropTypes.func,
   isMobile: PropTypes.bool,
-  isTablet: PropTypes.bool,
   showVendors: PropTypes.bool,
   lang: PropTypes.string,
   logo: PropTypes.string,
