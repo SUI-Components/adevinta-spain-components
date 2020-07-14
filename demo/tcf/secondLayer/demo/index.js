@@ -16,7 +16,11 @@ const TcfSecondLayerDemo = () => {
   const handleGoBack = () => {
     console.log('go back button pressed')
   }
+  const handleVendorsClick = () => {
+    console.log("vendor's button pressed")
+  }
   const [isMobile, setIsMobile] = useState(false)
+  const [isVendorLayer, setIsVendorLayer] = useState(false)
 
   return (
     <>
@@ -26,7 +30,15 @@ const TcfSecondLayerDemo = () => {
       >
         {isMobile ? 'Click to change to Desktop' : 'Click to change to Mobile'}
       </button>
-      {isMobile && (
+      <button
+        onClick={() => setIsVendorLayer(!isVendorLayer)}
+        style={{height: '25px', width: '100%', backgroundColor: '#2b91c1'}}
+      >
+        {isVendorLayer
+          ? 'Click to change to Purposes Layer'
+          : 'Click to change to vendor Layer'}
+      </button>
+      {isMobile && isVendorLayer && (
         <TcfSecondLayer
           logo="https://frtassets.fotocasa.es/img/fotocasa_logo.svg"
           loadUserConsent={loadUserConsent}
@@ -34,15 +46,39 @@ const TcfSecondLayerDemo = () => {
           getVendorList={getVendorList}
           onGoBack={handleGoBack}
           isMobile
+          isVendorLayer={isVendorLayer}
         />
       )}
-      {!isMobile && (
+      {isMobile && !isVendorLayer && (
         <TcfSecondLayer
           logo="https://frtassets.fotocasa.es/img/fotocasa_logo.svg"
           loadUserConsent={loadUserConsent}
           saveUserConsent={saveUserConsent}
           getVendorList={getVendorList}
           onGoBack={handleGoBack}
+          isMobile
+          isVendorLayer={isVendorLayer}
+        />
+      )}
+      {!isMobile && isVendorLayer && (
+        <TcfSecondLayer
+          logo="https://frtassets.fotocasa.es/img/fotocasa_logo.svg"
+          loadUserConsent={loadUserConsent}
+          saveUserConsent={saveUserConsent}
+          getVendorList={getVendorList}
+          onGoBack={handleGoBack}
+          isVendorLayer={isVendorLayer}
+        />
+      )}
+      {!isMobile && !isVendorLayer && (
+        <TcfSecondLayer
+          logo="https://frtassets.fotocasa.es/img/fotocasa_logo.svg"
+          loadUserConsent={loadUserConsent}
+          saveUserConsent={saveUserConsent}
+          getVendorList={getVendorList}
+          onGoBack={handleGoBack}
+          isVendorLayer={isVendorLayer}
+          onVendorsClick={handleVendorsClick}
         />
       )}
     </>

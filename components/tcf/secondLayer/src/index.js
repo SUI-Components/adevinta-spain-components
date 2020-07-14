@@ -21,7 +21,9 @@ export default function TcfSecondLayer({
   loadUserConsent,
   saveUserConsent,
   getVendorList,
-  onGoBack
+  onGoBack,
+  onVendorsClick,
+  isVendorLayer
 }) {
   const [state, setState] = useState(null)
   const [modalOpen, setModalOpen] = useState(true)
@@ -201,8 +203,12 @@ export default function TcfSecondLayer({
   )
 
   const legalExpandedContent = props => (
-    <TcfSecondLayerLegalExpandedContent {...props} baseClass={groupBaseClass} />
+    <TcfSecondLayerLegalExpandedContent
+      {...props}
+      baseClass={`${groupBaseClass}-expanded`}
+    />
   )
+
   return (
     <div className={CLASS}>
       <SuiModal
@@ -229,7 +235,7 @@ export default function TcfSecondLayer({
                 : `${CLASS}-title ${CLASS}-title--desktop`
             }
           >
-            {i18n.VENDOR_PAGE.TITLE}
+            {isVendorLayer ? i18n.VENDOR_PAGE.TITLE : i18n.SECOND_LAYER.TITLE}
           </h2>
           <p
             className={
@@ -238,45 +244,51 @@ export default function TcfSecondLayer({
                 : `${CLASS}-text ${CLASS}-text--desktop`
             }
           >
-            {i18n.VENDOR_PAGE.TEXT}
+            {isVendorLayer ? i18n.VENDOR_PAGE.TEXT : i18n.SECOND_LAYER.TEXT}
           </p>
-          {!!vendorListState?.purposes && !!state?.purposes && (
-            <TcfSecondLayerDecisionGroup
-              name={i18n.SECOND_LAYER.PURPOSES_TITLE}
-              baseClass={groupBaseClass}
-              descriptions={vendorListState.purposes}
-              state={state.purposes}
-              filteredIds={ADEVINTA_COLLECTED_CONSENTS.purposes}
-              onConsentChange={props =>
-                handleConsentsChange({group: 'purposes', ...props})
-              }
-              hasConsent
-              i18n={i18n}
-              onAcceptAll={() => handleAcceptAll({group: 'purposes'})}
-              onRejectAll={() => handleRejectAll({group: 'purposes'})}
-              vendorList={vendorListState}
-              expandedContent={legalExpandedContent}
-            />
-          )}
-          {!!vendorListState?.specialFeatures && !!state?.specialFeatures && (
-            <TcfSecondLayerDecisionGroup
-              name={i18n.SECOND_LAYER.SPECIAL_FEATURES_TITLE}
-              baseClass={groupBaseClass}
-              descriptions={vendorListState.specialFeatures}
-              state={state.specialFeatures}
-              filteredIds={ADEVINTA_COLLECTED_CONSENTS.specialFeatures}
-              onConsentChange={props =>
-                handleConsentsChange({group: 'specialFeatures', ...props})
-              }
-              hasConsent
-              i18n={i18n}
-              onAcceptAll={handleAcceptAllSpecialFeatures}
-              onRejectAll={handleRejectAllSpecialFeatures}
-              vendorList={vendorListState}
-              expandedContent={legalExpandedContent}
-            />
-          )}
-          {!!vendorListState?.specialPurposes && (
+          {!!vendorListState?.purposes &&
+            !!state?.purposes &&
+            !isVendorLayer && (
+              <TcfSecondLayerDecisionGroup
+                name={i18n.SECOND_LAYER.PURPOSES_TITLE}
+                baseClass={groupBaseClass}
+                descriptions={vendorListState.purposes}
+                state={state.purposes}
+                filteredIds={ADEVINTA_COLLECTED_CONSENTS.purposes}
+                onConsentChange={props =>
+                  handleConsentsChange({group: 'purposes', ...props})
+                }
+                hasConsent
+                i18n={i18n}
+                onAcceptAll={() => handleAcceptAll({group: 'purposes'})}
+                onRejectAll={() => handleRejectAll({group: 'purposes'})}
+                vendorList={vendorListState}
+                expandedContent={legalExpandedContent}
+                isVendorLayer={isVendorLayer}
+              />
+            )}
+          {!!vendorListState?.specialFeatures &&
+            !!state?.specialFeatures &&
+            !isVendorLayer && (
+              <TcfSecondLayerDecisionGroup
+                name={i18n.SECOND_LAYER.SPECIAL_FEATURES_TITLE}
+                baseClass={groupBaseClass}
+                descriptions={vendorListState.specialFeatures}
+                state={state.specialFeatures}
+                filteredIds={ADEVINTA_COLLECTED_CONSENTS.specialFeatures}
+                onConsentChange={props =>
+                  handleConsentsChange({group: 'specialFeatures', ...props})
+                }
+                hasConsent
+                i18n={i18n}
+                onAcceptAll={handleAcceptAllSpecialFeatures}
+                onRejectAll={handleRejectAllSpecialFeatures}
+                vendorList={vendorListState}
+                expandedContent={legalExpandedContent}
+                isVendorLayer={isVendorLayer}
+              />
+            )}
+          {!!vendorListState?.specialPurposes && !isVendorLayer && (
             <TcfSecondLayerDecisionGroup
               name={i18n.SECOND_LAYER.SPECIAL_PURPOSES_TITLE}
               baseClass={groupBaseClass}
@@ -285,9 +297,10 @@ export default function TcfSecondLayer({
               i18n={i18n}
               vendorList={vendorListState}
               expandedContent={legalExpandedContent}
+              isVendorLayer={isVendorLayer}
             />
           )}
-          {!!vendorListState?.features && (
+          {!!vendorListState?.features && !isVendorLayer && (
             <TcfSecondLayerDecisionGroup
               name={i18n.SECOND_LAYER.FEATURES_TITLE}
               baseClass={groupBaseClass}
@@ -296,9 +309,10 @@ export default function TcfSecondLayer({
               i18n={i18n}
               vendorList={vendorListState}
               expandedContent={legalExpandedContent}
+              isVendorLayer={isVendorLayer}
             />
           )}
-          {!!state?.vendors && !!vendorListState?.vendors && (
+          {!!state?.vendors && !!vendorListState?.vendors && isVendorLayer && (
             <TcfSecondLayerDecisionGroup
               name={i18n.VENDOR_PAGE.GROUPS.TITLE}
               baseClass={groupBaseClass}
@@ -313,16 +327,31 @@ export default function TcfSecondLayer({
               onRejectAll={() => handleRejectAll({group: 'vendors'})}
               vendorList={vendorListState}
               expandedContent={vendorExpandedContent}
+              isVendorLayer={isVendorLayer}
             />
           )}
         </div>
         <footer className={`${CLASS}-buttons`}>
-          <SuiButton design="outline" onClick={onGoBack}>
-            {i18n.GO_BACK_BUTTON}
-          </SuiButton>
-          <SuiButton onClick={handleSaveExitClick}>
-            {i18n.ACCEPT_BUTTON}
-          </SuiButton>
+          {!isMobile && !isVendorLayer && (
+            <div>
+              <span
+                className={`${CLASS}-buttons-link`}
+                onClick={() => {
+                  onVendorsClick && onVendorsClick()
+                }}
+              >
+                {i18n.SECOND_LAYER.PARTNERS_LINK}
+              </span>
+            </div>
+          )}
+          <div>
+            <SuiButton design="outline" onClick={onGoBack}>
+              {i18n.GO_BACK_BUTTON}
+            </SuiButton>
+            <SuiButton onClick={handleSaveExitClick}>
+              {i18n.ACCEPT_BUTTON}
+            </SuiButton>
+          </div>
         </footer>
       </SuiModal>
     </div>
@@ -332,10 +361,12 @@ export default function TcfSecondLayer({
 TcfSecondLayer.displayName = 'TcfSecondLayer'
 TcfSecondLayer.propTypes = {
   isMobile: PropTypes.bool,
+  isVendorLayer: PropTypes.bool,
   loadUserConsent: PropTypes.func,
   saveUserConsent: PropTypes.func,
   getVendorList: PropTypes.func,
   logo: PropTypes.string,
   lang: PropTypes.string,
-  onGoBack: PropTypes.func
+  onGoBack: PropTypes.func,
+  onVendorsClick: PropTypes.func
 }

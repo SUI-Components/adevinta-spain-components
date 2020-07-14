@@ -4,8 +4,16 @@ import PropTypes from 'prop-types'
 export default function TcfSecondLayerLegalExpandedContent({baseClass, info}) {
   return (
     <>
-      <h4>{info.description}</h4>
-      <p>{info.descriptionLegal}</p>
+      <div className={`${baseClass}-container`}>
+        {info.descriptionLegal.split('\n').map((element, index) => (
+          <p
+            key={index}
+            className={element.includes('*') ? `${baseClass}-list` : ''}
+          >
+            {element.replace(/\*/g, '- ')}{' '}
+          </p>
+        ))}
+      </div>
     </>
   )
 }

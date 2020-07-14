@@ -40,6 +40,9 @@ export default function TCFContainer({
   const handleOpenSecondLayer = () => {
     setShowLayer(2)
   }
+  const handleVendorsClick = () => {
+    setShowLayer(3)
+  }
   const handleSecondLayerGoBack = () => {
     setShowLayer(1)
   }
@@ -81,6 +84,7 @@ export default function TCFContainer({
             saveUserConsent={handleSaveUserConsent}
             getVendorList={getVendorList}
             onGoBack={handleSecondLayerGoBack}
+            onVendorsClick={handleVendorsClick}
           />
         </Suspense>
       )}
