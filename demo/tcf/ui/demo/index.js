@@ -38,7 +38,7 @@ const TcfUiDemo = () => {
         logo="https://frtassets.fotocasa.es/img/fotocasa_logo.svg"
         isMobile={isMobile}
         showVendors={show}
-        onCloseModal={() => setShow(!show)}
+        onCloseModal={() => setShow(false)}
         showInModalForMobile={showInModalForMobile}
       />
     </div>
