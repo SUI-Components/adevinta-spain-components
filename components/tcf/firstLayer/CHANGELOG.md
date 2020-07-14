@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.11.0 (2020-07-14)
+
+
+### Bug Fixes
+
+* remove scroll listener on unmount ([6009818](https://github.com/SUI-Components/schibsted-spain-components/commit/6009818c8e4e7e306107467e8ecf09005a92092c))
+
+
+
 # 1.10.0 (2020-07-13)
 
 
