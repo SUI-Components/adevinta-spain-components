@@ -3,7 +3,6 @@ import React, {useState} from 'react'
 
 const TcfUiDemo = () => {
   const [isMobile, setIsMobile] = useState(false)
-  const [isTablet, setIsTablet] = useState(false)
   const [show, setShow] = useState(false)
   const [showInModalForMobile, setShowInModalForMobile] = useState(false)
   return (
@@ -11,7 +10,6 @@ const TcfUiDemo = () => {
       <button
         onClick={() => {
           setIsMobile(false)
-          setIsTablet(false)
         }}
       >
         Desktop
@@ -19,35 +17,28 @@ const TcfUiDemo = () => {
       <button
         onClick={() => {
           setIsMobile(true)
-          setIsTablet(false)
         }}
       >
         Mobile
       </button>
       <button
         onClick={() => {
-          setIsMobile(false)
-          setIsTablet(true)
-        }}
-      >
-        Tablet
-      </button>
-      <button
-        onClick={() => {
           setShow(true)
         }}
       >
-        Show vendors layer
+        Show Second layer
       </button>
       <button onClick={() => setShowInModalForMobile(prev => !prev)}>
-        {showInModalForMobile ? 'Show in Notification' : 'Show in Modal'}
+        {showInModalForMobile
+          ? 'Show first layer Notification variation'
+          : 'Show first layer Modal variation'}
       </button>
       <TcfUi
         lang="es"
         logo="https://frtassets.fotocasa.es/img/fotocasa_logo.svg"
         isMobile={isMobile}
-        isTablet={isTablet}
         showVendors={show}
+        onCloseModal={() => setShow(!show)}
         showInModalForMobile={showInModalForMobile}
       />
     </div>
