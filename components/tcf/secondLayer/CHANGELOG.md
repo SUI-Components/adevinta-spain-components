@@ -2,12 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.9.0 (2020-07-14)
+
+
+
 # 1.8.0 (2020-07-13)
 
 
 ### Bug Fixes
 
 * save consent on close modal ([ecf6536](https://github.com/SUI-Components/schibsted-spain-components/commit/ecf6536dbd81ad3105482fd9d1754d9cc57ea7a8))
+
+
+### Features
+
+* add vendors link & refactor information org ([77c8c59](https://github.com/SUI-Components/schibsted-spain-components/commit/77c8c597c06981b87ac1009f146335735f931a93))
+* update vendors user decision & expanded content ([91c66a5](https://github.com/SUI-Components/schibsted-spain-components/commit/91c66a5ed485544ada7ec1f3a68c76277bc5cf62))
 
 
 
