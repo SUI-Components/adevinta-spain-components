@@ -187,7 +187,7 @@ export default function TcfSecondLayer({
     const className = isMobile
       ? `${CLASS}-logo`
       : `${CLASS}-logo ${CLASS}-logo--desktop`
-    return !isMobile && <img className={className} src={logo} alt="logo" />
+    return <img className={className} src={logo} alt="logo" />
   })
 
   const vendorExpandedContent = props => (
@@ -217,7 +217,7 @@ export default function TcfSecondLayer({
         onClose={handleSaveExitClick}
         fitContent
       >
-        <Logo />
+        {!isMobile && <Logo />}
         <div
           className={
             isMobile
