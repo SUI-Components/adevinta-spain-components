@@ -21,8 +21,7 @@ describe('UiVisibleUseCase test', () => {
     const uiVisibleUseCase = new UiVisibleUseCase({
       repository: tcfRepositoryMock
     })
-    const response = await uiVisibleUseCase.execute({visible})
-    expect(response).toBe(undefined)
+    await uiVisibleUseCase.execute({visible})
     expect(uiVisibleSpy).toHaveBeenCalledTimes(1)
     expect(uiVisibleSpy).toHaveBeenCalledWith({visible})
   })

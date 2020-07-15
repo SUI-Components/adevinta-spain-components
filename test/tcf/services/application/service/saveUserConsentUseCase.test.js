@@ -46,8 +46,7 @@ describe('SaveUserConsentUseCase test', () => {
     const saveUserConsentUseCase = new SaveUserConsentUseCase({
       repository: tcfRepositoryMock
     })
-    const response = await saveUserConsentUseCase.execute(userConsent)
-    expect(response).toBe(undefined)
+    await saveUserConsentUseCase.execute(userConsent)
     expect(saveUserConsentSpy).toHaveBeenCalledTimes(1)
     expect(saveUserConsentSpy).toHaveBeenCalledWith(userConsent)
   })
