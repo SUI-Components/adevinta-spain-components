@@ -14,10 +14,6 @@ export default function TcfSecondLayerVendorsUserDecision({
 }) {
   const [expanded, setExpanded] = useState(false)
 
-  const handleItemClick = () => {
-    setExpanded(!expanded)
-  }
-
   const Switchs = () => (
     <div className={`${baseClass}-switchs`}>
       {hasConsent && (
@@ -35,10 +31,7 @@ export default function TcfSecondLayerVendorsUserDecision({
   return (
     <>
       <div className={`${baseClass}-container`}>
-        <div
-          className={`${baseClass}-container-clicklable`}
-          onClick={handleItemClick}
-        >
+        <div className={`${baseClass}-container-clicklable`}>
           <p className={`${baseClass}-title`}>{info.name}</p>
           <p className={`${baseClass}-text`}>{info.description}</p>
           <p
@@ -50,13 +43,13 @@ export default function TcfSecondLayerVendorsUserDecision({
               : i18n.SECOND_LAYER.READ_MORE}
           </p>
         </div>
+        {expanded && (
+          <div className={`${baseClass}-container--expanded`}>
+            {expandedContent({info, baseClass})}
+          </div>
+        )}
         {hasConsent ? <Switchs /> : null}
       </div>
-      {expanded && (
-        <div className={`${baseClass}-container--expanded`}>
-          {expandedContent({info, baseClass})}
-        </div>
-      )}
     </>
   )
 }

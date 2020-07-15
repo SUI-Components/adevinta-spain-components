@@ -28,21 +28,23 @@ export default function TcfSecondLayerDecisionGroup({
   if (!descriptionKeys?.length) {
     return null
   }
+  const Buttons = () =>
+    hasConsent ? (
+      <div className={`${baseClass}-buttons`}>
+        <SuiButton size="small" design="outline" onClick={onRejectAll}>
+          {i18n.DISABLE_BUTTON}
+        </SuiButton>
+        <SuiButton size="small" onClick={onAcceptAll}>
+          {i18n.ENABLE_BUTTON}
+        </SuiButton>
+      </div>
+    ) : null
 
   return (
     <>
       <div className={`${baseClass}-title-container`}>
         <h2 className={`${baseClass}-title`}>{name}</h2>
-        {hasConsent ? (
-          <div className={`${baseClass}-buttons`}>
-            <SuiButton size="small" design="outline" onClick={onRejectAll}>
-              {i18n.DISABLE_BUTTON}
-            </SuiButton>
-            <SuiButton size="small" onClick={onAcceptAll}>
-              {i18n.ENABLE_BUTTON}
-            </SuiButton>
-          </div>
-        ) : null}
+        {isVendorLayer && <Buttons />}
       </div>
       {descriptionKeys.map((key, index) => {
         const consentValue = state?.consents
