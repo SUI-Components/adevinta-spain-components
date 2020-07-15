@@ -56,9 +56,9 @@ export default function TCFContainer({
   const handleOpenCookiepolicyLayer = () => {
     setShowLayer(3)
   }
-  const handleSaveUserConsent = ({purpose, vendor, specialFeatures}) => {
+  const handleSaveUserConsent = async ({purpose, vendor, specialFeatures}) => {
+    await saveUserConsent({purpose, vendor, specialFeatures})
     uiVisible({visible: false})
-    saveUserConsent({purpose, vendor, specialFeatures})
     onCloseModal && onCloseModal()
     setShowLayer(0)
   }
