@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.5.0 (2020-07-15)
+
+
+### Bug Fixes
+
+* return promises ([5d6324e](https://github.com/SUI-Components/schibsted-spain-components/commit/5d6324ebd16e46c9cc5b1530a1952840f58b8bbc))
+
+
+
 # 1.4.0 (2020-07-06)
 
 
