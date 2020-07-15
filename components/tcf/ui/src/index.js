@@ -8,7 +8,6 @@ export default function TcfUi({
   lang,
   logo,
   isMobile,
-  isTablet,
   showVendors,
   onCloseModal,
   showInModalForMobile = false
@@ -20,7 +19,6 @@ export default function TcfUi({
           lang={lang}
           logo={logo}
           isMobile={isMobile}
-          isTablet={isTablet}
           getVendorList={({language}) => service.getVendorList({language})}
           loadUserConsent={() => service.loadUserConsent()}
           saveUserConsent={({purpose, vendor, specialFeatures}) =>
@@ -40,7 +38,6 @@ TcfUi.displayName = 'TcfUi'
 TcfUi.propTypes = {
   isMobile: PropTypes.bool,
   showVendors: PropTypes.bool,
-  isTablet: PropTypes.bool,
   lang: PropTypes.string,
   logo: PropTypes.string,
   onCloseModal: PropTypes.func,
