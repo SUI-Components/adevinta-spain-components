@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.10.0 (2020-07-15)
+
+
+### Bug Fixes
+
+* save consent is async ([3487314](https://github.com/SUI-Components/schibsted-spain-components/commit/3487314952c6f11f6c4375a08a491931fc6dbd37))
+
+
+
 # 1.9.0 (2020-07-15)
 
 
