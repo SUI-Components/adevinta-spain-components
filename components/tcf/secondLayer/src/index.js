@@ -183,15 +183,12 @@ export default function TcfSecondLayer({
     })
   }
 
-  const Logo = () => (
-    <img
-      className={
-        isMobile ? `${CLASS}-logo` : `${CLASS}-logo ${CLASS}-logo--desktop`
-      }
-      src={logo}
-      alt="logo"
-    />
-  )
+  const Logo = React.memo(() => {
+    const className = isMobile
+      ? `${CLASS}-logo`
+      : `${CLASS}-logo ${CLASS}-logo--desktop`
+    return <img className={className} src={logo} alt="logo" />
+  })
 
   const vendorExpandedContent = props => (
     <TcfSecondLayerVendorExpandedContent
