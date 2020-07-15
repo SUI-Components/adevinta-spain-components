@@ -12,11 +12,11 @@ class TcfRepository {
   }
 
   saveUserConsent({purpose, vendor, specialFeatures}) {
-    this._tcfApi.saveUserConsent({purpose, vendor, specialFeatures})
+    return this._tcfApi.saveUserConsent({purpose, vendor, specialFeatures})
   }
 
   uiVisible({visible}) {
-    this._tcfApi.uiVisible({visible})
+    return this._tcfApi.uiVisible({visible})
   }
 }
 

@@ -20,11 +20,15 @@ class Service {
   }
 
   saveUserConsent({purpose, vendor, specialFeatures}) {
-    this._saveUserConsentUseCase.execute({purpose, vendor, specialFeatures})
+    return this._saveUserConsentUseCase.execute({
+      purpose,
+      vendor,
+      specialFeatures
+    })
   }
 
   uiVisible({visible}) {
-    this._uiVisibleUseCase.execute({visible})
+    return this._uiVisibleUseCase.execute({visible})
   }
 }
 
