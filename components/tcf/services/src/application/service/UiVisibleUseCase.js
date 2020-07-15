@@ -4,7 +4,7 @@ class UiVisibleUseCase {
   }
 
   execute({visible}) {
-    this._repository.uiVisible({visible})
+    return this._repository.uiVisible({visible})
   }
 }
 

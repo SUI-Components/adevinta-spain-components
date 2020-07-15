@@ -1,10 +1,23 @@
 import TcfUi from '../../../../components/tcf/ui/src'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 const TcfUiDemo = () => {
   const [isMobile, setIsMobile] = useState(false)
   const [show, setShow] = useState(false)
   const [showInModalForMobile, setShowInModalForMobile] = useState(false)
+  const [eventStatus, setEventStatus] = useState('empty')
+  useEffect(() => {
+    window.__tcfapi('addEventListener', 2, (tcData, success) => {
+      if (
+        success &&
+        (tcData.eventStatus === 'tcloaded' ||
+          tcData.eventStatus === 'useractioncomplete')
+      ) {
+        setEventStatus(tcData.eventStatus)
+        window.__tcfapi('removeEventListener', 2, () => null, tcData.listenerId)
+      }
+    })
+  })
   return (
     <div style={{height: '3500px'}}>
       <button
@@ -33,6 +46,9 @@ const TcfUiDemo = () => {
           ? 'Show first layer Notification variation'
           : 'Show first layer Modal variation'}
       </button>
+      <div>
+        <b>Event Status:</b> {eventStatus}
+      </div>
       <TcfUi
         lang="es"
         logo="https://frtassets.fotocasa.es/img/fotocasa_logo.svg"
