@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.10.0 (2020-07-15)
+
+
+### Features
+
+* improve performance of rendering ([6aa6775](https://github.com/SUI-Components/schibsted-spain-components/commit/6aa6775bf59aec3fcfe371d7cc86ef1c075198fe))
+
+
+
 # 1.9.0 (2020-07-14)
 
 

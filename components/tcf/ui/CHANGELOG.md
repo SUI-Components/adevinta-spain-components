@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.9.0 (2020-07-15)
+
+
+### Features
+
+* remove isTablet prop & re-organize layers flow ([f9b2358](https://github.com/SUI-Components/schibsted-spain-components/commit/f9b2358b88aec8e8a68f93844b9cc487409dbc92))
+
+
+
 # 1.8.0 (2020-07-14)
 
 

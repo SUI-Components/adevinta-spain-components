@@ -66,6 +66,7 @@ export default function TcfFirstLayer({
   useEffect(() => {
     initialYOffset = window.pageYOffset
     document.addEventListener('scroll', checkScroll, {passive: true})
+    return () => document.removeEventListener('scroll', checkScroll)
   }, [])
 
   const handleSettingsClick = () => {
@@ -100,7 +101,6 @@ export default function TcfFirstLayer({
   }
 
   const handleCloseModal = () => {
-    document.removeEventListener('scroll', checkScroll)
     setShow(false)
   }
 
