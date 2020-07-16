@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 
-import SuiSwitch from '@s-ui/react-atom-switch'
+import AtomSwitch from '@s-ui/react-atom-switch'
+import Button from '@s-ui/react-atom-button'
 
 export default function TcfSecondLayerVendorsUserDecision({
   onConsentChange,
@@ -14,49 +15,32 @@ export default function TcfSecondLayerVendorsUserDecision({
 }) {
   const [expanded, setExpanded] = useState(false)
 
-  const handleItemClick = () => {
-    setExpanded(!expanded)
-  }
-
-  const Switchs = () => (
-    <div className={`${baseClass}-switchs`}>
-      {hasConsent && (
-        <SuiSwitch
-          type="single"
-          name="groupItem"
-          value={consentValue}
-          label={i18n.CONSENT_COPY}
-          onToggle={() => onConsentChange(consentValue)}
-        />
-      )}
-    </div>
-  )
+  const Switchs = () =>
+    hasConsent && (
+      <AtomSwitch
+        type="single"
+        name="groupItem"
+        value={consentValue}
+        label={i18n.CONSENT_COPY}
+        onToggle={() => onConsentChange(consentValue)}
+      />
+    )
 
   return (
     <>
-      <div className={`${baseClass}-container`}>
-        <div
-          className={`${baseClass}-container-clicklable`}
-          onClick={handleItemClick}
-        >
-          <p className={`${baseClass}-title`}>{info.name}</p>
-          <p className={`${baseClass}-text`}>{info.description}</p>
-          <p
-            className={`${baseClass}-link`}
-            onClick={() => setExpanded(!expanded)}
-          >
+      <div className={`${baseClass} ${baseClass}--vendors`}>
+        <div className={`${baseClass}-texts`}>
+          <h6 className={`${baseClass}-title`}>{info.name}</h6>
+          <p>{info.description}</p>
+          {expanded && expandedContent({info, baseClass})}
+          <Button design="link" onClick={() => setExpanded(!expanded)}>
             {expanded
               ? i18n.SECOND_LAYER.READ_LESS
               : i18n.SECOND_LAYER.READ_MORE}
-          </p>
+          </Button>
         </div>
         {hasConsent ? <Switchs /> : null}
       </div>
-      {expanded && (
-        <div className={`${baseClass}-container--expanded`}>
-          {expandedContent({info, baseClass})}
-        </div>
-      )}
     </>
   )
 }

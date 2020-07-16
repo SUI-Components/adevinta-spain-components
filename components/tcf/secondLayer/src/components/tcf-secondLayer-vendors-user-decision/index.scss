@@ -1,66 +1,13 @@
-$base-class: '.sui-TcfSecondLayer-group-item--vendors';
+$base-class: '.sui-TcfSecondLayer-group';
 
 #{$base-class} {
-  &-container {
-    border: solid 1px #cacaca;
-    border-radius: 4px;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    &-clicklable {
-      width: 100%;
-      display: flex;
-      justify-content: flex-start;
-      flex-direction: column;
-      align-items: flex-start;
-      margin: 0 0 16px 0;
-      cursor: pointer;
-      & p {
-        display: inline-block;
-      }
-    }
-    &--expanded {
-      border: solid 1px #cacaca;
-      padding: 16px;
-      & p {
-        margin: 0;
-        display: inline;
-      }
-      & h3 {
-        font-size: 14px;
-      }
-      & a {
-        margin: 0;
-      }
-    }
-  }
-  &-switchs {
-    text-align: end;
-    & label {
-      font-size: small;
-    }
+  &--vendors {
+    padding: $p-l;
+    margin-bottom: $m-m;
   }
 
-  &-text {
+  &-texts .sui-AtomButton {
     font-size: 12px;
-    margin: 0 0 10px 10px;
-    max-width: 80%;
-    &--expanded#{$base-class}-text--expanded {
-      max-width: 100%;
-    }
-  }
-  &-title {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0 0 5px 10px;
-    max-width: 80%;
-  }
-  &-link {
-    font-size: 12px;
-    color: $c-primary;
-    margin: 0 0 0 16px;
-  }
-  &-paragraph {
-    margin-bottom: 14px;
+    margin: 0 0 0 $m-m;
   }
 }

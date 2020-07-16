@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 
 import SuiModal from '@s-ui/react-molecule-modal'
-import SuiButton from '@s-ui/react-atom-button'
+import Button from '@s-ui/react-atom-button'
 
 import IconClose from './components/iconClose'
 import TcfSecondLayerDecisionGroup from './components/tcf-secondLayer-decision-group'
@@ -183,12 +183,9 @@ export default function TcfSecondLayer({
     })
   }
 
-  const Logo = React.memo(() => {
-    const className = isMobile
-      ? `${CLASS}-logo`
-      : `${CLASS}-logo ${CLASS}-logo--desktop`
-    return <img className={className} src={logo} alt="logo" />
-  })
+  const Logo = React.memo(() => (
+    <img className={`${CLASS}-logo`} src={logo} alt="logo" />
+  ))
 
   const vendorExpandedContent = props => (
     <TcfSecondLayerVendorExpandedContent
@@ -216,31 +213,14 @@ export default function TcfSecondLayer({
         iconClose={isMobile ? <IconClose /> : false}
         onClose={handleSaveExitClick}
         fitContent
+        portalContainerId="sui-TcfSecondLayerModal"
       >
         {!isMobile && <Logo />}
-        <div
-          className={
-            isMobile
-              ? `${CLASS}-container`
-              : `${CLASS}-container ${CLASS}-container--desktop`
-          }
-        >
-          <h2
-            className={
-              isMobile
-                ? `${CLASS}-title`
-                : `${CLASS}-title ${CLASS}-title--desktop`
-            }
-          >
+        <div className={`${CLASS}-main`}>
+          <h4 className={`${CLASS}-title`}>
             {isVendorLayer ? i18n.VENDOR_PAGE.TITLE : i18n.SECOND_LAYER.TITLE}
-          </h2>
-          <p
-            className={
-              isMobile
-                ? `${CLASS}-text`
-                : `${CLASS}-text ${CLASS}-text--desktop`
-            }
-          >
+          </h4>
+          <p>
             {isVendorLayer ? i18n.VENDOR_PAGE.TEXT : i18n.SECOND_LAYER.TEXT}
           </p>
           {!!vendorListState?.purposes &&
@@ -328,26 +308,27 @@ export default function TcfSecondLayer({
             />
           )}
         </div>
-        <footer className={`${CLASS}-buttons`}>
+        <footer className={`${CLASS}-footer`}>
           {!isMobile && !isVendorLayer && (
-            <div>
-              <span
-                className={`${CLASS}-buttons-link`}
+            <div className={`${CLASS}-footer--link`}>
+              <Button
+                size="small"
+                design="link"
                 onClick={() => {
                   onVendorsClick && onVendorsClick()
                 }}
               >
                 {i18n.SECOND_LAYER.PARTNERS_LINK}
-              </span>
+              </Button>
             </div>
           )}
-          <div>
-            <SuiButton design="outline" onClick={onGoBack}>
+          <div className={`${CLASS}-footer--buttons`}>
+            <Button design="outline" size="small" onClick={onGoBack}>
               {i18n.GO_BACK_BUTTON}
-            </SuiButton>
-            <SuiButton onClick={handleSaveExitClick}>
+            </Button>
+            <Button size="small" onClick={handleSaveExitClick}>
               {i18n.ACCEPT_BUTTON}
-            </SuiButton>
+            </Button>
           </div>
         </footer>
       </SuiModal>

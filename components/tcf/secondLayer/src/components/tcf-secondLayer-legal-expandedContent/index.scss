@@ -1,12 +1,5 @@
-$base-class: '.sui-TcfSecondLayer-group-expanded';
+$base-class: '.sui-TcfSecondLayer-group-expanded-list';
 
 #{$base-class} {
-  &-container {
-    & p {
-      display: inline-block;
-    }
-    & #{$base-class}-list {
-      margin-left: 20px;
-    }
-  }
+  margin-left: $m-l;
 }

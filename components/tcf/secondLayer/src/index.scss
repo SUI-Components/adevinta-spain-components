@@ -2,57 +2,128 @@
 @import '~@s-ui/react-atom-button/lib/index';
 @import '~@s-ui/react-molecule-modal/lib/index';
 @import '~@s-ui/react-atom-switch/lib/index';
+
+$fz-tcf-second-layer-base: $fz-s; // 14px
+$fz-tcf-second-layer-mobile: $fz-xxs; // 10px
+$h-tcf-second-layer-footer: 88px;
+$h-tcf-second-layer-footer-mobile: 80px;
+$maw-tcf-second-layer-modal: 800px;
+$ml-tcf-second-layer-modal: $m-xxl;
+$mr-tcf-second-layer-modal: $ml-tcf-second-layer-modal;
+$ml-tcf-second-layer-modal-mobile: $m-l;
+$mr-tcf-second-layer-modal-mobile: $m-m;
+$mah-tcf-second-layer-logo: 24px;
+$mah-tcf-second-layer-logo-mobile: 20px;
+
 @import './components/iconClose';
-@import './components/iconAccordion';
 @import './components/tcf-secondLayer-decision-group';
 @import './components/tcf-secondLayer-user-decision';
 @import './components/tcf-secondLayer-vendors-user-decision';
 @import './components/tcf-secondLayer-legal-expandedContent';
 
 $base-class: '.sui-TcfSecondLayer';
+$base-class-modal: '#sui-TcfSecondLayerModal';
+
+#{$base-class-modal} {
+  .sui-MoleculeModal-dialog {
+    max-width: $maw-tcf-second-layer-modal;
+    padding-bottom: $h-tcf-second-layer-footer-mobile;
+    position: relative;
+    @include media-breakpoint-up(s) {
+      padding-bottom: $h-tcf-second-layer-footer;
+    }
+  }
+
+  .sui-MoleculeModal-content {
+    margin: $m-l $mr-tcf-second-layer-modal-mobile 0
+      $ml-tcf-second-layer-modal-mobile;
+    position: initial;
+    @include media-breakpoint-up(s) {
+      margin: $m-xxl $ml-tcf-second-layer-modal 0;
+    }
+  }
+
+  .sui-MoleculeModal-header {
+    padding-left: $ml-tcf-second-layer-modal-mobile;
+    @include media-breakpoint-up(s) {
+      padding-left: $ml-tcf-second-layer-modal;
+    }
+  }
+}
 
 #{$base-class} {
-  &-container {
-    padding-right: 10px;
-    &--desktop {
-      padding-left: 8px;
+  &-main {
+    padding-right: $p-m;
+    margin-top: $m-l;
+    font-size: $fz-tcf-second-layer-mobile;
+    @include media-breakpoint-up(s) {
+      margin-top: $m-xxl;
+      font-size: $fz-tcf-second-layer-base;
     }
-  }
-  &-title {
-    font-size: 14px;
-    &--desktop {
-      font-size: 20px;
+    p {
+      margin-top: 0;
     }
-  }
-  &-text {
-    font-size: 10px;
-    &--desktop {
-      font-size: 14px;
-    }
-  }
-  &-buttons {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 10px;
-    padding-top: 15px;
-    border-top: solid 1px #dcdcdc;
-    & button {
-      font-size: 14px;
-      border-radius: 8px;
-    }
-    &-link {
-      font-size: 14px;
-      color: $c-primary;
-      cursor: pointer;
-    }
-  }
-  &-logo {
-    height: 20px;
-    margin: 8px 0 5px -8px;
-    &--desktop.sui-TcfSecondLayer-logo {
+    .sui-AtomSwitch-container {
+      padding: 0px;
+      border: 0px;
       height: 24px;
-      margin: 18px 0 33px 8px;
+    }
+  }
+
+  &-logo {
+    max-height: $mah-tcf-second-layer-logo-mobile;
+    @include media-breakpoint-up(s) {
+      max-height: $mah-tcf-second-layer-logo;
+    }
+  }
+
+  &-title {
+    font-size: $fz-tcf-second-layer-base;
+    margin-bottom: $m-m;
+    @include media-breakpoint-up(s) {
+      font-size: $fz-h5;
+      margin-bottom: $m-l;
+    }
+  }
+
+  &-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    height: $h-tcf-second-layer-footer-mobile;
+    border-top: 1px solid #dcdcdc;
+    @include media-breakpoint-up(s) {
+      height: $h-tcf-second-layer-footer;
+    }
+
+    &--link {
+      position: absolute;
+      left: $ml-tcf-second-layer-modal-mobile;
+      bottom: $m-xxl;
+      @include media-breakpoint-up(s) {
+        left: $ml-tcf-second-layer-modal;
+      }
+    }
+
+    &--buttons {
+      position: absolute;
+      right: $ml-tcf-second-layer-modal-mobile;
+      bottom: $m-xl;
+      @include media-breakpoint-up(s) {
+        right: $mr-tcf-second-layer-modal;
+        bottom: $m-xxl;
+      }
+    }
+
+    .sui-AtomButton.sui-AtomButton--small {
+      border-radius: $bdrs-xl;
+      font-size: 12px;
+      @include media-breakpoint-up(s) {
+        padding: 0 $p-l;
+        height: 40px;
+        font-size: $fz-tcf-second-layer-base;
+      }
     }
   }
 }
