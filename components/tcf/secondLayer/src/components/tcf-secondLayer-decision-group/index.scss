@@ -1,20 +1,25 @@
-$base-class: '.sui-TcfSecondLayer-group';
+$base-class: '.sui-TcfSecondLayer-groupHeader';
 
 #{$base-class} {
-  &-title-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-flow: wrap;
-    padding: 30px 0 16px 0;
-  }
-  &-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: $m-xxl 0 0;
+
+  & &-title {
     font-size: 16px;
+    margin-bottom: $m-l;
   }
-  &-buttons {
-    & button {
+
+  & &-buttons {
+    text-align: right;
+    padding-left: $p-l;
+    margin-bottom: $m-m;
+
+    .sui-AtomButton {
       font-size: 12px;
-      border-radius: 8px;
+      border-radius: $bdrs-xl;
+      margin-bottom: $m-m;
     }
   }
 }

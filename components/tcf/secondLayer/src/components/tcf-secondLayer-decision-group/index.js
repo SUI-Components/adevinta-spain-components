@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import SuiButton from '@s-ui/react-atom-button'
+import Button from '@s-ui/react-atom-button'
 
 import TcfSecondLayerUserDecision from '../tcf-secondLayer-user-decision'
 import TcfSecondLayerVendorsUserDecision from '../tcf-secondLayer-vendors-user-decision'
@@ -29,22 +29,24 @@ export function TcfSecondLayerDecisionGroup({
     return null
   }
   const ButtonAll = React.memo(() => (
-    <div className={`${baseClass}-buttons`}>
-      <SuiButton size="small" design="outline" onClick={onRejectAll}>
+    <div className={`${baseClass}Header-buttons`}>
+      <Button size="small" design="outline" onClick={onRejectAll}>
         {i18n.DISABLE_BUTTON}
-      </SuiButton>
-      <SuiButton size="small" onClick={onAcceptAll}>
+      </Button>
+      <Button size="small" onClick={onAcceptAll}>
         {i18n.ENABLE_BUTTON}
-      </SuiButton>
+      </Button>
     </div>
   ))
 
   return (
     <>
-      <div className={`${baseClass}-title-container`}>
-        <h2 className={`${baseClass}-title`}>{name}</h2>
-        {isVendorLayer && hasConsent ? <ButtonAll /> : null}
+      <div className={`${baseClass}Header`}>
+        <h5 className={`${baseClass}Header-title`}>{name}</h5>
+        {hasConsent ? <ButtonAll /> : null}
       </div>
+      {/* sui-TcfSecondLayer-group-item- */}
+      {/* sui-TcfSecondLayer-group-item--vendors */}
       {descriptionKeys.map((key, index) => {
         const consentValue = state?.consents
           ? state.consents[key]
@@ -52,7 +54,7 @@ export function TcfSecondLayerDecisionGroup({
         return isVendorLayer ? (
           <TcfSecondLayerUserDecision
             key={`${key}-${index}`}
-            baseClass={`${baseClass}-item`}
+            baseClass={`${baseClass}`}
             info={descriptions[key]}
             consentValue={consentValue}
             hasConsent={hasConsent}
@@ -64,7 +66,7 @@ export function TcfSecondLayerDecisionGroup({
         ) : (
           <TcfSecondLayerVendorsUserDecision
             key={`${key}-${index}`}
-            baseClass={`${baseClass}-item--vendors`}
+            baseClass={`${baseClass}`}
             info={descriptions[key]}
             consentValue={consentValue}
             hasConsent={hasConsent}

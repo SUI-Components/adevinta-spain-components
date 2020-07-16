@@ -9,39 +9,45 @@ export default function TcfSecondLayerVendorExpandedContent({
 }) {
   const PolicyUrl = () => (
     <>
-      <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.POLICY_URL}</h3>
-      <a
-        className={`${baseClass}-text ${baseClass}-text--expanded`}
-        href={info.policyUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {info.policyUrl}
-      </a>
+      <h6 className={`${baseClass}-title`}>
+        {i18n.VENDOR_PAGE.GROUPS.EXPANDED.POLICY_URL}
+      </h6>
+      <p>
+        <a
+          className={`${baseClass}-link`}
+          href={info.policyUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {info.policyUrl}
+        </a>
+      </p>
     </>
   )
   const Information = ({ids, vendorList}) =>
     ids.map(id => (
-      <div key={`${id}-purposes`} className={`${baseClass}-paragraph`}>
-        <p className={`${baseClass}-text ${baseClass}-text--expanded`}>
+      <>
+        <p key={`${id}-purposes`}>
           <strong>{vendorList && `${vendorList[id]?.name}: `}</strong>
         </p>
-        <p className={`${baseClass}-text ${baseClass}-text--expanded`}>
-          {vendorList && vendorList[id]?.description}
-        </p>
-      </div>
+        <p>{vendorList && vendorList[id]?.description}</p>
+      </>
     ))
   return (
     <>
       {info.policyUrl && <PolicyUrl />}
       {!!info.purposes?.length && vendorList.purposes && (
-        <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.PURPOSES}</h3>
+        <h6 className={`${baseClass}-title`}>
+          {i18n.VENDOR_PAGE.GROUPS.EXPANDED.PURPOSES}
+        </h6>
       )}
       {!!info.purposes?.length && vendorList.purposes && (
         <Information ids={info.purposes} vendorList={vendorList.purposes} />
       )}
       {!!info.legIntPurposes.length && vendorList.purposes && (
-        <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.LEGITIMATE_INTEREST_PURPOSES}</h3>
+        <h6 className={`${baseClass}-title`}>
+          {i18n.VENDOR_PAGE.GROUPS.EXPANDED.LEGITIMATE_INTEREST_PURPOSES}
+        </h6>
       )}
       {!!info.legIntPurposes?.length && vendorList.purposes && (
         <Information
@@ -50,7 +56,9 @@ export default function TcfSecondLayerVendorExpandedContent({
         />
       )}
       {!!info.specialPurposes?.length && vendorList.specialPurposes && (
-        <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.SPECIAL_PURPOSES}</h3>
+        <h6 className={`${baseClass}-title`}>
+          {i18n.VENDOR_PAGE.GROUPS.EXPANDED.SPECIAL_PURPOSES}
+        </h6>
       )}
       {!!info.specialPurposes?.length && vendorList.specialPurposes && (
         <Information
@@ -59,13 +67,17 @@ export default function TcfSecondLayerVendorExpandedContent({
         />
       )}
       {!!info.features?.length && vendorList.features && (
-        <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.FEATURES}</h3>
+        <h6 className={`${baseClass}-title`}>
+          {i18n.VENDOR_PAGE.GROUPS.EXPANDED.FEATURES}
+        </h6>
       )}
       {!!info.features?.length && vendorList.features && (
         <Information ids={info.features} vendorList={vendorList.features} />
       )}
       {!!info.specialFeatures?.length && vendorList.specialFeatures && (
-        <h3>{i18n.VENDOR_PAGE.GROUPS.EXPANDED.SPECIAL_FEATURES}</h3>
+        <h6 className={`${baseClass}-title`}>
+          {i18n.VENDOR_PAGE.GROUPS.EXPANDED.SPECIAL_FEATURES}
+        </h6>
       )}
       {!!info.specialFeatures?.length && vendorList.specialFeatures && (
         <Information

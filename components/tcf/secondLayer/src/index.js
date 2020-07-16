@@ -183,7 +183,9 @@ export default function TcfSecondLayer({
     })
   }
 
-  const Logo = React.memo(() => <img className={`${CLASS}-logo`} src={logo} alt="logo" />)
+  const Logo = React.memo(() => (
+    <img className={`${CLASS}-logo`} src={logo} alt="logo" />
+  ))
 
   const vendorExpandedContent = props => (
     <TcfSecondLayerVendorExpandedContent
@@ -215,9 +217,9 @@ export default function TcfSecondLayer({
       >
         {!isMobile && <Logo />}
         <div className={`${CLASS}-main`}>
-          <h5 className={`${CLASS}-title`}>
+          <h4 className={`${CLASS}-title`}>
             {isVendorLayer ? i18n.VENDOR_PAGE.TITLE : i18n.SECOND_LAYER.TITLE}
-          </h5>
+          </h4>
           <p>
             {isVendorLayer ? i18n.VENDOR_PAGE.TEXT : i18n.SECOND_LAYER.TEXT}
           </p>
@@ -310,6 +312,7 @@ export default function TcfSecondLayer({
           {!isMobile && !isVendorLayer && (
             <div className={`${CLASS}-footer--link`}>
               <Button
+                size="small"
                 design="link"
                 onClick={() => {
                   onVendorsClick && onVendorsClick()
@@ -320,10 +323,12 @@ export default function TcfSecondLayer({
             </div>
           )}
           <div className={`${CLASS}-footer--buttons`}>
-            <Button design="outline" onClick={onGoBack}>
+            <Button design="outline" size="small" onClick={onGoBack}>
               {i18n.GO_BACK_BUTTON}
             </Button>
-            <Button onClick={handleSaveExitClick}>{i18n.ACCEPT_BUTTON}</Button>
+            <Button size="small" onClick={handleSaveExitClick}>
+              {i18n.ACCEPT_BUTTON}
+            </Button>
           </div>
         </footer>
       </SuiModal>
