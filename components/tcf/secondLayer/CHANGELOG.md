@@ -2,12 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.11.0 (2020-07-16)
+
+
+### Features
+
+* last changes for refactor ([13835be](https://github.com/SUI-Components/schibsted-spain-components/commit/13835bee3649d13e4f10c3a7ffe97e138c193715))
+* remove unused buttons ([9936dc2](https://github.com/SUI-Components/schibsted-spain-components/commit/9936dc2f002b134a80a8daf337da28ba5f495bb7))
+
+
+
 # 1.10.0 (2020-07-15)
 
 
 ### Features
 
 * improve performance of rendering ([6aa6775](https://github.com/SUI-Components/schibsted-spain-components/commit/6aa6775bf59aec3fcfe371d7cc86ef1c075198fe))
+* restyling second layer ([87f9ca5](https://github.com/SUI-Components/schibsted-spain-components/commit/87f9ca5841df512d20d44f364b97f004369e531f))
 
 
 
