@@ -6,7 +6,7 @@ import {
   uiVisibleUseCaseFactory,
   updateUserConsentUseCaseFactory
 } from '../../application/service/factory'
-import {tcfRepositoryFactory} from '../Tcf/factory'
+import {tcfRepositoryFactory} from '../tcfx/factory'
 
 class ServiceInitializer {
   static init({language = 'es'} = {}) {
