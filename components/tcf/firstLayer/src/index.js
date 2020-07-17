@@ -125,7 +125,7 @@ export default function TcfFirstLayer({
   }
 
   return (
-    <div className={`${CLASS}${isMobile ? ` ${CLASS}--isMobile` : ''}`}>
+    <div className={`${CLASS} ${isMobile ? ` ${CLASS}--isMobile` : ''}`}>
       {isMobile && showInModalForMobile ? (
         <SuiModal
           isOpen={show}
