@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import TCFServices from '@s-ui/react-tcf-services'
-
 import TCFContainer from './TCFContainer/TCFContainer'
+import ConsentProvider from '@s-ui/react-tcf-services'
+
 export default function TcfUi({
   lang,
   logo,
@@ -13,24 +12,16 @@ export default function TcfUi({
   showInModalForMobile = false
 }) {
   return (
-    <TCFServices>
-      {service => (
-        <TCFContainer
-          lang={lang}
-          logo={logo}
-          isMobile={isMobile}
-          getVendorList={({language}) => service.getVendorList({language})}
-          loadUserConsent={() => service.loadUserConsent()}
-          saveUserConsent={({purpose, vendor, specialFeatures}) =>
-            service.saveUserConsent({purpose, vendor, specialFeatures})
-          }
-          uiVisible={({visible}) => service.uiVisible({visible})}
-          showVendors={showVendors}
-          onCloseModal={onCloseModal}
-          showInModalForMobile={showInModalForMobile}
-        />
-      )}
-    </TCFServices>
+    <ConsentProvider language={lang}>
+      <TCFContainer
+        lang={lang}
+        logo={logo}
+        isMobile={isMobile}
+        showVendors={showVendors}
+        onCloseModal={onCloseModal}
+        showInModalForMobile={showInModalForMobile}
+      />
+    </ConsentProvider>
   )
 }
 
