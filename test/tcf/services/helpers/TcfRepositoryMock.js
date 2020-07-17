@@ -1,4 +1,4 @@
-import {TcfRepository} from '../../../../components/tcf/services/src/infrastructure/tcfx/TcfRepository'
+import {TcfRepository} from '../../../../components/tcf/services/src/infrastructure/tcf/TcfRepository'
 class TcfRepositoryMock extends TcfRepository {
   constructor({tcfApi}) {
     super({tcfApi})
