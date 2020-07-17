@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
-
+import {useConsent} from '@s-ui/react-tcf-services'
 import SuiModal from '@s-ui/react-molecule-modal'
 import Button from '@s-ui/react-atom-button'
 
@@ -18,9 +18,7 @@ export default function TcfSecondLayer({
   isMobile,
   lang = 'es',
   logo,
-  loadUserConsent,
   saveUserConsent,
-  getVendorList,
   onGoBack,
   onVendorsClick,
   isVendorLayer
@@ -28,6 +26,7 @@ export default function TcfSecondLayer({
   const [state, setState] = useState(null)
   const [modalOpen, setModalOpen] = useState(true)
   const [vendorListState, setVendorListState] = useState(null)
+  const {getVendorList, loadUserConsent, updateUserConsent} = useConsent()
 
   const i18n = I18N[lang]
 
@@ -39,9 +38,7 @@ export default function TcfSecondLayer({
         features,
         specialFeatures,
         vendors
-      } = await getVendorList({
-        language: lang
-      })
+      } = await getVendorList()
       setVendorListState({
         purposes,
         specialPurposes,
@@ -50,26 +47,6 @@ export default function TcfSecondLayer({
         vendors
       })
       const userConsent = await loadUserConsent()
-      if (userConsent.isNew) {
-        userConsent.vendor.consents = format({
-          reference: vendors,
-          object: {},
-          value: true
-        })
-        userConsent.vendor.legitimateInterests = {
-          ...userConsent.vendor.consents
-        }
-        userConsent.purpose.consents = {}
-        userConsent.purpose.legitimateInterests = {}
-        ADEVINTA_COLLECTED_CONSENTS.purposes.forEach(key => {
-          userConsent.purpose.consents[key] = true
-          userConsent.purpose.legitimateInterests[key] = true
-        })
-        userConsent.specialFeatures = {}
-        ADEVINTA_COLLECTED_CONSENTS.specialFeatures.forEach(
-          key => (userConsent.specialFeatures[key] = true)
-        )
-      }
       setState({
         vendors: userConsent.vendor,
         purposes: userConsent.purpose,
@@ -77,57 +54,19 @@ export default function TcfSecondLayer({
       })
     }
     getVendorListAndConsent()
-  }, [getVendorList, loadUserConsent, lang])
+  }, [getVendorList, lang, loadUserConsent])
 
   const handleCloseModal = () => {
     setModalOpen(false)
   }
-  const format = ({reference, object, value = false}) => {
-    Object.keys(reference).forEach(key => {
-      if (!object[key]) {
-        object[key] = value
-      }
-    })
-    return object
-  }
-  const formatConsentObject = ({
-    vendor = {},
-    purpose = {},
-    specialFeatures = {}
-  }) => {
-    vendor.consents = format({
-      reference: vendorListState.vendors || {},
-      object: vendor.consents || {}
-    })
-    vendor.legitimateInterests = format({
-      reference: vendorListState.vendors || {},
-      object: vendor.legitimateInterests || {}
-    })
-    purpose.consents = format({
-      reference: vendorListState.purposes || {},
-      object: purpose.consents || {}
-    })
-    purpose.legitimateInterests = format({
-      reference: vendorListState.purposes || {},
-      object: purpose.legitimateInterests || {}
-    })
-    const consentSpecialFeatures = format({
-      reference: vendorListState.specialFeatures || {},
-      object: specialFeatures
-    })
-    return {vendor, purpose, specialFeatures: consentSpecialFeatures}
-  }
 
   const handleSaveExitClick = () => {
-    saveUserConsent(
-      formatConsentObject({
-        vendor: state.vendors,
-        purpose: state.purposes,
-        specialFeatures: state.specialFeatures
-      })
-    )
+    saveUserConsent()
     handleCloseModal()
   }
+
+  const saveConsentState = ({purposes, vendors, specialFeatures}) =>
+    updateUserConsent({purpose: purposes, vendor: vendors, specialFeatures})
 
   const changeAllGroup = ({group, value}) => {
     setState(prevState => {
@@ -135,7 +74,9 @@ export default function TcfSecondLayer({
         prevState[group].consents[key] = value
         prevState[group].legitimateInterests[key] = value
       }
-      return {...prevState, [group]: prevState[group]}
+      const nextState = {...prevState, [group]: prevState[group]}
+      saveConsentState(nextState)
+      return nextState
     })
   }
   const handleRejectAll = ({group}) => {
@@ -150,16 +91,20 @@ export default function TcfSecondLayer({
     ADEVINTA_COLLECTED_CONSENTS.specialFeatures.forEach(
       value => (specialFeatures[value] = true)
     )
-    setState({
+    const nextState = {
       ...state,
       specialFeatures
-    })
+    }
+    saveConsentState(nextState)
+    setState(nextState)
   }
   const handleRejectAllSpecialFeatures = () => {
-    setState({
+    const nextState = {
       ...state,
       specialFeatures: {}
-    })
+    }
+    saveConsentState(nextState)
+    setState(nextState)
   }
 
   const handleConsentsChange = ({group, index, value}) => {
@@ -172,12 +117,14 @@ export default function TcfSecondLayer({
           ...prevState,
           [group]: {...prevState[group], consents, legitimateInterests}
         }
+        saveConsentState(nextState)
         return nextState
       } else {
         const nextState = {
           ...prevState,
           [group]: {...prevState[group], [index]: !value}
         }
+        saveConsentState(nextState)
         return nextState
       }
     })
