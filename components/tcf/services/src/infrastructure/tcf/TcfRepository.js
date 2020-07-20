@@ -1,9 +1,8 @@
-import {ADEVINTA_COLLECTED_CONSENTS} from '../../../../secondLayer/src/settings'
-
 class TcfRepository {
-  constructor({tcfApi, language = 'es'}) {
+  constructor({tcfApi, language = 'es', scope = {}}) {
     this._tcfApi = tcfApi
     this._language = language
+    this._scope = scope
     this._cachedConsent = null
     this._data = {}
   }
@@ -24,15 +23,22 @@ class TcfRepository {
       userConsent.purpose = {consents: {}, legitimateInterests: {}}
       userConsent.vendor = {consents: {}, legitimateInterests: {}}
       userConsent.specialFeatures = {}
-      ADEVINTA_COLLECTED_CONSENTS.purposes.forEach(key => {
+
+      this._scope.purposes =
+        this._scope.purposes || Object.keys(vendorList.purposes)
+      this._scope.purposes.forEach(key => {
         userConsent.purpose.consents[key] = true
         userConsent.purpose.legitimateInterests[key] = true
       })
+
       Object.keys(vendorList.vendors).forEach(key => {
         userConsent.vendor.consents[key] = true
         userConsent.vendor.legitimateInterests[key] = true
       })
-      ADEVINTA_COLLECTED_CONSENTS.specialFeatures.forEach(
+
+      this._scope.specialFeatures =
+        this._scope.specialFeatures || Object.keys(vendorList.specialFeatures)
+      this._scope.specialFeatures.forEach(
         key => (userConsent.specialFeatures[key] = true)
       )
     }
@@ -64,20 +70,25 @@ class TcfRepository {
     updated.vendor.consents = updated.vendor.consents || {}
     updated.vendor.legitimateInterests =
       updated.vendor.legitimateInterests || {}
+
     if (allPurposes !== null) {
-      ADEVINTA_COLLECTED_CONSENTS.purposes.forEach(key => {
+      this._scope.purposes = this._scope.purposes || []
+      this._scope.purposes.forEach(key => {
         updated.purpose.consents[key] = allPurposes
         updated.purpose.legitimateInterests[key] = allPurposes
       })
     }
+
     if (allVendors !== null) {
       Object.keys(updated.vendor.consents).forEach(key => {
         updated.vendor.consents[key] = allVendors
         updated.vendor.legitimateInterests[key] = allVendors
       })
     }
+
     if (allSpecialFeatures !== null) {
-      ADEVINTA_COLLECTED_CONSENTS.specialFeatures.forEach(key => {
+      this._scope.specialFeatures = this._scope.specialFeatures || []
+      this._scope.specialFeatures.forEach(key => {
         updated.specialFeatures[key] = allSpecialFeatures
       })
     }
