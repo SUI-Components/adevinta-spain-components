@@ -15,9 +15,9 @@
     "install:demos": "cd demo && sui-mono phoenix --ci",
     "phoenix": "sui-mono phoenix && npm run install:demos",
     "phoenix:ci": "sui-mono phoenix --no-root --ci && npm run install:demos -- --ci",
-    "precommit": "sui-precommit run",
     "start": "sui-studio start",
-    "test": "jest"
+    "test": "sui-studio test && npm run test:jest",
+    "test:jest": "jest"
   },
   "repository": {},
   "keywords": [],
@@ -31,7 +31,7 @@
     "@s-ui/studio": "8",
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.2",
-    "husky": "0.13.4",
+    "husky": "4.2.5",
     "jest": "24.9.0",
     "validate-commit-msg": "2.14.0"
   },
@@ -70,5 +70,10 @@
   "prettier": "./node_modules/@s-ui/lint/.prettierrc.js",
   "stylelint": {
     "extends": "./node_modules/@s-ui/lint/stylelint.config.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "sui-precommit run"
+    }
   }
 }
