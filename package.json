@@ -4,7 +4,7 @@
   "description": "Mono repo containing all Schibsted Spain React Components.",
   "private": true,
   "scripts": {
-    "build": "npm run phoenix:ci && sui-studio build",
+    "build": "sui-studio build",
     "co": "sui-studio commit",
     "commitmsg": "validate-commit-msg",
     "dev": "sui-studio dev",
