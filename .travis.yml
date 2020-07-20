@@ -20,7 +20,6 @@ before_script:
   - node scripts/update-pr-status "{}"
   - npx sui-mono phoenix --ci --no-root
   - npm run install:demos -- --ci
-  - npm run install:themes
   # some tweaks for tests to work
   - export NODE_OPTIONS=--max_old_space_size=4096
   - echo fs.inotify.max_user_instances=524288 | sudo tee -a /etc/sysctl.conf && sysctl -p
