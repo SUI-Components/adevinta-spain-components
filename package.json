@@ -24,13 +24,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "7.7.5",
+    "@babel/plugin-transform-modules-commonjs": "7.10.4",
     "@octokit/core": "3.1.1",
     "@s-ui/lint": "3",
     "@s-ui/precommit": "2",
     "@s-ui/studio": "8",
-    "enzyme": "3.10.0",
-    "enzyme-adapter-react-16": "1.15.1",
+    "enzyme": "3.11.0",
+    "enzyme-adapter-react-16": "1.15.2",
     "husky": "0.13.4",
     "jest": "24.9.0",
     "validate-commit-msg": "2.14.0"
