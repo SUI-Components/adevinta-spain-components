@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.13.0 (2020-07-20)
+
+
+### Bug Fixes
+
+* use given consent scope ([08415f0](https://github.com/SUI-Components/schibsted-spain-components/commit/08415f0ef58c24c3624042b51029c3d2377c41db))
+* use properties from the context ([571b70c](https://github.com/SUI-Components/schibsted-spain-components/commit/571b70cb665ca42ebabb9dc7a0c92eb650115fb0))
+
+
+
 # 1.12.0 (2020-07-20)
 
 
@@ -11,6 +21,7 @@ All notable changes to this project will be documented in this file.
 * little change ([f3938b2](https://github.com/SUI-Components/schibsted-spain-components/commit/f3938b2596ffb2a93c1e14599f59a49140a0812f))
 * little change ([3b5d3b4](https://github.com/SUI-Components/schibsted-spain-components/commit/3b5d3b4442a33b90abd9fe86cd9339d0636da15c))
 * refactor css for Variant B ([118502c](https://github.com/SUI-Components/schibsted-spain-components/commit/118502c7fdc6503675e0eb0b54dd27d6b2a5bdec))
+* use the consent provider ([8e6a5ff](https://github.com/SUI-Components/schibsted-spain-components/commit/8e6a5ff272f111515fdcd47a92cb99de892442f0))
 
 
 
