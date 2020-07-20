@@ -6,7 +6,7 @@ import {render} from '@testing-library/react'
 
 chai.use(chaiDOM)
 
-describe('TcfSecondLayer', () => {
+describe.skip('TcfSecondLayer', () => {
   it('Render', () => {
     render(<TcfSecondLayer />)
     expect(true).to.be.eql(false)
