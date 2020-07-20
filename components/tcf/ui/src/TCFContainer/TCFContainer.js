@@ -1,23 +1,18 @@
 import React, {Suspense, useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
+import {useConsent} from '@s-ui/react-tcf-services'
 
 const FirstLayer = React.lazy(() => import('@s-ui/react-tcf-first-layer'))
 const SecondLayer = React.lazy(() => import('@s-ui/react-tcf-second-layer'))
 
 export default function TCFContainer({
-  getVendorList,
-  loadUserConsent,
   onCloseModal,
-  saveUserConsent,
-  uiVisible,
-  isMobile,
-  lang,
   logo,
   showVendors,
   showInModalForMobile
 }) {
   const [showLayer, setShowLayer] = useState(0)
-
+  const {uiVisible, loadUserConsent, saveUserConsent} = useConsent()
   useEffect(() => {
     if (showVendors) {
       uiVisible({visible: true})
@@ -27,7 +22,8 @@ export default function TCFContainer({
 
   useEffect(() => {
     async function checkConsentStatus() {
-      const {valid} = await loadUserConsent()
+      const userConsent = await loadUserConsent()
+      const {valid} = userConsent
       if (!valid) {
         uiVisible({visible: true})
         setShowLayer(1)
@@ -56,8 +52,8 @@ export default function TCFContainer({
   const handleOpenCookiepolicyLayer = () => {
     setShowLayer(3)
   }
-  const handleSaveUserConsent = async ({purpose, vendor, specialFeatures}) => {
-    await saveUserConsent({purpose, vendor, specialFeatures})
+  const handleSaveUserConsent = async () => {
+    await saveUserConsent()
     uiVisible({visible: false})
     onCloseModal && onCloseModal()
     setShowLayer(0)
@@ -68,11 +64,7 @@ export default function TCFContainer({
       {showLayer === 1 && (
         <Suspense fallback={<div />}>
           <FirstLayer
-            isMobile={isMobile}
-            lang={lang}
             logo={logo}
-            getVendorList={getVendorList}
-            loadUserConsent={loadUserConsent}
             saveUserConsent={handleSaveUserConsent}
             openSecondLayer={handleOpenSecondLayer}
             openCookiepolicyLayer={handleOpenCookiepolicyLayer}
@@ -83,12 +75,8 @@ export default function TCFContainer({
       {showLayer === 2 && (
         <Suspense fallback={<div />}>
           <SecondLayer
-            isMobile={isMobile}
-            lang={lang}
             logo={logo}
-            loadUserConsent={loadUserConsent}
             saveUserConsent={handleSaveUserConsent}
-            getVendorList={getVendorList}
             onGoBack={handleSecondLayerGoBack}
             onVendorsClick={handleVendorsClick}
           />
@@ -98,12 +86,8 @@ export default function TCFContainer({
         <Suspense fallback={<div />}>
           <SecondLayer
             isVendorLayer
-            isMobile={isMobile}
-            lang={lang}
             logo={logo}
-            loadUserConsent={loadUserConsent}
             saveUserConsent={handleSaveUserConsent}
-            getVendorList={getVendorList}
             onGoBack={handleThirdLayerGoBack}
           />
         </Suspense>
@@ -115,14 +99,8 @@ export default function TCFContainer({
 TCFContainer.displayName = 'TcfUi'
 
 TCFContainer.propTypes = {
-  getVendorList: PropTypes.func,
-  loadUserConsent: PropTypes.func,
-  uiVisible: PropTypes.func,
   onCloseModal: PropTypes.func,
-  saveUserConsent: PropTypes.func,
-  isMobile: PropTypes.bool,
   showVendors: PropTypes.bool,
-  lang: PropTypes.string,
   logo: PropTypes.string,
   showInModalForMobile: PropTypes.bool
 }

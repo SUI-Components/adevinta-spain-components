@@ -1,10 +1,3 @@
-export const ADEVINTA_COLLECTED_CONSENTS = {
-  purposes: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-  specialPurposes: [1, 2],
-  features: [3],
-  specialFeatures: [1]
-}
-
 const DEFAULT_I18N = {
   LEGITIMATE_INTEREST_COPY: 'Interés legítimo',
   CONSENT_COPY: '',

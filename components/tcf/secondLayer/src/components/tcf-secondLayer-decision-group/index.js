@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 
 import Button from '@s-ui/react-atom-button'
@@ -20,11 +20,19 @@ export function TcfSecondLayerDecisionGroup({
   expandedContent,
   isVendorLayer
 }) {
-  let descriptionKeys =
-    descriptions && Object.keys(descriptions).map(key => parseInt(key))
-  if (filteredIds) {
-    descriptionKeys = descriptionKeys.filter(key => filteredIds.includes(key))
-  }
+  const [descriptionKeys, setDescriptionKeys] = useState(null)
+  useEffect(() => {
+    const asyncUseEffect = async () => {
+      let keys =
+        descriptions && Object.keys(descriptions).map(key => parseInt(key))
+      if (filteredIds) {
+        const toFilter = await filteredIds()
+        keys = keys.filter(key => toFilter.includes(key))
+      }
+      setDescriptionKeys(keys)
+    }
+    asyncUseEffect()
+  }, [descriptions, filteredIds])
   if (!descriptionKeys?.length) {
     return null
   }
@@ -87,7 +95,7 @@ TcfSecondLayerDecisionGroup.propTypes = {
   baseClass: PropTypes.string,
   descriptions: PropTypes.object,
   state: PropTypes.object,
-  filteredIds: PropTypes.arrayOf(PropTypes.number),
+  filteredIds: PropTypes.func,
   hasConsent: PropTypes.bool,
   isVendorLayer: PropTypes.bool,
   onConsentChange: PropTypes.func,
