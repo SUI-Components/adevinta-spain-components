@@ -12,7 +12,7 @@ import chaiDOM from 'chai-dom'
 
 chai.use(chaiDOM)
 
-describe('ad/blockerExtensionDetector', () => {
+describe.skip('ad/blockerExtensionDetector', () => {
   it('Render', () => {
     // Example TO BE DELETED!!!!
     // const {getByRole} = render(<AtomButton>HOLA</AtomButton>)
