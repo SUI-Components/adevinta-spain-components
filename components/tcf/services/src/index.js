@@ -4,7 +4,7 @@ import {ServiceInitializer} from './infrastructure/bootstrap/ServiceInitializer'
 import ConsentContext from './context'
 import useConsent from './context/useConsent'
 
-function ConsentProvider({language, children}) {
+function ConsentProvider({language, isMobile, children}) {
   const service = useRef(ServiceInitializer.init({language}))
   const loadUserConsent = () => service.current.loadUserConsent()
   const getVendorList = () => service.current.getVendorList()
@@ -15,6 +15,8 @@ function ConsentProvider({language, children}) {
   return (
     <ConsentContext.Provider
       value={{
+        language,
+        isMobile,
         loadUserConsent,
         getVendorList,
         saveUserConsent,
@@ -33,5 +35,6 @@ export {useConsent}
 ConsentProvider.displayName = 'ConsentProvider'
 ConsentProvider.propTypes = {
   children: PropTypes.any.isRequired,
-  language: PropTypes.string
+  language: PropTypes.string,
+  isMobile: PropTypes.bool
 }

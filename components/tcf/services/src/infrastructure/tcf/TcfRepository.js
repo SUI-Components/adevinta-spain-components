@@ -1,14 +1,15 @@
 import {ADEVINTA_COLLECTED_CONSENTS} from '../../../../secondLayer/src/settings'
 
 class TcfRepository {
-  constructor({tcfApi}) {
+  constructor({tcfApi, language}) {
     this._tcfApi = tcfApi
+    this._language = language
     this._cachedConsent = null
     this._data = {}
   }
 
-  getVendorList({language = 'es'} = {}) {
-    return this._tcfApi.getVendorList({language})
+  getVendorList() {
+    return this._tcfApi.getVendorList({language: this._language})
   }
 
   loadUserConsent() {

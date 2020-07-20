@@ -10,7 +10,7 @@ import {tcfRepositoryFactory} from '../tcf/factory'
 
 class ServiceInitializer {
   static init({language = 'es'} = {}) {
-    const tcfRepository = tcfRepositoryFactory()
+    const tcfRepository = tcfRepositoryFactory({language})
     const saveUserConsentUseCase = saveUserConsentUseCaseFactory({
       repository: tcfRepository
     })
