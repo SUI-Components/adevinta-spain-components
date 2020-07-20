@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.12.0 (2020-07-20)
+
+
+### Bug Fixes
+
+* add color styling to spans inside sui buttons ([1dbf9e9](https://github.com/SUI-Components/schibsted-spain-components/commit/1dbf9e9b40bbe978c5e20e6ce4b489cec4dabc7a))
+
+
+
 # 1.11.0 (2020-07-16)
 
 
