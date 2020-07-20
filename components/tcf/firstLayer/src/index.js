@@ -125,7 +125,7 @@ export default function TcfFirstLayer({
   }
 
   return (
-    <div className={CLASS}>
+    <div className={`${isMobile ? `${CLASS} ${CLASS}--isMobile` : `${CLASS}`}`}>
       {isMobile && showInModalForMobile ? (
         <SuiModal
           isOpen={show}
@@ -135,15 +135,12 @@ export default function TcfFirstLayer({
           iconClose={<IconClose class={`${CLASS}-icon-close`} />}
           onClose={handleSaveExitClick}
           fitContent
+          portalContainerId="sui-TcfFirstLayerModal"
         >
           <Content />
         </SuiModal>
       ) : (
-        <div
-          className={`${CLASS}-notification ${
-            isMobile ? `${CLASS}--isMobile` : ''
-          }`}
-        >
+        <div className={`${CLASS}-notification`}>
           <SuiNotification
             position="bottom"
             autoClose="manual"

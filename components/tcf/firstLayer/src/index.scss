@@ -12,12 +12,14 @@ $maw-tcf-first-layer-buttons: 200px + $p-xxxl;
 $maw-tcf-first-layer-logo: 114px;
 $bxsh-tcf-first-layer: 0 0 8px 2px rgba(0, 0, 0, 0.15);
 
-.sui-TcfFirstLayer {
+$base-class: '.sui-TcfFirstLayer';
+
+#{$base-class} {
   &-body {
     font-size: $fz-tcf-first-layer-mobile;
-    padding: 0 0 $p-m 0;
+    padding: 0 $p-m;
 
-    .sui-MoleculeNotification & {
+    #{$base-class}:not(#{$base-class}--isMobile) .sui-MoleculeNotification & {
       @include media-breakpoint-up(s) {
         font-size: $fz-tcf-first-layer-base;
         margin: 0 auto;
@@ -31,9 +33,9 @@ $bxsh-tcf-first-layer: 0 0 8px 2px rgba(0, 0, 0, 0.15);
   &-title {
     font-size: $fz-s;
     margin-top: 0;
-    margin-bottom: $m-l;
+    margin-bottom: $m-m;
 
-    .sui-MoleculeNotification & {
+    #{$base-class}:not(#{$base-class}--isMobile) .sui-MoleculeNotification & {
       @include media-breakpoint-up(s) {
         margin-bottom: $m-xl;
         font-size: $fz-h5;
@@ -49,17 +51,14 @@ $bxsh-tcf-first-layer: 0 0 8px 2px rgba(0, 0, 0, 0.15);
   &-buttons {
     display: flex;
     justify-content: center;
-    border-top: $bdw-s solid $c-gray-light-2;
-    padding-top: $p-l;
-    margin-top: $m-xxl;
+    margin-top: $m-xl;
 
-    .sui-MoleculeNotification & {
+    #{$base-class}:not(#{$base-class}--isMobile) .sui-MoleculeNotification & {
       @include media-breakpoint-up(s) {
         flex-direction: column-reverse;
         min-width: $maw-tcf-first-layer-buttons;
         border-top: 0;
         justify-content: flex-end;
-        padding-top: 0;
         padding-left: $p-xxxl;
         margin-top: 0;
       }
@@ -69,7 +68,7 @@ $bxsh-tcf-first-layer: 0 0 8px 2px rgba(0, 0, 0, 0.15);
       border-radius: $bdrs-xl;
       font-size: $fz-tcf-first-layer-base;
 
-      .sui-MoleculeNotification & {
+      #{$base-class}:not(#{$base-class}--isMobile) .sui-MoleculeNotification & {
         @include media-breakpoint-up(s) {
           margin: 0 0 $m-l 0;
           font-size: initial;
@@ -89,47 +88,5 @@ $bxsh-tcf-first-layer: 0 0 8px 2px rgba(0, 0, 0, 0.15);
   .sui-MoleculeNotification {
     background-color: $c-white;
     box-shadow: $bxsh-tcf-first-layer;
-  }
-
-  &--isMobile {
-    .sui-MoleculeNotification-content {
-      min-height: 30vh;
-      padding: 0px 24px;
-      display: block;
-    }
-    .sui-MoleculeNotification-children {
-      display: block;
-    }
-    .sui-TcfFirstLayer {
-      &-title {
-        font-size: 12px;
-        margin-top: 16px;
-      }
-      &-text {
-        font-size: 8px;
-      }
-      &-info {
-        width: 100%;
-      }
-
-      &-body {
-        flex-direction: column;
-        padding: 0px;
-      }
-
-      &-buttons {
-        flex-direction: row;
-        justify-content: center;
-        margin: 17px 0px 16px 0px;
-        border-top: none;
-        padding-top: 0px;
-        button {
-          width: 140px;
-          height: 40px;
-          margin: 0px 8px;
-          font-size: 14px;
-        }
-      }
-    }
   }
 }
