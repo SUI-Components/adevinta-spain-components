@@ -104,6 +104,9 @@ $base-class-modal: '#sui-TcfSecondLayerModal';
       @include media-breakpoint-up(s) {
         left: $ml-tcf-second-layer-modal;
       }
+      & span {
+        color: $c-primary;
+      }
     }
 
     &--buttons {
