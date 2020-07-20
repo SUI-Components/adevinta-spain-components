@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.12.0 (2020-07-20)
+
+
+### Features
+
+* little change ([33e572a](https://github.com/SUI-Components/schibsted-spain-components/commit/33e572a53f87af17f1dbcdae623c1143c8b157a0))
+* little change ([f3938b2](https://github.com/SUI-Components/schibsted-spain-components/commit/f3938b2596ffb2a93c1e14599f59a49140a0812f))
+* little change ([3b5d3b4](https://github.com/SUI-Components/schibsted-spain-components/commit/3b5d3b4442a33b90abd9fe86cd9339d0636da15c))
+* refactor css for Variant B ([118502c](https://github.com/SUI-Components/schibsted-spain-components/commit/118502c7fdc6503675e0eb0b54dd27d6b2a5bdec))
+
+
+
 # 1.11.0 (2020-07-14)
 
 
