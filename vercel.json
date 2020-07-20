@@ -1,5 +1,4 @@
 {
-  "name": "schibsted-spain-components",
   "version": 2,
   "routes": [
     { "handle": "filesystem" },
