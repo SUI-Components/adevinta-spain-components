@@ -10,4 +10,24 @@ $base-class: '.sui-TcfSecondLayer-group';
     font-size: 12px;
     margin: 0 0 0 $m-m;
   }
+
+  &-expanded {
+    .sui-AtomButton:last-child {
+      display: none;
+    }
+
+    .sui-AtomButton:first-child {
+      display: inline-block;
+    }
+
+    &--isActive {
+      .sui-AtomButton:last-child {
+        display: inline-block;
+      }
+
+      .sui-AtomButton:first-child {
+        display: none;
+      }
+    }
+  }
 }
