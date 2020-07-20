@@ -47,13 +47,7 @@ script:
   - npm i vercel@latest --no-save --no-fund --no-audit
   - DEPLOYMENT_URL=$(vercel --token $NOW_TOKEN --confirm $VERCEL_PARAMS)
   - node ./scripts/update-pr-status OK $DEPLOYMENT_URL
+  - if [[ $TRAVIS_EVENT_TYPE == "push" && $TRAVIS_BRANCH == "master" ]] ; then sh .travis-release.sh; fi
 
 after_failure:
   - node ./scripts/update-pr-status
-
-jobs:
-  include:
-    - stage: Release
-      if: branch = master AND NOT type = pull_request
-      script:
-        - sh .travis-release.sh
