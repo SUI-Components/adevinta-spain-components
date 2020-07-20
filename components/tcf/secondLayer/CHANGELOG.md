@@ -2,12 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.13.0 (2020-07-20)
+
+
+
 # 1.12.0 (2020-07-20)
 
 
 ### Bug Fixes
 
 * add color styling to spans inside sui buttons ([1dbf9e9](https://github.com/SUI-Components/schibsted-spain-components/commit/1dbf9e9b40bbe978c5e20e6ce4b489cec4dabc7a))
+* use given consent scope ([5b83a02](https://github.com/SUI-Components/schibsted-spain-components/commit/5b83a02b9315391dc0f2d44f994369df9eb38262))
+* use properties from the context ([db3c034](https://github.com/SUI-Components/schibsted-spain-components/commit/db3c034a60153d3a77e7c7066bd7d35328e94dfe))
+
+
+### Features
+
+* use the consent provider ([214b6d6](https://github.com/SUI-Components/schibsted-spain-components/commit/214b6d6aeaca7aeebb90002828dd95672d1819e0))
 
 
 
