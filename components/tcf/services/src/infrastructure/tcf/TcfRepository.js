@@ -77,7 +77,7 @@ class TcfRepository {
     }
     if (allSpecialFeatures !== null) {
       ADEVINTA_COLLECTED_CONSENTS.specialFeatures.forEach(key => {
-        updated.specialFeatures[key] = true
+        updated.specialFeatures[key] = allSpecialFeatures
       })
     }
     Object.assign(this._data, updated)
