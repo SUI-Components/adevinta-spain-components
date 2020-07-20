@@ -15,8 +15,6 @@ const CLASS = 'sui-TcfSecondLayer'
 const groupBaseClass = `${CLASS}-group`
 
 export default function TcfSecondLayer({
-  isMobile,
-  lang = 'es',
   logo,
   saveUserConsent,
   onGoBack,
@@ -26,9 +24,15 @@ export default function TcfSecondLayer({
   const [state, setState] = useState(null)
   const [modalOpen, setModalOpen] = useState(true)
   const [vendorListState, setVendorListState] = useState(null)
-  const {getVendorList, loadUserConsent, updateUserConsent} = useConsent()
+  const {
+    language,
+    isMobile,
+    getVendorList,
+    loadUserConsent,
+    updateUserConsent
+  } = useConsent()
 
-  const i18n = I18N[lang]
+  const i18n = I18N[language]
 
   useEffect(() => {
     const getVendorListAndConsent = async () => {
@@ -54,7 +58,7 @@ export default function TcfSecondLayer({
       })
     }
     getVendorListAndConsent()
-  }, [getVendorList, lang, loadUserConsent])
+  }, [getVendorList, loadUserConsent])
 
   const handleCloseModal = () => {
     setModalOpen(false)
@@ -285,13 +289,11 @@ export default function TcfSecondLayer({
 
 TcfSecondLayer.displayName = 'TcfSecondLayer'
 TcfSecondLayer.propTypes = {
-  isMobile: PropTypes.bool,
   isVendorLayer: PropTypes.bool,
   loadUserConsent: PropTypes.func,
   saveUserConsent: PropTypes.func,
   getVendorList: PropTypes.func,
   logo: PropTypes.string,
-  lang: PropTypes.string,
   onGoBack: PropTypes.func,
   onVendorsClick: PropTypes.func
 }
