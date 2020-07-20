@@ -30,7 +30,9 @@ export default function TCFContainer({
         setShowLayer(1)
       }
     }
-    checkConsentStatus()
+    checkConsentStatus().catch(() => {
+      setShowLayer(0)
+    })
   }, [])
 
   const handleOpenSecondLayer = () => {
