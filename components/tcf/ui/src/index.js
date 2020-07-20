@@ -12,11 +12,9 @@ export default function TcfUi({
   showInModalForMobile = false
 }) {
   return (
-    <ConsentProvider language={lang}>
+    <ConsentProvider language={lang} isMobile={isMobile}>
       <TCFContainer
-        lang={lang}
         logo={logo}
-        isMobile={isMobile}
         showVendors={showVendors}
         onCloseModal={onCloseModal}
         showInModalForMobile={showInModalForMobile}

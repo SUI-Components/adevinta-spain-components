@@ -7,8 +7,6 @@ const SecondLayer = React.lazy(() => import('@s-ui/react-tcf-second-layer'))
 
 export default function TCFContainer({
   onCloseModal,
-  isMobile,
-  lang,
   logo,
   showVendors,
   showInModalForMobile
@@ -66,8 +64,6 @@ export default function TCFContainer({
       {showLayer === 1 && (
         <Suspense fallback={<div />}>
           <FirstLayer
-            isMobile={isMobile}
-            lang={lang}
             logo={logo}
             saveUserConsent={handleSaveUserConsent}
             openSecondLayer={handleOpenSecondLayer}
@@ -79,8 +75,6 @@ export default function TCFContainer({
       {showLayer === 2 && (
         <Suspense fallback={<div />}>
           <SecondLayer
-            isMobile={isMobile}
-            lang={lang}
             logo={logo}
             saveUserConsent={handleSaveUserConsent}
             onGoBack={handleSecondLayerGoBack}
@@ -92,8 +86,6 @@ export default function TCFContainer({
         <Suspense fallback={<div />}>
           <SecondLayer
             isVendorLayer
-            isMobile={isMobile}
-            lang={lang}
             logo={logo}
             saveUserConsent={handleSaveUserConsent}
             onGoBack={handleThirdLayerGoBack}
@@ -108,9 +100,7 @@ TCFContainer.displayName = 'TcfUi'
 
 TCFContainer.propTypes = {
   onCloseModal: PropTypes.func,
-  isMobile: PropTypes.bool,
   showVendors: PropTypes.bool,
-  lang: PropTypes.string,
   logo: PropTypes.string,
   showInModalForMobile: PropTypes.bool
 }
