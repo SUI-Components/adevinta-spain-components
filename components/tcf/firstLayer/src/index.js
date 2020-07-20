@@ -12,17 +12,15 @@ const CLASS = 'sui-TcfFirstLayer'
 const SCROLL_TO_ACCEPT = 250
 
 export default function TcfFirstLayer({
-  lang = 'es',
   logo,
-  isMobile,
   saveUserConsent,
   openSecondLayer,
   openCookiepolicyLayer,
   showInModalForMobile = false
 }) {
-  const {loadUserConsent, updateUserConsent} = useConsent()
+  const {isMobile, language, loadUserConsent, updateUserConsent} = useConsent()
   const [show, setShow] = useState(true)
-  const i18n = I18N[lang]
+  const i18n = I18N[language]
 
   const handleCookiePolicyLayerClick = useCallback(() => {
     cookiesPolicyLink.current &&
@@ -153,8 +151,6 @@ TcfFirstLayer.propTypes = {
   openCookiepolicyLayer: PropTypes.func,
   loadUserConsent: PropTypes.func,
   saveUserConsent: PropTypes.func,
-  isMobile: PropTypes.bool,
-  lang: PropTypes.string,
   logo: PropTypes.string,
   showInModalForMobile: PropTypes.bool
 }
