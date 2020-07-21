@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.15.0 (2020-07-21)
+
+
+### Features
+
+* change size for font size base ([598173a](https://github.com/SUI-Components/schibsted-spain-components/commit/598173ac60bd64abc4936d91519129895cb33404))
+
+
+
 # 1.14.0 (2020-07-21)
 
 
