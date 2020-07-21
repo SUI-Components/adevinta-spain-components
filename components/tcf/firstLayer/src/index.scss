@@ -5,14 +5,17 @@
 @import '~@s-ui/react-molecule-notification/lib/index';
 @import './iconClose//index';
 
-$fz-tcf-first-layer-base: $fz-s;
-$fz-tcf-first-layer-mobile: $fz-xxs;
-$maw-tcf-first-layer: 1200px;
-$maw-tcf-first-layer-buttons: 200px + $p-xxxl;
-$maw-tcf-first-layer-logo: 114px;
-$bxsh-tcf-first-layer: 0 0 8px 2px rgba(0, 0, 0, 0.15);
+$fz-tcf-first-layer-base: $fz-s !default; // 14px
+$fz-tcf-first-layer-mobile: $fz-xxs !default; // 10px
+$fz-tcf-first-layer-title: $fz-h5 !default; //18px
+$fz-tcf-first-layer-title-mobile: $fz-s !default; //14px
+$maw-tcf-first-layer: 1200px !default;
+$maw-tcf-first-layer-buttons: 200px + $p-xxxl !default;
+$maw-tcf-first-layer-logo: 114px !default;
+$bxsh-tcf-first-layer: 0 0 8px 2px rgba(0, 0, 0, 0.15) !default;
 
 $base-class: '.sui-TcfFirstLayer';
+$base-class-modal: '#sui-TcfFirstLayerModal';
 
 #{$base-class} {
   &-body {
@@ -31,14 +34,14 @@ $base-class: '.sui-TcfFirstLayer';
   }
 
   &-title {
-    font-size: $fz-s;
+    font-size: $fz-tcf-first-layer-title-mobile;
     margin-top: 0;
     margin-bottom: $m-m;
 
     #{$base-class}:not(#{$base-class}--isMobile) .sui-MoleculeNotification & {
       @include media-breakpoint-up(s) {
         margin-bottom: $m-xl;
-        font-size: $fz-h5;
+        font-size: $fz-tcf-first-layer-title;
       }
     }
   }
@@ -88,5 +91,12 @@ $base-class: '.sui-TcfFirstLayer';
   .sui-MoleculeNotification {
     background-color: $c-white;
     box-shadow: $bxsh-tcf-first-layer;
+  }
+}
+
+#{$base-class-modal} {
+  .sui-MoleculeModal-content {
+    margin-left: $m-l;
+    margin-right: $m-l;
   }
 }
