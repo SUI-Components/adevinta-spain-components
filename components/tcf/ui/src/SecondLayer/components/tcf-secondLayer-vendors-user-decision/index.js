@@ -14,13 +14,11 @@ export default function TcfSecondLayerVendorsUserDecision({
   i18n
 }) {
   const [expanded, setExpanded] = useState(false)
-
   const parentRef = React.useRef(null)
   const handleReadLessClick = () => {
     parentRef.current.scrollIntoView()
     setExpanded(!expanded)
   }
-
   const Switchs = () =>
     hasConsent && (
       <AtomSwitch
