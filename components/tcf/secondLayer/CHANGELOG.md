@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.16.0 (2020-07-21)
+
+
+### Features
+
+* remove comments ([6496d9f](https://github.com/SUI-Components/schibsted-spain-components/commit/6496d9fa60504cd9b2c635806babc31d65d08491))
+
+
+
 # 1.15.0 (2020-07-21)
 
 
@@ -21,6 +30,11 @@ All notable changes to this project will be documented in this file.
 
 
 # 1.13.0 (2020-07-20)
+
+
+### Features
+
+* modify the behavior of read more ([95a5f74](https://github.com/SUI-Components/schibsted-spain-components/commit/95a5f7408db4612473ed9d76dc8ec7de6d567c1f))
 
 
 
