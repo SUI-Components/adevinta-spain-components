@@ -2,12 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.15.0 (2020-07-21)
+
+
+
 # 1.14.0 (2020-07-21)
 
 
 ### Bug Fixes
 
 * close modal on error ([fb64c0c](https://github.com/SUI-Components/schibsted-spain-components/commit/fb64c0c7d60623fa244430f9ff50d61716579507))
+
+
+### Features
+
+* second layer refactor for MUST tasks ([f25ee6c](https://github.com/SUI-Components/schibsted-spain-components/commit/f25ee6c7037f44a5e4febc557a675b42567c3bed))
 
 
 
