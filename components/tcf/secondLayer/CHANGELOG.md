@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.14.0 (2020-07-21)
+
+
+### Bug Fixes
+
+* close modal on error ([fb64c0c](https://github.com/SUI-Components/schibsted-spain-components/commit/fb64c0c7d60623fa244430f9ff50d61716579507))
+
+
+
 # 1.13.0 (2020-07-20)
 
 
