@@ -15,6 +15,12 @@ export default function TcfSecondLayerVendorsUserDecision({
 }) {
   const [expanded, setExpanded] = useState(false)
 
+  const parentRef = React.useRef(null)
+  const handleReadLessClick = () => {
+    parentRef.current.scrollIntoView()
+    setExpanded(!expanded)
+  }
+
   const Switchs = () =>
     hasConsent && (
       <AtomSwitch
@@ -28,16 +34,23 @@ export default function TcfSecondLayerVendorsUserDecision({
 
   return (
     <>
-      <div className={`${baseClass} ${baseClass}--vendors`}>
+      <div className={`${baseClass} ${baseClass}--vendors`} ref={parentRef}>
         <div className={`${baseClass}-texts`}>
           <h6 className={`${baseClass}-title`}>{info.name}</h6>
           <p>{info.description}</p>
-          {expanded && expandedContent({info, baseClass})}
-          <Button design="link" onClick={() => setExpanded(!expanded)}>
-            {expanded
-              ? i18n.SECOND_LAYER.READ_LESS
-              : i18n.SECOND_LAYER.READ_MORE}
-          </Button>
+          <div
+            className={`${baseClass}-expanded ${
+              expanded ? `${baseClass}-expanded--isActive` : ''
+            }`}
+          >
+            <Button design="link" onClick={() => setExpanded(!expanded)}>
+              {i18n.SECOND_LAYER.READ_MORE}
+            </Button>
+            {expanded && expandedContent({info, baseClass})}
+            <Button design="link" onClick={handleReadLessClick}>
+              {i18n.SECOND_LAYER.READ_LESS}
+            </Button>
+          </div>
         </div>
         {hasConsent ? <Switchs /> : null}
       </div>
