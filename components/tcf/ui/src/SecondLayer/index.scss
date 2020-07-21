@@ -2,6 +2,11 @@
 @import '~@s-ui/react-atom-button/lib/index';
 @import '~@s-ui/react-molecule-modal/lib/index';
 @import '~@s-ui/react-atom-switch/lib/index';
+@import './components/iconClose';
+@import './components/tcf-secondLayer-decision-group';
+@import './components/tcf-secondLayer-user-decision';
+@import './components/tcf-secondLayer-vendors-user-decision';
+@import './components/tcf-secondLayer-legal-expandedContent';
 
 $fz-tcf-second-layer-base: $fz-s !default; // 14px
 $fz-tcf-second-layer-mobile: $fz-xs !default; // 12px
@@ -16,12 +21,6 @@ $ml-tcf-second-layer-modal-mobile: $m-l !default;
 $mr-tcf-second-layer-modal-mobile: $m-m !default;
 $mah-tcf-second-layer-logo: 24px !default;
 $mah-tcf-second-layer-logo-mobile: 20px !default;
-
-@import './components/iconClose';
-@import './components/tcf-secondLayer-decision-group';
-@import './components/tcf-secondLayer-user-decision';
-@import './components/tcf-secondLayer-vendors-user-decision';
-@import './components/tcf-secondLayer-legal-expandedContent';
 
 $base-class: '.sui-TcfSecondLayer';
 $base-class-modal: '#sui-TcfSecondLayerModal';
