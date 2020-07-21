@@ -1,0 +1,50 @@
+$base-class: '.sui-TcfSecondLayer-group';
+
+$fz-tcf-second-layer-title-group: $fz-xs !default; // 12px;
+
+#{$base-class} {
+  border: solid 1px #dcdcdc;
+  border-radius: 4px;
+  padding: $p-m;
+  display: flex;
+  justify-content: space-between;
+  font-size: $fz-tcf-second-layer-title-group;
+  margin-bottom: -1px;
+
+  &-accordion {
+    display: flex;
+    align-items: center;
+  }
+
+  &-title {
+    font-size: 14px;
+    margin: 0 0 $m-m;
+    display: block;
+  }
+
+  &-icon {
+    margin-right: $m-m;
+    fill: #777777;
+    fill-rule: evenodd;
+
+    &--open {
+      transform: scale(-1);
+    }
+  }
+
+  &-link {
+    color: $c-primary;
+    word-break: break-all;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &Description {
+    padding: $p-l;
+    font-size: 12px;
+    border: solid 1px #dcdcdc;
+    margin: -1px 0;
+  }
+}
