@@ -3,8 +3,8 @@ import React, {Suspense, useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {useConsent} from '@s-ui/react-tcf-services'
 
-const FirstLayer = React.lazy(() => import('@s-ui/react-tcf-first-layer'))
-const SecondLayer = React.lazy(() => import('@s-ui/react-tcf-second-layer'))
+const FirstLayer = React.lazy(() => import('../FirstLayer'))
+const SecondLayer = React.lazy(() => import('../SecondLayer'))
 
 export default function TCFContainer({
   onCloseModal,
