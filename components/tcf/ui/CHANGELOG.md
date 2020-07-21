@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.13.0 (2020-07-21)
+
+
+### Features
+
+* refactor ui layers ([11f52b3](https://github.com/SUI-Components/schibsted-spain-components/commit/11f52b3f3fa10611e72693a166f72222dc2890bd))
+
+
+
 # 1.12.0 (2020-07-21)
 
 
