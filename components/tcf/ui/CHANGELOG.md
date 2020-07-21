@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.12.0 (2020-07-21)
+
+
+### Bug Fixes
+
+* close on error ([187047f](https://github.com/SUI-Components/schibsted-spain-components/commit/187047f8167c16da914b5e8a33c5e454a12c1bd5))
+
+
+
 # 1.11.0 (2020-07-20)
 
 
