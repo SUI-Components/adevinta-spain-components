@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.14.0 (2020-07-21)
+
+
+### Features
+
+* change variables sass ([cd82a11](https://github.com/SUI-Components/schibsted-spain-components/commit/cd82a11e845c8e663d658c905deaa815801bc65a))
+
+
+
 # 1.13.0 (2020-07-20)
 
 
