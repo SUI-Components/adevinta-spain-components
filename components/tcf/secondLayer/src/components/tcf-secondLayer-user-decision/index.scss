@@ -1,12 +1,14 @@
 $base-class: '.sui-TcfSecondLayer-group';
 
+$fz-tcf-second-layer-title-group: $fz-xs !default; // 12px;
+
 #{$base-class} {
   border: solid 1px #dcdcdc;
   border-radius: 4px;
   padding: $p-m;
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: $fz-tcf-second-layer-title-group;
   margin-bottom: -1px;
 
   &-accordion {

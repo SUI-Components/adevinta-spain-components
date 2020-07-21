@@ -136,10 +136,6 @@ export default function TcfSecondLayer({
     })
   }
 
-  const Logo = React.memo(() => (
-    <img className={`${CLASS}-logo`} src={logo} alt="logo" />
-  ))
-
   const vendorExpandedContent = props => (
     <TcfSecondLayerVendorExpandedContent
       {...props}
@@ -162,13 +158,12 @@ export default function TcfSecondLayer({
         isOpen={modalOpen}
         closeOnOutsideClick
         closeOnEscKeyDown
-        header={isMobile ? <Logo /> : false}
+        header={<img className={`${CLASS}-logo`} src={logo} alt="logo" />}
         iconClose={isMobile ? <IconClose /> : false}
         onClose={handleSaveExitClick}
         fitContent
         portalContainerId="sui-TcfSecondLayerModal"
       >
-        {!isMobile && <Logo />}
         <div className={`${CLASS}-main`}>
           <h4 className={`${CLASS}-title`}>
             {isVendorLayer ? i18n.VENDOR_PAGE.TITLE : i18n.SECOND_LAYER.TITLE}
