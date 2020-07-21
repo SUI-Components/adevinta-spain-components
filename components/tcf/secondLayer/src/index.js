@@ -58,7 +58,9 @@ export default function TcfSecondLayer({
         specialFeatures: userConsent.specialFeatures
       })
     }
-    getVendorListAndConsent()
+    getVendorListAndConsent().catch(() => {
+      setModalOpen(false)
+    })
   }, [getVendorList, loadUserConsent])
 
   const handleCloseModal = () => {

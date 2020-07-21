@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {Suspense, useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {useConsent} from '@s-ui/react-tcf-services'
@@ -29,7 +30,9 @@ export default function TCFContainer({
         setShowLayer(1)
       }
     }
-    checkConsentStatus()
+    checkConsentStatus().catch(() => {
+      setShowLayer(0)
+    })
   }, [])
 
   const handleOpenSecondLayer = () => {
