@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.12.0 (2020-07-21)
+
+
+### Bug Fixes
+
+* close on error ([187047f](https://github.com/SUI-Components/schibsted-spain-components/commit/187047f8167c16da914b5e8a33c5e454a12c1bd5))
+
+
+
+# 1.11.0 (2020-07-20)
+
+
+### Bug Fixes
+
+* initialize properly the context provider ([958679e](https://github.com/SUI-Components/schibsted-spain-components/commit/958679eec8e43724dbced50e544e5278a031afdf))
+* provide default consent scope for adevinta ([bf8b742](https://github.com/SUI-Components/schibsted-spain-components/commit/bf8b74230e4ba30bb5f663341772f96b3ca80787))
+
+
+### Features
+
+* use the consent provider ([c833067](https://github.com/SUI-Components/schibsted-spain-components/commit/c8330678f89813ad1fea668af56edbb57370943d))
+
+
+
 # 1.10.0 (2020-07-15)
 
 

@@ -1,28 +1,26 @@
 import React, {useState, useEffect, useRef, useCallback} from 'react'
 import PropTypes from 'prop-types'
+import {useConsent} from '@s-ui/react-tcf-services'
 import SuiButton from '@s-ui/react-atom-button'
 import SuiModal from '@s-ui/react-molecule-modal'
 import SuiNotification from '@s-ui/react-molecule-notification'
 import IconClose from './iconClose'
-import {I18N, ADEVINTA_COLLECTED_CONSENTS} from './settings'
+import {I18N} from './settings'
 
 const CLASS = 'sui-TcfFirstLayer'
 
 const SCROLL_TO_ACCEPT = 250
 
 export default function TcfFirstLayer({
-  lang = 'es',
   logo,
-  isMobile,
-  getVendorList,
-  loadUserConsent,
   saveUserConsent,
   openSecondLayer,
   openCookiepolicyLayer,
   showInModalForMobile = false
 }) {
+  const {isMobile, language, loadUserConsent, updateUserConsent} = useConsent()
   const [show, setShow] = useState(true)
-  const i18n = I18N[lang]
+  const i18n = I18N[language]
 
   const handleCookiePolicyLayerClick = useCallback(() => {
     cookiesPolicyLink.current &&
@@ -74,30 +72,17 @@ export default function TcfFirstLayer({
   }
 
   const handleSaveExitClick = async () => {
-    const {
-      purposes: VLPurposes,
-      vendors: VLVendors,
-      specialFeatures: VLSpecialFeatures
-    } = await getVendorList({language: lang})
     const {purpose, vendor, specialFeatures} = await loadUserConsent()
-
-    ADEVINTA_COLLECTED_CONSENTS.purposes.forEach(index => {
-      if (VLPurposes[index]) {
-        purpose.consents[index] = true
-        purpose.legitimateInterests[index] = true
-      }
+    updateUserConsent({
+      purpose,
+      vendor,
+      specialFeatures,
+      allPurposes: true,
+      allVendors: true,
+      allSpecialFeatures: true
     })
-    ADEVINTA_COLLECTED_CONSENTS.specialFeatures.forEach(index => {
-      if (VLSpecialFeatures[index]) {
-        specialFeatures[index] = true
-      }
-    })
-    for (const key in VLVendors) {
-      vendor.consents[key] = true
-      vendor.legitimateInterests[key] = true
-    }
     handleCloseModal()
-    saveUserConsent({purpose, vendor, specialFeatures})
+    saveUserConsent()
   }
 
   const handleCloseModal = () => {
@@ -161,11 +146,8 @@ TcfFirstLayer.displayName = 'TcfFirstLayer'
 TcfFirstLayer.propTypes = {
   openSecondLayer: PropTypes.func,
   openCookiepolicyLayer: PropTypes.func,
-  getVendorList: PropTypes.func,
   loadUserConsent: PropTypes.func,
   saveUserConsent: PropTypes.func,
-  isMobile: PropTypes.bool,
-  lang: PropTypes.string,
   logo: PropTypes.string,
   showInModalForMobile: PropTypes.bool
 }

@@ -3,8 +3,8 @@ class SaveUserConsentUseCase {
     this._repository = repository
   }
 
-  execute({purpose, vendor, specialFeatures}) {
-    return this._repository.saveUserConsent({purpose, vendor, specialFeatures})
+  execute() {
+    return this._repository.saveUserConsent()
   }
 }
 

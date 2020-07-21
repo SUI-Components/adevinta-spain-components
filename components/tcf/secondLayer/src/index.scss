@@ -3,17 +3,19 @@
 @import '~@s-ui/react-molecule-modal/lib/index';
 @import '~@s-ui/react-atom-switch/lib/index';
 
-$fz-tcf-second-layer-base: $fz-s; // 14px
-$fz-tcf-second-layer-mobile: $fz-xxs; // 10px
-$h-tcf-second-layer-footer: 88px;
-$h-tcf-second-layer-footer-mobile: 80px;
-$maw-tcf-second-layer-modal: 800px;
-$ml-tcf-second-layer-modal: $m-xxl;
-$mr-tcf-second-layer-modal: $ml-tcf-second-layer-modal;
-$ml-tcf-second-layer-modal-mobile: $m-l;
-$mr-tcf-second-layer-modal-mobile: $m-m;
-$mah-tcf-second-layer-logo: 24px;
-$mah-tcf-second-layer-logo-mobile: 20px;
+$fz-tcf-second-layer-base: $fz-s !default; // 14px
+$fz-tcf-second-layer-mobile: $fz-xs !default; // 12px
+$fz-tcf-second-layer-title: $fz-l !default; // 18px;
+$fz-tcf-second-layer-title-mobile: $fz-s !default; // 14px;
+$h-tcf-second-layer-footer: 88px !default;
+$h-tcf-second-layer-footer-mobile: 80px !default;
+$maw-tcf-second-layer-modal: 800px !default;
+$ml-tcf-second-layer-modal: $m-xxl !default;
+$mr-tcf-second-layer-modal: $m-l !default;
+$ml-tcf-second-layer-modal-mobile: $m-l !default;
+$mr-tcf-second-layer-modal-mobile: $m-m !default;
+$mah-tcf-second-layer-logo: 24px !default;
+$mah-tcf-second-layer-logo-mobile: 20px !default;
 
 @import './components/iconClose';
 @import './components/tcf-secondLayer-decision-group';
@@ -35,30 +37,30 @@ $base-class-modal: '#sui-TcfSecondLayerModal';
   }
 
   .sui-MoleculeModal-content {
-    margin: $m-l $mr-tcf-second-layer-modal-mobile 0
-      $ml-tcf-second-layer-modal-mobile;
+    margin: 0 0 0 $ml-tcf-second-layer-modal-mobile;
     position: initial;
     @include media-breakpoint-up(s) {
-      margin: $m-xxl $ml-tcf-second-layer-modal 0;
+      margin: 0 $mr-tcf-second-layer-modal 0 $ml-tcf-second-layer-modal;
     }
   }
 
   .sui-MoleculeModal-header {
-    padding-left: $ml-tcf-second-layer-modal-mobile;
+    padding: $p-l 0 $p-l $ml-tcf-second-layer-modal-mobile;
     @include media-breakpoint-up(s) {
-      padding-left: $ml-tcf-second-layer-modal;
+      padding: $p-xxl 0 $p-xxl $ml-tcf-second-layer-modal;
     }
   }
 }
 
 #{$base-class} {
   &-main {
-    padding-right: $p-m;
+    padding: $p-m $p-l 0 0;
     margin-top: $m-l;
     font-size: $fz-tcf-second-layer-mobile;
     @include media-breakpoint-up(s) {
       margin-top: $m-xxl;
       font-size: $fz-tcf-second-layer-base;
+      padding-top: $p-l;
     }
     p {
       margin-top: 0;
@@ -78,10 +80,10 @@ $base-class-modal: '#sui-TcfSecondLayerModal';
   }
 
   &-title {
-    font-size: $fz-tcf-second-layer-base;
+    font-size: $fz-tcf-second-layer-title-mobile;
     margin-bottom: $m-m;
     @include media-breakpoint-up(s) {
-      font-size: $fz-h5;
+      font-size: $fz-tcf-second-layer-title;
       margin-bottom: $m-l;
     }
   }
@@ -102,7 +104,10 @@ $base-class-modal: '#sui-TcfSecondLayerModal';
       left: $ml-tcf-second-layer-modal-mobile;
       bottom: $m-xxl;
       @include media-breakpoint-up(s) {
-        left: $ml-tcf-second-layer-modal;
+        left: $ml-tcf-second-layer-modal-mobile;
+      }
+      & span {
+        color: $c-primary;
       }
     }
 
@@ -111,7 +116,7 @@ $base-class-modal: '#sui-TcfSecondLayerModal';
       right: $ml-tcf-second-layer-modal-mobile;
       bottom: $m-xl;
       @include media-breakpoint-up(s) {
-        right: $mr-tcf-second-layer-modal;
+        right: $m-xxl;
         bottom: $m-xxl;
       }
     }

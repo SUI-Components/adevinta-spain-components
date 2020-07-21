@@ -9,6 +9,9 @@ $base-class: '.sui-TcfSecondLayer-group';
   &-texts .sui-AtomButton {
     font-size: 12px;
     margin: 0 0 0 $m-m;
+    & span {
+      color: $c-primary;
+    }
   }
 
   &-expanded {

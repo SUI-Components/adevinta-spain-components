@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.15.0 (2020-07-21)
+
+
+
+# 1.14.0 (2020-07-21)
+
+
+### Bug Fixes
+
+* close modal on error ([fb64c0c](https://github.com/SUI-Components/schibsted-spain-components/commit/fb64c0c7d60623fa244430f9ff50d61716579507))
+
+
+### Features
+
+* second layer refactor for MUST tasks ([f25ee6c](https://github.com/SUI-Components/schibsted-spain-components/commit/f25ee6c7037f44a5e4febc557a675b42567c3bed))
+
+
+
+# 1.13.0 (2020-07-20)
+
+
+
+# 1.12.0 (2020-07-20)
+
+
+### Bug Fixes
+
+* add color styling to spans inside sui buttons ([1dbf9e9](https://github.com/SUI-Components/schibsted-spain-components/commit/1dbf9e9b40bbe978c5e20e6ce4b489cec4dabc7a))
+* use given consent scope ([5b83a02](https://github.com/SUI-Components/schibsted-spain-components/commit/5b83a02b9315391dc0f2d44f994369df9eb38262))
+* use properties from the context ([db3c034](https://github.com/SUI-Components/schibsted-spain-components/commit/db3c034a60153d3a77e7c7066bd7d35328e94dfe))
+
+
+### Features
+
+* use the consent provider ([214b6d6](https://github.com/SUI-Components/schibsted-spain-components/commit/214b6d6aeaca7aeebb90002828dd95672d1819e0))
+
+
+
 # 1.11.0 (2020-07-16)
 
 
