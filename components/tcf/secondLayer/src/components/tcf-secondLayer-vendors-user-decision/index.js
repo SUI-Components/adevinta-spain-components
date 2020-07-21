@@ -45,7 +45,6 @@ export default function TcfSecondLayerVendorsUserDecision({
               {i18n.SECOND_LAYER.READ_MORE}
             </Button>
             {expanded && expandedContent({info, baseClass})}
-            {/* <Button design="link" onClick={() => setExpanded(!expanded)}> */}
             <Button design="link" onClick={handleReadLessClick}>
               {i18n.SECOND_LAYER.READ_LESS}
             </Button>
