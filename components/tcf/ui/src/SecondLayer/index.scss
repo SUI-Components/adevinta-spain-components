@@ -1,0 +1,133 @@
+@import '~@s-ui/theme/lib/index';
+@import '~@s-ui/react-atom-button/lib/index';
+@import '~@s-ui/react-molecule-modal/lib/index';
+@import '~@s-ui/react-atom-switch/lib/index';
+@import './components/iconClose';
+@import './components/tcf-secondLayer-decision-group';
+@import './components/tcf-secondLayer-user-decision';
+@import './components/tcf-secondLayer-vendors-user-decision';
+@import './components/tcf-secondLayer-legal-expandedContent';
+
+$fz-tcf-second-layer-base: $fz-s !default; // 14px
+$fz-tcf-second-layer-mobile: $fz-xs !default; // 12px
+$fz-tcf-second-layer-title: $fz-l !default; // 18px;
+$fz-tcf-second-layer-title-mobile: $fz-s !default; // 14px;
+$h-tcf-second-layer-footer: 88px !default;
+$h-tcf-second-layer-footer-mobile: 80px !default;
+$maw-tcf-second-layer-modal: 800px !default;
+$ml-tcf-second-layer-modal: $m-xxl !default;
+$mr-tcf-second-layer-modal: $m-l !default;
+$ml-tcf-second-layer-modal-mobile: $m-l !default;
+$mr-tcf-second-layer-modal-mobile: $m-m !default;
+$mah-tcf-second-layer-logo: 24px !default;
+$mah-tcf-second-layer-logo-mobile: 20px !default;
+
+$base-class: '.sui-TcfSecondLayer';
+$base-class-modal: '#sui-TcfSecondLayerModal';
+
+#{$base-class-modal} {
+  .sui-MoleculeModal-dialog {
+    max-width: $maw-tcf-second-layer-modal;
+    padding-bottom: $h-tcf-second-layer-footer-mobile;
+    position: relative;
+    @include media-breakpoint-up(s) {
+      padding-bottom: $h-tcf-second-layer-footer;
+    }
+  }
+
+  .sui-MoleculeModal-content {
+    margin: 0 0 0 $ml-tcf-second-layer-modal-mobile;
+    position: initial;
+    @include media-breakpoint-up(s) {
+      margin: 0 $mr-tcf-second-layer-modal 0 $ml-tcf-second-layer-modal;
+    }
+  }
+
+  .sui-MoleculeModal-header {
+    padding: $p-l 0 $p-l $ml-tcf-second-layer-modal-mobile;
+    @include media-breakpoint-up(s) {
+      padding: $p-xxl 0 $p-xxl $ml-tcf-second-layer-modal;
+    }
+  }
+}
+
+#{$base-class} {
+  &-main {
+    padding: $p-m $p-l 0 0;
+    margin-top: $m-l;
+    font-size: $fz-tcf-second-layer-mobile;
+    @include media-breakpoint-up(s) {
+      margin-top: $m-xxl;
+      font-size: $fz-tcf-second-layer-base;
+      padding-top: $p-l;
+    }
+    p {
+      margin-top: 0;
+    }
+    .sui-AtomSwitch-container {
+      padding: 0px;
+      border: 0px;
+      height: 24px;
+    }
+  }
+
+  &-logo {
+    max-height: $mah-tcf-second-layer-logo-mobile;
+    @include media-breakpoint-up(s) {
+      max-height: $mah-tcf-second-layer-logo;
+    }
+  }
+
+  &-title {
+    font-size: $fz-tcf-second-layer-title-mobile;
+    margin-bottom: $m-m;
+    @include media-breakpoint-up(s) {
+      font-size: $fz-tcf-second-layer-title;
+      margin-bottom: $m-l;
+    }
+  }
+
+  &-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    height: $h-tcf-second-layer-footer-mobile;
+    border-top: 1px solid #dcdcdc;
+    @include media-breakpoint-up(s) {
+      height: $h-tcf-second-layer-footer;
+    }
+
+    &--link {
+      position: absolute;
+      left: $ml-tcf-second-layer-modal-mobile;
+      bottom: $m-xxl;
+      @include media-breakpoint-up(s) {
+        left: $ml-tcf-second-layer-modal-mobile;
+      }
+      & span {
+        color: $c-primary;
+      }
+    }
+
+    &--buttons {
+      position: absolute;
+      right: $ml-tcf-second-layer-modal-mobile;
+      bottom: $m-xl;
+      @include media-breakpoint-up(s) {
+        right: $m-xxl;
+        bottom: $m-xxl;
+      }
+    }
+
+    .sui-AtomButton.sui-AtomButton--small {
+      border-radius: $bdrs-xl;
+      font-size: 12px;
+      @include media-breakpoint-up(s) {
+        padding: 0 $p-l;
+        height: 40px;
+        font-size: $fz-tcf-second-layer-base;
+      }
+    }
+  }
+}

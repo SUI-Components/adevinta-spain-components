@@ -1,0 +1,36 @@
+$base-class: '.sui-TcfSecondLayer-group';
+
+#{$base-class} {
+  &--vendors {
+    padding: $p-l;
+    margin-bottom: $m-m;
+  }
+
+  &-texts .sui-AtomButton {
+    font-size: 12px;
+    margin: 0 0 0 $m-m;
+    & span {
+      color: $c-primary;
+    }
+  }
+
+  &-expanded {
+    .sui-AtomButton:last-child {
+      display: none;
+    }
+
+    .sui-AtomButton:first-child {
+      display: inline-block;
+    }
+
+    &--isActive {
+      .sui-AtomButton:last-child {
+        display: inline-block;
+      }
+
+      .sui-AtomButton:first-child {
+        display: none;
+      }
+    }
+  }
+}

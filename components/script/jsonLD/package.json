@@ -1,6 +1,6 @@
 {
-  "name": "@s-ui/react-tcf-ui",
-  "version": "1.13.0",
+  "name": "@s-ui/react-script-json-ld",
+  "version": "1.1.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -9,12 +9,7 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1",
-    "@s-ui/react-atom-button": "1",
-    "@s-ui/react-atom-switch": "1",
-    "@s-ui/react-molecule-modal": "1",
-    "@s-ui/react-molecule-notification": "1",
-    "@s-ui/react-tcf-services": "1"
+    "@s-ui/component-dependencies": "1"
   },
   "keywords": [],
   "author": "",

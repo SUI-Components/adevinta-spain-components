@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.7.0 (2020-07-22)
+
+
+### Bug Fixes
+
+* fix saving scoped consent ([3ade469](https://github.com/SUI-Components/schibsted-spain-components/commit/3ade4698393a2b91982931e4613f1905512d8c1d))
+
+
+
+# 1.6.0 (2020-07-20)
+
+
+### Bug Fixes
+
+* use given consent scope ([3adbf37](https://github.com/SUI-Components/schibsted-spain-components/commit/3adbf378fbc0a04b9f08a008434f7c9e5e3817d5))
+* use properties from the context ([5f37f1c](https://github.com/SUI-Components/schibsted-spain-components/commit/5f37f1c0294193e82a7b0e99194ad08d60b5fefc))
+
+
+### Features
+
+* wrap the consent services into consent provider ([a7228d5](https://github.com/SUI-Components/schibsted-spain-components/commit/a7228d5078fdb81e3fffb68dc3c98380ffc0ad07))
+
+
+
 # 1.5.0 (2020-07-15)
 
 
