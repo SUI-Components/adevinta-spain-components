@@ -25,11 +25,21 @@ class Service {
     return this._saveUserConsentUseCase.execute()
   }
 
-  updateUserConsent({purpose, vendor, specialFeatures}) {
+  updateUserConsent({
+    purpose,
+    vendor,
+    specialFeatures,
+    allPurposes,
+    allVendors,
+    allSpecialFeatures
+  }) {
     return this._updateUserConsentUseCase.execute({
       purpose,
       vendor,
-      specialFeatures
+      specialFeatures,
+      allPurposes,
+      allVendors,
+      allSpecialFeatures
     })
   }
 
