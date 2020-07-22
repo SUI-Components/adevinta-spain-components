@@ -48,4 +48,4 @@ script:
   - if [[ $TRAVIS_EVENT_TYPE == "push" && $TRAVIS_BRANCH == "master" ]] ; then sh .travis-release.sh; fi
 
 after_failure:
-  - node ./scripts/update-pr-status
+  - npm run update:commit:status
