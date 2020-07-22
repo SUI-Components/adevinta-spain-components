@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.7.0 (2020-07-22)
+
+
+### Bug Fixes
+
+* fix saving scoped consent ([3ade469](https://github.com/SUI-Components/schibsted-spain-components/commit/3ade4698393a2b91982931e4613f1905512d8c1d))
+
+
+
 # 1.6.0 (2020-07-20)
 
 
