@@ -44,7 +44,7 @@ script:
   - rm -rf ./node_modules
   - npm i vercel@latest --no-save --no-fund --no-audit
   - DEPLOYMENT_URL=$(vercel --token $NOW_TOKEN --confirm $VERCEL_PARAMS)
-  - npm run update:commit:status -- -s RUN -u $DEPLOYMENT_URL
+  - npm run update:commit:status -- -s OK -u $DEPLOYMENT_URL
   - if [[ $TRAVIS_EVENT_TYPE == "push" && $TRAVIS_BRANCH == "master" ]] ; then sh .travis-release.sh; fi
 
 after_failure:
