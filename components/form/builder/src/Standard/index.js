@@ -37,7 +37,9 @@ const CONSTRAINTS = {
   notnull: 'valueMissing',
   pattern: 'patternMismatch',
   maxlength: 'tooLong',
-  minlength: 'tooShort'
+  minlength: 'tooShort',
+  max: 'rangeOverflow',
+  min: 'rangeUnderflow'
 }
 
 const checkConstraintsFromField = field => {
