@@ -3,11 +3,21 @@ export class UpdateUserConsentUseCase {
     this._repository = repository
   }
 
-  execute({purpose, vendor, specialFeatures}) {
+  execute({
+    purpose,
+    vendor,
+    specialFeatures,
+    allPurposes,
+    allVendors,
+    allSpecialFeatures
+  }) {
     return this._repository.updateUserConsent({
       purpose,
       vendor,
-      specialFeatures
+      specialFeatures,
+      allPurposes,
+      allVendors,
+      allSpecialFeatures
     })
   }
 }

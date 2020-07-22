@@ -3,6 +3,6 @@ import TcfApiInitializer from '@adv-ui/boros-tcf'
 
 const tcfApi = TcfApiInitializer.init()
 
-export function tcfRepositoryFactory({language}) {
-  return new TcfRepository({tcfApi, language})
+export function tcfRepositoryFactory({language, scope}) {
+  return new TcfRepository({tcfApi, language, scope})
 }

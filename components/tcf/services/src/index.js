@@ -18,8 +18,22 @@ function ConsentProvider({language, isMobile, scope, children}) {
     return defaultScope
   }
   const saveUserConsent = () => service.current.saveUserConsent()
-  const updateUserConsent = ({purpose, vendor, specialFeatures}) =>
-    service.current.updateUserConsent({purpose, vendor, specialFeatures})
+  const updateUserConsent = ({
+    purpose,
+    vendor,
+    specialFeatures,
+    allPurposes,
+    allVendors,
+    allSpecialFeatures
+  }) =>
+    service.current.updateUserConsent({
+      purpose,
+      vendor,
+      specialFeatures,
+      allPurposes,
+      allVendors,
+      allSpecialFeatures
+    })
   const uiVisible = ({visible}) => service.current.uiVisible({visible})
   return (
     <ConsentContext.Provider
