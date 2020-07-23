@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 3.9.0 (2020-07-23)
+
+
+### Features
+
+* add max and min validation for numeric inputs ([36e1b51](https://github.com/SUI-Components/schibsted-spain-components/commit/36e1b51cc8da8c6c0bfe00389e956c8f35c19f2c))
+
+
+
 # 3.8.0 (2020-07-03)
 
 
