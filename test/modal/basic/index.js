@@ -12,7 +12,7 @@ import chaiDOM from 'chai-dom'
 
 chai.use(chaiDOM)
 
-describe('modal/basic', () => {
+describe.skip('modal/basic', () => {
   it('Render', () => {
     // Example TO BE DELETED!!!!
     // const {getByRole} = render(<AtomButton>HOLA</AtomButton>)

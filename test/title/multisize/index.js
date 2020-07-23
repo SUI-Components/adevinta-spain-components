@@ -12,7 +12,7 @@ import chaiDOM from 'chai-dom'
 
 chai.use(chaiDOM)
 
-describe('title/multisize', () => {
+describe.skip('title/multisize', () => {
   it('Render', () => {
     // Example TO BE DELETED!!!!
     // const {getByRole} = render(<AtomButton>HOLA</AtomButton>)

@@ -4,7 +4,7 @@
   "description": "Mono repo containing all Schibsted Spain React Components.",
   "private": true,
   "scripts": {
-    "build": "npm run phoenix:ci && sui-studio build",
+    "build": "sui-studio build",
     "co": "sui-studio commit",
     "commitmsg": "validate-commit-msg",
     "dev": "sui-studio dev",
@@ -15,20 +15,23 @@
     "install:demos": "cd demo && sui-mono phoenix --ci",
     "phoenix": "sui-mono phoenix && npm run install:demos",
     "phoenix:ci": "sui-mono phoenix --no-root --ci && npm run install:demos -- --ci",
+    "update:commit:status": "npx @s-ui/ci@1 update-commit-status",
     "start": "sui-studio start",
-    "test": "jest"
+    "test": "sui-studio test && npm run test:jest",
+    "test:jest": "jest"
   },
   "repository": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "7.7.5",
+    "@babel/plugin-transform-modules-commonjs": "7.10.4",
+    "@octokit/core": "3.1.1",
     "@s-ui/lint": "3",
     "@s-ui/precommit": "2",
-    "@s-ui/studio": "7",
-    "enzyme": "3.10.0",
-    "enzyme-adapter-react-16": "1.15.1",
+    "@s-ui/studio": "8",
+    "enzyme": "3.11.0",
+    "enzyme-adapter-react-16": "1.15.2",
     "husky": "4.2.5",
     "jest": "24.9.0",
     "validate-commit-msg": "2.14.0"

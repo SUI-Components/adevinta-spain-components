@@ -6,7 +6,7 @@ import {render} from '@testing-library/react'
 
 chai.use(chaiDOM)
 
-describe('TcfServices', () => {
+describe.skip('TcfServices', () => {
   it('Render', () => {
     render(<TcfServices />)
     expect(true).to.be.eql(false)

@@ -2,23 +2,50 @@ dist: bionic
 
 language: node_js
 
-node_js:
-  - '13'
+services:
+  - xvfb
+
+branches:
+  only: master
+
+node_js: 13
 
 before_install:
   - npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 
-install:
-  - npm install
-  - npm run phoenix:ci 1>/dev/null
+before_script:
+  # install npm packages
+  - export SUI_CI_TOPIC=install
+  - npm run update:commit:status -- -s RUN
+  - npx sui-mono phoenix --ci --no-root
+  - npm run install:demos -- --ci
+  # some tweaks for tests to work
+  - export NODE_OPTIONS=--max_old_space_size=4096
+  - echo fs.inotify.max_user_instances=524288 | sudo tee -a /etc/sysctl.conf && sysctl -p
+  - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sysctl -p
+  - echo fs.inotify.max_queued_events=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+  - - npm run update:commit:status -- -s OK
 
-jobs:
-  include:
-    - stage: Lint & Test
-      script:
-        - npm run lint
-        - npm run test
-    - stage: Release
-      if: branch = master AND NOT type = pull_request
-      script:
-        - sh .travis-release.sh
+script:
+  # create the bundle
+  - export SUI_CI_TOPIC=bundle
+  - npm run update:commit:status -- -s RUN
+  - npm run build
+  - npm run update:commit:status -- -s OK
+  # execute tests
+  - export SUI_CI_TOPIC=tests
+  - npm run update:commit:status -- -s RUN
+  - npm run test -- --ci
+  - npm run update:commit:status -- -s OK
+  # deploy
+  - export SUI_CI_TOPIC=deploy
+  - export VERCEL_PARAMS=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo --prod; else echo; fi)
+  - npm run update:commit:status -- -s RUN
+  - rm -rf ./node_modules
+  - npm i vercel@latest --no-save --no-fund --no-audit
+  - DEPLOYMENT_URL=$(vercel --token $NOW_TOKEN --confirm $VERCEL_PARAMS)
+  - npm run update:commit:status -- -s OK -u $DEPLOYMENT_URL
+  - if [[ $TRAVIS_EVENT_TYPE == "push" && $TRAVIS_BRANCH == "master" ]] ; then sh .travis-release.sh; fi
+
+after_failure:
+  - npm run update:commit:status
