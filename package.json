@@ -15,7 +15,7 @@
     "install:demos": "cd demo && sui-mono phoenix --ci",
     "phoenix": "sui-mono phoenix && npm run install:demos",
     "phoenix:ci": "sui-mono phoenix --no-root --ci && npm run install:demos -- --ci",
-    "update:commit:status": "npx @s-ui/ci@beta update-commit-status",
+    "update:commit:status": "npx @s-ui/ci@1 update-commit-status",
     "start": "sui-studio start",
     "test": "sui-studio test && npm run test:jest",
     "test:jest": "jest"
