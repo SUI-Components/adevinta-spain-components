@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.14.0 (2020-07-23)
+
+
+### Features
+
+* add translations for it ([7c0f61b](https://github.com/SUI-Components/schibsted-spain-components/commit/7c0f61bb16ae4476e26561132f9f8bf6137a992a))
+
+
+
 # 1.13.0 (2020-07-21)
 
 
