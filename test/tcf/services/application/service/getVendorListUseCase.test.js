@@ -38,16 +38,4 @@ describe('GetVendorListUseCase test', () => {
     expect(vendorList).toBe(givenVendorList)
     expect(getVendorListSpy).toHaveBeenCalledTimes(1)
   })
-  it('should pass correct language value when execute', async () => {
-    const tcfRepositoryMock = new TcfRepositoryMock({
-      tcfApi: borosTCFMock.init()
-    })
-    const getVendorListUseCase = new GetVendorListUseCase({
-      repository: tcfRepositoryMock
-    })
-    const vendorList = await getVendorListUseCase.execute({language: 'es'})
-    expect(vendorList).toBe(givenVendorList)
-    expect(getVendorListSpy).toHaveBeenCalledTimes(1)
-    expect(getVendorListSpy).toHaveBeenCalledWith({language: 'es'})
-  })
 })
