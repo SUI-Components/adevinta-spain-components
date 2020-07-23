@@ -35,8 +35,45 @@ const DEFAULT_I18N = {
   }
 }
 
+const IT_I18N = {
+  LEGITIMATE_INTEREST_COPY: 'Interesse legittimo',
+  CONSENT_COPY: '',
+  GO_BACK_BUTTON: 'Indietro',
+  ACCEPT_BUTTON: 'Accetta',
+  DISABLE_BUTTON: 'Rifiuta tutto',
+  ENABLE_BUTTON: 'Accetta tutto',
+  SECOND_LAYER: {
+    TITLE: 'Configurazione',
+    TEXT:
+      'Cliccando, acconsenti al trattamento dei tuoi dati per questo sito web (o app), navigatore e dispositivo con le seguenti finalità:',
+    PURPOSES_TITLE: 'Finalità',
+    SPECIAL_PURPOSES_TITLE: 'Finalità speciali',
+    FEATURES_TITLE: 'Caratteristiche',
+    SPECIAL_FEATURES_TITLE: 'Caratteristiche speciali',
+    PARTNERS_LINK: 'Lista dei partner',
+    READ_MORE: 'Mostra altro',
+    READ_LESS: 'Nascondi'
+  },
+  VENDOR_PAGE: {
+    TITLE: 'Cookie di prima o terza parte per la pubblicità segmentata',
+    TEXT:
+      'Ci preoccupiamo molto della tua privacy, per questo motivo vogliamo informarti delle finalità perseguite dai cookie per la pubblicità personalizzata, e farti sapere con chi stiamo condividendo le tue informazioni. Potrai inoltre definire le finalità e le terze parti con le quali accetti o meno di condividere i tuoi dati di navigazione, di posizione e i tuoi dati personali. Tieni presente che questi cookie sono legati alla tua sessione di navigazione, quindi se aggiorni i tuoi cookie, cambiando dispositivo o connettendoti da un altro browser, dovrai riconfigurare le tue preferenze.',
+    GROUPS: {
+      TITLE: 'Lista di partners con cui lavoriamo',
+      EXPANDED: {
+        PURPOSES: 'Finalità',
+        LEGITIMATE_INTEREST_PURPOSES: 'Interesse legittimo in:',
+        SPECIAL_PURPOSES: 'Finalità speciali',
+        FEATURES: 'Caratteristiche',
+        SPECIAL_FEATURES: 'Caratteristiche speciali',
+        POLICY_URL: 'Privacy Policy'
+      }
+    }
+  }
+}
+
 export const I18N = {
-  it: DEFAULT_I18N,
+  it: IT_I18N,
   es: DEFAULT_I18N,
   en: DEFAULT_I18N,
   ca: DEFAULT_I18N,
