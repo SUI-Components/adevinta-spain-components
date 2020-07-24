@@ -1,14 +1,13 @@
 class TcfRepository {
-  constructor({tcfApi, language = 'es', scope = {}}) {
+  constructor({tcfApi, scope = {}}) {
     this._tcfApi = tcfApi
-    this._language = language
     this._scope = scope
     this._cachedConsent = null
     this._data = {}
   }
 
   getVendorList() {
-    return this._tcfApi.getVendorList({language: this._language})
+    return this._tcfApi.getVendorList()
   }
 
   loadUserConsent() {
