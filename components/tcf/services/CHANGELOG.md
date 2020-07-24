@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.8.0 (2020-07-24)
+
+
+### Features
+
+* use the provided language from the ctx provider ([7e8652f](https://github.com/SUI-Components/schibsted-spain-components/commit/7e8652f894d2aac55d4c3eb09a6ce37610f50433))
+
+
+
 # 1.7.0 (2020-07-22)
 
 
