@@ -1,5 +1,7 @@
 $base-class: '.sui-TcfSecondLayer-group';
 
+$fz-tcf-second-layer-group-text-buttons: $fz-xs !default; // 12px
+
 #{$base-class} {
   &--vendors {
     padding: $p-l;
@@ -7,7 +9,7 @@ $base-class: '.sui-TcfSecondLayer-group';
   }
 
   &-texts .sui-AtomButton {
-    font-size: 12px;
+    font-size: $fz-tcf-second-layer-group-text-buttons;
     margin: 0 0 0 $m-m;
     & span {
       color: $c-primary;

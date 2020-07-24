@@ -9,7 +9,6 @@ export function TcfSecondLayerUserDecision({
   info,
   consentValue,
   hasConsent = true,
-  vendorList,
   expandedContent,
   i18n
 }) {
@@ -68,7 +67,6 @@ TcfSecondLayerUserDecision.propTypes = {
   info: PropTypes.object,
   consentValue: PropTypes.bool,
   onConsentChange: PropTypes.func,
-  vendorList: PropTypes.object,
   i18n: PropTypes.object,
   expandedContent: PropTypes.func.isRequired
 }
