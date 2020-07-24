@@ -1,7 +1,7 @@
 // map the DSL standard to JS: https://docs.mpi-internal.com/scmspain/all--lib-form-builder-docs/form-specification/field/
 
 import {pickFieldById, fieldsNamesInOrderOfDefinition} from '../reducer/fields'
-
+import {fromStringToLocaleFloat} from './fn-utils'
 const FIELDS = {
   TEXT: 'text',
   NUMERIC: 'numeric',
@@ -116,6 +116,37 @@ const checkConstraintsFromField = field => {
       errorMessages = [checkboxShouldBeTrueConstraint.message, ...errorMessages]
   }
 
+  // cutom validation: min html attributes in input type text are not nativelly supported
+  if (
+    // if is a field text and display multiline
+    (field.type === FIELDS.TEXT &&
+      field.display === DISPLAYS[FIELDS.TEXT].TEXT) ||
+    field.display === DISPLAYS[FIELDS.TEXT].DEFAULT
+  ) {
+    const inputHasMin = field.constraints?.find(
+      constraint => constraint.property?.min
+    )
+    const inputValueAsNumber = fromStringToLocaleFloat(elementNode?.value)
+
+    if (inputValueAsNumber < parseFloat(inputHasMin?.property?.min))
+      errorMessages = [...errorMessages, inputHasMin.message]
+  }
+  // cutom validation: min html attributes in input type text are not nativelly supported
+  if (
+    // if is a field text and display multiline
+    (field.type === FIELDS.TEXT &&
+      field.display === DISPLAYS[FIELDS.TEXT].TEXT) ||
+    field.display === DISPLAYS[FIELDS.TEXT].DEFAULT
+  ) {
+    const inputHasMax = field.constraints?.find(
+      constraint => constraint.property?.max
+    )
+    const inputValueAsNumber = fromStringToLocaleFloat(elementNode?.value)
+
+    if (inputValueAsNumber > parseFloat(inputHasMax?.property?.max)) {
+      errorMessages = [...errorMessages, inputHasMax.message]
+    }
+  }
   return errorMessages
 }
 
