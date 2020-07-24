@@ -118,7 +118,7 @@ const checkConstraintsFromField = field => {
 
   // cutom validation: min html attributes in input type text are not nativelly supported
   if (
-    // if is a field text and display multiline
+    // if is a field text and display text or default
     (field.type === FIELDS.TEXT &&
       field.display === DISPLAYS[FIELDS.TEXT].TEXT) ||
     field.display === DISPLAYS[FIELDS.TEXT].DEFAULT
@@ -131,9 +131,9 @@ const checkConstraintsFromField = field => {
     if (inputValueAsNumber < parseFloat(inputHasMin?.property?.min))
       errorMessages = [...errorMessages, inputHasMin.message]
   }
-  // cutom validation: min html attributes in input type text are not nativelly supported
+  // cutom validation: max html attributes in input type text are not nativelly supported
   if (
-    // if is a field text and display multiline
+    // if is a field text and display text or default
     (field.type === FIELDS.TEXT &&
       field.display === DISPLAYS[FIELDS.TEXT].TEXT) ||
     field.display === DISPLAYS[FIELDS.TEXT].DEFAULT
