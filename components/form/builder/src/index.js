@@ -58,8 +58,6 @@ const FormBuilder = ({
       FormBuilder.USER_MINIMAL_DELAY
     )
     const transformedValue = transformations(id, value)
-    console.log('transformedValue', transformedValue)
-    debugger // eslint-disable-line
     const nextFields = changeField(id, transformedValue)
     clearTimeout(timerShowSpinner)
 
