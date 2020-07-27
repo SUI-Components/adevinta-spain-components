@@ -41,7 +41,7 @@ const fetch = config =>
     request.send()
   })
 
-export const shouldApplyRule = (fields, changeField) => when => {
+export const shouldApplyRule = (fields, changeField, locale) => when => {
   // Reduce works as AND operator, all rules should be true
   const isValid = when.reduce((acc, rule) => {
     // if (rule.id !== changeField) {
@@ -66,13 +66,13 @@ export const shouldApplyRule = (fields, changeField) => when => {
         isValid = operators.CHANGED(rule.id, changeField)
         break
       case EQUALS:
-        isValid = operators.EQUALS(rule.id, rule.value, fields)
+        isValid = operators.EQUALS(rule.id, rule.value, fields, locale)
         break
       case GREATERTHAN:
-        isValid = operators.GREATERTHAN(rule.id, rule.value, fields)
+        isValid = operators.GREATERTHAN(rule.id, rule.value, fields, locale)
         break
       case LESSTHAN:
-        isValid = operators.LESSTHAN(rule.id, rule.value, fields)
+        isValid = operators.LESSTHAN(rule.id, rule.value, fields, locale)
         break
       default:
         console.warn(`Unkown operator ${rule.operator}`)
@@ -139,11 +139,13 @@ export const applyRules = async (
   changeField,
   formID,
   responseInterceptor,
-  requestInterceptor
+  requestInterceptor,
+  locale
 ) => {
   const shouldApplyRuleForFieldsAndChangeField = shouldApplyRule(
     fields,
-    changeField
+    changeField,
+    locale
   )
   const fetchRemoteFieldsForFieldsAndFormID = fetchRemoteFields(
     fields,

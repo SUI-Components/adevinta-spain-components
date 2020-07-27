@@ -9,6 +9,7 @@ import {
   LESSTHAN
 } from './constants'
 import {pickFieldById} from './fields'
+import {LocalizationFactory} from '../Standard/Localization/LocalizationFactory'
 
 export const operators = {
   [IN]: (id, values, fields) => {
@@ -27,19 +28,35 @@ export const operators = {
     return !operators.EXISTS(id, fields)
   },
   [CHANGED]: (id, changeField) => id === changeField,
-  [EQUALS]: (id, values, fields) => {
+  [EQUALS]: (id, values, fields, locale) => {
     const field = pickFieldById(fields, id)
-    const shouldApply = values[0] === field.value
+    let value = field.value
+    const equalTo = values[0]
+    if (typeof equalTo === 'number') {
+      const localization = LocalizationFactory({value, locale})
+      value = localization.fromStringToLocaleFloat()
+    }
+    const shouldApply = equalTo === value
     return shouldApply
   },
-  [GREATERTHAN]: (id, values, fields) => {
+  [GREATERTHAN]: (id, values, fields, locale) => {
     const field = pickFieldById(fields, id)
-    const shouldApply = field.value > values[0]
+    let value = field.value
+    if (typeof field.value === 'string') {
+      const localization = LocalizationFactory({value, locale})
+      value = localization.fromStringToLocaleFloat()
+    }
+    const shouldApply = value > values[0]
     return shouldApply
   },
-  [LESSTHAN]: (id, values, fields) => {
+  [LESSTHAN]: (id, values, fields, locale) => {
     const field = pickFieldById(fields, id)
-    const shouldApply = field.value < values[0]
+    let value = field.value
+    if (typeof field.value === 'string') {
+      const localization = LocalizationFactory({value, locale})
+      value = localization.fromStringToLocaleFloat()
+    }
+    const shouldApply = value < values[0]
     return shouldApply
   }
 }

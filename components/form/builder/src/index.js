@@ -27,6 +27,7 @@ const FormBuilder = ({
   errors,
   alerts,
   transformations,
+  locale,
   children: renderer
 }) => {
   const {fields = [], rules = {}, id: formID} = json.form
@@ -51,7 +52,8 @@ const FormBuilder = ({
       rules,
       formID,
       responseInterceptor,
-      requestInterceptor
+      requestInterceptor,
+      locale
     )
     const timerShowSpinner = setTimeout(
       () => setStateShowSpinner(true),
@@ -80,7 +82,8 @@ const FormBuilder = ({
       rules,
       formID,
       responseInterceptor,
-      requestInterceptor
+      requestInterceptor,
+      locale
     )
     const timerShowSpinner = setTimeout(
       () => setStateShowSpinner(true),
@@ -146,6 +149,7 @@ FormBuilder.propTypes = {
   errors: PropTypes.object,
   alerts: PropTypes.object,
   transformations: PropTypes.func,
+  locale: PropTypes.string,
   children: PropTypes.func
 }
 
@@ -158,6 +162,7 @@ FormBuilder.defaultProps = {
   errors: {},
   alerts: {},
   transformations: (_, value) => value,
+  locale: 'es-ES',
   children: () => ({})
 }
 
@@ -165,5 +170,5 @@ export {fieldSizes as formBuilderFieldSizes}
 export {pickFieldById as formBuilderPickFieldById}
 export {changeFieldById as formBuilderChangeFieldById}
 export {fieldsNamesInOrderOfDefinition as formBuilderFieldsNamesInOrderOfDefinition}
-export {checkConstraintsFactory, checkConstrainstsFactory} from './Standard'
+export {checkConstraintsFactory} from './Standard'
 export default FormBuilder

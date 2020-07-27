@@ -5,7 +5,8 @@ export const reducer = (
   rules,
   formID,
   responseInterceptor,
-  requestInterceptor
+  requestInterceptor,
+  locale
 ) => async (fields, action) => {
   const {type, id} = action
   let nextFields
@@ -17,7 +18,8 @@ export const reducer = (
         id,
         formID,
         responseInterceptor,
-        requestInterceptor
+        requestInterceptor,
+        locale
       )
       return nextFields
     default:
