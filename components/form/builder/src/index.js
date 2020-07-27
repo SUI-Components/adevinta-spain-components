@@ -26,6 +26,7 @@ const FormBuilder = ({
   fieldSize,
   errors,
   alerts,
+  transformations,
   children: renderer
 }) => {
   const {fields = [], rules = {}, id: formID} = json.form
@@ -56,8 +57,10 @@ const FormBuilder = ({
       () => setStateShowSpinner(true),
       FormBuilder.USER_MINIMAL_DELAY
     )
-
-    const nextFields = changeField(id, value)
+    const transformedValue = transformations(id, value)
+    console.log('transformedValue', transformedValue)
+    debugger // eslint-disable-line
+    const nextFields = changeField(id, transformedValue)
     clearTimeout(timerShowSpinner)
 
     const nextStateFields = await reducerWithRules(nextFields, {
@@ -144,6 +147,7 @@ FormBuilder.propTypes = {
   fieldSize: PropTypes.oneOf(Object.values(fieldSizes)),
   errors: PropTypes.object,
   alerts: PropTypes.object,
+  transformations: PropTypes.func,
   children: PropTypes.func
 }
 
@@ -155,6 +159,7 @@ FormBuilder.defaultProps = {
   requestInterceptor: () => {},
   errors: {},
   alerts: {},
+  transformations: (_, value) => value,
   children: () => ({})
 }
 
