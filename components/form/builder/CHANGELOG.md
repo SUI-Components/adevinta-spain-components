@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 3.10.0 (2020-07-27)
+
+
+### Features
+
+* check min and max constraints when dealing with localized digits ([3171d47](https://github.com/SUI-Components/schibsted-spain-components/commit/3171d47692e33daddd8bbccf69d86e6349aef2c4))
+
+
+
 # 3.9.0 (2020-07-23)
 
 
