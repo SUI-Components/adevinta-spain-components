@@ -124,13 +124,23 @@ const navCTA = {
   text: 'Check our code'
 }
 
-return (
+const Topbar = props => (
   <TopbarUser
     brand={brand}
     navMain={navMain}
     navUser={navUser}
     navCTA={navCTA}
-    customContent={<div>custom content</div>}
     onToggle={console.log}
+    {...props}
   />
+)
+
+return (
+  <>
+  <h1>Topbar with CTA</h1>
+  <Topbar/>
+
+  <h1>Topbar with Custom content</h1>
+  <Topbar customContent={<div>custom content</div>}/>
+  </>
 )
