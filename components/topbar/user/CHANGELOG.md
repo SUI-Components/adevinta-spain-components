@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.42.0 (2020-07-28)
+
+
+### Features
+
+* added the possibility to render custom content. Added tests ([a828646](https://github.com/SUI-Components/schibsted-spain-components/commit/a828646dea95c916eac18220e80478e9a3288a4f))
+* use size from atombutton constants ([14b3b42](https://github.com/SUI-Components/schibsted-spain-components/commit/14b3b42fdb859c6fea445b8d732978e989cb59ed))
+
+
+
 # 1.41.0 (2020-04-14)
 
 
