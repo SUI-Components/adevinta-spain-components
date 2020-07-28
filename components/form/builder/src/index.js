@@ -26,6 +26,8 @@ const FormBuilder = ({
   fieldSize,
   errors,
   alerts,
+  transformations,
+  locale,
   children: renderer
 }) => {
   const {fields = [], rules = {}, id: formID} = json.form
@@ -50,14 +52,15 @@ const FormBuilder = ({
       rules,
       formID,
       responseInterceptor,
-      requestInterceptor
+      requestInterceptor,
+      locale
     )
     const timerShowSpinner = setTimeout(
       () => setStateShowSpinner(true),
       FormBuilder.USER_MINIMAL_DELAY
     )
-
-    const nextFields = changeField(id, value)
+    const transformedValue = transformations(id, value)
+    const nextFields = changeField(id, transformedValue)
     clearTimeout(timerShowSpinner)
 
     const nextStateFields = await reducerWithRules(nextFields, {
@@ -79,7 +82,8 @@ const FormBuilder = ({
       rules,
       formID,
       responseInterceptor,
-      requestInterceptor
+      requestInterceptor,
+      locale
     )
     const timerShowSpinner = setTimeout(
       () => setStateShowSpinner(true),
@@ -144,6 +148,8 @@ FormBuilder.propTypes = {
   fieldSize: PropTypes.oneOf(Object.values(fieldSizes)),
   errors: PropTypes.object,
   alerts: PropTypes.object,
+  transformations: PropTypes.func,
+  locale: PropTypes.string,
   children: PropTypes.func
 }
 
@@ -155,6 +161,8 @@ FormBuilder.defaultProps = {
   requestInterceptor: () => {},
   errors: {},
   alerts: {},
+  transformations: (_, value) => value,
+  locale: 'es-ES',
   children: () => ({})
 }
 
@@ -162,5 +170,5 @@ export {fieldSizes as formBuilderFieldSizes}
 export {pickFieldById as formBuilderPickFieldById}
 export {changeFieldById as formBuilderChangeFieldById}
 export {fieldsNamesInOrderOfDefinition as formBuilderFieldsNamesInOrderOfDefinition}
-export {checkConstraintsFactory, checkConstrainstsFactory} from './Standard'
+export {checkConstraintsFactory} from './Standard'
 export default FormBuilder
