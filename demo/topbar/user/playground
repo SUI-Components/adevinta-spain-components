@@ -130,6 +130,7 @@ return (
     navMain={navMain}
     navUser={navUser}
     navCTA={navCTA}
+    customContent={<div>custom content</div>}
     onToggle={console.log}
   />
 )

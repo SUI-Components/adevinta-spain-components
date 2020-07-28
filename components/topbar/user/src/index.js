@@ -5,7 +5,7 @@ import cx from 'classnames'
 import Menu from '@s-ui/react-icons/lib/Menu'
 import DropdownBasic from '@s-ui/react-dropdown-basic'
 import DropdownUser from '@s-ui/react-dropdown-user'
-import AtomButton from '@s-ui/react-atom-button'
+import AtomButton, {atomButtonSizes} from '@s-ui/react-atom-button'
 
 const DEFAULT_NAV_WRAP_STYLE = {
   top: 'inherit',
@@ -231,7 +231,7 @@ export default function TopbarUser({
             href={navCTA.url}
             title={navCTA.text}
             leftIcon={<navCTA.icon svgClass="sui-TopbarUser-ctaButtonIcon" />}
-            size="small"
+            size={atomButtonSizes.SMALL}
             type="primary"
             onClick={handleCTAclick}
           >
