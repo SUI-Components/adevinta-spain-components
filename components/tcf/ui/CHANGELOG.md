@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.15.0 (2020-07-28)
+
+
+### Bug Fixes
+
+* check window to enable ssr ([7162136](https://github.com/SUI-Components/schibsted-spain-components/commit/7162136e7776b0bae28116ad716b92a172b2adfa))
+
+
+
 # 1.14.0 (2020-07-23)
 
 
