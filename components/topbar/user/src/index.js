@@ -5,7 +5,7 @@ import cx from 'classnames'
 import Menu from '@s-ui/react-icons/lib/Menu'
 import DropdownBasic from '@s-ui/react-dropdown-basic'
 import DropdownUser from '@s-ui/react-dropdown-user'
-import AtomButton from '@s-ui/react-atom-button'
+import AtomButton, {atomButtonSizes} from '@s-ui/react-atom-button'
 
 const DEFAULT_NAV_WRAP_STYLE = {
   top: 'inherit',
@@ -26,6 +26,7 @@ export default function TopbarUser({
   navMain,
   navUser,
   navCTA,
+  customContent,
   linkFactory = ({href, className, children, target, title}) => (
     <a href={href} className={className} target={target} title={title}>
       {children}
@@ -179,11 +180,8 @@ export default function TopbarUser({
   const toggleMenuClassName = cx('sui-TopbarUser-toggle', {
     'has-notifications': hasNotifications
   })
-  const {
-    url: navCtaUrl,
-    text: navCtaText,
-    onClick: onCTAClick = () => {}
-  } = navCTA
+
+  const handleCTAclick = navCTA && navCTA.onClick
 
   return (
     <div ref={_topbarUserNode} className="sui-TopbarUser">
@@ -225,19 +223,22 @@ export default function TopbarUser({
           </div>
         </div>
       </div>
-      <div className="sui-TopbarUser-ctaButton">
-        <AtomButton
-          link
-          href={navCtaUrl}
-          title={navCtaText}
-          leftIcon={<navCTA.icon svgClass="sui-TopbarUser-ctaButtonIcon" />}
-          size="small"
-          type="primary"
-          onClick={onCTAClick}
-        >
-          {navCtaText}
-        </AtomButton>
-      </div>
+      {customContent}
+      {navCTA && !customContent && (
+        <div className="sui-TopbarUser-ctaButton">
+          <AtomButton
+            link
+            href={navCTA.url}
+            title={navCTA.text}
+            leftIcon={<navCTA.icon svgClass="sui-TopbarUser-ctaButtonIcon" />}
+            size={atomButtonSizes.SMALL}
+            type="primary"
+            onClick={handleCTAclick}
+          >
+            {navCTA.text}
+          </AtomButton>
+        </div>
+      )}
     </div>
   )
 }
@@ -347,6 +348,11 @@ TopbarUser.propTypes = {
       })
     )
   }).isRequired,
+  /**
+   * Render custom content instead of a CTA.
+   * If a customContent is provided, it's rendered instead of a navCTA
+   */
+  customContent: PropTypes.node,
   /**
    * CTA data.
    */
