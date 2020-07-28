@@ -2,12 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.0.0 (2020-07-28)
+
+
+### Features
+
+* move to parent class methods ([23dfed3](https://github.com/SUI-Components/schibsted-spain-components/commit/23dfed3d174b718c9349001c9b92f070cc9f4817))
+* new locale prop, remove checkConstrainstsFactory in favor of checkConstraintsFac ([e93b3fd](https://github.com/SUI-Components/schibsted-spain-components/commit/e93b3fd04f00529187ecdd8c94324a922a55cc73))
+
+
+### BREAKING CHANGES
+
+* remove checkConstrainstsFactory in favor of checkConstraintsFactory
+
+
+
 # 3.10.0 (2020-07-27)
 
 
 ### Features
 
+* apply transformation function when field changes ([047f5c9](https://github.com/SUI-Components/schibsted-spain-components/commit/047f5c936c38389ede5f881cf8791a670e6c9190))
 * check min and max constraints when dealing with localized digits ([3171d47](https://github.com/SUI-Components/schibsted-spain-components/commit/3171d47692e33daddd8bbccf69d86e6349aef2c4))
+* remove debuggers and console logs ([c16aa18](https://github.com/SUI-Components/schibsted-spain-components/commit/c16aa18ba89f4edea5bbfe159839ce5e5dd9f4e6))
 
 
 
