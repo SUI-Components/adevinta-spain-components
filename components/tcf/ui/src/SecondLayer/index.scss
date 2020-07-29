@@ -45,6 +45,7 @@ $base-class-modal: '#sui-TcfSecondLayerModal';
 
   .sui-MoleculeModal-header {
     padding: $p-l 0 $p-l $ml-tcf-second-layer-modal-mobile;
+    background-color: $c-white;
     @include media-breakpoint-up(s) {
       padding: $p-xxl 0 $p-xxl $ml-tcf-second-layer-modal;
     }
