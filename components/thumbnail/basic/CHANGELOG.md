@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.16.0 (2020-07-29)
+
+
+### Features
+
+* add min-height variable and added a new component class ([a62f442](https://github.com/SUI-Components/schibsted-spain-components/commit/a62f442fc9e40a5c23ec3991159fc803ae6860d0))
+
+
+
 # 1.15.0 (2020-03-09)
 
 
