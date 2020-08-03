@@ -121,21 +121,24 @@ export default function TcfSecondLayer({
   const handleConsentsChange = ({group, index, value}) => {
     setState(prevState => {
       const newValue = !value
+      const isPurposesGroup = group === 'purposes'
       const {consents, legitimateInterests} = prevState[group]
       if (consents && legitimateInterests) {
         consents[index] = newValue
         legitimateInterests[index] = newValue
         const {vendors} = prevState
-        Object.entries(vendorListState.vendors).forEach(
-          ([key, vendorFromVendorList]) => {
-            if (vendorFromVendorList.purposes.includes(index)) {
-              vendors.consents[key] = newValue
+        if (isPurposesGroup) {
+          Object.entries(vendorListState.vendors).forEach(
+            ([key, vendorFromVendorList]) => {
+              if (vendorFromVendorList.purposes.includes(index)) {
+                vendors.consents[key] = newValue
+              }
+              if (vendorFromVendorList.legIntPurposes.includes(index)) {
+                vendors.legitimateInterests[key] = newValue
+              }
             }
-            if (vendorFromVendorList.legIntPurposes.includes(index)) {
-              vendors.legitimateInterests[key] = newValue
-            }
-          }
-        )
+          )
+        }
         const nextState = {
           ...prevState,
           vendors,
