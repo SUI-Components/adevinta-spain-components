@@ -16,7 +16,7 @@ const groupBaseClass = `${CLASS}-group`
 
 export default function TcfSecondLayer({
   logo,
-  saveUserConsent,
+  onSaveUserConsent,
   onGoBack,
   onVendorsClick,
   isVendorLayer
@@ -68,7 +68,7 @@ export default function TcfSecondLayer({
   }
 
   const handleSaveExitClick = () => {
-    saveUserConsent()
+    onSaveUserConsent()
     handleCloseModal()
   }
 
@@ -291,9 +291,7 @@ export default function TcfSecondLayer({
 TcfSecondLayer.displayName = 'TcfSecondLayer'
 TcfSecondLayer.propTypes = {
   isVendorLayer: PropTypes.bool,
-  loadUserConsent: PropTypes.func,
-  saveUserConsent: PropTypes.func,
-  getVendorList: PropTypes.func,
+  onSaveUserConsent: PropTypes.func,
   logo: PropTypes.string,
   onGoBack: PropTypes.func,
   onVendorsClick: PropTypes.func
