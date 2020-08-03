@@ -2,11 +2,11 @@
 @import '~@s-ui/react-atom-button/lib/index';
 @import '~@s-ui/react-molecule-modal/lib/index';
 @import '~@s-ui/react-atom-switch/lib/index';
-@import './components/iconClose';
-@import './components/tcf-secondLayer-decision-group';
-@import './components/tcf-secondLayer-user-decision';
-@import './components/tcf-secondLayer-vendors-user-decision';
-@import './components/tcf-secondLayer-legal-expandedContent';
+@import './components/iconClose/index';
+@import './components/tcf-secondLayer-decision-group/index';
+@import './components/tcf-secondLayer-user-decision/index';
+@import './components/tcf-secondLayer-vendors-user-decision/index';
+@import './components/tcf-secondLayer-legal-expandedContent/index';
 
 $fz-tcf-second-layer-base: $fz-s !default; // 14px
 $fz-tcf-second-layer-mobile: $fz-xs !default; // 12px
