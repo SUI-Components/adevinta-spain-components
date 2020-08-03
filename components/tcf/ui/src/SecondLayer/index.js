@@ -131,7 +131,7 @@ export default function TcfSecondLayer({
             if (vendorFromVendorList.purposes.includes(index)) {
               vendors.consents[key] = newValue
             }
-            if (vendorFromVendorList.legIntPurposes.includes(key)) {
+            if (vendorFromVendorList.legIntPurposes.includes(index)) {
               vendors.legitimateInterests[key] = newValue
             }
           }
