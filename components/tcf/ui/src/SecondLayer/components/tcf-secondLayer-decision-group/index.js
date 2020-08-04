@@ -6,19 +6,20 @@ import Button from '@s-ui/react-atom-button'
 import TcfSecondLayerUserDecision from '../tcf-secondLayer-user-decision'
 import TcfSecondLayerVendorsUserDecision from '../tcf-secondLayer-vendors-user-decision'
 export function TcfSecondLayerDecisionGroup({
-  name,
-  i18n,
   baseClass,
+  decisionKey = 'consents',
   descriptions,
-  state,
+  expandedContent,
   filteredIds,
   hasConsent,
-  onConsentChange,
+  i18n,
+  isVendorLayer,
+  name,
   onAcceptAll,
+  onConsentChange,
   onRejectAll,
-  vendorList,
-  expandedContent,
-  isVendorLayer
+  state,
+  vendorList
 }) {
   const [descriptionKeys, setDescriptionKeys] = useState(null)
   useEffect(() => {
@@ -38,10 +39,14 @@ export function TcfSecondLayerDecisionGroup({
   }
   const ButtonAll = React.memo(() => (
     <div className={`${baseClass}Header-buttons`}>
-      <Button size="small" design="outline" onClick={onRejectAll}>
+      <Button
+        size="small"
+        design="outline"
+        onClick={() => onRejectAll({decisionKey})}
+      >
         {i18n.DISABLE_BUTTON}
       </Button>
-      <Button size="small" onClick={onAcceptAll}>
+      <Button size="small" onClick={() => onAcceptAll({decisionKey})}>
         {i18n.ENABLE_BUTTON}
       </Button>
     </div>
@@ -56,8 +61,8 @@ export function TcfSecondLayerDecisionGroup({
       {/* sui-TcfSecondLayer-group-item- */}
       {/* sui-TcfSecondLayer-group-item--vendors */}
       {descriptionKeys.map((key, index) => {
-        const consentValue = state?.consents
-          ? state.consents[key]
+        const consentValue = state?.[decisionKey]
+          ? state[decisionKey][key]
           : state?.[key]
         return isVendorLayer ? (
           <TcfSecondLayerUserDecision
@@ -68,7 +73,9 @@ export function TcfSecondLayerDecisionGroup({
             hasConsent={hasConsent}
             i18n={i18n}
             vendorList={vendorList}
-            onConsentChange={value => onConsentChange({index: key, value})}
+            onConsentChange={value =>
+              onConsentChange({index: key, value, decisionKey})
+            }
             expandedContent={expandedContent}
           />
         ) : (
@@ -79,8 +86,9 @@ export function TcfSecondLayerDecisionGroup({
             consentValue={consentValue}
             hasConsent={hasConsent}
             i18n={i18n}
-            vendorList={vendorList}
-            onConsentChange={value => onConsentChange({index: key, value})}
+            onConsentChange={value =>
+              onConsentChange({index: key, value, decisionKey})
+            }
             expandedContent={expandedContent}
           />
         )
@@ -89,20 +97,25 @@ export function TcfSecondLayerDecisionGroup({
   )
 }
 
+TcfSecondLayerDecisionGroup.defaultProps = {
+  decisionKey: 'consents'
+}
+
 TcfSecondLayerDecisionGroup.propTypes = {
-  name: PropTypes.string,
-  i18n: PropTypes.object,
   baseClass: PropTypes.string,
+  decisionKey: PropTypes.string,
   descriptions: PropTypes.object,
-  state: PropTypes.object,
+  expandedContent: PropTypes.func,
   filteredIds: PropTypes.func,
   hasConsent: PropTypes.bool,
+  i18n: PropTypes.object,
   isVendorLayer: PropTypes.bool,
-  onConsentChange: PropTypes.func,
+  name: PropTypes.string,
   onAcceptAll: PropTypes.func,
+  onConsentChange: PropTypes.func,
   onRejectAll: PropTypes.func,
-  vendorList: PropTypes.object,
-  expandedContent: PropTypes.func
+  state: PropTypes.object,
+  vendorList: PropTypes.object
 }
 
 export default React.memo(TcfSecondLayerDecisionGroup)

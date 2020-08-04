@@ -23,6 +23,9 @@ const DEFAULT_I18N = {
       'Nos importa mucho tu privacidad, por esta razón queremos informarte de las finalidades perseguidas por las cookies de publicidad personalizada además de con quién estamos compartiendo tus datos. Asimismo podrás definir las finalidades y los terceros con los que aceptas o no compartir tus datos de navegación, tus datos de localización y tus datos de carácter personal. Ten en cuenta que estas cookies van ligadas a tu sesión en el navegador por lo que si actualizas tus cookies, cambias de dispositivos o te conectas desde otro navegador, tendrás que volver a configurar tus preferencias.',
     GROUPS: {
       TITLE: 'Listado de partners con los que trabajamos',
+      TITLE_CONSENT: 'Tratamiento de datos basado en consentimiento',
+      TITLE_LEGITIMATEINTEREST:
+        'Tratamiento de datos basado en interés legítimo',
       EXPANDED: {
         PURPOSES: 'Propósitos',
         LEGITIMATE_INTEREST_PURPOSES: 'Interés legítimo en:',
@@ -56,6 +59,9 @@ const IT_I18N = {
   },
   VENDOR_PAGE: {
     TITLE: 'Cookie di prima o terza parte per la pubblicità segmentata',
+    TITLE_CONSENT: 'Trattamento dei dati basato sul consenso',
+    TITLE_LEGITIMATEINTEREST:
+      "Trattamento dei dati basato sull'interesse legittimo",
     TEXT:
       'Ci preoccupiamo molto della tua privacy, per questo motivo vogliamo informarti delle finalità perseguite dai cookie per la pubblicità personalizzata, e farti sapere con chi stiamo condividendo le tue informazioni. Potrai inoltre definire le finalità e le terze parti con le quali accetti o meno di condividere i tuoi dati di navigazione, di posizione e i tuoi dati personali. Tieni presente che questi cookie sono legati alla tua sessione di navigazione, quindi se aggiorni i tuoi cookie, cambiando dispositivo o connettendoti da un altro browser, dovrai riconfigurare le tue preferenze.',
     GROUPS: {
