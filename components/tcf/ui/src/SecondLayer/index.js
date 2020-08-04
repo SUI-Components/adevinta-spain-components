@@ -16,7 +16,7 @@ const groupBaseClass = `${CLASS}-group`
 
 export default function TcfSecondLayer({
   logo,
-  saveUserConsent,
+  onSaveUserConsent,
   onGoBack,
   onVendorsClick,
   isVendorLayer
@@ -68,7 +68,7 @@ export default function TcfSecondLayer({
   }
 
   const handleSaveExitClick = () => {
-    saveUserConsent()
+    onSaveUserConsent()
     handleCloseModal()
   }
 
@@ -81,7 +81,12 @@ export default function TcfSecondLayer({
         prevState[group].consents[key] = value
         prevState[group].legitimateInterests[key] = value
       }
-      const nextState = {...prevState, [group]: prevState[group]}
+      const {vendors} = prevState
+      Object.keys(vendorListState.vendors).forEach(key => {
+        vendors.consents[key] = value
+        vendors.legitimateInterests[key] = value
+      })
+      const nextState = {...prevState, vendors, [group]: prevState[group]}
       saveConsentState(nextState)
       return nextState
     })
@@ -115,12 +120,28 @@ export default function TcfSecondLayer({
 
   const handleConsentsChange = ({group, index, value}) => {
     setState(prevState => {
+      const newValue = !value
+      const isPurposesGroup = group === 'purposes'
       const {consents, legitimateInterests} = prevState[group]
       if (consents && legitimateInterests) {
-        consents[index] = !value
-        legitimateInterests[index] = !value
+        consents[index] = newValue
+        legitimateInterests[index] = newValue
+        const {vendors} = prevState
+        if (isPurposesGroup) {
+          Object.entries(vendorListState.vendors).forEach(
+            ([key, vendorFromVendorList]) => {
+              if (vendorFromVendorList.purposes.includes(index)) {
+                vendors.consents[key] = newValue
+              }
+              if (vendorFromVendorList.legIntPurposes.includes(index)) {
+                vendors.legitimateInterests[key] = newValue
+              }
+            }
+          )
+        }
         const nextState = {
           ...prevState,
+          vendors,
           [group]: {...prevState[group], consents, legitimateInterests}
         }
         saveConsentState(nextState)
@@ -128,7 +149,7 @@ export default function TcfSecondLayer({
       } else {
         const nextState = {
           ...prevState,
-          [group]: {...prevState[group], [index]: !value}
+          [group]: {...prevState[group], [index]: newValue}
         }
         saveConsentState(nextState)
         return nextState
@@ -291,9 +312,7 @@ export default function TcfSecondLayer({
 TcfSecondLayer.displayName = 'TcfSecondLayer'
 TcfSecondLayer.propTypes = {
   isVendorLayer: PropTypes.bool,
-  loadUserConsent: PropTypes.func,
-  saveUserConsent: PropTypes.func,
-  getVendorList: PropTypes.func,
+  onSaveUserConsent: PropTypes.func,
   logo: PropTypes.string,
   onGoBack: PropTypes.func,
   onVendorsClick: PropTypes.func
