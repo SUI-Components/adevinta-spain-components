@@ -10,6 +10,7 @@ import TcfSecondLayerVendorExpandedContent from './components/tcf-secondLayer-ve
 
 import {I18N} from './settings'
 import TcfSecondLayerLegalExpandedContent from './components/tcf-secondLayer-legal-expandedContent'
+import TcfSecondLayerVendorList from './components/tcf-secondLayer-vendorList'
 
 const CLASS = 'sui-TcfSecondLayer'
 const groupBaseClass = `${CLASS}-group`
@@ -263,21 +264,15 @@ export default function TcfSecondLayer({
             />
           )}
           {!!state?.vendors && !!vendorListState?.vendors && isVendorLayer && (
-            <TcfSecondLayerDecisionGroup
-              name={i18n.VENDOR_PAGE.GROUPS.TITLE}
-              baseClass={groupBaseClass}
-              descriptions={vendorListState.vendors}
-              state={state.vendors}
-              onConsentChange={props =>
-                handleConsentsChange({group: 'vendors', ...props})
-              }
-              hasConsent
+            <TcfSecondLayerVendorList
               i18n={i18n}
-              onAcceptAll={() => handleAcceptAll({group: 'vendors'})}
-              onRejectAll={() => handleRejectAll({group: 'vendors'})}
-              vendorList={vendorListState}
-              expandedContent={vendorExpandedContent}
-              isVendorLayer={isVendorLayer}
+              groupBaseClass={groupBaseClass}
+              vendorListState={vendorListState}
+              state={state}
+              handleConsentsChange={handleConsentsChange}
+              handleAcceptAll={handleAcceptAll}
+              handleRejectAll={handleRejectAll}
+              vendorExpandedContent={vendorExpandedContent}
             />
           )}
         </div>
