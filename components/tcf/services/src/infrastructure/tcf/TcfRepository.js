@@ -18,9 +18,13 @@ class TcfRepository {
   async _initializeConsent() {
     const userConsent = await this._tcfApi.loadUserConsent()
     if (userConsent.isNew) {
+      const vendorList = await this.getVendorList()
       userConsent.purpose = {consents: {}, legitimateInterests: {}}
       userConsent.vendor = {consents: {}, legitimateInterests: {}}
       userConsent.specialFeatures = {}
+      Object.keys(vendorList.vendors).forEach(key => {
+        userConsent.vendor.legitimateInterests[key] = true
+      })
     }
     this._data = userConsent
     return this._data
