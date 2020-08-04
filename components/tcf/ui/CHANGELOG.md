@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.19.0 (2020-08-04)
+
+
+### Features
+
+* change legal texts in first layer ([f5b4411](https://github.com/SUI-Components/schibsted-spain-components/commit/f5b4411ae6ecb2ffd682574e126b9f8303c585ba))
+
+
+
 # 1.18.0 (2020-08-04)
 
 
