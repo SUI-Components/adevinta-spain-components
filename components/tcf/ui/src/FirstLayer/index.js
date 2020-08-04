@@ -79,9 +79,11 @@ export default function TcfFirstLayer({
   }
 
   const handleSaveExitClick = async () => {
-    const userConsent = await loadUserConsent()
-    const vendorList = await getVendorList()
-    const scope = await getScope()
+    const [userConsent, vendorList, scope] = await Promise.all([
+      loadUserConsent(),
+      getVendorList(),
+      getScope()
+    ])
     scope.purposes = scope.purposes || Object.keys(vendorList.purposes)
     scope.purposes.forEach(key => {
       userConsent.purpose.consents[key] = true
