@@ -34,11 +34,19 @@ export default function TcfSecondLayerVendorList({
         i18n={i18n}
         isVendorLayer
         name={i18n.VENDOR_PAGE.GROUPS.TITLE_CONSENT}
-        onAcceptAll={() => handleAcceptAll({group: 'vendors'})}
-        onConsentChange={props =>
-          handleConsentsChange({group: 'vendors', ...props})
+        onAcceptAll={props =>
+          handleAcceptAll({group: 'vendors', decisionKey: 'consents', ...props})
         }
-        onRejectAll={() => handleRejectAll({group: 'vendors'})}
+        onConsentChange={props =>
+          handleConsentsChange({
+            group: 'vendors',
+            decisionKey: 'consents',
+            ...props
+          })
+        }
+        onRejectAll={props =>
+          handleRejectAll({group: 'vendors', decisionKey: 'consents', ...props})
+        }
         state={state.vendors}
         vendorList={vendorListState}
       />
@@ -51,11 +59,27 @@ export default function TcfSecondLayerVendorList({
         i18n={i18n}
         isVendorLayer
         name={i18n.VENDOR_PAGE.GROUPS.TITLE_LEGITIMATEINTEREST}
-        onAcceptAll={() => handleAcceptAll({group: 'vendors'})}
-        onConsentChange={props =>
-          handleConsentsChange({group: 'vendors', ...props})
+        onAcceptAll={props =>
+          handleAcceptAll({
+            group: 'vendors',
+            decisionKey: 'legitimateInterests',
+            ...props
+          })
         }
-        onRejectAll={() => handleRejectAll({group: 'vendors'})}
+        onConsentChange={props =>
+          handleConsentsChange({
+            group: 'vendors',
+            decisionKey: 'legitimateInterests',
+            ...props
+          })
+        }
+        onRejectAll={props =>
+          handleRejectAll({
+            group: 'vendors',
+            decisionKey: 'legitimateInterests',
+            ...props
+          })
+        }
         state={state.vendors}
         vendorList={vendorListState}
       />

@@ -39,10 +39,14 @@ export function TcfSecondLayerDecisionGroup({
   }
   const ButtonAll = React.memo(() => (
     <div className={`${baseClass}Header-buttons`}>
-      <Button size="small" design="outline" onClick={onRejectAll}>
+      <Button
+        size="small"
+        design="outline"
+        onClick={() => onRejectAll({decisionKey})}
+      >
         {i18n.DISABLE_BUTTON}
       </Button>
-      <Button size="small" onClick={onAcceptAll}>
+      <Button size="small" onClick={() => onAcceptAll({decisionKey})}>
         {i18n.ENABLE_BUTTON}
       </Button>
     </div>
@@ -82,7 +86,9 @@ export function TcfSecondLayerDecisionGroup({
             consentValue={consentValue}
             hasConsent={hasConsent}
             i18n={i18n}
-            onConsentChange={value => onConsentChange({index: key, value})}
+            onConsentChange={value =>
+              onConsentChange({index: key, value, decisionKey})
+            }
             expandedContent={expandedContent}
           />
         )
