@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.16.0 (2020-08-03)
+
+
+### Bug Fixes
+
+* add /index in the scss imports ([8f6dbbb](https://github.com/SUI-Components/schibsted-spain-components/commit/8f6dbbbab48ccf04ae803212bec4f5980dfd9b93))
+* fix background color of firstLayer to white ([087f7bc](https://github.com/SUI-Components/schibsted-spain-components/commit/087f7bc135bc512c8d8f3ce70b8149425eecd87c))
+* fix header color to white ([92b13bf](https://github.com/SUI-Components/schibsted-spain-components/commit/92b13bfd3f80ffcce8124554be68d8c71e7f4e22))
+
+
+
 # 1.15.0 (2020-07-28)
 
 
