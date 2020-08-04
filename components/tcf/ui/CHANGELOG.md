@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.17.0 (2020-08-04)
+
+
+### Bug Fixes
+
+* fix legInterestPurpose match ([9118c84](https://github.com/SUI-Components/schibsted-spain-components/commit/9118c8458c783d7946a8deac2763a505b1fec362))
+* only apply changes in vendors when purposes changes ([1468b4e](https://github.com/SUI-Components/schibsted-spain-components/commit/1468b4ee2fc84bea525efb56c643daad103e8ade))
+
+
+### Features
+
+* activate vendor for some specific purpose consent ([7f99920](https://github.com/SUI-Components/schibsted-spain-components/commit/7f99920b3c9eb5b0748044aeb093b605b4217c8a))
+
+
+
 # 1.16.0 (2020-08-03)
 
 
@@ -10,6 +25,11 @@ All notable changes to this project will be documented in this file.
 * add /index in the scss imports ([8f6dbbb](https://github.com/SUI-Components/schibsted-spain-components/commit/8f6dbbbab48ccf04ae803212bec4f5980dfd9b93))
 * fix background color of firstLayer to white ([087f7bc](https://github.com/SUI-Components/schibsted-spain-components/commit/087f7bc135bc512c8d8f3ce70b8149425eecd87c))
 * fix header color to white ([92b13bf](https://github.com/SUI-Components/schibsted-spain-components/commit/92b13bfd3f80ffcce8124554be68d8c71e7f4e22))
+
+
+### Features
+
+* set consents to true in accept firstLayer ([f95d350](https://github.com/SUI-Components/schibsted-spain-components/commit/f95d3506a090e176ffd369ea9977348b4a4e210e))
 
 
 
