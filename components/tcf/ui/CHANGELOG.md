@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.18.0 (2020-08-04)
+
+
+
 # 1.17.0 (2020-08-04)
 
 
@@ -14,6 +18,8 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 * activate vendor for some specific purpose consent ([7f99920](https://github.com/SUI-Components/schibsted-spain-components/commit/7f99920b3c9eb5b0748044aeb093b605b4217c8a))
+* allows consent and legitimateInterest functional ([23b38fa](https://github.com/SUI-Components/schibsted-spain-components/commit/23b38fa2e15e1280d6368ef571eaddd0a80f0214))
+* split presentation of vendor list WIP ([276c875](https://github.com/SUI-Components/schibsted-spain-components/commit/276c875041334092bc42046a810864e08e30f489))
 
 
 
