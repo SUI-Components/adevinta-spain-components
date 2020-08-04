@@ -11,33 +11,65 @@ export default function TcfSecondLayerVendorList({
   handleRejectAll,
   vendorExpandedContent
 }) {
+  const {vendors} = vendorListState
+  const consentVendors = {}
+  const legitimateInterestVendors = {}
+  for (const key in vendors) {
+    if (vendors[key].purposes.length) {
+      consentVendors[key] = vendors[key]
+    }
+    if (vendors[key].legIntPurposes.length) {
+      legitimateInterestVendors[key] = vendors[key]
+    }
+  }
   return (
-    <TcfSecondLayerDecisionGroup
-      name={i18n.VENDOR_PAGE.GROUPS.TITLE}
-      baseClass={groupBaseClass}
-      descriptions={vendorListState.vendors}
-      state={state.vendors}
-      onConsentChange={props =>
-        handleConsentsChange({group: 'vendors', ...props})
-      }
-      hasConsent
-      i18n={i18n}
-      onAcceptAll={() => handleAcceptAll({group: 'vendors'})}
-      onRejectAll={() => handleRejectAll({group: 'vendors'})}
-      vendorList={vendorListState}
-      expandedContent={vendorExpandedContent}
-      isVendorLayer
-    />
+    <>
+      <h2>{i18n.VENDOR_PAGE.GROUPS.TITLE}</h2>
+      <TcfSecondLayerDecisionGroup
+        baseClass={groupBaseClass}
+        decisionKey="consents"
+        descriptions={consentVendors}
+        expandedContent={vendorExpandedContent}
+        hasConsent
+        i18n={i18n}
+        isVendorLayer
+        name={i18n.VENDOR_PAGE.GROUPS.TITLE_CONSENT}
+        onAcceptAll={() => handleAcceptAll({group: 'vendors'})}
+        onConsentChange={props =>
+          handleConsentsChange({group: 'vendors', ...props})
+        }
+        onRejectAll={() => handleRejectAll({group: 'vendors'})}
+        state={state.vendors}
+        vendorList={vendorListState}
+      />
+      <TcfSecondLayerDecisionGroup
+        baseClass={groupBaseClass}
+        decisionKey="legitimateInterests"
+        descriptions={legitimateInterestVendors}
+        expandedContent={vendorExpandedContent}
+        hasConsent
+        i18n={i18n}
+        isVendorLayer
+        name={i18n.VENDOR_PAGE.GROUPS.TITLE_LEGITIMATEINTEREST}
+        onAcceptAll={() => handleAcceptAll({group: 'vendors'})}
+        onConsentChange={props =>
+          handleConsentsChange({group: 'vendors', ...props})
+        }
+        onRejectAll={() => handleRejectAll({group: 'vendors'})}
+        state={state.vendors}
+        vendorList={vendorListState}
+      />
+    </>
   )
 }
 
 TcfSecondLayerVendorList.propTypes = {
-  i18n: PropTypes.object,
   groupBaseClass: PropTypes.string,
-  vendorListState: PropTypes.object,
-  state: PropTypes.object,
-  handleConsentsChange: PropTypes.func,
   handleAcceptAll: PropTypes.func,
+  handleConsentsChange: PropTypes.func,
   handleRejectAll: PropTypes.func,
-  vendorExpandedContent: PropTypes.object
+  i18n: PropTypes.object,
+  state: PropTypes.object,
+  vendorExpandedContent: PropTypes.object,
+  vendorListState: PropTypes.object
 }
