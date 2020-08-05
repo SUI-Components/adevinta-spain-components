@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.20.0 (2020-08-05)
+
+
+### Features
+
+* change copy in first layer ([029451e](https://github.com/SUI-Components/schibsted-spain-components/commit/029451ea63428141507e7bf5cd198b4ff02ce387))
+
+
+
 # 1.19.0 (2020-08-04)
 
 
