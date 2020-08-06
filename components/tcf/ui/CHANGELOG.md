@@ -2,6 +2,70 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.20.0 (2020-08-05)
+
+
+### Features
+
+* change copy in first layer ([029451e](https://github.com/SUI-Components/schibsted-spain-components/commit/029451ea63428141507e7bf5cd198b4ff02ce387))
+
+
+
+# 1.19.0 (2020-08-04)
+
+
+### Features
+
+* change legal texts in first layer ([f5b4411](https://github.com/SUI-Components/schibsted-spain-components/commit/f5b4411ae6ecb2ffd682574e126b9f8303c585ba))
+
+
+
+# 1.18.0 (2020-08-04)
+
+
+
+# 1.17.0 (2020-08-04)
+
+
+### Bug Fixes
+
+* fix legInterestPurpose match ([9118c84](https://github.com/SUI-Components/schibsted-spain-components/commit/9118c8458c783d7946a8deac2763a505b1fec362))
+* only apply changes in vendors when purposes changes ([1468b4e](https://github.com/SUI-Components/schibsted-spain-components/commit/1468b4ee2fc84bea525efb56c643daad103e8ade))
+
+
+### Features
+
+* activate vendor for some specific purpose consent ([7f99920](https://github.com/SUI-Components/schibsted-spain-components/commit/7f99920b3c9eb5b0748044aeb093b605b4217c8a))
+* allows consent and legitimateInterest functional ([23b38fa](https://github.com/SUI-Components/schibsted-spain-components/commit/23b38fa2e15e1280d6368ef571eaddd0a80f0214))
+* split presentation of vendor list WIP ([276c875](https://github.com/SUI-Components/schibsted-spain-components/commit/276c875041334092bc42046a810864e08e30f489))
+
+
+
+# 1.16.0 (2020-08-03)
+
+
+### Bug Fixes
+
+* add /index in the scss imports ([8f6dbbb](https://github.com/SUI-Components/schibsted-spain-components/commit/8f6dbbbab48ccf04ae803212bec4f5980dfd9b93))
+* fix background color of firstLayer to white ([087f7bc](https://github.com/SUI-Components/schibsted-spain-components/commit/087f7bc135bc512c8d8f3ce70b8149425eecd87c))
+* fix header color to white ([92b13bf](https://github.com/SUI-Components/schibsted-spain-components/commit/92b13bfd3f80ffcce8124554be68d8c71e7f4e22))
+
+
+### Features
+
+* set consents to true in accept firstLayer ([f95d350](https://github.com/SUI-Components/schibsted-spain-components/commit/f95d3506a090e176ffd369ea9977348b4a4e210e))
+
+
+
+# 1.15.0 (2020-07-28)
+
+
+### Bug Fixes
+
+* check window to enable ssr ([7162136](https://github.com/SUI-Components/schibsted-spain-components/commit/7162136e7776b0bae28116ad716b92a172b2adfa))
+
+
+
 # 1.14.0 (2020-07-23)
 
 

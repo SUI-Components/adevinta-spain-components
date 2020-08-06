@@ -52,7 +52,7 @@ export default function TCFContainer({
   const handleThirdLayerGoBack = () => {
     setShowLayer(2)
   }
-  const handleOpenCookiepolicyLayer = () => {
+  const handleOpenCookiePolicyLayer = () => {
     setShowLayer(3)
   }
   const handleSaveUserConsent = async () => {
@@ -68,9 +68,9 @@ export default function TCFContainer({
         <Suspense fallback={<div />}>
           <FirstLayer
             logo={logo}
-            saveUserConsent={handleSaveUserConsent}
-            openSecondLayer={handleOpenSecondLayer}
-            openCookiepolicyLayer={handleOpenCookiepolicyLayer}
+            onSaveUserConsent={handleSaveUserConsent}
+            onOpenSecondLayer={handleOpenSecondLayer}
+            onOpenCookiePolicyLayer={handleOpenCookiePolicyLayer}
             showInModalForMobile={showInModalForMobile}
           />
         </Suspense>
@@ -79,7 +79,7 @@ export default function TCFContainer({
         <Suspense fallback={<div />}>
           <SecondLayer
             logo={logo}
-            saveUserConsent={handleSaveUserConsent}
+            onSaveUserConsent={handleSaveUserConsent}
             onGoBack={handleSecondLayerGoBack}
             onVendorsClick={handleVendorsClick}
           />
@@ -90,7 +90,7 @@ export default function TCFContainer({
           <SecondLayer
             isVendorLayer
             logo={logo}
-            saveUserConsent={handleSaveUserConsent}
+            onSaveUserConsent={handleSaveUserConsent}
             onGoBack={handleThirdLayerGoBack}
           />
         </Suspense>

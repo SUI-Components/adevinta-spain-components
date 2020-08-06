@@ -10,13 +10,14 @@ import TcfSecondLayerVendorExpandedContent from './components/tcf-secondLayer-ve
 
 import {I18N} from './settings'
 import TcfSecondLayerLegalExpandedContent from './components/tcf-secondLayer-legal-expandedContent'
+import TcfSecondLayerVendorList from './components/tcf-secondLayer-vendorList'
 
 const CLASS = 'sui-TcfSecondLayer'
 const groupBaseClass = `${CLASS}-group`
 
 export default function TcfSecondLayer({
   logo,
-  saveUserConsent,
+  onSaveUserConsent,
   onGoBack,
   onVendorsClick,
   isVendorLayer
@@ -68,29 +69,40 @@ export default function TcfSecondLayer({
   }
 
   const handleSaveExitClick = () => {
-    saveUserConsent()
+    onSaveUserConsent()
     handleCloseModal()
   }
 
   const saveConsentState = ({purposes, vendors, specialFeatures}) =>
     updateUserConsent({purpose: purposes, vendor: vendors, specialFeatures})
 
-  const changeAllGroup = ({group, value}) => {
+  const changeAllGroup = ({group, decisionKey, value}) => {
     setState(prevState => {
-      for (const key in vendorListState[group]) {
-        prevState[group].consents[key] = value
-        prevState[group].legitimateInterests[key] = value
+      if (group !== 'vendors') {
+        for (const key in vendorListState[group]) {
+          prevState[group].consents[key] = value
+          prevState[group].legitimateInterests[key] = value
+        }
       }
-      const nextState = {...prevState, [group]: prevState[group]}
+      const {vendors} = prevState
+      Object.keys(vendorListState.vendors).forEach(key => {
+        if (!decisionKey) {
+          vendors.consents[key] = value
+          vendors.legitimateInterests[key] = value
+        } else {
+          vendors[decisionKey][key] = value
+        }
+      })
+      const nextState = {...prevState, vendors, [group]: prevState[group]}
       saveConsentState(nextState)
       return nextState
     })
   }
-  const handleRejectAll = ({group}) => {
-    changeAllGroup({group, value: false})
+  const handleRejectAll = props => {
+    changeAllGroup({...props, value: false})
   }
-  const handleAcceptAll = ({group}) => {
-    changeAllGroup({group, value: true})
+  const handleAcceptAll = props => {
+    changeAllGroup({...props, value: true})
   }
 
   const handleAcceptAllSpecialFeatures = async () => {
@@ -113,26 +125,48 @@ export default function TcfSecondLayer({
     setState(nextState)
   }
 
-  const handleConsentsChange = ({group, index, value}) => {
+  const handleConsentsChange = ({group, decisionKey, index, value}) => {
     setState(prevState => {
+      const newValue = !value
+      let nextState = {...prevState}
       const {consents, legitimateInterests} = prevState[group]
-      if (consents && legitimateInterests) {
-        consents[index] = !value
-        legitimateInterests[index] = !value
-        const nextState = {
-          ...prevState,
-          [group]: {...prevState[group], consents, legitimateInterests}
-        }
-        saveConsentState(nextState)
-        return nextState
-      } else {
-        const nextState = {
-          ...prevState,
-          [group]: {...prevState[group], [index]: !value}
-        }
-        saveConsentState(nextState)
-        return nextState
+      const {vendors} = prevState
+      switch (group) {
+        case 'purposes':
+          consents[index] = newValue
+          legitimateInterests[index] = newValue
+          Object.entries(vendorListState.vendors).forEach(
+            ([key, vendorFromVendorList]) => {
+              if (vendorFromVendorList.purposes.includes(index)) {
+                vendors.consents[key] = newValue
+              }
+              if (vendorFromVendorList.legIntPurposes.includes(index)) {
+                vendors.legitimateInterests[key] = newValue
+              }
+            }
+          )
+          nextState = {
+            ...prevState,
+            purposes: {...prevState.purposes, consents, legitimateInterests},
+            vendors
+          }
+          break
+        case 'vendors':
+          vendors[decisionKey][index] = newValue
+          nextState = {
+            ...prevState,
+            vendors
+          }
+          break
+        case 'specialFeatures':
+          nextState = {
+            ...prevState,
+            specialFeatures: {...prevState.specialFeatures, [index]: newValue}
+          }
+          break
       }
+      saveConsentState(nextState)
+      return nextState
     })
   }
 
@@ -242,21 +276,15 @@ export default function TcfSecondLayer({
             />
           )}
           {!!state?.vendors && !!vendorListState?.vendors && isVendorLayer && (
-            <TcfSecondLayerDecisionGroup
-              name={i18n.VENDOR_PAGE.GROUPS.TITLE}
-              baseClass={groupBaseClass}
-              descriptions={vendorListState.vendors}
-              state={state.vendors}
-              onConsentChange={props =>
-                handleConsentsChange({group: 'vendors', ...props})
-              }
-              hasConsent
+            <TcfSecondLayerVendorList
               i18n={i18n}
-              onAcceptAll={() => handleAcceptAll({group: 'vendors'})}
-              onRejectAll={() => handleRejectAll({group: 'vendors'})}
-              vendorList={vendorListState}
-              expandedContent={vendorExpandedContent}
-              isVendorLayer={isVendorLayer}
+              groupBaseClass={groupBaseClass}
+              vendorListState={vendorListState}
+              state={state}
+              handleConsentsChange={handleConsentsChange}
+              handleAcceptAll={handleAcceptAll}
+              handleRejectAll={handleRejectAll}
+              vendorExpandedContent={vendorExpandedContent}
             />
           )}
         </div>
@@ -291,9 +319,7 @@ export default function TcfSecondLayer({
 TcfSecondLayer.displayName = 'TcfSecondLayer'
 TcfSecondLayer.propTypes = {
   isVendorLayer: PropTypes.bool,
-  loadUserConsent: PropTypes.func,
-  saveUserConsent: PropTypes.func,
-  getVendorList: PropTypes.func,
+  onSaveUserConsent: PropTypes.func,
   logo: PropTypes.string,
   onGoBack: PropTypes.func,
   onVendorsClick: PropTypes.func

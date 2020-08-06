@@ -1,14 +1,13 @@
 class TcfRepository {
-  constructor({tcfApi, language = 'es', scope = {}}) {
+  constructor({tcfApi, scope = {}}) {
     this._tcfApi = tcfApi
-    this._language = language
     this._scope = scope
     this._cachedConsent = null
     this._data = {}
   }
 
   getVendorList() {
-    return this._tcfApi.getVendorList({language: this._language})
+    return this._tcfApi.getVendorList()
   }
 
   loadUserConsent() {
@@ -23,24 +22,9 @@ class TcfRepository {
       userConsent.purpose = {consents: {}, legitimateInterests: {}}
       userConsent.vendor = {consents: {}, legitimateInterests: {}}
       userConsent.specialFeatures = {}
-
-      this._scope.purposes =
-        this._scope.purposes || Object.keys(vendorList.purposes)
-      this._scope.purposes.forEach(key => {
-        userConsent.purpose.consents[key] = true
-        userConsent.purpose.legitimateInterests[key] = true
-      })
-
       Object.keys(vendorList.vendors).forEach(key => {
-        userConsent.vendor.consents[key] = true
         userConsent.vendor.legitimateInterests[key] = true
       })
-
-      this._scope.specialFeatures =
-        this._scope.specialFeatures || Object.keys(vendorList.specialFeatures)
-      this._scope.specialFeatures.forEach(
-        key => (userConsent.specialFeatures[key] = true)
-      )
     }
     this._data = userConsent
     return this._data

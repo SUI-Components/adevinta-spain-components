@@ -24,6 +24,9 @@ export default function TcfUi({
   onCloseModal,
   showInModalForMobile = false
 }) {
+  if (typeof window === 'undefined') {
+    return null
+  }
   return (
     <ConsentProvider language={lang} isMobile={isMobile} scope={scope}>
       <TCFContainer

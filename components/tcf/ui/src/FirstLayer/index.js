@@ -13,13 +13,21 @@ const SCROLL_TO_ACCEPT = 250
 
 export default function TcfFirstLayer({
   logo,
-  saveUserConsent,
-  openSecondLayer,
-  openCookiepolicyLayer,
+  onSaveUserConsent,
+  onOpenSecondLayer,
+  onOpenCookiePolicyLayer,
   showInModalForMobile = false
 }) {
-  const {isMobile, language, loadUserConsent, updateUserConsent} = useConsent()
+  const {
+    isMobile,
+    language,
+    loadUserConsent,
+    updateUserConsent,
+    getVendorList,
+    getScope
+  } = useConsent()
   const [show, setShow] = useState(true)
+  const cookiesPolicyLink = useRef()
   const i18n = I18N[language]
 
   const handleCookiePolicyLayerClick = useCallback(() => {
@@ -28,9 +36,8 @@ export default function TcfFirstLayer({
         'click',
         handleCookiePolicyLayerClick
       )
-    openCookiepolicyLayer()
+    onOpenCookiePolicyLayer()
   })
-  const cookiesPolicyLink = useRef()
   const ref = useRef(null)
   const textRef = useCallback(
     node => {
@@ -68,21 +75,41 @@ export default function TcfFirstLayer({
   }, [])
 
   const handleSettingsClick = () => {
-    openSecondLayer()
+    onOpenSecondLayer()
   }
 
   const handleSaveExitClick = async () => {
-    const {purpose, vendor, specialFeatures} = await loadUserConsent()
+    const [userConsent, vendorList, scope] = await Promise.all([
+      loadUserConsent(),
+      getVendorList(),
+      getScope()
+    ])
+    scope.purposes = scope.purposes || Object.keys(vendorList.purposes)
+    scope.purposes.forEach(key => {
+      userConsent.purpose.consents[key] = true
+      userConsent.purpose.legitimateInterests[key] = true
+    })
+
+    scope.specialFeatures =
+      scope.specialFeatures || Object.keys(vendorList.specialFeatures)
+    scope.specialFeatures.forEach(
+      key => (userConsent.specialFeatures[key] = true)
+    )
+
+    Object.keys(vendorList.vendors).forEach(key => {
+      userConsent.vendor.consents[key] = true
+      userConsent.vendor.legitimateInterests[key] = true
+    })
     updateUserConsent({
-      purpose,
-      vendor,
-      specialFeatures,
+      purpose: userConsent.purpose,
+      vendor: userConsent.vendor,
+      specialFeatures: userConsent.specialFeatures,
       allPurposes: true,
       allVendors: true,
       allSpecialFeatures: true
     })
     handleCloseModal()
-    saveUserConsent()
+    onSaveUserConsent()
   }
 
   const handleCloseModal = () => {
@@ -117,7 +144,7 @@ export default function TcfFirstLayer({
           closeOnOutsideClick
           closeOnEscKeyDown
           header={<img className={`${CLASS}-logo`} src={logo} alt="logo" />}
-          iconClose={<IconClose class={`${CLASS}-icon-close`} />}
+          iconClose={<IconClose />}
           onClose={handleSaveExitClick}
           fitContent
           portalContainerId="sui-TcfFirstLayerModal"
@@ -144,10 +171,9 @@ export default function TcfFirstLayer({
 
 TcfFirstLayer.displayName = 'TcfFirstLayer'
 TcfFirstLayer.propTypes = {
-  openSecondLayer: PropTypes.func,
-  openCookiepolicyLayer: PropTypes.func,
-  loadUserConsent: PropTypes.func,
-  saveUserConsent: PropTypes.func,
+  onOpenSecondLayer: PropTypes.func,
+  onOpenCookiePolicyLayer: PropTypes.func,
+  onSaveUserConsent: PropTypes.func,
   logo: PropTypes.string,
   showInModalForMobile: PropTypes.bool
 }

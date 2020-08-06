@@ -9,7 +9,10 @@ const CAPTION_TEXT_CLASS = 'sui-ThumbnailBasic-caption-text'
 const Thumbnail = function({captionText, ...placeholderProps}) {
   return (
     <figure className={BASE_CLASS}>
-      <ImagePlaceholder {...placeholderProps} />
+      <ImagePlaceholder
+        className={`${BASE_CLASS}-image`}
+        {...placeholderProps}
+      />
       {captionText && (
         <figcaption className={CAPTION_CLASS}>
           <div className={CAPTION_TEXT_CLASS}>{captionText}</div>

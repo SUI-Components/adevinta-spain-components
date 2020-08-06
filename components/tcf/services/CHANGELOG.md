@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.9.0 (2020-08-04)
+
+
+### Features
+
+* put all consents to false if is new consent ([8f032cf](https://github.com/SUI-Components/schibsted-spain-components/commit/8f032cfc1a4a59b8e06b9e8f6d3a3114b789833d))
+* put vendor legitimateInterest to true by default ([d8a5cec](https://github.com/SUI-Components/schibsted-spain-components/commit/d8a5cecb44f8ab2bc49c26090ab85b373fa36502))
+
+
+
+# 1.8.0 (2020-07-24)
+
+
+### Features
+
+* use the provided language from the ctx provider ([7e8652f](https://github.com/SUI-Components/schibsted-spain-components/commit/7e8652f894d2aac55d4c3eb09a6ce37610f50433))
+
+
+
 # 1.7.0 (2020-07-22)
 
 

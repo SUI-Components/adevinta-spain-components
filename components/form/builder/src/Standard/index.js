@@ -1,7 +1,7 @@
 // map the DSL standard to JS: https://docs.mpi-internal.com/scmspain/all--lib-form-builder-docs/form-specification/field/
 
 import {pickFieldById, fieldsNamesInOrderOfDefinition} from '../reducer/fields'
-
+import {LocalizationFactory} from './../Standard/Localization/LocalizationFactory'
 const FIELDS = {
   TEXT: 'text',
   NUMERIC: 'numeric',
@@ -42,7 +42,7 @@ const CONSTRAINTS = {
   min: 'rangeUnderflow'
 }
 
-const checkConstraintsFromField = field => {
+const checkConstraintsFromField = (field, locale) => {
   let errorMessages = []
   const constraints = field.constraints || []
   const elementNode = document.getElementById(field.id)
@@ -116,10 +116,50 @@ const checkConstraintsFromField = field => {
       errorMessages = [checkboxShouldBeTrueConstraint.message, ...errorMessages]
   }
 
+  // cutom validation: min html attributes in input type text are not nativelly supported
+  if (
+    // if is a field text and display text or default
+    (field.type === FIELDS.TEXT &&
+      field.display === DISPLAYS[FIELDS.TEXT].TEXT) ||
+    field.display === DISPLAYS[FIELDS.TEXT].DEFAULT
+  ) {
+    const inputHasMin = field.constraints?.find(
+      constraint => constraint.property?.min
+    )
+    const localization = LocalizationFactory({
+      value: elementNode?.value,
+      locale
+    })
+    const inputValueAsNumber = localization.fromStringToLocaleFloat()
+
+    if (inputValueAsNumber < parseFloat(inputHasMin?.property?.min))
+      errorMessages = [...errorMessages, inputHasMin.message]
+  }
+  // cutom validation: max html attributes in input type text are not nativelly supported
+  if (
+    // if is a field text and display text or default
+    (field.type === FIELDS.TEXT &&
+      field.display === DISPLAYS[FIELDS.TEXT].TEXT) ||
+    field.display === DISPLAYS[FIELDS.TEXT].DEFAULT
+  ) {
+    const inputHasMax = field.constraints?.find(
+      constraint => constraint.property?.max
+    )
+
+    const localization = LocalizationFactory({
+      value: elementNode?.value,
+      locale
+    })
+    const inputValueAsNumber = localization.fromStringToLocaleFloat()
+
+    if (inputValueAsNumber > parseFloat(inputHasMax?.property?.max)) {
+      errorMessages = [...errorMessages, inputHasMax.message]
+    }
+  }
   return errorMessages
 }
 
-const checkConstraintsFactory = json => ({for: fieldID, all}) => {
+const checkConstraintsFactory = (json, locale) => ({for: fieldID, all}) => {
   let fieldsToValidate = []
   if (all && fieldID) {
     window.console.warn(
@@ -139,7 +179,7 @@ const checkConstraintsFactory = json => ({for: fieldID, all}) => {
   fieldsToValidate.forEach(fieldId => {
     const field = pickFieldById(json.form.fields, fieldId)
     if (!field.hidden) {
-      fieldsWithErrors[field.id] = checkConstraintsFromField(field)
+      fieldsWithErrors[field.id] = checkConstraintsFromField(field, locale)
     } else {
       fieldsWithErrors[field.id] = []
     }
@@ -147,17 +187,4 @@ const checkConstraintsFactory = json => ({for: fieldID, all}) => {
   return fieldsWithErrors
 }
 
-const checkConstrainstsFactory = json => {
-  window.console.warn(
-    '[form/builder]: checkConstrainstsFactory should not be used and should be DEPRECATED in the next major release'
-  )
-  return checkConstraintsFactory(json)
-}
-
-export {
-  FIELDS,
-  DISPLAYS,
-  CONSTRAINTS,
-  checkConstraintsFactory,
-  checkConstrainstsFactory
-}
+export {FIELDS, DISPLAYS, CONSTRAINTS, checkConstraintsFactory}
