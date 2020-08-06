@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.21.0 (2020-08-06)
+
+
+### Features
+
+* empty. Only to force the release in travis ([780049f](https://github.com/SUI-Components/schibsted-spain-components/commit/780049f42bd7bbbdf369db6679845f8612b8620e))
+
+
+
 # 1.20.0 (2020-08-05)
 
 
@@ -63,6 +72,11 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 * check window to enable ssr ([7162136](https://github.com/SUI-Components/schibsted-spain-components/commit/7162136e7776b0bae28116ad716b92a172b2adfa))
+
+
+### Features
+
+* changes and assignments of variables from SASS to TCF ([123a084](https://github.com/SUI-Components/schibsted-spain-components/commit/123a0847598fd2f69c501b092aafdeb8a561f815))
 
 
 
