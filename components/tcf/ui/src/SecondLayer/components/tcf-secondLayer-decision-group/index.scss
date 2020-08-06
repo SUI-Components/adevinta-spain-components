@@ -1,7 +1,8 @@
 $base-class: '.sui-TcfSecondLayer-groupHeader';
 
-$fz-tcf-second-layer-title-group-header: $fz-m !default; // 16px;
-$fz-tcf-second-layer-title-group-header-mobile: $fz-s !default; // 14px;
+$fz-tcf-second-layer-group-header-title: $fz-m !default; // 16px
+$fz-tcf-second-layer-group-header-title-mobile: $fz-s !default; // 14px
+$fz-tcf-second-layer-group-header-buttons: $fz-xs !default; //12px
 
 #{$base-class} {
   display: flex;
@@ -10,10 +11,10 @@ $fz-tcf-second-layer-title-group-header-mobile: $fz-s !default; // 14px;
   margin: $m-xxl 0 0;
 
   & &-title {
-    font-size: $fz-tcf-second-layer-title-group-header-mobile;
+    font-size: $fz-tcf-second-layer-group-header-title-mobile;
     margin-bottom: $m-l;
     @include media-breakpoint-up(s) {
-      font-size: $fz-tcf-second-layer-title-group-header;
+      font-size: $fz-tcf-second-layer-group-header-title;
     }
   }
 
@@ -23,7 +24,7 @@ $fz-tcf-second-layer-title-group-header-mobile: $fz-s !default; // 14px;
     margin-bottom: $m-m;
 
     .sui-AtomButton {
-      font-size: 12px;
+      font-size: $fz-tcf-second-layer-group-header-buttons;
       border-radius: $bdrs-xl;
       margin-bottom: $m-m;
     }

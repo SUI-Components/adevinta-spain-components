@@ -10,8 +10,9 @@
 
 $fz-tcf-second-layer-base: $fz-s !default; // 14px
 $fz-tcf-second-layer-mobile: $fz-xs !default; // 12px
-$fz-tcf-second-layer-title: $fz-l !default; // 18px;
-$fz-tcf-second-layer-title-mobile: $fz-s !default; // 14px;
+$fz-tcf-second-layer-title: $fz-l !default; // 18px
+$fz-tcf-second-layer-title-mobile: $fz-s !default; // 14px
+$fz-tcf-second-layer-footer-buttons: $fz-xs !default; // 12px
 $h-tcf-second-layer-footer: 88px !default;
 $h-tcf-second-layer-footer-mobile: 80px !default;
 $maw-tcf-second-layer-modal: 800px !default;
@@ -45,6 +46,7 @@ $base-class-modal: '#sui-TcfSecondLayerModal';
 
   .sui-MoleculeModal-header {
     padding: $p-l 0 $p-l $ml-tcf-second-layer-modal-mobile;
+    border-bottom: $bdw-s solid $c-gray-light-3;
     background-color: $c-white;
     @include media-breakpoint-up(s) {
       padding: $p-xxl 0 $p-xxl $ml-tcf-second-layer-modal;
@@ -94,7 +96,7 @@ $base-class-modal: '#sui-TcfSecondLayerModal';
     width: 100%;
     left: 0;
     height: $h-tcf-second-layer-footer-mobile;
-    border-top: 1px solid #dcdcdc;
+    border-top: $bdw-s solid $c-gray-light-3;
     @include media-breakpoint-up(s) {
       height: $h-tcf-second-layer-footer;
     }
@@ -123,7 +125,7 @@ $base-class-modal: '#sui-TcfSecondLayerModal';
 
     .sui-AtomButton.sui-AtomButton--small {
       border-radius: $bdrs-xl;
-      font-size: 12px;
+      font-size: $fz-tcf-second-layer-footer-buttons;
       @include media-breakpoint-up(s) {
         padding: 0 $p-l;
         height: 40px;

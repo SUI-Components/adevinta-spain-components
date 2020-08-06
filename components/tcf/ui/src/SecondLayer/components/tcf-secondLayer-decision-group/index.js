@@ -58,8 +58,6 @@ export function TcfSecondLayerDecisionGroup({
         <h5 className={`${baseClass}Header-title`}>{name}</h5>
         {hasConsent ? <ButtonAll /> : null}
       </div>
-      {/* sui-TcfSecondLayer-group-item- */}
-      {/* sui-TcfSecondLayer-group-item--vendors */}
       {descriptionKeys.map((key, index) => {
         const consentValue = state?.[decisionKey]
           ? state[decisionKey][key]

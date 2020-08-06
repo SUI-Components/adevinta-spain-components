@@ -1,31 +1,36 @@
 $base-class: '.sui-TcfSecondLayer-group';
 
-$fz-tcf-second-layer-title-group: $fz-xs !default; // 12px;
+$fz-tcf-second-layer-group: $fz-xs !default; // 12px
+$fz-tcf-second-layer-group-title: $fz-s !default; // 14px
+$fz-tcf-second-layer-group-description: $fz-tcf-second-layer-group !default; // 12px
 
 #{$base-class} {
-  border: solid 1px #dcdcdc;
-  border-radius: 4px;
+  border: $bdw-s solid $c-gray-light-3;
+  border-radius: $bdrs-l;
   padding: $p-m;
   display: flex;
   justify-content: space-between;
-  font-size: $fz-tcf-second-layer-title-group;
+  font-size: $fz-tcf-second-layer-group;
   margin-bottom: -1px;
 
   &-accordion {
     display: flex;
     align-items: center;
+    width: 100%;
+    cursor: pointer;
   }
 
   &-title {
-    font-size: 14px;
+    font-size: $fz-tcf-second-layer-group-title;
     margin: 0 0 $m-m;
     display: block;
   }
 
   &-icon {
     margin-right: $m-m;
-    fill: #777777;
+    fill: $c-gray;
     fill-rule: evenodd;
+    min-width: $sz-icon-s;
 
     &--open {
       transform: scale(-1);
@@ -36,6 +41,7 @@ $fz-tcf-second-layer-title-group: $fz-xs !default; // 12px;
     color: $c-primary;
     word-break: break-all;
     text-decoration: none;
+
     &:hover {
       text-decoration: underline;
     }
@@ -43,8 +49,8 @@ $fz-tcf-second-layer-title-group: $fz-xs !default; // 12px;
 
   &Description {
     padding: $p-l;
-    font-size: 12px;
-    border: solid 1px #dcdcdc;
+    font-size: $fz-tcf-second-layer-group-description;
+    border: $bdw-s solid $c-gray-light-3;
     margin: -1px 0;
   }
 }
