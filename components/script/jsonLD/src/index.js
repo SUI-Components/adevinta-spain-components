@@ -5,7 +5,10 @@ function ScriptJsonLD({json}) {
   return (
     <>
       {json && (
-        <script type="application/ld+json">{JSON.stringify(json)}</script>
+        <script
+          dangerouslySetInnerHTML={{__html: JSON.stringify(json)}}
+          type="application/ld+json"
+        />
       )}
     </>
   )
