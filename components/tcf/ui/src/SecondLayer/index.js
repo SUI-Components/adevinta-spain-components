@@ -289,7 +289,7 @@ export default function TcfSecondLayer({
           )}
         </div>
         <footer className={`${CLASS}-footer`}>
-          {!isMobile && !isVendorLayer && (
+          {!isVendorLayer && (
             <div className={`${CLASS}-footer--link`}>
               <Button
                 size="small"
