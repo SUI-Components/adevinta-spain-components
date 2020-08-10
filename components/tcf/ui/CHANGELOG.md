@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.22.0 (2020-08-10)
+
+
+### Features
+
+* add link to vendors list in mobile ([be74455](https://github.com/SUI-Components/schibsted-spain-components/commit/be744551413379e7a1ed5a526e60575b7dcaaf78))
+
+
+
 # 1.21.0 (2020-08-06)
 
 
