@@ -12,7 +12,7 @@ $fz-tcf-second-layer-group-header-buttons: $fz-xs !default; //12px
 
   & &-title {
     font-size: $fz-tcf-second-layer-group-header-title-mobile;
-    margin-bottom: $m-l;
+    margin: 0 0 $m-l;
     @include media-breakpoint-up(s) {
       font-size: $fz-tcf-second-layer-group-header-title;
     }
