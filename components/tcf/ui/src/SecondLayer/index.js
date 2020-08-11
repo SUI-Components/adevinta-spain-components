@@ -278,7 +278,7 @@ export default function TcfSecondLayer({
           {!!state?.vendors && !!vendorListState?.vendors && isVendorLayer && (
             <TcfSecondLayerVendorList
               i18n={i18n}
-              BaseClass={CLASS}
+              baseClass={CLASS}
               groupBaseClass={groupBaseClass}
               vendorListState={vendorListState}
               state={state}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import TcfSecondLayerDecisionGroup from '../tcf-secondLayer-decision-group'
 export default function TcfSecondLayerVendorList({
   i18n,
-  BaseClass,
+  baseClass,
   groupBaseClass,
   vendorListState,
   state,
@@ -25,7 +25,7 @@ export default function TcfSecondLayerVendorList({
   }
   return (
     <>
-      <h4 className={`${BaseClass}-title`}>{i18n.VENDOR_PAGE.GROUPS.TITLE}</h4>
+      <h4 className={`${baseClass}-title`}>{i18n.VENDOR_PAGE.GROUPS.TITLE}</h4>
       <TcfSecondLayerDecisionGroup
         baseClass={groupBaseClass}
         decisionKey="consents"
@@ -90,7 +90,7 @@ export default function TcfSecondLayerVendorList({
 
 TcfSecondLayerVendorList.propTypes = {
   groupBaseClass: PropTypes.string,
-  BaseClass: PropTypes.string,
+  baseClass: PropTypes.string,
   handleAcceptAll: PropTypes.func,
   handleConsentsChange: PropTypes.func,
   handleRejectAll: PropTypes.func,
