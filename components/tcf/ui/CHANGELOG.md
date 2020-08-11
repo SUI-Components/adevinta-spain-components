@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.23.0 (2020-08-11)
+
+
+### Features
+
+* change tag for accesibility lighthouse alert ([8d65e4e](https://github.com/SUI-Components/schibsted-spain-components/commit/8d65e4e53c6f7eb89a7867985e4545040a9bec80))
+* changes to Vendor List title styling ([f19cf47](https://github.com/SUI-Components/schibsted-spain-components/commit/f19cf47225aa487cd8bcf028a1c483289daa2a4b))
+* little change ([f63f0eb](https://github.com/SUI-Components/schibsted-spain-components/commit/f63f0ebe168af3b0f3c257842ca93f6a2482e404))
+* little change ([af592d8](https://github.com/SUI-Components/schibsted-spain-components/commit/af592d8030f1320aa79311d97abec472d8c29fe1))
+
+
+
 # 1.22.0 (2020-08-10)
 
 
