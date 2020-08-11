@@ -66,6 +66,7 @@ $base-class-modal: '#sui-TcfSecondLayerModal';
     }
     p {
       margin-top: 0;
+      line-height: normal;
     }
     .sui-AtomSwitch-container {
       padding: 0px;
@@ -83,10 +84,14 @@ $base-class-modal: '#sui-TcfSecondLayerModal';
 
   &-title {
     font-size: $fz-tcf-second-layer-title-mobile;
-    margin-bottom: $m-m;
+    margin: $m-xxl 0 $m-m;
     @include media-breakpoint-up(s) {
       font-size: $fz-tcf-second-layer-title;
-      margin-bottom: $m-l;
+      margin: $m-xxl 0 $m-l;
+    }
+
+    &:first-child {
+      margin-top: 0;
     }
   }
 
