@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.24.0 (2020-08-13)
+
+
+### Features
+
+* modify the TCF to remove styles only from infojobs ([ad49cb2](https://github.com/SUI-Components/schibsted-spain-components/commit/ad49cb2751de840b5abd4396d395fbe77958d3a1))
+
+
+
 # 1.23.0 (2020-08-11)
 
 
