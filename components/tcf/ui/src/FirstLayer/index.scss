@@ -89,8 +89,10 @@ $base-class-modal: '#sui-TcfFirstLayerModal';
   }
 
   .sui-MoleculeNotification {
-    background-color: $c-white;
     box-shadow: $bxsh-tcf-first-layer;
+  }
+  .sui-MoleculeNotification-content {
+    background-color: $c-white;
   }
 }
 
