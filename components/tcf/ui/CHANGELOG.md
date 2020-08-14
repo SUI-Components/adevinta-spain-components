@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.25.0 (2020-08-14)
+
+
+### Features
+
+* change background color first layer ([1a09786](https://github.com/SUI-Components/schibsted-spain-components/commit/1a097868f89feb79a3808b44043559ce8125a774))
+
+
+
 # 1.24.0 (2020-08-13)
 
 
