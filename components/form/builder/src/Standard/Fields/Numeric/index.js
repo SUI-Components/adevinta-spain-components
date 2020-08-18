@@ -25,6 +25,7 @@ const NumericField = ({
         errors={errors}
         alerts={alerts}
         renderer={renderer}
+        rightAddon="€"
       />
     )
   } else {
