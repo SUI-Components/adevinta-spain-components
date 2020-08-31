@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.1.0 (2020-08-31)
+
+
+### Bug Fixes
+
+* use advgo.net insted of legacy shibsted.io ([fb7261e](https://github.com/SUI-Components/schibsted-spain-components/commit/fb7261eaacc313bd165a194de0ce17cb5091c34e))
+
+
+
 # 4.0.0 (2020-07-28)
 
 
