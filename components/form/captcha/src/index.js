@@ -5,13 +5,23 @@ import {useMount} from '@s-ui/react-hooks'
 
 const CAPTCHA_SRC = 'https://www.google.com/recaptcha/api.js?render=explicit'
 const CAPTCHA_ID = 'sui-FormCaptchaContainer'
+const CAPTCHA_SIZES = {
+  COMPACT: 'compact',
+  NORMAL: 'normal'
+}
+const CAPTCHA_DEFAULT_SIZE = CAPTCHA_SIZES.NORMAL
 
 const CAPTCHA_VERIFIER = () =>
   typeof window !== 'undefined' &&
   typeof window.grecaptcha !== 'undefined' &&
   typeof window.grecaptcha.render !== 'undefined'
 
-const FormCaptcha = ({siteKey, locale, onSubmit = () => {}}) => {
+const FormCaptcha = ({
+  siteKey,
+  locale,
+  onSubmit = () => {},
+  size = CAPTCHA_DEFAULT_SIZE
+}) => {
   const [showCaptcha, setShowCaptcha] = useState(false)
   const [captchaId, setCaptchaId] = useState(null)
 
@@ -30,7 +40,8 @@ const FormCaptcha = ({siteKey, locale, onSubmit = () => {}}) => {
         sitekey: siteKey,
         hl: locale,
         callback: onSubmit,
-        'expired-callback': reset
+        'expired-callback': reset,
+        size
       })
 
       setCaptchaId(widgetId)
@@ -67,7 +78,10 @@ FormCaptcha.displayName = 'FormCaptcha'
 FormCaptcha.propTypes = {
   siteKey: PropTypes.string.isRequired,
   locale: PropTypes.string,
-  onSubmit: PropTypes.func
+  onSubmit: PropTypes.func,
+  size: PropTypes.oneOf(Object.values(CAPTCHA_SIZES))
 }
+
+export {CAPTCHA_SIZES}
 
 export default FormCaptcha
