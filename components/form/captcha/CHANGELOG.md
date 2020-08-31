@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.5.0 (2020-08-31)
+
+
+### Bug Fixes
+
+* make NORMAL the default captcha size ([9baa717](https://github.com/SUI-Components/schibsted-spain-components/commit/9baa71764a0266606ee3aa88a4770735811c2eb6))
+
+
+### Features
+
+* add sizes to form/captcha component and export sizes ([adbf225](https://github.com/SUI-Components/schibsted-spain-components/commit/adbf225a78e0ed4526fa99cbcb670707bec13ef5))
+
+
+
 # 1.4.0 (2020-02-25)
 
 
