@@ -9,7 +9,7 @@ const CAPTCHA_SIZES = {
   COMPACT: 'compact',
   NORMAL: 'normal'
 }
-const CAPTCHA_DEFAULT_SIZE = CAPTCHA_SIZES.COMPACT
+const CAPTCHA_DEFAULT_SIZE = CAPTCHA_SIZES.NORMAL
 
 const CAPTCHA_VERIFIER = () =>
   typeof window !== 'undefined' &&
