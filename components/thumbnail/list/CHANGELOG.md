@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.13.0 (2020-09-09)
+
+
+### Bug Fixes
+
+* fix scss import ([99a0b9f](https://github.com/SUI-Components/schibsted-spain-components/commit/99a0b9fbaaf50d757192f19c6d499ef025b65190))
+* update package imports ([a720cce](https://github.com/SUI-Components/schibsted-spain-components/commit/a720cce9a6397e5246da583fb55a21e925e5e8b7))
+* update package reference ([a872c45](https://github.com/SUI-Components/schibsted-spain-components/commit/a872c459846a0063b81b6df9eced1f6c0a47e3ce))
+* update sass import ([22f2d5f](https://github.com/SUI-Components/schibsted-spain-components/commit/22f2d5fed0b61c3fda63138561a0ed9df088f085))
+
+
+
 # 1.12.0 (2020-03-09)
 
 
