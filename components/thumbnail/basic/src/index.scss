@@ -2,8 +2,6 @@
 @import '~@s-ui/theme/lib/index';
 @import '~@s-ui/react-image-placeholder/lib/index';
 
-$mih-thumbnail-basic-image: auto !default;
-
 .sui-ThumbnailBasic {
   @include reset-basic;
   background: $bgc-thumbnail-basic;
@@ -14,12 +12,6 @@ $mih-thumbnail-basic-image: auto !default;
   padding: $p-thumbnail-basic;
   position: relative;
   width: 100%;
-
-  &-image {
-    align-items: center;
-    display: flex;
-    min-height: $mih-thumbnail-basic-image;
-  }
 
   &-caption {
     @include reset-basic;
