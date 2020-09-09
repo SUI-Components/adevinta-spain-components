@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "latest",
-    "@schibstedspain/sui-thumbnail-basic": "1"
+    "@s-ui/react-thumbnail-basic": "1"
   },
   "keywords": [],
   "author": "",

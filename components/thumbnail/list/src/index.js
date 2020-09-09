@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ThumbnailBasic from '@schibstedspain/sui-thumbnail-basic'
+import ThumbnailBasic from '@s-ui/react-thumbnail-basic'
 
 const ThumbnailList = ({
   captionText,
