@@ -18,7 +18,9 @@ $mih-thumbnail-basic-image: auto !default;
   &-image {
     align-items: center;
     display: flex;
-    min-height: $mih-thumbnail-basic-image;
+    @include media-breakpoint-up(s) {
+      min-height: $mih-thumbnail-basic-image;
+    }
   }
 
   &-caption {
