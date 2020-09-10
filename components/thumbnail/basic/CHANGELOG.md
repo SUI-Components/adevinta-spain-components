@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.17.0 (2020-09-10)
+
+
+### Features
+
+* fix min height logos ([1c93268](https://github.com/SUI-Components/schibsted-spain-components/commit/1c93268fee1ffdc302bd34b1ed9d6d8e6575cb3d))
+
+
+
 # 1.16.0 (2020-07-29)
 
 
