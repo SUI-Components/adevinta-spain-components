@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.0.0 (2020-09-24)
+
+
+### Features
+
+* use sui-react-router instead react-router ([63bfde2](https://github.com/SUI-Components/schibsted-spain-components/commit/63bfde2377b36dfbddac083a6ff561972ae3f057))
+
+
+### BREAKING CHANGES
+
+* Yes, now is relying on sui-react-router@1 instead react-router
+
+
+
 # 1.8.0 (2020-03-23)
 
 
