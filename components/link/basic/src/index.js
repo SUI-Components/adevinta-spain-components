@@ -1,7 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Link} from 'react-router'
+import {Link} from '@s-ui/react-router'
 import cx from 'classnames'
+
+const renderContent = (icon, literal) =>
+  icon && literal ? (
+    <span>
+      {icon}
+      {literal}
+    </span>
+  ) : (
+    literal || icon
+  )
 
 export default function LinkBasic({
   className,
@@ -16,20 +26,12 @@ export default function LinkBasic({
   url = '#'
 }) {
   const linkClassName = cx('sui-LinkBasic', className)
-  const renderContent = () =>
-    icon && literal ? (
-      <span>
-        {icon}
-        {literal}
-      </span>
-    ) : (
-      literal || icon
-    )
+  const content = renderContent(icon, literal)
 
   if (disabled) {
     return (
       <span className={linkClassName} onClick={handleClick} title={title}>
-        {renderContent()}
+        {content}
       </span>
     )
   }
@@ -44,7 +46,7 @@ export default function LinkBasic({
         title={title}
         to={url}
       >
-        {renderContent()}
+        {content}
       </Link>
     )
   }
@@ -58,7 +60,7 @@ export default function LinkBasic({
       target={target}
       title={title}
     >
-      {renderContent()}
+      {content}
     </a>
   )
 }
