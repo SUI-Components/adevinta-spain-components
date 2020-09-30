@@ -140,6 +140,7 @@ ImageSlider.propTypes = {
     classNameArrows: PropTypes.string,
     doAfterSlide: PropTypes.func,
     lazyLoadSlider: PropTypes.bool,
+    imageObjectFit: PropTypes.oneOf(['cover', 'contain']),
     initialSlide: PropTypes.number,
     numOfSlides: PropTypes.number
   }),
