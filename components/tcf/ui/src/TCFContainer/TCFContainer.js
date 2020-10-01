@@ -7,10 +7,11 @@ const FirstLayer = React.lazy(() => import('../FirstLayer'))
 const SecondLayer = React.lazy(() => import('../SecondLayer'))
 
 export default function TCFContainer({
-  onCloseModal,
+  isTestAcceptedWithUserScroll = true,
+  isTestForceModal = false,
   logo,
-  showVendors,
-  showInModalForMobile
+  onCloseModal,
+  showVendors
 }) {
   const [showLayer, setShowLayer] = useState(0)
   const {uiVisible, loadUserConsent, saveUserConsent} = useConsent()
@@ -67,11 +68,12 @@ export default function TCFContainer({
       {showLayer === 1 && (
         <Suspense fallback={<div />}>
           <FirstLayer
+            isTestAcceptedWithUserScroll={isTestAcceptedWithUserScroll}
+            isTestForceModal={isTestForceModal}
             logo={logo}
-            onSaveUserConsent={handleSaveUserConsent}
-            onOpenSecondLayer={handleOpenSecondLayer}
             onOpenCookiePolicyLayer={handleOpenCookiePolicyLayer}
-            showInModalForMobile={showInModalForMobile}
+            onOpenSecondLayer={handleOpenSecondLayer}
+            onSaveUserConsent={handleSaveUserConsent}
           />
         </Suspense>
       )}
@@ -102,8 +104,9 @@ export default function TCFContainer({
 TCFContainer.displayName = 'TcfUi'
 
 TCFContainer.propTypes = {
-  onCloseModal: PropTypes.func,
-  showVendors: PropTypes.bool,
+  isTestAcceptedWithUserScroll: PropTypes.bool,
+  isTestForceModal: PropTypes.bool,
   logo: PropTypes.string,
-  showInModalForMobile: PropTypes.bool
+  onCloseModal: PropTypes.func,
+  showVendors: PropTypes.bool
 }

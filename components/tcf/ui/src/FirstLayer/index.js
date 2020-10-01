@@ -4,7 +4,7 @@ import {useConsent} from '@s-ui/react-tcf-services'
 import SuiButton from '@s-ui/react-atom-button'
 import SuiModal from '@s-ui/react-molecule-modal'
 import SuiNotification from '@s-ui/react-molecule-notification'
-import IconClose from './iconClose'
+// import IconClose from './iconClose'
 import {I18N} from './settings'
 
 const CLASS = 'sui-TcfFirstLayer'
@@ -12,11 +12,12 @@ const CLASS = 'sui-TcfFirstLayer'
 const SCROLL_TO_ACCEPT = 250
 
 export default function TcfFirstLayer({
+  isTestAcceptedWithUserScroll = true,
+  isTestForceModal = false,
   logo,
-  onSaveUserConsent,
-  onOpenSecondLayer,
   onOpenCookiePolicyLayer,
-  showInModalForMobile = false
+  onOpenSecondLayer,
+  onSaveUserConsent
 }) {
   const {
     isMobile,
@@ -69,6 +70,7 @@ export default function TcfFirstLayer({
     }
   }
   useEffect(() => {
+    if (!isTestAcceptedWithUserScroll) return // Temporary for testAB pursoses
     initialYOffset = window.pageYOffset
     document.addEventListener('scroll', checkScroll, {passive: true})
     return () => document.removeEventListener('scroll', checkScroll)
@@ -138,13 +140,13 @@ export default function TcfFirstLayer({
 
   return (
     <div className={`${isMobile ? `${CLASS} ${CLASS}--isMobile` : `${CLASS}`}`}>
-      {isMobile && showInModalForMobile ? (
+      {isTestForceModal ? (
         <SuiModal
           isOpen={show}
-          closeOnOutsideClick
-          closeOnEscKeyDown
+          closeOnOutsideClick={false}
+          closeOnEscKeyDown={false}
           header={<img className={`${CLASS}-logo`} src={logo} alt="logo" />}
-          iconClose={<IconClose />}
+          // iconClose={<IconClose />}  // Removed for testingAB
           onClose={handleSaveExitClick}
           fitContent
           portalContainerId="sui-TcfFirstLayerModal"
@@ -171,9 +173,11 @@ export default function TcfFirstLayer({
 
 TcfFirstLayer.displayName = 'TcfFirstLayer'
 TcfFirstLayer.propTypes = {
-  onOpenSecondLayer: PropTypes.func,
-  onOpenCookiePolicyLayer: PropTypes.func,
-  onSaveUserConsent: PropTypes.func,
+  isTestAcceptedWithUserScroll: PropTypes.bool,
+  isTestForceModal: PropTypes.bool,
   logo: PropTypes.string,
+  onOpenCookiePolicyLayer: PropTypes.func,
+  onOpenSecondLayer: PropTypes.func,
+  onSaveUserConsent: PropTypes.func,
   showInModalForMobile: PropTypes.bool
 }
