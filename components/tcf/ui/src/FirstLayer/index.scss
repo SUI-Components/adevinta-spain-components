@@ -5,14 +5,15 @@
 @import '~@s-ui/react-molecule-notification/lib/index';
 @import './iconClose/index';
 
+$bxsh-tcf-first-layer: 0 0 8px 2px rgba(0, 0, 0, 0.15) !default;
 $fz-tcf-first-layer-base: $fz-s !default; // 14px
 $fz-tcf-first-layer-mobile: $fz-xs !default; // 12px
-$fz-tcf-first-layer-title: $fz-h5 !default; //18px
 $fz-tcf-first-layer-title-mobile: $fz-s !default; //14px
-$maw-tcf-first-layer: 1200px !default;
+$fz-tcf-first-layer-title: $fz-h5 !default; //18px
 $maw-tcf-first-layer-buttons: 200px + $p-xxxl !default;
 $maw-tcf-first-layer-logo: 114px !default;
-$bxsh-tcf-first-layer: 0 0 8px 2px rgba(0, 0, 0, 0.15) !default;
+$maw-tcf-first-layer: 1200px !default;
+$pb-tcf-second-layer-body: 80px;
 
 $base-class: '.sui-TcfFirstLayer';
 $base-class-modal: '#sui-TcfFirstLayerModal';
@@ -97,8 +98,26 @@ $base-class-modal: '#sui-TcfFirstLayerModal';
 }
 
 #{$base-class-modal} {
+  .sui-MoleculeModal-dialog {
+    position: relative;
+    padding-bottom: $pb-tcf-second-layer-body;
+  }
   .sui-MoleculeModal-content {
+    position: initial;
     margin-left: $m-l;
     margin-right: $m-l;
+
+    .sui-TcfFirstLayer-buttons {
+      position: absolute;
+      border-top: $bd-molecule-modal-header;
+      width: 100%;
+      padding: 12px 12px;
+      left: 0;
+      bottom: 0;
+
+      @include media-breakpoint-up(s) {
+        justify-content: flex-end;
+      }
+    }
   }
 }

@@ -120,12 +120,14 @@ export default function TcfFirstLayer({
 
   const Content = () => {
     return (
-      <div className={`${CLASS}-body`}>
-        <div
-          className={`${CLASS}-info`}
-          ref={textRef}
-          dangerouslySetInnerHTML={{__html: i18n.BODY}}
-        />
+      <>
+        <div className={`${CLASS}-body`}>
+          <div
+            className={`${CLASS}-info`}
+            ref={textRef}
+            dangerouslySetInnerHTML={{__html: i18n.BODY}}
+          />
+        </div>
         <div className={`${CLASS}-buttons`}>
           <SuiButton onClick={handleSettingsClick} design="outline">
             {i18n.CONFIGURE_BUTTON}
@@ -134,7 +136,7 @@ export default function TcfFirstLayer({
             {i18n.CONTINUE_NAVIGATION_BUTTON}
           </SuiButton>
         </div>
-      </div>
+      </>
     )
   }
 
