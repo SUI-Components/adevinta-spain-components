@@ -4,7 +4,7 @@ import {useConsent} from '@s-ui/react-tcf-services'
 import SuiButton from '@s-ui/react-atom-button'
 import SuiModal from '@s-ui/react-molecule-modal'
 import SuiNotification from '@s-ui/react-molecule-notification'
-// import IconClose from './iconClose'
+// import IconClose from './iconClose'  // Commented due testAB
 import {I18N} from './settings'
 
 const CLASS = 'sui-TcfFirstLayer'
@@ -70,7 +70,7 @@ export default function TcfFirstLayer({
     }
   }
   useEffect(() => {
-    if (!isTestAcceptedWithUserScroll) return // Temporary for testAB pursoses
+    if (!isTestAcceptedWithUserScroll) return // Temporary for testAB
     initialYOffset = window.pageYOffset
     document.addEventListener('scroll', checkScroll, {passive: true})
     return () => document.removeEventListener('scroll', checkScroll)
@@ -146,7 +146,7 @@ export default function TcfFirstLayer({
           closeOnOutsideClick={false}
           closeOnEscKeyDown={false}
           header={<img className={`${CLASS}-logo`} src={logo} alt="logo" />}
-          // iconClose={<IconClose />}  // Removed for testingAB
+          // iconClose={<IconClose />}  // Removed for testAB
           onClose={handleSaveExitClick}
           fitContent
           portalContainerId="sui-TcfFirstLayerModal"
