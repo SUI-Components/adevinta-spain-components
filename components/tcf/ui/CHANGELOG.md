@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.26.0 (2020-10-08)
+
+
+### Features
+
+* adjust for modal ([ce443eb](https://github.com/SUI-Components/schibsted-spain-components/commit/ce443eb5677f010cb94add7021dd68e8e4b38849))
+* testing banner vs no auto accept scroll vs modal ([bb9d966](https://github.com/SUI-Components/schibsted-spain-components/commit/bb9d966961b714a18872dd54edbf6380b3c8032c))
+
+
+
 # 1.25.0 (2020-08-14)
 
 
