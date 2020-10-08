@@ -16,13 +16,14 @@ const CONSENT_SCOPE = {
 }
 
 export default function TcfUi({
-  lang,
-  scope = CONSENT_SCOPE,
-  logo,
   isMobile,
-  showVendors,
+  isTestAcceptedWithUserScroll = true,
+  isTestForceModal = false,
+  lang,
+  logo,
   onCloseModal,
-  showInModalForMobile = false
+  scope = CONSENT_SCOPE,
+  showVendors
 }) {
   if (typeof window === 'undefined') {
     return null
@@ -30,10 +31,11 @@ export default function TcfUi({
   return (
     <ConsentProvider language={lang} isMobile={isMobile} scope={scope}>
       <TCFContainer
+        isTestAcceptedWithUserScroll={isTestAcceptedWithUserScroll}
+        isTestForceModal={isTestForceModal}
         logo={logo}
-        showVendors={showVendors}
         onCloseModal={onCloseModal}
-        showInModalForMobile={showInModalForMobile}
+        showVendors={showVendors}
       />
     </ConsentProvider>
   )
@@ -41,11 +43,12 @@ export default function TcfUi({
 
 TcfUi.displayName = 'TcfUi'
 TcfUi.propTypes = {
-  lang: PropTypes.string,
-  scope: PropTypes.object,
   isMobile: PropTypes.bool,
-  showVendors: PropTypes.bool,
+  isTestAcceptedWithUserScroll: PropTypes.bool,
+  isTestForceModal: PropTypes.bool,
+  lang: PropTypes.string,
   logo: PropTypes.string,
   onCloseModal: PropTypes.func,
-  showInModalForMobile: PropTypes.bool
+  scope: PropTypes.object,
+  showVendors: PropTypes.bool
 }
