@@ -20,11 +20,12 @@ export default function TCFContainer({
   showPurposesLayer
 }) {
   const [showLayer, setShowLayer] = useState(LAYER_OFF)
+  const [vendorsLayerBackTo, setVendorsLayerBackTo] = useState(LAYER_OFF)
   const {uiVisible, loadUserConsent, saveUserConsent} = useConsent()
   useEffect(() => {
     if (showPurposesLayer) {
       uiVisible({visible: true})
-      setShowLayer(LAYER_PURPOSES)
+      changeLayer(LAYER_PURPOSES)
     }
   }, [showPurposesLayer, uiVisible])
 
@@ -34,39 +35,46 @@ export default function TCFContainer({
       const {valid} = userConsent
       if (!valid) {
         uiVisible({visible: true})
-        setShowLayer(LAYER_BANNER)
+        changeLayer(LAYER_BANNER)
       }
     }
     checkConsentStatus().catch(() => {
-      setShowLayer(LAYER_OFF)
+      changeLayer(LAYER_OFF)
     })
   }, [])
 
+  const changeLayer = to => {
+    if (to === LAYER_VENDORS) {
+      setVendorsLayerBackTo(showLayer)
+    }
+    setShowLayer(to)
+  }
+
   const handleOpenSecondLayer = () => {
-    setShowLayer(LAYER_PURPOSES)
+    changeLayer(LAYER_PURPOSES)
   }
   const handleVendorsClick = () => {
-    setShowLayer(LAYER_VENDORS)
+    changeLayer(LAYER_VENDORS)
   }
   const handleSecondLayerGoBack = () => {
     if (showPurposesLayer) {
       onCloseModal && onCloseModal()
-      setShowLayer(LAYER_OFF)
+      changeLayer(LAYER_OFF)
     } else {
-      setShowLayer(LAYER_BANNER)
+      changeLayer(LAYER_BANNER)
     }
   }
   const handleThirdLayerGoBack = () => {
-    setShowLayer(LAYER_PURPOSES)
+    changeLayer(vendorsLayerBackTo)
   }
   const handleOpenCookiePolicyLayer = () => {
-    setShowLayer(LAYER_VENDORS)
+    changeLayer(LAYER_VENDORS)
   }
   const handleSaveUserConsent = async () => {
     await saveUserConsent()
     uiVisible({visible: false})
     onCloseModal && onCloseModal()
-    setShowLayer(LAYER_OFF)
+    changeLayer(LAYER_OFF)
   }
 
   return (
