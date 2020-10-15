@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.0.0 (2020-10-15)
+
+
+### Code Refactoring
+
+* remove magic numbers ([4dce8ca](https://github.com/SUI-Components/schibsted-spain-components/commit/4dce8caf44a6e947d114971d999997ff4a7d8091))
+
+
+### Features
+
+* vendors layer back to previous ([c028972](https://github.com/SUI-Components/schibsted-spain-components/commit/c0289726b45a842c0c4e2f8f3282365ff1e55474))
+
+
+### BREAKING CHANGES
+
+* as TcfUi prop will not be changed until a further, deeper and needed refactor
+
+
+
 # 1.26.0 (2020-10-08)
 
 
