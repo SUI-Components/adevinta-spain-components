@@ -2,6 +2,12 @@
 import React, {Suspense, useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {useConsent} from '@s-ui/react-tcf-services'
+import {
+  LAYER_BANNER,
+  LAYER_OFF,
+  LAYER_PURPOSES,
+  LAYER_VENDORS
+} from '../constants'
 
 const FirstLayer = React.lazy(() => import('../FirstLayer'))
 const SecondLayer = React.lazy(() => import('../SecondLayer'))
@@ -11,16 +17,17 @@ export default function TCFContainer({
   isTestForceModal = false,
   logo,
   onCloseModal,
-  showVendors
+  showPurposesLayer
 }) {
-  const [showLayer, setShowLayer] = useState(0)
+  const [showLayer, setShowLayer] = useState(LAYER_OFF)
+  const [vendorsLayerBackTo, setVendorsLayerBackTo] = useState(LAYER_OFF)
   const {uiVisible, loadUserConsent, saveUserConsent} = useConsent()
   useEffect(() => {
-    if (showVendors) {
+    if (showPurposesLayer) {
       uiVisible({visible: true})
-      setShowLayer(2)
+      changeLayer(LAYER_PURPOSES)
     }
-  }, [showVendors, uiVisible])
+  }, [showPurposesLayer, uiVisible])
 
   useEffect(() => {
     async function checkConsentStatus() {
@@ -28,44 +35,51 @@ export default function TCFContainer({
       const {valid} = userConsent
       if (!valid) {
         uiVisible({visible: true})
-        setShowLayer(1)
+        changeLayer(LAYER_BANNER)
       }
     }
     checkConsentStatus().catch(() => {
-      setShowLayer(0)
+      changeLayer(LAYER_OFF)
     })
   }, [])
 
+  const changeLayer = to => {
+    if (to === LAYER_VENDORS) {
+      setVendorsLayerBackTo(showLayer)
+    }
+    setShowLayer(to)
+  }
+
   const handleOpenSecondLayer = () => {
-    setShowLayer(2)
+    changeLayer(LAYER_PURPOSES)
   }
   const handleVendorsClick = () => {
-    setShowLayer(3)
+    changeLayer(LAYER_VENDORS)
   }
   const handleSecondLayerGoBack = () => {
-    if (showVendors) {
+    if (showPurposesLayer) {
       onCloseModal && onCloseModal()
-      setShowLayer(0)
+      changeLayer(LAYER_OFF)
     } else {
-      setShowLayer(1)
+      changeLayer(LAYER_BANNER)
     }
   }
   const handleThirdLayerGoBack = () => {
-    setShowLayer(2)
+    changeLayer(vendorsLayerBackTo)
   }
   const handleOpenCookiePolicyLayer = () => {
-    setShowLayer(3)
+    changeLayer(LAYER_VENDORS)
   }
   const handleSaveUserConsent = async () => {
     await saveUserConsent()
     uiVisible({visible: false})
     onCloseModal && onCloseModal()
-    setShowLayer(0)
+    changeLayer(LAYER_OFF)
   }
 
   return (
     <>
-      {showLayer === 1 && (
+      {showLayer === LAYER_BANNER && (
         <Suspense fallback={<div />}>
           <FirstLayer
             isTestAcceptedWithUserScroll={isTestAcceptedWithUserScroll}
@@ -77,7 +91,7 @@ export default function TCFContainer({
           />
         </Suspense>
       )}
-      {showLayer === 2 && (
+      {showLayer === LAYER_PURPOSES && (
         <Suspense fallback={<div />}>
           <SecondLayer
             logo={logo}
@@ -87,7 +101,7 @@ export default function TCFContainer({
           />
         </Suspense>
       )}
-      {showLayer === 3 && (
+      {showLayer === LAYER_VENDORS && (
         <Suspense fallback={<div />}>
           <SecondLayer
             isVendorLayer
@@ -108,5 +122,5 @@ TCFContainer.propTypes = {
   isTestForceModal: PropTypes.bool,
   logo: PropTypes.string,
   onCloseModal: PropTypes.func,
-  showVendors: PropTypes.bool
+  showPurposesLayer: PropTypes.bool
 }

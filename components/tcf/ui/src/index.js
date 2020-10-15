@@ -35,7 +35,7 @@ export default function TcfUi({
         isTestForceModal={isTestForceModal}
         logo={logo}
         onCloseModal={onCloseModal}
-        showVendors={showVendors}
+        showPurposesLayer={showVendors}
       />
     </ConsentProvider>
   )
