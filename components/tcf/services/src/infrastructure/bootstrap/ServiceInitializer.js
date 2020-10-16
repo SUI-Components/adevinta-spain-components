@@ -9,8 +9,8 @@ import {
 import {tcfRepositoryFactory} from '../tcf/factory'
 
 class ServiceInitializer {
-  static init({language, scope} = {}) {
-    const tcfRepository = tcfRepositoryFactory({language, scope})
+  static init({language, reporter, scope} = {}) {
+    const tcfRepository = tcfRepositoryFactory({language, reporter, scope})
     const saveUserConsentUseCase = saveUserConsentUseCaseFactory({
       repository: tcfRepository
     })
