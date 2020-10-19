@@ -1,11 +1,16 @@
-import React, {useRef} from 'react'
+import React, {useEffect, useRef} from 'react'
 import PropTypes from 'prop-types'
 import {ServiceInitializer} from './infrastructure/bootstrap/ServiceInitializer'
 import ConsentContext from './context'
 import useConsent from './context/useConsent'
+import {eventReporterFactory} from './infrastructure/reporter/eventReporter'
+import {TCF_CONTEXT_INITIALIZED} from './core/events'
 
-function ConsentProvider({language, isMobile, scope, children}) {
-  const service = useRef(ServiceInitializer.init({language, scope}))
+function ConsentProvider({language, isMobile, reporter, scope, children}) {
+  const eventReporter = useRef(eventReporterFactory(reporter))
+  const service = useRef(
+    ServiceInitializer.init({language, reporter: eventReporter.current, scope})
+  )
   const loadUserConsent = () => service.current.loadUserConsent()
   const getVendorList = () => service.current.getVendorList()
   const getScope = async () => {
@@ -35,11 +40,17 @@ function ConsentProvider({language, isMobile, scope, children}) {
       allSpecialFeatures
     })
   const uiVisible = ({visible}) => service.current.uiVisible({visible})
+
+  useEffect(() => {
+    eventReporter.current(TCF_CONTEXT_INITIALIZED, {language, isMobile})
+  })
+
   return (
     <ConsentContext.Provider
       value={{
         language,
         isMobile,
+        reporter: eventReporter.current,
         loadUserConsent,
         getVendorList,
         getScope,
@@ -53,13 +64,14 @@ function ConsentProvider({language, isMobile, scope, children}) {
   )
 }
 
-export default ConsentProvider
+export default React.memo(ConsentProvider)
 export {useConsent}
 
 ConsentProvider.displayName = 'ConsentProvider'
 ConsentProvider.propTypes = {
   children: PropTypes.any.isRequired,
-  language: PropTypes.string,
   isMobile: PropTypes.bool,
+  language: PropTypes.string,
+  reporter: PropTypes.func,
   scope: PropTypes.object
 }
