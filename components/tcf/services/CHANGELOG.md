@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.10.0 (2020-10-19)
+
+
+### Features
+
+* add event reporter capability ([5cdbbed](https://github.com/SUI-Components/schibsted-spain-components/commit/5cdbbed435dd81b19010cc5af9a1a811515d08a4))
+
+
+
 # 1.9.0 (2020-08-04)
 
 
