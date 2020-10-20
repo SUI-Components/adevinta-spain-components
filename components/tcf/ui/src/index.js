@@ -22,6 +22,7 @@ export default function TcfUi({
   lang,
   logo,
   onCloseModal,
+  reporter,
   scope = CONSENT_SCOPE,
   showVendors
 }) {
@@ -29,7 +30,12 @@ export default function TcfUi({
     return null
   }
   return (
-    <ConsentProvider language={lang} isMobile={isMobile} scope={scope}>
+    <ConsentProvider
+      language={lang}
+      isMobile={isMobile}
+      reporter={reporter}
+      scope={scope}
+    >
       <TCFContainer
         isTestAcceptedWithUserScroll={isTestAcceptedWithUserScroll}
         isTestForceModal={isTestForceModal}
@@ -49,6 +55,7 @@ TcfUi.propTypes = {
   lang: PropTypes.string,
   logo: PropTypes.string,
   onCloseModal: PropTypes.func,
+  reporter: PropTypes.func,
   scope: PropTypes.object,
   showVendors: PropTypes.bool
 }

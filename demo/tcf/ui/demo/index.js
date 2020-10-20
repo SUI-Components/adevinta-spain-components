@@ -1,5 +1,5 @@
 import TcfUi from '../../../../components/tcf/ui/src'
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useState, useEffect, useContext, useRef} from 'react'
 import Context from '@s-ui/react-context'
 
 function removeCookie() {
@@ -27,6 +27,10 @@ const TcfUiDemo = () => {
   const [show, setShow] = useState(true)
   const [acceptedWithUserScroll, setAcceptedWithUserScroll] = useState(true)
   const [eventStatus, setEventStatus] = useState('empty')
+  const reporter = useRef((event, payload) =>
+    console.log('BorosTcf ', {event, payload})
+  )
+
   useEffect(() => {
     window.__tcfapi('addEventListener', 2, (tcData, success) => {
       if (
@@ -109,6 +113,7 @@ const TcfUiDemo = () => {
           lang={config.language}
           logo="https://frtassets.fotocasa.es/img/fotocasa_logo.svg"
           isMobile={isMobile}
+          reporter={reporter.current}
           showVendors={showVendors}
           onCloseModal={() => setShowVendors(false)}
           isTestAcceptedWithUserScroll={acceptedWithUserScroll}
