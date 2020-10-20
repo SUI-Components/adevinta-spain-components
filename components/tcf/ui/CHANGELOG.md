@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.1.0 (2020-10-20)
+
+
+### Features
+
+* add tcf reporter ([3d589e7](https://github.com/SUI-Components/schibsted-spain-components/commit/3d589e7ceb8aef15b185dcc50af91243e2837b2f))
+
+
+
 # 2.0.0 (2020-10-15)
 
 
