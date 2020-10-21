@@ -190,8 +190,6 @@ export default function TcfSecondLayer({
     <div className={CLASS}>
       <SuiModal
         isOpen={modalOpen}
-        closeOnOutsideClick
-        closeOnEscKeyDown
         header={<img className={`${CLASS}-logo`} src={logo} alt="logo" />}
         iconClose={isMobile ? <IconClose /> : false}
         onClose={handleSaveExitClick}
