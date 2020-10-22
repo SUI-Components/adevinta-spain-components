@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.2.0 (2020-10-22)
+
+
+### Features
+
+* remove posibility of close if click outside on second layer ([be5da22](https://github.com/SUI-Components/schibsted-spain-components/commit/be5da22e0ea296b8c15e3dfae915a31569f5bf44))
+
+
+
 # 2.1.0 (2020-10-20)
 
 
