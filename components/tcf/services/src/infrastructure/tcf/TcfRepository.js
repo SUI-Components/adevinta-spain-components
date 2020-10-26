@@ -3,7 +3,17 @@ class TcfRepository {
     this._tcfApi = tcfApi
     this._scope = scope
     this._cachedConsent = null
-    this._data = {}
+    this._draft = {
+      purpose: {
+        consents: {},
+        legitimateInterests: {}
+      },
+      vendor: {
+        consents: {},
+        legitimateInterests: {}
+      },
+      specialFeatures: {}
+    }
   }
 
   getVendorList() {
@@ -15,6 +25,10 @@ class TcfRepository {
     return this._cachedConsent
   }
 
+  loadConsentDraft() {
+    return this._draft
+  }
+
   async _initializeConsent() {
     const userConsent = await this._tcfApi.loadUserConsent()
     if (userConsent.isNew) {
@@ -22,16 +36,24 @@ class TcfRepository {
       userConsent.purpose = {consents: {}, legitimateInterests: {}}
       userConsent.vendor = {consents: {}, legitimateInterests: {}}
       userConsent.specialFeatures = {}
+      Object.keys(vendorList.purposes).forEach(key => {
+        userConsent.purpose.consents[key] = false
+        userConsent.purpose.legitimateInterests[key] = false
+      })
+      Object.keys(vendorList.specialFeatures).forEach(key => {
+        userConsent.specialFeatures[key] = false
+      })
       Object.keys(vendorList.vendors).forEach(key => {
+        userConsent.vendor.consents[key] = false
         userConsent.vendor.legitimateInterests[key] = true
       })
     }
-    this._data = userConsent
-    return this._data
+    this._draft = userConsent
+    return this._draft
   }
 
   async saveUserConsent() {
-    const {purpose, vendor, specialFeatures} = this._data
+    const {purpose, vendor, specialFeatures} = this._draft
     return this._tcfApi.saveUserConsent({purpose, vendor, specialFeatures})
   }
 
@@ -39,44 +61,48 @@ class TcfRepository {
     return this._tcfApi.uiVisible({visible})
   }
 
-  updateUserConsent({
-    purpose = {},
-    vendor = {},
-    specialFeatures = {},
-    allPurposes = null,
-    allVendors = null,
-    allSpecialFeatures = null
-  } = {}) {
-    const updated = {purpose, vendor, specialFeatures}
-    updated.purpose.consents = updated.purpose.consents || {}
-    updated.purpose.legitimateInterests =
-      updated.purpose.legitimateInterests || {}
-    updated.vendor.consents = updated.vendor.consents || {}
-    updated.vendor.legitimateInterests =
-      updated.vendor.legitimateInterests || {}
-
-    if (allPurposes !== null) {
+  updatePurpose({id, consent}) {
+    if (!id) {
       this._scope.purposes = this._scope.purposes || []
       this._scope.purposes.forEach(key => {
-        updated.purpose.consents[key] = allPurposes
-        updated.purpose.legitimateInterests[key] = allPurposes
+        this._draft.purpose.consents[key] = consent
+        this._draft.purpose.legitimateInterests[key] = consent
       })
+    } else {
+      this._draft.purpose.consents[id] = consent
+      this._draft.purpose.legitimateInterests[id] = consent
     }
+  }
 
-    if (allVendors !== null) {
-      Object.keys(updated.vendor.consents).forEach(key => {
-        updated.vendor.consents[key] = allVendors
-        updated.vendor.legitimateInterests[key] = allVendors
-      })
-    }
-
-    if (allSpecialFeatures !== null) {
+  updateSpecialFeature({id, consent}) {
+    if (!id) {
       this._scope.specialFeatures = this._scope.specialFeatures || []
       this._scope.specialFeatures.forEach(key => {
-        updated.specialFeatures[key] = allSpecialFeatures
+        this._draft.specialFeatures[key] = consent
       })
+    } else {
+      this._draft.specialFeatures[id] = consent
     }
-    Object.assign(this._data, updated)
+  }
+
+  updateVendor({id, consent, legitimateInterest}) {
+    if (!id) {
+      if (typeof consent === 'boolean') {
+        Object.keys(this._draft.vendor.consents).forEach(key => {
+          this._draft.vendor.consents[key] = consent
+        })
+      }
+      if (typeof legitimateInterest === 'boolean') {
+        Object.keys(this._draft.vendor.legitimateInterests).forEach(key => {
+          this._draft.vendor.legitimateInterests[key] = legitimateInterest
+        })
+      }
+    } else {
+      typeof consent === 'boolean' &&
+        (this._draft.vendor.consents[id] = consent)
+      typeof legitimateInterest === 'boolean' &&
+        (this._draft.vendor.legitimateInterests[id] = legitimateInterest)
+    }
   }
 }
 

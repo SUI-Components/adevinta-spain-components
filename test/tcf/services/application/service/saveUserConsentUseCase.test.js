@@ -1,18 +1,8 @@
 /* eslint-env jest */
 import {SaveUserConsentUseCase} from '../../../../../components/tcf/services/src/application/service/SaveUserConsentUseCase'
-import {TcfRepositoryMock} from '../../helpers/TcfRepositoryMock'
-import {UpdateUserConsentUseCase} from '../../../../../components/tcf/services/src/application/service/UpdateUserConsentUseCase'
-describe('SaveUserConsentUseCase test', () => {
-  const borosMethods = {
-    saveUserConsent: () => Promise.resolve(null),
-    getVendorList: () => Promise.resolve(null),
-    loadUserConsent: () => Promise.resolve(null)
-  }
-  const borosTCFMock = {
-    init: () => borosMethods
-  }
-  const saveUserConsentSpy = jest.spyOn(borosMethods, 'saveUserConsent')
+import {TcfRepository} from '../../../../../components/tcf/services/src/infrastructure/tcf/TcfRepository'
 
+describe('SaveUserConsentUseCase test', () => {
   it('should return correct data when execute', async () => {
     const userConsent = {
       purpose: {
@@ -41,16 +31,31 @@ describe('SaveUserConsentUseCase test', () => {
       },
       specialFeatures: {1: false, 2: false, 3: false}
     }
-    const tcfRepositoryMock = new TcfRepositoryMock({
+    const borosMethods = {
+      saveUserConsent: () => Promise.resolve(null),
+      getVendorList: () => Promise.resolve(null),
+      loadUserConsent: () => Promise.resolve(userConsent)
+    }
+    const borosTCFMock = {
+      init: () => borosMethods
+    }
+    const saveUserConsentSpy = jest.spyOn(borosMethods, 'saveUserConsent')
+
+    const tcfRepositoryMock = new TcfRepository({
       tcfApi: borosTCFMock.init()
-    })
-    const updateUserConsentUseCase = new UpdateUserConsentUseCase({
-      repository: tcfRepositoryMock
     })
     const saveUserConsentUseCase = new SaveUserConsentUseCase({
       repository: tcfRepositoryMock
     })
-    updateUserConsentUseCase.execute(userConsent)
+    await tcfRepositoryMock.loadUserConsent()
+    tcfRepositoryMock.updatePurpose({consent: false})
+    tcfRepositoryMock.updateVendor({
+      consent: false,
+      legitimateInterest: false
+    })
+    tcfRepositoryMock.updateSpecialFeature({
+      consent: false
+    })
     await saveUserConsentUseCase.execute()
     expect(saveUserConsentSpy).toHaveBeenCalledTimes(1)
     expect(saveUserConsentSpy).toHaveBeenCalledWith(userConsent)

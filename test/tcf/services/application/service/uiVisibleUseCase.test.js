@@ -1,6 +1,6 @@
 /* eslint-env jest */
 import {UiVisibleUseCase} from '../../../../../components/tcf/services/src/application/service/UiVisibleUseCase'
-import {TcfRepositoryMock} from '../../helpers/TcfRepositoryMock'
+import {TcfRepository} from '../../../../../components/tcf/services/src/infrastructure/tcf/TcfRepository'
 describe('UiVisibleUseCase test', () => {
   const borosMethods = {
     saveUserConsent: () => Promise.resolve(null),
@@ -15,7 +15,7 @@ describe('UiVisibleUseCase test', () => {
 
   it('should send correct data when executed', async () => {
     const visible = true
-    const tcfRepositoryMock = new TcfRepositoryMock({
+    const tcfRepositoryMock = new TcfRepository({
       tcfApi: borosTCFMock.init()
     })
     const uiVisibleUseCase = new UiVisibleUseCase({
