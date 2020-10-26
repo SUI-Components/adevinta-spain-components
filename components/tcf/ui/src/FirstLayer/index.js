@@ -22,10 +22,9 @@ export default function TcfFirstLayer({
   const {
     isMobile,
     language,
-    loadUserConsent,
-    updateUserConsent,
-    getVendorList,
-    getScope
+    updatePurpose,
+    updateSpecialFeature,
+    updateVendor
   } = useConsent()
   const [show, setShow] = useState(true)
   const cookiesPolicyLink = useRef()
@@ -81,35 +80,9 @@ export default function TcfFirstLayer({
   }
 
   const handleSaveExitClick = async () => {
-    const [userConsent, vendorList, scope] = await Promise.all([
-      loadUserConsent(),
-      getVendorList(),
-      getScope()
-    ])
-    scope.purposes = scope.purposes || Object.keys(vendorList.purposes)
-    scope.purposes.forEach(key => {
-      userConsent.purpose.consents[key] = true
-      userConsent.purpose.legitimateInterests[key] = true
-    })
-
-    scope.specialFeatures =
-      scope.specialFeatures || Object.keys(vendorList.specialFeatures)
-    scope.specialFeatures.forEach(
-      key => (userConsent.specialFeatures[key] = true)
-    )
-
-    Object.keys(vendorList.vendors).forEach(key => {
-      userConsent.vendor.consents[key] = true
-      userConsent.vendor.legitimateInterests[key] = true
-    })
-    updateUserConsent({
-      purpose: userConsent.purpose,
-      vendor: userConsent.vendor,
-      specialFeatures: userConsent.specialFeatures,
-      allPurposes: true,
-      allVendors: true,
-      allSpecialFeatures: true
-    })
+    updatePurpose({consent: true})
+    updateSpecialFeature({consent: true})
+    updateVendor({consent: true, legitimateInterest: true})
     handleCloseModal()
     onSaveUserConsent()
   }

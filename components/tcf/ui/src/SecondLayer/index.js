@@ -15,6 +15,12 @@ import TcfSecondLayerVendorList from './components/tcf-secondLayer-vendorList'
 const CLASS = 'sui-TcfSecondLayer'
 const groupBaseClass = `${CLASS}-group`
 
+const GROUP_PURPOSES = 'purposes'
+const GROUP_SPECIAL_FEATURES = 'specialFeatures'
+const GROUP_VENDORS = 'vendors'
+const SUBGROUP_CONSENTS = 'consents'
+const SUBGROUP_LEGITIMATE_INTERESTS = 'legitimateInterests'
+
 export default function TcfSecondLayer({
   logo,
   onSaveUserConsent,
@@ -30,8 +36,11 @@ export default function TcfSecondLayer({
     isMobile,
     getVendorList,
     getScope,
+    loadConsentDraft,
     loadUserConsent,
-    updateUserConsent
+    updatePurpose,
+    updateSpecialFeature,
+    updateVendor
   } = useConsent()
 
   const i18n = I18N[language]
@@ -73,100 +82,87 @@ export default function TcfSecondLayer({
     handleCloseModal()
   }
 
-  const saveConsentState = ({purposes, vendors, specialFeatures}) =>
-    updateUserConsent({purpose: purposes, vendor: vendors, specialFeatures})
-
   const changeAllGroup = ({group, decisionKey, value}) => {
-    setState(prevState => {
-      if (group !== 'vendors') {
-        for (const key in vendorListState[group]) {
-          prevState[group].consents[key] = value
-          prevState[group].legitimateInterests[key] = value
-        }
-      }
-      const {vendors} = prevState
-      Object.keys(vendorListState.vendors).forEach(key => {
-        if (!decisionKey) {
-          vendors.consents[key] = value
-          vendors.legitimateInterests[key] = value
-        } else {
-          vendors[decisionKey][key] = value
-        }
+    if (group === GROUP_PURPOSES) {
+      updatePurpose({consent: value})
+    } else if (group === GROUP_SPECIAL_FEATURES) {
+      updateSpecialFeature({consent: value})
+    } else if (group === GROUP_VENDORS) {
+      const consent =
+        decisionKey === SUBGROUP_CONSENTS && typeof value === 'boolean'
+          ? value
+          : null
+      const legitimateInterest =
+        decisionKey === SUBGROUP_LEGITIMATE_INTERESTS &&
+        typeof value === 'boolean'
+          ? value
+          : null
+      updateVendor({
+        consent,
+        legitimateInterest
       })
-      const nextState = {...prevState, vendors, [group]: prevState[group]}
-      saveConsentState(nextState)
-      return nextState
+    }
+    const {
+      vendor: vendors,
+      purpose: purposes,
+      specialFeatures
+    } = loadConsentDraft()
+    setState({
+      vendors,
+      purposes,
+      specialFeatures
     })
   }
+
   const handleRejectAll = props => {
     changeAllGroup({...props, value: false})
   }
+
   const handleAcceptAll = props => {
     changeAllGroup({...props, value: true})
   }
 
   const handleAcceptAllSpecialFeatures = async () => {
-    const specialFeatures = {}
-    const scope = await getScope()
-    scope.specialFeatures.forEach(value => (specialFeatures[value] = true))
-    const nextState = {
-      ...state,
-      specialFeatures
-    }
-    saveConsentState(nextState)
-    setState(nextState)
+    changeAllGroup({group: GROUP_SPECIAL_FEATURES, value: true})
   }
+
   const handleRejectAllSpecialFeatures = () => {
-    const nextState = {
-      ...state,
-      specialFeatures: {}
-    }
-    saveConsentState(nextState)
-    setState(nextState)
+    changeAllGroup({group: GROUP_SPECIAL_FEATURES, value: false})
   }
 
   const handleConsentsChange = ({group, decisionKey, index, value}) => {
-    setState(prevState => {
-      const newValue = !value
-      let nextState = {...prevState}
-      const {consents, legitimateInterests} = prevState[group]
-      const {vendors} = prevState
-      switch (group) {
-        case 'purposes':
-          consents[index] = newValue
-          legitimateInterests[index] = newValue
-          Object.entries(vendorListState.vendors).forEach(
-            ([key, vendorFromVendorList]) => {
-              if (vendorFromVendorList.purposes.includes(index)) {
-                vendors.consents[key] = newValue
-              }
-              if (vendorFromVendorList.legIntPurposes.includes(index)) {
-                vendors.legitimateInterests[key] = newValue
-              }
-            }
-          )
-          nextState = {
-            ...prevState,
-            purposes: {...prevState.purposes, consents, legitimateInterests},
-            vendors
-          }
-          break
-        case 'vendors':
-          vendors[decisionKey][index] = newValue
-          nextState = {
-            ...prevState,
-            vendors
-          }
-          break
-        case 'specialFeatures':
-          nextState = {
-            ...prevState,
-            specialFeatures: {...prevState.specialFeatures, [index]: newValue}
-          }
-          break
-      }
-      saveConsentState(nextState)
-      return nextState
+    const newValue = !value
+    switch (group) {
+      case GROUP_PURPOSES:
+        updatePurpose({
+          id: index,
+          consent: newValue
+        })
+        break
+      case GROUP_VENDORS:
+        updateVendor({
+          id: index,
+          consent: decisionKey === SUBGROUP_CONSENTS ? newValue : null,
+          legitimateInterest:
+            decisionKey === SUBGROUP_LEGITIMATE_INTERESTS ? newValue : null
+        })
+        break
+      case GROUP_SPECIAL_FEATURES:
+        updateSpecialFeature({
+          id: index,
+          consent: newValue
+        })
+        break
+    }
+    const {
+      vendor: vendors,
+      purpose: purposes,
+      specialFeatures
+    } = loadConsentDraft()
+    setState({
+      vendors,
+      purposes,
+      specialFeatures
     })
   }
 
@@ -214,12 +210,12 @@ export default function TcfSecondLayer({
                 return scope.purposes
               }}
               onConsentChange={props =>
-                handleConsentsChange({group: 'purposes', ...props})
+                handleConsentsChange({group: GROUP_PURPOSES, ...props})
               }
               hasConsent
               i18n={i18n}
-              onAcceptAll={() => handleAcceptAll({group: 'purposes'})}
-              onRejectAll={() => handleRejectAll({group: 'purposes'})}
+              onAcceptAll={() => handleAcceptAll({group: GROUP_PURPOSES})}
+              onRejectAll={() => handleRejectAll({group: GROUP_PURPOSES})}
               vendorList={vendorListState}
               expandedContent={legalExpandedContent}
               isVendorLayer={isVendorLayer}
@@ -238,7 +234,10 @@ export default function TcfSecondLayer({
                   return scope.specialFeatures
                 }}
                 onConsentChange={props =>
-                  handleConsentsChange({group: 'specialFeatures', ...props})
+                  handleConsentsChange({
+                    group: GROUP_SPECIAL_FEATURES,
+                    ...props
+                  })
                 }
                 hasConsent
                 i18n={i18n}
