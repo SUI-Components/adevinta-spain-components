@@ -28,16 +28,26 @@ const defaultCounterPatternFactory = ({current, total}) => `${current}/${total}`
  */
 const getSlides = (currentSlide, images = [], linkFactory) => {
   return images.map((image, index) => {
-    const {alt, key: imageKey, link, src, target = TARGET_BLANK, title} = image
+    const {
+      alt,
+      className,
+      key: imageKey,
+      link,
+      src,
+      style,
+      target = TARGET_BLANK,
+      title
+    } = image
 
     const key = imageKey ? imageKey + index : index
     const img = (
       <img
         alt={alt}
         aria-selected={currentSlide === index}
-        className="sui-ImageSlider-image"
+        className={cx('sui-ImageSlider-image', className)}
         key={key}
         src={src}
+        style={style}
         title={title}
       />
     )
