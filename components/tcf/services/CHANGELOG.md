@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.0.0 (2020-10-27)
+
+
+### Features
+
+* manage fine grained consent draft ([1daa858](https://github.com/SUI-Components/schibsted-spain-components/commit/1daa85870b1231a8645ed88bebf307ed811535e1))
+
+
+### BREAKING CHANGES
+
+* remove use case for updating all consent data from single point, allowing UI to manage state with a
+simpler api
+
+
+
 # 1.10.0 (2020-10-19)
 
 
