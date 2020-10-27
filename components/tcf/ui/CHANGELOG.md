@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.3.0 (2020-10-27)
+
+
+### Features
+
+* update for tcf/services major release ([3c3a91d](https://github.com/SUI-Components/schibsted-spain-components/commit/3c3a91d2a5bdad4fd00d4323e6734854ba7a080b))
+
+
+
 # 2.2.0 (2020-10-22)
 
 
