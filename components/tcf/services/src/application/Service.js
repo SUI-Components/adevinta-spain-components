@@ -1,20 +1,30 @@
 class Service {
   constructor({
     getVendorListUseCase,
+    loadConsentDraftUseCase,
     loadUserConsentUseCase,
     saveUserConsentUseCase,
-    updateUserConsentUseCase,
+    updateConsentPurposeUseCase,
+    updateConsentSpecialFeatureUseCase,
+    updateConsentVendorUseCase,
     uiVisibleUseCase
   }) {
     this._getVendorListUseCase = getVendorListUseCase
+    this._loadConsentDraftUseCase = loadConsentDraftUseCase
     this._loadUserConsentUseCase = loadUserConsentUseCase
     this._saveUserConsentUseCase = saveUserConsentUseCase
-    this._updateUserConsentUseCase = updateUserConsentUseCase
+    this._updateConsentPurposeUseCase = updateConsentPurposeUseCase
+    this._updateConsentSpecialFeatureUseCase = updateConsentSpecialFeatureUseCase
+    this._updateConsentVendorUseCase = updateConsentVendorUseCase
     this._uiVisibleUseCase = uiVisibleUseCase
   }
 
   getVendorList() {
     return this._getVendorListUseCase.execute()
+  }
+
+  loadConsentDraft() {
+    return this._loadConsentDraftUseCase.execute()
   }
 
   loadUserConsent() {
@@ -25,21 +35,25 @@ class Service {
     return this._saveUserConsentUseCase.execute()
   }
 
-  updateUserConsent({
-    purpose,
-    vendor,
-    specialFeatures,
-    allPurposes,
-    allVendors,
-    allSpecialFeatures
-  }) {
-    return this._updateUserConsentUseCase.execute({
-      purpose,
-      vendor,
-      specialFeatures,
-      allPurposes,
-      allVendors,
-      allSpecialFeatures
+  updatePurpose({id, consent}) {
+    return this._updateConsentPurposeUseCase.execute({
+      id,
+      consent
+    })
+  }
+
+  updateSpecialFeature({id, consent}) {
+    return this._updateConsentSpecialFeatureUseCase.execute({
+      id,
+      consent
+    })
+  }
+
+  updateVendor({id, consent, legitimateInterest}) {
+    return this._updateConsentVendorUseCase.execute({
+      id,
+      consent,
+      legitimateInterest
     })
   }
 

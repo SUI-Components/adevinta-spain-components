@@ -4,7 +4,10 @@ import {
   loadUserConsentUseCaseFactory,
   getVendorListUseCaseFactory,
   uiVisibleUseCaseFactory,
-  updateUserConsentUseCaseFactory
+  updateConsentPurposeUseCaseFactory,
+  updateConsentSpecialFeatureUseCaseFactory,
+  updateConsentVendorUseCaseFactory,
+  loadConsentDraftUseCaseFactory
 } from '../../application/service/factory'
 import {tcfRepositoryFactory} from '../tcf/factory'
 
@@ -17,20 +20,34 @@ class ServiceInitializer {
     const uiVisibleUseCase = uiVisibleUseCaseFactory({
       repository: tcfRepository
     })
+    const loadConsentDraftUseCase = loadConsentDraftUseCaseFactory({
+      repository: tcfRepository
+    })
     const loadUserConsentUseCase = loadUserConsentUseCaseFactory({
       repository: tcfRepository
     })
     const getVendorListUseCase = getVendorListUseCaseFactory({
       repository: tcfRepository
     })
-    const updateUserConsentUseCase = updateUserConsentUseCaseFactory({
+    const updateConsentPurposeUseCase = updateConsentPurposeUseCaseFactory({
+      repository: tcfRepository
+    })
+    const updateConsentSpecialFeatureUseCase = updateConsentSpecialFeatureUseCaseFactory(
+      {
+        repository: tcfRepository
+      }
+    )
+    const updateConsentVendorUseCase = updateConsentVendorUseCaseFactory({
       repository: tcfRepository
     })
     return new Service({
       saveUserConsentUseCase,
+      loadConsentDraftUseCase,
       loadUserConsentUseCase,
       getVendorListUseCase,
-      updateUserConsentUseCase,
+      updateConsentPurposeUseCase,
+      updateConsentSpecialFeatureUseCase,
+      updateConsentVendorUseCase,
       uiVisibleUseCase
     })
   }

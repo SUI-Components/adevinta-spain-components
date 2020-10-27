@@ -11,6 +11,7 @@ function ConsentProvider({language, isMobile, reporter, scope, children}) {
   const service = useRef(
     ServiceInitializer.init({language, reporter: eventReporter.current, scope})
   )
+  const loadConsentDraft = () => service.current.loadConsentDraft()
   const loadUserConsent = () => service.current.loadUserConsent()
   const getVendorList = () => service.current.getVendorList()
   const getScope = async () => {
@@ -23,22 +24,12 @@ function ConsentProvider({language, isMobile, reporter, scope, children}) {
     return defaultScope
   }
   const saveUserConsent = () => service.current.saveUserConsent()
-  const updateUserConsent = ({
-    purpose,
-    vendor,
-    specialFeatures,
-    allPurposes,
-    allVendors,
-    allSpecialFeatures
-  }) =>
-    service.current.updateUserConsent({
-      purpose,
-      vendor,
-      specialFeatures,
-      allPurposes,
-      allVendors,
-      allSpecialFeatures
-    })
+  const updatePurpose = ({id, consent}) =>
+    service.current.updatePurpose({id, consent})
+  const updateSpecialFeature = ({id, consent}) =>
+    service.current.updateSpecialFeature({id, consent})
+  const updateVendor = ({id, consent, legitimateInterest}) =>
+    service.current.updateVendor({id, consent, legitimateInterest})
   const uiVisible = ({visible}) => service.current.uiVisible({visible})
 
   useEffect(() => {
@@ -51,11 +42,14 @@ function ConsentProvider({language, isMobile, reporter, scope, children}) {
         language,
         isMobile,
         reporter: eventReporter.current,
+        loadConsentDraft,
         loadUserConsent,
         getVendorList,
         getScope,
         saveUserConsent,
-        updateUserConsent,
+        updatePurpose,
+        updateSpecialFeature,
+        updateVendor,
         uiVisible
       }}
     >

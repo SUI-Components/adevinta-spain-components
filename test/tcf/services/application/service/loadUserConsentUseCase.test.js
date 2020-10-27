@@ -1,6 +1,6 @@
 /* eslint-env jest */
 import {LoadUserConsentUseCase} from '../../../../../components/tcf/services/src/application/service/LoadUserConsentUseCase'
-import {TcfRepositoryMock} from '../../helpers/TcfRepositoryMock'
+import {TcfRepository} from '../../../../../components/tcf/services/src/infrastructure/tcf/TcfRepository'
 describe('LoadUserConsentUseCase test', () => {
   const givenUserConsent = {
     purpose: {
@@ -41,7 +41,7 @@ describe('LoadUserConsentUseCase test', () => {
   const loadUserConsentSpy = jest.spyOn(borosMethods, 'loadUserConsent')
 
   it('should return correct data when execute', async () => {
-    const tcfRepositoryMock = new TcfRepositoryMock({
+    const tcfRepositoryMock = new TcfRepository({
       tcfApi: borosTCFMock.init()
     })
     const loadUserConsentUseCase = new LoadUserConsentUseCase({

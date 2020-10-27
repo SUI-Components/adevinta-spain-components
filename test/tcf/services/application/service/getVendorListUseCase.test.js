@@ -1,6 +1,6 @@
 /* eslint-env jest */
 import {GetVendorListUseCase} from '../../../../../components/tcf/services/src/application/service/GetVendorListUseCase'
-import {TcfRepositoryMock} from '../../helpers/TcfRepositoryMock'
+import {TcfRepository} from '../../../../../components/tcf/services/src/infrastructure/tcf/TcfRepository'
 describe('GetVendorListUseCase test', () => {
   const givenVendorList = {
     purposes: {
@@ -28,7 +28,7 @@ describe('GetVendorListUseCase test', () => {
     getVendorListSpy.mockClear()
   })
   it('should return correct data when execute', async () => {
-    const tcfRepositoryMock = new TcfRepositoryMock({
+    const tcfRepositoryMock = new TcfRepository({
       tcfApi: borosTCFMock.init()
     })
     const getVendorListUseCase = new GetVendorListUseCase({
