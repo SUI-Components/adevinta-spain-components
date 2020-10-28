@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.1.0 (2020-10-28)
+
+
+### Features
+
+* improve vendors acceptance logic ([b993c58](https://github.com/SUI-Components/schibsted-spain-components/commit/b993c58c50444fd39f68d9a4c132e4cd3bb0e62f))
+
+
+
 # 2.0.0 (2020-10-27)
 
 
