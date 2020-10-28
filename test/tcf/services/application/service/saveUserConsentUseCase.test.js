@@ -47,15 +47,7 @@ describe('SaveUserConsentUseCase test', () => {
     const saveUserConsentUseCase = new SaveUserConsentUseCase({
       repository: tcfRepositoryMock
     })
-    await tcfRepositoryMock.loadUserConsent()
-    tcfRepositoryMock.updatePurpose({consent: false})
-    tcfRepositoryMock.updateVendor({
-      consent: false,
-      legitimateInterest: false
-    })
-    tcfRepositoryMock.updateSpecialFeature({
-      consent: false
-    })
+    tcfRepositoryMock.initConsentDraft({userConsent})
     await saveUserConsentUseCase.execute()
     expect(saveUserConsentSpy).toHaveBeenCalledTimes(1)
     expect(saveUserConsentSpy).toHaveBeenCalledWith(userConsent)

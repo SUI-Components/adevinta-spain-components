@@ -47,8 +47,20 @@ describe('LoadUserConsentUseCase test', () => {
     const loadUserConsentUseCase = new LoadUserConsentUseCase({
       repository: tcfRepositoryMock
     })
-    const userConsent = await loadUserConsentUseCase.execute()
-    expect(userConsent).toBe(givenUserConsent)
+    const {
+      purpose,
+      vendor,
+      specialFeatures
+    } = await loadUserConsentUseCase.execute()
     expect(loadUserConsentSpy).toHaveBeenCalledTimes(1)
+    expect({
+      purpose: givenUserConsent.purpose,
+      vendor: givenUserConsent.vendor,
+      specialFeatures: givenUserConsent.specialFeatures
+    }).toEqual({
+      purpose,
+      vendor,
+      specialFeatures
+    })
   })
 })
