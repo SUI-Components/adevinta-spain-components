@@ -32,11 +32,24 @@ describe('LoadConsentDraftUseCase test', () => {
       tcfApi: borosTCFMock.init(),
       scope: givenScope
     })
+    repository.initConsentDraft({userConsent: givenConsent})
     const useCase = new LoadConsentDraftUseCase({repository})
-    const userConsent = await repository.loadUserConsent()
+    const {
+      purpose,
+      vendor,
+      specialFeatures
+    } = await repository.loadUserConsent()
     let draft = useCase.execute()
-    expect(draft).toEqual(userConsent)
-    repository.updateSpecialFeature({consent: false})
+    expect({
+      purpose: draft.purpose,
+      vendor: draft.vendor,
+      specialFeatures: draft.specialFeatures
+    }).toEqual({
+      purpose,
+      vendor,
+      specialFeatures
+    })
+    draft.updateSpecialFeatures({consent: false})
     draft = useCase.execute()
     expect(draft.specialFeatures[1]).toBeFalsy()
   })

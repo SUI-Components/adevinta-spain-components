@@ -4,7 +4,9 @@ class SaveUserConsentUseCase {
   }
 
   execute() {
-    return this._repository.saveUserConsent()
+    const draft = this._repository.loadConsentDraft()
+    const userConsent = draft.asUserConsent()
+    return this._repository.saveUserConsent(userConsent)
   }
 }
 

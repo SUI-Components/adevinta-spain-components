@@ -4,6 +4,7 @@ export class UpdateConsentPurposeUseCase {
   }
 
   execute({id, consent}) {
-    return this._repository.updatePurpose({id, consent})
+    const draft = this._repository.loadConsentDraft()
+    draft.updatePurposes({id, consent})
   }
 }

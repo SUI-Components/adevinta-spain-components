@@ -4,6 +4,7 @@ export class UpdateConsentSpecialFeatureUseCase {
   }
 
   execute({id, consent}) {
-    return this._repository.updateSpecialFeature({id, consent})
+    const draft = this._repository.loadConsentDraft()
+    draft.updateSpecialFeatures({id, consent})
   }
 }

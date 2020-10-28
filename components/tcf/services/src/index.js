@@ -14,15 +14,15 @@ function ConsentProvider({language, isMobile, reporter, scope, children}) {
   const loadConsentDraft = () => service.current.loadConsentDraft()
   const loadUserConsent = () => service.current.loadUserConsent()
   const getVendorList = () => service.current.getVendorList()
-  const getScope = async () => {
-    if (scope) return scope
-    const vendorList = await getVendorList()
-    const defaultScope = {
-      purposes: Object.keys(vendorList.purposes),
-      specialFeatures: Object.keys(vendorList.specialFeatures)
-    }
-    return defaultScope
-  }
+  const getScope = () =>
+    Promise.resolve().then(
+      () =>
+        scope ||
+        getVendorList().then(vendorList => ({
+          purposes: Object.keys(vendorList.purposes),
+          specialFeatures: Object.keys(vendorList.specialFeatures)
+        }))
+    )
   const saveUserConsent = () => service.current.saveUserConsent()
   const updatePurpose = ({id, consent}) =>
     service.current.updatePurpose({id, consent})
