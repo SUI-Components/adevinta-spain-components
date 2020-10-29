@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.4.0 (2020-10-29)
+
+
+### Features
+
+* change styles for bug-fix safari v13 in Iphone 8 ([9a8e84e](https://github.com/SUI-Components/schibsted-spain-components/commit/9a8e84ef6d13596cab6e5ebb46759291ffe6329c))
+
+
+
 # 2.3.0 (2020-10-27)
 
 
