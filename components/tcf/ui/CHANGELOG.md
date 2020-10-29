@@ -2,12 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.5.0 (2020-10-29)
+
+
+### Features
+
+* remove code from test and use modal option ([85fa011](https://github.com/SUI-Components/schibsted-spain-components/commit/85fa0117956cc1431ef71fac335822c18ca27ad6))
+* revert dependency on usecallback ([5b13e5e](https://github.com/SUI-Components/schibsted-spain-components/commit/5b13e5eb028533c09832a250391e73c831bf8098))
+
+
+
 # 2.4.0 (2020-10-29)
 
 
 ### Features
 
 * change styles for bug-fix safari v13 in Iphone 8 ([9a8e84e](https://github.com/SUI-Components/schibsted-spain-components/commit/9a8e84ef6d13596cab6e5ebb46759291ffe6329c))
+* changes in the First layer of the TCF-ui ([84a5128](https://github.com/SUI-Components/schibsted-spain-components/commit/84a5128d61ef60137c24b9728e5ad1065f92796f))
 
 
 
