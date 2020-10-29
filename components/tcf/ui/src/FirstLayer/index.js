@@ -1,19 +1,13 @@
-import React, {useState, useEffect, useRef, useCallback} from 'react'
+import React, {useState, useRef, useCallback} from 'react'
 import PropTypes from 'prop-types'
 import {useConsent} from '@s-ui/react-tcf-services'
 import SuiButton from '@s-ui/react-atom-button'
 import SuiModal from '@s-ui/react-molecule-modal'
-import SuiNotification from '@s-ui/react-molecule-notification'
-// import IconClose from './iconClose'  // Commented due testAB
 import {I18N} from './settings'
 
 const CLASS = 'sui-TcfFirstLayer'
 
-const SCROLL_TO_ACCEPT = 250
-
 export default function TcfFirstLayer({
-  isTestAcceptedWithUserScroll = true,
-  isTestForceModal = false,
   logo,
   onOpenCookiePolicyLayer,
   onOpenSecondLayer,
@@ -59,22 +53,6 @@ export default function TcfFirstLayer({
     [handleCookiePolicyLayerClick]
   )
 
-  let initialYOffset
-  const checkScroll = () => {
-    if (
-      initialYOffset - window.pageYOffset >= SCROLL_TO_ACCEPT ||
-      initialYOffset - window.pageYOffset <= -SCROLL_TO_ACCEPT
-    ) {
-      handleSaveExitClick()
-    }
-  }
-  useEffect(() => {
-    if (!isTestAcceptedWithUserScroll) return // Temporary for testAB
-    initialYOffset = window.pageYOffset
-    document.addEventListener('scroll', checkScroll, {passive: true})
-    return () => document.removeEventListener('scroll', checkScroll)
-  }, [])
-
   const handleSettingsClick = () => {
     onOpenSecondLayer()
   }
@@ -113,32 +91,17 @@ export default function TcfFirstLayer({
 
   return (
     <div className={`${isMobile ? `${CLASS} ${CLASS}--isMobile` : `${CLASS}`}`}>
-      {isTestForceModal ? (
-        <SuiModal
-          isOpen={show}
-          closeOnOutsideClick={false}
-          closeOnEscKeyDown={false}
-          header={<img className={`${CLASS}-logo`} src={logo} alt="logo" />}
-          // iconClose={<IconClose />}  // Removed for testAB
-          onClose={handleSaveExitClick}
-          fitContent
-          portalContainerId="sui-TcfFirstLayerModal"
-        >
-          <Content />
-        </SuiModal>
-      ) : (
-        <div className={`${CLASS}-notification`}>
-          <SuiNotification
-            position="bottom"
-            autoClose="manual"
-            show={show}
-            showCloseButton={false}
-            variation="positive"
-            type="system"
-          >
-            <Content />
-          </SuiNotification>
-        </div>
+      <SuiModal
+        isOpen={show}
+        closeOnOutsideClick={false}
+        closeOnEscKeyDown={false}
+        header={<img className={`${CLASS}-logo`} src={logo} alt="logo" />}
+        onClose={handleSaveExitClick}
+        fitContent
+        portalContainerId="sui-TcfFirstLayerModal"
+      >
+        <Content />
+      </SuiModal>
       )}
     </div>
   )
@@ -146,8 +109,6 @@ export default function TcfFirstLayer({
 
 TcfFirstLayer.displayName = 'TcfFirstLayer'
 TcfFirstLayer.propTypes = {
-  isTestAcceptedWithUserScroll: PropTypes.bool,
-  isTestForceModal: PropTypes.bool,
   logo: PropTypes.string,
   onOpenCookiePolicyLayer: PropTypes.func,
   onOpenSecondLayer: PropTypes.func,
