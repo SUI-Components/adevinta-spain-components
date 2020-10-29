@@ -23,9 +23,7 @@ const TcfUiDemo = () => {
   const {config = {}} = useContext(Context)
   const [isMobile, setIsMobile] = useState(false)
   const [showVendors, setShowVendors] = useState(false)
-  const [forceModal, setForceModal] = useState(false)
   const [show, setShow] = useState(true)
-  const [acceptedWithUserScroll, setAcceptedWithUserScroll] = useState(true)
   const [eventStatus, setEventStatus] = useState('empty')
   const reporter = useRef((event, payload) =>
     console.log('BorosTcf ', {event, payload})
@@ -68,30 +66,8 @@ const TcfUiDemo = () => {
           Show Second layer
         </button>
       )}
-      {!show && (
-        <>
-          <button
-            onClick={() => {
-              setAcceptedWithUserScroll(prev => !prev)
-            }}
-          >
-            Accepted with user scroll
-          </button>
-          <button
-            onClick={() => {
-              setForceModal(prev => !prev)
-            }}
-          >
-            Force modal not dismissable
-          </button>
-        </>
-      )}
       <div>
         <p>Device: {isMobile ? 'mobile' : 'desktop'}</p>
-        <p>
-          acceptedWithUserScroll: {acceptedWithUserScroll ? 'true' : 'false'}
-        </p>
-        <p>forceModal: {forceModal ? 'true' : 'false'}</p>
         <b>Event Status:</b> {eventStatus}
       </div>
       <br />
@@ -116,8 +92,6 @@ const TcfUiDemo = () => {
           reporter={reporter.current}
           showVendors={showVendors}
           onCloseModal={() => setShowVendors(false)}
-          isTestAcceptedWithUserScroll={acceptedWithUserScroll}
-          isTestForceModal={forceModal}
         />
       )}
     </div>

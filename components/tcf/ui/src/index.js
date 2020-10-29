@@ -17,8 +17,6 @@ const CONSENT_SCOPE = {
 
 export default function TcfUi({
   isMobile,
-  isTestAcceptedWithUserScroll = true,
-  isTestForceModal = false,
   lang,
   logo,
   onCloseModal,
@@ -37,8 +35,6 @@ export default function TcfUi({
       scope={scope}
     >
       <TCFContainer
-        isTestAcceptedWithUserScroll={isTestAcceptedWithUserScroll}
-        isTestForceModal={isTestForceModal}
         logo={logo}
         onCloseModal={onCloseModal}
         showPurposesLayer={showVendors}
@@ -50,8 +46,6 @@ export default function TcfUi({
 TcfUi.displayName = 'TcfUi'
 TcfUi.propTypes = {
   isMobile: PropTypes.bool,
-  isTestAcceptedWithUserScroll: PropTypes.bool,
-  isTestForceModal: PropTypes.bool,
   lang: PropTypes.string,
   logo: PropTypes.string,
   onCloseModal: PropTypes.func,
