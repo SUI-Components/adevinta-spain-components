@@ -29,11 +29,7 @@ $base-class-modal: '#sui-TcfSecondLayerModal';
 #{$base-class-modal} {
   .sui-MoleculeModal-dialog {
     max-width: $maw-tcf-second-layer-modal;
-    // padding-bottom: $h-tcf-second-layer-footer-mobile;
     position: relative;
-    @include media-breakpoint-up(s) {
-      // padding-bottom: $h-tcf-second-layer-footer;
-    }
   }
 
   .sui-MoleculeModal-content {
