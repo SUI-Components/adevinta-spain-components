@@ -31,7 +31,7 @@ export default function TcfFirstLayer({
         handleCookiePolicyLayerClick
       )
     onOpenCookiePolicyLayer()
-  },[])
+  })
   const ref = useRef(null)
   const textRef = useCallback(
     node => {
@@ -91,18 +91,17 @@ export default function TcfFirstLayer({
 
   return (
     <div className={`${isMobile ? `${CLASS} ${CLASS}--isMobile` : `${CLASS}`}`}>
-        <SuiModal
-          isOpen={show}
-          closeOnOutsideClick={false}
-          closeOnEscKeyDown={false}
-          header={<img className={`${CLASS}-logo`} src={logo} alt="logo" />}
-          // iconClose={<IconClose />}  // Removed for testAB
-          onClose={handleSaveExitClick}
-          fitContent
-          portalContainerId="sui-TcfFirstLayerModal"
-        >
-          <Content />
-        </SuiModal>
+      <SuiModal
+        isOpen={show}
+        closeOnOutsideClick={false}
+        closeOnEscKeyDown={false}
+        header={<img className={`${CLASS}-logo`} src={logo} alt="logo" />}
+        onClose={handleSaveExitClick}
+        fitContent
+        portalContainerId="sui-TcfFirstLayerModal"
+      >
+        <Content />
+      </SuiModal>
       )}
     </div>
   )
