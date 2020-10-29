@@ -24,6 +24,7 @@ $base-class-modal: '#sui-TcfFirstLayerModal';
   &-body {
     font-size: $fz-tcf-first-layer-mobile;
     padding: 0 $p-m;
+    padding-bottom: $h-tcf-first-layer-footer;
 
     #{$base-class}:not(#{$base-class}--isMobile) .sui-MoleculeNotification & {
       @include media-breakpoint-up(s) {
@@ -102,7 +103,6 @@ $base-class-modal: '#sui-TcfFirstLayerModal';
 #{$base-class-modal} {
   .sui-MoleculeModal-dialog {
     position: relative;
-    padding-bottom: $h-tcf-first-layer-footer;
   }
   .sui-MoleculeModal-content {
     position: initial;
@@ -117,6 +117,7 @@ $base-class-modal: '#sui-TcfFirstLayerModal';
       bottom: 0;
       height: $h-tcf-first-layer-footer;
       padding: $p-tcf-first-layer-buttons--mobile;
+      background-color: $c-white;
 
       @include media-breakpoint-up(s) {
         justify-content: flex-end;
