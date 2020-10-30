@@ -27,6 +27,10 @@ $base-class: '.sui-TcfSecondLayer';
 $base-class-modal: '#sui-TcfSecondLayerModal';
 
 #{$base-class-modal} {
+  * {
+    box-sizing: border-box;
+  }
+
   .sui-MoleculeModal-dialog {
     max-width: $maw-tcf-second-layer-modal;
     position: relative;
