@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.2.0 (2020-10-30)
+
+
+### Bug Fixes
+
+* create valid node in load user consent use case ([5ccecf0](https://github.com/SUI-Components/schibsted-spain-components/commit/5ccecf0e481568eace20751b3802a1514695ea35))
+
+
+
 # 2.1.0 (2020-10-28)
 
 
