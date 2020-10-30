@@ -95,15 +95,21 @@ $base-class-modal: '#sui-TcfFirstLayerModal';
   .sui-MoleculeNotification {
     box-shadow: $bxsh-tcf-first-layer;
   }
+
   .sui-MoleculeNotification-content {
     background-color: $c-white;
   }
 }
 
 #{$base-class-modal} {
+  * {
+    box-sizing: border-box;
+  }
+
   .sui-MoleculeModal-dialog {
     position: relative;
   }
+
   .sui-MoleculeModal-content {
     position: initial;
     margin-left: $m-l;
