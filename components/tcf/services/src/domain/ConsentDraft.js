@@ -6,6 +6,7 @@ export class ConsentDraft {
     purpose = {consents: {}, legitimateInterests: {}},
     vendor = {consents: {}, legitimateInterests: {}},
     specialFeatures = {},
+    valid = false,
     vendorTouched = true
   } = {}) {
     this._scopedPurposes = scope.purposes || []
@@ -14,6 +15,7 @@ export class ConsentDraft {
     this._vendor = vendor
     this._specialFeatures = specialFeatures
     this._vendorTouched = vendorTouched
+    this._valid = valid
   }
 
   get purpose() {
@@ -26,6 +28,10 @@ export class ConsentDraft {
 
   get vendor() {
     return this._vendor
+  }
+
+  get valid() {
+    return this._valid
   }
 
   asUserConsent() {
