@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.6.0 (2020-10-30)
+
+
+### Bug Fixes
+
+* fix box-sizing ([eaf3233](https://github.com/SUI-Components/schibsted-spain-components/commit/eaf32338786a1534dd10a9f03d72e40cec0a9cc8))
+
+
+
 # 2.5.0 (2020-10-29)
 
 
