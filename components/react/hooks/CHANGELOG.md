@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.16.0 (2020-11-02)
+
+
+### Features
+
+* add useOnClickOutside React Hook ([b5ba9c9](https://github.com/SUI-Components/schibsted-spain-components/commit/b5ba9c913ba3e52d070318fa7532af55a53d2d4f))
+
+
+
 # 1.15.0 (2020-05-12)
 
 
