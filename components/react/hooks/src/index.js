@@ -10,6 +10,7 @@ export default function ReactHooks() {
 export {default as useMediaQuery} from './useMediaQuery'
 export {default as useLegacyState} from './useLegacyState'
 export {default as useMount} from './useMount'
+export {default as useOnClickOutside} from './useOnClickOutside'
 export {default as useOnScreen, useNearScreen} from './useOnScreen'
 export {default as usePrevious} from './usePrevious'
 export {default as useScroll} from './useScroll'

@@ -15,7 +15,7 @@ $ npm install @s-ui/react-hooks --save
 Hook that will be executed when the component mounts. Similar behaviour to old `componentDidMount` but `useMount` could return a function that will executed when the component unmounts. Useful for clearing events or timers.
 
 ```js
-import { useMount } from '@s-ui/react-hooks'
+import {useMount} from '@s-ui/react-hooks'
 
 export default () => {
   useMount(() => {
@@ -148,9 +148,9 @@ Hook `useMediaQuery` always returns a boolean and it indicates if query matches 
 import {useMediaQuery} from '@s-ui/react-hooks'
 
 export default function Demo() {
-  const isMatching = useMediaQuery('(min-width:600px)');
+  const isMatching = useMediaQuery('(min-width:600px)')
 
-  return <span>{`(min-width:600px) matches: ${isMatching}`}</span>;
+  return <span>{`(min-width:600px) matches: ${isMatching}`}</span>
 }
 ```
 
@@ -160,8 +160,8 @@ export default function Demo() {
 import {useMediaQuery} from '@s-ui/react-hooks'
 
 export default function Demo() {
-  const isMatching = useMediaQuery('(min-width:600px)', { defaultMatches: true});
-  return <span>{`(min-width:600px) matches: ${isMatching}`}</span>;
+  const isMatching = useMediaQuery('(min-width:600px)', {defaultMatches: true})
+  return <span>{`(min-width:600px) matches: ${isMatching}`}</span>
 }
 ```
 
@@ -201,20 +201,51 @@ export default function Demo() {
   const [searchTerm, setSearchTerm] = useState('')
   const debouncedSearchTerm = useDebounce(searchTerm, 500)
 
-  useEffect(
-    () => {
-      if (debouncedSearchTerm) {
-        //do something with the debounced value
-      } 
-    },
-    [debouncedSearchTerm] 
-  )
+  useEffect(() => {
+    if (debouncedSearchTerm) {
+      //do something with the debounced value
+    }
+  }, [debouncedSearchTerm])
 
   return (
     <input
-        placeholder="Search anything"
-        onChange={e => setSearchTerm(e.target.value)}
-      />
+      placeholder="Search anything"
+      onChange={e => setSearchTerm(e.target.value)}
+    />
+  )
+}
+```
+
+### useOnClickOutside
+
+Hook to call to action when click outside a element.
+
+The hook `useOnClickOutside` allows you to detect clicks outside of a specified element. In the example below we use it to close a modal when any element outside of the modal is clicked. By abstracting this logic out into a hook we can easily use it across all of our components that need this kind of functionality (dropdown menus, tooltips, etc).
+
+This hook is copied from [useHooks](https://usehooks.com/useOnClickOutside/)
+
+```js
+import {useRef, useState} from 'react'
+import {useOnClickOutside} from '@s-ui/react-hooks'
+
+export default function Demo() {
+  // Create a ref that we add to the element for which we want to detect outside clicks
+  const ref = useRef()
+  // State for our modal
+  const [isModalOpen, setModalOpen] = useState(false)
+  // Call hook passing in the ref and a function to call on outside click
+  useOnClickOutside(ref, () => setModalOpen(false))
+
+  return (
+    <div>
+      {isModalOpen ? (
+        <div ref={ref}>
+          👋 Hey, I'm a modal. Click anywhere outside of me to close.
+        </div>
+      ) : (
+        <button onClick={() => setModalOpen(true)}>Open Modal</button>
+      )}
+    </div>
   )
 }
 ```
