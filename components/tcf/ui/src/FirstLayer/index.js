@@ -102,7 +102,6 @@ export default function TcfFirstLayer({
       >
         <Content />
       </SuiModal>
-      )}
     </div>
   )
 }
