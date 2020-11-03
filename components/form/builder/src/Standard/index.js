@@ -6,7 +6,8 @@ const FIELDS = {
   TEXT: 'text',
   NUMERIC: 'numeric',
   FIELDSET: 'fieldset',
-  PICKER: 'picker'
+  PICKER: 'picker',
+  MULTIPICKER: 'multipicker'
 }
 
 const DISPLAYS = {
