@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.7.0 (2020-11-03)
+
+
+### Bug Fixes
+
+* remove forgotten characters ([ad804eb](https://github.com/SUI-Components/schibsted-spain-components/commit/ad804eb164538452d0a2266afaf0df2c6b58c268))
+
+
+
 # 2.6.0 (2020-10-30)
 
 
