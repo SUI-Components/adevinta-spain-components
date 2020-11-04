@@ -84,7 +84,7 @@ const Multipicker = ({
             key={item.value}
             label={item.text}
             id={item.value}
-            checked={multipicker.value.some(id => id === item.value)}
+            checked={multipicker?.value?.some(id => id === item.value)}
           />
         ))}
       </MoleculeField>
@@ -92,7 +92,7 @@ const Multipicker = ({
   )
 }
 
-Multipicker.displayName = 'Switch'
+Multipicker.displayName = 'Multipicker'
 Multipicker.propTypes = {
   tabIndex: PropTypes.number,
   multipicker: field,
