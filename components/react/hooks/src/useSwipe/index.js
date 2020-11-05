@@ -7,14 +7,15 @@ const THRESHOLDS = {
 }
 
 export default function useSwipe(ref) {
-  const [start, setStart] = useState({x: 0, y: 0, time: 0})
+  const [start, setStart] = useState(undefined)
   const [capturing, setCapturing] = useState(false)
-  const [end, setEnd] = useState({x: 0, y: 0})
+  const [end, setEnd] = useState(undefined)
   const [direction, setDirection] = useState(undefined)
 
   const onStart = ({clientX: x, clientY: y}) => {
     setCapturing(true)
-    setStart({x, y, time: +new Date()})
+    setDirection(undefined)
+    setStart({x, y, time: Date.now()})
   }
 
   const onMove = useCallback(({clientX: x, clientY: y}) => setEnd({x, y}), [])
@@ -29,7 +30,7 @@ export default function useSwipe(ref) {
         current.removeEventListener('pointermove', onMove)
 
         const {TIME} = THRESHOLDS
-        const deltaTime = +new Date() - start.time
+        const deltaTime = Date.now() - start?.time
 
         if (deltaTime > TIME) {
           setEnd()
