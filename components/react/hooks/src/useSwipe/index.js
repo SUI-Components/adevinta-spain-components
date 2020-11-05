@@ -33,7 +33,7 @@ export default function useSwipe(ref) {
         const deltaTime = Date.now() - start?.time
 
         if (deltaTime > TIME) {
-          setEnd()
+          setEnd(undefined)
           const {DISTANCE} = THRESHOLDS
           const deltaX = end?.x - start.x
           const deltaY = end?.y - start.y
