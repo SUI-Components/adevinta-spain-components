@@ -18,6 +18,7 @@
     "@s-ui/react-molecule-button-group-field": "1",
     "@s-ui/react-molecule-checkbox-field": "2",
     "@s-ui/react-molecule-dropdown-option": "1",
+    "@s-ui/react-molecule-field": "1",
     "@s-ui/react-molecule-input-field": "3",
     "@s-ui/react-molecule-radio-button-field": "1",
     "@s-ui/react-molecule-radio-button-group": "1",

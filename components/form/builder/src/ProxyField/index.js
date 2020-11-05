@@ -9,6 +9,7 @@ import TextField from '../Standard/Fields/Text'
 import NumericField from '../Standard/Fields/Numeric'
 import FieldSetField from '../Standard/Fields/FieldSet'
 import PickerField from '../Standard/Fields/Picker'
+import MultiPickerField from '../Standard/Fields/Multipicker'
 
 const ProxyField = ({
   field,
@@ -60,6 +61,18 @@ const ProxyField = ({
 
     case FIELDS.PICKER:
       Field = PickerField({
+        field,
+        tabIndex,
+        onChange,
+        onBlur,
+        errors,
+        alerts,
+        renderer
+      })
+      break
+
+    case FIELDS.MULTIPICKER:
+      Field = MultiPickerField({
         field,
         tabIndex,
         onChange,
