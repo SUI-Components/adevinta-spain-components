@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.2.0 (2020-11-05)
+
+
+### Features
+
+* add multipicker field ([66a1fe2](https://github.com/SUI-Components/schibsted-spain-components/commit/66a1fe2974322e4dbb57bac9e2045b9256fafea9))
+* change display name and add guard for value array ([2944d0d](https://github.com/SUI-Components/schibsted-spain-components/commit/2944d0d5f341e055678999edb65728da4f7e7dfc))
+
+
+
 # 4.1.0 (2020-08-31)
 
 
