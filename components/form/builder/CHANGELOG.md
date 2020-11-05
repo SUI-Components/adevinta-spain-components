@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.3.0 (2020-11-05)
+
+
+### Bug Fixes
+
+* typo ([5f166b5](https://github.com/SUI-Components/schibsted-spain-components/commit/5f166b5c02f536d15ca3e8ba4db534fd59f5c626))
+
+
+
 # 4.2.0 (2020-11-05)
 
 
