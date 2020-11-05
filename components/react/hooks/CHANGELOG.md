@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.17.0 (2020-11-05)
+
+
+### Features
+
+* add a new useSwipe hook ([5f8d4e9](https://github.com/SUI-Components/schibsted-spain-components/commit/5f8d4e975097d4e754e44bf0fdaef89e7f45d3c8))
+
+
+
 # 1.16.0 (2020-11-02)
 
 
