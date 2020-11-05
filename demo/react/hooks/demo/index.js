@@ -1,16 +1,23 @@
-import React, {useState} from 'react'
+import React, {useRef, useState} from 'react'
 
 import {
   useMount,
   useOnScreen,
   useNearScreen,
   useMediaQuery,
-  useScroll
+  useScroll,
+  useSwipe
 } from '../../../../components/react/hooks/src'
 import LegacyStateDemo from './LegacyStateDemo'
 
 export default () => {
   const [text, setText] = useState('On 3 secs, execute the onMount callback')
+  const swipeRef = useRef()
+  const [isIntersecting, outerRef] = useOnScreen({once: false})
+  const [isNear, outerRefNear] = useNearScreen()
+  const isMatching = useMediaQuery('(min-width:600px)')
+  const {position, direction} = useScroll()
+  const swipeDirection = useSwipe(swipeRef)
 
   useMount(function() {
     setTimeout(function() {
@@ -18,13 +25,25 @@ export default () => {
     }, 3000)
   })
 
-  const [isIntersecting, outerRef] = useOnScreen({once: false})
-  const [isNear, outerRefNear] = useNearScreen()
-  const isMatching = useMediaQuery('(min-width:600px)')
-  const {position, direction} = useScroll()
-
   return (
     <div>
+      <h1>useSwipe</h1>
+      <div
+        ref={swipeRef}
+        style={{
+          alignItems: 'center',
+          background: '#260120',
+          color: '#ffffff',
+          display: 'flex',
+          fontSize: '2em',
+          height: '200px',
+          justifyContent: 'center',
+          maxWidth: '600px',
+          userSelect: 'none'
+        }}
+      >
+        {swipeDirection}
+      </div>
       <h1>useMount</h1>
       {text}
       <div>
