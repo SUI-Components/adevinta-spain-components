@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Multipicker from '../../../Multipicker'
+import Multipicker from '../../../MultiPicker'
 
 const MultipickerField = ({
   field,
