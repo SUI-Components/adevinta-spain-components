@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.0.0 (2020-11-10)
+
+
+### Features
+
+* use @s-ui/react-router ([ebb2e9c](https://github.com/SUI-Components/schibsted-spain-components/commit/ebb2e9c0560987037e056f9bcab45c26d57ef902))
+
+
+### BREAKING CHANGES
+
+* Yes, react-routet not longer used
+
+
+
 # 1.8.0 (2020-07-06)
 
 
