@@ -2,6 +2,7 @@
 import {useEffect, useState} from 'react'
 
 import OptimizelyX from './optimizely-x'
+import {storage} from './storage'
 
 const noop = () => {}
 
@@ -149,9 +150,9 @@ export default params => {
       const sessionStorageKey = `_suiAbtestingForceExperiment_${state.experimentId}`
       const urlParams = new URLSearchParams(window.location.search)
       const forceExperimentFromQueryParam = urlParams.get('forceExperiment')
-      const forceExperimentFromSessionStorage = window.sessionStorage.getItem(
-        sessionStorageKey
-      )
+      const forceExperimentFromSessionStorage = storage({
+        key: sessionStorageKey
+      })
 
       const splitNames = forceExperiment => forceExperiment.split('|')
       const getForceExperimentToBeApplied = () => {
@@ -191,7 +192,11 @@ export default params => {
           forceActivationDelay
         )
 
-        window.sessionStorage.setItem(sessionStorageKey, forceExperiment)
+        storage({
+          method: 'setItem',
+          key: sessionStorageKey,
+          value: forceExperiment
+        })
         return
       }
     }
