@@ -114,6 +114,7 @@ export const fetchRemoteFields = (
           .then(async json => {
             const {url} = config
             const nextJSON = await responseInterceptor({
+              field,
               url,
               response:
                 typeof json === 'string' || json instanceof String
