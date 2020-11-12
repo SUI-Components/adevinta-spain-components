@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.10.0 (2020-11-12)
+
+
+### Bug Fixes
+
+* use safe method to storage ([e3e7784](https://github.com/SUI-Components/schibsted-spain-components/commit/e3e778497a4e9b4bf123826f427e25d38a1b4099))
+
+
+
 # 1.9.0 (2020-05-27)
 
 
