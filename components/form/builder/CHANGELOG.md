@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 4.4.0 (2020-11-12)
+
+
+### Features
+
+* add field to responseInterceptor request ([b278003](https://github.com/SUI-Components/schibsted-spain-components/commit/b278003798724cdf8b2373f280bd5cbcc97de869))
+
+
+
 # 4.3.0 (2020-11-05)
 
 
