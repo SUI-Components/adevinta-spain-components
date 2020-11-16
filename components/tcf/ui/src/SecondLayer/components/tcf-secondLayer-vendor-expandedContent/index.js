@@ -24,6 +24,67 @@ export default function TcfSecondLayerVendorExpandedContent({
       </p>
     </>
   )
+
+  const secondsToTimeUnits = totalSeconds => {
+    const result = {}
+    let remaining = totalSeconds
+    const divideTimeUnits = (key, divider) => {
+      const wholeTimeUnit = Math.floor(remaining / divider)
+      if (wholeTimeUnit) {
+        result[key] = wholeTimeUnit
+      }
+      remaining = remaining % divider
+    }
+    divideTimeUnits('days', 86400)
+    divideTimeUnits('hours', 3600)
+    divideTimeUnits('minutes', 60)
+    result.seconds = remaining
+    return result
+  }
+
+  const userReadableTimeUnits = seconds => {
+    if (seconds <= 0) {
+      return i18n.VENDOR_PAGE.GROUPS.EXPANDED.COOKIES.NEGATIVE_OR_ZERO_MAX_AGE
+    }
+    const time = secondsToTimeUnits(seconds)
+    let s
+    s = time.days ? `${time.days} ${i18n.DAYS} ` : ''
+    s += time.hours ? `${time.hours} ${i18n.HOURS} ` : ''
+    s += time.minutes ? `${time.minutes} ${i18n.MINUTES} ` : ''
+    s += time.seconds ? `${time.seconds} ${i18n.SECONDS}` : ''
+    return s
+  }
+
+  const CookieAgeInfo = () => {
+    debugger // eslint-disable-line
+    return (
+      <>
+        <h6 className={`${baseClass}-title`}>
+          {i18n.VENDOR_PAGE.GROUPS.EXPANDED.COOKIES.TITLE}
+        </h6>
+        <p>
+          {i18n.VENDOR_PAGE.GROUPS.EXPANDED.COOKIES.COOKIES_MAX_AGE_SECONDS}:{' '}
+          {userReadableTimeUnits(info.cookieMaxAgeSeconds)}
+        </p>
+        <p>
+          {i18n.VENDOR_PAGE.GROUPS.EXPANDED.COOKIES.USES_NON_COOKIE_ACCESS}:{' '}
+          {info.usesNonCookieAccess ? i18n.YES : i18n.NO}
+        </p>
+        {info.deviceStorageDisclosureUrl && (
+          <>
+            <p>
+              {
+                i18n.VENDOR_PAGE.GROUPS.EXPANDED.COOKIES
+                  .DEVICE_STORAGE_DISCLOSURE_URL
+              }
+            </p>
+            <p>{info.deviceStorageDisclosureUrl}</p>
+          </>
+        )}
+      </>
+    )
+  }
+
   const Information = ({ids, vendorList}) =>
     ids.map(id => (
       <>
@@ -33,6 +94,7 @@ export default function TcfSecondLayerVendorExpandedContent({
         <p>{vendorList && vendorList[id]?.description}</p>
       </>
     ))
+
   return (
     <>
       {info.policyUrl && <PolicyUrl />}
@@ -85,6 +147,7 @@ export default function TcfSecondLayerVendorExpandedContent({
           vendorList={vendorList.specialFeatures}
         />
       )}
+      <CookieAgeInfo />
     </>
   )
 }
