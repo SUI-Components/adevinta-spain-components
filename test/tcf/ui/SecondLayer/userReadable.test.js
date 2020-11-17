@@ -5,9 +5,17 @@ describe('userReadable from Seconds', () => {
     DAYS: 'days',
     HOURS: 'hours',
     MINUTES: 'minutes',
-    SECONDS: 'seconds'
+    SECONDS: 'seconds',
+    VENDOR_PAGE: {
+      GROUPS: {
+        EXPANDED: {
+          COOKIES: {
+            NEGATIVE_OR_ZERO_MAX_AGE: 'Some legal title'
+          }
+        }
+      }
+    }
   }
-
   const ONE_MINUTE = 60
   const ONE_HOUR = 60 * 60
   const ONE_DAY = 24 * ONE_HOUR
@@ -39,5 +47,13 @@ describe('userReadable from Seconds', () => {
     const givenSeconds = 365 * ONE_DAY + 13 * ONE_HOUR + 23 * ONE_MINUTE + 5
     const expected = '365 days 13 hours 23 minutes 5 seconds'
     expect(userReadable({seconds: givenSeconds, i18n})).toBe(expected)
+  })
+
+  it('should return a fixed string if it`s negative or zero', () => {
+    ;[0, -100].forEach(seconds => {
+      expect(userReadable({seconds, i18n})).toBe(
+        i18n.VENDOR_PAGE.GROUPS.EXPANDED.COOKIES.NEGATIVE_OR_ZERO_MAX_AGE
+      )
+    })
   })
 })
