@@ -56,7 +56,6 @@ export default function TcfSecondLayerVendorExpandedContent({
   }
 
   const CookieAgeInfo = () => {
-    debugger // eslint-disable-line
     return (
       <>
         <h6 className={`${baseClass}-title`}>
@@ -72,13 +71,16 @@ export default function TcfSecondLayerVendorExpandedContent({
         </p>
         {info.deviceStorageDisclosureUrl && (
           <>
-            <p>
+            <a
+              href={info.deviceStorageDisclosureUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {
                 i18n.VENDOR_PAGE.GROUPS.EXPANDED.COOKIES
                   .DEVICE_STORAGE_DISCLOSURE_URL
               }
-            </p>
-            <p>{info.deviceStorageDisclosureUrl}</p>
+            </a>
           </>
         )}
       </>

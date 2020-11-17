@@ -36,7 +36,7 @@ const DEFAULT_I18N = {
         COOKIES: {
           TITLE: 'Caducidad de las cookies',
           COOKIES_MAX_AGE_SECONDS: 'Duración máxima de las cookies',
-          NEGATIVE_OR_ZERO_MAX_AGE: '****DURACIóN NEGATIVA *****',
+          NEGATIVE_OR_ZERO_MAX_AGE: 'Caducidad inmediata',
           USES_NON_COOKIE_ACCESS: 'Acceso a datos no basado en cookies',
           DEVICE_STORAGE_DISCLOSURE_URL: 'Información adicional'
         },
@@ -89,7 +89,7 @@ const IT_I18N = {
         COOKIES: {
           TITLE: 'Scadenza dei cookies',
           COOKIES_MAX_AGE_SECONDS: 'Durata massima dei cookies',
-          NEGATIVE_OR_ZERO_MAX_AGE: '****DURACIóN NEGATIVA *****',
+          NEGATIVE_OR_ZERO_MAX_AGE: 'Scandenza immediata',
           USES_NON_COOKIE_ACCESS: 'Accesso a dati non basato su cookies',
           DEVICE_STORAGE_DISCLOSURE_URL: 'Informazioni aggiuntive'
         },
