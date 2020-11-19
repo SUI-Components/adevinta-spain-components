@@ -5,7 +5,7 @@ const DEFAULT_I18N = {
   ACCEPT_BUTTON: 'Aceptar',
   DISABLE_BUTTON: 'Deshabilitar todo',
   ENABLE_BUTTON: 'Habilitar todo',
-  YES: 'Si',
+  YES: 'Sí',
   NO: 'No',
   DAYS: 'días',
   HOURS: 'horas',
