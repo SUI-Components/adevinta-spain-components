@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.8.0 (2020-11-19)
+
+
+### Bug Fixes
+
+* solve typo ([fa6138c](https://github.com/SUI-Components/schibsted-spain-components/commit/fa6138c28871c0e65b6e9dfb9a3981d97c244d3d))
+
+
+### Features
+
+* add cookie max age disclusures ([78fdcc0](https://github.com/SUI-Components/schibsted-spain-components/commit/78fdcc07b15087347117be95b44564646add6c4a))
+* add texts for negative and zero values of cookies max age ([e670f70](https://github.com/SUI-Components/schibsted-spain-components/commit/e670f70a5828420c7d06628e14603b705343ee24))
+
+
+
 # 2.7.0 (2020-11-03)
 
 
