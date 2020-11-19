@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import userReadable from '../../services/secondsToUserReadable'
 
 export default function TcfSecondLayerVendorExpandedContent({
   info,
@@ -24,6 +25,39 @@ export default function TcfSecondLayerVendorExpandedContent({
       </p>
     </>
   )
+
+  const CookieAgeInfo = () => {
+    return (
+      <>
+        <h6 className={`${baseClass}-title`}>
+          {i18n.VENDOR_PAGE.GROUPS.EXPANDED.COOKIES.TITLE}
+        </h6>
+        <p>
+          {i18n.VENDOR_PAGE.GROUPS.EXPANDED.COOKIES.COOKIES_MAX_AGE_SECONDS}:{' '}
+          {userReadable({seconds: info.cookieMaxAgeSeconds, i18n})}
+        </p>
+        <p>
+          {i18n.VENDOR_PAGE.GROUPS.EXPANDED.COOKIES.USES_NON_COOKIE_ACCESS}:{' '}
+          {info.usesNonCookieAccess ? i18n.YES : i18n.NO}
+        </p>
+        {info.deviceStorageDisclosureUrl && (
+          <>
+            <a
+              href={info.deviceStorageDisclosureUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {
+                i18n.VENDOR_PAGE.GROUPS.EXPANDED.COOKIES
+                  .DEVICE_STORAGE_DISCLOSURE_URL
+              }
+            </a>
+          </>
+        )}
+      </>
+    )
+  }
+
   const Information = ({ids, vendorList}) =>
     ids.map(id => (
       <>
@@ -33,6 +67,7 @@ export default function TcfSecondLayerVendorExpandedContent({
         <p>{vendorList && vendorList[id]?.description}</p>
       </>
     ))
+
   return (
     <>
       {info.policyUrl && <PolicyUrl />}
@@ -85,6 +120,7 @@ export default function TcfSecondLayerVendorExpandedContent({
           vendorList={vendorList.specialFeatures}
         />
       )}
+      <CookieAgeInfo />
     </>
   )
 }

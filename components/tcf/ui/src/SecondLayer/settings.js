@@ -5,6 +5,12 @@ const DEFAULT_I18N = {
   ACCEPT_BUTTON: 'Aceptar',
   DISABLE_BUTTON: 'Deshabilitar todo',
   ENABLE_BUTTON: 'Habilitar todo',
+  YES: 'Sí',
+  NO: 'No',
+  DAYS: 'días',
+  HOURS: 'horas',
+  MINUTES: 'minutos',
+  SECONDS: 'segundos',
   SECOND_LAYER: {
     TITLE: 'Configuración',
     TEXT:
@@ -27,6 +33,13 @@ const DEFAULT_I18N = {
       TITLE_LEGITIMATEINTEREST:
         'Tratamiento de datos basado en interés legítimo',
       EXPANDED: {
+        COOKIES: {
+          TITLE: 'Caducidad de las cookies',
+          COOKIES_MAX_AGE_SECONDS: 'Duración máxima de las cookies',
+          NEGATIVE_OR_ZERO_MAX_AGE: 'Caducidad inmediata',
+          USES_NON_COOKIE_ACCESS: 'Acceso a datos no basado en cookies',
+          DEVICE_STORAGE_DISCLOSURE_URL: 'Información adicional'
+        },
         PURPOSES: 'Propósitos',
         LEGITIMATE_INTEREST_PURPOSES: 'Interés legítimo en:',
         SPECIAL_PURPOSES: 'Propósitos especiales',
@@ -45,6 +58,12 @@ const IT_I18N = {
   ACCEPT_BUTTON: 'Accetta',
   DISABLE_BUTTON: 'Rifiuta tutto',
   ENABLE_BUTTON: 'Accetta tutto',
+  YES: 'Sì',
+  NO: 'No',
+  DAYS: 'giorni',
+  HOURS: 'ore',
+  MINUTES: 'minuti',
+  SECONDS: 'secondi',
   SECOND_LAYER: {
     TITLE: 'Configurazione',
     TEXT:
@@ -67,6 +86,13 @@ const IT_I18N = {
     GROUPS: {
       TITLE: 'Lista di partners con cui lavoriamo',
       EXPANDED: {
+        COOKIES: {
+          TITLE: 'Scadenza dei cookies',
+          COOKIES_MAX_AGE_SECONDS: 'Durata massima dei cookies',
+          NEGATIVE_OR_ZERO_MAX_AGE: 'Scandenza immediata',
+          USES_NON_COOKIE_ACCESS: 'Accesso a dati non basato su cookies',
+          DEVICE_STORAGE_DISCLOSURE_URL: 'Informazioni aggiuntive'
+        },
         PURPOSES: 'Finalità',
         LEGITIMATE_INTEREST_PURPOSES: 'Interesse legittimo in:',
         SPECIAL_PURPOSES: 'Finalità speciali',
