@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import React from 'react'
 
 export default function AtomStatusSpot({size = 'medium', status = 'default'}) {
   return (
