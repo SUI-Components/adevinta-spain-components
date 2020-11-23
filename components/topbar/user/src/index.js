@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types'
-import React, {useState, useEffect, useLayoutEffect, useRef} from 'react'
+import {useState, useEffect, useLayoutEffect, useRef} from 'react'
 import cx from 'classnames'
 import Menu from '@s-ui/react-icons/lib/Menu'
 import DropdownBasic from '@s-ui/react-dropdown-basic'
