@@ -11,7 +11,10 @@ const CONSENT_SCOPE = {
   purposes: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
   specialPurposes: [1, 2],
   features: [3],
-  specialFeatures: [1]
+  specialFeatures: [1],
+  options: {
+    onRejectionResurfaceAfterDays: 1
+  }
 }
 
 export default function TcfUi({
