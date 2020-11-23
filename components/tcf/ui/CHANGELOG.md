@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.9.0 (2020-11-23)
+
+
+
 # 2.8.0 (2020-11-19)
 
 
@@ -14,6 +18,7 @@ All notable changes to this project will be documented in this file.
 
 * add cookie max age disclusures ([78fdcc0](https://github.com/SUI-Components/schibsted-spain-components/commit/78fdcc07b15087347117be95b44564646add6c4a))
 * add texts for negative and zero values of cookies max age ([e670f70](https://github.com/SUI-Components/schibsted-spain-components/commit/e670f70a5828420c7d06628e14603b705343ee24))
+* enable tcf ui resurface on reject after x days ([a6e032a](https://github.com/SUI-Components/schibsted-spain-components/commit/a6e032a3ff04eb81c8a90ba63ca9e0ae84461f65))
 
 
 
