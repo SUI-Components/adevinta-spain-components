@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react'
+import {isValidElement, memo, useCallback, useState} from 'react'
 
 import PropTypes from 'prop-types'
 import {field, createComponentMemo} from '../../prop-types'
@@ -114,7 +114,7 @@ const AutosuggestSelect = ({
   })
 
   // render custom component
-  if (React.isValidElement(rendererResponse)) return rendererResponse
+  if (isValidElement(rendererResponse)) return rendererResponse
 
   // render SUI component
   return (
@@ -152,4 +152,4 @@ AutosuggestSelect.propTypes = {
   renderer: PropTypes.func
 }
 
-export default React.memo(AutosuggestSelect, createComponentMemo('select'))
+export default memo(AutosuggestSelect, createComponentMemo('select'))

@@ -1,4 +1,4 @@
-import React from 'react'
+import {isValidElement, memo} from 'react'
 
 import PropTypes from 'prop-types'
 import {field, createComponentMemo} from '../prop-types'
@@ -66,7 +66,7 @@ const Multipicker = ({
   })
 
   // render custom component
-  if (React.isValidElement(rendererResponse)) {
+  if (isValidElement(rendererResponse)) {
     return rendererResponse
   }
 
@@ -103,4 +103,4 @@ Multipicker.propTypes = {
   renderer: PropTypes.func
 }
 
-export default React.memo(Multipicker, createComponentMemo('multipicker'))
+export default memo(Multipicker, createComponentMemo('multipicker'))
