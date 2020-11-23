@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import React from 'react'
 
 const HEADING_TAGS = {
   h1: 'h1',
