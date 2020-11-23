@@ -1,4 +1,4 @@
-import React, {useState, useRef, useCallback} from 'react'
+import {useState, useRef, useCallback} from 'react'
 import PropTypes from 'prop-types'
 import {useConsent} from '@s-ui/react-tcf-services'
 import SuiButton from '@s-ui/react-atom-button'

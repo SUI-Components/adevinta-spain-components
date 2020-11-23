@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import TcfSecondLayerDecisionGroup from '../tcf-secondLayer-decision-group'
 export default function TcfSecondLayerVendorList({

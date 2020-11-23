@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import {memo, useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 
 import Button from '@s-ui/react-atom-button'
@@ -37,7 +37,7 @@ export function TcfSecondLayerDecisionGroup({
   if (!descriptionKeys?.length) {
     return null
   }
-  const ButtonAll = React.memo(() => (
+  const ButtonAll = memo(() => (
     <div className={`${baseClass}Header-buttons`}>
       <Button
         size="small"
@@ -116,4 +116,4 @@ TcfSecondLayerDecisionGroup.propTypes = {
   vendorList: PropTypes.object
 }
 
-export default React.memo(TcfSecondLayerDecisionGroup)
+export default memo(TcfSecondLayerDecisionGroup)

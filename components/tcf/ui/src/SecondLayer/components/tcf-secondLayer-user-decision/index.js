@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {memo, useState} from 'react'
 import PropTypes from 'prop-types'
 
 import AtomSwitch from '@s-ui/react-atom-switch'
@@ -18,7 +18,7 @@ export function TcfSecondLayerUserDecision({
     setExpanded(!expanded)
   }
 
-  const Switchs = React.memo(
+  const Switchs = memo(
     () =>
       hasConsent && (
         <AtomSwitch
@@ -74,4 +74,4 @@ TcfSecondLayerUserDecision.propTypes = {
 TcfSecondLayerUserDecision.defaultProps = {
   hasConsent: true
 }
-export default React.memo(TcfSecondLayerUserDecision)
+export default memo(TcfSecondLayerUserDecision)
