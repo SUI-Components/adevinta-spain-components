@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import React from 'react'
 import CheckboxChecked from '@s-ui/react-icons/lib/Checkboxchecked'
 import CheckboxUnchecked from '@s-ui/react-icons/lib/Checkboxunchecked'
 import cx from 'classnames'
