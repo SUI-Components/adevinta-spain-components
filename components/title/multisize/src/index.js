@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import React from 'react'
 import cx from 'classnames'
 
 // Map object for title sizes and HTML Tags.
