@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import PropTypes from 'prop-types'
 import Notification from '@s-ui/react-molecule-notification'
 import Button from '@s-ui/react-atom-button'
