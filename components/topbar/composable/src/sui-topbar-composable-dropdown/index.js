@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react'
+import {memo, useEffect, useRef, useState} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
@@ -79,7 +79,7 @@ function DropdownMenu({
   )
 }
 
-export default React.memo(DropdownMenu)
+export default memo(DropdownMenu)
 
 DropdownMenu.propTypes = {
   caret: PropTypes.element,

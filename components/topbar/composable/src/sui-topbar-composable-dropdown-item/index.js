@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import {memo} from 'react'
 import cx from 'classnames'
 
 const getClasses = ({active, disabled}) =>
@@ -19,4 +19,4 @@ DropdownMenuItem.propTypes = {
   children: PropTypes.element
 }
 
-export default React.memo(DropdownMenuItem)
+export default memo(DropdownMenuItem)
