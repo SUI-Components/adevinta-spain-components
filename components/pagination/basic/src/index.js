@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import React from 'react'
 import PaginationItem from './sui-pagination-item'
 
 const FIRST_PAGE = 1
