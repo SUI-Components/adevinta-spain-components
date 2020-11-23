@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import {Component} from 'react'
 import cx from 'classnames'
 
 const DEFAULT_COLS = 1
 
-class ListMasonry extends React.Component {
+class ListMasonry extends Component {
   state = {
     columns: DEFAULT_COLS
   }
