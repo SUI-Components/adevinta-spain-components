@@ -1,6 +1,6 @@
 /* eslint eqeqeq: "off" */
 
-import React from 'react'
+import {createElement} from 'react'
 import PropTypes from 'prop-types'
 
 export default function AbTestToggle({children, variation}) {
@@ -14,7 +14,7 @@ export default function AbTestToggle({children, variation}) {
     const newProps = {...child.props}
     delete newProps.variationId
     delete newProps.defaultVariation
-    child = React.createElement(child.type, newProps)
+    child = createElement(child.type, newProps)
   }
 
   return child
