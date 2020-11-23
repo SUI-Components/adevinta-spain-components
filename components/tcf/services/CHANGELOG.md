@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# 2.3.0 (2020-11-23)
+
+
+### Features
+
+* enable tcf resurfacing using scoped options ([774ff8f](https://github.com/SUI-Components/schibsted-spain-components/commit/774ff8ff194aa87879c515b1d00de8ebd14a621d))
+
+
+
 # 2.2.0 (2020-10-30)
 
 
