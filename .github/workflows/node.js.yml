@@ -71,9 +71,7 @@ jobs:
           **/node_modules
         key: ${{ github.run_id }}
     - name: Build dependencies
-      run: |
-        npm run install:themes
-        npm run build
+      run: npm run build
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     - uses: actions/upload-artifact@v2
