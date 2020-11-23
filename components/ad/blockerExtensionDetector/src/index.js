@@ -1,10 +1,10 @@
-import React, {Component} from 'react'
+import {createRef, Component} from 'react'
 import PropTypes from 'prop-types'
 
 class AdBlockerExtensionDetector extends Component {
   constructor(props) {
     super(props)
-    this.blockDetector = React.createRef()
+    this.blockDetector = createRef()
     this.state = {
       displayBanner: false,
       showBlockDetector: true
