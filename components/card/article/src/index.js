@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types'
 
-import React from 'react'
 import cx from 'classnames'
 import Commentsquare from '@s-ui/react-icons/lib/Commentsquare'
 import MediaPlay from '@s-ui/react-icons/lib/Mediaplay'
