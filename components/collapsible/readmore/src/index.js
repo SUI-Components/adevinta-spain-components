@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import {createRef, Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import Chevronbottom from '@s-ui/react-icons/lib/Chevronbottom'
@@ -56,7 +56,7 @@ export default class CollapsibleReadmore extends Component {
     collapsed: false
   }
 
-  _readMoreContentRef = React.createRef()
+  _readMoreContentRef = createRef()
 
   _readMoreButtonEnabled = false
 
