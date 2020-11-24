@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) and [@adv-ui](https://github.com/adv-ui) organization pkgs ([6a6ef81](https://github.com/SUI-Components/schibsted-spain-components/commit/6a6ef813e90c1e936a50f18154b4ee8788f3526d))
+* Use new [@s-ui](https://github.com/s-ui) and [@adv-ui](https://github.com/adv-ui) organization pkgs ([6a6ef81](https://github.com/SUI-Components/adevinta-spain-components/commit/6a6ef813e90c1e936a50f18154b4ee8788f3526d))
 
 
 
@@ -16,7 +16,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Move to [@s-ui](https://github.com/s-ui) organization ([754a320](https://github.com/SUI-Components/schibsted-spain-components/commit/754a320ad65eedfc3f45bb9ebc6a8fd26b25bc33))
+* Move to [@s-ui](https://github.com/s-ui) organization ([754a320](https://github.com/SUI-Components/adevinta-spain-components/commit/754a320ad65eedfc3f45bb9ebc6a8fd26b25bc33))
 
 
 
@@ -25,7 +25,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Move to functions ([26e95d5](https://github.com/SUI-Components/schibsted-spain-components/commit/26e95d5f0e5182bfa4a20d19fc3baa9149344a01))
+* Move to functions ([26e95d5](https://github.com/SUI-Components/adevinta-spain-components/commit/26e95d5f0e5182bfa4a20d19fc3baa9149344a01))
 
 
 
@@ -34,8 +34,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* pR feedback changes ([9e45883](https://github.com/SUI-Components/schibsted-spain-components/commit/9e458834943bb79ad030ab9882765f5ddfe04bc7))
-* rename component ([428da1b](https://github.com/SUI-Components/schibsted-spain-components/commit/428da1bd042a505498b4fb64b14ba66b78cb107e))
+* pR feedback changes ([9e45883](https://github.com/SUI-Components/adevinta-spain-components/commit/9e458834943bb79ad030ab9882765f5ddfe04bc7))
+* rename component ([428da1b](https://github.com/SUI-Components/adevinta-spain-components/commit/428da1bd042a505498b4fb64b14ba66b78cb107e))
 
 
 
