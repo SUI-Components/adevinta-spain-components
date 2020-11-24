@@ -9,7 +9,7 @@ import TextField from '../Standard/Fields/Text'
 import NumericField from '../Standard/Fields/Numeric'
 import FieldSetField from '../Standard/Fields/FieldSet'
 import PickerField from '../Standard/Fields/Picker'
-import MultiPickerField from '../Standard/Fields/Multipicker'
+import MultiPickerField from '../Standard/Fields/MultiPicker'
 
 const ProxyField = ({
   field,
