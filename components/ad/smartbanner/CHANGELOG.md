@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) and [@adv-ui](https://github.com/adv-ui) organization pkgs ([b37aaad](https://github.com/SUI-Components/schibsted-spain-components/commit/b37aaad847ac310d1267c9193d0db56c76846d5b))
+* Use new [@s-ui](https://github.com/s-ui) and [@adv-ui](https://github.com/adv-ui) organization pkgs ([b37aaad](https://github.com/SUI-Components/adevinta-spain-components/commit/b37aaad847ac310d1267c9193d0db56c76846d5b))
 
 
 
@@ -16,7 +16,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([5dcacba](https://github.com/SUI-Components/schibsted-spain-components/commit/5dcacbaddf970de6e748f5ca272240a4c795cba3))
+* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([5dcacba](https://github.com/SUI-Components/adevinta-spain-components/commit/5dcacbaddf970de6e748f5ca272240a4c795cba3))
 
 
 
@@ -25,9 +25,9 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* back to default value ([1c02929](https://github.com/SUI-Components/schibsted-spain-components/commit/1c02929cc837bba7f1cfe7e50ddcdc31514e824f))
-* set vars for smart banner ([a7aaa1b](https://github.com/SUI-Components/schibsted-spain-components/commit/a7aaa1b8d4245a4c9c7b05e015015294cb912799))
-* Use new [@s-ui](https://github.com/s-ui) react icons ([c272cf6](https://github.com/SUI-Components/schibsted-spain-components/commit/c272cf635cfdaa59d2c9541298728c83cde8570f))
+* back to default value ([1c02929](https://github.com/SUI-Components/adevinta-spain-components/commit/1c02929cc837bba7f1cfe7e50ddcdc31514e824f))
+* set vars for smart banner ([a7aaa1b](https://github.com/SUI-Components/adevinta-spain-components/commit/a7aaa1b8d4245a4c9c7b05e015015294cb912799))
+* Use new [@s-ui](https://github.com/s-ui) react icons ([c272cf6](https://github.com/SUI-Components/adevinta-spain-components/commit/c272cf635cfdaa59d2c9541298728c83cde8570f))
 
 
 
@@ -36,7 +36,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Move to [@s-ui](https://github.com/s-ui) organization ([0c78a8a](https://github.com/SUI-Components/schibsted-spain-components/commit/0c78a8a45c2a7b211463e040c440740120b277fc))
+* Move to [@s-ui](https://github.com/s-ui) organization ([0c78a8a](https://github.com/SUI-Components/adevinta-spain-components/commit/0c78a8a45c2a7b211463e040c440740120b277fc))
 
 
 
@@ -45,7 +45,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Stop using defaultProps on functional components ([534c0e4](https://github.com/SUI-Components/schibsted-spain-components/commit/534c0e412e7fdf372a66cb291a738164eea84e81))
+* Stop using defaultProps on functional components ([534c0e4](https://github.com/SUI-Components/adevinta-spain-components/commit/534c0e412e7fdf372a66cb291a738164eea84e81))
 
 
 
@@ -54,7 +54,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([2861cd0](https://github.com/SUI-Components/schibsted-spain-components/commit/2861cd06def93ef60062ef14622f093a31ad3ecb))
+* Remove .npmignore ([2861cd0](https://github.com/SUI-Components/adevinta-spain-components/commit/2861cd06def93ef60062ef14622f093a31ad3ecb))
 
 
 
@@ -63,8 +63,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* separate components with dynamic import ([c0d62cc](https://github.com/SUI-Components/schibsted-spain-components/commit/c0d62cc113af4201cd94d23c913df8423b0b7579))
-* separate components with dynamic import ([5a542f4](https://github.com/SUI-Components/schibsted-spain-components/commit/5a542f4038aaec5a6192d9510768ee86128d133d))
+* separate components with dynamic import ([c0d62cc](https://github.com/SUI-Components/adevinta-spain-components/commit/c0d62cc113af4201cd94d23c913df8423b0b7579))
+* separate components with dynamic import ([5a542f4](https://github.com/SUI-Components/adevinta-spain-components/commit/5a542f4038aaec5a6192d9510768ee86128d133d))
 
 
 ### BREAKING CHANGES
@@ -79,7 +79,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* make release of ad smartbanner for fixing dynamic import ([c7b9236](https://github.com/SUI-Components/schibsted-spain-components/commit/c7b923618d0cf82c64e73560cb03482d5652d112))
+* make release of ad smartbanner for fixing dynamic import ([c7b9236](https://github.com/SUI-Components/adevinta-spain-components/commit/c7b923618d0cf82c64e73560cb03482d5652d112))
 
 
 
@@ -88,7 +88,7 @@ All notable changes to this project will be documented in this file.
 
 ### Performance Improvements
 
-* move component to function and use dynamic import to load only if needed the s ([41f3d90](https://github.com/SUI-Components/schibsted-spain-components/commit/41f3d90c13611d5be7d3e163f84b050b532c7a54))
+* move component to function and use dynamic import to load only if needed the s ([41f3d90](https://github.com/SUI-Components/adevinta-spain-components/commit/41f3d90c13611d5be7d3e163f84b050b532c7a54))
 
 
 
@@ -97,7 +97,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add alt for accesibility ([0a1bddd](https://github.com/SUI-Components/schibsted-spain-components/commit/0a1bddd3458ce44631aafb78486e0e73623afe42))
+* add alt for accesibility ([0a1bddd](https://github.com/SUI-Components/adevinta-spain-components/commit/0a1bddd3458ce44631aafb78486e0e73623afe42))
 
 
 
@@ -106,7 +106,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([b1130f3](https://github.com/SUI-Components/schibsted-spain-components/commit/b1130f3554c777c5511a306416db198c70a67703))
+* Bump version ([b1130f3](https://github.com/SUI-Components/adevinta-spain-components/commit/b1130f3554c777c5511a306416db198c70a67703))
 
 
 
@@ -115,7 +115,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Migrate to PropTypes package ([f143d4c](https://github.com/SUI-Components/schibsted-spain-components/commit/f143d4ce41d9b7cdfa1e88c91b073f612152cf26))
+* Migrate to PropTypes package ([f143d4c](https://github.com/SUI-Components/adevinta-spain-components/commit/f143d4ce41d9b7cdfa1e88c91b073f612152cf26))
 
 
 
@@ -124,7 +124,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* disable important lint in ad-smartbanner ([c37617b](https://github.com/SUI-Components/schibsted-spain-components/commit/c37617b6fc73120205328df28eec9d9f214c064e))
+* disable important lint in ad-smartbanner ([c37617b](https://github.com/SUI-Components/adevinta-spain-components/commit/c37617b6fc73120205328df28eec9d9f214c064e))
 
 
 
@@ -133,9 +133,9 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* fix PR in smartbanner component ([1313a45](https://github.com/SUI-Components/schibsted-spain-components/commit/1313a452c8fa24b33dd0eb7721c9544449ec91d5))
-* include smartbanner button color ([72bcb51](https://github.com/SUI-Components/schibsted-spain-components/commit/72bcb51a723d16dd86266ac54539fa4f5602bfcd))
-* switch to s-ui/component-dependencies and sui-theme@8 ([f449592](https://github.com/SUI-Components/schibsted-spain-components/commit/f449592e2d64b780cb6b651cd56c5b194dc8aae3))
+* fix PR in smartbanner component ([1313a45](https://github.com/SUI-Components/adevinta-spain-components/commit/1313a452c8fa24b33dd0eb7721c9544449ec91d5))
+* include smartbanner button color ([72bcb51](https://github.com/SUI-Components/adevinta-spain-components/commit/72bcb51a723d16dd86266ac54539fa4f5602bfcd))
+* switch to s-ui/component-dependencies and sui-theme@8 ([f449592](https://github.com/SUI-Components/adevinta-spain-components/commit/f449592e2d64b780cb6b651cd56c5b194dc8aae3))
 
 
 
@@ -144,10 +144,10 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add star rating in smarbanner component ([f73f71b](https://github.com/SUI-Components/schibsted-spain-components/commit/f73f71b7a4cd37d1b902deb25ba4383e30e842e9))
-* add star rating in smartbanner component ([6923e00](https://github.com/SUI-Components/schibsted-spain-components/commit/6923e00fea6e5eaca8ec13dbd505126a3ada9062))
-* add star rating in smartbanner component (fix linter) ([095336b](https://github.com/SUI-Components/schibsted-spain-components/commit/095336b31b65d59ae0b54a4ea67030880f9cf70f))
-* Migrate to PropTypes package ([f398876](https://github.com/SUI-Components/schibsted-spain-components/commit/f398876e3b8f26016e050e826e97a9a1ba989ef8))
+* add star rating in smarbanner component ([f73f71b](https://github.com/SUI-Components/adevinta-spain-components/commit/f73f71b7a4cd37d1b902deb25ba4383e30e842e9))
+* add star rating in smartbanner component ([6923e00](https://github.com/SUI-Components/adevinta-spain-components/commit/6923e00fea6e5eaca8ec13dbd505126a3ada9062))
+* add star rating in smartbanner component (fix linter) ([095336b](https://github.com/SUI-Components/adevinta-spain-components/commit/095336b31b65d59ae0b54a4ea67030880f9cf70f))
+* Migrate to PropTypes package ([f398876](https://github.com/SUI-Components/adevinta-spain-components/commit/f398876e3b8f26016e050e826e97a9a1ba989ef8))
 
 
 
@@ -156,8 +156,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* adds a prop named static to define in a declarative way the component layout ([44a04ad](https://github.com/SUI-Components/schibsted-spain-components/commit/44a04addb845d74a9641191be19b32bf585f6f5d))
-* adds default prop to staticPosition and minor styling ([58b05a3](https://github.com/SUI-Components/schibsted-spain-components/commit/58b05a3aa9b577a5a367f30397a7dc1630131980))
+* adds a prop named static to define in a declarative way the component layout ([44a04ad](https://github.com/SUI-Components/adevinta-spain-components/commit/44a04addb845d74a9641191be19b32bf585f6f5d))
+* adds default prop to staticPosition and minor styling ([58b05a3](https://github.com/SUI-Components/adevinta-spain-components/commit/58b05a3aa9b577a5a367f30397a7dc1630131980))
 
 
 
@@ -166,13 +166,13 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* add public access to npm publish ([ae2ce3b](https://github.com/SUI-Components/schibsted-spain-components/commit/ae2ce3b7124ae6ab4256c6957fe502759871d6d4))
-* fix proptypes and scss ([793b74b](https://github.com/SUI-Components/schibsted-spain-components/commit/793b74bb9802be99d990a7ea8cfb709952d33e28))
+* add public access to npm publish ([ae2ce3b](https://github.com/SUI-Components/adevinta-spain-components/commit/ae2ce3b7124ae6ab4256c6957fe502759871d6d4))
+* fix proptypes and scss ([793b74b](https://github.com/SUI-Components/adevinta-spain-components/commit/793b74bb9802be99d990a7ea8cfb709952d33e28))
 
 
 ### Features
 
-* init smartbanner component ([9edbebd](https://github.com/SUI-Components/schibsted-spain-components/commit/9edbebdf27d6d7b809d7feb7f61b4bbaf1dee466))
+* init smartbanner component ([9edbebd](https://github.com/SUI-Components/adevinta-spain-components/commit/9edbebdf27d6d7b809d7feb7f61b4bbaf1dee466))
 
 
 
