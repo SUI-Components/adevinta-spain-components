@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="4.7.0"></a>
+# 4.7.0 (2020-11-24)
+
+
+### Bug Fixes
+
+* change case ([0d9c6ad](https://github.com/SUI-Components/adevinta-spain-components/commit/0d9c6ad))
+
+
+### Features
+
+* release ([4437114](https://github.com/SUI-Components/adevinta-spain-components/commit/4437114))
+
+
+
 <a name="4.6.0"></a>
 # 4.6.0 (2020-11-24)
 
