@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([5c0e108](https://github.com/SUI-Components/schibsted-spain-components/commit/5c0e108d38c176089c3349dc1adffcbe21bd62b8))
+* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([5c0e108](https://github.com/SUI-Components/adevinta-spain-components/commit/5c0e108d38c176089c3349dc1adffcbe21bd62b8))
 
 
 
@@ -16,7 +16,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([bc52ac9](https://github.com/SUI-Components/schibsted-spain-components/commit/bc52ac9969df3f0f7dac0721026146a3b11c1b41))
+* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([bc52ac9](https://github.com/SUI-Components/adevinta-spain-components/commit/bc52ac9969df3f0f7dac0721026146a3b11c1b41))
 
 
 
@@ -25,7 +25,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) react icons ([b732d6e](https://github.com/SUI-Components/schibsted-spain-components/commit/b732d6e06ee10ad5843690441b4f06edd633ba15))
+* Use new [@s-ui](https://github.com/s-ui) react icons ([b732d6e](https://github.com/SUI-Components/adevinta-spain-components/commit/b732d6e06ee10ad5843690441b4f06edd633ba15))
 
 
 
@@ -34,7 +34,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* classList.toggle second argument not supported by IE 11 ([8709ed6](https://github.com/SUI-Components/schibsted-spain-components/commit/8709ed6fa859018b245ae0b943ece3143d526668))
+* classList.toggle second argument not supported by IE 11 ([8709ed6](https://github.com/SUI-Components/adevinta-spain-components/commit/8709ed6fa859018b245ae0b943ece3143d526668))
 
 
 
@@ -43,7 +43,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Add UNSAFE to life cycle ([6a0c070](https://github.com/SUI-Components/schibsted-spain-components/commit/6a0c07044ffc4a717cb2ea6a0952122d3439aa4c))
+* Add UNSAFE to life cycle ([6a0c070](https://github.com/SUI-Components/adevinta-spain-components/commit/6a0c07044ffc4a717cb2ea6a0952122d3439aa4c))
 
 
 
@@ -52,7 +52,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([5880cd6](https://github.com/SUI-Components/schibsted-spain-components/commit/5880cd679a7f87187665e3094830a7ce3850fcea))
+* Remove .npmignore ([5880cd6](https://github.com/SUI-Components/adevinta-spain-components/commit/5880cd679a7f87187665e3094830a7ce3850fcea))
 
 
 
@@ -61,7 +61,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* better handling of missing container and use portals only in client ([41aaff6](https://github.com/SUI-Components/schibsted-spain-components/commit/41aaff6e132efc592750997e584e2350fb6b1eef))
+* better handling of missing container and use portals only in client ([41aaff6](https://github.com/SUI-Components/adevinta-spain-components/commit/41aaff6e132efc592750997e584e2350fb6b1eef))
 
 
 
@@ -70,7 +70,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix for wrong className ([3a0b7d3](https://github.com/SUI-Components/schibsted-spain-components/commit/3a0b7d3a9a1af555d1bd308f32c5577d9dd6894c))
+* fix for wrong className ([3a0b7d3](https://github.com/SUI-Components/adevinta-spain-components/commit/3a0b7d3a9a1af555d1bd308f32c5577d9dd6894c))
 
 
 
@@ -79,7 +79,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add className to modal basic ([6308595](https://github.com/SUI-Components/schibsted-spain-components/commit/63085956751b080e1168cdb45ea30e5c903d02f4))
+* add className to modal basic ([6308595](https://github.com/SUI-Components/adevinta-spain-components/commit/63085956751b080e1168cdb45ea30e5c903d02f4))
 
 
 
@@ -88,8 +88,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add needed dependencies for Portals to work ([19fd159](https://github.com/SUI-Components/schibsted-spain-components/commit/19fd159cfac9679de069004f2862775c81a69f90))
-* add new prop to render modal in a Portal along with other fixes and improvements ([d9aa558](https://github.com/SUI-Components/schibsted-spain-components/commit/d9aa5580eee6893c2667ef695b47e1f4649f56d1))
+* add needed dependencies for Portals to work ([19fd159](https://github.com/SUI-Components/adevinta-spain-components/commit/19fd159cfac9679de069004f2862775c81a69f90))
+* add new prop to render modal in a Portal along with other fixes and improvements ([d9aa558](https://github.com/SUI-Components/adevinta-spain-components/commit/d9aa5580eee6893c2667ef695b47e1f4649f56d1))
 
 
 
@@ -98,7 +98,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix behaviour of modal when unmount and updating open prop ([0b33aab](https://github.com/SUI-Components/schibsted-spain-components/commit/0b33aab9f0b97be75a7cd40738981d2c6378c1e6))
+* fix behaviour of modal when unmount and updating open prop ([0b33aab](https://github.com/SUI-Components/adevinta-spain-components/commit/0b33aab9f0b97be75a7cd40738981d2c6378c1e6))
 
 
 
@@ -107,7 +107,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([980c3da](https://github.com/SUI-Components/schibsted-spain-components/commit/980c3da77f5b352bea0e1fbf5eaf8ccd5a207a34))
+* Bump version ([980c3da](https://github.com/SUI-Components/adevinta-spain-components/commit/980c3da77f5b352bea0e1fbf5eaf8ccd5a207a34))
 
 
 
@@ -116,8 +116,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* migrate to PropTypes package ([44791fb](https://github.com/SUI-Components/schibsted-spain-components/commit/44791fbb4aed28ac7a72fa84ef8c5de0210c1c24))
-* switch to s-ui/component-dependencies and sui-theme@8 ([754957c](https://github.com/SUI-Components/schibsted-spain-components/commit/754957c95371146056f98bf4eb5faf414388e044))
+* migrate to PropTypes package ([44791fb](https://github.com/SUI-Components/adevinta-spain-components/commit/44791fbb4aed28ac7a72fa84ef8c5de0210c1c24))
+* switch to s-ui/component-dependencies and sui-theme@8 ([754957c](https://github.com/SUI-Components/adevinta-spain-components/commit/754957c95371146056f98bf4eb5faf414388e044))
 
 
 
@@ -126,7 +126,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* use classname instead direct styles in body ([6a97125](https://github.com/SUI-Components/schibsted-spain-components/commit/6a97125a51d284aa35e6ca22b27e66188b3f0976))
+* use classname instead direct styles in body ([6a97125](https://github.com/SUI-Components/adevinta-spain-components/commit/6a97125a51d284aa35e6ca22b27e66188b3f0976))
 
 
 
@@ -135,7 +135,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add styling from deprecated one ([342eca4](https://github.com/SUI-Components/schibsted-spain-components/commit/342eca4098e9d8a7e118ca8fa90a0c438c4318b1))
+* add styling from deprecated one ([342eca4](https://github.com/SUI-Components/adevinta-spain-components/commit/342eca4098e9d8a7e118ca8fa90a0c438c4318b1))
 
 
 
@@ -144,7 +144,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix icon name and prop type ([30fa15e](https://github.com/SUI-Components/schibsted-spain-components/commit/30fa15e79e333acc2edaeae954d560cb9607374d))
+* fix icon name and prop type ([30fa15e](https://github.com/SUI-Components/adevinta-spain-components/commit/30fa15e79e333acc2edaeae954d560cb9607374d))
 
 
 
@@ -153,7 +153,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* move footer border in to footer selector ([eb7e233](https://github.com/SUI-Components/schibsted-spain-components/commit/eb7e233367ebdd503132f5be5ab6c5405255b6b1))
+* move footer border in to footer selector ([eb7e233](https://github.com/SUI-Components/adevinta-spain-components/commit/eb7e233367ebdd503132f5be5ab6c5405255b6b1))
 
 
 
@@ -162,15 +162,15 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* add important to fill icon color ([299f225](https://github.com/SUI-Components/schibsted-spain-components/commit/299f225af1bb6f15aacc268eb5674e9215aab38a))
-* fix babel presets ([cf99c76](https://github.com/SUI-Components/schibsted-spain-components/commit/cf99c7606825ccad4ee87cdeeea08726f192099f))
+* add important to fill icon color ([299f225](https://github.com/SUI-Components/adevinta-spain-components/commit/299f225af1bb6f15aacc268eb5674e9215aab38a))
+* fix babel presets ([cf99c76](https://github.com/SUI-Components/adevinta-spain-components/commit/cf99c7606825ccad4ee87cdeeea08726f192099f))
 
 
 ### Features
 
-* enhance modal basic ([5d66fa0](https://github.com/SUI-Components/schibsted-spain-components/commit/5d66fa0eda0816578bb599204378fb0490dcb4e6))
-* modal basic init ([abf41cb](https://github.com/SUI-Components/schibsted-spain-components/commit/abf41cb3364f83b78f123a94b187d2ea75f4a079))
-* update package.json ([f7f5eee](https://github.com/SUI-Components/schibsted-spain-components/commit/f7f5eeea304c5b236c5214f11dec3199ef3470e8))
+* enhance modal basic ([5d66fa0](https://github.com/SUI-Components/adevinta-spain-components/commit/5d66fa0eda0816578bb599204378fb0490dcb4e6))
+* modal basic init ([abf41cb](https://github.com/SUI-Components/adevinta-spain-components/commit/abf41cb3364f83b78f123a94b187d2ea75f4a079))
+* update package.json ([f7f5eee](https://github.com/SUI-Components/adevinta-spain-components/commit/f7f5eeea304c5b236c5214f11dec3199ef3470e8))
 
 
 
