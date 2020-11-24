@@ -2,65 +2,60 @@
 
 All notable changes to this project will be documented in this file.
 
-<a name="1.5.0"></a>
 # 1.5.0 (2019-04-02)
 
 
 ### Features
 
-* Remove .npmignore ([6d434f2](https://github.com/SUI-Components/schibsted-spain-components/commit/6d434f2))
+* Remove .npmignore ([6d434f2](https://github.com/SUI-Components/adevinta-spain-components/commit/6d434f2efc9fb9bb8649c3a186e0040cd5ddc7c0))
 
 
 
-<a name="1.4.0"></a>
 # 1.4.0 (2019-03-18)
 
 
 ### Bug Fixes
 
-* fix when component will destroy ([e39e1b4](https://github.com/SUI-Components/schibsted-spain-components/commit/e39e1b4))
+* fix when component will destroy ([e39e1b4](https://github.com/SUI-Components/adevinta-spain-components/commit/e39e1b424f3bb5d414b1553240d7c916ce90f79e))
 
 
 
-<a name="1.3.0"></a>
 # 1.3.0 (2019-01-17)
 
 
 ### Bug Fixes
 
-* added min breakpoint ([76b0cae](https://github.com/SUI-Components/schibsted-spain-components/commit/76b0cae))
+* added min breakpoint ([76b0cae](https://github.com/SUI-Components/adevinta-spain-components/commit/76b0caef0ff836dcf4abe1d0a5e7e73074576ef0))
 
 
 
-<a name="1.2.0"></a>
 # 1.2.0 (2018-09-14)
 
 
 ### Bug Fixes
 
-* use container component ref ([0fd00a2](https://github.com/SUI-Components/schibsted-spain-components/commit/0fd00a2))
+* use container component ref ([0fd00a2](https://github.com/SUI-Components/adevinta-spain-components/commit/0fd00a29ef2836cb4513c714f51eb12384dd9117))
 
 
 ### Features
 
-* add initialMediaQueries prop to the component ([5b03ac2](https://github.com/SUI-Components/schibsted-spain-components/commit/5b03ac2))
-* fix PR comments ([d011229](https://github.com/SUI-Components/schibsted-spain-components/commit/d011229))
-* improve performance to avoid rerenders ([5237318](https://github.com/SUI-Components/schibsted-spain-components/commit/5237318))
-* we use Component and not PureComponent ([58bbbab](https://github.com/SUI-Components/schibsted-spain-components/commit/58bbbab))
+* add initialMediaQueries prop to the component ([5b03ac2](https://github.com/SUI-Components/adevinta-spain-components/commit/5b03ac256e50460018dfb6344545d3a639a10d90))
+* fix PR comments ([d011229](https://github.com/SUI-Components/adevinta-spain-components/commit/d011229e97a31273ae3e631eea60249cd68d293e))
+* improve performance to avoid rerenders ([5237318](https://github.com/SUI-Components/adevinta-spain-components/commit/5237318a6faa4da91feb3bb78aa03ef4ec6a90c4))
+* we use Component and not PureComponent ([58bbbab](https://github.com/SUI-Components/adevinta-spain-components/commit/58bbbab4dde72bcb8090200e63bba40df4ab26c2))
 
 
 
-<a name="1.1.0"></a>
 # 1.1.0 (2018-08-03)
 
 
 ### Features
 
-* component creation ([5027b2b](https://github.com/SUI-Components/schibsted-spain-components/commit/5027b2b))
-* component implementation & demo ([a0e2d5b](https://github.com/SUI-Components/schibsted-spain-components/commit/a0e2d5b))
-* mediaQuery demo and README ([f5531f0](https://github.com/SUI-Components/schibsted-spain-components/commit/f5531f0))
-* rEADME ([754886f](https://github.com/SUI-Components/schibsted-spain-components/commit/754886f))
-* viewport prop ([9fc0f87](https://github.com/SUI-Components/schibsted-spain-components/commit/9fc0f87))
+* component creation ([5027b2b](https://github.com/SUI-Components/adevinta-spain-components/commit/5027b2b07ac9b00ecdc0b3ca027f4f9c151c604d))
+* component implementation & demo ([a0e2d5b](https://github.com/SUI-Components/adevinta-spain-components/commit/a0e2d5b1d131024d5e834f0d607e216bb1a853cc))
+* mediaQuery demo and README ([f5531f0](https://github.com/SUI-Components/adevinta-spain-components/commit/f5531f0d0f5c8ca55e1beddb14cd1bc6c6fdb614))
+* rEADME ([754886f](https://github.com/SUI-Components/adevinta-spain-components/commit/754886f8d980090f279003c54bdc29a24acc3821))
+* viewport prop ([9fc0f87](https://github.com/SUI-Components/adevinta-spain-components/commit/9fc0f873855e23f5040d92ed09a35efbc4a45b6e))
 
 
 
