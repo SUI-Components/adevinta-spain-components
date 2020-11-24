@@ -7,6 +7,7 @@ import {RULES} from './reducer/constants'
 import {
   pickFieldById,
   fieldsToObject,
+  fieldsToObjectNativeTypes,
   fieldsNamesInOrderOfDefinition,
   changeFieldById
 } from './reducer/fields'
@@ -28,6 +29,7 @@ const FormBuilder = ({
   alerts,
   transformations,
   locale,
+  useNativeFieldType = false,
   children: renderer
 }) => {
   const {fields = [], rules = {}, id: formID} = json.form
@@ -70,8 +72,11 @@ const FormBuilder = ({
 
     clearTimeout(timerShowSpinner)
     setStateFields(nextStateFields)
+    const nextStateFieldsObject = useNativeFieldType
+      ? fieldsToObjectNativeTypes(nextStateFields)
+      : fieldsToObject(nextStateFields)
     onChange({
-      ...fieldsToObject(nextStateFields),
+      ...nextStateFieldsObject,
       __FIELD_CHANGED__: id
     })
     setStateShowSpinner(false)
@@ -150,6 +155,7 @@ FormBuilder.propTypes = {
   alerts: PropTypes.object,
   transformations: PropTypes.func,
   locale: PropTypes.string,
+  useNativeFieldType: PropTypes.bool,
   children: PropTypes.func
 }
 

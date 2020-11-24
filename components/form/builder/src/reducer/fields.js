@@ -28,6 +28,30 @@ export const fieldsToArrayOfString = fields => {
     return `${id}=${value}`
   })
 }
+export const fieldsToArrayOfArray = fields => {
+  return Object.entries(fieldsToObject(fields))
+}
+
+export const fieldsToObjectNativeTypes = fields => {
+  const listFields = deepFlatten(
+    fields.map(field => {
+      if (field.fields) {
+        return fieldsToArrayOfArray(field.fields).map(field => {
+          const [id, value] = field
+          return {[id]: value || ''}
+        })
+      }
+
+      return {[field.id]: field.value || ''}
+    })
+  ).reduce((acc, field) => {
+    const [id, value] = head(Object.entries(field))
+    acc[id] = value
+    return acc
+  }, {})
+
+  return listFields
+}
 
 export const fieldsToObject = fields => {
   const listFields = deepFlatten(
