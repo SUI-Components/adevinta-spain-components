@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([7a5cb89](https://github.com/SUI-Components/schibsted-spain-components/commit/7a5cb899600d1b3b9807fa23317804e3358bdbf8))
+* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([7a5cb89](https://github.com/SUI-Components/adevinta-spain-components/commit/7a5cb899600d1b3b9807fa23317804e3358bdbf8))
 
 
 
@@ -16,7 +16,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([4d3ff7f](https://github.com/SUI-Components/schibsted-spain-components/commit/4d3ff7f5578910641bbeda721e1faf5c145512e6))
+* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([4d3ff7f](https://github.com/SUI-Components/adevinta-spain-components/commit/4d3ff7f5578910641bbeda721e1faf5c145512e6))
 
 
 
@@ -25,7 +25,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([7d850b6](https://github.com/SUI-Components/schibsted-spain-components/commit/7d850b6464ce17bb73210fbc8cf8e1daa8b3501a))
+* Remove .npmignore ([7d850b6](https://github.com/SUI-Components/adevinta-spain-components/commit/7d850b6464ce17bb73210fbc8cf8e1daa8b3501a))
 
 
 
@@ -34,7 +34,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([6599a2b](https://github.com/SUI-Components/schibsted-spain-components/commit/6599a2b83ef82bac3a3dabec1da8ea68ce9403bf))
+* Bump version ([6599a2b](https://github.com/SUI-Components/adevinta-spain-components/commit/6599a2b83ef82bac3a3dabec1da8ea68ce9403bf))
 
 
 
@@ -43,8 +43,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* migrate to PropTypes package ([36ab4ff](https://github.com/SUI-Components/schibsted-spain-components/commit/36ab4ff2c932889a2fd1f516f7612aca40a0c800))
-* switch to s-ui/component-dependencies and sui-theme@8 ([52c44ed](https://github.com/SUI-Components/schibsted-spain-components/commit/52c44ed1bdea42b9f7c3210a76362667aaa5bc76))
+* migrate to PropTypes package ([36ab4ff](https://github.com/SUI-Components/adevinta-spain-components/commit/36ab4ff2c932889a2fd1f516f7612aca40a0c800))
+* switch to s-ui/component-dependencies and sui-theme@8 ([52c44ed](https://github.com/SUI-Components/adevinta-spain-components/commit/52c44ed1bdea42b9f7c3210a76362667aaa5bc76))
 
 
 
@@ -53,7 +53,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add specific classname for radio list item ([17ca204](https://github.com/SUI-Components/schibsted-spain-components/commit/17ca20471bc1ac5a377f1c70a823e193dd9013a6))
+* add specific classname for radio list item ([17ca204](https://github.com/SUI-Components/adevinta-spain-components/commit/17ca20471bc1ac5a377f1c70a823e193dd9013a6))
 
 
 
@@ -62,12 +62,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* remove duplicated scss property ([489e820](https://github.com/SUI-Components/schibsted-spain-components/commit/489e820d949be008ab92ed1eebb9baece80f43b0))
+* remove duplicated scss property ([489e820](https://github.com/SUI-Components/adevinta-spain-components/commit/489e820d949be008ab92ed1eebb9baece80f43b0))
 
 
 ### Features
 
-* init ([c37e9d7](https://github.com/SUI-Components/schibsted-spain-components/commit/c37e9d798d9eaed2f3b9f1a9f05e2c6dc6f4c171))
+* init ([c37e9d7](https://github.com/SUI-Components/adevinta-spain-components/commit/c37e9d798d9eaed2f3b9f1a9f05e2c6dc6f4c171))
 
 
 
