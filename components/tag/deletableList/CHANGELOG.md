@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([eaec74e](https://github.com/SUI-Components/schibsted-spain-components/commit/eaec74ee150ef4e2cebd5a136af4386d4c15c9b2))
+* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([eaec74e](https://github.com/SUI-Components/adevinta-spain-components/commit/eaec74ee150ef4e2cebd5a136af4386d4c15c9b2))
 
 
 
@@ -16,7 +16,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) packages ([6dfe01b](https://github.com/SUI-Components/schibsted-spain-components/commit/6dfe01b350d46803104075ba4bbf9ef6e2b15300))
+* Use new [@s-ui](https://github.com/s-ui) packages ([6dfe01b](https://github.com/SUI-Components/adevinta-spain-components/commit/6dfe01b350d46803104075ba4bbf9ef6e2b15300))
 
 
 
@@ -25,7 +25,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([4669f4f](https://github.com/SUI-Components/schibsted-spain-components/commit/4669f4fe042f37cdad1a1e023b713add70b5630a))
+* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([4669f4f](https://github.com/SUI-Components/adevinta-spain-components/commit/4669f4fe042f37cdad1a1e023b713add70b5630a))
 
 
 
@@ -34,7 +34,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([29995b3](https://github.com/SUI-Components/schibsted-spain-components/commit/29995b3636debbfea889e78522cd3dd13a35f094))
+* Remove .npmignore ([29995b3](https://github.com/SUI-Components/adevinta-spain-components/commit/29995b3636debbfea889e78522cd3dd13a35f094))
 
 
 
@@ -43,7 +43,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([ba49a1c](https://github.com/SUI-Components/schibsted-spain-components/commit/ba49a1c2f638a67073f4f855072641dd008a7c88))
+* Bump version ([ba49a1c](https://github.com/SUI-Components/adevinta-spain-components/commit/ba49a1c2f638a67073f4f855072641dd008a7c88))
 
 
 
@@ -52,8 +52,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* migrate to PropTypes package ([bdc833f](https://github.com/SUI-Components/schibsted-spain-components/commit/bdc833f6e36583796427fec799770cea68f6da68))
-* switch to s-ui/component-dependencies and sui-theme@8 ([1ead351](https://github.com/SUI-Components/schibsted-spain-components/commit/1ead3513422aca404e82e4345317c5d32fbd59e4))
+* migrate to PropTypes package ([bdc833f](https://github.com/SUI-Components/adevinta-spain-components/commit/bdc833f6e36583796427fec799770cea68f6da68))
+* switch to s-ui/component-dependencies and sui-theme@8 ([1ead351](https://github.com/SUI-Components/adevinta-spain-components/commit/1ead3513422aca404e82e4345317c5d32fbd59e4))
 
 
 
@@ -62,11 +62,11 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* deletable tag list ([ab18d60](https://github.com/SUI-Components/schibsted-spain-components/commit/ab18d608a6f640c7ee75c3dfa380b4cf0aa520ed))
-* deletableList stateless component ([a567e12](https://github.com/SUI-Components/schibsted-spain-components/commit/a567e12a15eb1b621f98e844908c622fde61cb73))
-* fix package name and cleanup ([d3fcbac](https://github.com/SUI-Components/schibsted-spain-components/commit/d3fcbac91afb4eff5bd0d304626b60d955ddcae1))
-* remove unnecesary styles ([b6201d9](https://github.com/SUI-Components/schibsted-spain-components/commit/b6201d9df7af40f4b5bb7ada1f29e19e283dbff0))
-* stateless component ([1fbb012](https://github.com/SUI-Components/schibsted-spain-components/commit/1fbb0128e8b408254e128ce5cb5ffc18d0d1b44a))
+* deletable tag list ([ab18d60](https://github.com/SUI-Components/adevinta-spain-components/commit/ab18d608a6f640c7ee75c3dfa380b4cf0aa520ed))
+* deletableList stateless component ([a567e12](https://github.com/SUI-Components/adevinta-spain-components/commit/a567e12a15eb1b621f98e844908c622fde61cb73))
+* fix package name and cleanup ([d3fcbac](https://github.com/SUI-Components/adevinta-spain-components/commit/d3fcbac91afb4eff5bd0d304626b60d955ddcae1))
+* remove unnecesary styles ([b6201d9](https://github.com/SUI-Components/adevinta-spain-components/commit/b6201d9df7af40f4b5bb7ada1f29e19e283dbff0))
+* stateless component ([1fbb012](https://github.com/SUI-Components/adevinta-spain-components/commit/1fbb0128e8b408254e128ce5cb5ffc18d0d1b44a))
 
 
 
