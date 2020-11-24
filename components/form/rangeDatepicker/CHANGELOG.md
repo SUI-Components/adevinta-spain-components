@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([36f9318](https://github.com/SUI-Components/schibsted-spain-components/commit/36f9318ff0d036522d9e70c4252c8b0e59062eef))
+* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([36f9318](https://github.com/SUI-Components/adevinta-spain-components/commit/36f9318ff0d036522d9e70c4252c8b0e59062eef))
 
 
 
@@ -16,7 +16,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([0e8660b](https://github.com/SUI-Components/schibsted-spain-components/commit/0e8660b99c17519508be5d3ff8d4ca30f23f6ca8))
+* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([0e8660b](https://github.com/SUI-Components/adevinta-spain-components/commit/0e8660b99c17519508be5d3ff8d4ca30f23f6ca8))
 
 
 
@@ -25,7 +25,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) react icons ([4f400ad](https://github.com/SUI-Components/schibsted-spain-components/commit/4f400adc79c5cbc91bcb03323dee93207c59122c))
+* Use new [@s-ui](https://github.com/s-ui) react icons ([4f400ad](https://github.com/SUI-Components/adevinta-spain-components/commit/4f400adc79c5cbc91bcb03323dee93207c59122c))
 
 
 
@@ -34,7 +34,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([581b4bd](https://github.com/SUI-Components/schibsted-spain-components/commit/581b4bd14826ae2642a99bd0c2eef185738b0d61))
+* Remove .npmignore ([581b4bd](https://github.com/SUI-Components/adevinta-spain-components/commit/581b4bd14826ae2642a99bd0c2eef185738b0d61))
 
 
 
@@ -43,7 +43,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add control to check date entries on change ([4f847ee](https://github.com/SUI-Components/schibsted-spain-components/commit/4f847eeaf69cd0de6a5a597303243c23e5a172db))
+* add control to check date entries on change ([4f847ee](https://github.com/SUI-Components/adevinta-spain-components/commit/4f847eeaf69cd0de6a5a597303243c23e5a172db))
 
 
 
@@ -52,7 +52,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* update version moment for rangedatepicker ([144f5c2](https://github.com/SUI-Components/schibsted-spain-components/commit/144f5c21ca14a5d4e83451333371594639a0d4d6))
+* update version moment for rangedatepicker ([144f5c2](https://github.com/SUI-Components/adevinta-spain-components/commit/144f5c21ca14a5d4e83451333371594639a0d4d6))
 
 
 
@@ -61,7 +61,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* update moment version to resolve security vulnerabilities ([3212274](https://github.com/SUI-Components/schibsted-spain-components/commit/3212274c8985885c36c38fff516a45b72321c95d))
+* update moment version to resolve security vulnerabilities ([3212274](https://github.com/SUI-Components/adevinta-spain-components/commit/3212274c8985885c36c38fff516a45b72321c95d))
 
 
 
@@ -70,7 +70,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* update moment version in rangedatepicker ([cd0f384](https://github.com/SUI-Components/schibsted-spain-components/commit/cd0f3842fa4ef5492e2d8a97733f49b64b104471))
+* update moment version in rangedatepicker ([cd0f384](https://github.com/SUI-Components/adevinta-spain-components/commit/cd0f3842fa4ef5492e2d8a97733f49b64b104471))
 
 
 
@@ -79,7 +79,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* update version range-datepicker component ([d569e6f](https://github.com/SUI-Components/schibsted-spain-components/commit/d569e6faea5d4bc3090b89e553e4b9d5d55d69d6))
+* update version range-datepicker component ([d569e6f](https://github.com/SUI-Components/adevinta-spain-components/commit/d569e6faea5d4bc3090b89e553e4b9d5d55d69d6))
 
 
 
@@ -88,8 +88,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add comment of the new prop ([a21d574](https://github.com/SUI-Components/schibsted-spain-components/commit/a21d574e603e35b21f28d2287888e0eafeadf65c))
-* add new prop to show datepicker in the new modal ([e645d1b](https://github.com/SUI-Components/schibsted-spain-components/commit/e645d1b6323e296e5b6ec37236a1e286f541ec47))
+* add comment of the new prop ([a21d574](https://github.com/SUI-Components/adevinta-spain-components/commit/a21d574e603e35b21f28d2287888e0eafeadf65c))
+* add new prop to show datepicker in the new modal ([e645d1b](https://github.com/SUI-Components/adevinta-spain-components/commit/e645d1b6323e296e5b6ec37236a1e286f541ec47))
 
 
 
@@ -102,12 +102,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* prepare component for sui-theme change ([dde04ce](https://github.com/SUI-Components/schibsted-spain-components/commit/dde04ced866892847bf20dd8fca275ad116a04c5))
+* prepare component for sui-theme change ([dde04ce](https://github.com/SUI-Components/adevinta-spain-components/commit/dde04ced866892847bf20dd8fca275ad116a04c5))
 
 
 ### Features
 
-* update version momentjs ([33634c0](https://github.com/SUI-Components/schibsted-spain-components/commit/33634c0ce0b49dd6f4178b03ef4cc014724bd725))
+* update version momentjs ([33634c0](https://github.com/SUI-Components/adevinta-spain-components/commit/33634c0ce0b49dd6f4178b03ef4cc014724bd725))
 
 
 
@@ -116,7 +116,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add new prop for customizable icon ([cbfb9f5](https://github.com/SUI-Components/schibsted-spain-components/commit/cbfb9f54aabebdc9100e13698bb000b4587bdb1e))
+* add new prop for customizable icon ([cbfb9f5](https://github.com/SUI-Components/adevinta-spain-components/commit/cbfb9f54aabebdc9100e13698bb000b4587bdb1e))
 
 
 
@@ -125,7 +125,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add new variables for css: font-size and padding ([8414f22](https://github.com/SUI-Components/schibsted-spain-components/commit/8414f22a24eee9ca1666dfbc04af797a2f4c6429))
+* add new variables for css: font-size and padding ([8414f22](https://github.com/SUI-Components/adevinta-spain-components/commit/8414f22a24eee9ca1666dfbc04af797a2f4c6429))
 
 
 
@@ -134,7 +134,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* replace old variables ([dbb291f](https://github.com/SUI-Components/schibsted-spain-components/commit/dbb291f5e06dbfa61e90a7265cfb987e8e5004c8))
+* replace old variables ([dbb291f](https://github.com/SUI-Components/adevinta-spain-components/commit/dbb291f5e06dbfa61e90a7265cfb987e8e5004c8))
 
 
 
@@ -143,7 +143,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* update version moment in rangedatepicker ([287e352](https://github.com/SUI-Components/schibsted-spain-components/commit/287e352c1495a0e04f691d3b69d38b4082e2dcd7))
+* update version moment in rangedatepicker ([287e352](https://github.com/SUI-Components/adevinta-spain-components/commit/287e352c1495a0e04f691d3b69d38b4082e2dcd7))
 
 
 
@@ -152,12 +152,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* remove variable repeated ([4aa6296](https://github.com/SUI-Components/schibsted-spain-components/commit/4aa6296d7f81b07fd7e78b7c244c746d83a4b932))
+* remove variable repeated ([4aa6296](https://github.com/SUI-Components/adevinta-spain-components/commit/4aa6296d7f81b07fd7e78b7c244c746d83a4b932))
 
 
 ### Features
 
-* add new variables to new rangedatepicker ([8553533](https://github.com/SUI-Components/schibsted-spain-components/commit/855353324e294d93122670c90153e30e41b41131))
+* add new variables to new rangedatepicker ([8553533](https://github.com/SUI-Components/adevinta-spain-components/commit/855353324e294d93122670c90153e30e41b41131))
 
 
 
@@ -166,7 +166,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* update default styles ([d7d84d4](https://github.com/SUI-Components/schibsted-spain-components/commit/d7d84d4d4570e2586b2e65b209c8db7b97acfca0))
+* update default styles ([d7d84d4](https://github.com/SUI-Components/adevinta-spain-components/commit/d7d84d4d4570e2586b2e65b209c8db7b97acfca0))
 
 
 
@@ -175,7 +175,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([c834a1e](https://github.com/SUI-Components/schibsted-spain-components/commit/c834a1eca91a1ac62afb23078d33f66b395f776b))
+* Bump version ([c834a1e](https://github.com/SUI-Components/adevinta-spain-components/commit/c834a1eca91a1ac62afb23078d33f66b395f776b))
 
 
 
@@ -184,7 +184,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* update callback performance after insert a date ([034c857](https://github.com/SUI-Components/schibsted-spain-components/commit/034c857a8e92ae897b7106e4cc6309dccb1ca917))
+* update callback performance after insert a date ([034c857](https://github.com/SUI-Components/adevinta-spain-components/commit/034c857a8e92ae897b7106e4cc6309dccb1ca917))
 
 
 
@@ -193,7 +193,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add range datepicker vars ([268c930](https://github.com/SUI-Components/schibsted-spain-components/commit/268c930ac503dbb73fa2e6932c43130c87f4d4f0))
+* add range datepicker vars ([268c930](https://github.com/SUI-Components/adevinta-spain-components/commit/268c930ac503dbb73fa2e6932c43130c87f4d4f0))
 
 
 
@@ -202,8 +202,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* migrate to PropTypes package ([4d48919](https://github.com/SUI-Components/schibsted-spain-components/commit/4d48919a613ec06535bb277359915c2215e16daf))
-* switch to s-ui/component-dependencies and sui-theme@8 ([43f2bff](https://github.com/SUI-Components/schibsted-spain-components/commit/43f2bff5e82544197ec3babab1ae997da0816419))
+* migrate to PropTypes package ([4d48919](https://github.com/SUI-Components/adevinta-spain-components/commit/4d48919a613ec06535bb277359915c2215e16daf))
+* switch to s-ui/component-dependencies and sui-theme@8 ([43f2bff](https://github.com/SUI-Components/adevinta-spain-components/commit/43f2bff5e82544197ec3babab1ae997da0816419))
 
 
 
@@ -212,7 +212,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* update path external css of the datepicker ([baa123d](https://github.com/SUI-Components/schibsted-spain-components/commit/baa123d47e153b192e2c9c70e54984315d7db9bd))
+* update path external css of the datepicker ([baa123d](https://github.com/SUI-Components/adevinta-spain-components/commit/baa123d47e153b192e2c9c70e54984315d7db9bd))
 
 
 
@@ -221,12 +221,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* update handleChange event and update scss variables ([7020a3a](https://github.com/SUI-Components/schibsted-spain-components/commit/7020a3a47e45959e51fd48213019892881a9bb2f))
+* update handleChange event and update scss variables ([7020a3a](https://github.com/SUI-Components/adevinta-spain-components/commit/7020a3a47e45959e51fd48213019892881a9bb2f))
 
 
 ### Features
 
-* new component Range datepicker ([412d8f2](https://github.com/SUI-Components/schibsted-spain-components/commit/412d8f274447a21943c23c56dbde84c945f2c546))
+* new component Range datepicker ([412d8f2](https://github.com/SUI-Components/adevinta-spain-components/commit/412d8f274447a21943c23c56dbde84c945f2c546))
 
 
 
