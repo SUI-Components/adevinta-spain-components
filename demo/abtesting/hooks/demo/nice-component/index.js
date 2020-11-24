@@ -1,5 +1,3 @@
-import React from 'react'
-
 import {useExperiment} from '../../../../../components/abtesting/hooks/src'
 
 const NiceComponent = () => {

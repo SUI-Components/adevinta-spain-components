@@ -1,5 +1,5 @@
 import TcfUi from '../../../../components/tcf/ui/src'
-import React, {useState, useEffect, useContext, useRef} from 'react'
+import {useState, useEffect, useContext, useRef} from 'react'
 import Context from '@s-ui/react-context'
 
 function removeCookie() {

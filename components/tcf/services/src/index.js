@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react'
+import {memo, useEffect, useRef} from 'react'
 import PropTypes from 'prop-types'
 import {ServiceInitializer} from './infrastructure/bootstrap/ServiceInitializer'
 import ConsentContext from './context'
@@ -58,7 +58,7 @@ function ConsentProvider({language, isMobile, reporter, scope, children}) {
   )
 }
 
-export default React.memo(ConsentProvider)
+export default memo(ConsentProvider)
 export {useConsent}
 
 ConsentProvider.displayName = 'ConsentProvider'

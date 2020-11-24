@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useRef, useState} from 'react'
 import PropTypes from 'prop-types'
 
 import AtomSwitch from '@s-ui/react-atom-switch'
@@ -14,7 +14,7 @@ export default function TcfSecondLayerVendorsUserDecision({
   i18n
 }) {
   const [expanded, setExpanded] = useState(false)
-  const parentRef = React.useRef(null)
+  const parentRef = useRef(null)
   const handleReadLessClick = () => {
     parentRef.current.scrollIntoView()
     setExpanded(!expanded)

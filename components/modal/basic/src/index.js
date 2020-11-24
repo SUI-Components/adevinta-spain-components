@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, {Component} from 'react'
+import {createRef, Component} from 'react'
 import {createPortal} from 'react-dom'
 import IconX from '@s-ui/react-icons/lib/X'
 import cx from 'classnames'
@@ -7,9 +7,9 @@ import cx from 'classnames'
 const CLASS_MODAL_OPEN = 'is-modal-open'
 
 class ModalBasic extends Component {
-  contentDOMEl = React.createRef()
+  contentDOMEl = createRef()
 
-  wrapperDOMEl = React.createRef()
+  wrapperDOMEl = createRef()
 
   state = {
     isClientReady: false,

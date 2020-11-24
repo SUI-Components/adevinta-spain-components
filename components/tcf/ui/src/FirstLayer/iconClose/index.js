@@ -1,5 +1,3 @@
-import React from 'react'
-
 const CLASS = 'sui-TcfFirstLayer-icon-close'
 
 export default function IconClose() {

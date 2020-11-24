@@ -1,4 +1,4 @@
-import React, {Component, Suspense} from 'react'
+import {Component, Suspense} from 'react'
 import PropTypes from 'prop-types'
 import MoleculeNotification from '@s-ui/react-molecule-notification'
 

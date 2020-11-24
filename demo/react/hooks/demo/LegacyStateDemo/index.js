@@ -1,4 +1,3 @@
-import React from 'react'
 import {useLegacyState} from '../../../../../components/react/hooks/src'
 
 export default () => {

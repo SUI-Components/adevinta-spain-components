@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react'
 import cx from 'classnames'
 import Chevronbottom from '@s-ui/react-icons/lib/Chevronbottom'
 

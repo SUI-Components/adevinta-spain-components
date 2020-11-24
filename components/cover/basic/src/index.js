@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, {Component} from 'react'
+import {Component} from 'react'
 import cx from 'classnames'
 import Button from '@s-ui/react-atom-button'
 

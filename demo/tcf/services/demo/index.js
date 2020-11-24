@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import {useState, useRef} from 'react'
 import ConsentProvider from '../../../../components/tcf/services/src'
 
 const TcfServicesDemo = () => {

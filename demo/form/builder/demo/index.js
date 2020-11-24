@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, {useState} from 'react'
+import { useState } from 'react';
 import FormBuilder from '../../../../components/form/builder/src/index.js'
 
 import {json as fakeJSON} from './formList'

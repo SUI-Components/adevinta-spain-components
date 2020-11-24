@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import React from 'react'
 import cx from 'classnames'
 import SpinnerBasic from '@s-ui/react-spinner-basic'
 import {useNearScreen} from '@s-ui/react-hooks'

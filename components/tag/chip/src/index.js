@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import React from 'react'
 import CircleX from '@s-ui/react-icons/lib/Circlex'
 import cx from 'classnames'
 

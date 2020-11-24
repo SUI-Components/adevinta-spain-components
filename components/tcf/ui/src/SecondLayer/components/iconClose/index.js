@@ -1,4 +1,4 @@
-import React from 'react'
+import {memo} from 'react'
 
 const CLASS = 'sui-TcfSecondLayer-icon-close'
 
@@ -9,4 +9,4 @@ export function IconClose() {
     </svg>
   )
 }
-export default React.memo(IconClose)
+export default memo(IconClose)

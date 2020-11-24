@@ -1,4 +1,4 @@
-import React from 'react'
+import {isValidElement} from 'react'
 import PropTypes from 'prop-types'
 import {field} from '../prop-types'
 
@@ -95,7 +95,7 @@ const ProxyField = ({
           alerts
         }
       })
-      if (React.isValidElement(rendererResponse)) {
+      if (isValidElement(rendererResponse)) {
         Field = rendererResponse
       } else {
         Field = (
