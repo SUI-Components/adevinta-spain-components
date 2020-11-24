@@ -7,12 +7,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* avoid duplicated import pkg ([62bcf6e](https://github.com/SUI-Components/schibsted-spain-components/commit/62bcf6e536c885ee273e6c64cb13b363b581480e))
+* avoid duplicated import pkg ([62bcf6e](https://github.com/SUI-Components/adevinta-spain-components/commit/62bcf6e536c885ee273e6c64cb13b363b581480e))
 
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) and [@adv-ui](https://github.com/adv-ui) organization pkgs ([6beb0ae](https://github.com/SUI-Components/schibsted-spain-components/commit/6beb0ae7fd6c275f493017f3121f55868560148a))
+* Use new [@s-ui](https://github.com/s-ui) and [@adv-ui](https://github.com/adv-ui) organization pkgs ([6beb0ae](https://github.com/SUI-Components/adevinta-spain-components/commit/6beb0ae7fd6c275f493017f3121f55868560148a))
 
 
 
@@ -21,7 +21,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([bc3f77e](https://github.com/SUI-Components/schibsted-spain-components/commit/bc3f77e27b12e50df0183c8a0f4bcbbc0c63ed9f))
+* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([bc3f77e](https://github.com/SUI-Components/adevinta-spain-components/commit/bc3f77e27b12e50df0183c8a0f4bcbbc0c63ed9f))
 
 
 
@@ -30,7 +30,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([f40ff73](https://github.com/SUI-Components/schibsted-spain-components/commit/f40ff73f4d82ebb4760a26fd01f6f231cdbac93a))
+* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([f40ff73](https://github.com/SUI-Components/adevinta-spain-components/commit/f40ff73f4d82ebb4760a26fd01f6f231cdbac93a))
 
 
 
@@ -39,7 +39,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add rounded type ([e910404](https://github.com/SUI-Components/schibsted-spain-components/commit/e910404ee2ad1783eaa78d154b9a3cf87f852f25))
+* add rounded type ([e910404](https://github.com/SUI-Components/adevinta-spain-components/commit/e910404ee2ad1783eaa78d154b9a3cf87f852f25))
 
 
 
@@ -48,8 +48,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add rounded border ([9e1a4f6](https://github.com/SUI-Components/schibsted-spain-components/commit/9e1a4f641ffb4ebed8f1682797897a379cccfc8b))
-* add scss class for rounded image placeholder ([48c3dbb](https://github.com/SUI-Components/schibsted-spain-components/commit/48c3dbb25c115bcded527286f0665080888941de))
+* add rounded border ([9e1a4f6](https://github.com/SUI-Components/adevinta-spain-components/commit/9e1a4f641ffb4ebed8f1682797897a379cccfc8b))
+* add scss class for rounded image placeholder ([48c3dbb](https://github.com/SUI-Components/adevinta-spain-components/commit/48c3dbb25c115bcded527286f0665080888941de))
 
 
 
@@ -58,7 +58,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([2d4e3d7](https://github.com/SUI-Components/schibsted-spain-components/commit/2d4e3d7509c15c08f9ee968b60c9da9db1fe4d45))
+* Remove .npmignore ([2d4e3d7](https://github.com/SUI-Components/adevinta-spain-components/commit/2d4e3d7509c15c08f9ee968b60c9da9db1fe4d45))
 
 
 
@@ -67,7 +67,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add picture tag with sources ([f416f92](https://github.com/SUI-Components/schibsted-spain-components/commit/f416f922950ff9fab4abdad09976954c4f470990))
+* add picture tag with sources ([f416f92](https://github.com/SUI-Components/adevinta-spain-components/commit/f416f922950ff9fab4abdad09976954c4f470990))
 
 
 
@@ -76,7 +76,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* added forgotten placeholder css class ([0581df8](https://github.com/SUI-Components/schibsted-spain-components/commit/0581df8424d98fad923bf7761b6e4253237903ae))
+* added forgotten placeholder css class ([0581df8](https://github.com/SUI-Components/adevinta-spain-components/commit/0581df8424d98fad923bf7761b6e4253237903ae))
 
 
 
@@ -85,7 +85,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([123ed4d](https://github.com/SUI-Components/schibsted-spain-components/commit/123ed4d40f4d926eef00597c2faf6694196d6981))
+* Bump version ([123ed4d](https://github.com/SUI-Components/adevinta-spain-components/commit/123ed4d40f4d926eef00597c2faf6694196d6981))
 
 
 
@@ -94,9 +94,9 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* class selector instead of tag ([fc1a344](https://github.com/SUI-Components/schibsted-spain-components/commit/fc1a34428cafc1a61a6f18343fe24ce71b19f696))
-* fix placeholder in IE ([f299e51](https://github.com/SUI-Components/schibsted-spain-components/commit/f299e5103333ab8069a7eab699797310c79d16e8))
-* placeholder and fallback are images now ([f202134](https://github.com/SUI-Components/schibsted-spain-components/commit/f20213415837d3e585560e7dae3ddf875d6261fc))
+* class selector instead of tag ([fc1a344](https://github.com/SUI-Components/adevinta-spain-components/commit/fc1a34428cafc1a61a6f18343fe24ce71b19f696))
+* fix placeholder in IE ([f299e51](https://github.com/SUI-Components/adevinta-spain-components/commit/f299e5103333ab8069a7eab699797310c79d16e8))
+* placeholder and fallback are images now ([f202134](https://github.com/SUI-Components/adevinta-spain-components/commit/f20213415837d3e585560e7dae3ddf875d6261fc))
 
 
 ### BREAKING CHANGES
@@ -110,8 +110,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* first commit ([5ee09d8](https://github.com/SUI-Components/schibsted-spain-components/commit/5ee09d80f9fe32d29ee89f7e43df79c93e7cadf0))
-* working like an img tag with placeholder and fallback components as prop ([80769da](https://github.com/SUI-Components/schibsted-spain-components/commit/80769da934ed0fd897b4a00f8eb9ff0ddf1aa6ae))
+* first commit ([5ee09d8](https://github.com/SUI-Components/adevinta-spain-components/commit/5ee09d80f9fe32d29ee89f7e43df79c93e7cadf0))
+* working like an img tag with placeholder and fallback components as prop ([80769da](https://github.com/SUI-Components/adevinta-spain-components/commit/80769da934ed0fd897b4a00f8eb9ff0ddf1aa6ae))
 
 
 
