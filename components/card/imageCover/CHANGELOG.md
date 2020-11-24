@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([de0b7e9](https://github.com/SUI-Components/schibsted-spain-components/commit/de0b7e96e42551cbe0f90ea3b2f9efa9b56ac12d))
+* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([de0b7e9](https://github.com/SUI-Components/adevinta-spain-components/commit/de0b7e96e42551cbe0f90ea3b2f9efa9b56ac12d))
 
 
 
@@ -16,7 +16,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) packages ([d3446de](https://github.com/SUI-Components/schibsted-spain-components/commit/d3446de5c863ba1390c81e984a71c12caa3a77c6))
+* Use new [@s-ui](https://github.com/s-ui) packages ([d3446de](https://github.com/SUI-Components/adevinta-spain-components/commit/d3446de5c863ba1390c81e984a71c12caa3a77c6))
 
 
 
@@ -25,7 +25,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use latest [@s-ui](https://github.com/s-ui) packages ([3f3ff64](https://github.com/SUI-Components/schibsted-spain-components/commit/3f3ff64cfdf5a744de125ceb81f1e2edd7c3d8f3))
+* Use latest [@s-ui](https://github.com/s-ui) packages ([3f3ff64](https://github.com/SUI-Components/adevinta-spain-components/commit/3f3ff64cfdf5a744de125ceb81f1e2edd7c3d8f3))
 
 
 
@@ -34,7 +34,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([e6e75a3](https://github.com/SUI-Components/schibsted-spain-components/commit/e6e75a38e1720bb7d28e6f0d2a35548de387be24))
+* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([e6e75a3](https://github.com/SUI-Components/adevinta-spain-components/commit/e6e75a38e1720bb7d28e6f0d2a35548de387be24))
 
 
 
@@ -43,7 +43,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Replace @schibstedspain/@schibstedspain/sui-atom-panel -> @s-ui/react-atom-panel ([982c29c](https://github.com/SUI-Components/schibsted-spain-components/commit/982c29c30f625a449a3f1db94bc51855328476db))
+* Replace @schibstedspain/@schibstedspain/sui-atom-panel -> @s-ui/react-atom-panel ([982c29c](https://github.com/SUI-Components/adevinta-spain-components/commit/982c29c30f625a449a3f1db94bc51855328476db))
 
 
 
@@ -52,7 +52,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([185050e](https://github.com/SUI-Components/schibsted-spain-components/commit/185050e64303e5268cf6f5ac06b29373be836ecc))
+* Remove .npmignore ([185050e](https://github.com/SUI-Components/adevinta-spain-components/commit/185050e64303e5268cf6f5ac06b29373be836ecc))
 
 
 
@@ -61,8 +61,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* init component ([e683a7b](https://github.com/SUI-Components/schibsted-spain-components/commit/e683a7b655a182b42a479da36a4bd865798f55e8))
-* remove unused dependency ([2b6fd1a](https://github.com/SUI-Components/schibsted-spain-components/commit/2b6fd1a483be112d4df4fd902cec10da99b72362))
+* init component ([e683a7b](https://github.com/SUI-Components/adevinta-spain-components/commit/e683a7b655a182b42a479da36a4bd865798f55e8))
+* remove unused dependency ([2b6fd1a](https://github.com/SUI-Components/adevinta-spain-components/commit/2b6fd1a483be112d4df4fd902cec10da99b72362))
 
 
 
