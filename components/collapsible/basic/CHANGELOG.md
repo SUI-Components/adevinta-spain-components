@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([216446c](https://github.com/SUI-Components/schibsted-spain-components/commit/216446cbd137ac5b1c09cb965e3862eb771ae340))
+* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([216446c](https://github.com/SUI-Components/adevinta-spain-components/commit/216446cbd137ac5b1c09cb965e3862eb771ae340))
 
 
 
@@ -16,7 +16,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([6005fd9](https://github.com/SUI-Components/schibsted-spain-components/commit/6005fd9f3207de99ec6a982c59a85cff110f0924))
+* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([6005fd9](https://github.com/SUI-Components/adevinta-spain-components/commit/6005fd9f3207de99ec6a982c59a85cff110f0924))
 
 
 
@@ -25,7 +25,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) react icons ([9341f91](https://github.com/SUI-Components/schibsted-spain-components/commit/9341f9109dd834df4a6546dfce6d84840b6f7b13))
+* Use new [@s-ui](https://github.com/s-ui) react icons ([9341f91](https://github.com/SUI-Components/adevinta-spain-components/commit/9341f9109dd834df4a6546dfce6d84840b6f7b13))
 
 
 
@@ -34,8 +34,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* avoid breaking change ([4de27b6](https://github.com/SUI-Components/schibsted-spain-components/commit/4de27b6d07f8160ca7a83b34b1f09d68befd6647))
-* rewrite component ([1ae91c7](https://github.com/SUI-Components/schibsted-spain-components/commit/1ae91c77615bc8dd77441fafc2d5b6b2eec73759))
+* avoid breaking change ([4de27b6](https://github.com/SUI-Components/adevinta-spain-components/commit/4de27b6d07f8160ca7a83b34b1f09d68befd6647))
+* rewrite component ([1ae91c7](https://github.com/SUI-Components/adevinta-spain-components/commit/1ae91c77615bc8dd77441fafc2d5b6b2eec73759))
 
 
 
@@ -44,7 +44,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Add UNSAFE to life cycle ([817dd24](https://github.com/SUI-Components/schibsted-spain-components/commit/817dd24e628405e330d9790305656c9bd884a972))
+* Add UNSAFE to life cycle ([817dd24](https://github.com/SUI-Components/adevinta-spain-components/commit/817dd24e628405e330d9790305656c9bd884a972))
 
 
 
@@ -53,7 +53,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([45fbcc0](https://github.com/SUI-Components/schibsted-spain-components/commit/45fbcc02b6ce1a5dfcfae29b655df8e0841f1d3a))
+* Remove .npmignore ([45fbcc0](https://github.com/SUI-Components/adevinta-spain-components/commit/45fbcc02b6ce1a5dfcfae29b655df8e0841f1d3a))
 
 
 
@@ -62,8 +62,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* fix collapsible-basic styles ([2238dc2](https://github.com/SUI-Components/schibsted-spain-components/commit/2238dc219293f1218a56e7e6d138749041a92d97))
-* set whitespace from variable ([b86e6ae](https://github.com/SUI-Components/schibsted-spain-components/commit/b86e6ae452ec61fc610bd7e3e6e8ca35be5e522a))
+* fix collapsible-basic styles ([2238dc2](https://github.com/SUI-Components/adevinta-spain-components/commit/2238dc219293f1218a56e7e6d138749041a92d97))
+* set whitespace from variable ([b86e6ae](https://github.com/SUI-Components/adevinta-spain-components/commit/b86e6ae452ec61fc610bd7e3e6e8ca35be5e522a))
 
 
 
@@ -72,7 +72,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* added ternary instead a conditionall ([f907982](https://github.com/SUI-Components/schibsted-spain-components/commit/f9079822f890dc14caf5450b06b1dde24ed00caf))
+* added ternary instead a conditionall ([f907982](https://github.com/SUI-Components/adevinta-spain-components/commit/f9079822f890dc14caf5450b06b1dde24ed00caf))
 
 
 
@@ -81,7 +81,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* added is clickable prop ([3ef14b9](https://github.com/SUI-Components/schibsted-spain-components/commit/3ef14b92f43df8b9e66f80cd98e5e185885182a9))
+* added is clickable prop ([3ef14b9](https://github.com/SUI-Components/adevinta-spain-components/commit/3ef14b92f43df8b9e66f80cd98e5e185885182a9))
 
 
 
@@ -90,7 +90,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* do not show content scroll bar in IE/Edge if not needed. ([886aeed](https://github.com/SUI-Components/schibsted-spain-components/commit/886aeed5e44a00c032b2197880cc46fb394d1b29))
+* do not show content scroll bar in IE/Edge if not needed. ([886aeed](https://github.com/SUI-Components/adevinta-spain-components/commit/886aeed5e44a00c032b2197880cc46fb394d1b29))
 
 
 
@@ -99,7 +99,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* allow animation speed customization in collapsible basic. ([79b8af5](https://github.com/SUI-Components/schibsted-spain-components/commit/79b8af5ec318b9dc5009340c5d4eea1ffae86e03))
+* allow animation speed customization in collapsible basic. ([79b8af5](https://github.com/SUI-Components/adevinta-spain-components/commit/79b8af5ec318b9dc5009340c5d4eea1ffae86e03))
 
 
 
@@ -108,8 +108,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* update default icon sui-svgiconset ([d6616d5](https://github.com/SUI-Components/schibsted-spain-components/commit/d6616d5227b5c34240f442417a4053608ac9ae06))
-* use variable of theme-basic ([8ed49bf](https://github.com/SUI-Components/schibsted-spain-components/commit/8ed49bfa9c8a711a0ebd431eeee4a7ba9a3d05c9))
+* update default icon sui-svgiconset ([d6616d5](https://github.com/SUI-Components/adevinta-spain-components/commit/d6616d5227b5c34240f442417a4053608ac9ae06))
+* use variable of theme-basic ([8ed49bf](https://github.com/SUI-Components/adevinta-spain-components/commit/8ed49bfa9c8a711a0ebd431eeee4a7ba9a3d05c9))
 
 
 ### BREAKING CHANGES
@@ -123,7 +123,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* remove root-parent selector from collapsible basic. ([c4d93ac](https://github.com/SUI-Components/schibsted-spain-components/commit/c4d93ac2738e8804e4db2131d28d0df05130381c))
+* remove root-parent selector from collapsible basic. ([c4d93ac](https://github.com/SUI-Components/adevinta-spain-components/commit/c4d93ac2738e8804e4db2131d28d0df05130381c))
 
 
 
@@ -132,7 +132,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add border-radius to collapsible basic ([8d5037f](https://github.com/SUI-Components/schibsted-spain-components/commit/8d5037fb5786ea3b38af9d33aad89bb5a697301c))
+* add border-radius to collapsible basic ([8d5037f](https://github.com/SUI-Components/adevinta-spain-components/commit/8d5037fb5786ea3b38af9d33aad89bb5a697301c))
 
 
 
@@ -141,7 +141,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add ellipsis to collapsible label ([b64cf9e](https://github.com/SUI-Components/schibsted-spain-components/commit/b64cf9ea937273584c54dff2373c488e132c1cd5))
+* add ellipsis to collapsible label ([b64cf9e](https://github.com/SUI-Components/adevinta-spain-components/commit/b64cf9ea937273584c54dff2373c488e132c1cd5))
 
 
 
@@ -150,8 +150,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* set icon animation as a variable ([d22b643](https://github.com/SUI-Components/schibsted-spain-components/commit/d22b643710742773a826ed77284e35656038d726))
-* set transition as variable ([91d95a1](https://github.com/SUI-Components/schibsted-spain-components/commit/91d95a1ab65e20ca078b5d0bddff9c20c76b32e0))
+* set icon animation as a variable ([d22b643](https://github.com/SUI-Components/adevinta-spain-components/commit/d22b643710742773a826ed77284e35656038d726))
+* set transition as variable ([91d95a1](https://github.com/SUI-Components/adevinta-spain-components/commit/91d95a1ab65e20ca078b5d0bddff9c20c76b32e0))
 
 
 
@@ -160,7 +160,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add icon size ([858caed](https://github.com/SUI-Components/schibsted-spain-components/commit/858caed177eb06ee375fc1439aae405e78104e8d))
+* add icon size ([858caed](https://github.com/SUI-Components/adevinta-spain-components/commit/858caed177eb06ee375fc1439aae405e78104e8d))
 
 
 
@@ -169,8 +169,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add collapsible vars ([b2cb762](https://github.com/SUI-Components/schibsted-spain-components/commit/b2cb7621f331218d2f1f8a7507f6c8aff485c7fa))
-* insert vars in settings file ([1261c9e](https://github.com/SUI-Components/schibsted-spain-components/commit/1261c9ee893aad777a7c468ad5012050f7691873))
+* add collapsible vars ([b2cb762](https://github.com/SUI-Components/adevinta-spain-components/commit/b2cb7621f331218d2f1f8a7507f6c8aff485c7fa))
+* insert vars in settings file ([1261c9e](https://github.com/SUI-Components/adevinta-spain-components/commit/1261c9ee893aad777a7c468ad5012050f7691873))
 
 
 
@@ -179,7 +179,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([ca3c19c](https://github.com/SUI-Components/schibsted-spain-components/commit/ca3c19c6ad2fc2d7eb68b37c2faa06516332cc5a))
+* Bump version ([ca3c19c](https://github.com/SUI-Components/adevinta-spain-components/commit/ca3c19c6ad2fc2d7eb68b37c2faa06516332cc5a))
 
 
 
@@ -188,7 +188,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* update this component to use in accordion collapsible component ([a017e59](https://github.com/SUI-Components/schibsted-spain-components/commit/a017e592e4f76d7dc58cf1a01394e263106eef67))
+* update this component to use in accordion collapsible component ([a017e59](https://github.com/SUI-Components/adevinta-spain-components/commit/a017e592e4f76d7dc58cf1a01394e263106eef67))
 
 
 
@@ -197,7 +197,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* switch to s-ui/component-dependencies and sui-theme@8 ([e4cb549](https://github.com/SUI-Components/schibsted-spain-components/commit/e4cb549bd637ffdbc0445bc3042f0dc02b6fd803))
+* switch to s-ui/component-dependencies and sui-theme@8 ([e4cb549](https://github.com/SUI-Components/adevinta-spain-components/commit/e4cb549bd637ffdbc0445bc3042f0dc02b6fd803))
 
 
 
@@ -206,9 +206,9 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* merge changes to resolve conflict with master. ([102d7e1](https://github.com/SUI-Components/schibsted-spain-components/commit/102d7e1c3f9b6b15b9bee86a9e78c943e1eec4ba))
-* Migrate to PropTypes package ([1cf04ca](https://github.com/SUI-Components/schibsted-spain-components/commit/1cf04caaa3fbf783dbb959bfc0afa18db5b4143e))
-* remove default paddings. ([dfcaccf](https://github.com/SUI-Components/schibsted-spain-components/commit/dfcaccfbc453cbca4c839854a4fd37bc34fcab05))
+* merge changes to resolve conflict with master. ([102d7e1](https://github.com/SUI-Components/adevinta-spain-components/commit/102d7e1c3f9b6b15b9bee86a9e78c943e1eec4ba))
+* Migrate to PropTypes package ([1cf04ca](https://github.com/SUI-Components/adevinta-spain-components/commit/1cf04caaa3fbf783dbb959bfc0afa18db5b4143e))
+* remove default paddings. ([dfcaccf](https://github.com/SUI-Components/adevinta-spain-components/commit/dfcaccfbc453cbca4c839854a4fd37bc34fcab05))
 
 
 
@@ -217,7 +217,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* allow flex grow/shrink in label and trigger elements. ([92159de](https://github.com/SUI-Components/schibsted-spain-components/commit/92159defd06507f7620112e46c66b9985217c676))
+* allow flex grow/shrink in label and trigger elements. ([92159de](https://github.com/SUI-Components/adevinta-spain-components/commit/92159defd06507f7620112e46c66b9985217c676))
 
 
 
@@ -226,8 +226,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* adapt var name to convention. ([3b778b8](https://github.com/SUI-Components/schibsted-spain-components/commit/3b778b82e6d9ff9eeb57eac360c67434a712a61e))
-* use custom bgc when component is expanded ([c66343c](https://github.com/SUI-Components/schibsted-spain-components/commit/c66343cc6ef46dc342a5ee3a5b5ea2c67476c38e))
+* adapt var name to convention. ([3b778b8](https://github.com/SUI-Components/adevinta-spain-components/commit/3b778b82e6d9ff9eeb57eac360c67434a712a61e))
+* use custom bgc when component is expanded ([c66343c](https://github.com/SUI-Components/adevinta-spain-components/commit/c66343cc6ef46dc342a5ee3a5b5ea2c67476c38e))
 
 
 
@@ -236,7 +236,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add border variable. ([6168c85](https://github.com/SUI-Components/schibsted-spain-components/commit/6168c85aa497551067a9052dfe873e56eff23a7c))
+* add border variable. ([6168c85](https://github.com/SUI-Components/adevinta-spain-components/commit/6168c85aa497551067a9052dfe873e56eff23a7c))
 
 
 
@@ -245,7 +245,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* collapsible/expandible component. ([bcb1277](https://github.com/SUI-Components/schibsted-spain-components/commit/bcb127701f616b4ba66fbaa5fbabd6bd5c36e73a))
+* collapsible/expandible component. ([bcb1277](https://github.com/SUI-Components/adevinta-spain-components/commit/bcb127701f616b4ba66fbaa5fbabd6bd5c36e73a))
 
 
 
