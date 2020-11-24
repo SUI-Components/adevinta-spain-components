@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import AtomSwitch from '@s-ui/react-atom-switch'
 

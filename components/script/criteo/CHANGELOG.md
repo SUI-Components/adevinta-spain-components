@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use latest [@s-ui](https://github.com/s-ui) packages ([a9be12c](https://github.com/SUI-Components/schibsted-spain-components/commit/a9be12c37f865d5b3559deee239c85327a141e86))
+* Use latest [@s-ui](https://github.com/s-ui) packages ([a9be12c](https://github.com/SUI-Components/adevinta-spain-components/commit/a9be12c37f865d5b3559deee239c85327a141e86))
 
 
 
@@ -16,7 +16,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([077a54d](https://github.com/SUI-Components/schibsted-spain-components/commit/077a54d103d228efa85951818e6cf3df7237501f))
+* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([077a54d](https://github.com/SUI-Components/adevinta-spain-components/commit/077a54d103d228efa85951818e6cf3df7237501f))
 
 
 
@@ -25,7 +25,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([a9acddd](https://github.com/SUI-Components/schibsted-spain-components/commit/a9acddd8d42e33db4e17789858970287986c7b5f))
+* Remove .npmignore ([a9acddd](https://github.com/SUI-Components/adevinta-spain-components/commit/a9acddd8d42e33db4e17789858970287986c7b5f))
 
 
 
@@ -34,7 +34,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* new component for criteo tracking ([9a9523d](https://github.com/SUI-Components/schibsted-spain-components/commit/9a9523d84759d012161cbdceb8e7a9346683eac8))
+* new component for criteo tracking ([9a9523d](https://github.com/SUI-Components/adevinta-spain-components/commit/9a9523d84759d012161cbdceb8e7a9346683eac8))
 
 
 

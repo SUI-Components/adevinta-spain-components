@@ -1,4 +1,4 @@
-import React, {useState, useRef, Suspense} from 'react'
+import {lazy, useState, useRef, Suspense} from 'react'
 import PropTypes from 'prop-types'
 import {useMount} from '@s-ui/react-hooks'
 import {UI_TYPES} from '../settings'
@@ -6,9 +6,9 @@ import {UI_TYPES} from '../settings'
 const CONSENT_STATUS_NOT_ACCEPTED = 'NOT_ACCEPTED'
 const NO_OP = () => {}
 
-const CmpUiBanner = React.lazy(() => import('../CmpUiBanner'))
-const CmpUiModal = React.lazy(() => import('../CmpUiModal'))
-const CmpModalConsents = React.lazy(() => import('@s-ui/react-cmp-modal'))
+const CmpUiBanner = lazy(() => import('../CmpUiBanner'))
+const CmpUiModal = lazy(() => import('../CmpUiModal'))
+const CmpModalConsents = lazy(() => import('@s-ui/react-cmp-modal'))
 
 export default function CmpUiContainer({
   companyName,

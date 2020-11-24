@@ -1,5 +1,3 @@
-import React from 'react'
-
 import OptimizelyXExperiment from '../../../../components/abtesting/optimizelyXExperiment/src'
 import NiceComponent from './nice-component'
 

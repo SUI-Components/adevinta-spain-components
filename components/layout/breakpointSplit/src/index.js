@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import {Children, Component} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import ViewportResize from './viewport-resize'
@@ -39,19 +39,16 @@ class LayoutBreakpointSplit extends Component {
     const {isSplitted} = this.state
     children = isSplitted ? [children[current]] : children
 
-    const content = React.Children.map(
-      children,
-      ({type: Type, props}, index) => (
-        <Type
-          {...props}
-          key={index}
-          className={cx(
-            props.className,
-            isSplitted && 'sui-LayoutBreakpointSplit-currentView'
-          )}
-        />
-      )
-    )
+    const content = Children.map(children, ({type: Type, props}, index) => (
+      <Type
+        {...props}
+        key={index}
+        className={cx(
+          props.className,
+          isSplitted && 'sui-LayoutBreakpointSplit-currentView'
+        )}
+      />
+    ))
 
     const className = cx('sui-LayoutBreakpointSplit', this.props.className)
     return <span className={className}>{content}</span>

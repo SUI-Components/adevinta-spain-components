@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import PropTypes from 'prop-types'
 import ScriptLoader from '@s-ui/react-script-loader'
 import {useMount} from '@s-ui/react-hooks'

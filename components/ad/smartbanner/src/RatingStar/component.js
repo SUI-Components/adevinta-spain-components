@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import React from 'react'
 import IconStarFullDefault from '@s-ui/react-icons/lib/Star'
 import IconStarHalfDefault from '@s-ui/react-icons/lib/Starhalf'
 import IconStarEmptyDefault from '@s-ui/react-icons/lib/Starempty'

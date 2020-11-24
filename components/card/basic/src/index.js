@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types'
 
-import React from 'react'
 import cx from 'classnames'
 import ImageLazyLoad from '@s-ui/react-image-lazy-load'
 

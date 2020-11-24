@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([f89bdcb](https://github.com/SUI-Components/schibsted-spain-components/commit/f89bdcb027f3348d53c250f32abbb4f5bc6bcb04))
+* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([f89bdcb](https://github.com/SUI-Components/adevinta-spain-components/commit/f89bdcb027f3348d53c250f32abbb4f5bc6bcb04))
 
 
 
@@ -16,7 +16,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([313574e](https://github.com/SUI-Components/schibsted-spain-components/commit/313574e4352cec7abd07c09566a5548062d3488f))
+* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([313574e](https://github.com/SUI-Components/adevinta-spain-components/commit/313574e4352cec7abd07c09566a5548062d3488f))
 
 
 
@@ -25,7 +25,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Stop using defaultProps ([c5425b2](https://github.com/SUI-Components/schibsted-spain-components/commit/c5425b2806df4b2d35b103344204fcaccf0ae537))
+* Stop using defaultProps ([c5425b2](https://github.com/SUI-Components/adevinta-spain-components/commit/c5425b2806df4b2d35b103344204fcaccf0ae537))
 
 
 
@@ -34,7 +34,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Replace @schibstedspain/@schibstedspain/sui-atom-panel -> @s-ui/react-atom-panel ([e8c2b1d](https://github.com/SUI-Components/schibsted-spain-components/commit/e8c2b1d97e8bf278b70fbf1e39bdc7457fed0990))
+* Replace @schibstedspain/@schibstedspain/sui-atom-panel -> @s-ui/react-atom-panel ([e8c2b1d](https://github.com/SUI-Components/adevinta-spain-components/commit/e8c2b1d97e8bf278b70fbf1e39bdc7457fed0990))
 
 
 
@@ -43,7 +43,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([c41b8a6](https://github.com/SUI-Components/schibsted-spain-components/commit/c41b8a658ec9e0491f6633855d032eeef081ab3f))
+* Remove .npmignore ([c41b8a6](https://github.com/SUI-Components/adevinta-spain-components/commit/c41b8a658ec9e0491f6633855d032eeef081ab3f))
 
 
 
@@ -52,7 +52,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* no margins for "hr" section line separator. ([91e103f](https://github.com/SUI-Components/schibsted-spain-components/commit/91e103f194b9ea39b8c4b5ebc69bd529b769c791))
+* no margins for "hr" section line separator. ([91e103f](https://github.com/SUI-Components/adevinta-spain-components/commit/91e103f194b9ea39b8c4b5ebc69bd529b769c791))
 
 
 
@@ -61,8 +61,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* fix comment typo. ([82a8f43](https://github.com/SUI-Components/schibsted-spain-components/commit/82a8f4324991cd33875301a29454f4dd0feeaafb))
-* support custom empty content when no children or textContent is provided. ([50834cb](https://github.com/SUI-Components/schibsted-spain-components/commit/50834cb981aafdefadefd514ba214024098990f8))
+* fix comment typo. ([82a8f43](https://github.com/SUI-Components/adevinta-spain-components/commit/82a8f4324991cd33875301a29454f4dd0feeaafb))
+* support custom empty content when no children or textContent is provided. ([50834cb](https://github.com/SUI-Components/adevinta-spain-components/commit/50834cb981aafdefadefd514ba214024098990f8))
 
 
 
@@ -71,9 +71,9 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* improve prop-types description comments. ([8c6798e](https://github.com/SUI-Components/schibsted-spain-components/commit/8c6798e4bce12d840cbded04240eaf791748ff68))
-* modify section to support different bottom spacing between header/content/secti ([3f3b28a](https://github.com/SUI-Components/schibsted-spain-components/commit/3f3b28a6fb847c0b53a111f790b25666be367c54))
-* update README file. ([41ec1b9](https://github.com/SUI-Components/schibsted-spain-components/commit/41ec1b997f77c51b92edb190fe86dc7882d99541))
+* improve prop-types description comments. ([8c6798e](https://github.com/SUI-Components/adevinta-spain-components/commit/8c6798e4bce12d840cbded04240eaf791748ff68))
+* modify section to support different bottom spacing between header/content/secti ([3f3b28a](https://github.com/SUI-Components/adevinta-spain-components/commit/3f3b28a6fb847c0b53a111f790b25666be367c54))
+* update README file. ([41ec1b9](https://github.com/SUI-Components/adevinta-spain-components/commit/41ec1b997f77c51b92edb190fe86dc7882d99541))
 
 
 ### BREAKING CHANGES
@@ -87,7 +87,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([2d227bd](https://github.com/SUI-Components/schibsted-spain-components/commit/2d227bd067b0cb1bc74c339624ac3118bf5cc79d))
+* Bump version ([2d227bd](https://github.com/SUI-Components/adevinta-spain-components/commit/2d227bd067b0cb1bc74c339624ac3118bf5cc79d))
 
 
 
@@ -96,8 +96,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* remove unnecesary style property, as it is affecting to all p children ([d9d29b3](https://github.com/SUI-Components/schibsted-spain-components/commit/d9d29b30a1da7d275b886c10c4811e17f62df47d))
-* section title is not mandatory anymore. ([87508e2](https://github.com/SUI-Components/schibsted-spain-components/commit/87508e25a8634476c9c0e6b37538ddbd05550298))
+* remove unnecesary style property, as it is affecting to all p children ([d9d29b3](https://github.com/SUI-Components/adevinta-spain-components/commit/d9d29b30a1da7d275b886c10c4811e17f62df47d))
+* section title is not mandatory anymore. ([87508e2](https://github.com/SUI-Components/adevinta-spain-components/commit/87508e25a8634476c9c0e6b37538ddbd05550298))
 
 
 
@@ -106,8 +106,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* migrate to PropTypes package ([84addce](https://github.com/SUI-Components/schibsted-spain-components/commit/84addcef83c4e485a9f49ace266ec4bb9209ff86))
-* switch to s-ui/component-dependencies and sui-theme@8 ([fe6f900](https://github.com/SUI-Components/schibsted-spain-components/commit/fe6f9005b7113af8f0c5896e23f0f0400493b47d))
+* migrate to PropTypes package ([84addce](https://github.com/SUI-Components/adevinta-spain-components/commit/84addcef83c4e485a9f49ace266ec4bb9209ff86))
+* switch to s-ui/component-dependencies and sui-theme@8 ([fe6f900](https://github.com/SUI-Components/adevinta-spain-components/commit/fe6f9005b7113af8f0c5896e23f0f0400493b47d))
 
 
 
@@ -116,7 +116,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add an hr separator at the end (bottom) of the section component. ([fc21683](https://github.com/SUI-Components/schibsted-spain-components/commit/fc21683c89ebf78952b13e92bd9a9928095afc16))
+* add an hr separator at the end (bottom) of the section component. ([fc21683](https://github.com/SUI-Components/adevinta-spain-components/commit/fc21683c89ebf78952b13e92bd9a9928095afc16))
 
 
 
@@ -125,8 +125,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add extra custom variables for section paragraph content. ([191de7a](https://github.com/SUI-Components/schibsted-spain-components/commit/191de7a994558ce8455d1b0fb8175ab7228b5b7b))
-* new section basic component. ([5f8d031](https://github.com/SUI-Components/schibsted-spain-components/commit/5f8d031f22834c15f14af59dfeebbb70e0302dfd))
+* add extra custom variables for section paragraph content. ([191de7a](https://github.com/SUI-Components/adevinta-spain-components/commit/191de7a994558ce8455d1b0fb8175ab7228b5b7b))
+* new section basic component. ([5f8d031](https://github.com/SUI-Components/adevinta-spain-components/commit/5f8d031f22834c15f14af59dfeebbb70e0302dfd))
 
 
 

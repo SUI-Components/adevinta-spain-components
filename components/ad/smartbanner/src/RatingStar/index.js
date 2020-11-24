@@ -1,5 +1,5 @@
-import React, {Component, Suspense} from 'react'
-const RatingStarComponent = React.lazy(() => import('./component'))
+import {lazy, Component, Suspense} from 'react'
+const RatingStarComponent = lazy(() => import('./component'))
 
 export default class RatingStar extends Component {
   state = {isClient: false}

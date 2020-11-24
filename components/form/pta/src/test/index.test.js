@@ -1,5 +1,4 @@
 /* eslint-env jest */
-import React from 'react'
 import Enzyme, {shallow} from 'enzyme'
 import FormPta from '../index'
 import Adapter from 'enzyme-adapter-react-16'

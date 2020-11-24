@@ -1,12 +1,12 @@
-import React, {useState, useRef, Suspense} from 'react'
+import {lazy, useState, useRef, Suspense} from 'react'
 import PropTypes from 'prop-types'
 import {useMount} from '@s-ui/react-hooks'
 
 const CONSENT_STATUS_NOT_ACCEPTED = 'NOT_ACCEPTED'
 const NO_OP = () => {}
 
-const CmpBanner = React.lazy(() => import('./component'))
-const CmpModal = React.lazy(() => import('@s-ui/react-cmp-modal'))
+const CmpBanner = lazy(() => import('./component'))
+const CmpModal = lazy(() => import('@s-ui/react-cmp-modal'))
 
 export default function CmpBannerContainer({
   lang,

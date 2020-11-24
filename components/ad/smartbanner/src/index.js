@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import React from 'react'
 import IconCloseDefault from '@s-ui/react-icons/lib/X'
 import cx from 'classnames'
 

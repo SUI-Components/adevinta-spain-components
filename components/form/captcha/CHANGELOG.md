@@ -7,12 +7,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* make NORMAL the default captcha size ([9baa717](https://github.com/SUI-Components/schibsted-spain-components/commit/9baa71764a0266606ee3aa88a4770735811c2eb6))
+* make NORMAL the default captcha size ([9baa717](https://github.com/SUI-Components/adevinta-spain-components/commit/9baa71764a0266606ee3aa88a4770735811c2eb6))
 
 
 ### Features
 
-* add sizes to form/captcha component and export sizes ([adbf225](https://github.com/SUI-Components/schibsted-spain-components/commit/adbf225a78e0ed4526fa99cbcb670707bec13ef5))
+* add sizes to form/captcha component and export sizes ([adbf225](https://github.com/SUI-Components/adevinta-spain-components/commit/adbf225a78e0ed4526fa99cbcb670707bec13ef5))
 
 
 
@@ -21,8 +21,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use latest [@s-ui](https://github.com/s-ui) packages ([c858e8c](https://github.com/SUI-Components/schibsted-spain-components/commit/c858e8cc845f9193e4ae6668977a0734243fe745))
-* Use new @s-ui/react-hooks ([d1d6180](https://github.com/SUI-Components/schibsted-spain-components/commit/d1d6180d0a2a7a88e982f1a234ad952fa193d370))
+* Use latest [@s-ui](https://github.com/s-ui) packages ([c858e8c](https://github.com/SUI-Components/adevinta-spain-components/commit/c858e8cc845f9193e4ae6668977a0734243fe745))
+* Use new @s-ui/react-hooks ([d1d6180](https://github.com/SUI-Components/adevinta-spain-components/commit/d1d6180d0a2a7a88e982f1a234ad952fa193d370))
 
 
 
@@ -31,7 +31,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([0c99f58](https://github.com/SUI-Components/schibsted-spain-components/commit/0c99f58be57610d1b5a8a103b91845c2863a4792))
+* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([0c99f58](https://github.com/SUI-Components/adevinta-spain-components/commit/0c99f58be57610d1b5a8a103b91845c2863a4792))
 
 
 
@@ -40,7 +40,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix expired callback on captcha ([0bf5858](https://github.com/SUI-Components/schibsted-spain-components/commit/0bf5858fd62cd12bf54b858403dc055afc31ffc6))
+* fix expired callback on captcha ([0bf5858](https://github.com/SUI-Components/adevinta-spain-components/commit/0bf5858fd62cd12bf54b858403dc055afc31ffc6))
 
 
 
@@ -49,8 +49,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add FormCaptcha component ([2c6d781](https://github.com/SUI-Components/schibsted-spain-components/commit/2c6d7819873961f9d5115fd5fe377c1466b83591))
-* scss empty class fixed ([ff07033](https://github.com/SUI-Components/schibsted-spain-components/commit/ff0703324bd553dfbc58f1fbf58c8490dfc8192e))
+* add FormCaptcha component ([2c6d781](https://github.com/SUI-Components/adevinta-spain-components/commit/2c6d7819873961f9d5115fd5fe377c1466b83591))
+* scss empty class fixed ([ff07033](https://github.com/SUI-Components/adevinta-spain-components/commit/ff0703324bd553dfbc58f1fbf58c8490dfc8192e))
 
 
 

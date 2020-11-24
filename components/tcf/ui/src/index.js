@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import TCFContainer from './TCFContainer/TCFContainer'
 import ConsentProvider from '@s-ui/react-tcf-services'

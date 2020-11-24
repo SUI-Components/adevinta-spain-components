@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* upgrade marked ([01843e6](https://github.com/SUI-Components/schibsted-spain-components/commit/01843e62a606b18f5ba27c76fe9ae3bf4a311609))
+* upgrade marked ([01843e6](https://github.com/SUI-Components/adevinta-spain-components/commit/01843e62a606b18f5ba27c76fe9ae3bf4a311609))
 
 
 
@@ -16,7 +16,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([8faaf67](https://github.com/SUI-Components/schibsted-spain-components/commit/8faaf67c70609e44c0a93b5bdfdc2a9ff5807269))
+* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([8faaf67](https://github.com/SUI-Components/adevinta-spain-components/commit/8faaf67c70609e44c0a93b5bdfdc2a9ff5807269))
 
 
 
@@ -25,8 +25,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* move to a function and remove deprecated require.ensure ([6c24264](https://github.com/SUI-Components/schibsted-spain-components/commit/6c242647b6f46cfcf1cddb155cbcfb66d1d81b9f))
-* support changing the prop src ([03efa28](https://github.com/SUI-Components/schibsted-spain-components/commit/03efa28c15bb59eedd9bca86441fd9889413ba48))
+* move to a function and remove deprecated require.ensure ([6c24264](https://github.com/SUI-Components/adevinta-spain-components/commit/6c242647b6f46cfcf1cddb155cbcfb66d1d81b9f))
+* support changing the prop src ([03efa28](https://github.com/SUI-Components/adevinta-spain-components/commit/03efa28c15bb59eedd9bca86441fd9889413ba48))
 
 
 
@@ -35,7 +35,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([d4854bb](https://github.com/SUI-Components/schibsted-spain-components/commit/d4854bb56f52010bb1ec2f0330967b1236b5d128))
+* Remove .npmignore ([d4854bb](https://github.com/SUI-Components/adevinta-spain-components/commit/d4854bb56f52010bb1ec2f0330967b1236b5d128))
 
 
 
@@ -44,7 +44,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* bump version ([c830f19](https://github.com/SUI-Components/schibsted-spain-components/commit/c830f19a684ef60da3f225e54a7c3e191146ae5f))
+* bump version ([c830f19](https://github.com/SUI-Components/adevinta-spain-components/commit/c830f19a684ef60da3f225e54a7c3e191146ae5f))
 
 
 
@@ -53,10 +53,10 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add if ([b6938e5](https://github.com/SUI-Components/schibsted-spain-components/commit/b6938e5f40b03a9ecc8fe897ebcb3e8422df0661))
-* add scroll to element ([6d432a7](https://github.com/SUI-Components/schibsted-spain-components/commit/6d432a7b8dcd3200496bd82258dc6cc1eafb2e36))
-* add shouldcomponentupdate ([21974ca](https://github.com/SUI-Components/schibsted-spain-components/commit/21974caf94100386009b42a469c87348cdb816d0))
-* use loaded state ([8b37363](https://github.com/SUI-Components/schibsted-spain-components/commit/8b373634280f503199657e7b900afe97c6565491))
+* add if ([b6938e5](https://github.com/SUI-Components/adevinta-spain-components/commit/b6938e5f40b03a9ecc8fe897ebcb3e8422df0661))
+* add scroll to element ([6d432a7](https://github.com/SUI-Components/adevinta-spain-components/commit/6d432a7b8dcd3200496bd82258dc6cc1eafb2e36))
+* add shouldcomponentupdate ([21974ca](https://github.com/SUI-Components/adevinta-spain-components/commit/21974caf94100386009b42a469c87348cdb816d0))
+* use loaded state ([8b37363](https://github.com/SUI-Components/adevinta-spain-components/commit/8b373634280f503199657e7b900afe97c6565491))
 
 
 
@@ -65,7 +65,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* use async ajax request ([658d19c](https://github.com/SUI-Components/schibsted-spain-components/commit/658d19c9273f9dae54a81126959a2bb7209b8a4b))
+* use async ajax request ([658d19c](https://github.com/SUI-Components/adevinta-spain-components/commit/658d19c9273f9dae54a81126959a2bb7209b8a4b))
 
 
 
@@ -74,7 +74,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* forced new release ([59c6240](https://github.com/SUI-Components/schibsted-spain-components/commit/59c624087aa714110ec8bcf43f072885519266a5))
+* forced new release ([59c6240](https://github.com/SUI-Components/adevinta-spain-components/commit/59c624087aa714110ec8bcf43f072885519266a5))
 
 
 
@@ -83,7 +83,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* make it compatible with dev and built version ([cfc6d11](https://github.com/SUI-Components/schibsted-spain-components/commit/cfc6d117455ed756780c36f873b7f64187ea9ad2))
+* make it compatible with dev and built version ([cfc6d11](https://github.com/SUI-Components/adevinta-spain-components/commit/cfc6d117455ed756780c36f873b7f64187ea9ad2))
 
 
 
@@ -92,7 +92,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* first commit ([6d04614](https://github.com/SUI-Components/schibsted-spain-components/commit/6d0461497ad752e2b3cae494fa2cb07766eaeefb))
+* first commit ([6d04614](https://github.com/SUI-Components/adevinta-spain-components/commit/6d0461497ad752e2b3cae494fa2cb07766eaeefb))
 
 
 

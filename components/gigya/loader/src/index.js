@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-import React from 'react'
 import PropTypes from 'prop-types'
 import ScriptLoader from '@s-ui/react-script-loader'
 

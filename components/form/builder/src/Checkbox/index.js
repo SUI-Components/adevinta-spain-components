@@ -1,4 +1,4 @@
-import React from 'react'
+import {isValidElement, memo} from 'react'
 
 import PropTypes from 'prop-types'
 import {field, createComponentMemo} from '../prop-types'
@@ -77,7 +77,7 @@ const Checkbox = ({
   })
 
   // render custom component
-  if (React.isValidElement(rendererResponse)) {
+  if (isValidElement(rendererResponse)) {
     return rendererResponse
   }
 
@@ -103,4 +103,4 @@ Checkbox.propTypes = {
   renderer: PropTypes.func
 }
 
-export default React.memo(Checkbox, createComponentMemo('checkbox'))
+export default memo(Checkbox, createComponentMemo('checkbox'))

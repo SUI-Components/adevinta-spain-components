@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([59e38b6](https://github.com/SUI-Components/schibsted-spain-components/commit/59e38b6b493bd3c9d9b6a40490e8050393dbe1f4))
+* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([59e38b6](https://github.com/SUI-Components/adevinta-spain-components/commit/59e38b6b493bd3c9d9b6a40490e8050393dbe1f4))
 
 
 
@@ -16,7 +16,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) packages ([0a13e32](https://github.com/SUI-Components/schibsted-spain-components/commit/0a13e32791964fcfc51e9ecb95d3ebf362010b2f))
+* Use new [@s-ui](https://github.com/s-ui) packages ([0a13e32](https://github.com/SUI-Components/adevinta-spain-components/commit/0a13e32791964fcfc51e9ecb95d3ebf362010b2f))
 
 
 
@@ -25,7 +25,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([8008231](https://github.com/SUI-Components/schibsted-spain-components/commit/8008231bcfd9750819ac5f923af317920cc8d516))
+* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([8008231](https://github.com/SUI-Components/adevinta-spain-components/commit/8008231bcfd9750819ac5f923af317920cc8d516))
 
 
 
@@ -34,7 +34,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) react icons ([4a98b51](https://github.com/SUI-Components/schibsted-spain-components/commit/4a98b51ef4441a36f1c2c96e53bedbfa7378975e))
+* Use new [@s-ui](https://github.com/s-ui) react icons ([4a98b51](https://github.com/SUI-Components/adevinta-spain-components/commit/4a98b51ef4441a36f1c2c96e53bedbfa7378975e))
 
 
 
@@ -43,7 +43,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Replace @schibstedspain/sui-atom-button -> @s-ui/react-atom-button ([8605116](https://github.com/SUI-Components/schibsted-spain-components/commit/86051163209b908a7421626f0cd25748f0295ba1))
+* Replace @schibstedspain/sui-atom-button -> @s-ui/react-atom-button ([8605116](https://github.com/SUI-Components/adevinta-spain-components/commit/86051163209b908a7421626f0cd25748f0295ba1))
 
 
 
@@ -52,7 +52,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([1d30f3f](https://github.com/SUI-Components/schibsted-spain-components/commit/1d30f3f95a121942d0e42d8f9a6bb2e386f81594))
+* Remove .npmignore ([1d30f3f](https://github.com/SUI-Components/adevinta-spain-components/commit/1d30f3f95a121942d0e42d8f9a6bb2e386f81594))
 
 
 
@@ -61,7 +61,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add callback parameter on info item ([49198b8](https://github.com/SUI-Components/schibsted-spain-components/commit/49198b85ba3d08d872e0c03b00addc3dd6221441))
+* add callback parameter on info item ([49198b8](https://github.com/SUI-Components/adevinta-spain-components/commit/49198b85ba3d08d872e0c03b00addc3dd6221441))
 
 
 
@@ -70,7 +70,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* prepare component for sui-theme change ([99f6afe](https://github.com/SUI-Components/schibsted-spain-components/commit/99f6afe33e8a8829e65e1feec80bc1361b1f9d8b))
+* prepare component for sui-theme change ([99f6afe](https://github.com/SUI-Components/adevinta-spain-components/commit/99f6afe33e8a8829e65e1feec80bc1361b1f9d8b))
 
 
 
@@ -79,8 +79,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add X close button on card's header when its expanded. ([fe4403d](https://github.com/SUI-Components/schibsted-spain-components/commit/fe4403d06aac29c107b401749f6baaee81aff888))
-* remove custom button classname and styles. ([9a873dc](https://github.com/SUI-Components/schibsted-spain-components/commit/9a873dc3f1051a7bf2782ebcbddf0eaaec6fe3b0))
+* add X close button on card's header when its expanded. ([fe4403d](https://github.com/SUI-Components/adevinta-spain-components/commit/fe4403d06aac29c107b401749f6baaee81aff888))
+* remove custom button classname and styles. ([9a873dc](https://github.com/SUI-Components/adevinta-spain-components/commit/9a873dc3f1051a7bf2782ebcbddf0eaaec6fe3b0))
 
 
 
@@ -89,7 +89,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* remove some css in order to improve usage flexibility. ([eea35b2](https://github.com/SUI-Components/schibsted-spain-components/commit/eea35b261950339e1faa73d8abd30c43869f17c5))
+* remove some css in order to improve usage flexibility. ([eea35b2](https://github.com/SUI-Components/adevinta-spain-components/commit/eea35b261950339e1faa73d8abd30c43869f17c5))
 
 
 
@@ -98,7 +98,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add collapsed property in order to decide initial state. ([3305c1f](https://github.com/SUI-Components/schibsted-spain-components/commit/3305c1f96076d014433363487f50e585827488a5))
+* add collapsed property in order to decide initial state. ([3305c1f](https://github.com/SUI-Components/adevinta-spain-components/commit/3305c1f96076d014433363487f50e585827488a5))
 
 
 
@@ -107,7 +107,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* remove root-parent selector from collapsible card. ([62c0360](https://github.com/SUI-Components/schibsted-spain-components/commit/62c0360c2abe6a12e393153a4779dc87b37d77b9))
+* remove root-parent selector from collapsible card. ([62c0360](https://github.com/SUI-Components/adevinta-spain-components/commit/62c0360c2abe6a12e393153a4779dc87b37d77b9))
 
 
 
@@ -116,8 +116,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* expose click handler func of collapsible. Move scss vars. ([11a9026](https://github.com/SUI-Components/schibsted-spain-components/commit/11a90261f5b3acb3756ae63d9e4571d7b80bc54a))
-* reuse is-expanded class instead of has-shadow. ([0c2eadc](https://github.com/SUI-Components/schibsted-spain-components/commit/0c2eadc555ba3dce48aef0f34c308702e114baa3))
+* expose click handler func of collapsible. Move scss vars. ([11a9026](https://github.com/SUI-Components/adevinta-spain-components/commit/11a90261f5b3acb3756ae63d9e4571d7b80bc54a))
+* reuse is-expanded class instead of has-shadow. ([0c2eadc](https://github.com/SUI-Components/adevinta-spain-components/commit/0c2eadc555ba3dce48aef0f34c308702e114baa3))
 
 
 
@@ -126,7 +126,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([1c635d1](https://github.com/SUI-Components/schibsted-spain-components/commit/1c635d1853798837caade33fe87340363366d356))
+* Bump version ([1c635d1](https://github.com/SUI-Components/adevinta-spain-components/commit/1c635d1853798837caade33fe87340363366d356))
 
 
 
@@ -135,12 +135,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* set the prop "collapsed" accroding to the value of the collapsed state. ([6ca0c10](https://github.com/SUI-Components/schibsted-spain-components/commit/6ca0c1083355f0bb456685327e79cc876577e52a))
+* set the prop "collapsed" accroding to the value of the collapsed state. ([6ca0c10](https://github.com/SUI-Components/adevinta-spain-components/commit/6ca0c1083355f0bb456685327e79cc876577e52a))
 
 
 ### Features
 
-* Migrate to PropTypes package ([b8d7dfe](https://github.com/SUI-Components/schibsted-spain-components/commit/b8d7dfe2eddbfd7719fbbb8b5de160ea60c8bc57))
+* Migrate to PropTypes package ([b8d7dfe](https://github.com/SUI-Components/adevinta-spain-components/commit/b8d7dfe2eddbfd7719fbbb8b5de160ea60c8bc57))
 
 
 
@@ -149,8 +149,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* first version of card collapsible component. ([49dbf69](https://github.com/SUI-Components/schibsted-spain-components/commit/49dbf69bc5348cc976eaaaeeb5b5a48e76f62db3))
-* improve docs, rename "Element" variable. ([56162f8](https://github.com/SUI-Components/schibsted-spain-components/commit/56162f84fe28d262517ecdbfaa19bae7ea93b84e))
+* first version of card collapsible component. ([49dbf69](https://github.com/SUI-Components/adevinta-spain-components/commit/49dbf69bc5348cc976eaaaeeb5b5a48e76f62db3))
+* improve docs, rename "Element" variable. ([56162f8](https://github.com/SUI-Components/adevinta-spain-components/commit/56162f84fe28d262517ecdbfaa19bae7ea93b84e))
 
 
 

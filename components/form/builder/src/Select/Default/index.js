@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react'
+import {isValidElement, memo, useCallback} from 'react'
 
 import PropTypes from 'prop-types'
 import {field, createComponentMemo} from '../../prop-types'
@@ -82,7 +82,7 @@ const DefaultSelect = ({
   })
 
   // render custom component
-  if (React.isValidElement(rendererResponse)) return rendererResponse
+  if (isValidElement(rendererResponse)) return rendererResponse
 
   // render SUI component
   return (
@@ -117,4 +117,4 @@ DefaultSelect.propTypes = {
   renderer: PropTypes.func
 }
 
-export default React.memo(DefaultSelect, createComponentMemo('select'))
+export default memo(DefaultSelect, createComponentMemo('select'))

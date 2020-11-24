@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types'
 
-import React, {Component} from 'react'
+import {Component} from 'react'
 import cx from 'classnames'
 
 class DropdownUser extends Component {

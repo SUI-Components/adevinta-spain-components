@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {Suspense, useState, useEffect} from 'react'
+import {lazy, Suspense, useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {useConsent} from '@s-ui/react-tcf-services'
 import {
@@ -9,8 +9,8 @@ import {
   LAYER_VENDORS
 } from '../constants'
 
-const FirstLayer = React.lazy(() => import('../FirstLayer'))
-const SecondLayer = React.lazy(() => import('../SecondLayer'))
+const FirstLayer = lazy(() => import('../FirstLayer'))
+const SecondLayer = lazy(() => import('../SecondLayer'))
 
 export default function TCFContainer({logo, onCloseModal, showPurposesLayer}) {
   const [showLayer, setShowLayer] = useState(LAYER_OFF)

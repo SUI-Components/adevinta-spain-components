@@ -7,14 +7,14 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* remove package ([88ffa31](https://github.com/SUI-Components/schibsted-spain-components/commit/88ffa3112637eec118034c3d3b509476e7040e4b))
-* sass vars ([fa3ee20](https://github.com/SUI-Components/schibsted-spain-components/commit/fa3ee2052dc2794de37feca8bb3f9b13275a83b5))
-* use useMount ([a22b9b4](https://github.com/SUI-Components/schibsted-spain-components/commit/a22b9b45bcb51556477bdfae930c62740e44f6f0))
+* remove package ([88ffa31](https://github.com/SUI-Components/adevinta-spain-components/commit/88ffa3112637eec118034c3d3b509476e7040e4b))
+* sass vars ([fa3ee20](https://github.com/SUI-Components/adevinta-spain-components/commit/fa3ee2052dc2794de37feca8bb3f9b13275a83b5))
+* use useMount ([a22b9b4](https://github.com/SUI-Components/adevinta-spain-components/commit/a22b9b45bcb51556477bdfae930c62740e44f6f0))
 
 
 ### Features
 
-* create new cookie banner ([627e4c5](https://github.com/SUI-Components/schibsted-spain-components/commit/627e4c5197ce713b48677236c417187ea286bb4d))
+* create new cookie banner ([627e4c5](https://github.com/SUI-Components/adevinta-spain-components/commit/627e4c5197ce713b48677236c417187ea286bb4d))
 
 
 ### BREAKING CHANGES
@@ -28,7 +28,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([02b1e94](https://github.com/SUI-Components/schibsted-spain-components/commit/02b1e941a0ce117864ea6d4e3109920effca4d5e))
+* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([02b1e94](https://github.com/SUI-Components/adevinta-spain-components/commit/02b1e941a0ce117864ea6d4e3109920effca4d5e))
 
 
 
@@ -37,7 +37,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([fdd01c6](https://github.com/SUI-Components/schibsted-spain-components/commit/fdd01c6cbfbe78c85755469a3ee2501d6a1327bc))
+* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([fdd01c6](https://github.com/SUI-Components/adevinta-spain-components/commit/fdd01c6cbfbe78c85755469a3ee2501d6a1327bc))
 
 
 
@@ -46,7 +46,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) react icons ([bdd8caf](https://github.com/SUI-Components/schibsted-spain-components/commit/bdd8caf506ada082eff9c15d7b8bf85736704597))
+* Use new [@s-ui](https://github.com/s-ui) react icons ([bdd8caf](https://github.com/SUI-Components/adevinta-spain-components/commit/bdd8caf506ada082eff9c15d7b8bf85736704597))
 
 
 
@@ -55,7 +55,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([6c54f58](https://github.com/SUI-Components/schibsted-spain-components/commit/6c54f58f921b43c8447502c89d374d007a1d8e82))
+* Remove .npmignore ([6c54f58](https://github.com/SUI-Components/adevinta-spain-components/commit/6c54f58f921b43c8447502c89d374d007a1d8e82))
 
 
 
@@ -64,12 +64,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* added brackets ([0c06e2b](https://github.com/SUI-Components/schibsted-spain-components/commit/0c06e2b836f9708c34b65abd57717ee162bfd651))
+* added brackets ([0c06e2b](https://github.com/SUI-Components/adevinta-spain-components/commit/0c06e2b836f9708c34b65abd57717ee162bfd651))
 
 
 ### Features
 
-* call to onchange prop when cookie banner is not displayed ([5f5fab7](https://github.com/SUI-Components/schibsted-spain-components/commit/5f5fab78d962f6be8ab238c8ae28f5f354c87221))
+* call to onchange prop when cookie banner is not displayed ([5f5fab7](https://github.com/SUI-Components/adevinta-spain-components/commit/5f5fab78d962f6be8ab238c8ae28f5f354c87221))
 
 
 
@@ -78,7 +78,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* set onchange prop after setState instead in render method ([a23d50d](https://github.com/SUI-Components/schibsted-spain-components/commit/a23d50d830d532da182af98c76d24cf4f1ddc9b2))
+* set onchange prop after setState instead in render method ([a23d50d](https://github.com/SUI-Components/adevinta-spain-components/commit/a23d50d830d532da182af98c76d24cf4f1ddc9b2))
 
 
 
@@ -87,7 +87,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* added onChangeCookieBanner prop allow tu us know if cookieBanner is displayed ([f24df4f](https://github.com/SUI-Components/schibsted-spain-components/commit/f24df4f5009a3b22cdf3cda633b441adb6eb4f1e))
+* added onChangeCookieBanner prop allow tu us know if cookieBanner is displayed ([f24df4f](https://github.com/SUI-Components/adevinta-spain-components/commit/f24df4f5009a3b22cdf3cda633b441adb6eb4f1e))
 
 
 
@@ -96,7 +96,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([f896d7f](https://github.com/SUI-Components/schibsted-spain-components/commit/f896d7f59b4450ad6d93d11e88b8af5e097ea0ab))
+* Bump version ([f896d7f](https://github.com/SUI-Components/adevinta-spain-components/commit/f896d7f59b4450ad6d93d11e88b8af5e097ea0ab))
 
 
 
@@ -105,7 +105,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* avoid to parse document global var by the server ([175b531](https://github.com/SUI-Components/schibsted-spain-components/commit/175b5314cb9d0590a8f7dc4565d9fb0e81abf163))
+* avoid to parse document global var by the server ([175b531](https://github.com/SUI-Components/adevinta-spain-components/commit/175b5314cb9d0590a8f7dc4565d9fb0e81abf163))
 
 
 
@@ -114,7 +114,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* make cookie banner to work only in server side ([8031bf9](https://github.com/SUI-Components/schibsted-spain-components/commit/8031bf9554e05286c5c34bf677132c5f662347cf))
+* make cookie banner to work only in server side ([8031bf9](https://github.com/SUI-Components/adevinta-spain-components/commit/8031bf9554e05286c5c34bf677132c5f662347cf))
 
 
 
@@ -123,8 +123,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Migrate to PropTypes package ([04c0c10](https://github.com/SUI-Components/schibsted-spain-components/commit/04c0c105fc5ce286fefb341be522ccd0cf20e91e))
-* switch to s-ui/component-dependencies and sui-theme@8 ([0a7f73a](https://github.com/SUI-Components/schibsted-spain-components/commit/0a7f73a25463f307517f3d3fff57447542562ce1))
+* Migrate to PropTypes package ([04c0c10](https://github.com/SUI-Components/adevinta-spain-components/commit/04c0c105fc5ce286fefb341be522ccd0cf20e91e))
+* switch to s-ui/component-dependencies and sui-theme@8 ([0a7f73a](https://github.com/SUI-Components/adevinta-spain-components/commit/0a7f73a25463f307517f3d3fff57447542562ce1))
 
 
 
@@ -133,7 +133,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* let use an icon outside the iconset ecosystem ([e437ede](https://github.com/SUI-Components/schibsted-spain-components/commit/e437edee962ac339c8b975063b99f6f8ff2f3b12))
+* let use an icon outside the iconset ecosystem ([e437ede](https://github.com/SUI-Components/adevinta-spain-components/commit/e437edee962ac339c8b975063b99f6f8ff2f3b12))
 
 
 
@@ -142,7 +142,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* support more browsers with expires ([90a3d24](https://github.com/SUI-Components/schibsted-spain-components/commit/90a3d246243fa34351d26ea54fc8707bb8bbefe0))
+* support more browsers with expires ([90a3d24](https://github.com/SUI-Components/adevinta-spain-components/commit/90a3d246243fa34351d26ea54fc8707bb8bbefe0))
 
 
 
@@ -151,14 +151,14 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* addressing feedback ([45bf619](https://github.com/SUI-Components/schibsted-spain-components/commit/45bf61973d0f7acdd49bba51205c727aa9c3a518))
+* addressing feedback ([45bf619](https://github.com/SUI-Components/adevinta-spain-components/commit/45bf61973d0f7acdd49bba51205c727aa9c3a518))
 
 
 ### Features
 
-* add more variables and some refactors ([729fa4d](https://github.com/SUI-Components/schibsted-spain-components/commit/729fa4de00f3e1b976b04822206d62435dc0ca2f))
-* add new cookie banner component ([9fff85a](https://github.com/SUI-Components/schibsted-spain-components/commit/9fff85a9870cda18d66d3bc3b14134ddb643a2df))
-* use theme-basic variables ([433c14c](https://github.com/SUI-Components/schibsted-spain-components/commit/433c14cce20b33af1233d58faaf3aef0fd504512))
+* add more variables and some refactors ([729fa4d](https://github.com/SUI-Components/adevinta-spain-components/commit/729fa4de00f3e1b976b04822206d62435dc0ca2f))
+* add new cookie banner component ([9fff85a](https://github.com/SUI-Components/adevinta-spain-components/commit/9fff85a9870cda18d66d3bc3b14134ddb643a2df))
+* use theme-basic variables ([433c14c](https://github.com/SUI-Components/adevinta-spain-components/commit/433c14cce20b33af1233d58faaf3aef0fd504512))
 
 
 

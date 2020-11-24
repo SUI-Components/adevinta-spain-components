@@ -1,5 +1,4 @@
 /* eslint-env jest */
-import React from 'react'
 import Enzyme, {render} from 'enzyme'
 import AbTestToggle from '../src/index'
 

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {useConsent} from '@s-ui/react-tcf-services'
 import SuiModal from '@s-ui/react-molecule-modal'
