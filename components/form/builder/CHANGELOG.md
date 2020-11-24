@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="4.6.0"></a>
+# 4.6.0 (2020-11-24)
+
+
+### Bug Fixes
+
+* case sensitive import ([9b9e1c1](https://github.com/SUI-Components/adevinta-spain-components/commit/9b9e1c1))
+
+
+
 <a name="4.5.0"></a>
 # 4.5.0 (2020-11-24)
 
@@ -606,6 +616,25 @@ All notable changes to this project will be documented in this file.
 * add withValidatorHoc to manage the error state of the formFields ([69f1e02](https://github.com/SUI-Components/adevinta-spain-components/commit/69f1e02))
 * fix descriptions ([37ac5dd](https://github.com/SUI-Components/adevinta-spain-components/commit/37ac5dd))
 * pR suggestions ([6f36140](https://github.com/SUI-Components/adevinta-spain-components/commit/6f36140))
+
+
+
+<a name="1.1.0"></a>
+# 1.1.0 (2019-05-22)
+
+
+### Features
+
+* add builder components ([835b8a8](https://github.com/SUI-Components/adevinta-spain-components/commit/835b8a8))
+* added demo ([2202fac](https://github.com/SUI-Components/adevinta-spain-components/commit/2202fac))
+* fix PR suggestions ([a6599b9](https://github.com/SUI-Components/adevinta-spain-components/commit/a6599b9))
+* fix propTypes description ([40082d5](https://github.com/SUI-Components/adevinta-spain-components/commit/40082d5))
+* fix readme ([81471d6](https://github.com/SUI-Components/adevinta-spain-components/commit/81471d6))
+* fix readme ([49375d0](https://github.com/SUI-Components/adevinta-spain-components/commit/49375d0))
+* fix style ([c7d44a6](https://github.com/SUI-Components/adevinta-spain-components/commit/c7d44a6))
+* fix style variable ([7922be6](https://github.com/SUI-Components/adevinta-spain-components/commit/7922be6))
+* init component ([8e59d4e](https://github.com/SUI-Components/adevinta-spain-components/commit/8e59d4e))
+* update comments ([fc355a1](https://github.com/SUI-Components/adevinta-spain-components/commit/fc355a1))
 
 
 
