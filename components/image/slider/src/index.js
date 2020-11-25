@@ -28,7 +28,16 @@ const defaultCounterPatternFactory = ({current, total}) => `${current}/${total}`
  */
 const getSlides = (currentSlide, images = [], linkFactory) => {
   return images.map((image, index) => {
-    const {alt, key: imageKey, link, src, target = TARGET_BLANK, title} = image
+    const {
+      alt,
+      height,
+      key: imageKey,
+      link,
+      src,
+      target = TARGET_BLANK,
+      title,
+      width
+    } = image
 
     const key = imageKey ? imageKey + index : index
     const img = (
@@ -39,6 +48,8 @@ const getSlides = (currentSlide, images = [], linkFactory) => {
         key={key}
         src={src}
         title={title}
+        height={height}
+        width={width}
       />
     )
     return link
