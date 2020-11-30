@@ -88,6 +88,7 @@ $base-class-modal: '#sui-TcfFirstLayerModal';
   &-logo {
     max-width: $maw-tcf-first-layer-logo;
     height: $h-tcf-first-layer-logo;
+    object-fit: contain;
   }
 
   .sui-MoleculeNotification-iconLeft {
