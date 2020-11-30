@@ -12,6 +12,7 @@ const CONSENT_SCOPE = {
   specialPurposes: [1, 2],
   features: [3],
   specialFeatures: [1],
+  interestConsentVendors: [565],
   options: {
     onRejectionResurfaceAfterDays: 1
   }
