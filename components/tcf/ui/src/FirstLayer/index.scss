@@ -13,6 +13,7 @@ $fz-tcf-first-layer-title: $fz-h5 !default; //18px
 $h-tcf-first-layer-footer: 88px;
 $maw-tcf-first-layer-buttons: 200px + $p-xxxl !default;
 $maw-tcf-first-layer-logo: 114px !default;
+$h-tcf-first-layer-logo: 22px !default;
 $maw-tcf-first-layer: 1200px !default;
 $p-tcf-first-layer-buttons--desktop: 24px 33px;
 $p-tcf-first-layer-buttons--mobile: 24px 0px;
@@ -85,7 +86,9 @@ $base-class-modal: '#sui-TcfFirstLayerModal';
   }
 
   &-logo {
-    width: $maw-tcf-first-layer-logo;
+    max-width: $maw-tcf-first-layer-logo;
+    height: $h-tcf-first-layer-logo;
+    object-fit: contain;
   }
 
   .sui-MoleculeNotification-iconLeft {
