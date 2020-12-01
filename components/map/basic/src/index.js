@@ -138,7 +138,8 @@ class MapBasic extends Component {
     return false
   }
 
-  UNSAFE_componentWillReceiveProps({ // eslint-disable-line
+  UNSAFE_componentWillReceiveProps({
+    // eslint-disable-line
     heatMapUrl,
     pois,
     showHeatmap,
@@ -303,7 +304,7 @@ MapBasic.propTypes = {
 
 MapBasic.defaultProps = {
   attribution:
-    'Map &copy; 1987-2019 <a href="http://developer.here.com">HERE</a>',
+    'Map &copy; 1987-2020 <a href="https://developer.here.com" title="APIs and SDKs to build powerful location-aware apps">HERE</a>',
   center: [40.00237, -3.99902],
   currentGeoCode: [],
   id: 'map-container',
