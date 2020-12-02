@@ -138,8 +138,8 @@ class MapBasic extends Component {
     return false
   }
 
+  // eslint-disable-next-line camelcase
   UNSAFE_componentWillReceiveProps({
-    // eslint-disable-line
     heatMapUrl,
     pois,
     showHeatmap,
