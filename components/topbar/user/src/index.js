@@ -228,11 +228,11 @@ export default function TopbarUser({
         <div className="sui-TopbarUser-ctaButton">
           <AtomButton
             link
+            design="solid"
             href={navCTA.url}
             title={navCTA.text}
             leftIcon={<navCTA.icon svgClass="sui-TopbarUser-ctaButtonIcon" />}
             size={atomButtonSizes.SMALL}
-            type="primary"
             onClick={handleCTAclick}
           >
             {navCTA.text}
