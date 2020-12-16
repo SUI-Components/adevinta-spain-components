@@ -1,4 +1,4 @@
-# Adevinta Spain React Components
+# Adevinta Spain React Components ![CI](https://github.com/SUI-Components/adevinta-spain-components/workflows/CI/badge.svg)
 
 <img src="https://www.adevinta.com/wp-content/themes/scom/assets/img/Adevinta-logo.svg" alt="Adevinta Logo" width="150">
 
