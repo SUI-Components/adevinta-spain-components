@@ -112,7 +112,6 @@ export default function TopbarUser({
 
   useEffect(() => {
     let _verticalScrollPosition
-
     /**
      * Lock body element scroll.
      */
@@ -142,7 +141,11 @@ export default function TopbarUser({
         window.scrollTo(0, _verticalScrollPosition)
     }
 
-    if (menuExpanded && !isToggleHidden) {
+    // Given toggle button is hidden in desktop.
+    // Then we must not lock/unlock body there
+    if (isToggleHidden) return
+
+    if (menuExpanded) {
       _lockBodyScroll()
     } else {
       _unlockBodyScroll()
