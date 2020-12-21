@@ -335,5 +335,5 @@ MapBasic.defaultProps = {
 
 MapBasic.displayName = 'MapBasic'
 
-export default MapBasic
 export {mapLanguages}
+export default MapBasic
