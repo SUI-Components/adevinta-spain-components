@@ -13,9 +13,11 @@ const SIDES = {
   [LEFT]: 'left'
 }
 
+const isClient = typeof window !== 'undefined'
+
 function useOrientation() {
   const [orientation, setOrientation] = useState(
-    () => typeof window !== 'undefined' && window.orientation
+    () => isClient && window.orientation
   )
   const hasOrientation = Boolean(orientation)
   const isPortrait = String(orientation) === UPRIGHT
@@ -35,7 +37,7 @@ function useOrientation() {
     : {orientation: ORIENTATION.landscape, side}
 }
 
-useOrientation.displayName = 'HookUseOnScreen'
+useOrientation.displayName = 'HookUseOrientation'
 
 export {ORIENTATION as orientations}
 export default useOrientation
