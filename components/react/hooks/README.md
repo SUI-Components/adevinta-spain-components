@@ -61,6 +61,25 @@ export default () => {
 }
 ```
 
+### useOrientation
+
+This Hook listens for orientation changes and returns current orientation information
+Returns: `{orientation, side}`
+
+```js
+import {useOrientation, orientations} from '@s-ui/react-hooks'
+
+export default () => {
+  const {orientation, side} = useOrientation()
+
+  return (
+    <>
+      {orientation === orientations.portrait && <p>portrait</p>}
+      {orientation === orientations.landscape && <p>landscape - {side}</p>}
+    </>
+  )
+}
+```
 ### useNearScreen
 
 Similar to `useOnScreen` but it let you configure when the distance is enough to return true. By default if the element is 200px near the screen it will change the inner state of the hook. You could define the `offset` in pixels to fire the event sooner or later.
