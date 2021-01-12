@@ -63,7 +63,7 @@ export default () => {
 
 ### useOrientation
 
-This Hook listens for orientation changes and return current orientation information
+This Hook listens for orientation changes and returns current orientation information
 Returns: `{orientation, side}`
 
 ```js
