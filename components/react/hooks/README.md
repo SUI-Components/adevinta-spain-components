@@ -269,4 +269,42 @@ export default function Demo() {
 }
 ```
 
+### useEventListener
+
+> The `useEventListener` hook is useful to avoid a lot of boilerplate when setting one or more event listeners in a component.
+
+#### Usage
+
+**Params**
+
+It accept 4 arguments, the first 2 mandatory, the others are optionals.
+
+- **event type<String|Array<String>>**: It could be a single string representing an event or more passed with an array
+[required]
+
+- **handler<Function>**: The function handler to invoke when the event occurs
+[required]
+
+- **target<HtmlElement>**: The target of our event listeners
+[default: Client: window | Server: null]
+
+- **options<Object>**: Optional options to pass to the event listener
+[default: {}]
+
+#### Import package and use it into a component:
+
+```js
+
+function Component () {
+  const divRef = useRef()
+
+  useEventListener('scroll', () => console.log('Scrolled the whole document'))
+  useEventListener(['click', 'touchstart'], () => console.log('Div clicked or touched!'), divRef.current)
+
+  return (
+    <div ref={divRef} />
+  )
+}
+```
+
 > **Find full description and more examples in the [demo page](#).**
