@@ -4,6 +4,9 @@
 
 <!-- ![](./assets/preview.png) -->
 
+Documentation: n/all--lib-form-builder-docs/
+Playground: https://form-builder-workbench.surge.sh/
+
 ## Installation
 
 ```sh
