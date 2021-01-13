@@ -1,5 +1,4 @@
-import React, {useState, useRef} from 'react'
-import {useEventListener} from '../../../../components/react/hooks/src'
+import {useState, useRef} from 'react'
 import {
   Box,
   H3,
@@ -10,6 +9,8 @@ import {
   Grid,
   Cell
 } from '@s-ui/documentation-library'
+
+import {useEventListener} from '../../../../components/react/hooks/src'
 
 const availableEvents = ['click', 'mouseenter', 'scroll']
 
