@@ -1,22 +1,24 @@
-class Service {
+export class Service {
   constructor({
     getVendorListUseCase,
     loadConsentDraftUseCase,
     loadUserConsentUseCase,
+    saveFullUserConsentUseCase,
     saveUserConsentUseCase,
+    uiVisibleUseCase,
     updateConsentPurposeUseCase,
     updateConsentSpecialFeatureUseCase,
-    updateConsentVendorUseCase,
-    uiVisibleUseCase
+    updateConsentVendorUseCase
   }) {
     this._getVendorListUseCase = getVendorListUseCase
     this._loadConsentDraftUseCase = loadConsentDraftUseCase
     this._loadUserConsentUseCase = loadUserConsentUseCase
+    this._saveFullUserConsentUserCase = saveFullUserConsentUseCase
     this._saveUserConsentUseCase = saveUserConsentUseCase
+    this._uiVisibleUseCase = uiVisibleUseCase
     this._updateConsentPurposeUseCase = updateConsentPurposeUseCase
     this._updateConsentSpecialFeatureUseCase = updateConsentSpecialFeatureUseCase
     this._updateConsentVendorUseCase = updateConsentVendorUseCase
-    this._uiVisibleUseCase = uiVisibleUseCase
   }
 
   getVendorList() {
@@ -33,6 +35,10 @@ class Service {
 
   saveUserConsent() {
     return this._saveUserConsentUseCase.execute()
+  }
+
+  saveFullUserConsent() {
+    return this._saveFullUserConsentUserCase.execute()
   }
 
   updatePurpose({id, consent}) {
@@ -61,5 +67,3 @@ class Service {
     return this._uiVisibleUseCase.execute({visible})
   }
 }
-
-export {Service}
