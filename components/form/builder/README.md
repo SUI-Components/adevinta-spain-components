@@ -5,6 +5,7 @@
 <!-- ![](./assets/preview.png) -->
 
 Documentation: https://docs.mpi-internal.com/scmspain/all--lib-form-builder-docs/
+
 Playground: https://form-builder-workbench.surge.sh/
 
 ## Installation
