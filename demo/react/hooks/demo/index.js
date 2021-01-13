@@ -1,4 +1,5 @@
 import {useRef, useState} from 'react'
+import {Box, H1, H2} from '@s-ui/documentation-library'
 
 import {
   useMount,
@@ -9,6 +10,22 @@ import {
   useSwipe
 } from '../../../../components/react/hooks/src'
 import LegacyStateDemo from './LegacyStateDemo'
+import UseEventListenerDemo from './UseEventListenerDemo'
+
+// eslint-disable-next-line react/prop-types
+function HookDemo({component: Component}) {
+  return (
+    <Box
+      outline
+      elementType="article"
+      color="#167db7"
+      style={{marginBottom: '1em'}}
+    >
+      <H2>{Component.name}</H2>
+      <Component />
+    </Box>
+  )
+}
 
 export default () => {
   const [text, setText] = useState('On 3 secs, execute the onMount callback')
@@ -26,7 +43,9 @@ export default () => {
   })
 
   return (
-    <div>
+    <Box>
+      <H1>SUI React Hooks</H1>
+      <HookDemo component={UseEventListenerDemo} />
       <h1>useSwipe</h1>
       <div
         ref={swipeRef}
@@ -120,6 +139,6 @@ export default () => {
         <p>{`Scroll position: ${position}`}</p>
         <p>{`Scroll direction: ${direction}`}</p>
       </div>
-    </div>
+    </Box>
   )
 }
