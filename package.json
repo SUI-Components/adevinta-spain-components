@@ -20,12 +20,16 @@
     "test": "sui-studio test && npm run test:jest",
     "test:jest": "jest"
   },
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/adevinta-spain-components.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "7.10.4",
+    "@s-ui/documentation-library": "1",
     "@s-ui/lint": "3",
     "@s-ui/precommit": "2",
     "@s-ui/studio": "9",
