@@ -15,6 +15,7 @@ import UseNearScreenDemo from './UseNearScreenDemo'
 import UseOnScreenDemo from './UseOnScreenDemo'
 import UseScrollDemo from './UseScrollDemo'
 import UseSwipeDemo from './UseSwipeDemo'
+import UseToggleDemo from './UseToggleDemo'
 
 const orderedHookList = [
   UseEventListenerDemo,
@@ -23,7 +24,8 @@ const orderedHookList = [
   UseMountDemo,
   UseNearScreenDemo,
   UseOnScreenDemo,
-  UseSwipeDemo
+  UseSwipeDemo,
+  UseToggleDemo
 ]
 
 // eslint-disable-next-line react/prop-types
