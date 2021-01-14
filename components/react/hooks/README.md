@@ -341,8 +341,7 @@ function Component () {
 
 ### useToggle
 
-> The `useToggle` hook abstracts the often-used logic to toggle a boolean state. It is especially useful when handling checkboxs and on/off conditional renders, but it could be used in composition with additional logic to creare more powerfull hooks (useBoolean, ...) 
-
+> The `useToggle` hook abstracts the often-used logic to toggle a boolean state. It is especially useful when handling checkboxes and on/off conditional renders, but it could be used in composition with additional logic to create more powerful hooks (useBoolean, ...) 
 #### Usage
 
 ```js
