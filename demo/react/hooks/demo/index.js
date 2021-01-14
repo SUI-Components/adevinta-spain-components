@@ -7,6 +7,7 @@ import {
   OrderedList
 } from '@s-ui/documentation-library'
 
+import UseBooleanDemo from './UseBooleanDemo'
 import UseEventListenerDemo from './UseEventListenerDemo'
 import UseLegacyStateDemo from './UseLegacyStateDemo'
 import UseMediaQueryDemo from './UseMediaQueryDemo'
@@ -18,6 +19,7 @@ import UseSwipeDemo from './UseSwipeDemo'
 import UseToggleDemo from './UseToggleDemo'
 
 const orderedHookList = [
+  UseBooleanDemo,
   UseEventListenerDemo,
   UseLegacyStateDemo,
   UseMediaQueryDemo,
