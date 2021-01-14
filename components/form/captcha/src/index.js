@@ -17,6 +17,7 @@ const CAPTCHA_VERIFIER = () =>
   typeof window.grecaptcha.render !== 'undefined'
 
 const FormCaptcha = ({
+  containerId,
   siteKey,
   locale,
   onSubmit = () => {},
@@ -24,6 +25,9 @@ const FormCaptcha = ({
 }) => {
   const [showCaptcha, setShowCaptcha] = useState(false)
   const [captchaId, setCaptchaId] = useState(null)
+
+  // If we receive a unique identifier, we concatenate it with the default.
+  const captchaContainerId = [CAPTCHA_ID, containerId].filter(Boolean).join(' ')
 
   const reset = () => {
     if (captchaId !== null) {
@@ -36,7 +40,7 @@ const FormCaptcha = ({
     if (captchaId !== null) return null
 
     try {
-      const widgetId = window.grecaptcha.render(CAPTCHA_ID, {
+      const widgetId = window.grecaptcha.render(captchaContainerId, {
         sitekey: siteKey,
         hl: locale,
         callback: onSubmit,
@@ -60,7 +64,7 @@ const FormCaptcha = ({
   return (
     <>
       {showCaptcha && (
-        <div id={CAPTCHA_ID}>
+        <div id={captchaContainerId}>
           <ScriptLoader
             isAsync
             render={load}
@@ -76,6 +80,10 @@ const FormCaptcha = ({
 FormCaptcha.displayName = 'FormCaptcha'
 
 FormCaptcha.propTypes = {
+  /**
+   * Necessary to define a unique identifier in case of multiple instances of the component.
+   */
+  containerId: PropTypes.string,
   siteKey: PropTypes.string.isRequired,
   locale: PropTypes.string,
   onSubmit: PropTypes.func,
