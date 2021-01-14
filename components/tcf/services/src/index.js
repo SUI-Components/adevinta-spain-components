@@ -7,10 +7,14 @@ import {eventReporterFactory} from './infrastructure/reporter/eventReporter'
 import {TCF_CONTEXT_INITIALIZED} from './core/events'
 
 function ConsentProvider({language, isMobile, reporter, scope, children}) {
-  const eventReporter = useRef(eventReporterFactory(reporter))
-  const service = useRef(
+  const eventReporter = useRef()
+  eventReporter.current =
+    eventReporter.current || eventReporterFactory(reporter)
+  const service = useRef()
+  service.current =
+    service.current ||
     ServiceInitializer.init({language, reporter: eventReporter.current, scope})
-  )
+
   const loadConsentDraft = () => service.current.loadConsentDraft()
   const loadUserConsent = () => service.current.loadUserConsent()
   const getVendorList = () => service.current.getVendorList()
@@ -24,6 +28,7 @@ function ConsentProvider({language, isMobile, reporter, scope, children}) {
         }))
     )
   const saveUserConsent = () => service.current.saveUserConsent()
+  const saveFullUserConsent = () => service.current.saveFullUserConsent()
   const updatePurpose = ({id, consent}) =>
     service.current.updatePurpose({id, consent})
   const updateSpecialFeature = ({id, consent}) =>
@@ -35,22 +40,22 @@ function ConsentProvider({language, isMobile, reporter, scope, children}) {
   useEffect(() => {
     eventReporter.current(TCF_CONTEXT_INITIALIZED, {language, isMobile})
   })
-
   return (
     <ConsentContext.Provider
       value={{
-        language,
+        getScope,
+        getVendorList,
         isMobile,
-        reporter: eventReporter.current,
+        language,
         loadConsentDraft,
         loadUserConsent,
-        getVendorList,
-        getScope,
+        reporter: eventReporter.current,
+        saveFullUserConsent,
         saveUserConsent,
+        uiVisible,
         updatePurpose,
         updateSpecialFeature,
-        updateVendor,
-        uiVisible
+        updateVendor
       }}
     >
       {children}

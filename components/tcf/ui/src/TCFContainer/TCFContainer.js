@@ -8,6 +8,7 @@ import {
   LAYER_PURPOSES,
   LAYER_VENDORS
 } from '../constants'
+import isBot from './isBotService'
 
 const FirstLayer = lazy(() => import('../FirstLayer'))
 const SecondLayer = lazy(() => import('../SecondLayer'))
@@ -15,7 +16,13 @@ const SecondLayer = lazy(() => import('../SecondLayer'))
 export default function TCFContainer({logo, onCloseModal, showPurposesLayer}) {
   const [showLayer, setShowLayer] = useState(LAYER_OFF)
   const [vendorsLayerBackTo, setVendorsLayerBackTo] = useState(LAYER_OFF)
-  const {uiVisible, loadUserConsent, saveUserConsent} = useConsent()
+  const {
+    loadUserConsent,
+    saveFullUserConsent,
+    saveUserConsent,
+    uiVisible
+  } = useConsent()
+
   useEffect(() => {
     if (showPurposesLayer) {
       uiVisible({visible: true})
@@ -25,6 +32,11 @@ export default function TCFContainer({logo, onCloseModal, showPurposesLayer}) {
 
   useEffect(() => {
     async function checkConsentStatus() {
+      const {userAgent} = window.navigator
+      if (isBot({userAgent})) {
+        saveFullUserConsent()
+        return
+      }
       const userConsent = await loadUserConsent()
       const {valid} = userConsent
       if (!valid) {
@@ -32,10 +44,11 @@ export default function TCFContainer({logo, onCloseModal, showPurposesLayer}) {
         changeLayer(LAYER_BANNER)
       }
     }
+
     checkConsentStatus().catch(() => {
       changeLayer(LAYER_OFF)
     })
-  }, [])
+  }, [window.navigator.userAgent])
 
   const changeLayer = to => {
     if (to === LAYER_VENDORS) {

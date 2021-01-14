@@ -6,6 +6,7 @@ import {UiVisibleUseCase} from './UiVisibleUseCase'
 import {UpdateConsentPurposeUseCase} from './UpdateConsentPurposeUseCase'
 import {UpdateConsentSpecialFeatureUseCase} from './UpdateConsentSpecialFeatureUseCase'
 import {UpdateConsentVendorUseCase} from './UpdateConsentVendorUseCase'
+import {SaveFullUserConsentUseCase} from './SaveFullUserConsentUseCase'
 
 export function getVendorListUseCaseFactory({repository}) {
   return new GetVendorListUseCase({
@@ -47,4 +48,8 @@ export function updateConsentSpecialFeatureUseCaseFactory({repository}) {
 
 export function updateConsentVendorUseCaseFactory({repository}) {
   return new UpdateConsentVendorUseCase({repository})
+}
+
+export function saveFullUserConsentUseCaseFactory({repository}) {
+  return new SaveFullUserConsentUseCase({repository})
 }
