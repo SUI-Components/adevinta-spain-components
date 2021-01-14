@@ -20,7 +20,10 @@
     "test": "sui-studio test && npm run test:jest",
     "test:jest": "jest"
   },
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/adevinta-spain-components.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
