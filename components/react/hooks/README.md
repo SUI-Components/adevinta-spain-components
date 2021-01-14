@@ -291,10 +291,7 @@ It accept 4 arguments, the first 2 mandatory, the others are optionals.
 - **options<Object>**: Optional options to pass to the event listener
 [default: {}]
 
-#### Import package and use it into a component:
-
 ```js
-
 function Component () {
   const divRef = useRef()
 
@@ -303,6 +300,25 @@ function Component () {
 
   return (
     <div ref={divRef} />
+  )
+}
+```
+
+### useToggle
+
+> The `useToggle` hook abstracts the often-used logic to toggle a boolean state. It is especially useful when handling checkboxs and on/off conditional renders, but it could be used in composition with additional logic to creare more powerfull hooks (useBoolean, ...) 
+
+#### Usage
+
+```js
+function Component () {
+  const [value, toggle] = useToggle()
+
+  return (
+    <div>
+      <span>{value.toString()}</span>
+      <button onClick={toggle}>Toggle!</button>
+    </div>
   )
 }
 ```
