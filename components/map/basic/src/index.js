@@ -18,6 +18,10 @@ class MapBasic extends Component {
         handleFunction: evt => this.props.onMapClick(evt.detail)
       },
       {
+        name: 'leaflet_map_drag',
+        handleFunction: evt => this.props.onMapDrag(evt.detail)
+      },
+      {
         name: 'leaflet_map_dragend',
         handleFunction: evt => this.props.onMapDragEnd(evt.detail)
       },
@@ -140,11 +144,15 @@ class MapBasic extends Component {
 
   // eslint-disable-next-line camelcase
   UNSAFE_componentWillReceiveProps({
+    // eslint-disable-line
+    zoom,
+    center,
     heatMapUrl,
     pois,
     showHeatmap,
     showSatelliteView
   }) {
+    this.mapInstance.panTo(center, zoom)
     this.mapInstance.displayPois(pois)
     this.checkIfHeatMapShouldBeDisplayed(showHeatmap, heatMapUrl)
     this.checkWhichViewShouldBeDisplayed(showSatelliteView)
@@ -222,6 +230,7 @@ MapBasic.propTypes = {
   minZoom: PropTypes.number,
   onLayerClick: PropTypes.func,
   onMapClick: PropTypes.func,
+  onMapDrag: PropTypes.func,
   onMapDragEnd: PropTypes.func,
   onMapLoad: PropTypes.func,
   onMapZoomEnd: PropTypes.func,
@@ -315,6 +324,7 @@ MapBasic.defaultProps = {
   minZoom: 6,
   onLayerClick: NO_OP,
   onMapClick: NO_OP,
+  onMapDrag: NO_OP,
   onMapDragEnd: NO_OP,
   onMapLoad: NO_OP,
   onMapZoomEnd: NO_OP,
