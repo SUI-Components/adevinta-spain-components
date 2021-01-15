@@ -7,6 +7,7 @@ import {
   OrderedList
 } from '@s-ui/documentation-library'
 
+import UseBooleanDemo from './UseBooleanDemo'
 import UseEventListenerDemo from './UseEventListenerDemo'
 import UseLegacyStateDemo from './UseLegacyStateDemo'
 import UseMediaQueryDemo from './UseMediaQueryDemo'
@@ -15,15 +16,18 @@ import UseNearScreenDemo from './UseNearScreenDemo'
 import UseOnScreenDemo from './UseOnScreenDemo'
 import UseScrollDemo from './UseScrollDemo'
 import UseSwipeDemo from './UseSwipeDemo'
+import UseToggleDemo from './UseToggleDemo'
 
 const orderedHookList = [
+  UseBooleanDemo,
   UseEventListenerDemo,
   UseLegacyStateDemo,
   UseMediaQueryDemo,
   UseMountDemo,
   UseNearScreenDemo,
   UseOnScreenDemo,
-  UseSwipeDemo
+  UseSwipeDemo,
+  UseToggleDemo
 ]
 
 // eslint-disable-next-line react/prop-types

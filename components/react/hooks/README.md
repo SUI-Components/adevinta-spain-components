@@ -291,10 +291,7 @@ It accept 4 arguments, the first 2 mandatory, the others are optionals.
 - **options<Object>**: Optional options to pass to the event listener
 [default: {}]
 
-#### Import package and use it into a component:
-
 ```js
-
 function Component () {
   const divRef = useRef()
 
@@ -303,6 +300,59 @@ function Component () {
 
   return (
     <div ref={divRef} />
+  )
+}
+```
+
+### useBoolean
+
+> The `useBoolean` hook is particularly useful when is necessary to trigger conditional renders in consequence of events. A typical use case is to handle a modal show/hide logic. It is an extension of the `useToggle` hook.
+
+#### Usage
+
+**Params**
+
+It accepts a single boolean argument which is used as initial value.
+
+- **initialValue**
+[*default*: `false`]
+
+**Return value**: `Array<Boolean, Object>`
+  - **value**
+  - **handlers**
+    - *toggle*: Toggle the current value 
+    - *on*: Set to `true` the value 
+    - *off*: Set to `false` the value 
+
+```js
+function Component () {
+ const [value, {toggle, on, off}] = useBoolean()
+
+  return (
+    <div>
+      <span>{value.toString()}</span>
+      <button onClick={toggle}>Toggle!</button>
+      <button onClick={on}>Turn true!</button>
+      <button onClick={off}>Turn false!</button>
+    </div>
+  )
+}
+```
+
+### useToggle
+
+> The `useToggle` hook abstracts the often-used logic to toggle a boolean state. It is especially useful when handling checkboxes and on/off conditional renders, but it could be used in composition with additional logic to create more powerful hooks (useBoolean, ...) 
+#### Usage
+
+```js
+function Component () {
+  const [value, toggle] = useToggle()
+
+  return (
+    <div>
+      <span>{value.toString()}</span>
+      <button onClick={toggle}>Toggle!</button>
+    </div>
   )
 }
 ```

@@ -7,14 +7,16 @@ export default function ReactHooks() {
   return null
 }
 
-export {default as useMediaQuery} from './useMediaQuery'
+export {default as useBoolean} from './useBoolean'
+export {default as useDebounce} from './useDebounce'
+export {default as useEventListener} from './useEventListener'
 export {default as useLegacyState} from './useLegacyState'
+export {default as useMediaQuery} from './useMediaQuery'
 export {default as useMount} from './useMount'
 export {default as useOnClickOutside} from './useOnClickOutside'
 export {default as useOnScreen, useNearScreen} from './useOnScreen'
+export {default as useOrientation, orientations} from './useOrientation'
 export {default as usePrevious} from './usePrevious'
 export {default as useScroll} from './useScroll'
 export {default as useSwipe} from './useSwipe'
-export {default as useDebounce} from './useDebounce'
-export {default as useEventListener} from './useEventListener'
-export {default as useOrientation, orientations} from './useOrientation'
+export {default as useToggle} from './useToggle'
