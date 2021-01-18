@@ -15,6 +15,7 @@ import UseMountDemo from './UseMountDemo'
 import UseNearScreenDemo from './UseNearScreenDemo'
 import UseOnScreenDemo from './UseOnScreenDemo'
 import UseScrollDemo from './UseScrollDemo'
+import UseStepsDemo from './UseStepsDemo'
 import UseSwipeDemo from './UseSwipeDemo'
 import UseToggleDemo from './UseToggleDemo'
 
@@ -26,6 +27,7 @@ const orderedHookList = [
   UseMountDemo,
   UseNearScreenDemo,
   UseOnScreenDemo,
+  UseStepsDemo,
   UseSwipeDemo,
   UseToggleDemo
 ]

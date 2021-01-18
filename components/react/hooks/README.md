@@ -80,6 +80,7 @@ export default () => {
   )
 }
 ```
+
 ### useNearScreen
 
 Similar to `useOnScreen` but it let you configure when the distance is enough to return true. By default if the element is 200px near the screen it will change the inner state of the hook. You could define the `offset` in pixels to fire the event sooner or later.
@@ -280,27 +281,29 @@ export default function Demo() {
 It accept 4 arguments, the first 2 mandatory, the others are optionals.
 
 - **event type<String|Array<String>>**: It could be a single string representing an event or more passed with an array
-[required]
+  [required]
 
 - **handler<Function>**: The function handler to invoke when the event occurs
-[required]
+  [required]
 
 - **target<HtmlElement>**: The target of our event listeners
-[default: Client: window | Server: null]
+  [default: Client: window | Server: null]
 
 - **options<Object>**: Optional options to pass to the event listener
-[default: {}]
+  [default: {}]
 
 ```js
-function Component () {
+function Component() {
   const divRef = useRef()
 
   useEventListener('scroll', () => console.log('Scrolled the whole document'))
-  useEventListener(['click', 'touchstart'], () => console.log('Div clicked or touched!'), divRef.current)
-
-  return (
-    <div ref={divRef} />
+  useEventListener(
+    ['click', 'touchstart'],
+    () => console.log('Div clicked or touched!'),
+    divRef.current
   )
+
+  return <div ref={divRef} />
 }
 ```
 
@@ -315,18 +318,19 @@ function Component () {
 It accepts a single boolean argument which is used as initial value.
 
 - **initialValue**
-[*default*: `false`]
+  [*default*: `false`]
 
 **Return value**: `Array<Boolean, Object>`
-  - **value**
-  - **handlers**
-    - *toggle*: Toggle the current value 
-    - *on*: Set to `true` the value 
-    - *off*: Set to `false` the value 
+
+- **value**
+- **handlers**
+  - _toggle_: Toggle the current value
+  - _on_: Set to `true` the value
+  - _off_: Set to `false` the value
 
 ```js
-function Component () {
- const [value, {toggle, on, off}] = useBoolean()
+function Component() {
+  const [value, {toggle, on, off}] = useBoolean()
 
   return (
     <div>
@@ -341,11 +345,12 @@ function Component () {
 
 ### useToggle
 
-> The `useToggle` hook abstracts the often-used logic to toggle a boolean state. It is especially useful when handling checkboxes and on/off conditional renders, but it could be used in composition with additional logic to create more powerful hooks (useBoolean, ...) 
+> The `useToggle` hook abstracts the often-used logic to toggle a boolean state. It is especially useful when handling checkboxes and on/off conditional renders, but it could be used in composition with additional logic to create more powerful hooks (useBoolean, ...)
+
 #### Usage
 
 ```js
-function Component () {
+function Component() {
   const [value, toggle] = useToggle()
 
   return (
@@ -353,6 +358,45 @@ function Component () {
       <span>{value.toString()}</span>
       <button onClick={toggle}>Toggle!</button>
     </div>
+  )
+}
+```
+
+### useSteps
+
+> The `useSteps` hook allow to create a steps handler for navigating between steps.#### Usage
+
+#### Usage
+
+**Params**
+
+It accepts a single argument which is used as initial value. If not passed, the history will be empty in the beginning
+
+- **initialValue**: required
+
+**Return value**: `Object`
+
+- _step_: `any` The current step
+- _history_: `Array<any>` The steps history list
+- _lastAction_: `next|prev|reset` The last triggered action type
+- _next_: `(nextStep) => void` Set the next step passed as argument
+- _prev_: `() => void` Bring back to the previous step. If there are less than the
+- _reset_: `() => void` Set to `false` the value
+- _isActive_: `(step) => boolean` Check if the passed step is marked as the current
+
+```js
+function Component() {
+  const {next, prev, step, history, lastAction, reset} = useSteps(0)
+
+  return (
+    <>
+      {prev && <Button onClick={prev}>Prev</Button>}
+      <Strong>Step: {steps[step]}</Strong>
+      <Button onClick={() => next(step + 1)}>Next</Button>
+      <Strong>History: {history.toString()}</Strong>
+      <Strong>Last action: {lastAction}</Strong>
+      <Button onClick={reset}>Reset</Button>
+    </>
   )
 }
 ```
