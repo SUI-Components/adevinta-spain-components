@@ -144,15 +144,18 @@ class MapBasic extends Component {
 
   // eslint-disable-next-line camelcase
   UNSAFE_componentWillReceiveProps({
-    // eslint-disable-line
     zoom,
     center,
     heatMapUrl,
     pois,
     showHeatmap,
+    isSetViewEnabled,
     showSatelliteView
   }) {
-    this.mapInstance.panTo(center, zoom)
+    if (isSetViewEnabled) {
+      this.mapInstance.setView(center, zoom)
+    }
+
     this.mapInstance.displayPois(pois)
     this.checkIfHeatMapShouldBeDisplayed(showHeatmap, heatMapUrl)
     this.checkWhichViewShouldBeDisplayed(showSatelliteView)
@@ -301,6 +304,10 @@ MapBasic.propTypes = {
    * BY DEFAULT set to true. Set it to false to disable the use to drag and move on the map.
    */
   isInteractable: PropTypes.bool,
+  /**
+   * If true updates the map center and zoom when the component render
+   */
+  isSetViewEnabled: PropTypes.bool,
   /**
    * This property indicates if the map zooms in or out in response to mouse wheel events.
    */

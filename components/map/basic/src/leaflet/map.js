@@ -27,7 +27,7 @@ export default class LeafletMap {
     this.dispatchFirstLoad()
   }
 
-  panTo(coordinates, zoom) {
+  setView(coordinates, zoom) {
     this._map.setView(new L.LatLng(coordinates[0], coordinates[1]), zoom)
   }
 
@@ -82,7 +82,12 @@ export default class LeafletMap {
   }
 
   buildCircle({latitude, longitude, radius, onPolygonWithBounds}) {
-    this.circle = new Circle({latitude, longitude, radius, onPolygonWithBounds})
+    this.circle = new Circle({
+      latitude,
+      longitude,
+      radius,
+      onPolygonWithBounds
+    })
     this.circle.setCircleOnMap({map: this._map})
   }
 
