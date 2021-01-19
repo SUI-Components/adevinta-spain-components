@@ -27,7 +27,7 @@ export default class LeafletMap {
     this.dispatchFirstLoad()
   }
 
-  setView(coordinates, zoom) {
+  setViewCenter(coordinates, zoom) {
     this._map.setView(new L.LatLng(coordinates[0], coordinates[1]), zoom)
   }
 

@@ -153,7 +153,7 @@ class MapBasic extends Component {
     showSatelliteView
   }) {
     if (isSetViewEnabled) {
-      this.mapInstance.setView(center, zoom)
+      this.mapInstance.setViewCenter(center, zoom)
     }
 
     this.mapInstance.displayPois(pois)
