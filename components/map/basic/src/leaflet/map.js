@@ -27,6 +27,10 @@ export default class LeafletMap {
     this.dispatchFirstLoad()
   }
 
+  setViewCenter(coordinates, zoom) {
+    this._map.setView(new L.LatLng(coordinates[0], coordinates[1]), zoom)
+  }
+
   buildMap(properties) {
     this.layerManager.createMapLayers(properties)
     const mapOptions = {
@@ -78,7 +82,12 @@ export default class LeafletMap {
   }
 
   buildCircle({latitude, longitude, radius, onPolygonWithBounds}) {
-    this.circle = new Circle({latitude, longitude, radius, onPolygonWithBounds})
+    this.circle = new Circle({
+      latitude,
+      longitude,
+      radius,
+      onPolygonWithBounds
+    })
     this.circle.setCircleOnMap({map: this._map})
   }
 
@@ -181,6 +190,12 @@ export default class LeafletMap {
     this._map.on('click', e => {
       this.dispatchCustomEvent({
         eventName: 'leaflet_map_click',
+        detail: this.getParamsForRequest()
+      })
+    })
+    this._map.on('drag', e => {
+      this.dispatchCustomEvent({
+        eventName: 'leaflet_map_drag',
         detail: this.getParamsForRequest()
       })
     })
