@@ -12,6 +12,7 @@ export default function ImageLazyLoad({
   alt = '',
   title = '',
   aspectRatio = '',
+  onError = () => {},
   offsetVertical = 100,
   showSpinner = true,
   src
@@ -32,9 +33,10 @@ export default function ImageLazyLoad({
       <div className={`${BASE_CLASS}-imageWrap`}>
         {isNearScreen && (
           <img
-            className={`${BASE_CLASS}-image`}
-            src={src}
             alt={alt}
+            className={`${BASE_CLASS}-image`}
+            onError={onError}
+            src={src}
             title={title}
           />
         )}
@@ -44,6 +46,10 @@ export default function ImageLazyLoad({
 }
 
 ImageLazyLoad.propTypes = {
+  /**
+   * Specify how to handle, can be useful to specify a fallback image.
+   */
+  onError: PropTypes.func,
   /**
    * This option allows you to specify how far above and below the viewport you
    * want to begin displaying your content.
