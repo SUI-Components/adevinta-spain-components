@@ -10,17 +10,25 @@ const BASE_CLASS = 'sui-ImageLazyLoad'
  */
 export default function ImageLazyLoad({
   alt = '',
-  title = '',
   aspectRatio = '',
-  onError = () => {},
+  isContained = false,
   offsetVertical = 100,
+  onError = () => {},
   showSpinner = true,
-  src
+  src,
+  title = ''
 }) {
   const [isNearScreen, fromRef] = useNearScreen({offset: `${offsetVertical}px`})
 
   const lazyLoadWrapClassName = cx(BASE_CLASS, {
-    [`${BASE_CLASS}--ratio-${aspectRatio.replace(':', '-')}`]: aspectRatio
+    [`${BASE_CLASS}--ratio-${aspectRatio.replace(':', '-')}`]: aspectRatio,
+    [`${BASE_CLASS}--is-contained`]: isContained
+  })
+  const lazyLoadImageWrapClassName = cx(`${BASE_CLASS}-imageWrap`, {
+    [`${BASE_CLASS}-imageWrap--is-contained`]: isContained
+  })
+  const lazyLoadImageClassName = cx(`${BASE_CLASS}-image`, {
+    [`${BASE_CLASS}-image--is-contained`]: isContained
   })
 
   return (
@@ -30,11 +38,11 @@ export default function ImageLazyLoad({
           <SpinnerBasic />
         </div>
       )}
-      <div className={`${BASE_CLASS}-imageWrap`}>
+      <div className={lazyLoadImageWrapClassName}>
         {isNearScreen && (
           <img
             alt={alt}
-            className={`${BASE_CLASS}-image`}
+            className={lazyLoadImageClassName}
             onError={onError}
             src={src}
             title={title}
@@ -46,6 +54,10 @@ export default function ImageLazyLoad({
 }
 
 ImageLazyLoad.propTypes = {
+  /**
+   * Flag to apply object-fit: contain to the image.
+   */
+  isContained: PropTypes.bool,
   /**
    * Specify how to handle, can be useful to specify a fallback image.
    */
