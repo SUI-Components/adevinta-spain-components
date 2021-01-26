@@ -25,7 +25,7 @@ export default function ImageLazyLoad({
     'is-contained': isContained
   })
   const lazyLoadImageWrapClassName = cx(`${BASE_CLASS}-imageWrap`, {
-    [`${BASE_CLASS}-imageWrap--is-contained`]: isContained
+    'is-contained': isContained
   })
   const lazyLoadImageClassName = cx(`${BASE_CLASS}-image`, {
     [`${BASE_CLASS}-image--is-contained`]: isContained
