@@ -1,6 +1,6 @@
 /* eslint react/react-in-jsx-scope:0, react/jsx-no-undef:0 */
 return (
-  <div>
+  <div style={{ marginLeft: '20px'}}>
     <h1>Scroll down 👇🏻</h1>
     <div style={{ width: '300px', marginTop: '1000px', marginBottom: '60px' }}>
       <h2>Simple image</h2>
@@ -17,6 +17,18 @@ return (
     <div style={{ width: '300px', marginBottom: '60px' }}>
       <h2>Image with aspect ratio 16:9</h2>
       <ImageLazyLoad aspectRatio='16:9' src='https://picsum.photos/id/1021/200/300' />
+    </div>
+    <div style={{  marginBottom: '60px' }}>
+      <h2>Image contained on a 250x250px container</h2>
+      <div style={{backgroundColor: 'white',height: '250px', width: '250px'}}>
+        <ImageLazyLoad isContained src='https://picsum.photos/id/1021/400/300' />
+      </div>
+    </div>    
+    <div style={{ marginBottom: '60px' }}>
+      <h2>Image contained on a 250x250px container</h2>
+      <div style={{backgroundColor: 'white',height: '250px', width: '250px'}}>
+        <ImageLazyLoad isContained src='https://picsum.photos/id/1021/300/400' />
+      </div>
     </div>
   </div>
 )
