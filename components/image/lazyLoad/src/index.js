@@ -22,7 +22,7 @@ export default function ImageLazyLoad({
 
   const lazyLoadWrapClassName = cx(BASE_CLASS, {
     [`${BASE_CLASS}--ratio-${aspectRatio.replace(':', '-')}`]: aspectRatio,
-    [`${BASE_CLASS}--is-contained`]: isContained
+    'is-contained': isContained
   })
   const lazyLoadImageWrapClassName = cx(`${BASE_CLASS}-imageWrap`, {
     [`${BASE_CLASS}-imageWrap--is-contained`]: isContained
