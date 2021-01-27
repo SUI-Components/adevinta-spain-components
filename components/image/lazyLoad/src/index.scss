@@ -64,12 +64,44 @@ $aspect-ratios: (
     width: 100%;
   }
 
-  &--is-contained,
-  &-image--is-contained,
-  &-imageWrap--is-contained {
+  &--fitContain,
+  &-image--fitContain,
+  &-imageWrap--fitContain,
+  &--fitCover,
+  &-image--fitCover,
+  &-imageWrap--fitCover,
+  &--fitFill,
+  &-image--fitFill,
+  &-imageWrap--fitFill,
+  &--fitNone,
+  &-image--fitNone,
+  &-imageWrap--fitNone {
     height: 100%;
     width: 100%;
+  }
+
+  &--fitContain,
+  &-image--fitContain,
+  &-imageWrap--fitContain {
     object-fit: contain;
+  }
+
+  &--fitCover,
+  &-image--fitCover,
+  &-imageWrap--fitCover {
+    object-fit: cover;
+  }
+
+  &--fitFill,
+  &-image--fitFill,
+  &-imageWrap--fitFill {
+    object-fit: fill;
+  }
+
+  &--fitNone,
+  &-image--fitNone,
+  &-imageWrap--fitNone {
+    object-fit: none;
   }
 
   .LazyLoad {
