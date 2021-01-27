@@ -4,6 +4,8 @@ import SpinnerBasic from '@s-ui/react-spinner-basic'
 import {useNearScreen} from '@s-ui/react-hooks'
 
 const BASE_CLASS = 'sui-ImageLazyLoad'
+const BASE_CLASS_IMAGE = `${BASE_CLASS}-image`
+const BASE_CLASS_IMAGE_WRAP = `${BASE_CLASS}-imageWrap`
 /**
  * Component that will print defer loading images with an optional and specific
  * aspect ratio.
@@ -22,13 +24,13 @@ export default function ImageLazyLoad({
 
   const lazyLoadWrapClassName = cx(BASE_CLASS, {
     [`${BASE_CLASS}--ratio-${aspectRatio.replace(':', '-')}`]: aspectRatio,
-    'is-contained': isContained
+    [`${BASE_CLASS}--is-contained`]: isContained
   })
-  const lazyLoadImageWrapClassName = cx(`${BASE_CLASS}-imageWrap`, {
-    'is-contained': isContained
+  const lazyLoadImageClassName = cx(BASE_CLASS_IMAGE, {
+    [`${BASE_CLASS_IMAGE}--is-contained`]: isContained
   })
-  const lazyLoadImageClassName = cx(`${BASE_CLASS}-image`, {
-    'is-contained': isContained
+  const lazyLoadImageWrapClassName = cx(BASE_CLASS_IMAGE_WRAP, {
+    [`${BASE_CLASS_IMAGE_WRAP}--is-contained`]: isContained
   })
 
   return (
