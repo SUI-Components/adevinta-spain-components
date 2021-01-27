@@ -4,23 +4,50 @@ import SpinnerBasic from '@s-ui/react-spinner-basic'
 import {useNearScreen} from '@s-ui/react-hooks'
 
 const BASE_CLASS = 'sui-ImageLazyLoad'
+const BASE_CLASS_IMAGE = `${BASE_CLASS}-image`
+const BASE_CLASS_IMAGE_WRAP = `${BASE_CLASS}-imageWrap`
+
+export const FIT_MODES = {
+  contain: 'contain',
+  cover: 'cover',
+  default: 'default',
+  fill: 'fill',
+  none: 'none'
+}
 /**
  * Component that will print defer loading images with an optional and specific
  * aspect ratio.
  */
 export default function ImageLazyLoad({
   alt = '',
-  title = '',
   aspectRatio = '',
-  onError = () => {},
+  fitMode = FIT_MODES.default,
   offsetVertical = 100,
+  onError = () => {},
   showSpinner = true,
-  src
+  src,
+  title = ''
 }) {
   const [isNearScreen, fromRef] = useNearScreen({offset: `${offsetVertical}px`})
 
   const lazyLoadWrapClassName = cx(BASE_CLASS, {
-    [`${BASE_CLASS}--ratio-${aspectRatio.replace(':', '-')}`]: aspectRatio
+    [`${BASE_CLASS}--ratio-${aspectRatio.replace(':', '-')}`]: aspectRatio,
+    [`${BASE_CLASS}--fitContain`]: fitMode === FIT_MODES.contain,
+    [`${BASE_CLASS}--fitCover`]: fitMode === FIT_MODES.cover,
+    [`${BASE_CLASS}--fitFill`]: fitMode === FIT_MODES.fill,
+    [`${BASE_CLASS}--fitNone`]: fitMode === FIT_MODES.none
+  })
+  const lazyLoadImageClassName = cx(BASE_CLASS_IMAGE, {
+    [`${BASE_CLASS_IMAGE}--fitContain`]: fitMode === FIT_MODES.contain,
+    [`${BASE_CLASS_IMAGE}--fitCover`]: fitMode === FIT_MODES.cover,
+    [`${BASE_CLASS_IMAGE}--fitFill`]: fitMode === FIT_MODES.fill,
+    [`${BASE_CLASS_IMAGE}--fitNone`]: fitMode === FIT_MODES.none
+  })
+  const lazyLoadImageWrapClassName = cx(BASE_CLASS_IMAGE_WRAP, {
+    [`${BASE_CLASS_IMAGE_WRAP}--fitContain`]: fitMode === FIT_MODES.contain,
+    [`${BASE_CLASS_IMAGE_WRAP}--fitCover`]: fitMode === FIT_MODES.cover,
+    [`${BASE_CLASS_IMAGE_WRAP}--fitFill`]: fitMode === FIT_MODES.fill,
+    [`${BASE_CLASS_IMAGE_WRAP}--fitNone`]: fitMode === FIT_MODES.none
   })
 
   return (
@@ -30,11 +57,11 @@ export default function ImageLazyLoad({
           <SpinnerBasic />
         </div>
       )}
-      <div className={`${BASE_CLASS}-imageWrap`}>
+      <div className={lazyLoadImageWrapClassName}>
         {isNearScreen && (
           <img
             alt={alt}
-            className={`${BASE_CLASS}-image`}
+            className={lazyLoadImageClassName}
             onError={onError}
             src={src}
             title={title}
@@ -46,6 +73,10 @@ export default function ImageLazyLoad({
 }
 
 ImageLazyLoad.propTypes = {
+  /**
+   * Specifies which object-fit applies to the image.
+   */
+  fitMode: PropTypes.oneOf(Object.values(FIT_MODES)),
   /**
    * Specify how to handle, can be useful to specify a fallback image.
    */
