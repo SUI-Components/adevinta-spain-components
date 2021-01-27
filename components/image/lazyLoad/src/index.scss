@@ -64,9 +64,7 @@ $aspect-ratios: (
     width: 100%;
   }
 
-  &--is-contained,
-  &-image--is-contained,
-  &-imageWrap--is-contained {
+  .is-contained {
     height: 100%;
     width: 100%;
     object-fit: contain;
