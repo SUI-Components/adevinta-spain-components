@@ -6,6 +6,14 @@ import {useNearScreen} from '@s-ui/react-hooks'
 const BASE_CLASS = 'sui-ImageLazyLoad'
 const BASE_CLASS_IMAGE = `${BASE_CLASS}-image`
 const BASE_CLASS_IMAGE_WRAP = `${BASE_CLASS}-imageWrap`
+
+export const FIT_MODES = {
+  contain: 'contain',
+  cover: 'cover',
+  default: 'default',
+  fill: 'fill',
+  none: 'none'
+}
 /**
  * Component that will print defer loading images with an optional and specific
  * aspect ratio.
@@ -13,7 +21,7 @@ const BASE_CLASS_IMAGE_WRAP = `${BASE_CLASS}-imageWrap`
 export default function ImageLazyLoad({
   alt = '',
   aspectRatio = '',
-  isContained = false,
+  fitMode = FIT_MODES.default,
   offsetVertical = 100,
   onError = () => {},
   showSpinner = true,
@@ -24,13 +32,22 @@ export default function ImageLazyLoad({
 
   const lazyLoadWrapClassName = cx(BASE_CLASS, {
     [`${BASE_CLASS}--ratio-${aspectRatio.replace(':', '-')}`]: aspectRatio,
-    [`${BASE_CLASS}--is-contained`]: isContained
+    [`${BASE_CLASS}--fitContain`]: fitMode === FIT_MODES.contain,
+    [`${BASE_CLASS}--fitCover`]: fitMode === FIT_MODES.cover,
+    [`${BASE_CLASS}--fitFill`]: fitMode === FIT_MODES.fill,
+    [`${BASE_CLASS}--fitNone`]: fitMode === FIT_MODES.none
   })
   const lazyLoadImageClassName = cx(BASE_CLASS_IMAGE, {
-    [`${BASE_CLASS_IMAGE}--is-contained`]: isContained
+    [`${BASE_CLASS_IMAGE}--fitContain`]: fitMode === FIT_MODES.contain,
+    [`${BASE_CLASS_IMAGE}--fitCover`]: fitMode === FIT_MODES.cover,
+    [`${BASE_CLASS_IMAGE}--fitFill`]: fitMode === FIT_MODES.fill,
+    [`${BASE_CLASS_IMAGE}--fitNone`]: fitMode === FIT_MODES.none
   })
   const lazyLoadImageWrapClassName = cx(BASE_CLASS_IMAGE_WRAP, {
-    [`${BASE_CLASS_IMAGE_WRAP}--is-contained`]: isContained
+    [`${BASE_CLASS_IMAGE_WRAP}--fitContain`]: fitMode === FIT_MODES.contain,
+    [`${BASE_CLASS_IMAGE_WRAP}--fitCover`]: fitMode === FIT_MODES.cover,
+    [`${BASE_CLASS_IMAGE_WRAP}--fitFill`]: fitMode === FIT_MODES.fill,
+    [`${BASE_CLASS_IMAGE_WRAP}--fitNone`]: fitMode === FIT_MODES.none
   })
 
   return (
@@ -57,9 +74,9 @@ export default function ImageLazyLoad({
 
 ImageLazyLoad.propTypes = {
   /**
-   * Flag to apply object-fit: contain to the image.
+   * Specifies which object-fit applies to the image.
    */
-  isContained: PropTypes.bool,
+  fitMode: PropTypes.oneOf(Object.values(FIT_MODES)),
   /**
    * Specify how to handle, can be useful to specify a fallback image.
    */
