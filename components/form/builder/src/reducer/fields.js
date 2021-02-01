@@ -28,6 +28,14 @@ export const fieldsToArrayOfString = fields => {
     return `${id}=${value}`
   })
 }
+
+export const fieldsToArrayOfStringEncoded = fields => {
+  return Object.entries(fieldsToObject(fields)).map(field => {
+    const [id, value] = field
+    return `${encodeURIComponent(id)}=${encodeURIComponent(value)}`
+  })
+}
+
 export const fieldsToArrayOfArray = fields => {
   return Object.entries(fieldsToObject(fields))
 }
@@ -87,7 +95,9 @@ export const fieldsNamesInOrderOfDefinition = fields => {
 }
 
 export const fieldsToQP = (fields, formID) => {
-  const qs = `form_id=${formID}&${fieldsToArrayOfString(fields).join('&')}`
+  const qs = `form_id=${formID}&${fieldsToArrayOfStringEncoded(fields).join(
+    '&'
+  )}`
   return qs
 }
 

@@ -94,10 +94,12 @@ export const fetchRemoteFields = (
     Object.entries(fieldsToChanges)
       .filter(([field, nextValue]) => nextValue.remote === REMOTE)
       .map(async ([field, nextValue]) => {
-        const defaultUrl = `https://ptaformbuilder-classifiedads.spain.advgo.net/fieldrules/${field}?${fieldsToQP(
-          fields,
-          formID
-        )}`
+        const defaultUrl = encodeURI(
+          `https://ptaformbuilder-classifiedads.spain.advgo.net/fieldrules/${field}?${fieldsToQP(
+            fields,
+            formID
+          )}`
+        )
 
         const defaultConfig = {url: defaultUrl}
 
