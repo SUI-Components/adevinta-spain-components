@@ -85,7 +85,9 @@ $base-class-modal: '#sui-TcfSecondLayerModal';
 
   &-title {
     font-size: $fz-tcf-second-layer-title-mobile;
+    font-weight: $fw-bold;
     margin: $m-xxl 0 $m-m;
+
     @include media-breakpoint-up(s) {
       font-size: $fz-tcf-second-layer-title;
       margin: $m-xxl 0 $m-l;
