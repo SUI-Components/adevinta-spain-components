@@ -81,7 +81,7 @@ export default function TcfFirstLayer({
           <SuiButton onClick={handleSettingsClick} design="outline">
             {i18n.CONFIGURE_BUTTON}
           </SuiButton>
-          <SuiButton onClick={handleSaveExitClick}>
+          <SuiButton onClick={handleSaveExitClick} data-testid="TcfAccept">
             {i18n.CONTINUE_NAVIGATION_BUTTON}
           </SuiButton>
         </div>
