@@ -9,6 +9,9 @@ const CLASS = 'sui-TcfFirstLayer'
 
 export default function TcfFirstLayer({
   logo,
+  logoAlt,
+  logoHeight,
+  logoWidth,
   onOpenCookiePolicyLayer,
   onOpenSecondLayer,
   onSaveUserConsent
@@ -95,7 +98,15 @@ export default function TcfFirstLayer({
         isOpen={show}
         closeOnOutsideClick={false}
         closeOnEscKeyDown={false}
-        header={<img className={`${CLASS}-logo`} src={logo} alt="logo" />}
+        header={
+          <img
+            alt={logoAlt || 'logo'}
+            className={`${CLASS}-logo`}
+            height={logoHeight}
+            src={logo}
+            width={logoWidth}
+          />
+        }
         onClose={handleSaveExitClick}
         fitContent
         portalContainerId="sui-TcfFirstLayerModal"
@@ -109,6 +120,9 @@ export default function TcfFirstLayer({
 TcfFirstLayer.displayName = 'TcfFirstLayer'
 TcfFirstLayer.propTypes = {
   logo: PropTypes.string,
+  logoAlt: PropTypes.string,
+  logoHeight: PropTypes.number,
+  logoWidth: PropTypes.number,
   onOpenCookiePolicyLayer: PropTypes.func,
   onOpenSecondLayer: PropTypes.func,
   onSaveUserConsent: PropTypes.func,
