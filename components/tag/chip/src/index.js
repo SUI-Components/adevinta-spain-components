@@ -33,6 +33,7 @@ const TagChip = ({
   linkFactory,
   className,
   rel,
+  title,
   icon: Icon = CircleX
 }) => (
   <Tag
@@ -40,6 +41,7 @@ const TagChip = ({
     Link={linkFactory}
     onClick={preventDefaultHandler(onClick)}
     rel={rel}
+    title={title}
     url={url}
   >
     {label}
@@ -85,6 +87,10 @@ TagChip.propTypes = {
    * Delete custom icon
    */
   icon: PropTypes.func,
+  /**
+   * Title html attribute
+   */
+  title: PropTypes.string,
   /**
    * tag rel
    */
