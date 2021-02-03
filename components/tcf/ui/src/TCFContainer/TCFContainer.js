@@ -13,7 +13,14 @@ import isBot from './isBotService'
 const FirstLayer = lazy(() => import('../FirstLayer'))
 const SecondLayer = lazy(() => import('../SecondLayer'))
 
-export default function TCFContainer({logo, onCloseModal, showPurposesLayer}) {
+export default function TCFContainer({
+  logo,
+  logoAlt,
+  logoHeight,
+  logoWidth,
+  onCloseModal,
+  showPurposesLayer
+}) {
   const [showLayer, setShowLayer] = useState(LAYER_OFF)
   const [vendorsLayerBackTo, setVendorsLayerBackTo] = useState(LAYER_OFF)
   const {
@@ -90,6 +97,9 @@ export default function TCFContainer({logo, onCloseModal, showPurposesLayer}) {
         <Suspense fallback={<div />}>
           <FirstLayer
             logo={logo}
+            logoAlt={logoAlt}
+            logoHeight={logoHeight}
+            logoWidth={logoWidth}
             onOpenCookiePolicyLayer={handleOpenCookiePolicyLayer}
             onOpenSecondLayer={handleOpenSecondLayer}
             onSaveUserConsent={handleSaveUserConsent}
@@ -100,6 +110,9 @@ export default function TCFContainer({logo, onCloseModal, showPurposesLayer}) {
         <Suspense fallback={<div />}>
           <SecondLayer
             logo={logo}
+            logoAlt={logoAlt}
+            logoHeight={logoHeight}
+            logoWidth={logoWidth}
             onSaveUserConsent={handleSaveUserConsent}
             onGoBack={handleSecondLayerGoBack}
             onVendorsClick={handleVendorsClick}
@@ -111,6 +124,9 @@ export default function TCFContainer({logo, onCloseModal, showPurposesLayer}) {
           <SecondLayer
             isVendorLayer
             logo={logo}
+            logoAlt={logoAlt}
+            logoHeight={logoHeight}
+            logoWidth={logoWidth}
             onSaveUserConsent={handleSaveUserConsent}
             onGoBack={handleThirdLayerGoBack}
           />
@@ -124,6 +140,9 @@ TCFContainer.displayName = 'TcfUi'
 
 TCFContainer.propTypes = {
   logo: PropTypes.string,
+  logoAlt: PropTypes.string,
+  logoHeight: PropTypes.number,
+  logoWidth: PropTypes.number,
   onCloseModal: PropTypes.func,
   showPurposesLayer: PropTypes.bool
 }

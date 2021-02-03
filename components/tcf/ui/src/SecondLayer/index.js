@@ -23,6 +23,9 @@ const SUBGROUP_LEGITIMATE_INTERESTS = 'legitimateInterests'
 
 export default function TcfSecondLayer({
   logo,
+  logoAlt,
+  logoHeight,
+  logoWidth,
   onSaveUserConsent,
   onGoBack,
   onVendorsClick,
@@ -186,7 +189,15 @@ export default function TcfSecondLayer({
     <div className={CLASS}>
       <SuiModal
         isOpen={modalOpen}
-        header={<img className={`${CLASS}-logo`} src={logo} alt="logo" />}
+        header={
+          <img
+            alt={logoAlt || 'logo'}
+            className={`${CLASS}-logo`}
+            height={logoHeight}
+            src={logo}
+            width={logoWidth}
+          />
+        }
         iconClose={isMobile ? <IconClose /> : false}
         onClose={handleSaveExitClick}
         fitContent
@@ -210,7 +221,10 @@ export default function TcfSecondLayer({
                 return scope.purposes
               }}
               onConsentChange={props =>
-                handleConsentsChange({group: GROUP_PURPOSES, ...props})
+                handleConsentsChange({
+                  group: GROUP_PURPOSES,
+                  ...props
+                })
               }
               hasConsent
               i18n={i18n}
@@ -319,6 +333,9 @@ TcfSecondLayer.propTypes = {
   isVendorLayer: PropTypes.bool,
   onSaveUserConsent: PropTypes.func,
   logo: PropTypes.string,
+  logoAlt: PropTypes.string,
+  logoHeight: PropTypes.number,
+  logoWidth: PropTypes.number,
   onGoBack: PropTypes.func,
   onVendorsClick: PropTypes.func
 }

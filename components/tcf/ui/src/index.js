@@ -22,6 +22,9 @@ export default function TcfUi({
   isMobile,
   lang,
   logo,
+  logoAlt,
+  logoHeight,
+  logoWidth,
   onCloseModal,
   reporter,
   scope = CONSENT_SCOPE,
@@ -39,6 +42,9 @@ export default function TcfUi({
     >
       <TCFContainer
         logo={logo}
+        logoAlt={logoAlt}
+        logoHeight={logoHeight}
+        logoWidth={logoWidth}
         onCloseModal={onCloseModal}
         showPurposesLayer={showVendors}
       />
@@ -51,6 +57,9 @@ TcfUi.propTypes = {
   isMobile: PropTypes.bool,
   lang: PropTypes.string,
   logo: PropTypes.string,
+  logoAlt: PropTypes.string,
+  logoHeight: PropTypes.number,
+  logoWidth: PropTypes.number,
   onCloseModal: PropTypes.func,
   reporter: PropTypes.func,
   scope: PropTypes.object,

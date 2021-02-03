@@ -40,8 +40,9 @@ $base-class-modal: '#sui-TcfFirstLayerModal';
 
   &-title {
     font-size: $fz-tcf-first-layer-title-mobile;
-    margin-top: 0;
+    font-weight: $fw-bold;
     margin-bottom: $m-m;
+    margin-top: 0;
 
     #{$base-class}:not(#{$base-class}--isMobile) .sui-MoleculeNotification & {
       @include media-breakpoint-up(s) {
