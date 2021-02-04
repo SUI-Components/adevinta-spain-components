@@ -1,6 +1,8 @@
 export const REMOTE = 'remote'
 export const IN = 'IN'
 export const NIN = 'NIN'
+export const INPATTERN = 'INPATTERN'
+export const NINPATTERN = 'NINPATTERN'
 export const CHANGED = 'CHANGED'
 export const EXISTS = 'EXISTS'
 export const NEXISTS = 'NEXISTS'

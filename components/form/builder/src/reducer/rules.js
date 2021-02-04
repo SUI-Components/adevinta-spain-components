@@ -2,7 +2,9 @@
 import {operators} from './operators'
 import {
   IN,
+  INPATTERN,
   NIN,
+  NINPATTERN,
   EXISTS,
   NEXISTS,
   CHANGED,
@@ -52,6 +54,12 @@ export const shouldApplyRule = (fields, changeField, locale) => when => {
     switch (rule.operator) {
       case IN:
         isValid = operators.IN(rule.id, rule.value, fields, changeField)
+        break
+      case INPATTERN:
+        isValid = operators.INPATTERN(rule.id, rule.value, fields, changeField)
+        break
+      case NINPATTERN:
+        isValid = operators.NIN(rule.id, rule.value, fields, changeField)
         break
       case NIN:
         isValid = operators.NIN(rule.id, rule.value, fields, changeField)
