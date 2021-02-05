@@ -74,8 +74,8 @@ export default function TcfFirstLayer({
   }
 
   const getBody = showPartnerVendors => {
-    const PARTNER_VENDORS = showPartnerVendors ? i18n.PARTNER_VENDORS : ''
-    return i18n.BODY(PARTNER_VENDORS)
+    const PARTNERS_LIST = showPartnerVendors ? i18n.PARTNERS_LIST : ''
+    return i18n.BODY(PARTNERS_LIST)
   }
 
   const Content = () => {

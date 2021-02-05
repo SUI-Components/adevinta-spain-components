@@ -21,6 +21,7 @@ function removeCookie() {
 
 const TcfUiDemo = () => {
   const {config = {}} = useContext(Context)
+  const [showPartnersList, setShowPartnersList] = useState(true)
   const [isMobile, setIsMobile] = useState(false)
   const [showVendors, setShowVendors] = useState(false)
   const [show, setShow] = useState(true)
@@ -66,6 +67,14 @@ const TcfUiDemo = () => {
           Show Second layer
         </button>
       )}
+      <label>
+        Show Partner List:
+        <input
+          type="checkbox"
+          defaultChecked={showPartnersList}
+          onChange={() => setShowPartnersList(!showPartnersList)}
+        />
+      </label>
       <div>
         <p>Device: {isMobile ? 'mobile' : 'desktop'}</p>
         <b>Event Status:</b> {eventStatus}
@@ -92,7 +101,7 @@ const TcfUiDemo = () => {
           reporter={reporter.current}
           showVendors={showVendors}
           onCloseModal={() => setShowVendors(false)}
-          showPartnersList
+          showPartnersList={showPartnersList}
         />
       )}
     </div>

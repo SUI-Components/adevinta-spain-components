@@ -10,7 +10,7 @@ const DEFAULT_I18N = {
 const IT_I18N = {
   CONTINUE_NAVIGATION_BUTTON: 'Accetta e chiudi',
   CONFIGURE_BUTTON: 'Configura',
-  PARTNER_VENDORS:
+  PARTNERS_LIST:
     ' Vedere <a class="sui-TcfFirstLayer-link" href="#">Lista dei partner.</a>',
   BODY: PARTNERS_LIST =>
     `<p class="sui-TcfFirstLayer-title">La tua privacy è importante</p><p>Utilizziamo cookies e identificatori di prima o terza parte con il tuo consenso e/o nostro interesse legittimo, allo scopo di immagazzinare o accedere alle informazioni sul tuo dispositivo, per raccogliere dati personali degli utenti per sviluppare e migliorare prodotti, nonché per visualizzare e misurare pubblicità nostra e/o di terzi e/o contenuti personalizzati basati sulla tua navigazione (ad esempio le pagine visitate). Alcuni di questi scopi includono la geolocalizzazione precisa, l'analisi delle caratteristiche del dispositivo per distinguere gli utenti, la raccolta e la combinazione di dati offline e il collegamento di diversi dispositivi.</p><p>In ogni caso, utilizzeremo cookies per garantire la sicurezza, evitare truffe, errori di debug e tecnicamente servire annunci o contenuti.</p><p>Puoi opporti al consenso e/o interesse legittimo in "Gestisci privacy" nella tua area utente o premendo "Configura".${PARTNERS_LIST}</p>`
