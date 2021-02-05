@@ -1,6 +1,8 @@
 import {
   IN,
+  INPATTERN,
   NIN,
+  NINPATTERN,
   EXISTS,
   NEXISTS,
   CHANGED,
@@ -19,6 +21,14 @@ export const operators = {
   },
   [NIN]: (id, values, fields) => {
     return !operators.IN(id, values, fields)
+  },
+  [INPATTERN]: (id, values, fields) => {
+    const field = pickFieldById(fields, id)
+    const shouldApply = values.some(value => field.value?.match(value))
+    return shouldApply
+  },
+  [NINPATTERN]: (id, values, fields) => {
+    return !operators.INPATTERN(id, values, fields)
   },
   [EXISTS]: (id, fields) => {
     const field = pickFieldById(fields, id)
