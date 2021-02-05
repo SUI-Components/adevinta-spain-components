@@ -14,7 +14,8 @@ export default function TcfFirstLayer({
   logoWidth,
   onOpenCookiePolicyLayer,
   onOpenSecondLayer,
-  onSaveUserConsent
+  onSaveUserConsent,
+  showPartnersList
 }) {
   const {
     isMobile,
@@ -44,7 +45,7 @@ export default function TcfFirstLayer({
 
       if (node) {
         cookiesPolicyLink.current = node.querySelector(`.${CLASS}-link`)
-        if (cookiesPolicyLink) {
+        if (cookiesPolicyLink.current) {
           cookiesPolicyLink.current.addEventListener(
             'click',
             handleCookiePolicyLayerClick
@@ -72,13 +73,18 @@ export default function TcfFirstLayer({
     setShow(false)
   }
 
+  const getBody = showPartnerVendors => {
+    const PARTNER_VENDORS = showPartnerVendors ? i18n.PARTNER_VENDORS : ''
+    return i18n.BODY(PARTNER_VENDORS)
+  }
+
   const Content = () => {
     return (
       <div className={`${CLASS}-body`}>
         <div
           className={`${CLASS}-info`}
           ref={textRef}
-          dangerouslySetInnerHTML={{__html: i18n.BODY}}
+          dangerouslySetInnerHTML={{__html: getBody(showPartnersList)}}
         />
         <div className={`${CLASS}-buttons`}>
           <SuiButton onClick={handleSettingsClick} design="outline">
@@ -126,5 +132,5 @@ TcfFirstLayer.propTypes = {
   onOpenCookiePolicyLayer: PropTypes.func,
   onOpenSecondLayer: PropTypes.func,
   onSaveUserConsent: PropTypes.func,
-  showInModalForMobile: PropTypes.bool
+  showPartnersList: PropTypes.bool
 }

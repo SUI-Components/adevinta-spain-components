@@ -29,7 +29,8 @@ export default function TcfSecondLayer({
   onSaveUserConsent,
   onGoBack,
   onVendorsClick,
-  isVendorLayer
+  isVendorLayer,
+  showPartnersList
 }) {
   const [state, setState] = useState(null)
   const [modalOpen, setModalOpen] = useState(true)
@@ -301,7 +302,7 @@ export default function TcfSecondLayer({
           )}
         </div>
         <footer className={`${CLASS}-footer`}>
-          {!isVendorLayer && (
+          {!isVendorLayer && showPartnersList && (
             <div className={`${CLASS}-footer--link`}>
               <Button
                 size="small"
@@ -329,7 +330,13 @@ export default function TcfSecondLayer({
 }
 
 TcfSecondLayer.displayName = 'TcfSecondLayer'
+
+TcfSecondLayer.defaultProps = {
+  showPartnersList: true
+}
+
 TcfSecondLayer.propTypes = {
+  showPartnersList: PropTypes.bool,
   isVendorLayer: PropTypes.bool,
   onSaveUserConsent: PropTypes.func,
   logo: PropTypes.string,

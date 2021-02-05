@@ -92,6 +92,7 @@ const TcfUiDemo = () => {
           reporter={reporter.current}
           showVendors={showVendors}
           onCloseModal={() => setShowVendors(false)}
+          showPartnersList
         />
       )}
     </div>

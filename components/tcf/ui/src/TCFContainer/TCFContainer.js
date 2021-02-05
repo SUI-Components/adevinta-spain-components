@@ -19,7 +19,8 @@ export default function TCFContainer({
   logoHeight,
   logoWidth,
   onCloseModal,
-  showPurposesLayer
+  showPurposesLayer,
+  showPartnersList
 }) {
   const [showLayer, setShowLayer] = useState(LAYER_OFF)
   const [vendorsLayerBackTo, setVendorsLayerBackTo] = useState(LAYER_OFF)
@@ -103,6 +104,7 @@ export default function TCFContainer({
             onOpenCookiePolicyLayer={handleOpenCookiePolicyLayer}
             onOpenSecondLayer={handleOpenSecondLayer}
             onSaveUserConsent={handleSaveUserConsent}
+            showPartnersList={showPartnersList}
           />
         </Suspense>
       )}
@@ -116,6 +118,7 @@ export default function TCFContainer({
             onSaveUserConsent={handleSaveUserConsent}
             onGoBack={handleSecondLayerGoBack}
             onVendorsClick={handleVendorsClick}
+            showPartnersList={showPartnersList}
           />
         </Suspense>
       )}
@@ -129,6 +132,7 @@ export default function TCFContainer({
             logoWidth={logoWidth}
             onSaveUserConsent={handleSaveUserConsent}
             onGoBack={handleThirdLayerGoBack}
+            showPartnersList={showPartnersList}
           />
         </Suspense>
       )}
@@ -144,5 +148,6 @@ TCFContainer.propTypes = {
   logoHeight: PropTypes.number,
   logoWidth: PropTypes.number,
   onCloseModal: PropTypes.func,
-  showPurposesLayer: PropTypes.bool
+  showPurposesLayer: PropTypes.bool,
+  showPartnersList: PropTypes.bool
 }
