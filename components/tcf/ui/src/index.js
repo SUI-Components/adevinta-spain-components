@@ -28,7 +28,8 @@ export default function TcfUi({
   onCloseModal,
   reporter,
   scope = CONSENT_SCOPE,
-  showVendors
+  showVendors,
+  showPartnersList
 }) {
   if (typeof window === 'undefined') {
     return null
@@ -47,11 +48,15 @@ export default function TcfUi({
         logoWidth={logoWidth}
         onCloseModal={onCloseModal}
         showPurposesLayer={showVendors}
+        showPartnersList={showPartnersList}
       />
     </ConsentProvider>
   )
 }
 
+TcfUi.defaultProps = {
+  showPartnersList: true
+}
 TcfUi.displayName = 'TcfUi'
 TcfUi.propTypes = {
   isMobile: PropTypes.bool,
@@ -63,5 +68,6 @@ TcfUi.propTypes = {
   onCloseModal: PropTypes.func,
   reporter: PropTypes.func,
   scope: PropTypes.object,
-  showVendors: PropTypes.bool
+  showVendors: PropTypes.bool,
+  showPartnersList: PropTypes.bool
 }
