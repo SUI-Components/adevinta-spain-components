@@ -10,9 +10,9 @@
     "test": "sui-test browser"
   },
   "dependencies": {
-    "consent-string": "1.4.2",
+    "@adv-ui/boros-cmp": "2",
     "@s-ui/component-dependencies": "1",
-    "@adv-ui/boros-cmp": "2"
+    "consent-string": "1.4.2"
   },
   "keywords": [],
   "author": "",

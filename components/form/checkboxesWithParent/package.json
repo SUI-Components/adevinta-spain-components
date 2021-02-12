@@ -9,9 +9,9 @@
     "build:styles": "../../../node_modules/.bin/cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
+    "@s-ui/component-dependencies": "1",
     "@s-ui/react-form-checkbox": "1",
-    "@s-ui/react-icons": "1",
-    "@s-ui/component-dependencies": "1"
+    "@s-ui/react-icons": "1"
   },
   "keywords": [],
   "author": "",
