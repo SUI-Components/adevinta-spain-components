@@ -61,7 +61,11 @@ const FormBuilder = ({
       () => setStateShowSpinner(true),
       FormBuilder.USER_MINIMAL_DELAY
     )
-    const transformedValue = transformations(id, value)
+    const transformedValue = transformations(
+      id,
+      value,
+      pickFieldById(fields, id)
+    )
     const nextFields = changeField(id, transformedValue)
     clearTimeout(timerShowSpinner)
 
