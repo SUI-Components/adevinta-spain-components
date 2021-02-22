@@ -1,13 +1,18 @@
 import {useEffect, useRef, useState} from 'react'
 import PropTypes from 'prop-types'
 
-export function useNearScreen({offset = '200px'} = {}) {
-  return useOnScreen({once: true, offset})
+export function useNearScreen({initialValue = false, offset = '200px'} = {}) {
+  return useOnScreen({once: true, offset, initialValue})
 }
 
-export default function useOnScreen({ref, once = true, offset = '0px'} = {}) {
+export default function useOnScreen({
+  initialValue = false,
+  offset = '0px',
+  once = true,
+  ref
+} = {}) {
   // State and setter for storing whether element is visible or not
-  const [isIntersecting, setIntersecting] = useState(false)
+  const [isIntersecting, setIntersecting] = useState(initialValue)
   const outerRef = useRef()
 
   useEffect(() => {
