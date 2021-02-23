@@ -26,7 +26,7 @@ export default function useOnScreen({
       'IntersectionObserver' in window &&
       'IntersectionObserverEntry' in window &&
       'intersectionRatio' in window.IntersectionObserverEntry.prototype &&
-      'isIntersecting' in IntersectionObserverEntry.prototype
+      'isIntersecting' in window.IntersectionObserverEntry.prototype
 
     let observer
     ;(isIntersectionObserverEnabled
