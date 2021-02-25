@@ -6,7 +6,6 @@
   "scripts": {
     "build": "sui-studio build",
     "co": "sui-studio commit",
-    "commitmsg": "validate-commit-msg",
     "dev": "sui-studio dev",
     "generate": "sui-studio generate -S s-ui",
     "lint": "npm run lint:js && npm run lint:sass",
@@ -78,6 +77,7 @@
   },
   "husky": {
     "hooks": {
+      "commit-msg": "validate-commit-msg",
       "pre-commit": "sui-precommit run"
     }
   }
