@@ -20,8 +20,16 @@ export default function useOnScreen({
     const {current} = usableRef || {}
     if (!current) return
 
+    // Some devices support IntersectionObserver API partially so we must check that it is completely supported
+    // See https://github.com/w3c/IntersectionObserver/issues/211
+    const isIntersectionObserverEnabled =
+      'IntersectionObserver' in window &&
+      'IntersectionObserverEntry' in window &&
+      'intersectionRatio' in window.IntersectionObserverEntry.prototype &&
+      'isIntersecting' in window.IntersectionObserverEntry.prototype
+
     let observer
-    ;(window.IntersectionObserver
+    ;(isIntersectionObserverEnabled
       ? Promise.resolve()
       : import('intersection-observer')
     ).then(() => {
