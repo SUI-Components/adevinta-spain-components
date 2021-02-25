@@ -17,7 +17,8 @@
     "phoenix:ci": "sui-mono phoenix --no-root --ci && npm run install:demos -- --ci",
     "update:commit:status": "npx @s-ui/ci@1 update-commit-status",
     "start": "sui-studio start",
-    "test": "sui-studio test && npm run test:jest",
+    "test": "npm run test:studio && npm run test:jest",
+    "test:studio": "sui-studio test",
     "test:jest": "jest"
   },
   "repository": {
@@ -28,15 +29,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "7.10.4",
+    "@babel/plugin-transform-modules-commonjs": "7.13.0",
     "@s-ui/documentation-library": "1",
     "@s-ui/lint": "3",
     "@s-ui/precommit": "2",
     "@s-ui/studio": "9",
     "enzyme": "3.11.0",
-    "enzyme-adapter-react-16": "1.15.2",
+    "enzyme-adapter-react-16": "1.15.6",
     "husky": "4.3.0",
-    "jest": "24.9.0",
+    "jest": "26.6.3",
     "validate-commit-msg": "2.14.0"
   },
   "dependencies": {
