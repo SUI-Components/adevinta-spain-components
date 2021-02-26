@@ -2,7 +2,7 @@
 
 > Description
 
-<!-- ![](./assets/preview.png) -->
+Ensures Google One Tap script is loaded before allowing to render the child content
 
 ## Installation
 
@@ -16,7 +16,7 @@ $ npm install @s-ui/sui-google-one-tap-loader
 ```js
 import GoogleOneTapLoader from '@s-ui/sui-google-one-tap-loader'
 
-return (<GoogleOneTapLoader />)
+return (<GoogleOneTapLoader render={() => 'You can use Google Accounts now!'}/>)
 ```
 
 
