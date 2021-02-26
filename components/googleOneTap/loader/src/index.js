@@ -8,7 +8,7 @@ const googleOneTapUrl = 'https://accounts.google.com/gsi/client'
 export default function GoogleOneTapLoader({
   render,
   timeoutRender,
-  onTimeout,
+  onTimeout = () => null,
   detectionDelay = 15000
 }) {
   return (
@@ -28,7 +28,7 @@ GoogleOneTapLoader.displayName = 'GoogleOneTapLoader'
 
 GoogleOneTapLoader.propTypes = {
   render: PropTypes.func.isRequired,
-  timeoutRender: PropTypes.func.isRequired,
+  timeoutRender: PropTypes.func,
   onTimeout: PropTypes.func,
   detectionDelay: PropTypes.number
 }
