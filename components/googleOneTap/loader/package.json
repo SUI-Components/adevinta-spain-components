@@ -1,5 +1,5 @@
 {
-  "name": "@s-ui/sui-google-one-tap-loader",
+  "name": "@s-ui/react-google-one-tap-loader",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
