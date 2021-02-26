@@ -9,12 +9,11 @@ export default function GoogleOneTapLoader({
   render,
   timeoutRender,
   onTimeout,
-  detectionDelay = 15000,
-  googleApiKey
+  detectionDelay = 15000
 }) {
   return (
     <ScriptLoader
-      src={`${googleOneTapUrl}${googleApiKey}`}
+      src={googleOneTapUrl}
       isAsync
       verifier={getGoogleOneTap}
       render={render}
@@ -31,6 +30,5 @@ GoogleOneTapLoader.propTypes = {
   render: PropTypes.func.isRequired,
   timeoutRender: PropTypes.func.isRequired,
   onTimeout: PropTypes.func,
-  detectionDelay: PropTypes.number,
-  googleApiKey: PropTypes.string.isRequired
+  detectionDelay: PropTypes.number
 }
