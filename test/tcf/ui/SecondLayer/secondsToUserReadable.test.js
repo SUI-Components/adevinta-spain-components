@@ -49,8 +49,8 @@ describe('userReadable from Seconds', () => {
     expect(userReadable({seconds: givenSeconds, i18n})).toBe(expected)
   })
 
-  it('should return a fixed string if it`s negative or zero', () => {
-    ;[0, -100].forEach(seconds => {
+  it('should return a fixed string if it`s negative, zero or null', () => {
+    ;[0, -100, null].forEach(seconds => {
       expect(userReadable({seconds, i18n})).toBe(
         i18n.VENDOR_PAGE.GROUPS.EXPANDED.COOKIES.NEGATIVE_OR_ZERO_MAX_AGE
       )
