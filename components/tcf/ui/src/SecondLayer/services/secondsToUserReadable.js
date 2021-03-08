@@ -16,7 +16,7 @@ const secondsToTimeUnits = totalSeconds => {
 }
 
 const userReadable = ({seconds, i18n}) => {
-  if (seconds <= 0) {
+  if (!seconds || seconds <= 0) {
     return i18n.VENDOR_PAGE.GROUPS.EXPANDED.COOKIES.NEGATIVE_OR_ZERO_MAX_AGE
   }
   const time = secondsToTimeUnits(seconds)
