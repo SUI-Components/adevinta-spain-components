@@ -44,6 +44,10 @@ $base-class-modal: '#sui-TcfFirstLayerModal';
     display: flex;
     justify-content: center;
 
+    @include media-breakpoint-up(s) {
+      justify-content: flex-end;
+    }
+
     & .sui-AtomButton {
       border-radius: $bdrs-xl;
       font-size: $fz-tcf-first-layer-base;
