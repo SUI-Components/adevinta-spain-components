@@ -5,6 +5,8 @@ import cx from 'classnames'
 
 import {reducerActions, reducerInitialState, reducer} from './reducer'
 
+const NO_OP = () => {}
+
 const DropdownUser = ({
   expandOnMouseOver = false,
   linkFactory: Link = ({href, className, children, title}) => (
@@ -17,8 +19,6 @@ const DropdownUser = ({
   user
 }) => {
   const [state, dispatch] = useReducer(reducer, reducerInitialState)
-
-  const doNothing = () => {}
 
   const toggleMenu = () => dispatch({type: reducerActions.TOGGLE_MENU})
 
@@ -61,15 +61,13 @@ const DropdownUser = ({
   return (
     <div
       className={wrapperClassName}
-      onMouseOver={expandOnMouseOver ? onMouseOver : doNothing}
-      onMouseOut={expandOnMouseOver ? onMouseOut : doNothing}
+      onMouseOver={expandOnMouseOver ? onMouseOver : NO_OP}
+      onMouseOut={expandOnMouseOver ? onMouseOut : NO_OP}
     >
       <div
         className="sui-DropdownUser-button"
-        onClick={expandOnMouseOver ? doNothing : toggleMenu}
-        onTouchStart={
-          expandOnMouseOver && collapseByTouch ? toggleMenu : doNothing
-        }
+        onClick={expandOnMouseOver ? NO_OP : toggleMenu}
+        onTouchStart={expandOnMouseOver && collapseByTouch ? toggleMenu : NO_OP}
       >
         <div className="sui-DropdownUser-buttonAvatarWrap">
           <img
