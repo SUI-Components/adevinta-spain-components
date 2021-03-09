@@ -364,7 +364,7 @@ function Component() {
 
 ### useSteps
 
-> The `useSteps` hook allow to create a steps handler for navigating between steps.#### Usage
+> The `useSteps` hook allow to create a steps handler for navigating between steps.
 
 #### Usage
 
@@ -399,6 +399,30 @@ function Component() {
     </>
   )
 }
+```
+
+### useMergeRefs
+
+> The `useMergeRefs` hook has the purpose of merging and sync the passed references into a single one. It could be useful when implementing a component that receives a forwarded ref and that use internal refs, making it easier to pass a single ref to the DOM target.
+
+#### Usage
+
+**Params**
+
+It accepts a list of ref arguments.
+
+**Return value**: `Ref<(value) => void>`
+
+
+```js
+const Component = React.forwardRef((props, forwardedRef) =>  {
+  const firstRef = useRef()
+  const secondRef = useRef()
+
+  const ref = useMergeRefs(firstRef, secondRef, forwardedRef)
+
+  return <div ref={ref} />
+})
 ```
 
 > **Find full description and more examples in the [demo page](#).**
