@@ -26,3 +26,5 @@ export default function UseOnScreenDemo() {
     </>
   )
 }
+
+UseOnScreenDemo.demoName = 'useOnScreen'

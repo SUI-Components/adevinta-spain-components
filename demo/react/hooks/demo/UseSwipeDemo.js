@@ -30,3 +30,5 @@ export default function UseSwipeDemo() {
     </>
   )
 }
+
+UseSwipeDemo.demoName = 'useSwipe'

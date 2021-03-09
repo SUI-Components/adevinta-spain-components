@@ -67,3 +67,5 @@ export default function UseEventListenerDemo() {
     </Grid>
   )
 }
+
+UseEventListenerDemo.demoName = 'useEventListener'

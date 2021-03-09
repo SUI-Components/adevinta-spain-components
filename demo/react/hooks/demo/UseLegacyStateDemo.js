@@ -37,3 +37,5 @@ export default function UseLegacyStateDemo() {
     </>
   )
 }
+
+UseLegacyStateDemo.demoName = 'useLegacyState'
