@@ -30,3 +30,5 @@ export default function UseStepsDemo() {
     </>
   )
 }
+
+UseStepsDemo.demoName = 'useSteps'

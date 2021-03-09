@@ -15,3 +15,5 @@ export default function UseMountDemo() {
 
   return <Paragraph>{text}</Paragraph>
 }
+
+UseMountDemo.demoName = 'useMount'

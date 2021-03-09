@@ -25,3 +25,5 @@ export default function UseScrollDemo() {
     </Box>
   )
 }
+
+UseScrollDemo.demoName = 'useScroll'

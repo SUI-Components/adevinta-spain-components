@@ -11,6 +11,7 @@ import UseBooleanDemo from './UseBooleanDemo'
 import UseEventListenerDemo from './UseEventListenerDemo'
 import UseLegacyStateDemo from './UseLegacyStateDemo'
 import UseMediaQueryDemo from './UseMediaQueryDemo'
+import UseMergeRefsDemo from './UseMergeRefsDemo'
 import UseMountDemo from './UseMountDemo'
 import UseNearScreenDemo from './UseNearScreenDemo'
 import UseOnScreenDemo from './UseOnScreenDemo'
@@ -24,6 +25,7 @@ const orderedHookList = [
   UseEventListenerDemo,
   UseLegacyStateDemo,
   UseMediaQueryDemo,
+  UseMergeRefsDemo,
   UseMountDemo,
   UseNearScreenDemo,
   UseOnScreenDemo,
@@ -36,13 +38,13 @@ const orderedHookList = [
 function HookDemo({component: Component}) {
   return (
     <Box
-      id={Component.name}
+      id={Component.demoName}
       outline
       elementType="article"
       color="#167db7"
       style={{marginBottom: '1em'}}
     >
-      <H2>{Component.name}</H2>
+      <H2>{Component.demoName}</H2>
       <Component />
     </Box>
   )
@@ -55,8 +57,8 @@ export default function HooksDemo() {
       <OrderedList>
         {orderedHookList.map((HookComponent, id) => (
           <ListItem key={id}>
-            <Anchor href={`#${HookComponent.name}`}>
-              {HookComponent.name}
+            <Anchor href={`#${HookComponent.demoName}`}>
+              {HookComponent.demoName}
             </Anchor>
           </ListItem>
         ))}

@@ -14,3 +14,5 @@ export default function UseBooleanDemo() {
     </Grid>
   )
 }
+
+UseBooleanDemo.demoName = 'useBoolean'

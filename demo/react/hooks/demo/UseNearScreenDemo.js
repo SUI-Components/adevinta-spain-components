@@ -24,3 +24,5 @@ export default function UseNearScreenDemo() {
     </>
   )
 }
+
+UseNearScreenDemo.demoName = 'useNearScreen'
