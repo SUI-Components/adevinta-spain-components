@@ -130,17 +130,22 @@
       }
 
       &Icon {
-        fill: $c-text-base !important;
-        height: $size-dropdown-icon;
-        margin-right: $m-h-small;
-        width: $size-dropdown-icon;
+        & :first-child {
+          display: flex;
+          margin-right: $m-s;
 
-        &Highlight {
-          fill: $c-dropdown-user-icon-highlight !important;
-        }
+          & svg {
+            height: $size-dropdown-icon !important;
+            width: $size-dropdown-icon !important;
+          }
 
-        :hover > & {
-          fill: $c-dropdown-user-icon-hover !important;
+          &Highlight {
+            fill: $c-dropdown-user-icon-highlight !important;
+          }
+
+          :hover > & {
+            fill: $c-dropdown-user-icon-hover !important;
+          }
         }
       }
 
