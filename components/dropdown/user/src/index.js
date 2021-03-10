@@ -39,6 +39,8 @@ const DropdownUser = ({
       'sui-DropdownUserMenu-listLinkHighlight': highlight
     })
 
+    const hasLinkNotifications = Boolean(notifications)
+
     return (
       <li key={`${text}-${index}`} className="sui-DropdownUserMenu-listItem">
         <Link href={url} className={linkClassName} title={text}>
@@ -46,7 +48,7 @@ const DropdownUser = ({
             <Icon />
           </div>
           <span className="sui-DropdownUserMenu-listText">{text}</span>
-          {hasNotifications && (
+          {hasLinkNotifications && (
             <span className="sui-DropdownUserMenu-listNotification">
               {notifications}
             </span>
