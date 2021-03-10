@@ -426,3 +426,10 @@ const Component = React.forwardRef((props, forwardedRef) =>  {
 ```
 
 > **Find full description and more examples in the [demo page](#).**
+
+### useControlledState
+
+> The `useControlledState` hook has the purpose of combine the state of a value prop and its default value.
+> 
+> 
+
