@@ -5,8 +5,6 @@ import cx from 'classnames'
 
 import {reducerActions, reducerInitialState, reducer} from './reducer'
 
-const NO_OP = () => {}
-
 const DropdownUser = ({
   expandOnMouseOver = false,
   linkFactory: Link = ({href, className, children, title}) => (
@@ -22,9 +20,16 @@ const DropdownUser = ({
 
   const toggleMenu = () => dispatch({type: reducerActions.TOGGLE_MENU})
 
-  const onMouseOver = () => dispatch({type: reducerActions.MOUSE_HOVER})
+  const handleMouseOver = () =>
+    expandOnMouseOver && dispatch({type: reducerActions.MOUSE_HOVER})
 
-  const onMouseOut = () => dispatch({type: reducerActions.MOUSE_OUT})
+  const handleMouseOut = () =>
+    expandOnMouseOver && dispatch({type: reducerActions.MOUSE_OUT})
+
+  const handleClick = () => !expandOnMouseOver && toggleMenu
+
+  const handleTouchStart = () =>
+    expandOnMouseOver && collapseByTouch && toggleMenu
 
   const renderLink = (
     {text, url, icon: Icon, notifications, highlight},
@@ -61,13 +66,13 @@ const DropdownUser = ({
   return (
     <div
       className={wrapperClassName}
-      onMouseOver={expandOnMouseOver ? onMouseOver : NO_OP}
-      onMouseOut={expandOnMouseOver ? onMouseOut : NO_OP}
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseOut}
     >
       <div
         className="sui-DropdownUser-button"
-        onClick={expandOnMouseOver ? NO_OP : toggleMenu}
-        onTouchStart={expandOnMouseOver && collapseByTouch ? toggleMenu : NO_OP}
+        onClick={handleClick}
+        onTouchStart={handleTouchStart}
       >
         <div className="sui-DropdownUser-buttonAvatarWrap">
           <img
