@@ -29,7 +29,7 @@ jobs:
       with:
         path: |
           **/node_modules
-        key: ${{ github.run_id }}
+        key: ${{ github.run_number }}
     - name: Install dependencies
       run: |
         npx -p @s-ui/mono sui-mono phoenix --ci
@@ -49,7 +49,7 @@ jobs:
       with:
         path: |
           **/node_modules
-        key: ${{ github.run_id }}
+        key: ${{ github.run_number }}
     - name: Lint 
       run: npm run lint
 
@@ -68,7 +68,7 @@ jobs:
       with:
         path: |
           **/node_modules
-        key: ${{ github.run_id }}
+        key: ${{ github.run_number }}
     - name: Build dependencies
       run: npm run build
       env:
@@ -92,7 +92,7 @@ jobs:
       with:
         path: |
           **/node_modules
-        key: ${{ github.run_id }}
+        key: ${{ github.run_number }}
     - name: Install xvfb for headless testing
       run: sudo apt-get install xvfb
 
@@ -120,7 +120,7 @@ jobs:
       with:
         path: |
           **/node_modules
-        key: ${{ github.run_id }}
+        key: ${{ github.run_number }}
     - name: Release components
       run: npx @s-ui/ci release
       env:
