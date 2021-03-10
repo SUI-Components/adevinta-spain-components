@@ -70,12 +70,14 @@
       @include media-breakpoint-up(m) {
         display: none;
       }
-      fill: $c-text-base !important;
-      height: $size-dropdown-icon;
-      width: $size-dropdown-icon;
 
-      [class$='-button']:hover &:first-child {
-        fill: $c-dropdown-basic-button-icon !important;
+      & :first-child {
+        display: flex;
+
+        & svg {
+          height: $size-dropdown-icon !important;
+          width: $size-dropdown-icon !important;
+        }
       }
 
       &:not(:last-child) {

@@ -1,51 +1,52 @@
 /* eslint-disable react/prop-types */
+import {useReducer} from 'react'
 import PropTypes from 'prop-types'
-
-import {Component} from 'react'
 import cx from 'classnames'
 
-class DropdownUser extends Component {
-  state = {
-    expanded: false,
-    collapseByTouch: false
-  }
+import {reducerActions, reducerInitialState, reducer} from './reducer'
 
-  _doNothing = () => {}
+const DropdownUser = ({
+  expandOnMouseOver = false,
+  linkFactory: Link = ({href, className, children, title}) => (
+    <a href={href} className={className} title={title}>
+      {children}
+    </a>
+  ),
+  menu,
+  hasNotifications = menu.some(({notifications}) => Boolean(notifications)),
+  user
+}) => {
+  const [state, dispatch] = useReducer(reducer, reducerInitialState)
 
-  _toggleMenu = () => {
-    const {expanded} = this.state
+  const toggleMenu = () => dispatch({type: reducerActions.TOGGLE_MENU})
 
-    this.setState({expanded: !expanded})
-  }
+  const handleMouseOver = () =>
+    expandOnMouseOver && dispatch({type: reducerActions.MOUSE_HOVER})
 
-  _onMouseOver = () => {
-    this.setState({
-      expanded: true,
-      collapseByTouch: true
-    })
-  }
+  const handleMouseOut = () =>
+    expandOnMouseOver && dispatch({type: reducerActions.MOUSE_OUT})
 
-  _onMouseOut = () => {
-    this.setState({
-      expanded: false,
-      collapseByTouch: false
-    })
-  }
+  const handleClick = () => !expandOnMouseOver && toggleMenu()
 
-  _renderLink = ({text, url, icon: Icon, notifications, highlight}, index) => {
-    const Link = this.props.linkFactory
+  const handleTouchStart = () =>
+    expandOnMouseOver && collapseByTouch && toggleMenu()
+
+  const renderLink = (
+    {text, url, icon: Icon, notifications, highlight},
+    index
+  ) => {
     const linkClassName = cx('sui-DropdownUserMenu-listLink', {
       'sui-DropdownUserMenu-listLinkHighlight': highlight
     })
-    const iconClassName = cx('sui-DropdownUserMenu-listIcon', {
-      'sui-DropdownUserMenu-listIconHighlight': highlight
-    })
+
     return (
       <li key={`${text}-${index}`} className="sui-DropdownUserMenu-listItem">
         <Link href={url} className={linkClassName} title={text}>
-          <Icon svgClass={iconClassName} />
+          <div className="sui-DropdownUserMenu-listIcon">
+            <Icon />
+          </div>
           <span className="sui-DropdownUserMenu-listText">{text}</span>
-          {!!notifications && (
+          {hasNotifications && (
             <span className="sui-DropdownUserMenu-listNotification">
               {notifications}
             </span>
@@ -55,55 +56,40 @@ class DropdownUser extends Component {
     )
   }
 
-  render() {
-    const {expanded, collapseByTouch} = this.state
-    const {
-      user,
-      menu,
-      expandOnMouseOver,
-      hasNotifications = this.props.menu.some(({notifications}) =>
-        Boolean(notifications)
-      )
-    } = this.props
-    const {name, avatar} = user
-    const wrapperClassName = cx('sui-DropdownUser', {
-      'is-expanded': expanded,
-      'has-notifications': hasNotifications
-    })
-    return (
+  const {expanded, collapseByTouch} = state
+  const {name, avatar} = user
+  const wrapperClassName = cx('sui-DropdownUser', {
+    'is-expanded': expanded,
+    'has-notifications': hasNotifications
+  })
+
+  return (
+    <div
+      className={wrapperClassName}
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseOut}
+    >
       <div
-        className={wrapperClassName}
-        onMouseOver={expandOnMouseOver ? this._onMouseOver : this._doNothing}
-        onMouseOut={expandOnMouseOver ? this._onMouseOut : this._doNothing}
+        className="sui-DropdownUser-button"
+        onClick={handleClick}
+        onTouchStart={handleTouchStart}
       >
-        <div
-          className="sui-DropdownUser-button"
-          onClick={expandOnMouseOver ? this._doNothing : this._toggleMenu}
-          onTouchStart={
-            expandOnMouseOver && collapseByTouch
-              ? this._toggleMenu
-              : this._doNothing
-          }
-        >
-          <div className="sui-DropdownUser-buttonAvatarWrap">
-            <img
-              className="sui-DropdownUser-buttonAvatar"
-              src={avatar}
-              alt={`${name}-avatar`}
-            />
-          </div>
-          <span className="sui-DropdownUser-buttonText">{name}</span>
+        <div className="sui-DropdownUser-buttonAvatarWrap">
+          <img
+            className="sui-DropdownUser-buttonAvatar"
+            src={avatar}
+            alt={`${name}-avatar`}
+          />
         </div>
-        <div className="sui-DropdownUserMenu-wrap">
-          <div className="sui-DropdownUserMenu">
-            <ul className="sui-DropdownUserMenu-list">
-              {menu.map(this._renderLink)}
-            </ul>
-          </div>
+        <span className="sui-DropdownUser-buttonText">{name}</span>
+      </div>
+      <div className="sui-DropdownUserMenu-wrap">
+        <div className="sui-DropdownUserMenu">
+          <ul className="sui-DropdownUserMenu-list">{menu.map(renderLink)}</ul>
         </div>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 DropdownUser.displayName = 'DropdownUser'
@@ -157,15 +143,6 @@ DropdownUser.propTypes = {
    * Hasnotifications to show a badge notification.
    */
   hasNotifications: PropTypes.bool
-}
-
-DropdownUser.defaultProps = {
-  expandOnMouseOver: false,
-  linkFactory: ({href, className, children, title}) => (
-    <a href={href} className={className} title={title}>
-      {children}
-    </a>
-  )
 }
 
 export default DropdownUser
