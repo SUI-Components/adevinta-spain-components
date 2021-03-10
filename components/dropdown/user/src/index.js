@@ -26,10 +26,10 @@ const DropdownUser = ({
   const handleMouseOut = () =>
     expandOnMouseOver && dispatch({type: reducerActions.MOUSE_OUT})
 
-  const handleClick = () => !expandOnMouseOver && toggleMenu
+  const handleClick = () => !expandOnMouseOver && toggleMenu()
 
   const handleTouchStart = () =>
-    expandOnMouseOver && collapseByTouch && toggleMenu
+    expandOnMouseOver && collapseByTouch && toggleMenu()
 
   const renderLink = (
     {text, url, icon: Icon, notifications, highlight},
