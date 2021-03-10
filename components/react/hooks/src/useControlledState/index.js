@@ -5,8 +5,9 @@ import {useState, useEffect, useRef} from 'react'
  **/
 const useControlledState = (controlledValue, defaultValue) => {
   const isFirst = useRef(true)
-  const initialValue =
+  const [initialValue] = useState(
     controlledValue === undefined ? defaultValue : controlledValue
+  )
   const [value, setValue] = useState(initialValue)
   useEffect(() => {
     if (isFirst.current) {
@@ -15,7 +16,7 @@ const useControlledState = (controlledValue, defaultValue) => {
       setValue(controlledValue)
     }
   }, [controlledValue, setValue, isFirst])
-  return [value, setValue]
+  return [value, setValue, controlledValue !== undefined, initialValue]
 }
 
 export default useControlledState

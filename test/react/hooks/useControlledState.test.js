@@ -14,12 +14,21 @@ describe('useControlledState hook', () => {
 
     // When
     const hook = setupHook(props)
-    let [response, setResponse] = hook.result.current
+    let [
+      response,
+      setResponse,
+      isControlledValue,
+      initialValue
+    ] = hook.result.current
 
     // Then
     expect(typeof response).toBe('number')
     expect(typeof setResponse).toBe('function')
+    expect(typeof isControlledValue).toBe('boolean')
+    expect(typeof initialValue).toBe('number')
     expect(response).toBe(123)
+    expect(isControlledValue).toBe(false)
+    expect(initialValue).toBe(123)
 
     // And
     // Given
@@ -27,12 +36,21 @@ describe('useControlledState hook', () => {
 
     // When
     hook.rerender(props)
-    ;[response, setResponse] = hook.result.current
+    ;[
+      response,
+      setResponse,
+      isControlledValue,
+      initialValue
+    ] = hook.result.current
 
     // Then
     expect(typeof response).toBe('number')
     expect(typeof setResponse).toBe('function')
+    expect(typeof isControlledValue).toBe('boolean')
+    expect(typeof initialValue).toBe('number')
     expect(response).toBe(123)
+    expect(isControlledValue).toBe(false)
+    expect(initialValue).toBe(123)
 
     // And
     // Given
@@ -40,12 +58,21 @@ describe('useControlledState hook', () => {
 
     // When
     hook.rerender(props)
-    ;[response, setResponse] = hook.result.current
+    ;[
+      response,
+      setResponse,
+      isControlledValue,
+      initialValue
+    ] = hook.result.current
 
     // Then
     expect(typeof response).toBe('number')
     expect(typeof setResponse).toBe('function')
+    expect(typeof isControlledValue).toBe('boolean')
+    expect(typeof initialValue).toBe('number')
     expect(response).toBe(789)
+    expect(isControlledValue).toBe(true)
+    expect(initialValue).toBe(123)
   })
 
   it('value must be more relevant than defaultValue', () => {
@@ -54,11 +81,20 @@ describe('useControlledState hook', () => {
 
     // When
     const hook = setupHook(props)
-    const [response, setResponse] = hook.result.current
+    const [
+      response,
+      setResponse,
+      isControlledValue,
+      initialValue
+    ] = hook.result.current
 
     // Then
     expect(typeof response).toBe('number')
     expect(typeof setResponse).toBe('function')
+    expect(typeof isControlledValue).toBe('boolean')
+    expect(typeof initialValue).toBe('number')
     expect(response).toBe(123)
+    expect(isControlledValue).toBe(true)
+    expect(initialValue).toBe(123)
   })
 })

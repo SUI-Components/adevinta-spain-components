@@ -19,6 +19,7 @@ import UseScrollDemo from './UseScrollDemo'
 import UseStepsDemo from './UseStepsDemo'
 import UseSwipeDemo from './UseSwipeDemo'
 import UseToggleDemo from './UseToggleDemo'
+import UseControlledState from './UseControlledState'
 
 const orderedHookList = [
   UseBooleanDemo,
@@ -31,7 +32,8 @@ const orderedHookList = [
   UseOnScreenDemo,
   UseStepsDemo,
   UseSwipeDemo,
-  UseToggleDemo
+  UseToggleDemo,
+  UseControlledState
 ]
 
 // eslint-disable-next-line react/prop-types

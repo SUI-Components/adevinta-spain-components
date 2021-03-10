@@ -431,9 +431,23 @@ const Component = React.forwardRef((props, forwardedRef) => {
 > The `useControlledState` hook has the purpose of combine the state of a value prop and its default value.
 
 ```js
-const Component = ({value, initialValue}) => {
-  const [innerValue, setInnerValue] = useControlledState(value, initialValue)
-  const onClick = value => setInnerValue(value)
-  return <FooBar value={innerValue} onClick={onClick} />
+const Component = ({value, initialValue, onClick}) => {
+  const [
+    innerValue, // state
+    setInnerValue, // state setter
+    isControlledValue, // {boolean} using controlled behavior or not
+    initialInnerValue // first inner value state
+  ] = useControlledState(value, initialValue)
+  const onClickHandler = value => {
+    !isControlledValue && setInnerValue(value)
+    typeof onClick === 'function' && onClick(value)
+  }
+  return (
+    <FooBar
+      value={innerValue}
+      onClick={onClickHandler}
+      onReset={setInnerValue(initialInnerValue)}
+    />
+  )
 }
 ```
