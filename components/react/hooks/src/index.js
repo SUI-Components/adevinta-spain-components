@@ -8,6 +8,7 @@ export default function ReactHooks() {
 }
 
 export {default as useBoolean} from './useBoolean'
+export {default as useControlledState} from './useControlledState'
 export {default as useDebounce} from './useDebounce'
 export {default as useEventListener} from './useEventListener'
 export {default as useLegacyState} from './useLegacyState'

@@ -413,9 +413,8 @@ It accepts a list of ref arguments.
 
 **Return value**: `Ref<(value) => void>`
 
-
 ```js
-const Component = React.forwardRef((props, forwardedRef) =>  {
+const Component = React.forwardRef((props, forwardedRef) => {
   const firstRef = useRef()
   const secondRef = useRef()
 
@@ -426,3 +425,29 @@ const Component = React.forwardRef((props, forwardedRef) =>  {
 ```
 
 > **Find full description and more examples in the [demo page](#).**
+
+### useControlledState
+
+> The `useControlledState` hook has the purpose of combine the state of a value prop and its default value.
+
+```js
+const Component = ({value, initialValue, onClick, onReset}) => {
+  const [
+    innerValue, // state
+    setInnerValue, // state setter
+    isControlledValue, // {boolean} using controlled behavior or not
+    initialInnerValue // first inner value state
+  ] = useControlledState(value, initialValue)
+  const onHandler = (handler, value) => () => {
+    setInnerValue(value)
+    typeof handler === 'function' && handler(value)
+  }
+  return (
+    <FooBar
+      value={innerValue}
+      onClick={onHandler(onClick, innerValue)}
+      onReset={onHandler(onReset, initialInnerValue)}
+    />
+  )
+}
+```
