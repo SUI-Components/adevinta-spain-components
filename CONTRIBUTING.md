@@ -15,6 +15,7 @@ To develop new packages, you only need to install Node with NPM. Find below the 
 This repo is managed with [sui-studio](https://www.npmjs.com/package/@s-ui/studio) tool.
 
 Some base commands (based on sui-studio) you should acknowledge :
+
 * `npm run generate <category> <name>` to create a new component.
 * `npm run co` to commit your changes with a wizard.
 * `npm run release` publish all your changes for all packages (once your PR is merge).
