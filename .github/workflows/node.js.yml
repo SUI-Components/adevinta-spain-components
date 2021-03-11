@@ -32,7 +32,7 @@ jobs:
         key: ${{ github.run_number }}
     - name: Install dependencies
       run: |
-        npx -p @s-ui/mono sui-mono phoenix --ci
+        npx -p @s-ui/mono@1 sui-mono phoenix --ci
         npm run install:demos -- --ci
         
   lint:
