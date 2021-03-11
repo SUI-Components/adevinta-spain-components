@@ -2,7 +2,7 @@
 import Enzyme, {render} from 'enzyme'
 import AbTestToggle from '../src/index'
 
-import Adapter from 'enzyme-adapter-react-16'
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17'
 Enzyme.configure({adapter: new Adapter()})
 
 describe('<AbTestToggle />', () => {
