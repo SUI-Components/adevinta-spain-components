@@ -1,4 +1,4 @@
-import {useState, useEffect, useRef} from 'react'
+import {useState, useEffect, useRef, useCallback} from 'react'
 
 /**
  * React hook for combine the state of a value prop and its default value
@@ -16,7 +16,15 @@ const useControlledState = (controlledValue, defaultValue) => {
       setValue(controlledValue)
     }
   }, [controlledValue, setValue, isFirst])
-  return [value, setValue, controlledValue !== undefined, initialValue]
+  const updater = useCallback(
+    (value, forceFlag) => {
+      if (controlledValue === undefined || forceFlag) {
+        setValue(value)
+      }
+    },
+    [controlledValue, setValue]
+  )
+  return [value, updater, controlledValue !== undefined, initialValue]
 }
 
 export default useControlledState

@@ -15,19 +15,15 @@ const CounterComponent = ({
   onReset = noop,
   onUnset = noop
 }) => {
-  const [
-    internalValue,
-    setInternalValue,
-    isControlledValue,
-    initialState
-  ] = useControlledState(value, initialValue)
+  const [internalValue, setInternalValue, , initialState] = useControlledState(
+    value,
+    initialValue
+  )
   const onClickHandler = (operation, handler) => () => {
     const newInternalValue = operation(
       internalValue === undefined ? initialState : internalValue
     )
-    if (!isControlledValue) {
-      setInternalValue(newInternalValue)
-    }
+    setInternalValue(newInternalValue)
     handler(newInternalValue)
     onChange(newInternalValue)
   }

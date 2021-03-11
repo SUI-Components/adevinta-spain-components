@@ -1,4 +1,4 @@
-import {cleanup, renderHook} from '@testing-library/react-hooks'
+import {act, cleanup, renderHook} from '@testing-library/react-hooks'
 
 import {useControlledState} from '../../../components/react/hooks/src'
 
@@ -96,5 +96,55 @@ describe('useControlledState hook', () => {
     expect(response).toBe(123)
     expect(isControlledValue).toBe(true)
     expect(initialValue).toBe(123)
+  })
+
+  it('value must be updated using its setter when using uncontrolled mode and blocked when using controlled mode', () => {
+    // Given
+    const props = {value: undefined, defaultValue: 123}
+
+    // When
+    const hook = setupHook(props)
+    let [
+      response,
+      setResponse,
+      isControlledValue,
+      initialValue
+    ] = hook.result.current
+
+    // Then
+    expect(typeof response).toBe('number')
+    expect(typeof setResponse).toBe('function')
+    expect(typeof isControlledValue).toBe('boolean')
+    expect(typeof initialValue).toBe('number')
+    expect(response).toBe(123)
+    expect(isControlledValue).toBe(false)
+    expect(initialValue).toBe(123)
+
+    // And
+    // When
+    act(() => {
+      setResponse(456)
+    })
+    ;[response] = hook.result.current
+
+    // Then
+    expect(isControlledValue).toBe(false)
+    expect(response).toBe(456)
+
+    // And
+    // Then
+    props.value = 789
+
+    // When
+    hook.rerender(props)
+    ;[, setResponse] = hook.result.current
+    act(() => {
+      setResponse(123)
+    })
+    ;[response, , isControlledValue] = hook.result.current
+
+    // Then
+    expect(isControlledValue).toBe(true)
+    expect(response).toBe(789)
   })
 })
