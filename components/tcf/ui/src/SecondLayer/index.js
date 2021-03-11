@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {useConsent} from '@s-ui/react-tcf-services'
 import SuiModal from '@s-ui/react-molecule-modal'
-import Button from '@s-ui/react-atom-button'
+import Button, {atomButtonSizes} from '@s-ui/react-atom-button'
 
 import IconClose from './components/iconClose'
 import TcfSecondLayerDecisionGroup from './components/tcf-secondLayer-decision-group'
@@ -202,128 +202,144 @@ export default function TcfSecondLayer({
         iconClose={isMobile ? <IconClose /> : false}
         onClose={handleSaveExitClick}
         fitContent
+        isContentless
         portalContainerId="sui-TcfSecondLayerModal"
       >
-        <div className={`${CLASS}-main`}>
-          <h4 className={`${CLASS}-title`}>
-            {isVendorLayer ? i18n.VENDOR_PAGE.TITLE : i18n.SECOND_LAYER.TITLE}
-          </h4>
-          <p>
-            {isVendorLayer ? i18n.VENDOR_PAGE.TEXT : i18n.SECOND_LAYER.TEXT}
-          </p>
-          {!!vendorListState?.purposes && !!state?.purposes && !isVendorLayer && (
-            <TcfSecondLayerDecisionGroup
-              name={i18n.SECOND_LAYER.PURPOSES_TITLE}
-              baseClass={groupBaseClass}
-              descriptions={vendorListState.purposes}
-              state={state.purposes}
-              filteredIds={async () => {
-                const scope = await getScope()
-                return scope.purposes
-              }}
-              onConsentChange={props =>
-                handleConsentsChange({
-                  group: GROUP_PURPOSES,
-                  ...props
-                })
-              }
-              hasConsent
-              i18n={i18n}
-              onAcceptAll={() => handleAcceptAll({group: GROUP_PURPOSES})}
-              onRejectAll={() => handleRejectAll({group: GROUP_PURPOSES})}
-              vendorList={vendorListState}
-              expandedContent={legalExpandedContent}
-              isVendorLayer={isVendorLayer}
-            />
-          )}
-          {!!vendorListState?.specialFeatures &&
-            !!state?.specialFeatures &&
-            !isVendorLayer && (
+        <SuiModal.Content>
+          <div className={`${CLASS}-main`}>
+            <h4 className={`${CLASS}-title`}>
+              {isVendorLayer ? i18n.VENDOR_PAGE.TITLE : i18n.SECOND_LAYER.TITLE}
+            </h4>
+            <p>
+              {isVendorLayer ? i18n.VENDOR_PAGE.TEXT : i18n.SECOND_LAYER.TEXT}
+            </p>
+            {!!vendorListState?.purposes &&
+              !!state?.purposes &&
+              !isVendorLayer && (
+                <TcfSecondLayerDecisionGroup
+                  name={i18n.SECOND_LAYER.PURPOSES_TITLE}
+                  baseClass={groupBaseClass}
+                  descriptions={vendorListState.purposes}
+                  state={state.purposes}
+                  filteredIds={async () => {
+                    const scope = await getScope()
+                    return scope.purposes
+                  }}
+                  onConsentChange={props =>
+                    handleConsentsChange({
+                      group: GROUP_PURPOSES,
+                      ...props
+                    })
+                  }
+                  hasConsent
+                  i18n={i18n}
+                  onAcceptAll={() => handleAcceptAll({group: GROUP_PURPOSES})}
+                  onRejectAll={() => handleRejectAll({group: GROUP_PURPOSES})}
+                  vendorList={vendorListState}
+                  expandedContent={legalExpandedContent}
+                  isVendorLayer={isVendorLayer}
+                />
+              )}
+            {!!vendorListState?.specialFeatures &&
+              !!state?.specialFeatures &&
+              !isVendorLayer && (
+                <TcfSecondLayerDecisionGroup
+                  name={i18n.SECOND_LAYER.SPECIAL_FEATURES_TITLE}
+                  baseClass={groupBaseClass}
+                  descriptions={vendorListState.specialFeatures}
+                  state={state.specialFeatures}
+                  filteredIds={async () => {
+                    const scope = await getScope()
+                    return scope.specialFeatures
+                  }}
+                  onConsentChange={props =>
+                    handleConsentsChange({
+                      group: GROUP_SPECIAL_FEATURES,
+                      ...props
+                    })
+                  }
+                  hasConsent
+                  i18n={i18n}
+                  onAcceptAll={handleAcceptAllSpecialFeatures}
+                  onRejectAll={handleRejectAllSpecialFeatures}
+                  vendorList={vendorListState}
+                  expandedContent={legalExpandedContent}
+                  isVendorLayer={isVendorLayer}
+                />
+              )}
+            {!!vendorListState?.specialPurposes && !isVendorLayer && (
               <TcfSecondLayerDecisionGroup
-                name={i18n.SECOND_LAYER.SPECIAL_FEATURES_TITLE}
+                name={i18n.SECOND_LAYER.SPECIAL_PURPOSES_TITLE}
                 baseClass={groupBaseClass}
-                descriptions={vendorListState.specialFeatures}
-                state={state.specialFeatures}
-                filteredIds={async () => {
-                  const scope = await getScope()
-                  return scope.specialFeatures
-                }}
-                onConsentChange={props =>
-                  handleConsentsChange({
-                    group: GROUP_SPECIAL_FEATURES,
-                    ...props
-                  })
-                }
-                hasConsent
+                descriptions={vendorListState.specialPurposes}
+                hasConsent={false}
                 i18n={i18n}
-                onAcceptAll={handleAcceptAllSpecialFeatures}
-                onRejectAll={handleRejectAllSpecialFeatures}
                 vendorList={vendorListState}
                 expandedContent={legalExpandedContent}
                 isVendorLayer={isVendorLayer}
               />
             )}
-          {!!vendorListState?.specialPurposes && !isVendorLayer && (
-            <TcfSecondLayerDecisionGroup
-              name={i18n.SECOND_LAYER.SPECIAL_PURPOSES_TITLE}
-              baseClass={groupBaseClass}
-              descriptions={vendorListState.specialPurposes}
-              hasConsent={false}
-              i18n={i18n}
-              vendorList={vendorListState}
-              expandedContent={legalExpandedContent}
-              isVendorLayer={isVendorLayer}
-            />
-          )}
-          {!!vendorListState?.features && !isVendorLayer && (
-            <TcfSecondLayerDecisionGroup
-              name={i18n.SECOND_LAYER.FEATURES_TITLE}
-              baseClass={groupBaseClass}
-              descriptions={vendorListState.features}
-              hasConsent={false}
-              i18n={i18n}
-              vendorList={vendorListState}
-              expandedContent={legalExpandedContent}
-              isVendorLayer={isVendorLayer}
-            />
-          )}
-          {!!state?.vendors && !!vendorListState?.vendors && isVendorLayer && (
-            <TcfSecondLayerVendorList
-              i18n={i18n}
-              baseClass={CLASS}
-              groupBaseClass={groupBaseClass}
-              vendorListState={vendorListState}
-              state={state}
-              handleConsentsChange={handleConsentsChange}
-              handleAcceptAll={handleAcceptAll}
-              handleRejectAll={handleRejectAll}
-              vendorExpandedContent={vendorExpandedContent}
-            />
-          )}
-        </div>
-        <footer className={`${CLASS}-footer`}>
-          {!isVendorLayer && showPartnersList && (
-            <div className={`${CLASS}-footer--link`}>
+            {!!vendorListState?.features && !isVendorLayer && (
+              <TcfSecondLayerDecisionGroup
+                name={i18n.SECOND_LAYER.FEATURES_TITLE}
+                baseClass={groupBaseClass}
+                descriptions={vendorListState.features}
+                hasConsent={false}
+                i18n={i18n}
+                vendorList={vendorListState}
+                expandedContent={legalExpandedContent}
+                isVendorLayer={isVendorLayer}
+              />
+            )}
+            {!!state?.vendors &&
+              !!vendorListState?.vendors &&
+              isVendorLayer && (
+                <TcfSecondLayerVendorList
+                  i18n={i18n}
+                  baseClass={CLASS}
+                  groupBaseClass={groupBaseClass}
+                  vendorListState={vendorListState}
+                  state={state}
+                  handleConsentsChange={handleConsentsChange}
+                  handleAcceptAll={handleAcceptAll}
+                  handleRejectAll={handleRejectAll}
+                  vendorExpandedContent={vendorExpandedContent}
+                />
+              )}
+          </div>
+        </SuiModal.Content>
+        <SuiModal.Footer>
+          <div className={`${CLASS}-footer`}>
+            {!isVendorLayer && showPartnersList && (
+              <div className={`${CLASS}-footer--link`}>
+                <Button
+                  size={atomButtonSizes.SMALL}
+                  design="link"
+                  onClick={() => {
+                    onVendorsClick && onVendorsClick()
+                  }}
+                >
+                  {i18n.SECOND_LAYER.PARTNERS_LINK}
+                </Button>
+              </div>
+            )}
+            <div className={`${CLASS}-footer--buttons`}>
               <Button
-                size="small"
-                design="link"
-                onClick={() => {
-                  onVendorsClick && onVendorsClick()
-                }}
+                design="outline"
+                size={atomButtonSizes.SMALL}
+                onClick={onGoBack}
               >
-                {i18n.SECOND_LAYER.PARTNERS_LINK}
+                {i18n.GO_BACK_BUTTON}
+              </Button>
+              <Button
+                onClick={handleSaveExitClick}
+                size={atomButtonSizes.SMALL}
+              >
+                {i18n.ACCEPT_BUTTON}
               </Button>
             </div>
-          )}
-          <div className={`${CLASS}-footer--buttons`}>
-            <Button design="outline" size="small" onClick={onGoBack}>
-              {i18n.GO_BACK_BUTTON}
-            </Button>
-            <Button size="small" onClick={handleSaveExitClick}>
-              {i18n.ACCEPT_BUTTON}
-            </Button>
           </div>
-        </footer>
+        </SuiModal.Footer>
       </SuiModal>
     </div>
   )

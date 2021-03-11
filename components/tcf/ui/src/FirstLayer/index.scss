@@ -10,32 +10,15 @@ $fz-tcf-first-layer-base: $fz-s !default; // 14px
 $fz-tcf-first-layer-mobile: $fz-xs !default; // 12px
 $fz-tcf-first-layer-title-mobile: $fz-s !default; //14px
 $fz-tcf-first-layer-title: $fz-h5 !default; //18px
-$h-tcf-first-layer-footer: 88px;
-$maw-tcf-first-layer-buttons: 200px + $p-xxxl !default;
 $maw-tcf-first-layer-logo: 114px !default;
 $h-tcf-first-layer-logo: 22px !default;
-$maw-tcf-first-layer: 1200px !default;
-$p-tcf-first-layer-buttons--desktop: 24px 33px;
-$p-tcf-first-layer-buttons--mobile: 24px 0px;
 
 $base-class: '.sui-TcfFirstLayer';
 $base-class-modal: '#sui-TcfFirstLayerModal';
 
 #{$base-class} {
-  &-body {
+  &-info {
     font-size: $fz-tcf-first-layer-mobile;
-    padding: 0 $p-m;
-    padding-bottom: $h-tcf-first-layer-footer;
-
-    #{$base-class}:not(#{$base-class}--isMobile) .sui-MoleculeNotification & {
-      @include media-breakpoint-up(s) {
-        font-size: $fz-tcf-first-layer-base;
-        margin: 0 auto;
-        max-width: $maw-tcf-first-layer;
-        display: flex;
-        padding: $p-l 0 $p-xl;
-      }
-    }
   }
 
   &-title {
@@ -60,29 +43,14 @@ $base-class-modal: '#sui-TcfFirstLayerModal';
   &-buttons {
     display: flex;
     justify-content: center;
-    margin-top: $m-xl;
 
-    #{$base-class}:not(#{$base-class}--isMobile) .sui-MoleculeNotification & {
-      @include media-breakpoint-up(s) {
-        flex-direction: column-reverse;
-        min-width: $maw-tcf-first-layer-buttons;
-        border-top: 0;
-        justify-content: flex-end;
-        padding-left: $p-xxxl;
-        margin-top: 0;
-      }
+    @include media-breakpoint-up(s) {
+      justify-content: flex-end;
     }
 
     & .sui-AtomButton {
       border-radius: $bdrs-xl;
       font-size: $fz-tcf-first-layer-base;
-
-      #{$base-class}:not(#{$base-class}--isMobile) .sui-MoleculeNotification & {
-        @include media-breakpoint-up(s) {
-          margin: 0 0 $m-l 0;
-          font-size: initial;
-        }
-      }
     }
   }
 
@@ -102,37 +70,5 @@ $base-class-modal: '#sui-TcfFirstLayerModal';
 
   .sui-MoleculeNotification-content {
     background-color: $c-white;
-  }
-}
-
-#{$base-class-modal} {
-  * {
-    box-sizing: border-box;
-  }
-
-  .sui-MoleculeModal-dialog {
-    position: relative;
-  }
-
-  .sui-MoleculeModal-content {
-    position: initial;
-    margin-left: $m-l;
-    margin-right: $m-l;
-
-    .sui-TcfFirstLayer-buttons {
-      position: absolute;
-      border-top: $bd-molecule-modal-header;
-      width: 100%;
-      left: 0;
-      bottom: 0;
-      height: $h-tcf-first-layer-footer;
-      padding: $p-tcf-first-layer-buttons--mobile;
-      background-color: $c-white;
-
-      @include media-breakpoint-up(s) {
-        justify-content: flex-end;
-        padding: $p-tcf-first-layer-buttons--desktop;
-      }
-    }
   }
 }

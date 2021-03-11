@@ -35,7 +35,7 @@ export default function TcfFirstLayer({
         handleCookiePolicyLayerClick
       )
     onOpenCookiePolicyLayer()
-  })
+  }, [onOpenCookiePolicyLayer])
   const ref = useRef(null)
   const textRef = useCallback(
     node => {
@@ -78,26 +78,6 @@ export default function TcfFirstLayer({
     return i18n.BODY(PARTNERS_LIST)
   }
 
-  const Content = () => {
-    return (
-      <div className={`${CLASS}-body`}>
-        <div
-          className={`${CLASS}-info`}
-          ref={textRef}
-          dangerouslySetInnerHTML={{__html: getBody(showPartnersList)}}
-        />
-        <div className={`${CLASS}-buttons`}>
-          <SuiButton onClick={handleSettingsClick} design="outline">
-            {i18n.CONFIGURE_BUTTON}
-          </SuiButton>
-          <SuiButton onClick={handleSaveExitClick} data-testid="TcfAccept">
-            {i18n.CONTINUE_NAVIGATION_BUTTON}
-          </SuiButton>
-        </div>
-      </div>
-    )
-  }
-
   return (
     <div className={`${isMobile ? `${CLASS} ${CLASS}--isMobile` : `${CLASS}`}`}>
       <SuiModal
@@ -115,9 +95,26 @@ export default function TcfFirstLayer({
         }
         onClose={handleSaveExitClick}
         fitContent
+        isContentless
         portalContainerId="sui-TcfFirstLayerModal"
       >
-        <Content />
+        <SuiModal.Content>
+          <div
+            className={`${CLASS}-info`}
+            ref={textRef}
+            dangerouslySetInnerHTML={{__html: getBody(showPartnersList)}}
+          />
+        </SuiModal.Content>
+        <SuiModal.Footer>
+          <div className={`${CLASS}-buttons`}>
+            <SuiButton onClick={handleSettingsClick} design="outline">
+              {i18n.CONFIGURE_BUTTON}
+            </SuiButton>
+            <SuiButton onClick={handleSaveExitClick} data-testid="TcfAccept">
+              {i18n.CONTINUE_NAVIGATION_BUTTON}
+            </SuiButton>
+          </div>
+        </SuiModal.Footer>
       </SuiModal>
     </div>
   )
