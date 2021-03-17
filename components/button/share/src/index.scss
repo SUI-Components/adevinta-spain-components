@@ -2,7 +2,7 @@
 @import '~@s-ui/theme/lib/index';
 
 $bdrs-button-share: 50% !default;
-$bgc-button-email: $c-gray-dark !default;
+$bgc-button-email: $c-gray !default;
 $bgc-button-share-colors: $c-whatsapp, $c-facebook, $c-twitter,
   $bgc-button-email, $c-primary !default;
 $button-share-types: 'whatsapp', 'facebook', 'twitter', 'email', 'custom' !default;
