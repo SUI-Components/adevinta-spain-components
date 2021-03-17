@@ -100,6 +100,27 @@ export default () => {
 }
 ```
 
+### useOnElementBelowViewport
+
+Returns whether the element from the reference is below the viewport or not
+
+```js
+import {useOnElementBelowViewport} from '@adv-ui/re-hooks-use-domain'
+
+const [
+  isElementBelowViewport,
+  elementRef
+] = useOnElementBelowViewport()
+
+return (
+  <div>
+    ...
+    <div ref={elementRef}>Am I below the viewport?</div>
+    ...
+  </div>
+)
+```
+
 ### useLegacyState
 
 Hook that provides a similar state management approach to the old `this.setState` from a class.

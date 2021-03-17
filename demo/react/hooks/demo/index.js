@@ -14,6 +14,7 @@ import UseMediaQueryDemo from './UseMediaQueryDemo'
 import UseMergeRefsDemo from './UseMergeRefsDemo'
 import UseMountDemo from './UseMountDemo'
 import UseNearScreenDemo from './UseNearScreenDemo'
+import UseOnElementBelowViewport from './UseOnElementBelowViewport'
 import UseOnScreenDemo from './UseOnScreenDemo'
 import UseScrollDemo from './UseScrollDemo'
 import UseStepsDemo from './UseStepsDemo'
@@ -29,6 +30,7 @@ const orderedHookList = [
   UseMergeRefsDemo,
   UseMountDemo,
   UseNearScreenDemo,
+  UseOnElementBelowViewport,
   UseOnScreenDemo,
   UseStepsDemo,
   UseSwipeDemo,
