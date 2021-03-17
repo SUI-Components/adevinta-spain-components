@@ -3,8 +3,8 @@
 @import '~@s-ui/react-modal-basic/lib/index';
 @import '~@schibstedspain/sui-image-slider/lib/index';
 
-$c-modal-gallery-photos-icon: $c-gray-dark !default;
-$c-modal-gallery-photos-counter-text: $c-gray-dark !default;
+$c-modal-gallery-photos-icon: $c-gray !default;
+$c-modal-gallery-photos-counter-text: $c-gray !default;
 $fz-modal-gallery-photos-counter-text: $fz-m !default;
 $lh-modal-gallery-photos-counter-text: $lh-l !default;
 $pt-modal-gallery-keep-aspect-ratio-16-9: (9 / 16) * 100% !default;
