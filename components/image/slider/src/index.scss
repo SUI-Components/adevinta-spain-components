@@ -20,6 +20,10 @@ $c-image-slider: $c-white !default;
     justify-content: center;
   }
 
+  &--fullHeight {
+    height: 100%;
+  }
+
   &-image {
     max-width: 100%;
   }
