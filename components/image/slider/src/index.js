@@ -79,9 +79,11 @@ export default function ImageSlider({
   )
   const slides = getSlides(currentSlide, images, linkFactory)
   const hasSingleImage = slides.length === 1
+  const {useFullHeight} = sliderOptions
 
   const BASE_CLASS = cx('sui-ImageSlider', {
-    'sui-ImageSlider--single': hasSingleImage
+    'sui-ImageSlider--single': hasSingleImage,
+    'sui-ImageSlider--fullHeight': useFullHeight
   })
 
   const buildCounter = totalImages => {
