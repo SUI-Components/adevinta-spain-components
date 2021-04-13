@@ -11,7 +11,7 @@
         right: 0;
         top: 0;
         width: 100%;
-        z-index: $z-modal-basic;
+        z-index: $z-modal;
       }
     }
   }
@@ -39,7 +39,7 @@
   padding-left: 0;
   position: absolute;
   visibility: hidden;
-  z-index: $z-modal-basic;
+  z-index: $z-modal;
 
   &--visible {
     margin-top: 0;
