@@ -6,7 +6,8 @@ const BOTS_USER_AGENTS = [
   'google-structured-data-testing-tool',
   'bingbot',
   'linkedinbot',
-  'mediapartners-google'
+  'mediapartners-google',
+  'debugbear'
 ]
 
 function checkUserAgentIsBot(userAgent, botsUserAgents) {
