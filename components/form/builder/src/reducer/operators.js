@@ -8,7 +8,9 @@ import {
   CHANGED,
   EQUALS,
   GREATERTHAN,
-  LESSTHAN
+  GREATERTHANEQUALS,
+  LESSTHAN,
+  LESSTHANEQUALS
 } from './constants'
 import {pickFieldById} from './fields'
 import {LocalizationFactory} from '../Standard/Localization/LocalizationFactory'
@@ -59,6 +61,16 @@ export const operators = {
     const shouldApply = value > values[0]
     return shouldApply
   },
+  [GREATERTHANEQUALS]: (id, values, fields, locale) => {
+    const field = pickFieldById(fields, id)
+    let value = field.value
+    if (typeof field.value === 'string') {
+      const localization = LocalizationFactory({value, locale})
+      value = localization.fromStringToLocaleFloat()
+    }
+    const shouldApply = value >= values[0]
+    return shouldApply
+  },
   [LESSTHAN]: (id, values, fields, locale) => {
     const field = pickFieldById(fields, id)
     let value = field.value
@@ -67,6 +79,16 @@ export const operators = {
       value = localization.fromStringToLocaleFloat()
     }
     const shouldApply = value < values[0]
+    return shouldApply
+  },
+  [LESSTHANEQUALS]: (id, values, fields, locale) => {
+    const field = pickFieldById(fields, id)
+    let value = field.value
+    if (typeof field.value === 'string') {
+      const localization = LocalizationFactory({value, locale})
+      value = localization.fromStringToLocaleFloat()
+    }
+    const shouldApply = value <= values[0]
     return shouldApply
   }
 }
