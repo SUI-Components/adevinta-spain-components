@@ -451,3 +451,42 @@ const Component = ({value, initialValue, onClick, onReset}) => {
   )
 }
 ```
+
+### useDynamicHeightCollapsible
+
+> The `useDynamicHeightCollapsible` hook has the purpose of controlling the MoleculeCollapsible component when you need its height to be calculated dynamicaly.
+
+```js
+import {useRef} from 'react'
+
+const containerListRef = useRef()
+
+const getContentHeight = (
+  marginValue,
+  selectedItemsQuantity,
+  nonSelectedItemsQuantity
+) => {
+  let contentHeight = 0
+  const {children} = containerListRef
+  const numDisplayedItems = selectedItemsQuantity + nonSelectedItemsQuantity
+  const visibleItems = Math.min(children.length, numDisplayedItems)
+  for (let i = 0; i < visibleItems; i++) {
+    contentHeight += children[i].clientHeight
+  }
+  return contentHeight + marginValue * itemsInDisplay
+}
+
+const [isCollapsed, height, {toggle, heightRecalculator}] = useDynamicHeightCollapsible(getContentHeigh)
+
+<MoleculeCollapsible
+  withGradient
+  height={height}
+  onOpen={toggle}
+  onClose={toggle}
+>
+  <ul ref={containerList}>
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+</MoleculeCollapsible>
+```
