@@ -10,7 +10,8 @@ const BOTS_USER_AGENTS = [
   'googlebot-image',
   'googlebot-news',
   'googlebot-video',
-  'adsbot-google-mobile-apps'
+  'adsbot-google-mobile-apps',
+  'debugbear'
 ]
 
 export default function isBotService({userAgent}) {

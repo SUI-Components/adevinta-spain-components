@@ -12,7 +12,9 @@ import {
   REMOTE,
   EQUALS,
   GREATERTHAN,
-  LESSTHAN
+  LESSTHAN,
+  GREATERTHANEQUALS,
+  LESSTHANEQUALS
 } from './constants'
 import {changeFieldById, fieldsToQP} from './fields'
 
@@ -48,9 +50,13 @@ export const shouldApplyRule = (fields, changeField, locale) => when => {
   // Reduce works as AND operator, all rules should be true
   const isValid = when.reduce((acc, rule) => {
     // if (rule.id !== changeField) {
-    if (!when.some(rule => rule.id === changeField)) {
+
+    if (
+      !when.some(rule => rule.isChangeCheckDisabled || rule.id === changeField)
+    ) {
       return false
     }
+
     let isValid
     switch (rule.operator) {
       case IN:
@@ -82,6 +88,17 @@ export const shouldApplyRule = (fields, changeField, locale) => when => {
         break
       case GREATERTHAN:
         isValid = operators.GREATERTHAN(rule.id, rule.value, fields, locale)
+        break
+      case GREATERTHANEQUALS:
+        isValid = operators.GREATERTHANEQUALS(
+          rule.id,
+          rule.value,
+          fields,
+          locale
+        )
+        break
+      case LESSTHANEQUALS:
+        isValid = operators.LESSTHANEQUALS(rule.id, rule.value, fields, locale)
         break
       case LESSTHAN:
         isValid = operators.LESSTHAN(rule.id, rule.value, fields, locale)
