@@ -8,6 +8,7 @@ import {
   EXISTS,
   NEXISTS,
   CHANGED,
+  NOTCHANGED,
   REMOTE,
   EQUALS,
   GREATERTHAN,
@@ -72,6 +73,9 @@ export const shouldApplyRule = (fields, changeField, locale) => when => {
         break
       case CHANGED:
         isValid = operators.CHANGED(rule.id, changeField)
+        break
+      case NOTCHANGED:
+        isValid = operators.NOTCHANGED(rule.id, changeField)
         break
       case EQUALS:
         isValid = operators.EQUALS(rule.id, rule.value, fields, locale)
