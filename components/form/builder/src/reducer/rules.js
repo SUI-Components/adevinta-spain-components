@@ -8,7 +8,6 @@ import {
   EXISTS,
   NEXISTS,
   CHANGED,
-  NOTCHANGED,
   REMOTE,
   EQUALS,
   GREATERTHAN,
@@ -51,9 +50,7 @@ export const shouldApplyRule = (fields, changeField, locale) => when => {
   const isValid = when.reduce((acc, rule) => {
     // if (rule.id !== changeField) {
 
-    if (
-      !when.some(rule => rule.isChangeCheckDisabled || rule.id === changeField)
-    ) {
+    if (!when.some(rule => rule.id === changeField)) {
       return false
     }
 
@@ -66,7 +63,7 @@ export const shouldApplyRule = (fields, changeField, locale) => when => {
         isValid = operators.INPATTERN(rule.id, rule.value, fields, changeField)
         break
       case NINPATTERN:
-        isValid = operators.NIN(rule.id, rule.value, fields, changeField)
+        isValid = operators.NINPATTERN(rule.id, rule.value, fields, changeField)
         break
       case NIN:
         isValid = operators.NIN(rule.id, rule.value, fields, changeField)
@@ -79,9 +76,6 @@ export const shouldApplyRule = (fields, changeField, locale) => when => {
         break
       case CHANGED:
         isValid = operators.CHANGED(rule.id, changeField)
-        break
-      case NOTCHANGED:
-        isValid = operators.NOTCHANGED(rule.id, changeField)
         break
       case EQUALS:
         isValid = operators.EQUALS(rule.id, rule.value, fields, locale)
@@ -205,6 +199,7 @@ export const applyRules = async (
     },
     {}
   )
+
   const remoteFieldsToChange = await fetchRemoteFieldsForFieldsAndFormID(
     fieldsToChanges
   )

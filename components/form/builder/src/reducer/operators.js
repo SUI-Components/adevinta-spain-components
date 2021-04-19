@@ -6,7 +6,6 @@ import {
   EXISTS,
   NEXISTS,
   CHANGED,
-  NOTCHANGED,
   EQUALS,
   GREATERTHAN,
   GREATERTHANEQUALS,
@@ -41,7 +40,6 @@ export const operators = {
     return !operators.EXISTS(id, fields)
   },
   [CHANGED]: (id, changeField) => id === changeField,
-  [NOTCHANGED]: (id, changeField) => id !== changeField,
   [EQUALS]: (id, values, fields, locale) => {
     const field = pickFieldById(fields, id)
     let value = field.value
