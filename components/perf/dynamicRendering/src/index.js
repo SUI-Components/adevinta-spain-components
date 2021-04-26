@@ -7,7 +7,8 @@ const BOTS_USER_AGENTS = [
   'bingbot',
   'linkedinbot',
   'mediapartners-google',
-  'debugbear'
+  'debugbear',
+  'chrome-lighthouse'
 ]
 
 function checkUserAgentIsBot(userAgent, botsUserAgents) {
