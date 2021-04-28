@@ -79,10 +79,16 @@ const FormBuilder = ({
     const nextStateFieldsObject = useNativeFieldType
       ? fieldsToObjectNativeTypes(nextStateFields)
       : fieldsToObject(nextStateFields)
-    onChange({
+    const fieldsToUpdate = onChange({
       ...nextStateFieldsObject,
       __FIELD_CHANGED__: id
     })
+
+    if (typeof fieldsToUpdate === 'object' && fieldsToUpdate !== null)
+      Object.entries(fieldsToUpdate).forEach(async ([key, value]) => {
+        await handlerChange(key, value)
+      })
+
     setStateShowSpinner(false)
   }, []) // eslint-disable-line
 
