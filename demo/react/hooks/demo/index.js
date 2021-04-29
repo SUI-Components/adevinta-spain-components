@@ -13,6 +13,7 @@ import UseLegacyStateDemo from './UseLegacyStateDemo'
 import UseMediaQueryDemo from './UseMediaQueryDemo'
 import UseMergeRefsDemo from './UseMergeRefsDemo'
 import UseMountDemo from './UseMountDemo'
+import UseMountedStateDemo from './UseMountedStateDemo'
 import UseNearScreenDemo from './UseNearScreenDemo'
 import UseOnScreenDemo from './UseOnScreenDemo'
 import UseScrollDemo from './UseScrollDemo'
@@ -20,20 +21,25 @@ import UseStepsDemo from './UseStepsDemo'
 import UseSwipeDemo from './UseSwipeDemo'
 import UseToggleDemo from './UseToggleDemo'
 import UseControlledStateDemo from './UseControlledStateDemo'
+import UseCopyToClipboardDemo from './UseCopyToClipboardDemo'
+import UseSetStateDemo from './UseSetStateDemo'
 
 const orderedHookList = [
   UseBooleanDemo,
+  UseControlledStateDemo,
+  UseCopyToClipboardDemo,
   UseEventListenerDemo,
   UseLegacyStateDemo,
   UseMediaQueryDemo,
   UseMergeRefsDemo,
   UseMountDemo,
+  UseMountedStateDemo,
   UseNearScreenDemo,
   UseOnScreenDemo,
+  UseSetStateDemo,
   UseStepsDemo,
   UseSwipeDemo,
-  UseToggleDemo,
-  UseControlledStateDemo
+  UseToggleDemo
 ]
 
 // eslint-disable-next-line react/prop-types

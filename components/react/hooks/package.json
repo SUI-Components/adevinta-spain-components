@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
+    "clipboard-copy": "4.0",
     "intersection-observer": "0.10.0"
   },
   "keywords": [],

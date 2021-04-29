@@ -451,3 +451,74 @@ const Component = ({value, initialValue, onClick, onReset}) => {
   )
 }
 ```
+
+### useMountedState
+
+> The `useMountedState` hook provides the ability to check component's mount state.
+> Returns a function that will return true if component mounted and false otherwise.
+
+```js
+const Demo = () => {
+  const isMounted = useMountedState()
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      if (isMounted()) {
+        // ...
+      } else {
+        // ...
+      }
+    }, 1000)
+  })
+}
+```
+
+### useSetState
+
+> React state hook that creates setState method which works similar to how this.setState works in class components—it merges object changes into current state.
+
+```js
+const Demo = () => {
+  const [{input1, input2}, setState] = useSetState({
+    input1: 'input1',
+    input2: 'input2'
+  })
+  return (
+    <div>
+      <input
+        value={input1}
+        onChange={event => setState({input1: event.target.value})}
+      />
+      <input
+        value={input2}
+        onChange={event => setState({input2: event.target.value})}
+      />
+    </div>
+  )
+}
+```
+
+### useCopyToClipboard
+
+> Copy text to a user's clipboard.
+
+```js
+const Demo = () => {
+  const [text, setText] = React.useState('')
+  const [{value, error}, copyToClipboard] = useCopyToClipboard()
+
+  return (
+    <div>
+      <input value={text} onChange={e => setText(e.target.value)} />
+      <button type="button" onClick={() => copyToClipboard(text)}>
+        copy text
+      </button>
+      {error ? (
+        <p>Unable to copy value: {error.message}</p>
+      ) : (
+        value && <p>Copied {value}</p>
+      )}
+    </div>
+  )
+}
+```
