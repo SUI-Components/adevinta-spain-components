@@ -28,16 +28,16 @@ return <FormBuilder />
 
 ## Update Fields Value Programatically
 
-To update a field programatically you can return an object from the onChange callback, and the key values inside the object will trigger a change in the field.
+To update a field programatically you can return an object from the async onChange callback, and the key values inside the object will trigger a change in the field.
 
 In this example we are chaning the value of the field `color` to `yellow` allways.
 
 ```js
 const onChange = fields => {
     ...
-    return {
+    return Promise.resolve({
         color: 'yellow'
-    }
+    })
 }
 
 <FormBuilder
