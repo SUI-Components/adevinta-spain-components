@@ -1,0 +1,16 @@
+@import '~@s-ui/theme/lib/index';
+@import '~@s-ui/react-atom-input/lib/index';
+@import '~@s-ui/react-atom-button/lib/index';
+
+.sui-InputCopy {
+  &-label {
+    display: block;
+    color: $c-gray;
+    font-size: $fz-s;
+    padding-bottom: $p-s;
+  }
+
+  &-button.sui-AtomButton {
+    min-width: 87px;
+  }
+}
