@@ -19,9 +19,7 @@ export default function InputCopy({
   const [isCopied, setIsCopied] = useState(isCopiedFromProps)
   const [, copyToClipboard] = useCopyToClipboard()
 
-  const handleCopy = event => {
-    const {onClick = () => {}} = buttonProps
-
+  const handleCopy = (event, onClick = () => {}) => {
     copyToClipboard(textToCopy)
     setIsCopied(true)
 
@@ -39,8 +37,8 @@ export default function InputCopy({
     : {
         children: buttonText,
         design: 'outline',
-        onClick: handleCopy,
-        ...buttonProps
+        ...buttonProps,
+        onClick: event => handleCopy(event, buttonProps.onClick)
       }
 
   return (
