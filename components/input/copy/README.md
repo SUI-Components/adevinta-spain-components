@@ -2,8 +2,6 @@
 
 > Component that combines an input with a button to copy the value of the input.
 
-<!-- ![](./assets/preview.png) -->
-
 ## Installation
 
 ```sh
@@ -15,6 +13,15 @@ $ npm install @s-ui/sui-input-copy
 ### Basic usage
 
 #### Import package and use the component
+
+**PROPS**
+  * **buttonProps**: Object for pass props to the button.
+  * **buttonText**: Literal for the button before copied.
+  * **buttonTextAfterCopied**: Literal for the button after copying.
+  * **isCopied**: Variable for control the component from outside.
+  * **labelText**: Literal for label
+  * **onCopy**: Function to execute after the text has been copied
+  * **textToCopy**: Literal to be copied.
 
 ```js
 import InputCopy from '@s-ui/sui-input-copy'
