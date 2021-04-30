@@ -32,17 +32,17 @@ export default function useCopyToClipboard() {
           return null
         }
         normalizedValue = value.toString()
-        const result = await copy(normalizedValue)
-        if (result === false) {
-          const error = new Error(`Cannot copy to clipboard.`)
+        try {
+          await copy(normalizedValue)
+          setState({
+            value: normalizedValue,
+            error: undefined
+          })
+        } catch (error) {
           if (process.env.NODE_ENV === 'development') console.error(error) // eslint-disable-line no-console
           setState({value, error})
           return null
         }
-        setState({
-          value: normalizedValue,
-          error: undefined
-        })
       } catch (error) {
         setState({
           value: normalizedValue,
