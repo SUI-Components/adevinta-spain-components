@@ -23,7 +23,7 @@
     "@s-ui/react-molecule-radio-button-field": "1",
     "@s-ui/react-molecule-radio-button-group": "1",
     "@s-ui/react-molecule-select-field": "1",
-    "@s-ui/react-molecule-textarea-field": "2"
+    "@s-ui/react-molecule-textarea-field": "3"
   },
   "repository": {
     "type": "git",
