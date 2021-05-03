@@ -79,7 +79,7 @@ const FormBuilder = ({
     const nextStateFieldsObject = useNativeFieldType
       ? fieldsToObjectNativeTypes(nextStateFields)
       : fieldsToObject(nextStateFields)
-    const fieldsToUpdate = onChange({
+    const fieldsToUpdate = await onChange({
       ...nextStateFieldsObject,
       __FIELD_CHANGED__: id
     })
