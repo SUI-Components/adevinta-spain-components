@@ -1,34 +1,34 @@
 import PropTypes from 'prop-types'
 import AtomButton from '@s-ui/react-atom-button'
 
-import DEFAULT_CONFIG_SOCIAL_NETWORKS, {
-  DEFAULT_SOCIAL_NETWORKS_KEYS
+import DEFAULT_SOCIAL_MEDIA_DICTIONARY, {
+  DEFAULT_SOCIAL_MEDIA_BUTTONS
 } from './config'
 
-export default function ShareSocialMediaButtonsGroup({
-  buttonsToShow = [],
-  config = [],
-  onShare,
-  url
-}) {
-  const reducerGetFilteredSocialNetworks = (acc, curr) => {
-    if (DEFAULT_SOCIAL_NETWORKS_KEYS.includes(curr.key)) acc.push(curr)
-    return acc
-  }
+const BASE_CLASS = 'sui-ShareSocialMediaButtonsGroup'
 
-  const filteredSocialMedia =
-    buttonsToShow.length > 0
-      ? buttonsToShow.reduce(reducerGetFilteredSocialNetworks, [])
-      : DEFAULT_CONFIG_SOCIAL_NETWORKS
-  const socialMediaConfig = [...filteredSocialMedia, ...config]
+export default function ShareSocialMediaButtonsGroup({
+  buttonsToShow = DEFAULT_SOCIAL_MEDIA_BUTTONS,
+  onShare,
+  paramsUrlString,
+  socialMediaDictionary: socialMediaDictionaryFromProps = DEFAULT_SOCIAL_MEDIA_DICTIONARY
+}) {
+  const socialMediaDictionary = buttonsToShow.map(
+    key =>
+      Object.keys(socialMediaDictionaryFromProps).includes(key) &&
+      socialMediaDictionaryFromProps[key]
+  )
 
   return (
-    <div className="re-ShareSocialMediaButtonsGroup">
-      {socialMediaConfig.map(({key, literal, urlSocialNetwork, ...rest}) => (
+    <div className={BASE_CLASS}>
+      {socialMediaDictionary.map(({literal, url, ...rest}, index) => (
         <AtomButton
-          key={key}
-          href={`${urlSocialNetwork}${url}`}
+          className={`${BASE_CLASS}-button`}
+          href={`${url}${paramsUrlString}`}
+          key={index}
+          link
           onClick={onShare}
+          target="_blank"
           {...rest}
         >
           {literal}
@@ -41,8 +41,10 @@ export default function ShareSocialMediaButtonsGroup({
 ShareSocialMediaButtonsGroup.displayName = 'ShareSocialMediaButtonsGroup'
 ShareSocialMediaButtonsGroup.propTypes = {
   buttonsToShow: PropTypes.array,
-  config: PropTypes.array,
   literal: PropTypes.string,
   onShare: PropTypes.func,
-  url: PropTypes.string
+  paramsUrlString: PropTypes.string,
+  socialMediaDictionary: PropTypes.array
 }
+
+export {DEFAULT_SOCIAL_MEDIA_DICTIONARY as socialMediaDictionary}
