@@ -1,8 +1,6 @@
 # ShareSocialMediaButtonsGroup
 
-> Description
-
-<!-- ![](./assets/preview.png) -->
+> Component to share in the different social medias
 
 ## Installation
 
@@ -15,6 +13,12 @@ $ npm install @s-ui/sui-share-social-media-buttons-group
 ### Basic usage
 
 #### Import package and use the component
+
+**PROPS**
+  * **buttonsToShow**: Array that conatins the keys to choose which buttons to display and their order.
+  * **onShare**: Func to execute after share.
+  * **paramsUrlString**: Parameters to send to the social media url.
+  * **socialMediaDictionary**: Dictionary for setting the social media buttons.
 
 ```js
 import ShareSocialMediaButtonsGroup from '@s-ui/sui-share-social-media-buttons-group'
