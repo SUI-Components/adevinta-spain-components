@@ -13,8 +13,9 @@ export default function InputCopy({
   buttonTextAfterCopied = 'Copied',
   isCopied: isCopiedFromProps = false,
   labelText,
-  onCopy,
-  textToCopy
+  onCopy = () => {},
+  textToCopy,
+  timeoutReactivateButton
 }) {
   const [isCopied, setIsCopied] = useState(isCopiedFromProps)
   const [, copyToClipboard] = useCopyToClipboard()
@@ -25,6 +26,11 @@ export default function InputCopy({
 
     onClick(event)
     onCopy(event)
+
+    timeoutReactivateButton &&
+      window.setTimeout(() => {
+        setIsCopied(false)
+      }, timeoutReactivateButton)
   }
 
   const copyButtonProps = isCopied
@@ -63,5 +69,6 @@ InputCopy.propTypes = {
   isCopied: PropTypes.bool,
   labelText: PropTypes.string,
   onCopy: PropTypes.func,
-  textToCopy: PropTypes.string
+  textToCopy: PropTypes.string,
+  timeoutReactivateButton: PropTypes.string
 }
