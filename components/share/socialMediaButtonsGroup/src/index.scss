@@ -1,0 +1,17 @@
+@import '~@s-ui/theme/lib/index';
+@import '~@s-ui/react-atom-button/lib/index';
+
+.sui-ShareSocialMediaButtonsGroup {
+  &-button.sui-AtomButton {
+    width: 100%;
+    margin: 0 0 $m-m 0;
+
+    @include media-breakpoint-up(s) {
+      width: unset;
+
+      &:not(:first-child) {
+        margin-left: $m-m;
+      }
+    }
+  }
+}
