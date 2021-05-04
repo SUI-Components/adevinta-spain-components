@@ -10,7 +10,7 @@ const BASE_CLASS = 'sui-ShareSocialMediaButtonsGroup'
 export default function ShareSocialMediaButtonsGroup({
   buttonsToShow = DEFAULT_SOCIAL_MEDIA_BUTTONS,
   onShare,
-  paramsUrlString,
+  paramsUrlString = '',
   socialMediaDictionary: socialMediaDictionaryFromProps = DEFAULT_SOCIAL_MEDIA_DICTIONARY
 }) {
   const socialMediaDictionary = buttonsToShow.map(
