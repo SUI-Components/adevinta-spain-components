@@ -15,7 +15,7 @@ export default function InputCopy({
   labelText,
   onCopy = () => {},
   textToCopy,
-  timeoutReactivateButton = 4000
+  timeoutReactivateButton
 }) {
   const [isCopied, setIsCopied] = useState(isCopiedFromProps)
   const [, copyToClipboard] = useCopyToClipboard()

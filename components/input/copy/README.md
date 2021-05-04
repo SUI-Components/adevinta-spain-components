@@ -22,7 +22,7 @@ $ npm install @s-ui/sui-input-copy
   * **labelText**: Literal for label
   * **onCopy**: Function to execute after the text has been copied
   * **textToCopy**: Literal to be copied.
-  * **timeoutReactivateButton**: Number of miliseconds to reactivate button (set to 0 to prevent the execution).
+  * **timeoutReactivateButton**: Number of miliseconds to reactivate button (0 prevent the execution).
 
 ```js
 import InputCopy from '@s-ui/sui-input-copy'
