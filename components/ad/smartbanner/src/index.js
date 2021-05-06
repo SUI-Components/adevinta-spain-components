@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import IconCloseDefault from '@s-ui/react-icons/lib/X'
 import cx from 'classnames'
-
 import RatingStar from './RatingStar'
 
 function AdSmartbanner({
