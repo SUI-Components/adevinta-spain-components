@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-form-builder",
-  "version": "4.16.1",
+  "version": "4.17.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
