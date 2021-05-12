@@ -5,8 +5,10 @@ import useMountedState from '../useMountedState'
 
 export default function useCopyToClipboard() {
   const isMounted = useMountedState()
-  const [value, setValue] = useState()
-  const [error, setError] = useState()
+  const [{value, error}, setState] = useState({
+    value: undefined,
+    error: undefined
+  })
   const copyToClipboard = useCallback(
     async value => {
       if (!isMounted()) return null
@@ -18,35 +20,29 @@ export default function useCopyToClipboard() {
             `Cannot copy typeof ${typeof value} to clipboard, must be a string`
           )
           if (process.env.NODE_ENV === 'development') console.error(error) // eslint-disable-line no-console
-          setValue(value)
-          setError(error)
-          return null
+          setState({value, error})
         }
         // empty strings are also considered invalid
         else if (value === '') {
           const error = new Error(`Cannot copy empty string to clipboard.`)
           if (process.env.NODE_ENV === 'development') console.error(error) // eslint-disable-line no-console
-          setValue(value)
-          setError(error)
+          setState({value, error})
           return null
         }
         normalizedValue = value.toString()
         try {
           await copy(normalizedValue)
-          setValue(value)
-          setError(undefined)
+          setState({value, error: undefined})
         } catch (error) {
           if (process.env.NODE_ENV === 'development') console.error(error) // eslint-disable-line no-console
-          setValue(value)
-          setError(error)
+          setState({value, error})
           return null
         }
       } catch (error) {
-        setValue(normalizedValue)
-        setError(error)
+        setState({value: normalizedValue, error})
       }
     },
-    [isMounted, setValue, setError]
+    [isMounted, setState]
   )
   return [{value, error}, copyToClipboard]
 }
