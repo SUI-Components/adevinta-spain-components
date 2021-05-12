@@ -1,15 +1,12 @@
-import {useCallback} from 'react'
+import {useCallback, useState} from 'react'
 import copy from 'clipboard-copy'
 
 import useMountedState from '../useMountedState'
-import useSetState from '../useSetState'
 
 export default function useCopyToClipboard() {
   const isMounted = useMountedState()
-  const [state, setState] = useSetState({
-    value: undefined,
-    error: undefined
-  })
+  const [value, setValue] = useState()
+  const [error, setError] = useState()
   const copyToClipboard = useCallback(
     async value => {
       if (!isMounted()) return null
@@ -21,36 +18,35 @@ export default function useCopyToClipboard() {
             `Cannot copy typeof ${typeof value} to clipboard, must be a string`
           )
           if (process.env.NODE_ENV === 'development') console.error(error) // eslint-disable-line no-console
-          setState({value, error})
+          setValue(value)
+          setError(error)
           return null
         }
         // empty strings are also considered invalid
         else if (value === '') {
           const error = new Error(`Cannot copy empty string to clipboard.`)
           if (process.env.NODE_ENV === 'development') console.error(error) // eslint-disable-line no-console
-          setState({value, error})
+          setValue(value)
+          setError(error)
           return null
         }
         normalizedValue = value.toString()
         try {
           await copy(normalizedValue)
-          setState({
-            value: normalizedValue,
-            error: undefined
-          })
+          setValue(value)
+          setError(undefined)
         } catch (error) {
           if (process.env.NODE_ENV === 'development') console.error(error) // eslint-disable-line no-console
-          setState({value, error})
+          setValue(value)
+          setError(error)
           return null
         }
       } catch (error) {
-        setState({
-          value: normalizedValue,
-          error
-        })
+        setValue(normalizedValue)
+        setError(error)
       }
     },
-    [isMounted, setState]
+    [isMounted, setValue, setError]
   )
-  return [state, copyToClipboard]
+  return [{value, error}, copyToClipboard]
 }
