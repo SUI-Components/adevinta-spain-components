@@ -22,7 +22,6 @@ import UseSwipeDemo from './UseSwipeDemo'
 import UseToggleDemo from './UseToggleDemo'
 import UseControlledStateDemo from './UseControlledStateDemo'
 import UseCopyToClipboardDemo from './UseCopyToClipboardDemo'
-import UseSetStateDemo from './UseSetStateDemo'
 
 const orderedHookList = [
   UseBooleanDemo,
@@ -36,7 +35,6 @@ const orderedHookList = [
   UseMountedStateDemo,
   UseNearScreenDemo,
   UseOnScreenDemo,
-  UseSetStateDemo,
   UseStepsDemo,
   UseSwipeDemo,
   UseToggleDemo

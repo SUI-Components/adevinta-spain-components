@@ -1,21 +1,20 @@
-import {useState, useEffect, useRef, useCallback} from 'react'
+import {useState, useLayoutEffect, useCallback} from 'react'
+import useMountedState from '../useMountedState'
 
 /**
  * React hook for combine the state of a value prop and its default value
  **/
 const useControlledState = (controlledValue, defaultValue) => {
-  const isFirst = useRef(true)
   const [initialValue] = useState(
     controlledValue === undefined ? defaultValue : controlledValue
   )
   const [value, setValue] = useState(initialValue)
-  useEffect(() => {
-    if (isFirst.current) {
-      isFirst.current = false
-    } else {
+  const isMounted = useMountedState()
+  useLayoutEffect(() => {
+    if (isMounted()) {
       setValue(controlledValue)
     }
-  }, [controlledValue, setValue, isFirst])
+  }, [controlledValue, setValue, isMounted])
   const updater = useCallback(
     (value, forceFlag) => {
       if (controlledValue === undefined || forceFlag) {

@@ -1,12 +1,11 @@
-import {useCallback} from 'react'
+import {useCallback, useState} from 'react'
 import copy from 'clipboard-copy'
 
 import useMountedState from '../useMountedState'
-import useSetState from '../useSetState'
 
 export default function useCopyToClipboard() {
   const isMounted = useMountedState()
-  const [state, setState] = useSetState({
+  const [{value, error}, setState] = useState({
     value: undefined,
     error: undefined
   })
@@ -22,7 +21,6 @@ export default function useCopyToClipboard() {
           )
           if (process.env.NODE_ENV === 'development') console.error(error) // eslint-disable-line no-console
           setState({value, error})
-          return null
         }
         // empty strings are also considered invalid
         else if (value === '') {
@@ -34,23 +32,17 @@ export default function useCopyToClipboard() {
         normalizedValue = value.toString()
         try {
           await copy(normalizedValue)
-          setState({
-            value: normalizedValue,
-            error: undefined
-          })
+          setState({value, error: undefined})
         } catch (error) {
           if (process.env.NODE_ENV === 'development') console.error(error) // eslint-disable-line no-console
           setState({value, error})
           return null
         }
       } catch (error) {
-        setState({
-          value: normalizedValue,
-          error
-        })
+        setState({value: normalizedValue, error})
       }
     },
     [isMounted, setState]
   )
-  return [state, copyToClipboard]
+  return [{value, error}, copyToClipboard]
 }
