@@ -1,5 +1,5 @@
 import {useCallback, useState} from 'react'
-import copy from 'clipboard-copy'
+import {clipboardCopy as copy} from './clipboard-copy'
 
 import useMountedState from '../useMountedState'
 
