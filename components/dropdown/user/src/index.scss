@@ -1,6 +1,6 @@
 /* sass-lint:disable class-name-format, no-important */
 
-@import '~@s-ui/theme/lib/settings-compat-v7/index';
+@import 'settings';
 @import '~@s-ui/theme/lib/index';
 
 .sui-DropdownUser {
@@ -38,6 +38,7 @@
       border-radius: 100%;
       margin-right: $m-h-small;
       width: $w-dropdown-user-avatar;
+      height: $h-dropdown-user-avatar;
 
       .has-notifications &Wrap {
         @include sui-badge-notification(true, 2px, 2px);
