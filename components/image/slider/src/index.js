@@ -9,9 +9,9 @@ export const IMAGE_SLIDER_COUNTER_POSITIONS = {
   BOTTOM_LEFT: 'bottomLeft',
   BOTTOM_RIGHT: 'bottomRight'
 }
-export const IMAGE_SLIDER_IMAGE_TYPES = {
-  SRC: 'src',
-  CARD: 'card'
+export const IMAGE_SLIDER_CONTENT_TYPES = {
+  IMAGE: 'image',
+  NODE: 'node'
 }
 const NO_OP = () => {}
 const TARGET_BLANK = '_blank'
@@ -30,8 +30,8 @@ const defaultCounterPatternFactory = ({current, total}) => `${current}/${total}`
  * @param {Array} images List given by props.images.
  * @return {Array} List of img elements.
  */
-const getSlides = (currentSlide, images = [], linkFactory) => {
-  return images.map((image, index) => {
+const getSlides = (currentSlide, content = [], linkFactory) => {
+  return content.map((content, index) => {
     const {
       alt,
       height,
@@ -40,13 +40,13 @@ const getSlides = (currentSlide, images = [], linkFactory) => {
       src,
       target = TARGET_BLANK,
       title,
-      type = IMAGE_SLIDER_IMAGE_TYPES.SRC,
+      type = IMAGE_SLIDER_CONTENT_TYPES.IMAGE,
       width
-    } = image
+    } = content
 
     const key = imageKey ? imageKey + index : index
     const children =
-      type === IMAGE_SLIDER_IMAGE_TYPES.SRC ? (
+      type === IMAGE_SLIDER_CONTENT_TYPES.IMAGE ? (
         <img
           alt={alt}
           aria-selected={currentSlide === index}
@@ -58,7 +58,7 @@ const getSlides = (currentSlide, images = [], linkFactory) => {
           width={width}
         />
       ) : (
-        image
+        content
       )
 
     return link
@@ -74,7 +74,7 @@ const getSlides = (currentSlide, images = [], linkFactory) => {
 }
 
 export default function ImageSlider({
-  images = [],
+  images: content = [],
   handleClick = NO_OP,
   sliderOptions = {},
   linkFactory = defaultLinkFactory,
@@ -86,7 +86,7 @@ export default function ImageSlider({
   const [currentSlide, setCurrentSlide] = useState(
     sliderOptions.initialSlide || 0
   )
-  const slides = getSlides(currentSlide, images, linkFactory)
+  const slides = getSlides(currentSlide, content, linkFactory)
   const hasSingleImage = slides.length === 1
   const {useFullHeight} = sliderOptions
 
@@ -148,7 +148,8 @@ ImageSlider.propTypes = {
        */
       key: PropTypes.string,
       link: PropTypes.string,
-      target: PropTypes.string
+      target: PropTypes.string,
+      type: PropTypes.oneOf(Object.values(IMAGE_SLIDER_CONTENT_TYPES))
     }).isRequired
   ),
   /**
