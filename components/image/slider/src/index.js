@@ -28,7 +28,7 @@ const defaultCounterPatternFactory = ({current, total}) => `${current}/${total}`
 
 /**
  * @param {Array} images List given by props.images.
- * @return {Array} List of img elements.
+ * @return {Array} List of img or node elements.
  */
 const getSlides = (currentSlide, content = [], linkFactory) => {
   return content.map((content, index) => {
