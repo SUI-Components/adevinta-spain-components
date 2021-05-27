@@ -31,7 +31,7 @@ const defaultCounterPatternFactory = ({current, total}) => `${current}/${total}`
  * @return {Array} List of img or node elements.
  */
 const getSlides = (currentSlide, content = [], linkFactory) => {
-  return content.map((content, index) => {
+  return content.map((contentItem, index) => {
     const {
       alt,
       height,
@@ -42,7 +42,7 @@ const getSlides = (currentSlide, content = [], linkFactory) => {
       title,
       type = IMAGE_SLIDER_CONTENT_TYPES.IMAGE,
       width
-    } = content
+    } = contentItem
 
     const key = imageKey ? imageKey + index : index
     const children =
@@ -58,7 +58,7 @@ const getSlides = (currentSlide, content = [], linkFactory) => {
           width={width}
         />
       ) : (
-        content
+        contentItem
       )
 
     return link
