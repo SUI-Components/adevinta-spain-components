@@ -9,6 +9,10 @@ export const IMAGE_SLIDER_COUNTER_POSITIONS = {
   BOTTOM_LEFT: 'bottomLeft',
   BOTTOM_RIGHT: 'bottomRight'
 }
+export const IMAGE_SLIDER_CONTENT_TYPES = {
+  IMAGE: 'image',
+  NODE: 'node'
+}
 const NO_OP = () => {}
 const TARGET_BLANK = '_blank'
 
@@ -24,10 +28,10 @@ const defaultCounterPatternFactory = ({current, total}) => `${current}/${total}`
 
 /**
  * @param {Array} images List given by props.images.
- * @return {Array} List of img elements.
+ * @return {Array} List of img or node elements.
  */
-const getSlides = (currentSlide, images = [], linkFactory) => {
-  return images.map((image, index) => {
+const getSlides = (currentSlide, content = [], linkFactory) => {
+  return content.map((contentItem, index) => {
     const {
       alt,
       height,
@@ -36,36 +40,41 @@ const getSlides = (currentSlide, images = [], linkFactory) => {
       src,
       target = TARGET_BLANK,
       title,
+      type = IMAGE_SLIDER_CONTENT_TYPES.IMAGE,
       width
-    } = image
+    } = contentItem
 
     const key = imageKey ? imageKey + index : index
-    const img = (
-      <img
-        alt={alt}
-        aria-selected={currentSlide === index}
-        className="sui-ImageSlider-image"
-        key={key}
-        src={src}
-        title={title}
-        height={height}
-        width={width}
-      />
-    )
+    const children =
+      type === IMAGE_SLIDER_CONTENT_TYPES.IMAGE ? (
+        <img
+          alt={alt}
+          aria-selected={currentSlide === index}
+          className="sui-ImageSlider-image"
+          key={key}
+          src={src}
+          title={title}
+          height={height}
+          width={width}
+        />
+      ) : (
+        contentItem
+      )
+
     return link
       ? linkFactory({
           key,
           target,
           className: '',
-          children: img,
+          children,
           href: link
         })
-      : img
+      : children
   })
 }
 
 export default function ImageSlider({
-  images = [],
+  images: content = [],
   handleClick = NO_OP,
   sliderOptions = {},
   linkFactory = defaultLinkFactory,
@@ -77,7 +86,7 @@ export default function ImageSlider({
   const [currentSlide, setCurrentSlide] = useState(
     sliderOptions.initialSlide || 0
   )
-  const slides = getSlides(currentSlide, images, linkFactory)
+  const slides = getSlides(currentSlide, content, linkFactory)
   const hasSingleImage = slides.length === 1
   const {useFullHeight} = sliderOptions
 
@@ -139,7 +148,8 @@ ImageSlider.propTypes = {
        */
       key: PropTypes.string,
       link: PropTypes.string,
-      target: PropTypes.string
+      target: PropTypes.string,
+      type: PropTypes.oneOf(Object.values(IMAGE_SLIDER_CONTENT_TYPES))
     }).isRequired
   ),
   /**
