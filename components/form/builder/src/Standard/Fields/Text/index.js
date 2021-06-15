@@ -9,6 +9,7 @@ const TextField = ({
   field,
   tabIndex,
   onChange,
+  onFocus,
   onBlur,
   errors,
   alerts,
@@ -19,6 +20,7 @@ const TextField = ({
       <TextArea
         textArea={field}
         onChange={onChange}
+        onFocus={onFocus}
         onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
@@ -30,6 +32,7 @@ const TextField = ({
     <Input
       input={field}
       onChange={onChange}
+      onFocus={onFocus}
       onBlur={onBlur}
       tabIndex={tabIndex}
       errors={errors}
@@ -41,6 +44,7 @@ const TextField = ({
 
 TextField.propTypes = {
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   tabIndex: PropTypes.number,
   field: PropTypes.object,

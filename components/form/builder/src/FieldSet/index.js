@@ -9,6 +9,7 @@ const FieldSet = ({
   fieldset,
   tabIndex,
   onChange,
+  onFocus,
   onBlur,
   fieldSize,
   errors,
@@ -32,6 +33,7 @@ const FieldSet = ({
         {fields.map((field, index) => (
           <ProxyField
             onChange={onChange}
+            onFocus={onFocus}
             onBlur={onBlur}
             key={field.id}
             field={field}
@@ -51,6 +53,7 @@ FieldSet.displayName = 'FieldSet'
 FieldSet.propTypes = {
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
+  onFocus: PropTypes.func,
   fieldset: field,
   tabIndex: PropTypes.number,
   fieldSize: PropTypes.string,

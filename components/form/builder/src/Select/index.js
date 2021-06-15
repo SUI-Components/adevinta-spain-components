@@ -9,6 +9,7 @@ import AutosuggestSelect from './Autosuggest'
 const Select = ({
   select,
   onChange,
+  onFocus,
   onBlur,
   tabIndex,
   size,
@@ -23,6 +24,7 @@ const Select = ({
         <AutosuggestSelect
           select={select}
           onChange={onChange}
+          onFocus={onFocus}
           onBlur={onBlur}
           tabIndex={tabIndex}
           size={size}
@@ -39,6 +41,7 @@ const Select = ({
         <DefaultSelect
           select={select}
           onChange={onChange}
+          onFocus={onFocus}
           onBlur={onBlur}
           tabIndex={tabIndex}
           size={size}
@@ -57,6 +60,7 @@ Select.propTypes = {
   select: field,
   tabIndex: PropTypes.number,
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   errors: PropTypes.object,
   alerts: PropTypes.object,
