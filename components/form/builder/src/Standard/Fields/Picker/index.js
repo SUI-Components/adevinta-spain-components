@@ -12,6 +12,7 @@ const PickerField = ({
   field,
   tabIndex,
   onChange,
+  onFocus,
   onBlur,
   errors,
   alerts,
@@ -22,6 +23,7 @@ const PickerField = ({
       <Switch
         switchField={field}
         onChange={onChange}
+        onFocus={onFocus}
         onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
@@ -37,6 +39,7 @@ const PickerField = ({
       <Select
         select={field}
         onChange={onChange}
+        onFocus={onFocus}
         onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
@@ -49,6 +52,7 @@ const PickerField = ({
       <Radio
         radio={field}
         onChange={onChange}
+        onFocus={onFocus}
         onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
@@ -61,6 +65,7 @@ const PickerField = ({
       <Checkbox
         checkbox={field}
         onChange={onChange}
+        onFocus={onFocus}
         onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
@@ -73,6 +78,7 @@ const PickerField = ({
       <InlineButton
         inlineButton={field}
         onChange={onChange}
+        onFocus={onFocus}
         onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
@@ -86,6 +92,7 @@ const PickerField = ({
       <Select
         select={field}
         onChange={onChange}
+        onFocus={onFocus}
         onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
@@ -98,6 +105,7 @@ const PickerField = ({
 
 PickerField.propTypes = {
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   tabIndex: PropTypes.number,
   field: PropTypes.object,

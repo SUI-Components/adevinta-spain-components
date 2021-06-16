@@ -6,6 +6,7 @@ const MultipickerField = ({
   field,
   tabIndex,
   onChange,
+  onFocus,
   onBlur,
   errors,
   alerts,
@@ -15,6 +16,7 @@ const MultipickerField = ({
     <Multipicker
       multipicker={field}
       onChange={onChange}
+      onFocus={onFocus}
       onBlur={onBlur}
       tabIndex={tabIndex}
       errors={errors}
@@ -26,6 +28,7 @@ const MultipickerField = ({
 
 MultipickerField.propTypes = {
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   tabIndex: PropTypes.number,
   field: PropTypes.object,

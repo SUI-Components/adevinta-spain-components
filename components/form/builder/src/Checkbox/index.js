@@ -9,6 +9,7 @@ const Checkbox = ({
   checkbox,
   tabIndex,
   onChange,
+  onFocus,
   onBlur,
   errors,
   alerts,
@@ -30,6 +31,8 @@ const Checkbox = ({
 
   const onBlurCallback = () => onBlur(checkbox.id)
 
+  const onFocusCallback = () => onFocus(checkbox.id)
+
   // transform constraints to props
   const constraints = checkbox.constraints || []
   let checkboxProps
@@ -50,6 +53,7 @@ const Checkbox = ({
     checked,
     checkedIcon: IconCheck,
     onChange: onChangeCallback,
+    onFocus: onFocusCallback,
     onBlur: onBlurCallback,
     tabIndex: tabIndex,
     intermediate: false,
@@ -97,6 +101,7 @@ Checkbox.propTypes = {
   tabIndex: PropTypes.number,
   checkbox: field,
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   errors: PropTypes.object,
   alerts: PropTypes.object,

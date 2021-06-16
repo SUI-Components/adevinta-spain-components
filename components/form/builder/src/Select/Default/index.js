@@ -11,6 +11,7 @@ const DefaultSelect = ({
   select,
   tabIndex,
   onChange,
+  onFocus,
   onBlur,
   size,
   errors,
@@ -28,6 +29,8 @@ const DefaultSelect = ({
   )
 
   const onBlurCallback = () => onBlur(select.id)
+
+  const onFocusCallback = () => onFocus(select.id)
 
   const {datalist = []} = select
 
@@ -54,6 +57,7 @@ const DefaultSelect = ({
     value: select.value || '',
     onChange: onChangeCallback,
     onBlur: onBlurCallback,
+    onFocus: onFocusCallback,
     helpText: select.help,
     tabIndex,
     ...(select.disabled && {
@@ -110,6 +114,7 @@ DefaultSelect.propTypes = {
   select: field,
   tabIndex: PropTypes.number,
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   size: PropTypes.string,
   errors: PropTypes.object,

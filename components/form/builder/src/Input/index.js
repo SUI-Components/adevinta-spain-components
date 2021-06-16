@@ -24,6 +24,7 @@ const Input = ({
   input,
   tabIndex,
   onChange,
+  onFocus,
   onBlur,
   size,
   leftAddon,
@@ -41,6 +42,9 @@ const Input = ({
     },
     [input, onChange]
   )
+
+  const onFocusCallback = () => onFocus(input.id)
+
   const onBlurCallback = () => onBlur(input.id)
 
   let nextProps = {}
@@ -124,6 +128,7 @@ const Input = ({
     helpText: input.help,
     value: input.value || '',
     onChange: onChangeCallback,
+    onFocus: onFocusCallback,
     onBlur: onBlurCallback,
     size,
     leftAddon,
@@ -159,6 +164,7 @@ Input.propTypes = {
   input: field,
   tabIndex: PropTypes.number,
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   size: PropTypes.string,
   leftAddon: PropTypes.string,

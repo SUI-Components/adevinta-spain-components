@@ -24,6 +24,7 @@ const AutosuggestSelect = ({
   select,
   tabIndex,
   onChange,
+  onFocus,
   onBlur,
   size,
   errors,
@@ -53,6 +54,8 @@ const AutosuggestSelect = ({
     [fromTextToValueWithDatalist, onChange, select]
   )
 
+  const onFocusCallback = () => onFocus(select.id)
+
   const onBlurCallback = () => onBlur(select.id)
 
   // transform constraints to props
@@ -77,6 +80,7 @@ const AutosuggestSelect = ({
     onChange: onChangeCallback,
     helpText: select.help,
     onBlur: onBlurCallback,
+    onFocus: onFocusCallback,
     iconClear: <IconClose />,
     value: localStateText,
     tabIndex,
@@ -145,6 +149,7 @@ AutosuggestSelect.propTypes = {
   select: field,
   tabIndex: PropTypes.number,
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   size: PropTypes.string,
   errors: PropTypes.object,

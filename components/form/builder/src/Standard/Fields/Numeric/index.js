@@ -8,6 +8,7 @@ const NumericField = ({
   field,
   tabIndex,
   onChange,
+  onFocus,
   onBlur,
   errors,
   alerts,
@@ -19,6 +20,7 @@ const NumericField = ({
       <Input
         input={field}
         onChange={onChange}
+        onFocus={onFocus}
         onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
@@ -31,6 +33,7 @@ const NumericField = ({
       <Input
         input={field}
         onChange={onChange}
+        onFocus={onFocus}
         onBlur={onBlur}
         tabIndex={tabIndex}
         errors={errors}
@@ -42,6 +45,7 @@ const NumericField = ({
 }
 
 NumericField.propTypes = {
+  onFocus: PropTypes.func,
   onChange: PropTypes.func,
   tabIndex: PropTypes.number,
   field: PropTypes.object,

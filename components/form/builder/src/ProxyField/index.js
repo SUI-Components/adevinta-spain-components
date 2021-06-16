@@ -15,8 +15,8 @@ const ProxyField = ({
   field,
   tabIndex,
   onChange,
+  onFocus,
   onBlur,
-  fieldSize,
   errors,
   alerts,
   renderer
@@ -28,6 +28,7 @@ const ProxyField = ({
         field,
         tabIndex,
         onChange,
+        onFocus,
         onBlur,
         errors,
         alerts,
@@ -40,6 +41,7 @@ const ProxyField = ({
         field,
         tabIndex,
         onChange,
+        onFocus,
         onBlur,
         errors,
         alerts,
@@ -52,6 +54,7 @@ const ProxyField = ({
         field,
         tabIndex,
         onChange,
+        onFocus,
         onBlur,
         errors,
         alerts,
@@ -64,6 +67,7 @@ const ProxyField = ({
         field,
         tabIndex,
         onChange,
+        onFocus,
         onBlur,
         errors,
         alerts,
@@ -76,6 +80,7 @@ const ProxyField = ({
         field,
         tabIndex,
         onChange,
+        onFocus,
         onBlur,
         errors,
         alerts,
@@ -90,6 +95,7 @@ const ProxyField = ({
           field,
           tabIndex,
           onChange,
+          onFocus,
           onBlur,
           errors,
           alerts
@@ -115,9 +121,9 @@ ProxyField.displayName = 'ProxyField'
 ProxyField.propTypes = {
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
+  onFocus: PropTypes.func,
   tabIndex: PropTypes.number,
   field,
-  fieldSize: PropTypes.string,
   errors: PropTypes.object,
   alerts: PropTypes.object
 }

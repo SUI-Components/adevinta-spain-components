@@ -9,6 +9,7 @@ const TextArea = ({
   textArea,
   tabIndex,
   onChange,
+  onFocus,
   onBlur,
   errors,
   alerts,
@@ -25,6 +26,8 @@ const TextArea = ({
   )
 
   const onBlurCallback = () => onBlur(textArea.id)
+
+  const onFocusCallback = () => onFocus(textArea.id)
 
   let nextProps = {}
 
@@ -74,6 +77,7 @@ const TextArea = ({
     value: textArea.value || '',
     onChange: onChangeCallback,
     onBlur: onBlurCallback,
+    onFocus: onFocusCallback,
     ...nextProps
   }
 
@@ -104,6 +108,7 @@ TextArea.propTypes = {
   textArea: field,
   tabIndex: PropTypes.number,
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   errors: PropTypes.object,
   alerts: PropTypes.object,

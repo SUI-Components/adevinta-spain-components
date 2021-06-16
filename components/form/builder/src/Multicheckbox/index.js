@@ -10,6 +10,7 @@ const Multipicker = ({
   multipicker,
   tabIndex,
   onChange,
+  onFocus,
   onBlur,
   errors,
   alerts,
@@ -31,6 +32,8 @@ const Multipicker = ({
     return onChange(multipicker.id, newValue)
   }
 
+  const onFocusCallback = () => onFocus(multipicker.id)
+
   const onBlurCallback = () => onBlur(multipicker.id)
 
   const multipickerProps = {
@@ -39,6 +42,7 @@ const Multipicker = ({
     value: multipicker.value,
     checkedIcon: IconCheck,
     onChange: onChangeCallback,
+    onFocus: onFocusCallback,
     onBlur: onBlurCallback,
     tabIndex: tabIndex,
     intermediate: false,
@@ -97,6 +101,7 @@ Multipicker.propTypes = {
   tabIndex: PropTypes.number,
   multipicker: field,
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   errors: PropTypes.object,
   alerts: PropTypes.object,
