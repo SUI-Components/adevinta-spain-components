@@ -9,6 +9,7 @@ export default function useOnScreen({
   initialValue = false,
   offset = '0px',
   once = true,
+  threshold,
   ref
 } = {}) {
   // State and setter for storing whether element is visible or not
@@ -43,7 +44,8 @@ export default function useOnScreen({
           }
         },
         {
-          rootMargin: offset
+          rootMargin: offset,
+          threshold
         }
       )
 
@@ -53,7 +55,7 @@ export default function useOnScreen({
     return () => {
       observer && observer.unobserve(current)
     }
-  }, [offset, once, ref])
+  }, [offset, once, ref, threshold])
 
   return [isIntersecting, outerRef]
 }
@@ -61,5 +63,6 @@ export default function useOnScreen({
 useOnScreen.displayName = 'HookUseOnScreen'
 useOnScreen.propTypes = {
   ref: PropTypes.element,
-  rootMargin: PropTypes.string
+  rootMargin: PropTypes.string,
+  threshold: PropTypes.number
 }
