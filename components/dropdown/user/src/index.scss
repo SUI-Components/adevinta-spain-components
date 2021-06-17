@@ -2,6 +2,7 @@
 
 @import 'settings';
 @import '~@s-ui/theme/lib/index';
+@import '~@adv-ui/ij-theme/lib/ij-custom-tokens';
 
 .sui-DropdownUser {
   @include media-breakpoint-down(s) {
