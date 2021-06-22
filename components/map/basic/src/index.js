@@ -2,6 +2,11 @@ import {Component} from 'react'
 import PropTypes from 'prop-types'
 import {mapLanguages, mapViewModes, NO_OP} from './leaflet/constants'
 
+const makePublicAPI = mapInstance => ({
+  zoomIn: (quantity = 1) => mapInstance._map.zoomIn(quantity),
+  zoomOut: (quantity = 1) => mapInstance._map.zoomOut(quantity)
+})
+
 class MapBasic extends Component {
   constructor(props) {
     super(props)
@@ -166,7 +171,13 @@ class MapBasic extends Component {
 
     this.subscribeToMapEvents()
     this.mapInstance = new LeafletMap(this.getMapConfig())
+    this.setAvailablePublicAPI(this.mapInstance)
     this.mapInstance.displayPois(this.props.pois)
+  }
+
+  setAvailablePublicAPI(mapInstance) {
+    const publicAPI = makePublicAPI(mapInstance)
+    this.props.onAvailablePublicAPI(publicAPI)
   }
 
   render() {
@@ -231,6 +242,7 @@ MapBasic.propTypes = {
    * A number used to lock the min zoom or zoom out that a user can do.
    */
   minZoom: PropTypes.number,
+  onAvailablePublicAPI: PropTypes.func,
   onLayerClick: PropTypes.func,
   onMapClick: PropTypes.func,
   onMapDrag: PropTypes.func,
@@ -329,6 +341,7 @@ MapBasic.defaultProps = {
   mapViewModes: [mapViewModes.NORMAL, mapViewModes.SATELLITE],
   maxZoom: 20,
   minZoom: 6,
+  onAvailablePublicAPI: NO_OP,
   onLayerClick: NO_OP,
   onMapClick: NO_OP,
   onMapDrag: NO_OP,
