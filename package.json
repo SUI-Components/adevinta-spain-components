@@ -28,7 +28,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "7.13.0",
+    "@babel/plugin-transform-modules-commonjs": "7.14.5",
     "@s-ui/documentation-library": "1",
     "@s-ui/lint": "3",
     "@s-ui/precommit": "2",
