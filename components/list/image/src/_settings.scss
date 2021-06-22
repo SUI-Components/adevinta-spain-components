@@ -6,7 +6,7 @@ $gutter-list-image: $m-l !default;
 $sz-list-image-item: 50% !default;
 $mb-list-image-item: $gutter-list-image !default;
 $fxb-list-image-item: calc(
-  #{$sz-list-image-item} - #{$mb-list-image-item / 2}
+  #{$sz-list-image-item} - #{$mb-list-image-item * 0.5}
 ) !default;
 
 // List image item size and gutter for large screens (desktop)
