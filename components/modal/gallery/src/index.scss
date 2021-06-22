@@ -1,4 +1,6 @@
 // sass-lint:disable no-important
+@use 'sass:math';
+
 @import '~@s-ui/theme/lib/index';
 @import '~@s-ui/react-modal-basic/lib/index';
 @import '~@schibstedspain/sui-image-slider/lib/index';
@@ -7,7 +9,7 @@ $c-modal-gallery-photos-icon: $c-gray !default;
 $c-modal-gallery-photos-counter-text: $c-gray !default;
 $fz-modal-gallery-photos-counter-text: $fz-m !default;
 $lh-modal-gallery-photos-counter-text: $lh-l !default;
-$pt-modal-gallery-keep-aspect-ratio-16-9: (9 / 16) * 100% !default;
+$pt-modal-gallery-keep-aspect-ratio-16-9: math.div(9, 16) * 100% !default;
 $pr-modal-gallery-header: $p-m * 1.5 !default;
 $mt-modal-gallery-header-height-mobile: -($h-modal-basic-icon + ($m-l * 2)) !default;
 
