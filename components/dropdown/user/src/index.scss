@@ -80,7 +80,7 @@
         &::after {
           @include arrow-up($size-dropdown-arrow-up, $c-dropdown-arrow);
           content: '';
-          left: ($w-dropdown-user-avatar / 2) + ($size-dropdown-arrow-up);
+          left: ($w-dropdown-user-avatar * 0.5) + ($size-dropdown-arrow-up);
           position: absolute;
           top: 0;
         }
@@ -152,7 +152,7 @@
 
       &Notification {
         @include sui-badge-notification;
-        margin-top: -$size-badge-notification / 2;
+        margin-top: -$size-badge-notification * 0.5;
         position: absolute;
         right: $p-h-small;
         top: 50%;

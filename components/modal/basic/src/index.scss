@@ -62,7 +62,7 @@ body.is-modal-open {
     font-weight: $fw-regular;
     font-size: $fz-xl;
     justify-content: space-between;
-    padding: 0 ($p-modal-basic-header / 2) 0 $p-modal-basic-header;
+    padding: 0 ($p-modal-basic-header * 0.5) 0 $p-modal-basic-header;
     position: relative;
   }
 
@@ -71,7 +71,7 @@ body.is-modal-open {
     border: 0;
     cursor: pointer;
     display: flex;
-    padding: $p-modal-basic ($p-modal-basic / 2) $p-modal-basic $p-modal-basic;
+    padding: $p-modal-basic ($p-modal-basic * 0.5) $p-modal-basic $p-modal-basic;
 
     &Icon {
       fill: $c-modal-basic-icon !important;

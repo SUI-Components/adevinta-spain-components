@@ -11,7 +11,7 @@
     background: none;
     display: none;
     height: $size-card-product-slider-nav-icon;
-    margin-top: -($size-card-product-slider-nav-icon / 2);
+    margin-top: -($size-card-product-slider-nav-icon * 0.5);
     width: $size-card-product-slider-nav-icon;
 
     &Icon {
