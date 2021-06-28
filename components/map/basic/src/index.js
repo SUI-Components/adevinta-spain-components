@@ -345,6 +345,7 @@ MapBasic.defaultProps = {
   mapViewModes: [mapViewModes.NORMAL, mapViewModes.SATELLITE],
   maxZoom: 20,
   minZoom: 6,
+  onAvailablePublicAPI: NO_OP,
   onLayerClick: NO_OP,
   onMapClick: NO_OP,
   onMapDrag: NO_OP,
