@@ -2,6 +2,11 @@ import {Component} from 'react'
 import PropTypes from 'prop-types'
 import {mapLanguages, mapViewModes, NO_OP} from './leaflet/constants'
 
+const getPublicAPI = mapInstance => ({
+  zoomIn: () => mapInstance._map.zoomIn(),
+  zoomOut: () => mapInstance._map.zoomOut()
+})
+
 class MapBasic extends Component {
   constructor(props) {
     super(props)
@@ -167,6 +172,13 @@ class MapBasic extends Component {
     this.subscribeToMapEvents()
     this.mapInstance = new LeafletMap(this.getMapConfig())
     this.mapInstance.displayPois(this.props.pois)
+
+    this.setPublicAPI(this.mapInstance)
+  }
+
+  setPublicAPI(mapInstance) {
+    const publicAPI = getPublicAPI(mapInstance)
+    this.props.onAvailablePublicAPI(publicAPI)
   }
 
   render() {
@@ -315,7 +327,11 @@ MapBasic.propTypes = {
   /**
    * This property indicates the action to be performed with the polygon. By DEFAULT it does a fitBounds.
    */
-  onPolygonWithBounds: PropTypes.func
+  onPolygonWithBounds: PropTypes.func,
+  /**
+   * Capture a public API object which enables us to trigger some actions from the outside
+   */
+  onAvailablePublicAPI: PropTypes.func
 }
 
 MapBasic.defaultProps = {
