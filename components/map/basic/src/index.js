@@ -2,9 +2,9 @@ import {Component} from 'react'
 import PropTypes from 'prop-types'
 import {mapLanguages, mapViewModes, NO_OP} from './leaflet/constants'
 
-const makePublicAPI = mapInstance => ({
-  zoomIn: (quantity = 1) => mapInstance._map.zoomIn(quantity),
-  zoomOut: (quantity = 1) => mapInstance._map.zoomOut(quantity)
+const getPublicAPI = mapInstance => ({
+  zoomIn: () => mapInstance._map.zoomIn(),
+  zoomOut: () => mapInstance._map.zoomOut()
 })
 
 class MapBasic extends Component {
@@ -171,12 +171,13 @@ class MapBasic extends Component {
 
     this.subscribeToMapEvents()
     this.mapInstance = new LeafletMap(this.getMapConfig())
-    this.setAvailablePublicAPI(this.mapInstance)
     this.mapInstance.displayPois(this.props.pois)
+
+    this.setPublicAPI(this.mapInstance)
   }
 
-  setAvailablePublicAPI(mapInstance) {
-    const publicAPI = makePublicAPI(mapInstance)
+  setPublicAPI(mapInstance) {
+    const publicAPI = getPublicAPI(mapInstance)
     this.props.onAvailablePublicAPI(publicAPI)
   }
 
@@ -242,7 +243,6 @@ MapBasic.propTypes = {
    * A number used to lock the min zoom or zoom out that a user can do.
    */
   minZoom: PropTypes.number,
-  onAvailablePublicAPI: PropTypes.func,
   onLayerClick: PropTypes.func,
   onMapClick: PropTypes.func,
   onMapDrag: PropTypes.func,
@@ -327,7 +327,11 @@ MapBasic.propTypes = {
   /**
    * This property indicates the action to be performed with the polygon. By DEFAULT it does a fitBounds.
    */
-  onPolygonWithBounds: PropTypes.func
+  onPolygonWithBounds: PropTypes.func,
+  /**
+   * Capture a public API object which enables us to trigger some actions from the outside
+   */
+  onAvailablePublicAPI: PropTypes.func
 }
 
 MapBasic.defaultProps = {
@@ -341,7 +345,6 @@ MapBasic.defaultProps = {
   mapViewModes: [mapViewModes.NORMAL, mapViewModes.SATELLITE],
   maxZoom: 20,
   minZoom: 6,
-  onAvailablePublicAPI: NO_OP,
   onLayerClick: NO_OP,
   onMapClick: NO_OP,
   onMapDrag: NO_OP,
