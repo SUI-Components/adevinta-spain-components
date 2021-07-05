@@ -377,4 +377,11 @@ export default class LeafletMap {
       pointsToAdd.length && this.addLayersToMap(pointsToAdd, 'markers')
     }
   }
+
+  getPublicAPI() {
+    return {
+      zoomIn: () => this._map.zoomIn(),
+      zoomOut: () => this._map.zoomOut()
+    }
+  }
 }

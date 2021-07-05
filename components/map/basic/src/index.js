@@ -2,11 +2,6 @@ import {Component} from 'react'
 import PropTypes from 'prop-types'
 import {mapLanguages, mapViewModes, NO_OP} from './leaflet/constants'
 
-const getPublicAPI = mapInstance => ({
-  zoomIn: () => mapInstance._map.zoomIn(),
-  zoomOut: () => mapInstance._map.zoomOut()
-})
-
 class MapBasic extends Component {
   constructor(props) {
     super(props)
@@ -177,7 +172,7 @@ class MapBasic extends Component {
   }
 
   setPublicAPI(mapInstance) {
-    const publicAPI = getPublicAPI(mapInstance)
+    const publicAPI = mapInstance.getPublicAPI()
     this.props.onAvailablePublicAPI(publicAPI)
   }
 
