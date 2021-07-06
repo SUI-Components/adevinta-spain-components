@@ -16,6 +16,11 @@ $bdrs-minipoi-half: 50%;
     background-image: url('https://raw.githubusercontent.com/Leaflet/Leaflet/master/dist/images/layers-2x.png');
   }
 
+  .leaflet-draw,
+  .leaflet-draw-tooltip {
+    display: none;
+  }
+
   .minipoi {
     background-color: $bgc-minipoi;
     border: $bdc-minipoi;

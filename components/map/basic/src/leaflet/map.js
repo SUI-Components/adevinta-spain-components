@@ -378,10 +378,42 @@ export default class LeafletMap {
     }
   }
 
+  async initAsyncDrawingLayer() {
+    if (L.Draw) return // do nothing if already loaded
+
+    // Load drawing plugin
+    await import('leaflet-draw')
+
+    // Create editable layer
+    const drawnItems = new L.FeatureGroup()
+    this._map.addLayer(drawnItems)
+
+    // Crate controller
+    window.drawthis = L.Control.Draw
+    const drawControl = new L.Control.Draw({edit: {featureGroup: drawnItems}})
+    this._drawControl = drawControl
+    this._map.addControl(drawControl)
+
+    // Add events
+    this._map.on(L.Draw.Event.CREATED, ({layer}) => {
+      this._map.addLayer(layer)
+    })
+  }
+
   getPublicAPI() {
     return {
       zoomIn: () => this._map.zoomIn(),
-      zoomOut: () => this._map.zoomOut()
+      zoomOut: () => this._map.zoomOut(),
+      drawing: {
+        load: () => this.initAsyncDrawingLayer(),
+        startPolygon: () => {
+          if (!L.Draw) throw new Error('`leaflet-draw` is still not loaded!')
+          new L.Draw.Polygon(
+            this._map,
+            this._drawControl.options.polygon
+          ).enable()
+        }
+      }
     }
   }
 }
