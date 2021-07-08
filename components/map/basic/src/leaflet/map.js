@@ -380,7 +380,12 @@ export default class LeafletMap {
   }
 
   preInitDrawing(properties) {
-    this._drawnPolygon = null
+    this._drawnPolygon = L.geoJson(properties.initialDrawnPolygon) || null
+
+    // Add an existing drawn polygon if any
+    if (this._drawnPolygon) {
+      this.drawingAddFinishedPolygon(this._drawnPolygon, false)
+    }
 
     // Save events
     this._drawingEvents = {

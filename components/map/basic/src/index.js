@@ -72,6 +72,7 @@ class MapBasic extends Component {
       hoverStyles: this.props.hoverStyles,
       icons: this.props.icons,
       id: this.props.id,
+      initialDrawnPolygon: this.props.initialDrawnPolygon,
       language: this.props.language,
       latitude: this.props.center[0],
       literals: this.props.literals,
@@ -224,6 +225,10 @@ MapBasic.propTypes = {
    * The DOM Id that we would like to have on our map div if none is provided 'map-container' will be its id.
    */
   id: PropTypes.string,
+  /**
+   * A GEO JSON object for an existing user's drawn polygon
+   */
+  initialDrawnPolygon: PropTypes.object,
   /**
    * Language code for requesting a map tile rendered in a specific language.
    */
