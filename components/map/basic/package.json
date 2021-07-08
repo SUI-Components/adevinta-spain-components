@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "leaflet": "1.2.0"
+    "leaflet": "1.2.0",
+    "leaflet-draw": "1.0.4"
   },
   "keywords": [],
   "author": "",

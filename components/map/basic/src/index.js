@@ -2,11 +2,6 @@ import {Component} from 'react'
 import PropTypes from 'prop-types'
 import {mapLanguages, mapViewModes, NO_OP} from './leaflet/constants'
 
-const getPublicAPI = mapInstance => ({
-  zoomIn: () => mapInstance._map.zoomIn(),
-  zoomOut: () => mapInstance._map.zoomOut()
-})
-
 class MapBasic extends Component {
   constructor(props) {
     super(props)
@@ -77,6 +72,7 @@ class MapBasic extends Component {
       hoverStyles: this.props.hoverStyles,
       icons: this.props.icons,
       id: this.props.id,
+      initialDrawnPolygon: this.props.initialDrawnPolygon,
       language: this.props.language,
       latitude: this.props.center[0],
       literals: this.props.literals,
@@ -85,6 +81,9 @@ class MapBasic extends Component {
       mapViewModes: this.props.mapViewModes,
       maxZoom: this.props.maxZoom,
       minZoom: this.props.minZoom,
+      onDrawPolygonStop: this.props.onDrawPolygonStop,
+      onDrawPolygonFinish: this.props.onDrawPolygonFinish,
+      onDrawPolygonRemove: this.props.onDrawPolygonRemove,
       onLayerClick: this.props.onLayerClick,
       onPolygonWithBounds: this.props.onPolygonWithBounds,
       polygons: this.props.polygons,
@@ -177,7 +176,7 @@ class MapBasic extends Component {
   }
 
   setPublicAPI(mapInstance) {
-    const publicAPI = getPublicAPI(mapInstance)
+    const publicAPI = mapInstance.getPublicAPI()
     this.props.onAvailablePublicAPI(publicAPI)
   }
 
@@ -227,6 +226,10 @@ MapBasic.propTypes = {
    */
   id: PropTypes.string,
   /**
+   * A GEO JSON object for an existing user's drawn polygon
+   */
+  initialDrawnPolygon: PropTypes.object,
+  /**
    * Language code for requesting a map tile rendered in a specific language.
    */
   language: PropTypes.oneOf(Object.values(mapLanguages)),
@@ -243,6 +246,13 @@ MapBasic.propTypes = {
    * A number used to lock the min zoom or zoom out that a user can do.
    */
   minZoom: PropTypes.number,
+  /**
+   * Capture a public API object which enables us to trigger some actions from the outside
+   */
+  onAvailablePublicAPI: PropTypes.func,
+  onDrawPolygonStop: PropTypes.func,
+  onDrawPolygonFinish: PropTypes.func,
+  onDrawPolygonRemove: PropTypes.func,
   onLayerClick: PropTypes.func,
   onMapClick: PropTypes.func,
   onMapDrag: PropTypes.func,
@@ -327,11 +337,7 @@ MapBasic.propTypes = {
   /**
    * This property indicates the action to be performed with the polygon. By DEFAULT it does a fitBounds.
    */
-  onPolygonWithBounds: PropTypes.func,
-  /**
-   * Capture a public API object which enables us to trigger some actions from the outside
-   */
-  onAvailablePublicAPI: PropTypes.func
+  onPolygonWithBounds: PropTypes.func
 }
 
 MapBasic.defaultProps = {
@@ -346,6 +352,9 @@ MapBasic.defaultProps = {
   maxZoom: 20,
   minZoom: 6,
   onAvailablePublicAPI: NO_OP,
+  onDrawPolygonStop: NO_OP,
+  onDrawPolygonFinish: NO_OP,
+  onDrawPolygonRemove: NO_OP,
   onLayerClick: NO_OP,
   onMapClick: NO_OP,
   onMapDrag: NO_OP,

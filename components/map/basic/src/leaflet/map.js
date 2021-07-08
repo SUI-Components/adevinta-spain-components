@@ -24,6 +24,7 @@ export default class LeafletMap {
       icons: properties.icons,
       map: this._map
     })
+    this.preInitDrawing(properties)
     this.dispatchFirstLoad()
   }
 
@@ -375,6 +376,89 @@ export default class LeafletMap {
       pointsToDelete.length &&
         this.layerManager.removeLayersFromGroup(pointsToDelete, 'markers')
       pointsToAdd.length && this.addLayersToMap(pointsToAdd, 'markers')
+    }
+  }
+
+  preInitDrawing(properties) {
+    this._drawnPolygon = L.geoJson(properties.initialDrawnPolygon) || null
+
+    // Add an existing drawn polygon if any
+    if (this._drawnPolygon) {
+      this.drawingAddFinishedPolygon(this._drawnPolygon, false)
+    }
+
+    // Save events
+    this._drawingEvents = {
+      onDrawPolygonStop: properties.onDrawPolygonStop,
+      onDrawPolygonFinish: properties.onDrawPolygonFinish,
+      onDrawPolygonRemove: properties.onDrawPolygonRemove
+    }
+  }
+
+  async initAsyncDrawingLayer() {
+    if (L.Draw) return // do nothing if already loaded
+
+    // Load drawing plugin
+    await import('leaflet-draw')
+
+    // Create editable layer
+    const drawnItems = new L.FeatureGroup()
+    this._map.addLayer(drawnItems)
+
+    // Crate controller
+    this._drawControl = new L.Control.Draw({edit: {featureGroup: drawnItems}})
+    this._map.addControl(this._drawControl)
+
+    /**
+     * Add drawing events
+     */
+    this._map.on(L.Draw.Event.CREATED, ({layer: drawnPolygon}) => {
+      this.drawingAddFinishedPolygon(drawnPolygon)
+    })
+    this._map.on(L.Draw.Event.DRAWSTOP, () => {
+      this._drawingEvents.onDrawPolygonStop()
+    })
+  }
+
+  drawingCheckPlugin() {
+    if (!L.Draw) throw new Error('`leaflet-draw` is still not loaded!')
+  }
+
+  drawingStartPolygon() {
+    new L.Draw.Polygon(this._map, this._drawControl.options.polygon).enable()
+  }
+
+  drawingAddFinishedPolygon(drawnPolygon, triggerEvent = true) {
+    this._drawnPolygon = drawnPolygon
+    this._map.addLayer(this._drawnPolygon)
+    if (triggerEvent) {
+      this._drawingEvents.onDrawPolygonFinish(this._drawnPolygon.toGeoJSON())
+    }
+  }
+
+  drawingClear() {
+    if (this._drawnPolygon) {
+      this._map.removeLayer(this._drawnPolygon)
+      this._drawingEvents.onDrawPolygonRemove(this._drawnPolygon.toGeoJSON())
+    }
+  }
+
+  getPublicAPI() {
+    return {
+      zoomIn: () => this._map.zoomIn(),
+      zoomOut: () => this._map.zoomOut(),
+      drawing: {
+        load: () => this.initAsyncDrawingLayer(),
+        startPolygon: () => {
+          this.drawingCheckPlugin()
+          this.drawingClear()
+          this.drawingStartPolygon()
+        },
+        clear: () => {
+          this.drawingCheckPlugin()
+          this.drawingClear()
+        }
+      }
     }
   }
 }
