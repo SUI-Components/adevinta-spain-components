@@ -381,6 +381,8 @@ export default class LeafletMap {
 
   preInitDrawing(properties) {
     this._drawnPolygon = null
+
+    // Save events
     this._drawingEvents = {
       onDrawPolygonStop: properties.onDrawPolygonStop,
       onDrawPolygonFinish: properties.onDrawPolygonFinish,
@@ -399,9 +401,8 @@ export default class LeafletMap {
     this._map.addLayer(drawnItems)
 
     // Crate controller
-    const drawControl = new L.Control.Draw({edit: {featureGroup: drawnItems}})
-    this._drawControl = drawControl
-    this._map.addControl(drawControl)
+    this._drawControl = new L.Control.Draw({edit: {featureGroup: drawnItems}})
+    this._map.addControl(this._drawControl)
 
     /**
      * Add drawing events
@@ -422,10 +423,12 @@ export default class LeafletMap {
     new L.Draw.Polygon(this._map, this._drawControl.options.polygon).enable()
   }
 
-  drawingAddFinishedPolygon(drawnPolygon) {
+  drawingAddFinishedPolygon(drawnPolygon, triggerEvent = true) {
     this._drawnPolygon = drawnPolygon
     this._map.addLayer(this._drawnPolygon)
-    this._drawingEvents.onDrawPolygonFinish(this._drawnPolygon)
+    if (triggerEvent) {
+      this._drawingEvents.onDrawPolygonFinish(this._drawnPolygon)
+    }
   }
 
   drawingClear() {
