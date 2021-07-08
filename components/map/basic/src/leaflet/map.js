@@ -25,6 +25,7 @@ export default class LeafletMap {
       map: this._map
     })
     this.dispatchFirstLoad()
+    this.drawnPolygon = null
   }
 
   setViewCenter(coordinates, zoom) {
@@ -396,8 +397,24 @@ export default class LeafletMap {
 
     // Add events
     this._map.on(L.Draw.Event.CREATED, ({layer}) => {
-      this._map.addLayer(layer)
+      // Add the new drawn polygon
+      this.drawnPolygon = layer
+      this._map.addLayer(this.drawnPolygon)
     })
+  }
+
+  drawingCheckPlugin() {
+    if (!L.Draw) throw new Error('`leaflet-draw` is still not loaded!')
+  }
+
+  drawingStartPolygon() {
+    // Start drawing a new polygon
+    new L.Draw.Polygon(this._map, this._drawControl.options.polygon).enable()
+  }
+
+  drawingClear() {
+    // Remove existing drawn polygon
+    if (this.drawnPolygon) this._map.removeLayer(this.drawnPolygon)
   }
 
   getPublicAPI() {
@@ -407,11 +424,13 @@ export default class LeafletMap {
       drawing: {
         load: () => this.initAsyncDrawingLayer(),
         startPolygon: () => {
-          if (!L.Draw) throw new Error('`leaflet-draw` is still not loaded!')
-          new L.Draw.Polygon(
-            this._map,
-            this._drawControl.options.polygon
-          ).enable()
+          this.drawingCheckPlugin()
+          this.drawingClear()
+          this.drawingStartPolygon()
+        },
+        clear: () => {
+          this.drawingCheckPlugin()
+          this.drawingClear()
         }
       }
     }
