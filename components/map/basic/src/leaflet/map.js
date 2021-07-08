@@ -28,15 +28,6 @@ export default class LeafletMap {
     this.dispatchFirstLoad()
   }
 
-  preInitDrawing(properties) {
-    this._drawnPolygon = null
-    this._drawingEvents = {
-      onDrawPolygonStop: properties.onDrawPolygonStop,
-      onDrawPolygonFinish: properties.onDrawPolygonFinish,
-      onDrawPolygonRemove: properties.onDrawPolygonRemove
-    }
-  }
-
   setViewCenter(coordinates, zoom) {
     this._map.setView(new L.LatLng(coordinates[0], coordinates[1]), zoom)
   }
@@ -385,6 +376,15 @@ export default class LeafletMap {
       pointsToDelete.length &&
         this.layerManager.removeLayersFromGroup(pointsToDelete, 'markers')
       pointsToAdd.length && this.addLayersToMap(pointsToAdd, 'markers')
+    }
+  }
+
+  preInitDrawing(properties) {
+    this._drawnPolygon = null
+    this._drawingEvents = {
+      onDrawPolygonStop: properties.onDrawPolygonStop,
+      onDrawPolygonFinish: properties.onDrawPolygonFinish,
+      onDrawPolygonRemove: properties.onDrawPolygonRemove
     }
   }
 
