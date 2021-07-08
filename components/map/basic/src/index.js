@@ -80,6 +80,9 @@ class MapBasic extends Component {
       mapViewModes: this.props.mapViewModes,
       maxZoom: this.props.maxZoom,
       minZoom: this.props.minZoom,
+      onDrawPolygonStop: this.props.onDrawPolygonStop,
+      onDrawPolygonFinish: this.props.onDrawPolygonFinish,
+      onDrawPolygonRemove: this.props.onDrawPolygonRemove,
       onLayerClick: this.props.onLayerClick,
       onPolygonWithBounds: this.props.onPolygonWithBounds,
       polygons: this.props.polygons,
@@ -238,6 +241,13 @@ MapBasic.propTypes = {
    * A number used to lock the min zoom or zoom out that a user can do.
    */
   minZoom: PropTypes.number,
+  /**
+   * Capture a public API object which enables us to trigger some actions from the outside
+   */
+  onAvailablePublicAPI: PropTypes.func,
+  onDrawPolygonStop: PropTypes.func,
+  onDrawPolygonFinish: PropTypes.func,
+  onDrawPolygonRemove: PropTypes.func,
   onLayerClick: PropTypes.func,
   onMapClick: PropTypes.func,
   onMapDrag: PropTypes.func,
@@ -322,11 +332,7 @@ MapBasic.propTypes = {
   /**
    * This property indicates the action to be performed with the polygon. By DEFAULT it does a fitBounds.
    */
-  onPolygonWithBounds: PropTypes.func,
-  /**
-   * Capture a public API object which enables us to trigger some actions from the outside
-   */
-  onAvailablePublicAPI: PropTypes.func
+  onPolygonWithBounds: PropTypes.func
 }
 
 MapBasic.defaultProps = {
@@ -341,6 +347,9 @@ MapBasic.defaultProps = {
   maxZoom: 20,
   minZoom: 6,
   onAvailablePublicAPI: NO_OP,
+  onDrawPolygonStop: NO_OP,
+  onDrawPolygonFinish: NO_OP,
+  onDrawPolygonRemove: NO_OP,
   onLayerClick: NO_OP,
   onMapClick: NO_OP,
   onMapDrag: NO_OP,

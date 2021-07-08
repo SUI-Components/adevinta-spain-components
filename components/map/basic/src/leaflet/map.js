@@ -24,8 +24,17 @@ export default class LeafletMap {
       icons: properties.icons,
       map: this._map
     })
+    this.preInitDrawing(properties)
     this.dispatchFirstLoad()
-    this.drawnPolygon = null
+  }
+
+  preInitDrawing(properties) {
+    this._drawnPolygon = null
+    this._drawingEvents = {
+      onDrawPolygonStop: properties.onDrawPolygonStop,
+      onDrawPolygonFinish: properties.onDrawPolygonFinish,
+      onDrawPolygonRemove: properties.onDrawPolygonRemove
+    }
   }
 
   setViewCenter(coordinates, zoom) {
@@ -390,16 +399,18 @@ export default class LeafletMap {
     this._map.addLayer(drawnItems)
 
     // Crate controller
-    window.drawthis = L.Control.Draw
     const drawControl = new L.Control.Draw({edit: {featureGroup: drawnItems}})
     this._drawControl = drawControl
     this._map.addControl(drawControl)
 
-    // Add events
-    this._map.on(L.Draw.Event.CREATED, ({layer}) => {
-      // Add the new drawn polygon
-      this.drawnPolygon = layer
-      this._map.addLayer(this.drawnPolygon)
+    /**
+     * Add drawing events
+     */
+    this._map.on(L.Draw.Event.CREATED, ({layer: drawnPolygon}) => {
+      this.drawingAddFinishedPolygon(drawnPolygon)
+    })
+    this._map.on(L.Draw.Event.DRAWSTOP, () => {
+      this._drawingEvents.onDrawPolygonStop()
     })
   }
 
@@ -411,8 +422,17 @@ export default class LeafletMap {
     new L.Draw.Polygon(this._map, this._drawControl.options.polygon).enable()
   }
 
+  drawingAddFinishedPolygon(drawnPolygon) {
+    this._drawnPolygon = drawnPolygon
+    this._map.addLayer(this._drawnPolygon)
+    this._drawingEvents.onDrawPolygonFinish(this._drawnPolygon)
+  }
+
   drawingClear() {
-    if (this.drawnPolygon) this._map.removeLayer(this.drawnPolygon)
+    if (this._drawnPolygon) {
+      this._map.removeLayer(this._drawnPolygon)
+      this._drawingEvents.onDrawPolygonRemove(this._drawnPolygon)
+    }
   }
 
   getPublicAPI() {
