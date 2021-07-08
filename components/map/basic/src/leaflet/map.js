@@ -427,14 +427,14 @@ export default class LeafletMap {
     this._drawnPolygon = drawnPolygon
     this._map.addLayer(this._drawnPolygon)
     if (triggerEvent) {
-      this._drawingEvents.onDrawPolygonFinish(this._drawnPolygon)
+      this._drawingEvents.onDrawPolygonFinish(this._drawnPolygon.toGeoJSON())
     }
   }
 
   drawingClear() {
     if (this._drawnPolygon) {
       this._map.removeLayer(this._drawnPolygon)
-      this._drawingEvents.onDrawPolygonRemove(this._drawnPolygon)
+      this._drawingEvents.onDrawPolygonRemove(this._drawnPolygon.toGeoJSON())
     }
   }
 
