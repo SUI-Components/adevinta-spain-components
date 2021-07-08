@@ -408,12 +408,10 @@ export default class LeafletMap {
   }
 
   drawingStartPolygon() {
-    // Start drawing a new polygon
     new L.Draw.Polygon(this._map, this._drawControl.options.polygon).enable()
   }
 
   drawingClear() {
-    // Remove existing drawn polygon
     if (this.drawnPolygon) this._map.removeLayer(this.drawnPolygon)
   }
 
