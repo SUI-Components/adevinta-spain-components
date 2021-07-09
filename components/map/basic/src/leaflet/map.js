@@ -429,10 +429,8 @@ export default class LeafletMap {
   }
 
   drawingStartPolygon() {
-    this._drawingPolygon = new L.Draw.Polygon(
-      this._map,
-      this._drawControl.options.polygon
-    )
+    const polygonOption = this._drawControl.options.polygon
+    this._drawingPolygon = new L.Draw.Polygon(this._map, polygonOption)
     this._drawingPolygon.enable()
   }
 
