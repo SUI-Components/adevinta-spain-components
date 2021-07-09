@@ -380,6 +380,10 @@ export default class LeafletMap {
   }
 
   preInitDrawing(properties) {
+    // For the drawing-in-progress controller object
+    this._drawingPolygon = null
+
+    // For the already finished Geo JSON drawn shape
     this._drawnPolygon = L.geoJson(properties.initialDrawnPolygon) || null
 
     // Add an existing drawn polygon if any
@@ -425,7 +429,15 @@ export default class LeafletMap {
   }
 
   drawingStartPolygon() {
-    new L.Draw.Polygon(this._map, this._drawControl.options.polygon).enable()
+    const polygonOption = this._drawControl.options.polygon
+    this._drawingPolygon = new L.Draw.Polygon(this._map, polygonOption)
+    this._drawingPolygon.enable()
+  }
+
+  drawingStopPolygon() {
+    if (!this._drawingPolygon) throw new Error('No drawing in progress!')
+    this._drawingPolygon.disable()
+    this._drawingPolygon = null
   }
 
   drawingAddFinishedPolygon(drawnPolygon, triggerEvent = true) {
@@ -440,6 +452,7 @@ export default class LeafletMap {
     if (this._drawnPolygon) {
       this._map.removeLayer(this._drawnPolygon)
       this._drawingEvents.onDrawPolygonRemove(this._drawnPolygon.toGeoJSON())
+      this._drawnPolygon = null
     }
   }
 
@@ -453,6 +466,10 @@ export default class LeafletMap {
           this.drawingCheckPlugin()
           this.drawingClear()
           this.drawingStartPolygon()
+        },
+        stopPolygon: () => {
+          this.drawingCheckPlugin()
+          this.drawingStopPolygon()
         },
         clear: () => {
           this.drawingCheckPlugin()
