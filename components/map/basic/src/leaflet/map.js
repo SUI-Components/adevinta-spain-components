@@ -435,7 +435,7 @@ export default class LeafletMap {
   }
 
   drawingStopPolygon() {
-    if (!this._drawingPolygon) throw new Error('No drawing in progress!')
+    if (!this._drawingPolygon) return -1
     this._drawingPolygon.disable()
     this._drawingPolygon = null
   }
