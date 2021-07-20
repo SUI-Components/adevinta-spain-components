@@ -5,6 +5,8 @@ import {mapViewModes} from './constants'
 import MarkerManager from './marker-manager'
 import LayerManager from './layer-manager'
 
+const DRAW_CLASS = 'drawnPolygon'
+
 export default class LeafletMap {
   constructor(properties) {
     this.setMapDOMInstance(properties.mapDOMInstance)
@@ -384,7 +386,8 @@ export default class LeafletMap {
     this._drawingPolygon = null
 
     // For the already finished Geo JSON drawn shape
-    this._drawnPolygon = L.geoJson(properties.initialDrawnPolygon) || null
+    this._drawnPolygon =
+      L.geoJson(properties.initialDrawnPolygon, {className: DRAW_CLASS}) || null
 
     // Add an existing drawn polygon if any
     if (this._drawnPolygon) {
@@ -431,6 +434,7 @@ export default class LeafletMap {
   drawingStartPolygon() {
     const polygonOption = this._drawControl.options.polygon
     this._drawingPolygon = new L.Draw.Polygon(this._map, polygonOption)
+    this._drawingPolygon.setOptions({shapeOptions: {className: DRAW_CLASS}})
     this._drawingPolygon.enable()
   }
 
