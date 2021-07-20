@@ -32,4 +32,35 @@ $bdrs-minipoi-half: 50%;
     top: -5px;
     width: 10px;
   }
+
+  .drawnPolygon {
+    &RemoveButton {
+      background: $c-primary;
+      border-radius: 20px;
+
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: '';
+        left: 12px;
+        right: 12px;
+        margin: auto;
+        height: 1px; /* cross thickness */
+        background-color: $c-white;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
 }

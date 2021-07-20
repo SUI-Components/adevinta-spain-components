@@ -386,8 +386,11 @@ export default class LeafletMap {
     this._drawingPolygon = null
 
     // For the already finished Geo JSON drawn shape
+    this._drawnPolygonRemoveButton = null
     this._drawnPolygon =
-      L.geoJson(properties.initialDrawnPolygon, {className: DRAW_CLASS}) || null
+      L.geoJson(properties.initialDrawnPolygon, {
+        className: DRAW_CLASS
+      }).getLayers()[0] || null
 
     // Add an existing drawn polygon if any
     if (this._drawnPolygon) {
@@ -445,8 +448,27 @@ export default class LeafletMap {
   }
 
   drawingAddFinishedPolygon(drawnPolygon, triggerEvent = true) {
+    // add polygon to map
     this._drawnPolygon = drawnPolygon
     this._map.addLayer(this._drawnPolygon)
+
+    // add the 'remove' button
+    const icon = L.divIcon({
+      className: `${DRAW_CLASS}RemoveButton`,
+      iconSize: [40, 40]
+    })
+    const coords = this._drawnPolygon._latlngs[0]
+    const buttonCoord = coords.reduce(
+      (acc, coord) => (coord.lat > acc.lat ? coord : acc),
+      coords[0]
+    )
+    this._drawnPolygonRemoveButton = L.marker(
+      [buttonCoord.lat, buttonCoord.lng],
+      {icon}
+    )
+      .on('click', () => this.drawingClear())
+      .addTo(this._map)
+
     if (triggerEvent) {
       this._drawingEvents.onDrawPolygonFinish(this._drawnPolygon.toGeoJSON())
     }
@@ -455,8 +477,10 @@ export default class LeafletMap {
   drawingClear() {
     if (this._drawnPolygon) {
       this._map.removeLayer(this._drawnPolygon)
+      this._map.removeLayer(this._drawnPolygonRemoveButton)
       this._drawingEvents.onDrawPolygonRemove(this._drawnPolygon.toGeoJSON())
       this._drawnPolygon = null
+      this._drawnPolygonRemoveButton = null
     }
   }
 
