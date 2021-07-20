@@ -37,21 +37,20 @@ $bdrs-minipoi-half: 50%;
     &RemoveButton {
       background: $c-primary;
       border-radius: 20px;
-
-      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      position: relative;
 
       &::before,
       &::after {
-        position: absolute;
-        content: '';
-        left: 12px;
-        right: 12px;
-        margin: auto;
-        height: 1px; /* cross thickness */
         background-color: $c-white;
+        content: '';
+        height: 1px;
+        left: 12px;
+        margin: auto;
+        position: absolute;
+        right: 12px;
       }
 
       &::before {
