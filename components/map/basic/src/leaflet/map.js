@@ -478,7 +478,10 @@ export default class LeafletMap {
     if (this._drawnPolygon) {
       this._map.removeLayer(this._drawnPolygon)
       this._map.removeLayer(this._drawnPolygonRemoveButton)
-      this._drawingEvents.onDrawPolygonRemove(this._drawnPolygon.toGeoJSON())
+      this._drawingEvents.onDrawPolygonRemove({
+        polygon: this._drawnPolygon.toGeoJSON(),
+        mapBoundingBox: this.getMapBoundingBox()
+      })
       this._drawnPolygon = null
       this._drawnPolygonRemoveButton = null
     }
