@@ -22,8 +22,11 @@ const tagChipClassName = ({isClickable, className = null}) =>
     'sui-TagChip-link': isClickable
   })
 
-const preventDefaultHandler = handler => event =>
-  handler && (event.preventDefault(), event.stopPropagation(), handler.apply())
+const preventDefaultHandler = (handler = () => null) => event => {
+  event.preventDefault()
+  event.stopPropagation()
+  handler.apply()
+}
 
 const TagChip = ({
   onRequestDelete,
