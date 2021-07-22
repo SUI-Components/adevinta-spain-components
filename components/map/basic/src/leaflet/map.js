@@ -5,6 +5,8 @@ import {mapViewModes} from './constants'
 import MarkerManager from './marker-manager'
 import LayerManager from './layer-manager'
 
+const DRAW_CLASS = 'drawnPolygon'
+
 export default class LeafletMap {
   constructor(properties) {
     this.setMapDOMInstance(properties.mapDOMInstance)
@@ -384,7 +386,11 @@ export default class LeafletMap {
     this._drawingPolygon = null
 
     // For the already finished Geo JSON drawn shape
-    this._drawnPolygon = L.geoJson(properties.initialDrawnPolygon) || null
+    this._drawnPolygonRemoveButton = null
+    this._drawnPolygon =
+      L.geoJson(properties.initialDrawnPolygon, {
+        className: DRAW_CLASS
+      }).getLayers()[0] || null
 
     // Add an existing drawn polygon if any
     if (this._drawnPolygon) {
@@ -431,6 +437,7 @@ export default class LeafletMap {
   drawingStartPolygon() {
     const polygonOption = this._drawControl.options.polygon
     this._drawingPolygon = new L.Draw.Polygon(this._map, polygonOption)
+    this._drawingPolygon.setOptions({shapeOptions: {className: DRAW_CLASS}})
     this._drawingPolygon.enable()
   }
 
@@ -441,8 +448,27 @@ export default class LeafletMap {
   }
 
   drawingAddFinishedPolygon(drawnPolygon, triggerEvent = true) {
+    // add polygon to map
     this._drawnPolygon = drawnPolygon
     this._map.addLayer(this._drawnPolygon)
+
+    // add the 'remove' button
+    const icon = L.divIcon({
+      className: `${DRAW_CLASS}RemoveButton`,
+      iconSize: [40, 40]
+    })
+    const coords = this._drawnPolygon._latlngs[0]
+    const buttonCoord = coords.reduce(
+      (acc, coord) => (coord.lat > acc.lat ? coord : acc),
+      coords[0]
+    )
+    this._drawnPolygonRemoveButton = L.marker(
+      [buttonCoord.lat, buttonCoord.lng],
+      {icon}
+    )
+      .on('click', () => this.drawingClear())
+      .addTo(this._map)
+
     if (triggerEvent) {
       this._drawingEvents.onDrawPolygonFinish(this._drawnPolygon.toGeoJSON())
     }
@@ -451,8 +477,13 @@ export default class LeafletMap {
   drawingClear() {
     if (this._drawnPolygon) {
       this._map.removeLayer(this._drawnPolygon)
-      this._drawingEvents.onDrawPolygonRemove(this._drawnPolygon.toGeoJSON())
+      this._map.removeLayer(this._drawnPolygonRemoveButton)
+      this._drawingEvents.onDrawPolygonRemove({
+        polygon: this._drawnPolygon.toGeoJSON(),
+        mapBoundingBox: this.getMapBoundingBox()
+      })
       this._drawnPolygon = null
+      this._drawnPolygonRemoveButton = null
     }
   }
 
