@@ -4,9 +4,9 @@ import Circle from './shapes/Circle'
 import {mapViewModes} from './constants'
 import MarkerManager from './marker-manager'
 import LayerManager from './layer-manager'
-import simplifyGeoJson from '@turf/simplify'
 
 const DRAW_CLASS = 'drawnPolygon'
+let simplifyGeoJson = null
 
 export default class LeafletMap {
   constructor(properties) {
@@ -400,16 +400,18 @@ export default class LeafletMap {
         className: DRAW_CLASS
       }).getLayers()[0] || null
 
-    // Add an existing drawn polygon if any
-    if (this._drawnPolygon) {
-      this.drawingAddFinishedPolygon(this._drawnPolygon, false)
-    }
-
-    // Save events
+    // Save drawing events
     this._drawingEvents = {
       onDrawPolygonStop: properties.onDrawPolygonStop,
       onDrawPolygonFinish: properties.onDrawPolygonFinish,
       onDrawPolygonRemove: properties.onDrawPolygonRemove
+    }
+
+    // Add an existing drawn polygon if any
+    if (this._drawnPolygon) {
+      this.initAsyncDrawingLayer().then(() =>
+        this.drawingAddFinishedPolygon(this._drawnPolygon, false)
+      )
     }
   }
 
@@ -417,7 +419,12 @@ export default class LeafletMap {
     if (L.Draw) return // do nothing if already loaded
 
     // Load drawing plugin
-    await import('leaflet-draw')
+    const [simplifyModule] = await Promise.all([
+      import('@turf/simplify'),
+      import('leaflet-draw')
+    ])
+
+    simplifyGeoJson = simplifyModule.default
 
     // Create editable layer
     const drawnItems = new L.FeatureGroup()
