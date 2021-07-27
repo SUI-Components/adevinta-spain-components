@@ -416,7 +416,7 @@ export default class LeafletMap {
   }
 
   async initAsyncDrawingLayer() {
-    if (L.Draw) return // do nothing if already loaded
+    if (L.Draw && this._drawControl) return // do nothing if already loaded
 
     // Load drawing plugin
     const [simplifyModule] = await Promise.all([
