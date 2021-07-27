@@ -6,9 +6,11 @@ import MarkerManager from './marker-manager'
 import LayerManager from './layer-manager'
 
 const DRAW_CLASS = 'drawnPolygon'
+let simplifyGeoJson = null
 
 export default class LeafletMap {
   constructor(properties) {
+    this.setSimplifyDraw(properties)
     this.setMapDOMInstance(properties.mapDOMInstance)
     this.createMarkerManager(properties.mapDOMInstance)
     this.createLayerManager(properties.id)
@@ -32,6 +34,12 @@ export default class LeafletMap {
 
   setViewCenter(coordinates, zoom) {
     this._map.setView(new L.LatLng(coordinates[0], coordinates[1]), zoom)
+  }
+
+  setSimplifyDraw({simplifyDraw, simplifyTolerance, simplifyHighQuality}) {
+    this._simplifyDraw = simplifyDraw
+    this._simplifyTolerance = simplifyTolerance
+    this._simplifyHighQuality = simplifyHighQuality
   }
 
   buildMap(properties) {
@@ -392,16 +400,18 @@ export default class LeafletMap {
         className: DRAW_CLASS
       }).getLayers()[0] || null
 
-    // Add an existing drawn polygon if any
-    if (this._drawnPolygon) {
-      this.drawingAddFinishedPolygon(this._drawnPolygon, false)
-    }
-
-    // Save events
+    // Save drawing events
     this._drawingEvents = {
       onDrawPolygonStop: properties.onDrawPolygonStop,
       onDrawPolygonFinish: properties.onDrawPolygonFinish,
       onDrawPolygonRemove: properties.onDrawPolygonRemove
+    }
+
+    // Add an existing drawn polygon if any
+    if (this._drawnPolygon) {
+      this.initAsyncDrawingLayer().then(() =>
+        this.drawingAddFinishedPolygon(this._drawnPolygon, false)
+      )
     }
   }
 
@@ -409,7 +419,12 @@ export default class LeafletMap {
     if (L.Draw) return // do nothing if already loaded
 
     // Load drawing plugin
-    await import('leaflet-draw')
+    const [simplifyModule] = await Promise.all([
+      import('@turf/simplify'),
+      import('leaflet-draw')
+    ])
+
+    simplifyGeoJson = simplifyModule.default
 
     // Create editable layer
     const drawnItems = new L.FeatureGroup()
@@ -449,7 +464,21 @@ export default class LeafletMap {
 
   drawingAddFinishedPolygon(drawnPolygon, triggerEvent = true) {
     // add polygon to map
-    this._drawnPolygon = drawnPolygon
+
+    const simplifiedPolygon =
+      (this._simplifyDraw &&
+        L.geoJson(
+          simplifyGeoJson(drawnPolygon.toGeoJSON(), {
+            tolerance: this._simplifyTolerance,
+            highQuality: this._simplifyHighQuality
+          }),
+          {
+            className: DRAW_CLASS
+          }
+        ).getLayers()[0]) ||
+      null
+
+    this._drawnPolygon = this._simplifyDraw ? simplifiedPolygon : drawnPolygon
     this._map.addLayer(this._drawnPolygon)
 
     // add the 'remove' button
