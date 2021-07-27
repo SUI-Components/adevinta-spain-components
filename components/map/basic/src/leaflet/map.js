@@ -409,9 +409,14 @@ export default class LeafletMap {
 
     // Add an existing drawn polygon if any
     if (this._drawnPolygon) {
-      this.initAsyncDrawingLayer().then(() =>
+      this.initAsyncDrawingLayer().then(() => {
+        // Fit and center map view to drawn polygon
+        const bounds = this._drawnPolygon?.getBounds()
+        if (bounds?.isValid()) this._map.fitBounds(bounds, {animate: false})
+
+        // Add it to the map
         this.drawingAddFinishedPolygon(this._drawnPolygon, false)
-      )
+      })
     }
   }
 
