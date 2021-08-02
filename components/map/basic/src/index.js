@@ -94,6 +94,7 @@ class MapBasic extends Component {
       showLabels: this.props.showLabels,
       showSatelliteView: this.props.showSatelliteView,
       simplifyDraw: this.props.simplifyDraw,
+      simplifyDrawMinimumCoordinates: this.props.simplifyDrawMinimumCoordinates,
       simplifyTolerance: this.props.simplifyTolerance,
       simplifyHighQuality: this.props.simplifyHighQuality,
       zoom: this.props.zoom,
@@ -341,6 +342,7 @@ MapBasic.propTypes = {
    * This properties indicates if you want to simplify the polygons when draw and their options.
    */
   simplifyDraw: PropTypes.bool,
+  simplifyDrawMinimumCoordinates: PropTypes.number,
   simplifyTolerance: PropTypes.number,
   simplifyHighQuality: PropTypes.bool,
   /**
@@ -381,6 +383,7 @@ MapBasic.defaultProps = {
   selectedMapViewMode: 0,
   showLabels: false,
   simplifyDraw: false,
+  simplifyDrawMinimumCoordinates: 0,
   simplifyTolerance: 0.002,
   simplifyHighQuality: false,
   zoom: 14,

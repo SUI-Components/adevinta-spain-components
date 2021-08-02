@@ -36,8 +36,14 @@ export default class LeafletMap {
     this._map.setView(new L.LatLng(coordinates[0], coordinates[1]), zoom)
   }
 
-  setSimplifyDraw({simplifyDraw, simplifyTolerance, simplifyHighQuality}) {
+  setSimplifyDraw({
+    simplifyDraw,
+    simplifyDrawMinimumCoordinates,
+    simplifyTolerance,
+    simplifyHighQuality
+  }) {
     this._simplifyDraw = simplifyDraw
+    this._simplifyDrawMinimumCoordinates = simplifyDrawMinimumCoordinates
     this._simplifyTolerance = simplifyTolerance
     this._simplifyHighQuality = simplifyHighQuality
   }
@@ -470,8 +476,12 @@ export default class LeafletMap {
   drawingAddFinishedPolygon(drawnPolygon, triggerEvent = true) {
     // add polygon to map
 
+    const shouldSimplifyDraw =
+      this._simplifyDraw &&
+      drawnPolygon._latlngs[0].length >= this._simplifyDrawMinimumCoordinates
+
     const simplifiedPolygon =
-      (this._simplifyDraw &&
+      (shouldSimplifyDraw &&
         L.geoJson(
           simplifyGeoJson(drawnPolygon.toGeoJSON(), {
             tolerance: this._simplifyTolerance,
@@ -483,7 +493,7 @@ export default class LeafletMap {
         ).getLayers()[0]) ||
       null
 
-    this._drawnPolygon = this._simplifyDraw ? simplifiedPolygon : drawnPolygon
+    this._drawnPolygon = shouldSimplifyDraw ? simplifiedPolygon : drawnPolygon
     this._map.addLayer(this._drawnPolygon)
 
     // add the 'remove' button
