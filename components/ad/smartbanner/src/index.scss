@@ -57,6 +57,10 @@
     }
   }
 
+  &-ratingContainer {
+    height: $sz-icon-l;
+  }
+
   &-rating {
     padding: $p-ad-smartbanner-rating-container;
 

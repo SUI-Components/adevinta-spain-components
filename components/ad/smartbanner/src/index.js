@@ -32,11 +32,13 @@ function AdSmartbanner({
         <h3 className="sui-AdSmartbanner-title">{title}</h3>
         <p className="sui-AdSmartbanner-text">{text}</p>
         {ratingValue !== null && (
-          <RatingStar
-            ratingValue={ratingValue}
-            ratingMax={ratingMax}
-            icons={customRatingIcons}
-          />
+          <div className="sui-AdSmartbanner-ratingContainer">
+            <RatingStar
+              ratingValue={ratingValue}
+              ratingMax={ratingMax}
+              icons={customRatingIcons}
+            />
+          </div>
         )}
       </div>
       <button className="sui-AdSmartbanner-buttonInstall" onClick={onClick}>

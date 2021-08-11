@@ -5,8 +5,12 @@ import {mapViewModes} from './constants'
 import MarkerManager from './marker-manager'
 import LayerManager from './layer-manager'
 
+const DRAW_CLASS = 'drawnPolygon'
+let simplifyGeoJson = null
+
 export default class LeafletMap {
   constructor(properties) {
+    this.setSimplifyDraw(properties)
     this.setMapDOMInstance(properties.mapDOMInstance)
     this.createMarkerManager(properties.mapDOMInstance)
     this.createLayerManager(properties.id)
@@ -30,6 +34,18 @@ export default class LeafletMap {
 
   setViewCenter(coordinates, zoom) {
     this._map.setView(new L.LatLng(coordinates[0], coordinates[1]), zoom)
+  }
+
+  setSimplifyDraw({
+    simplifyDraw,
+    simplifyDrawMinimumCoordinates,
+    simplifyTolerance,
+    simplifyHighQuality
+  }) {
+    this._simplifyDraw = simplifyDraw
+    this._simplifyDrawMinimumCoordinates = simplifyDrawMinimumCoordinates
+    this._simplifyTolerance = simplifyTolerance
+    this._simplifyHighQuality = simplifyHighQuality
   }
 
   buildMap(properties) {
@@ -384,26 +400,42 @@ export default class LeafletMap {
     this._drawingPolygon = null
 
     // For the already finished Geo JSON drawn shape
-    this._drawnPolygon = L.geoJson(properties.initialDrawnPolygon) || null
+    this._drawnPolygonRemoveButton = null
+    this._drawnPolygon =
+      L.geoJson(properties.initialDrawnPolygon, {
+        className: DRAW_CLASS
+      }).getLayers()[0] || null
 
-    // Add an existing drawn polygon if any
-    if (this._drawnPolygon) {
-      this.drawingAddFinishedPolygon(this._drawnPolygon, false)
-    }
-
-    // Save events
+    // Save drawing events
     this._drawingEvents = {
       onDrawPolygonStop: properties.onDrawPolygonStop,
       onDrawPolygonFinish: properties.onDrawPolygonFinish,
       onDrawPolygonRemove: properties.onDrawPolygonRemove
     }
+
+    // Add an existing drawn polygon if any
+    if (this._drawnPolygon) {
+      this.initAsyncDrawingLayer().then(() => {
+        // Fit and center map view to drawn polygon
+        const bounds = this._drawnPolygon?.getBounds()
+        if (bounds?.isValid()) this._map.fitBounds(bounds, {animate: false})
+
+        // Add it to the map
+        this.drawingAddFinishedPolygon(this._drawnPolygon, false)
+      })
+    }
   }
 
   async initAsyncDrawingLayer() {
-    if (L.Draw) return // do nothing if already loaded
+    if (L.Draw && this._drawControl) return // do nothing if already loaded
 
     // Load drawing plugin
-    await import('leaflet-draw')
+    const [simplifyModule] = await Promise.all([
+      import('@turf/simplify'),
+      import('leaflet-draw')
+    ])
+
+    simplifyGeoJson = simplifyModule.default
 
     // Create editable layer
     const drawnItems = new L.FeatureGroup()
@@ -431,18 +463,56 @@ export default class LeafletMap {
   drawingStartPolygon() {
     const polygonOption = this._drawControl.options.polygon
     this._drawingPolygon = new L.Draw.Polygon(this._map, polygonOption)
+    this._drawingPolygon.setOptions({shapeOptions: {className: DRAW_CLASS}})
     this._drawingPolygon.enable()
   }
 
   drawingStopPolygon() {
-    if (!this._drawingPolygon) throw new Error('No drawing in progress!')
+    if (!this._drawingPolygon) return -1
     this._drawingPolygon.disable()
     this._drawingPolygon = null
   }
 
   drawingAddFinishedPolygon(drawnPolygon, triggerEvent = true) {
-    this._drawnPolygon = drawnPolygon
+    // add polygon to map
+
+    const shouldSimplifyDraw =
+      this._simplifyDraw &&
+      drawnPolygon._latlngs[0].length >= this._simplifyDrawMinimumCoordinates
+
+    const simplifiedPolygon =
+      (shouldSimplifyDraw &&
+        L.geoJson(
+          simplifyGeoJson(drawnPolygon.toGeoJSON(), {
+            tolerance: this._simplifyTolerance,
+            highQuality: this._simplifyHighQuality
+          }),
+          {
+            className: DRAW_CLASS
+          }
+        ).getLayers()[0]) ||
+      null
+
+    this._drawnPolygon = shouldSimplifyDraw ? simplifiedPolygon : drawnPolygon
     this._map.addLayer(this._drawnPolygon)
+
+    // add the 'remove' button
+    const icon = L.divIcon({
+      className: `${DRAW_CLASS}RemoveButton`,
+      iconSize: [40, 40]
+    })
+    const coords = this._drawnPolygon._latlngs[0]
+    const buttonCoord = coords.reduce(
+      (acc, coord) => (coord.lat > acc.lat ? coord : acc),
+      coords[0]
+    )
+    this._drawnPolygonRemoveButton = L.marker(
+      [buttonCoord.lat, buttonCoord.lng],
+      {icon}
+    )
+      .on('click', () => this.drawingClear())
+      .addTo(this._map)
+
     if (triggerEvent) {
       this._drawingEvents.onDrawPolygonFinish(this._drawnPolygon.toGeoJSON())
     }
@@ -451,8 +521,13 @@ export default class LeafletMap {
   drawingClear() {
     if (this._drawnPolygon) {
       this._map.removeLayer(this._drawnPolygon)
-      this._drawingEvents.onDrawPolygonRemove(this._drawnPolygon.toGeoJSON())
+      this._map.removeLayer(this._drawnPolygonRemoveButton)
+      this._drawingEvents.onDrawPolygonRemove({
+        polygon: this._drawnPolygon.toGeoJSON(),
+        mapBoundingBox: this.getMapBoundingBox()
+      })
       this._drawnPolygon = null
+      this._drawnPolygonRemoveButton = null
     }
   }
 

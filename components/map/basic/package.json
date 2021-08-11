@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-map-basic",
-  "version": "1.45.0",
+  "version": "1.51.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
+    "@turf/simplify": "6",
     "leaflet": "1.2.0",
     "leaflet-draw": "1.0.4"
   },

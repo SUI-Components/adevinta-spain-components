@@ -93,6 +93,10 @@ class MapBasic extends Component {
       showHeatmap: this.props.showHeatmap,
       showLabels: this.props.showLabels,
       showSatelliteView: this.props.showSatelliteView,
+      simplifyDraw: this.props.simplifyDraw,
+      simplifyDrawMinimumCoordinates: this.props.simplifyDrawMinimumCoordinates,
+      simplifyTolerance: this.props.simplifyTolerance,
+      simplifyHighQuality: this.props.simplifyHighQuality,
       zoom: this.props.zoom,
       zoomControl: this.props.zoomable,
       zoomControlPosition: this.props.zoomControlPosition
@@ -335,6 +339,13 @@ MapBasic.propTypes = {
    */
   scrollWheelZoom: PropTypes.bool,
   /**
+   * This properties indicates if you want to simplify the polygons when draw and their options.
+   */
+  simplifyDraw: PropTypes.bool,
+  simplifyDrawMinimumCoordinates: PropTypes.number,
+  simplifyTolerance: PropTypes.number,
+  simplifyHighQuality: PropTypes.bool,
+  /**
    * This property indicates the action to be performed with the polygon. By DEFAULT it does a fitBounds.
    */
   onPolygonWithBounds: PropTypes.func
@@ -371,6 +382,10 @@ MapBasic.defaultProps = {
   scrollWheelZoom: true,
   selectedMapViewMode: 0,
   showLabels: false,
+  simplifyDraw: false,
+  simplifyDrawMinimumCoordinates: 0,
+  simplifyTolerance: 0.002,
+  simplifyHighQuality: false,
   zoom: 14,
   zoomable: false,
   zoomControlPosition: 'bottomleft'
