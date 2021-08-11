@@ -15,6 +15,7 @@ import {
 import ProxyField from './ProxyField'
 import {inputSizes as fieldSizes} from '@s-ui/react-atom-input'
 import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
+import {getUpdatedFormState} from './mapper/formState'
 
 const FormBuilder = ({
   json,
@@ -84,12 +85,7 @@ const FormBuilder = ({
     const fieldsToUpdate = await onChange({
       ...nextStateFieldsObject,
       __FIELD_CHANGED__: id,
-      __FORM_STATE__: {
-        form: {
-          ...json.form,
-          fields: nextStateFields
-        }
-      }
+      __FORM_STATE__: getUpdatedFormState(json.form, nextStateFields)
     })
 
     if (typeof fieldsToUpdate === 'object' && fieldsToUpdate !== null)
