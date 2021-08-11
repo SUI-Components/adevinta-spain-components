@@ -80,9 +80,16 @@ const FormBuilder = ({
     const nextStateFieldsObject = useNativeFieldType
       ? fieldsToObjectNativeTypes(nextStateFields)
       : fieldsToObject(nextStateFields)
+
     const fieldsToUpdate = await onChange({
       ...nextStateFieldsObject,
-      __FIELD_CHANGED__: id
+      __FIELD_CHANGED__: id,
+      __FORM_STATE__: {
+        form: {
+          ...json.form,
+          fields: nextStateFields
+        }
+      }
     })
 
     if (typeof fieldsToUpdate === 'object' && fieldsToUpdate !== null)
