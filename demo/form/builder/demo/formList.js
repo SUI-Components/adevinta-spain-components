@@ -1155,6 +1155,18 @@ export const json = {
             ]
           }
         ]
+      },
+      {
+        id: 'wheels_fields',
+        label: 'Ruedas',
+        value: '2',
+        type: 'picker',
+        display: 'stepper',
+        max: '4',
+        min: '1',
+        maxValueErrorText: 'Error max wheels',
+        mixValueErrorText: 'Error min wheels',
+        inputDisabled: true
       }
     ],
     rules: {
