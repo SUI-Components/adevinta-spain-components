@@ -30,7 +30,8 @@ const DISPLAYS = {
     DROPDOWN: 'dropdown',
     RADIO: 'radio',
     CHECKBOX: 'checkbox',
-    BUTTON_INLINE: 'button-inline'
+    BUTTON_INLINE: 'button-inline',
+    STEPPER: 'stepper'
   }
 }
 

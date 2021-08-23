@@ -5,6 +5,7 @@ import Select from '../../../Select'
 import Checkbox from '../../../Checkbox'
 import InlineButton from '../../../InlineButton'
 import Radio from '../../../Radio'
+import Stepper from '../../../Stepper'
 
 import {FIELDS, DISPLAYS} from '../../index'
 
@@ -77,6 +78,19 @@ const PickerField = ({
     return (
       <InlineButton
         inlineButton={field}
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        tabIndex={tabIndex}
+        errors={errors}
+        alerts={alerts}
+        renderer={renderer}
+      />
+    )
+  } else if (field.display === DISPLAYS[FIELDS.PICKER].STEPPER) {
+    return (
+      <Stepper
+        stepper={field}
         onChange={onChange}
         onFocus={onFocus}
         onBlur={onBlur}
