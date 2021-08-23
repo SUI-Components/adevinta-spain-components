@@ -12,7 +12,6 @@ export const OPERATIONS = {
 const Stepper = ({stepper, tabIndex, onChange, errors, alerts, renderer}) => {
   const errorMessages = errors[stepper.id]
   const alertMessages = alerts[stepper.id]
-  const datalist = stepper.datalist
 
   const onChangeHandler = ({target: {outerText: OPERATION}}) => {
     if (OPERATION === OPERATIONS.ADD) {
@@ -54,8 +53,7 @@ const Stepper = ({stepper, tabIndex, onChange, errors, alerts, renderer}) => {
   const rendererResponse = renderer({
     id: stepper.id,
     innerProps: {
-      ...stepperProps,
-      datalist
+      ...stepperProps
     }
   })
 
