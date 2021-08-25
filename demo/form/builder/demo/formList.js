@@ -1167,6 +1167,18 @@ export const json = {
         maxValueErrorText: 'Error max wheels',
         mixValueErrorText: 'Error min wheels',
         inputDisabled: true
+      },
+      {
+        id: 'extras_fields',
+        type: 'multipicker',
+        label: 'Extras',
+        display: 'button',
+        hidden: false,
+        datalist: [
+          {value: '95', text: 'Sólo chicas'},
+          {value: '96', text: 'Sólo chicos'},
+          {value: '97', text: 'Sólo no fumadores'}
+        ]
       }
     ],
     rules: {
