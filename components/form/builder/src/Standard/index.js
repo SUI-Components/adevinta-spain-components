@@ -32,6 +32,9 @@ const DISPLAYS = {
     CHECKBOX: 'checkbox',
     BUTTON_INLINE: 'button-inline',
     STEPPER: 'stepper'
+  },
+  [FIELDS.MULTIPICKER]: {
+    BUTTON: 'button'
   }
 }
 

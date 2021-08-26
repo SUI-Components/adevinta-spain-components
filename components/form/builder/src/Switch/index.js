@@ -24,8 +24,6 @@ const Switch = ({
   const switchProps = {
     name: switchField.id,
     label: switchField.label,
-    labelLeft: 'NOP',
-    labelRight: 'ZIP',
     initialValue: JSON.parse(switchField.value || 'false'),
     value: JSON.parse(switchField.value || 'false'),
     onToggle: onChangeCallback,

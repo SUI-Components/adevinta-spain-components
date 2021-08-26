@@ -1,0 +1,8 @@
+@import '~@s-ui/react-atom-tag/lib/index';
+
+.sui-FormBuilder-MultiButton {
+  &-itemList {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

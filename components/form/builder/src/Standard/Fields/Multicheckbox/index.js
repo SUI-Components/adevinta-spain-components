@@ -1,27 +1,45 @@
 import PropTypes from 'prop-types'
 
 import Multipicker from '../../../Multicheckbox'
+import MultiButton from '../../../MultiButton'
 
-const MultipickerField = ({
+import {FIELDS, DISPLAYS} from '../../index'
+
+export default function MultipickerField({
+  alerts,
+  errors,
   field,
-  tabIndex,
+  onBlur,
   onChange,
   onFocus,
-  onBlur,
-  errors,
-  alerts,
-  renderer
-}) => {
+  renderer,
+  tabIndex
+}) {
+  if (field.display === DISPLAYS[FIELDS.MULTIPICKER].BUTTON) {
+    return (
+      <MultiButton
+        alerts={alerts}
+        errors={errors}
+        multiButton={field}
+        onBlur={onBlur}
+        onChange={onChange}
+        onFocus={onFocus}
+        renderer={renderer}
+        tabIndex={tabIndex}
+      />
+    )
+  }
+
   return (
     <Multipicker
+      alerts={alerts}
+      errors={errors}
       multipicker={field}
+      onBlur={onBlur}
       onChange={onChange}
       onFocus={onFocus}
-      onBlur={onBlur}
-      tabIndex={tabIndex}
-      errors={errors}
-      alerts={alerts}
       renderer={renderer}
+      tabIndex={tabIndex}
     />
   )
 }
@@ -36,5 +54,3 @@ MultipickerField.propTypes = {
   alerts: PropTypes.object,
   renderer: PropTypes.func
 }
-
-export default MultipickerField
