@@ -18,16 +18,10 @@ const MultiButton = ({
   const errorMessages = errors[multiButton.id]
   const alertMessages = alerts[multiButton.id]
 
-  const onClickCallback = (id, checked) => {
-    const targetId = id
-
-    let newValue = []
-
-    if (checked) {
-      newValue = multiButton.value.filter(id => id !== targetId)
-    } else {
-      newValue = [...(multiButton.value || []), targetId]
-    }
+  const onClickCallback = ({value, checked}) => {
+    const newValue = checked
+      ? multiButton.value?.filter(id => id !== value)
+      : [...(multiButton.value || []), value]
 
     return onChange(multiButton.id, newValue)
   }
@@ -57,9 +51,7 @@ const MultiButton = ({
     })
   }
 
-  if (multiButtonProps.hidden) {
-    return null
-  }
+  if (multiButtonProps.hidden) return null
 
   const rendererResponse = renderer({
     id: multiButton.id,
@@ -67,9 +59,7 @@ const MultiButton = ({
   })
 
   // render custom component
-  if (isValidElement(rendererResponse)) {
-    return rendererResponse
-  }
+  if (isValidElement(rendererResponse)) return rendererResponse
 
   // render SUI component
   return (
@@ -79,18 +69,18 @@ const MultiButton = ({
     >
       <MoleculeField {...multiButtonProps}>
         <div className="sui-FormBuilder-MultiButton-itemList">
-          {multiButton.datalist.map(item => {
-            const checked = multiButton?.value?.some(id => id === item.value)
+          {multiButton.datalist.map(({value, text}) => {
+            const checked = multiButton.value?.some(id => id === value)
 
             return (
               <AtomTag
                 {...multiButtonProps}
                 {...rendererResponse}
-                key={item.value}
-                onClick={() => onClickCallback(item.value, checked)}
+                key={value}
+                onClick={() => onClickCallback({value, checked})}
                 design={checked ? 'solid' : 'outline'}
-                label={item.text}
-                id={item.value}
+                label={text}
+                id={value}
               />
             )
           })}
@@ -101,15 +91,16 @@ const MultiButton = ({
 }
 
 MultiButton.displayName = 'MultiButton'
+
 MultiButton.propTypes = {
-  tabIndex: PropTypes.number,
+  alerts: PropTypes.object,
+  errors: PropTypes.object,
   multiButton: field,
+  onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  errors: PropTypes.object,
-  alerts: PropTypes.object,
-  renderer: PropTypes.func
+  renderer: PropTypes.func,
+  tabIndex: PropTypes.number
 }
 
 export default memo(MultiButton, createComponentMemo('multiButton'))
