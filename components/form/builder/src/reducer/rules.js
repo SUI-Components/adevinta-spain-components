@@ -13,7 +13,9 @@ import {
   GREATERTHAN,
   LESSTHAN,
   GREATERTHANEQUALS,
-  LESSTHANEQUALS
+  LESSTHANEQUALS,
+  SUPERSET,
+  NSUPERSET
 } from './constants'
 import {changeFieldById, fieldsToQP} from './fields'
 
@@ -96,6 +98,12 @@ export const shouldApplyRule = (fields, changeField, locale) => when => {
         break
       case LESSTHAN:
         isValid = operators.LESSTHAN(rule.id, rule.value, fields, locale)
+        break
+      case SUPERSET:
+        isValid = operators.SUPERSET(rule.id, rule.value, fields, locale)
+        break
+      case NSUPERSET:
+        isValid = operators.NSUPERSET(rule.id, rule.value, fields, locale)
         break
       default:
         console.warn(`Unkown operator ${rule.operator}`)
