@@ -1,16 +1,18 @@
 import {
-  IN,
-  INPATTERN,
-  NIN,
-  NINPATTERN,
-  EXISTS,
-  NEXISTS,
   CHANGED,
   EQUALS,
+  EXISTS,
   GREATERTHAN,
   GREATERTHANEQUALS,
+  IN,
+  INPATTERN,
   LESSTHAN,
-  LESSTHANEQUALS
+  LESSTHANEQUALS,
+  NEXISTS,
+  NIN,
+  NINPATTERN,
+  NSUPERSET,
+  SUPERSET
 } from './constants'
 import {pickFieldById} from './fields'
 import {LocalizationFactory} from '../Standard/Localization/LocalizationFactory'
@@ -90,5 +92,17 @@ export const operators = {
     }
     const shouldApply = value <= values[0]
     return shouldApply
+  },
+  [SUPERSET]: (id, values, fields) => {
+    const {value: fieldValue} = pickFieldById(fields, id)
+    const isEmpty = !fieldValue.length
+    const hasExpectedValues = values.every(i => fieldValue.includes(i))
+    return !isEmpty && hasExpectedValues
+  },
+  [NSUPERSET]: (id, values, fields) => {
+    const {value: fieldValue} = pickFieldById(fields, id)
+    const isEmpty = !fieldValue.length
+    const hasNotExpectedValues = values.some(i => !fieldValue.includes(i))
+    return isEmpty || hasNotExpectedValues
   }
 }

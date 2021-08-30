@@ -1179,9 +1179,31 @@ export const json = {
           {value: '96', text: 'Sólo chicos'},
           {value: '97', text: 'Sólo no fumadores'}
         ]
+      },
+      {
+        id: 'priceDaily',
+        type: 'text',
+        label: 'Precio diario',
+        hint: 'Precio diario',
+        display: 'money',
+        hidden: true
       }
     ],
     rules: {
+      priceDaily: [
+        {
+          when: [
+            {operator: 'SUPERSET', id: 'extras_fields', value: ['95', '96']}
+          ],
+          then: {data: {hidden: false}}
+        },
+        {
+          when: [
+            {operator: 'NSUPERSET', id: 'extras_fields', value: ['95', '96']}
+          ],
+          then: {data: {hidden: true}}
+        }
+      ],
       subcategory1: [
         {
           when: [{operator: 'NEXISTS', id: 'category'}],
