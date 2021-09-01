@@ -1,0 +1,17 @@
+const cookiePolicy = {
+  message: 'Política de cookies',
+  link: '#'
+}
+
+const onChange = (isDisplayed) => console.log('is displayed', isDisplayed)
+
+const styling = "{ overflow: scroll !important, height: 101vh }"
+
+return (
+  <div>
+    <CookieBanner
+      onChange={onChange}
+      lang="es"
+    />
+  </div>
+)

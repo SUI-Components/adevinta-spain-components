@@ -1,0 +1,9 @@
+const KEY = '6Ld0h6oUAAAAAIym1dGYQ8hmbv5s0jSIVc92TPOz'
+
+return (
+  <FormCaptcha
+      locale="es"
+      siteKey={KEY}
+      onSubmit={response => console.log('response ', response)}
+    />
+)

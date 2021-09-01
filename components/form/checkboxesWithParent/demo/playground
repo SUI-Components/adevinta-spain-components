@@ -1,0 +1,47 @@
+class SampleForm extends React.Component {
+  constructor (props) {
+    super(props)
+  }
+
+  render() {
+    const parentCheckbox = {
+      name: 'parent',
+      label: 'Parent checkbox'
+    }
+
+    const childCheckboxes = [{
+      name: 'children-1',
+      label: 'Children 1 checkbox',
+      checked: true
+    },
+    {
+      name: 'children-2',
+      label: 'Children 2 checkbox',
+      checked: true
+    },
+    {
+      name: 'children-3',
+      label: 'Children 3 checkbox',
+      checked: true
+    },
+    {
+      name: 'children-4',
+      label: 'Children 4 checkbox',
+      checked: true
+    },
+    {
+      name: 'children-5',
+      label: 'Children 5 checkbox',
+      checked: true
+    }]
+
+    return (
+      <FormCheckboxesWithParent 
+        parentCheckbox={parentCheckbox} 
+        initialChildrenCheckbox={childCheckboxes} 
+      />
+    )
+  }
+}
+
+return (<SampleForm />)
