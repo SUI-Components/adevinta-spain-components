@@ -1,6 +1,6 @@
 import {act, cleanup, renderHook} from '@testing-library/react-hooks'
 
-import {useBoolean} from '../../../components/react/hooks/src'
+import {useBoolean} from '../src'
 
 describe('useBoolean hook', () => {
   afterEach(cleanup)

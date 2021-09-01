@@ -1,7 +1,7 @@
 import React, {useRef, useEffect} from 'react'
 import {render} from '@testing-library/react'
 
-import {useMergeRefs} from '../../../components/react/hooks/src'
+import {useMergeRefs} from '../src'
 
 describe('useMergeRefs hook', () => {
   it('should merge all the passed refs into a single one', () => {

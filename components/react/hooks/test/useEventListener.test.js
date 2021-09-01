@@ -1,7 +1,7 @@
 /* eslint-env jest */
 import {cleanup, renderHook} from '@testing-library/react-hooks'
 
-import {useEventListener} from '../../../components/react/hooks/src'
+import {useEventListener} from '../src'
 
 describe('useEventListener hook', () => {
   afterEach(cleanup)

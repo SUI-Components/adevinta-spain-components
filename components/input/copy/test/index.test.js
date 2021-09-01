@@ -9,7 +9,7 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
-import Component from '../../../components/input/copy/src'
+import Component from '../src'
 
 chai.use(chaiDOM)
 

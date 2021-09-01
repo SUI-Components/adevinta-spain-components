@@ -1,6 +1,6 @@
 import {act, cleanup, renderHook} from '@testing-library/react-hooks'
 
-import {useToggle} from '../../../components/react/hooks/src'
+import {useToggle} from '../src'
 
 describe('useToggle hook', () => {
   afterEach(cleanup)

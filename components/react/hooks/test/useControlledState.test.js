@@ -1,6 +1,6 @@
 import {act, cleanup, renderHook} from '@testing-library/react-hooks'
 
-import {useControlledState} from '../../../components/react/hooks/src'
+import {useControlledState} from '../src'
 
 describe('useControlledState hook', () => {
   const setupHook = props =>

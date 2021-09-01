@@ -1,6 +1,6 @@
 import {act, cleanup, renderHook} from '@testing-library/react-hooks'
 
-import {useSteps} from '../../../components/react/hooks/src'
+import {useSteps} from '../src'
 
 describe('useSteps hook', () => {
   afterEach(cleanup)
