@@ -23,11 +23,8 @@ jobs:
     - uses: actions/setup-node@v2
       with: 
         node-version: 16
-        cache: 'npm'
     - name: Install dependencies
-      run: |
-        npx -p @s-ui/mono@1 sui-mono phoenix --ci
-        npm run install:demos -- --ci
+      run: npm install --legacy-peer-deps --no-audit --no-fund --no-optional
         
   lint:
     needs: install
@@ -37,19 +34,17 @@ jobs:
     - uses: actions/setup-node@v2
       with: 
         node-version: 16
-        cache: 'npm'
     - name: Lint 
       run: npm run lint
 
   build:
-    needs: install
     runs-on: ubuntu-latest
+    needs: install
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
       with: 
         node-version: 16
-        cache: 'npm'
         registry-url: 'https://registry.npmjs.org'
     - name: Build dependencies
       run: npm run build
@@ -68,7 +63,13 @@ jobs:
     - uses: actions/setup-node@v2
       with: 
         node-version: 16
-        cache: 'npm'
+    - name: node_modules cache
+      id: cache
+      uses: actions/cache@v2
+      with:
+        path: |
+          **/node_modules
+        key: ${{ github.run_number }}
     - name: Install xvfb for headless testing
       run: sudo apt-get install xvfb
 
@@ -89,8 +90,14 @@ jobs:
     - uses: actions/setup-node@v2
       with: 
         node-version: 16
-        cache: 'npm'
         registry-url: 'https://registry.npmjs.org'
+    - name: node_modules cache
+      id: cache
+      uses: actions/cache@v2
+      with:
+        path: |
+          **/node_modules
+        key: ${{ github.run_number }}
     - name: Release components
       run: npx @s-ui/ci release
       env:
@@ -107,7 +114,6 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         node-version: 16
-        cache: 'npm'
     - uses: actions/download-artifact@v2
       with:
         name: public-folder
