@@ -15,7 +15,7 @@ jobs:
       with:
         access_token: ${{ github.token }}
 
-  install:
+  build:
     needs: check-skip
     runs-on: ubuntu-latest
     steps:
