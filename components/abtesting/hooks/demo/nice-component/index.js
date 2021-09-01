@@ -1,4 +1,4 @@
-import {useExperiment} from '../components/abtesting/hooks/src'
+import {useExperiment} from 'components/abtesting/hooks/src'
 
 const NiceComponent = () => {
   const experimentData = useExperiment()
