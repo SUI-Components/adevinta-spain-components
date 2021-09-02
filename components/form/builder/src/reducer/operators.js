@@ -108,6 +108,6 @@ export const operators = {
   },
   [HIDDEN]: (id, fields) => {
     const {hidden} = pickFieldById(fields, id)
-    return hidden === true
+    return !!hidden
   }
 }
