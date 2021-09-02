@@ -15,7 +15,8 @@ import {
   GREATERTHANEQUALS,
   LESSTHANEQUALS,
   SUPERSET,
-  NSUPERSET
+  NSUPERSET,
+  HIDDEN
 } from './constants'
 import {changeFieldById, fieldsToQP} from './fields'
 
@@ -57,6 +58,7 @@ export const shouldApplyRule = (fields, changeField, locale) => when => {
     }
 
     let isValid
+
     switch (rule.operator) {
       case IN:
         isValid = operators.IN(rule.id, rule.value, fields, changeField)
@@ -105,8 +107,11 @@ export const shouldApplyRule = (fields, changeField, locale) => when => {
       case NSUPERSET:
         isValid = operators.NSUPERSET(rule.id, rule.value, fields, locale)
         break
+      case HIDDEN:
+        isValid = operators.HIDDEN(rule.id, fields)
+        break
       default:
-        console.warn(`Unkown operator ${rule.operator}`)
+        console.warn(`Unknown operator ${rule.operator}`)
         isValid = false
     }
 

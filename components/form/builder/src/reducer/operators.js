@@ -12,7 +12,8 @@ import {
   NIN,
   NINPATTERN,
   NSUPERSET,
-  SUPERSET
+  SUPERSET,
+  HIDDEN
 } from './constants'
 import {pickFieldById} from './fields'
 import {LocalizationFactory} from '../Standard/Localization/LocalizationFactory'
@@ -104,5 +105,9 @@ export const operators = {
     const isEmpty = !fieldValue.length
     const hasNotExpectedValues = values.some(i => !fieldValue.includes(i))
     return isEmpty || hasNotExpectedValues
+  },
+  [HIDDEN]: (id, fields) => {
+    const {hidden} = pickFieldById(fields, id)
+    return !!hidden
   }
 }
