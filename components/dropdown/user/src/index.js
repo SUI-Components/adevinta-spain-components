@@ -32,18 +32,25 @@ const DropdownUser = ({
     expandOnMouseOver && collapseByTouch && toggleMenu()
 
   const renderLink = (
-    {text, url, icon: Icon, notifications, highlight},
+    {onClick, text, url, icon: Icon, notifications, highlight},
     index
   ) => {
     const linkClassName = cx('sui-DropdownUserMenu-listLink', {
       'sui-DropdownUserMenu-listLinkHighlight': highlight
     })
 
+    const handleClick = e => onClick(e)
+
     const hasLinkNotifications = Boolean(notifications)
 
     return (
       <li key={`${text}-${index}`} className="sui-DropdownUserMenu-listItem">
-        <Link href={url} className={linkClassName} title={text}>
+        <Link
+          href={url}
+          className={linkClassName}
+          title={text}
+          onClick={handleClick}
+        >
           <div className="sui-DropdownUserMenu-listIcon">
             <Icon />
           </div>
