@@ -156,9 +156,11 @@ export default function TopbarUser({
    * Render main navigation function.
    */
   const _renderNavMain = isToggleHidden => (
-    {icon, label: text, menu, arrowButtonIcon},
+    {icon, label: text, menu, arrowButtonIcon, onClick},
     index
   ) => {
+    const handleToggleMenu = () => onClick()
+
     return (
       <DropdownBasic
         key={index}
@@ -166,6 +168,7 @@ export default function TopbarUser({
         menu={menu}
         expandOnMouseOver={isToggleHidden}
         linkFactory={linkFactory}
+        onToggleMenu={handleToggleMenu}
       />
     )
   }
