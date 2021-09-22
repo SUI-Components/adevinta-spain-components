@@ -39,7 +39,8 @@ export default function DropdownBasic({
   closeOnItemClick = false,
   expandOnMouseOver = false,
   linkFactory = defaultLinkFactory,
-  menu
+  menu,
+  onToggleMenu = () => {}
 }) {
   const [expanded, setExpanded] = useState(false)
   const [collapseByTouch, setCollapseByTouch] = useState(false)
@@ -74,6 +75,7 @@ export default function DropdownBasic({
   )
 
   const onClick = e => {
+    onToggleMenu()
     toggleMenu()
   }
 
