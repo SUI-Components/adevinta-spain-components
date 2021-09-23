@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.47.0 (2021-09-23)
+
+
+### Bug Fixes
+
+* **components/topbar/user:** add noop as default value for onClick handler ([5c3a855](https://github.com/SUI-Components/adevinta-spain-components/commit/5c3a855ebbc373d67d35fa9f1ea164eba1d80664))
+
+
+
 # 1.46.0 (2021-09-23)
 
 
