@@ -35,22 +35,43 @@ class MarkerManager {
         eventHandler: ({target}) => (target._icon.id = target.Id)
       },
       {eventName: 'click', eventHandler: e => this.isPoiClicked(e)},
+      {eventName: 'dragend', eventHandler: e => this.onPoiDragEnd(e)},
       {eventName: 'mouseover', eventHandler: e => this.onMouseOver(e)},
       {eventName: 'mouseout', eventHandler: e => this.onMouseOut(e)},
       {eventName: 'mousemove', eventHandler: e => this.onMouseMove(e)}
     ]
 
-    const {latitude, longitude, markerType, propertyInfo = {}} = item
+    const {
+      isDraggable,
+      latitude,
+      longitude,
+      markerType,
+      propertyInfo = {}
+    } = item
 
     const marker = L.marker([latitude, longitude], {
-      icon: this.getIconFor({item})
+      icon: this.getIconFor({item}),
+      draggable: isDraggable
     })
+
     marker.propertyInfo = propertyInfo
     marker.markerType = markerType
     marker.Id = propertyInfo.propertyId
     marker.latlon = latitude + ',' + longitude
     events.map(event => marker.on(event.eventName, event.eventHandler))
     return marker
+  }
+
+  onPoiDragEnd(evt) {
+    const {propertyInfo, markerType, _latlng: latlng} = evt.target
+    if (markerType === 0) {
+      return
+    }
+
+    this.dispatchCustomEvent({
+      eventName: 'leaflet_map_poidragend',
+      detail: {...propertyInfo, latlng}
+    })
   }
 
   onMouseOver(evt) {
