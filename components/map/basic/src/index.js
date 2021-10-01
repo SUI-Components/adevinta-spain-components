@@ -42,6 +42,10 @@ class MapBasic extends Component {
         handleFunction: evt => this.props.onPoiClick(evt.detail)
       },
       {
+        name: 'leaflet_map_poidragend',
+        handleFunction: evt => this.props.onPoiDragEnd(evt.detail)
+      },
+      {
         name: 'leaflet_map_poimouseout',
         handleFunction: () => this.props.onPoiMouseOut()
       },
@@ -265,6 +269,7 @@ MapBasic.propTypes = {
   onMapZoomEnd: PropTypes.func,
   onNormalView: PropTypes.func,
   onPoiClick: PropTypes.func,
+  onPoiDragEnd: PropTypes.func,
   onPoiMouseOut: PropTypes.func,
   onPoiMouseOver: PropTypes.func,
   onPoiMouseMove: PropTypes.func,
