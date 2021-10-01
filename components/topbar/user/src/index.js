@@ -7,6 +7,8 @@ import DropdownBasic from '@s-ui/react-dropdown-basic'
 import DropdownUser from '@s-ui/react-dropdown-user'
 import AtomButton, {atomButtonSizes} from '@s-ui/react-atom-button'
 
+const noop = () => {}
+
 const DEFAULT_NAV_WRAP_STYLE = {
   top: 'inherit',
   left: 'inherit',
@@ -156,9 +158,11 @@ export default function TopbarUser({
    * Render main navigation function.
    */
   const _renderNavMain = isToggleHidden => (
-    {icon, label: text, menu, arrowButtonIcon},
+    {icon, label: text, menu, arrowButtonIcon, onClick = noop},
     index
   ) => {
+    const handleToggleMenu = () => onClick()
+
     return (
       <DropdownBasic
         key={index}
@@ -166,6 +170,7 @@ export default function TopbarUser({
         menu={menu}
         expandOnMouseOver={isToggleHidden}
         linkFactory={linkFactory}
+        onToggleMenu={handleToggleMenu}
       />
     )
   }

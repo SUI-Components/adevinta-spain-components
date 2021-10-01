@@ -3,18 +3,20 @@
   "version": "1.0.0",
   "description": "Mono repo containing all Schibsted Spain React Components.",
   "private": true,
+  "workspaces": [
+    "components/**"
+  ],
   "scripts": {
     "build": "sui-studio build",
-    "co": "sui-studio commit",
+    "co": "sui-mono commit",
     "dev": "sui-studio dev",
     "generate": "sui-studio generate -S s-ui",
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",
-    "install:demos": "cd demo && sui-mono phoenix --ci",
-    "phoenix": "sui-mono phoenix && npm run install:demos",
-    "phoenix:ci": "sui-mono phoenix --no-root --ci && npm run install:demos -- --ci",
-    "update:commit:status": "npx @s-ui/ci@1 update-commit-status",
+    "phoenix": "npx @s-ui/mono@2 run 'rm -rf ./node_modules' && rm -f package-lock.json && npm install --legacy-peer-deps",
+    "phoenix:ci": "npm run phoenix",
+    "update:commit:status": "npx @s-ui/ci update-commit-status",
     "start": "sui-studio start",
     "test": "npm run test:studio && npm run test:jest",
     "test:studio": "sui-studio test",
@@ -28,25 +30,25 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "7.14.5",
+    "@babel/plugin-transform-modules-commonjs": "7.15.0",
     "@s-ui/documentation-library": "1",
     "@s-ui/lint": "3",
     "@s-ui/precommit": "2",
-    "@s-ui/studio": "9",
+    "@s-ui/studio": "10",
     "@wojtekmaj/enzyme-adapter-react-17": "0.4.1",
     "enzyme": "3.11.0",
     "husky": "4.3.0",
     "jest": "26.6.3",
-    "validate-commit-msg": "2.14.0",
-    "typescript": "4.3.4"
+    "typescript": "4.3.4",
+    "validate-commit-msg": "2.14.0"
   },
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/mono": "1"
+    "@s-ui/mono": "2"
   },
   "config": {
     "sui-studio": {
-      "logo": "<img width='50' src='https://camo.githubusercontent.com/60172890c1c8e95d3d0f51f09399a3504f89ef88/68747470733a2f2f7777772e61646576696e74612e636f6d2f77702d636f6e74656e742f7468656d65732f73636f6d2f6173736574732f696d672f41646576696e74612d6c6f676f2e737667' />",
+      "logo": "<img width='50' src='https://static.adevinta.com/wp-content/uploads/2019/03/AAFF_RGB_ADEVINTA-blue.png' />",
       "font": "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i",
       "name": "Adevinta Spain Components"
     },

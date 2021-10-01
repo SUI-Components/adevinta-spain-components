@@ -4,7 +4,7 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "build": "rm -Rf ./lib && mkdir -p ./lib && npm run babel && npm run sass",
+    "prepare": "rm -Rf ./lib && mkdir -p ./lib && npm run babel && npm run sass",
     "babel": "../../../node_modules/.bin/babel --presets sui ./src --out-dir ./lib",
     "sass": "../../../node_modules/.bin/cpx \"./src/**/*.scss\" ./lib"
   },
@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-runtime": "6.26.0",
     "@s-ui/component-dependencies": "1",
     "@s-ui/react-icons": "1",
     "react-slidy": "4"

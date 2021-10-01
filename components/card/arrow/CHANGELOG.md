@@ -1,13 +1,29 @@
-# Change Log
+# CHANGELOG
 
-All notable changes to this project will be documented in this file.
+# 1.10.0 (2021-09-07)
+
+
+### Features
+
+* **components/card/arrow:** Enhance CardArrow styling ([f4703fa](https://github.com/SUI-Components/adevinta-spain-components/commit/f4703fa07f8ead09ab9de7eb34cacbaf0c715194))
+
+
+
+# 1.9.0 (2020-11-24)
+
+
+### Features
+
+* **card/arrow:** Use new jsx runtime ([d0f371b](https://github.com/SUI-Components/adevinta-spain-components/commit/d0f371b5c36968a1f3f483b159048b24e4389593))
+
+
 
 # 1.8.0 (2020-03-09)
 
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([5602c5a](https://github.com/SUI-Components/adevinta-spain-components/commit/5602c5a1141428fb4a91525b5255fa7e320effe0))
+* **card/arrow:** Use new [@s-ui-theme](https://github.com/s-ui-theme) ([5602c5a](https://github.com/SUI-Components/adevinta-spain-components/commit/5602c5a1141428fb4a91525b5255fa7e320effe0))
 
 
 
@@ -16,7 +32,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([caff0f1](https://github.com/SUI-Components/adevinta-spain-components/commit/caff0f13e57e67e466e60d00d0be339203441fd9))
+* **card/arrow:** Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([caff0f1](https://github.com/SUI-Components/adevinta-spain-components/commit/caff0f13e57e67e466e60d00d0be339203441fd9))
 
 
 
@@ -25,7 +41,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) react icons ([7a73ca4](https://github.com/SUI-Components/adevinta-spain-components/commit/7a73ca4dbc6700877fae93b81dbcf32637a9e8e8))
+* **card/arrow:** Use new [@s-ui](https://github.com/s-ui) react icons ([7a73ca4](https://github.com/SUI-Components/adevinta-spain-components/commit/7a73ca4dbc6700877fae93b81dbcf32637a9e8e8))
 
 
 
@@ -34,8 +50,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add box shadow variables on card arrow component ([f93af56](https://github.com/SUI-Components/adevinta-spain-components/commit/f93af568c04c6e92eb24213425397deeb47ee043))
-* fix lint error duplicate hover selector ([fd6fc5c](https://github.com/SUI-Components/adevinta-spain-components/commit/fd6fc5c66a929badb8b93746b46afea604445d89))
+* **card/arrow:** add box shadow variables on card arrow component ([f93af56](https://github.com/SUI-Components/adevinta-spain-components/commit/f93af568c04c6e92eb24213425397deeb47ee043))
+* **card/arrow:** fix lint error duplicate hover selector ([fd6fc5c](https://github.com/SUI-Components/adevinta-spain-components/commit/fd6fc5c66a929badb8b93746b46afea604445d89))
 
 
 
@@ -44,8 +60,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* change title on card/arrow component ([dc073d3](https://github.com/SUI-Components/adevinta-spain-components/commit/dc073d317367113ca3c3f06fea365bafc9333aca))
-* refactor card arrow component allow optional elements ([cc2826c](https://github.com/SUI-Components/adevinta-spain-components/commit/cc2826cc956c4e1888ed651c7f4b0ad8a9fc7d58))
+* **card/arrow:** change title on card/arrow component ([dc073d3](https://github.com/SUI-Components/adevinta-spain-components/commit/dc073d317367113ca3c3f06fea365bafc9333aca))
+* **card/arrow:** refactor card arrow component allow optional elements ([cc2826c](https://github.com/SUI-Components/adevinta-spain-components/commit/cc2826cc956c4e1888ed651c7f4b0ad8a9fc7d58))
 
 
 
@@ -54,7 +70,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([bc8fe23](https://github.com/SUI-Components/adevinta-spain-components/commit/bc8fe23f68ecb777d13c1552828d7dff74281e8c))
+* **card/arrow:** Remove .npmignore ([bc8fe23](https://github.com/SUI-Components/adevinta-spain-components/commit/bc8fe23f68ecb777d13c1552828d7dff74281e8c))
 
 
 
@@ -63,7 +79,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* adjust breakpoints ([a5f98d9](https://github.com/SUI-Components/adevinta-spain-components/commit/a5f98d9191512e7fed275370e61c3073ed686094))
+* **card/arrow:** adjust breakpoints ([a5f98d9](https://github.com/SUI-Components/adevinta-spain-components/commit/a5f98d9191512e7fed275370e61c3073ed686094))
 
 
 
@@ -72,9 +88,9 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* link card with arrow icon ([2e283c9](https://github.com/SUI-Components/adevinta-spain-components/commit/2e283c9a6c25c92228d5f9b73273ad0544f32584))
-* set isRequired to link prop ([044b73e](https://github.com/SUI-Components/adevinta-spain-components/commit/044b73ea86762d92eb5035142491b9e24bd7ef88))
-* update README ([fddb27b](https://github.com/SUI-Components/adevinta-spain-components/commit/fddb27b6015580a3dce8ae1c6c8d6ce8340ff410))
+* **card/arrow:** link card with arrow icon ([2e283c9](https://github.com/SUI-Components/adevinta-spain-components/commit/2e283c9a6c25c92228d5f9b73273ad0544f32584))
+* **card/arrow:** set isRequired to link prop ([044b73e](https://github.com/SUI-Components/adevinta-spain-components/commit/044b73ea86762d92eb5035142491b9e24bd7ef88))
+* **card/arrow:** update README ([fddb27b](https://github.com/SUI-Components/adevinta-spain-components/commit/fddb27b6015580a3dce8ae1c6c8d6ce8340ff410))
 
 
 

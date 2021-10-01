@@ -1,13 +1,73 @@
-# Change Log
+# CHANGELOG
 
-All notable changes to this project will be documented in this file.
+# 1.31.0 (2021-09-22)
+
+
+### Features
+
+* **components/dropdown/user:** add onclick method ([f9da8db](https://github.com/SUI-Components/adevinta-spain-components/commit/f9da8db51a5a72464cb42df17ad3f229e911e981))
+
+
+
+# 1.30.0 (2021-06-22)
+
+
+### Features
+
+* **dropdown/user:** Avoid using slash ([b5f55fa](https://github.com/SUI-Components/adevinta-spain-components/commit/b5f55fa81d56d89e10d9f82fab52093fcd84bf18))
+
+
+
+# 1.29.0 (2021-05-20)
+
+
+### Features
+
+* **dropdown/user:** refactor styles from settings-compat-v7 to component directory and add a new sc ([5b2e726](https://github.com/SUI-Components/adevinta-spain-components/commit/5b2e72661d5b00da4b6098679ad007075b4980ce))
+
+
+
+# 1.28.0 (2021-03-10)
+
+
+### Bug Fixes
+
+* **dropdown/user:** fix notifications ([5e203bc](https://github.com/SUI-Components/adevinta-spain-components/commit/5e203bca697dda1e37a117844170bd0a0df694da))
+
+
+### Features
+
+* **dropdown/user:** dummy commit ([801d1ee](https://github.com/SUI-Components/adevinta-spain-components/commit/801d1ee67a6f91a8f1dce2be8772f12ef6b995c9))
+
+
+
+# 1.27.0 (2021-03-10)
+
+
+### Features
+
+* **dropdown/user:** fix function execution ([7499270](https://github.com/SUI-Components/adevinta-spain-components/commit/74992702ab1444bceccec178f8885f58297972a8))
+* **dropdown/user:** no_op convention ([5a413a0](https://github.com/SUI-Components/adevinta-spain-components/commit/5a413a0bafa0d5f7abcf886b8e1a91fd2bef3aba))
+* **dropdown/user:** no_op refactor ([a8ffb44](https://github.com/SUI-Components/adevinta-spain-components/commit/a8ffb44f144f926f7537177bb2bff093b0e1fc89))
+* **dropdown/user:** update icon styles ([8471523](https://github.com/SUI-Components/adevinta-spain-components/commit/84715233c32cf1a616ffc3a0304e81dc55aab3f8))
+
+
+
+# 1.26.0 (2020-11-24)
+
+
+### Features
+
+* **dropdown/user:** Use new jsx runtime ([5ee6ef7](https://github.com/SUI-Components/adevinta-spain-components/commit/5ee6ef77d3cb068dc5c03b5e2967e3f3f38941f9))
+
+
 
 # 1.25.0 (2020-03-09)
 
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([12a0ade](https://github.com/SUI-Components/adevinta-spain-components/commit/12a0ade599ecc9af81da37bf908cc4fc36ed6143))
+* **dropdown/user:** Use new [@s-ui-theme](https://github.com/s-ui-theme) ([12a0ade](https://github.com/SUI-Components/adevinta-spain-components/commit/12a0ade599ecc9af81da37bf908cc4fc36ed6143))
 
 
 
@@ -16,7 +76,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([7215b9a](https://github.com/SUI-Components/adevinta-spain-components/commit/7215b9a3d7a96c7dc4233611adb20a40cba1e0ad))
+* **dropdown/user:** Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([7215b9a](https://github.com/SUI-Components/adevinta-spain-components/commit/7215b9a3d7a96c7dc4233611adb20a40cba1e0ad))
 
 
 
@@ -25,7 +85,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* define color vars ([00988b8](https://github.com/SUI-Components/adevinta-spain-components/commit/00988b86e3d9e0409311142e514a5069a8ea6f57))
+* **dropdown/user:** define color vars ([00988b8](https://github.com/SUI-Components/adevinta-spain-components/commit/00988b86e3d9e0409311142e514a5069a8ea6f57))
 
 
 
@@ -34,7 +94,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([8eeddc3](https://github.com/SUI-Components/adevinta-spain-components/commit/8eeddc32f22b6f220a47cf0cfb7082d4411de547))
+* **dropdown/user:** Remove .npmignore ([8eeddc3](https://github.com/SUI-Components/adevinta-spain-components/commit/8eeddc32f22b6f220a47cf0cfb7082d4411de547))
 
 
 
@@ -43,7 +103,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* receive highlight prop, style link ([fbdef4c](https://github.com/SUI-Components/adevinta-spain-components/commit/fbdef4c46f0b846ee5d91ff5e1e175c6c28d7bca))
+* **dropdown/user:** receive highlight prop, style link ([fbdef4c](https://github.com/SUI-Components/adevinta-spain-components/commit/fbdef4c46f0b846ee5d91ff5e1e175c6c28d7bca))
 
 
 
@@ -52,7 +112,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* delete requiresAuth as is no longer used ([872f419](https://github.com/SUI-Components/adevinta-spain-components/commit/872f419bd3231c1f51729f574a82341e60dcae5f))
+* **dropdown/user:** delete requiresAuth as is no longer used ([872f419](https://github.com/SUI-Components/adevinta-spain-components/commit/872f419bd3231c1f51729f574a82341e60dcae5f))
 
 
 
@@ -61,8 +121,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* replace needLogin by requiresAuth ([ccbb4f4](https://github.com/SUI-Components/adevinta-spain-components/commit/ccbb4f4517ba2703eebf4816f344707261865f45))
-* sending needlogin to the link factory ([f3b272e](https://github.com/SUI-Components/adevinta-spain-components/commit/f3b272e4ca48efb69bbaac285e7eccfc8ea31404))
+* **dropdown/user:** replace needLogin by requiresAuth ([ccbb4f4](https://github.com/SUI-Components/adevinta-spain-components/commit/ccbb4f4517ba2703eebf4816f344707261865f45))
+* **dropdown/user:** sending needlogin to the link factory ([f3b272e](https://github.com/SUI-Components/adevinta-spain-components/commit/f3b272e4ca48efb69bbaac285e7eccfc8ea31404))
 
 
 
@@ -71,8 +131,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* accesibility improve to img and change key antipattern for child ([0ce1afd](https://github.com/SUI-Components/adevinta-spain-components/commit/0ce1afd25826dfb347a77775fd42e5d17d73021e))
-* remove comma ([b48a19a](https://github.com/SUI-Components/adevinta-spain-components/commit/b48a19a5c0788488a5c286b0f7e4c10aa66fb037))
+* **dropdown/user:** accesibility improve to img and change key antipattern for child ([0ce1afd](https://github.com/SUI-Components/adevinta-spain-components/commit/0ce1afd25826dfb347a77775fd42e5d17d73021e))
+* **dropdown/user:** remove comma ([b48a19a](https://github.com/SUI-Components/adevinta-spain-components/commit/b48a19a5c0788488a5c286b0f7e4c10aa66fb037))
 
 
 
@@ -81,7 +141,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* fix notifications position ([b9bd808](https://github.com/SUI-Components/adevinta-spain-components/commit/b9bd808ed8f367c2ccf841b9c895cab3eae10615))
+* **dropdown/user:** fix notifications position ([b9bd808](https://github.com/SUI-Components/adevinta-spain-components/commit/b9bd808ed8f367c2ccf841b9c895cab3eae10615))
 
 
 
@@ -90,7 +150,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* remove useless declaration ([60d69db](https://github.com/SUI-Components/adevinta-spain-components/commit/60d69db0fa8b0e240b24b14148510d0298de58d0))
+* **dropdown/user:** remove useless declaration ([60d69db](https://github.com/SUI-Components/adevinta-spain-components/commit/60d69db0fa8b0e240b24b14148510d0298de58d0))
 
 
 
@@ -99,8 +159,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add color variable ([4a35866](https://github.com/SUI-Components/adevinta-spain-components/commit/4a358662a7f34fa50c3e998aca56be55f977348d))
-* update component ([690e820](https://github.com/SUI-Components/adevinta-spain-components/commit/690e8203e6a78f92a869dccf62d287a81f70529c))
+* **dropdown/user:** add color variable ([4a35866](https://github.com/SUI-Components/adevinta-spain-components/commit/4a358662a7f34fa50c3e998aca56be55f977348d))
+* **dropdown/user:** update component ([690e820](https://github.com/SUI-Components/adevinta-spain-components/commit/690e8203e6a78f92a869dccf62d287a81f70529c))
 
 
 
@@ -109,7 +169,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([65bf4c9](https://github.com/SUI-Components/adevinta-spain-components/commit/65bf4c944b2517f23f11c075fd20ba68abafacaf))
+* **dropdown/user:** Bump version ([65bf4c9](https://github.com/SUI-Components/adevinta-spain-components/commit/65bf4c944b2517f23f11c075fd20ba68abafacaf))
 
 
 
@@ -118,8 +178,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add z-index var ([9ff7d87](https://github.com/SUI-Components/adevinta-spain-components/commit/9ff7d872042cfc153878b2e2011f64cd1d05f9f1))
-* update component ([e8a6eab](https://github.com/SUI-Components/adevinta-spain-components/commit/e8a6eab635729d14a1e8478585e07b8d2df10b12))
+* **dropdown/user:** add z-index var ([9ff7d87](https://github.com/SUI-Components/adevinta-spain-components/commit/9ff7d872042cfc153878b2e2011f64cd1d05f9f1))
+* **dropdown/user:** update component ([e8a6eab](https://github.com/SUI-Components/adevinta-spain-components/commit/e8a6eab635729d14a1e8478585e07b8d2df10b12))
 
 
 
@@ -128,8 +188,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add new class to dropdown user menu list text ([b4dd8df](https://github.com/SUI-Components/adevinta-spain-components/commit/b4dd8dfc5533d26cb4c5cd7d56cf06e092964175))
-* align span badge notification to right ([cb9e147](https://github.com/SUI-Components/adevinta-spain-components/commit/cb9e147858a714778b49a12ad4c9047d89a30edb))
+* **dropdown/user:** add new class to dropdown user menu list text ([b4dd8df](https://github.com/SUI-Components/adevinta-spain-components/commit/b4dd8dfc5533d26cb4c5cd7d56cf06e092964175))
+* **dropdown/user:** align span badge notification to right ([cb9e147](https://github.com/SUI-Components/adevinta-spain-components/commit/cb9e147858a714778b49a12ad4c9047d89a30edb))
 
 
 
@@ -138,10 +198,10 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add badge notification in dropdown component ([b136c77](https://github.com/SUI-Components/adevinta-spain-components/commit/b136c77918c58f0c5cb0975af3d5c2642abb0533))
-* add notifications badge in dropdown user component ([95783b7](https://github.com/SUI-Components/adevinta-spain-components/commit/95783b7f8cafd754aced8801a4103a9ae1c5317a))
-* add notifications badge in dropdown user component (fix PR) ([fda47a8](https://github.com/SUI-Components/adevinta-spain-components/commit/fda47a8a95a4f832fc1d7b4761a555d0c994ad9f))
-* add notifications badge in dropdown user component (fix PR) ([c8071c3](https://github.com/SUI-Components/adevinta-spain-components/commit/c8071c37b1b9c8e9f3c1622db884bd8cf3c52c17))
+* **dropdown/user:** add badge notification in dropdown component ([b136c77](https://github.com/SUI-Components/adevinta-spain-components/commit/b136c77918c58f0c5cb0975af3d5c2642abb0533))
+* **dropdown/user:** add notifications badge in dropdown user component ([95783b7](https://github.com/SUI-Components/adevinta-spain-components/commit/95783b7f8cafd754aced8801a4103a9ae1c5317a))
+* **dropdown/user:** add notifications badge in dropdown user component (fix PR) ([fda47a8](https://github.com/SUI-Components/adevinta-spain-components/commit/fda47a8a95a4f832fc1d7b4761a555d0c994ad9f))
+* **dropdown/user:** add notifications badge in dropdown user component (fix PR) ([c8071c3](https://github.com/SUI-Components/adevinta-spain-components/commit/c8071c37b1b9c8e9f3c1622db884bd8cf3c52c17))
 
 
 
@@ -150,8 +210,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Migrate to PropTypes package ([df4766e](https://github.com/SUI-Components/adevinta-spain-components/commit/df4766ef63ee2eeec3bbe3e0310e67fa1e835467))
-* switch to s-ui/component-dependencies and sui-theme@8 ([e9cbb94](https://github.com/SUI-Components/adevinta-spain-components/commit/e9cbb947e7958b873507b95b8437fee3a7579ad6))
+* **dropdown/user:** Migrate to PropTypes package ([df4766e](https://github.com/SUI-Components/adevinta-spain-components/commit/df4766ef63ee2eeec3bbe3e0310e67fa1e835467))
+* **dropdown/user:** switch to s-ui/component-dependencies and sui-theme@8 ([e9cbb94](https://github.com/SUI-Components/adevinta-spain-components/commit/e9cbb947e7958b873507b95b8437fee3a7579ad6))
 
 
 
@@ -160,7 +220,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* remove extra padding ([3151721](https://github.com/SUI-Components/adevinta-spain-components/commit/3151721e9d77b820ad0b51fafc610f8cd2f3eac3))
+* **dropdown/user:** remove extra padding ([3151721](https://github.com/SUI-Components/adevinta-spain-components/commit/3151721e9d77b820ad0b51fafc610f8cd2f3eac3))
 
 
 
@@ -169,7 +229,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* fix vertical scroll on microsoft browsers ([1264451](https://github.com/SUI-Components/adevinta-spain-components/commit/126445167e125ff80a24e637c9f2b6626cd14578))
+* **dropdown/user:** fix vertical scroll on microsoft browsers ([1264451](https://github.com/SUI-Components/adevinta-spain-components/commit/126445167e125ff80a24e637c9f2b6626cd14578))
 
 
 
@@ -178,7 +238,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* ensure that mouseover and mouseout always send the correct value ([680b25f](https://github.com/SUI-Components/adevinta-spain-components/commit/680b25fbc681b20fd63c8f4b2455f7252ce01edd))
+* **dropdown/basic:** ensure that mouseover and mouseout always send the correct value ([680b25f](https://github.com/SUI-Components/adevinta-spain-components/commit/680b25fbc681b20fd63c8f4b2455f7252ce01edd))
 
 
 
@@ -187,7 +247,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* include titles ([07d6a03](https://github.com/SUI-Components/adevinta-spain-components/commit/07d6a03e085451a336239df1ae71234337541087))
+* **dropdown/user:** include titles ([07d6a03](https://github.com/SUI-Components/adevinta-spain-components/commit/07d6a03e085451a336239df1ae71234337541087))
 
 
 
@@ -196,7 +256,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* adjust link colors ([30545b8](https://github.com/SUI-Components/adevinta-spain-components/commit/30545b85f68c6cc6c5870240599fa46fcf54bac6))
+* **dropdown/user:** adjust link colors ([30545b8](https://github.com/SUI-Components/adevinta-spain-components/commit/30545b85f68c6cc6c5870240599fa46fcf54bac6))
 
 
 
@@ -205,7 +265,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* adjusting breakpoints ([954cf97](https://github.com/SUI-Components/adevinta-spain-components/commit/954cf978434ae057f91e22b04272d3efbc8777d3))
+* **dropdown/user:** adjusting breakpoints ([954cf97](https://github.com/SUI-Components/adevinta-spain-components/commit/954cf978434ae057f91e22b04272d3efbc8777d3))
 
 
 
