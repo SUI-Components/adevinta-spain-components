@@ -533,6 +533,7 @@ export default class LeafletMap {
 
   getPublicAPI() {
     return {
+      setView: viewType => this.setView(viewType),
       zoomIn: () => this._map.zoomIn(),
       zoomOut: () => this._map.zoomOut(),
       drawing: {
