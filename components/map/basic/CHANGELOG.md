@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.53.0 (2021-10-07)
+
+
+### Features
+
+* **components/map/basic:** Add setView method ([849d733](https://github.com/SUI-Components/adevinta-spain-components/commit/849d733bd7b78b0b3022c4a95f66898a0354328d))
+
+
+
 # 1.52.0 (2021-10-05)
 
 
