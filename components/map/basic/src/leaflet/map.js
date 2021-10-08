@@ -148,6 +148,10 @@ export default class LeafletMap {
     }
   }
 
+  isCoordinatesVisibleOnScreen(latLng) {
+    return this._map.getBounds().contains(latLng)
+  }
+
   getZoomLevel() {
     return this._map.getZoom()
   }
@@ -533,6 +537,8 @@ export default class LeafletMap {
 
   getPublicAPI() {
     return {
+      isCoordinatesVisibleOnScreen: latLng =>
+        this.isCoordinatesVisibleOnScreen(latLng),
       setView: viewType => this.setView(viewType),
       zoomIn: () => this._map.zoomIn(),
       zoomOut: () => this._map.zoomOut(),
