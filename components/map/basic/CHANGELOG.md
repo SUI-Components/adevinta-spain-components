@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.54.0 (2021-10-08)
+
+
+### Features
+
+* **components/map/basic:** add isCoordinatesVisibleOnScreen ([e1f897d](https://github.com/SUI-Components/adevinta-spain-components/commit/e1f897d99bc73728888bca5bac2c4ce600c03513))
+
+
+
 # 1.53.0 (2021-10-07)
 
 
