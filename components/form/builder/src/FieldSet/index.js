@@ -30,20 +30,23 @@ const FieldSet = ({
         </legend>
       )}
       <div className={`${baseClass}Container`}>
-        {fields.map((field, index) => (
-          <ProxyField
-            onChange={onChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            key={field.id}
-            field={field}
-            tabIndex={tabIndex + index * 0.1}
-            fieldSize={fieldSize}
-            errors={errors}
-            alerts={alerts}
-            renderer={renderer}
-          />
-        ))}
+        {fields.map((field, index) => {
+          const fieldTabIndex = field.tabIndex ?? tabIndex + index * 0.1
+          return (
+            <ProxyField
+              onChange={onChange}
+              onFocus={onFocus}
+              onBlur={onBlur}
+              key={field.id}
+              field={field}
+              tabIndex={fieldTabIndex}
+              fieldSize={fieldSize}
+              errors={errors}
+              alerts={alerts}
+              renderer={renderer}
+            />
+          )
+        })}
       </div>
     </fieldset>
   )
