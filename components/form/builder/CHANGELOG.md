@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.25.0 (2021-10-13)
+
+
+### Features
+
+* **components/form/builder:** add tabIndex config field that can replace the default value ([c8f1600](https://github.com/SUI-Components/adevinta-spain-components/commit/c8f1600893da507ff16608782b15249ff1535494))
+
+
+
 # 4.24.0 (2021-09-02)
 
 
