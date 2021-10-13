@@ -133,20 +133,23 @@ const FormBuilder = ({
 
   return (
     <div className="sui-FormBuilder">
-      {stateFields.map((field, index) => (
-        <ProxyField
-          key={field.id}
-          field={field}
-          tabIndex={index + 1}
-          onChange={handlerChange}
-          onBlur={onBlur}
-          onFocus={onFocus}
-          fieldSize={fieldSize}
-          errors={errors}
-          alerts={alerts}
-          renderer={renderer}
-        />
-      ))}
+      {stateFields.map((field, index) => {
+        const tabIndex = field.tabIndex ?? index + 1
+        return (
+          <ProxyField
+            key={field.id}
+            field={field}
+            tabIndex={tabIndex}
+            onChange={handlerChange}
+            onBlur={onBlur}
+            onFocus={onFocus}
+            fieldSize={fieldSize}
+            errors={errors}
+            alerts={alerts}
+            renderer={renderer}
+          />
+        )
+      })}
       {stateShowSpinner && (
         <AtomSpinner type={AtomSpinnerTypes.SECTION} loader={loader} />
       )}
