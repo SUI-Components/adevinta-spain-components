@@ -45,6 +45,7 @@ const NumericField = ({
 }
 
 NumericField.propTypes = {
+  onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   onChange: PropTypes.func,
   tabIndex: PropTypes.number,

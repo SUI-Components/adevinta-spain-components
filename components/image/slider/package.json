@@ -12,9 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "babel-runtime": "6.26.0",
     "@s-ui/component-dependencies": "1",
+    "@s-ui/react-atom-image": "2",
     "@s-ui/react-icons": "1",
+    "babel-runtime": "6.26.0",
     "react-slidy": "4"
   }
 }

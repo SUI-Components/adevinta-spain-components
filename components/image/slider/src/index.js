@@ -2,7 +2,9 @@ import {useState} from 'react'
 import PropTypes from 'prop-types'
 import ReactSlidy from 'react-slidy'
 import cx from 'classnames'
+
 import IconCamera from '@s-ui/react-icons/lib/Camera'
+import AtomImage from '@s-ui/react-atom-image'
 
 export const IMAGE_SLIDER_COUNTER_POSITIONS = {
   BOTTOM_CENTER: 'bottomCenter',
@@ -37,6 +39,7 @@ const getSlides = (currentSlide, content = [], linkFactory) => {
       height,
       key: imageKey,
       link,
+      sources,
       src,
       target = TARGET_BLANK,
       title,
@@ -47,14 +50,15 @@ const getSlides = (currentSlide, content = [], linkFactory) => {
     const key = imageKey ? imageKey + index : index
     const children =
       type === IMAGE_SLIDER_CONTENT_TYPES.IMAGE ? (
-        <img
+        <AtomImage
           alt={alt}
           aria-selected={currentSlide === index}
           className="sui-ImageSlider-image"
+          height={height}
           key={key}
+          sources={sources}
           src={src}
           title={title}
-          height={height}
           width={width}
         />
       ) : (
@@ -148,6 +152,12 @@ ImageSlider.propTypes = {
        */
       key: PropTypes.string,
       link: PropTypes.string,
+      sources: PropTypes.arrayOf(
+        PropTypes.shape({
+          srcset: PropTypes.string,
+          media: PropTypes.string
+        })
+      ),
       target: PropTypes.string,
       type: PropTypes.oneOf(Object.values(IMAGE_SLIDER_CONTENT_TYPES))
     }).isRequired
