@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.26.0 (2021-11-03)
+
+
+### Features
+
+* **components/form/builder:** fix proptypes error ([a7cb69e](https://github.com/SUI-Components/adevinta-spain-components/commit/a7cb69e72198b2ffea7708a65c95c3fa1d8789e6))
+
+
+
 # 4.25.0 (2021-10-13)
 
 
