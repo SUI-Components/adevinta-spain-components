@@ -18,8 +18,8 @@ $mih-thumbnail-basic-image: auto !default;
   &-image {
     align-items: center;
     display: flex;
-    justify-content: center;
-    aspect-ratio: 1;
+    justify-content: $jc-thumbnail-basic-image;
+    aspect-ratio: $ar-thumbnail-basic-image;
   }
 
   &-caption {
