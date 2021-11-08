@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.27.0 (2021-11-08)
+
+
+### Features
+
+* **components/form/builder:** update input field version ([7556db5](https://github.com/SUI-Components/adevinta-spain-components/commit/7556db5281749bfe354ab685de4b0f025f6a8a5a))
+
+
+
 # 4.26.0 (2021-11-03)
 
 
