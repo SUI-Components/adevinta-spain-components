@@ -885,26 +885,6 @@ export const json = {
             ]
           },
           {
-            id: 'availableColors',
-            type: 'multipicker',
-            display: 'dropdown',
-            label: 'Colores disponibles',
-            hint: 'Selecciona los colores',
-            value: [],
-            hidden: true,
-            disabled: true,
-            datalist: [
-              {value: '', text: 'Indiferente'},
-              {value: 'negr', text: 'Negro'},
-              {value: 'bla', text: 'Blanco'},
-              {value: 'gri', text: 'Gris'},
-              {value: 'azul', text: 'Azul'},
-              {value: 'roj', text: 'Rojo'},
-              {value: 'plat', text: 'Plata'},
-              {value: 'verde', text: 'Verde'}
-            ]
-          },
-          {
             id: 'work_hours',
             type: 'picker',
             label: 'Horas de trabajo',
