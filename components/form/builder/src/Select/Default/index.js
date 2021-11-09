@@ -16,7 +16,8 @@ const DefaultSelect = ({
   size,
   errors,
   alerts,
-  renderer
+  renderer,
+  multiselection = false
 }) => {
   const errorMessages = errors[select.id]
   const alertMessages = alerts[select.id]
@@ -48,13 +49,15 @@ const DefaultSelect = ({
     }
   }, constraintsProps)
 
+  const DEFAULT_SELECT_VALUE = multiselection ? [] : ''
+
   const selectProps = {
     id: select.id,
     label: select.label,
     name: select.name,
     placeholder: select.hint,
     iconArrowDown: <IconChevronDown />,
-    value: select.value || '',
+    value: select.value || DEFAULT_SELECT_VALUE,
     onChange: onChangeCallback,
     onBlur: onBlurCallback,
     onFocus: onFocusCallback,
@@ -98,7 +101,11 @@ const DefaultSelect = ({
           {selectProps.label}
         </label>
       )}
-      <MoleculeSelectField {...selectProps} {...rendererResponse}>
+      <MoleculeSelectField
+        {...selectProps}
+        {...rendererResponse}
+        multiselection={multiselection}
+      >
         {datalist.map(data => (
           <MoleculeSelectOption key={data.value} value={data.value}>
             {data.text}
@@ -119,7 +126,8 @@ DefaultSelect.propTypes = {
   size: PropTypes.string,
   errors: PropTypes.object,
   alerts: PropTypes.object,
-  renderer: PropTypes.func
+  renderer: PropTypes.func,
+  multiselection: PropTypes.bool
 }
 
 export default memo(DefaultSelect, createComponentMemo('select'))

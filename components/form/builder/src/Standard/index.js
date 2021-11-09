@@ -34,7 +34,8 @@ const DISPLAYS = {
     STEPPER: 'stepper'
   },
   [FIELDS.MULTIPICKER]: {
-    BUTTON: 'button'
+    BUTTON: 'button',
+    DROPDOWN: 'dropdown'
   }
 }
 
