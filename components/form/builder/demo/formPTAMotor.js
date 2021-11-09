@@ -186,6 +186,30 @@ export const formPTAMotor = {
             ]
           },
           {
+            id: 'availableColors',
+            type: 'multipicker',
+            display: 'dropdown',
+            label: 'Colores disponibles',
+            hint: 'Selecciona uno o varios colores',
+            disabled: false,
+            required: true,
+            datalist: [
+              {value: '1', text: 'Amarillo'},
+              {value: '2', text: 'Azul'},
+              {value: '3', text: 'Beige'},
+              {value: '4', text: 'Blanco'},
+              {value: '5', text: 'Granate'},
+              {value: '6', text: 'Gris / Plata'},
+              {value: '7', text: 'Marrón'},
+              {value: '8', text: 'Naranja'},
+              {value: '9', text: 'Negro'},
+              {value: '10', text: 'Rojo'},
+              {value: '11', text: 'Rosa'},
+              {value: '12', text: 'Verde'},
+              {value: '13', text: 'Violeta / Lila'}
+            ]
+          },
+          {
             id: 'price',
             type: 'numeric',
             label: 'Precio',
