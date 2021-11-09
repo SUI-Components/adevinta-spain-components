@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 4.28.0 (2021-11-09)
+
+
+### Features
+
+* **components/form/builder:** add dropdown display option for multipicker type of field ([f57f98f](https://github.com/SUI-Components/adevinta-spain-components/commit/f57f98f52563cc131d9b71debecfbdb9d00d58a8))
+* **components/form/builder:** add multiselection prop to default select component ([c1dfbf2](https://github.com/SUI-Components/adevinta-spain-components/commit/c1dfbf2919df65928831eebf4747f248cba9ca30))
+* **components/form/builder:** use select with multiselection for multipicker dropdown display ([62e26b3](https://github.com/SUI-Components/adevinta-spain-components/commit/62e26b3f43902b6242f0b2dc8572b27b6e941a7d))
+
+
+
 # 4.27.0 (2021-11-08)
 
 
