@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 4.29.0 (2021-11-11)
+
+
+### Bug Fixes
+
+* **components/form/builder:** remove id tag from svg ([8d01c01](https://github.com/SUI-Components/adevinta-spain-components/commit/8d01c01e26064c90ceed2a373b998fb9b9b82701))
+
+
+### Features
+
+* **components/form/builder:** add new IconCloseTag icon ([69e0447](https://github.com/SUI-Components/adevinta-spain-components/commit/69e0447573f24c554d314e48d53845620b3c8fe7))
+* **components/form/builder:** use new IconCloseTag icon for tags on multipicker dropdown ([9aec528](https://github.com/SUI-Components/adevinta-spain-components/commit/9aec528a1d36a032023e1a8f254e6446b1c7248f))
+
+
+
 # 4.28.0 (2021-11-09)
 
 
