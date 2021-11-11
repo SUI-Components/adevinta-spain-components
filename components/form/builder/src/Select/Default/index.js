@@ -6,6 +6,7 @@ import {field, createComponentMemo} from '../../prop-types'
 import MoleculeSelectField from '@s-ui/react-molecule-select-field'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 import IconChevronDown from '../../Icons/IconChevronDown'
+import IconCloseTag from '../../Icons/IconCloseTag'
 
 const DefaultSelect = ({
   select,
@@ -57,6 +58,7 @@ const DefaultSelect = ({
     name: select.name,
     placeholder: select.hint,
     iconArrowDown: <IconChevronDown />,
+    iconCloseTag: <IconCloseTag />,
     value: select.value || DEFAULT_SELECT_VALUE,
     onChange: onChangeCallback,
     onBlur: onBlurCallback,
