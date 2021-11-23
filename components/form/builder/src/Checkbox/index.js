@@ -49,6 +49,7 @@ const Checkbox = ({
     ...checkboxProps,
     id: checkbox.id,
     label: checkbox.label,
+    nodeLabel: checkbox.nodeLabel,
     value: checked,
     checked,
     checkedIcon: IconCheck,
