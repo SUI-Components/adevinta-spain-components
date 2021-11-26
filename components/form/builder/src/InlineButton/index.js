@@ -67,17 +67,18 @@ const InlineButton = ({
         tabIndex}`}
     >
       <MoleculeButtonGroupField {...inlineButtonProps} {...rendererResponse}>
-        {datalist.map(button => (
-          <Button
-            key={button.text}
-            design={button.value === inlineButton.value ? 'solid' : 'outline'}
-            onClick={() => onClickHandler(button.value)}
-            isSubmit={false}
-            isButton
-          >
-            {button.text}
-          </Button>
-        ))}
+        {rendererResponse?.children ||
+          datalist.map(button => (
+            <Button
+              key={button.text}
+              design={button.value === inlineButton.value ? 'solid' : 'outline'}
+              onClick={() => onClickHandler(button.value)}
+              isSubmit={false}
+              isButton
+            >
+              {button.text}
+            </Button>
+          ))}
       </MoleculeButtonGroupField>
     </div>
   )
