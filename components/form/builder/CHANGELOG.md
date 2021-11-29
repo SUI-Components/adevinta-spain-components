@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.30.0 (2021-11-29)
+
+
+### Features
+
+* **components/form/builder:** inline button ([2803c0f](https://github.com/SUI-Components/adevinta-spain-components/commit/2803c0f75609bc0b5324c531ceec5445ac39ac67))
+
+
+
 # 4.29.0 (2021-11-11)
 
 
