@@ -18,7 +18,7 @@ import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
 import {getUpdatedFormState} from './mapper/formState'
 
 const FormBuilder = ({
-  applyEmptyFields,
+  forceRulesOnAllFields,
   json,
   initFields = {},
   onChange = () => {},
@@ -113,7 +113,7 @@ const FormBuilder = ({
       .reduce(async (previousPromise, fieldId) => {
         const previousFields = await previousPromise
         if (
-          !applyEmptyFields &&
+          !forceRulesOnAllFields &&
           (!initFields[fieldId] || initFields[fieldId] === '')
         ) {
           return previousFields
@@ -165,7 +165,7 @@ FormBuilder.USER_MINIMAL_DELAY = 250
 FormBuilder.displayName = 'FormBuilder'
 
 FormBuilder.propTypes = {
-  applyEmptyFields: PropTypes.bool,
+  forceRulesOnAllFields: PropTypes.bool,
   initFields: PropTypes.arrayOf(PropTypes.object),
   json,
   onChange: PropTypes.func,
