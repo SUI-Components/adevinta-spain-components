@@ -18,21 +18,22 @@ import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
 import {getUpdatedFormState} from './mapper/formState'
 
 const FormBuilder = ({
+  forceRulesOnAllFields,
   json,
-  initFields,
-  onChange,
-  onFocus,
-  onBlur,
-  responseInterceptor,
-  requestInterceptor,
+  initFields = {},
+  onChange = () => {},
+  onBlur = () => {},
+  onFocus = () => {},
+  responseInterceptor = ({response}) => response,
+  requestInterceptor = () => {},
   loader,
   fieldSize,
-  errors,
-  alerts,
-  transformations,
-  locale,
+  errors = {},
+  alerts = {},
+  transformations = (_, value) => value,
+  locale = 'es-ES',
   useNativeFieldType = false,
-  children: renderer
+  children: renderer = () => ({})
 }) => {
   const {fields = [], rules = {}, id: formID} = json.form
   const [stateFields, setStateFields] = useState(fields)
@@ -111,7 +112,10 @@ const FormBuilder = ({
     fieldsNamesInOrderOfDefinition(fields)
       .reduce(async (previousPromise, fieldId) => {
         const previousFields = await previousPromise
-        if (!initFields[fieldId] || initFields[fieldId] === '') {
+        if (
+          !forceRulesOnAllFields &&
+          (!initFields[fieldId] || initFields[fieldId] === '')
+        ) {
           return previousFields
         }
 
@@ -161,6 +165,7 @@ FormBuilder.USER_MINIMAL_DELAY = 250
 FormBuilder.displayName = 'FormBuilder'
 
 FormBuilder.propTypes = {
+  forceRulesOnAllFields: PropTypes.bool,
   initFields: PropTypes.arrayOf(PropTypes.object),
   json,
   onChange: PropTypes.func,
@@ -176,20 +181,6 @@ FormBuilder.propTypes = {
   locale: PropTypes.string,
   useNativeFieldType: PropTypes.bool,
   children: PropTypes.func
-}
-
-FormBuilder.defaultProps = {
-  initFields: {},
-  onChange: () => {},
-  onBlur: () => {},
-  onFocus: () => {},
-  responseInterceptor: ({response}) => response,
-  requestInterceptor: () => {},
-  errors: {},
-  alerts: {},
-  transformations: (_, value) => value,
-  locale: 'es-ES',
-  children: () => ({})
 }
 
 export {fieldSizes as formBuilderFieldSizes}
