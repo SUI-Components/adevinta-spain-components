@@ -18,12 +18,7 @@ const Checkbox = ({
   const errorMessages = errors[checkbox.id]
   const alertMessages = alerts[checkbox.id]
 
-  let checked = 'false'
-  try {
-    checked = JSON.parse(checkbox.value)
-  } catch (e) {
-    console.error('Impossible to convert to json checkbox value', checkbox)
-  }
+  const checked = ['true', true].includes(checkbox.value)
 
   const onChangeCallback = e => {
     return onChange(checkbox.id, JSON.stringify(e.target.checked))

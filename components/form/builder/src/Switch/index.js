@@ -15,6 +15,8 @@ const Switch = ({
   const errorMessages = errors[switchField.id]
   const alertMessages = alerts[switchField.id]
 
+  const switched = ['true', true].includes(switchField.value)
+
   const onChangeCallback = useCallback(
     value => {
       return onChange(switchField.id, JSON.stringify(value))
@@ -24,8 +26,8 @@ const Switch = ({
   const switchProps = {
     name: switchField.id,
     label: switchField.label,
-    initialValue: JSON.parse(switchField.value || 'false'),
-    value: JSON.parse(switchField.value || 'false'),
+    initialValue: switched,
+    value: switched,
     onToggle: onChangeCallback,
     type: 'single',
     ...(switchField.disabled && {
