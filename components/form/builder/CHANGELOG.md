@@ -1,11 +1,16 @@
 # CHANGELOG
 
+# 4.32.0 (2021-12-13)
+
+
+
 # 4.31.0 (2021-12-10)
 
 
 ### Features
 
 * **components/form/builder:** add applyEmptyFields prop ([2f226ab](https://github.com/SUI-Components/adevinta-spain-components/commit/2f226ab7333c975751bdde50770ee8a0563c149c))
+* **components/form/builder:** improve switch and check boolean values ([9123426](https://github.com/SUI-Components/adevinta-spain-components/commit/9123426f3da537ab2536d97986e1143cb8c33123))
 * **components/form/builder:** rename applyEmptyFields prop to forceRulesOnAllFields ([a340f96](https://github.com/SUI-Components/adevinta-spain-components/commit/a340f9687bac98e1f6d5bf1a339e5984c2454333))
 
 
