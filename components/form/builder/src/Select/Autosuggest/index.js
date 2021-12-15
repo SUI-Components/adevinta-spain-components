@@ -31,8 +31,8 @@ const AutosuggestSelect = ({
   alerts,
   renderer
 }) => {
-  const errorMessages = errors[select.id]
-  const alertMessages = alerts[select.id]
+  const errorMessages = errors[select.id] || []
+  const alertMessages = alerts[select.id] || []
 
   const {datalist = []} = select
   const fromTextToValueWithDatalist = fromTextToValue(datalist)
@@ -72,6 +72,24 @@ const AutosuggestSelect = ({
     }
   }, constraintsProps)
 
+  const normalize = str => removeAccents(str.toLowerCase())
+
+  const suggestions = localStateText
+    ? datalist.filter(({text, value}) =>
+        normalize(text).match(normalize(localStateText))
+      )
+    : datalist
+
+  const showEmptySuggestionTxt =
+    !suggestions.length &&
+    !!localStateText &&
+    select.emptySuggestionText &&
+    !errorMessages.length
+
+  if (showEmptySuggestionTxt) {
+    errorMessages.push(select.emptySuggestionText)
+  }
+
   const autosuggestProps = {
     id: select.id,
     label: select.label,
@@ -103,14 +121,6 @@ const AutosuggestSelect = ({
   if (autosuggestProps.hidden) {
     return null
   }
-
-  const normalize = str => removeAccents(str.toLowerCase())
-
-  const suggestions = localStateText
-    ? datalist.filter(({text, value}) =>
-        normalize(text).match(normalize(localStateText))
-      )
-    : datalist
 
   const rendererResponse = renderer({
     id: select.id,
