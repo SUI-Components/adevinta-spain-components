@@ -80,13 +80,13 @@ const AutosuggestSelect = ({
       )
     : datalist
 
-  const showEmptySuggestionTxt =
+  const showEmptySuggestionText =
     !suggestions.length &&
     !!localStateText &&
     select.emptySuggestionText &&
     !errorMessages.length
 
-  if (showEmptySuggestionTxt) {
+  if (showEmptySuggestionText) {
     errorMessages.push(select.emptySuggestionText)
   }
 
