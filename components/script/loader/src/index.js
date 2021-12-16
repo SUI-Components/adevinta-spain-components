@@ -61,7 +61,7 @@ ScriptLoader.propTypes = {
    */
   isAsync: PropTypes.bool,
   /**
-   * If the script should be marker as defer or not.
+   * If the script should be marked as defer or not.
    * If isDefer is true, isAsync will be false
    */
   isDefer: PropTypes.bool,
