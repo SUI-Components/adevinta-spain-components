@@ -80,6 +80,12 @@ const AutosuggestSelect = ({
       )
     : datalist
 
+  /**
+   * Show empty suggestion text when:
+   * - There's no matching options
+   * - Have a message to display
+   * - There are no other errors involved
+   */
   const showEmptySuggestionText =
     !suggestions.length &&
     !!localStateText &&
