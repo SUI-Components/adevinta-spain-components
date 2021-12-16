@@ -7,6 +7,7 @@ const ScriptLoader = ({
   src,
   verifier,
   isAsync = true,
+  isDefer = false,
   detectionDelay = 5000,
   onTimeout = () => {},
   stylesheet,
@@ -17,7 +18,7 @@ const ScriptLoader = ({
   const [timeout, seTimeout] = useState(false)
 
   const initLoad = () => {
-    loadScript({src, verifier, isAsync, detectionDelay, stylesheet})
+    loadScript({src, verifier, isAsync, isDefer, detectionDelay, stylesheet})
       .then(() => setReadyToRender(true))
       .catch(() => seTimeout(true))
   }
@@ -59,6 +60,11 @@ ScriptLoader.propTypes = {
    * If the script should be marked as async or not
    */
   isAsync: PropTypes.bool,
+  /**
+   * If the script should be marker as defer or not.
+   * If isDefer is true, isAsync will be false
+   */
+  isDefer: PropTypes.bool,
   /**
    * Detection delay time (in miliseconds)
    */
