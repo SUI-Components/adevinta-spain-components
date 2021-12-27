@@ -14,7 +14,7 @@
     "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",
-    "phoenix": "npx @s-ui/mono@2 run 'rm -rf ./node_modules' && rm -f node_modules package-lock.json && npm install --legacy-peer-deps",
+    "phoenix": "npx @s-ui/mono@2 run 'rm -rf ./node_modules' && rm -rf ./node_modules package-lock.json && npm install --legacy-peer-deps",
     "phoenix:ci": "npm run phoenix",
     "update:commit:status": "npx @s-ui/ci update-commit-status",
     "start": "sui-studio start",
