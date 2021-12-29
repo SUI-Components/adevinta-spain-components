@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.34.0 (2021-12-29)
+
+
+### Features
+
+* **components/form/builder:** add focus and blur events params in select field ([5f70305](https://github.com/SUI-Components/adevinta-spain-components/commit/5f70305b799a2755a980a4259ac7a5baaf5451ee))
+
+
+
 # 4.33.0 (2021-12-16)
 
 
