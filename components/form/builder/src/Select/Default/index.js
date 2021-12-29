@@ -30,9 +30,15 @@ const DefaultSelect = ({
     [onChange, select]
   )
 
-  const onBlurCallback = () => onBlur(select.id)
+  const blurFocusParams = {
+    type: select.type,
+    display: select.display,
+    label: select.label
+  }
 
-  const onFocusCallback = () => onFocus(select.id)
+  const onBlurCallback = () => onBlur(select.id, blurFocusParams)
+
+  const onFocusCallback = () => onFocus(select.id, blurFocusParams)
 
   const {datalist = []} = select
 
@@ -87,7 +93,7 @@ const DefaultSelect = ({
 
   const rendererResponse = renderer({
     id: select.id,
-    innerProps: {...selectProps, datalist}
+    innerProps: {...selectProps, datalist, display: select.display}
   })
 
   // render custom component
