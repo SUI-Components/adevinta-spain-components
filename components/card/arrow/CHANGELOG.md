@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.11.0 (2022-01-11)
+
+
+### Features
+
+* **components/card/arrow:** Use latest dependency to avoid babel-runtime ([af34ae6](https://github.com/SUI-Components/adevinta-spain-components/commit/af34ae6a76049c3a27c15470f8ef65b512686053))
+* **components/modal/gallery:** Use latest dependency ([ea3aaf3](https://github.com/SUI-Components/adevinta-spain-components/commit/ea3aaf3ebdca72e5be0e4388e8c8db4ddc7bd2f7))
+
+
+
 # 1.10.0 (2021-09-07)
 
 
