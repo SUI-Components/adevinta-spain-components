@@ -8,9 +8,11 @@
     "build:js": "babel --presets sui ./src --out-dir ./lib",
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
+  "peerDependencies": {
+    "@s-ui/component-dependencies": "1"
+  },
   "dependencies": {
-    "@s-ui/component-dependencies": "1",
-    "@schibstedspain/sui-tag-selectable": "2"
+    "@s-ui/react-tag-selectable": "2"
   },
   "keywords": [],
   "author": "",

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import {Component} from 'react'
-import TagSelectable from '@schibstedspain/sui-tag-selectable'
+import TagSelectable from '@s-ui/react-tag-selectable'
 
 const removeFromArray = (arr, value) => {
   return arr.filter(item => value !== item)
