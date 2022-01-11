@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import PropTypes from 'prop-types'
 import SuiModal from '@s-ui/react-modal-basic'
-import ImageSlider from '@schibstedspain/sui-image-slider'
+import ImageSlider from '@s-ui/react-image-slider'
 
 const NO_OP = () => {}
 
@@ -13,7 +13,9 @@ class ModalGallery extends Component {
     currentSlide: this.props.initialSlide
   }
 
-  UNSAFE_componentWillReceiveProps({open, initialSlide = 0}) { // eslint-disable-line
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps({open, initialSlide = 0}) {
+    // eslint-disable-line
     if (open) {
       this.setState({currentSlide: initialSlide})
     }
