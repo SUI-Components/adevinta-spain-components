@@ -1,5 +1,6 @@
+@import '~@s-ui/theme/lib/settings-compat-v7/index';
 @import '~@s-ui/theme/lib/index';
-@import '~@schibstedspain/sui-button-basic/lib/index';
+@import '~@s-ui/react-atom-button/lib/index';
 
 $z-range-datepicker-icon: 2 !default;
 $c-range-datepicker-icon-fill: $c-text-base !default;

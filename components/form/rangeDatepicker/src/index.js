@@ -3,7 +3,7 @@ import {Component} from 'react'
 
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
-import ButtonBasic from '@schibstedspain/sui-button-basic'
+import AtomButton from '@s-ui/react-atom-button'
 import Chevronbottom from '@s-ui/react-icons/lib/Chevronbottom'
 
 const locale = 'es-es'
@@ -90,10 +90,9 @@ class FormRangeDatepicker extends Component {
         </div>
         {!!this.props.buttonLabel && (
           <div className="sui-FormRangeDatepicker-button">
-            <ButtonBasic
-              text={this.props.buttonLabel}
-              onClick={this._handleClickButton}
-            />
+            <AtomButton onClick={this._handleClickButton}>
+              {this.props.buttonLabel}
+            </AtomButton>
           </div>
         )}
       </div>
