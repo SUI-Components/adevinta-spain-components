@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.15.0 (2022-01-11)
+
+
+### Bug Fixes
+
+* **components/image/slider:** Stop using babel-runtime ([033d01f](https://github.com/SUI-Components/adevinta-spain-components/commit/033d01f8a4f75b8900c0ef5927543a14916883cc))
+
+
+
 # 3.14.0 (2021-11-03)
 
 
