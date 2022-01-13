@@ -78,7 +78,7 @@ const AutosuggestSelect = ({
     }
   }, constraintsProps)
 
-  const normalize = str => removeAccents(str.toLowerCase())
+  const normalize = str => removeAccents(str.toLowerCase()).replace(/\W|_/g)
 
   const getSuggestions = suggestionText =>
     suggestionText
