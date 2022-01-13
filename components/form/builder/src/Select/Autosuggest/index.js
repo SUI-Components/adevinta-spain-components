@@ -143,7 +143,6 @@ const AutosuggestSelect = ({
       ...autosuggestProps,
       display: select.display,
       datalist,
-      suggestions,
       getSuggestions
     }
   })
