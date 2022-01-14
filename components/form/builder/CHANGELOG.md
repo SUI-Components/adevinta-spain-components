@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 4.35.0 (2022-01-14)
+
+
+### Features
+
+* **components/form/builder:** add rederer props in autosuggest component ([bb6666e](https://github.com/SUI-Components/adevinta-spain-components/commit/bb6666ed3c4e59dd150b40cc3da3f86191585af9))
+* **components/form/builder:** improve normalize function to avoid special characters ([a390818](https://github.com/SUI-Components/adevinta-spain-components/commit/a3908183dc66e7b88a245acad9f2301456b5bf00))
+* **components/form/builder:** remove suggestions from renderer ([bbebca8](https://github.com/SUI-Components/adevinta-spain-components/commit/bbebca870cf63b799b03d4a588cddff1b79e6f58))
+
+
+
 # 4.34.0 (2021-12-29)
 
 
