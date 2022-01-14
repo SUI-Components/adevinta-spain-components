@@ -54,9 +54,15 @@ const AutosuggestSelect = ({
     [fromTextToValueWithDatalist, onChange, select]
   )
 
-  const onFocusCallback = () => onFocus(select.id)
+  const blurFocusParams = {
+    type: select.type,
+    display: select.display,
+    label: select.label
+  }
 
-  const onBlurCallback = () => onBlur(select.id)
+  const onFocusCallback = () => onFocus(select.id, blurFocusParams)
+
+  const onBlurCallback = () => onBlur(select.id, blurFocusParams)
 
   // transform constraints to props
   const constraints = select.constraints || []
@@ -72,13 +78,16 @@ const AutosuggestSelect = ({
     }
   }, constraintsProps)
 
-  const normalize = str => removeAccents(str.toLowerCase())
+  const normalize = str => removeAccents(str.toLowerCase()).replace(/\W|_/g)
 
-  const suggestions = localStateText
-    ? datalist.filter(({text, value}) =>
-        normalize(text).match(normalize(localStateText))
-      )
-    : datalist
+  const getSuggestions = suggestionText =>
+    suggestionText
+      ? datalist.filter(({text, value}) =>
+          normalize(text).match(normalize(suggestionText))
+        )
+      : datalist
+
+  const suggestions = getSuggestions(localStateText)
 
   /**
    * Show empty suggestion text when:
@@ -130,7 +139,12 @@ const AutosuggestSelect = ({
 
   const rendererResponse = renderer({
     id: select.id,
-    innerProps: {...autosuggestProps, datalist}
+    innerProps: {
+      ...autosuggestProps,
+      display: select.display,
+      datalist,
+      getSuggestions
+    }
   })
 
   // render custom component
