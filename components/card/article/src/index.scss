@@ -5,6 +5,7 @@
 @import '~@s-ui/react-atom-tag/lib/index';
 
 $c-article-tag-types: () !default;
+$fw-article-info-inner: normal !default;
 
 .sui-CardArticle {
   @include sui-card;
@@ -21,6 +22,7 @@ $c-article-tag-types: () !default;
     &Inner {
       align-items: center;
       display: flex;
+      font-weight: $fw-article-info-inner;
       justify-content: space-between;
       margin: 0 $m-h;
       padding: $p-v 0;
