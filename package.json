@@ -34,7 +34,7 @@
     "@s-ui/documentation-library": "1",
     "@s-ui/lint": "3",
     "@s-ui/precommit": "2",
-    "@s-ui/studio": "10",
+    "@s-ui/studio": "beta",
     "@wojtekmaj/enzyme-adapter-react-17": "0.4.1",
     "enzyme": "3.11.0",
     "husky": "4.3.0",
