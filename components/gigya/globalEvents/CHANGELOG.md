@@ -1,13 +1,20 @@
-# Change Log
+# CHANGELOG
 
-All notable changes to this project will be documented in this file.
+# 1.6.0 (2022-01-19)
+
+
+### Features
+
+* **components/gigya/globalEvents:** Avoid returning null so api documentation is generated ([64c5199](https://github.com/SUI-Components/adevinta-spain-components/commit/64c5199cca2a9c082263e48ae61591126e13f0f2))
+
+
 
 # 1.5.0 (2020-02-25)
 
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([3b7a9cc](https://github.com/SUI-Components/schibsted-spain-components/commit/3b7a9ccab659f301393eb5c38b02ecc34535a69d))
+* **gigya/globalEvents:** Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([3b7a9cc](https://github.com/SUI-Components/adevinta-spain-components/commit/3b7a9ccab659f301393eb5c38b02ecc34535a69d))
 
 
 
@@ -16,7 +23,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* move class to function and remove componentWillMount usage ([c216eec](https://github.com/SUI-Components/schibsted-spain-components/commit/c216eec130cb38fd93e5a432395bfeaaed58c10f))
+* **gigya/globalEvents:** move class to function and remove componentWillMount usage ([c216eec](https://github.com/SUI-Components/adevinta-spain-components/commit/c216eec130cb38fd93e5a432395bfeaaed58c10f))
 
 
 
@@ -25,7 +32,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Add UNSAFE to life cycle ([b28e311](https://github.com/SUI-Components/schibsted-spain-components/commit/b28e311c78f1f8a8920012a2e7bf54c73daebf57))
+* **gigya/globalEvents:** Add UNSAFE to life cycle ([b28e311](https://github.com/SUI-Components/adevinta-spain-components/commit/b28e311c78f1f8a8920012a2e7bf54c73daebf57))
 
 
 
@@ -34,7 +41,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([0198d0b](https://github.com/SUI-Components/schibsted-spain-components/commit/0198d0b97c008d14e1ed27a9b262f1606de953a5))
+* **gigya/globalEvents:** Remove .npmignore ([0198d0b](https://github.com/SUI-Components/adevinta-spain-components/commit/0198d0b97c008d14e1ed27a9b262f1606de953a5))
 
 
 
@@ -43,7 +50,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* introdce a component to handle gigya events ([58986c5](https://github.com/SUI-Components/schibsted-spain-components/commit/58986c5319aa2593618655749bbdb6f0786b1161))
+* **gigya/globalEvents:** introdce a component to handle gigya events ([58986c5](https://github.com/SUI-Components/adevinta-spain-components/commit/58986c5319aa2593618655749bbdb6f0786b1161))
 
 
 
