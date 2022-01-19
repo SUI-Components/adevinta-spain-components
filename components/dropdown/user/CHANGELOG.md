@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 1.32.0 (2022-01-19)
+
+
+### Bug Fixes
+
+* **components/dropdown/user:** Fix missing import of variables ([d8b5295](https://github.com/SUI-Components/adevinta-spain-components/commit/d8b5295decb298549eeb757021a4fcc20a390c5a))
+
+
+### Features
+
+* **components/dropdown/user:** Fix import order ([72d92ab](https://github.com/SUI-Components/adevinta-spain-components/commit/72d92ab3d73c8a352ffc550856616e64d37df1df))
+
+
+
 # 1.31.0 (2021-09-22)
 
 
