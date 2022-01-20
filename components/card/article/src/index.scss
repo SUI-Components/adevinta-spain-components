@@ -37,7 +37,7 @@ $fw-article-info-inner: normal !default;
 
   &-comments {
     @include reset-link;
-    $c-comments: $c-gray;
+    $c-comments: $c-gray !default;
     align-items: center;
     align-self: flex-end;
     color: $c-comments;
