@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.48.0 (2022-01-18)
+
+
+### Features
+
+* **components/topbar/user:** add new property to navCTA prop ([c3440e7](https://github.com/SUI-Components/adevinta-spain-components/commit/c3440e76ec989f9179473ef0c0ddcbfa288d8947))
+
+
+
 # 1.47.0 (2021-09-23)
 
 

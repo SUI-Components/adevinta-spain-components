@@ -240,6 +240,7 @@ export default function TopbarUser({
             href={navCTA.url}
             title={navCTA.text}
             leftIcon={<navCTA.icon svgClass="sui-TopbarUser-ctaButtonIcon" />}
+            shape={navCTA.shape}
             size={atomButtonSizes.SMALL}
             onClick={handleCTAclick}
           >
@@ -380,7 +381,11 @@ TopbarUser.propTypes = {
     /**
      * Call to action click handler.
      */
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    /**
+     * Atom shape customizable.
+     */
+    shape: PropTypes.string
   }),
   /**
    * Factory for the component that will hold any link.

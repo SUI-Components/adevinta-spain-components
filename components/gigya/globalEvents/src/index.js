@@ -6,7 +6,7 @@ import {
   removeOnLoginSubscriber,
   addOnLogoutSubscriber,
   removeOnLogoutSubscriber
-} from './helper'
+} from './helper.js'
 
 export default function GigyaGlobalEvents({onLogin, onLogout}) {
   const registerEvents = ({onLogin, onLogout}) => {
@@ -25,7 +25,7 @@ export default function GigyaGlobalEvents({onLogin, onLogout}) {
     return () => unregisterEvents({onLogin, onLogout})
   })
 
-  return null
+  return <></>
 }
 
 GigyaGlobalEvents.displayName = 'GigyaGlobalEvents'

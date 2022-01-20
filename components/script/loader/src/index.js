@@ -27,7 +27,7 @@ const ScriptLoader = ({
 
   if (readyToRender && render) return render()
   if (timeout && timeoutRender) return timeoutRender()
-  return null
+  return <></>
 }
 
 ScriptLoader.displayName = 'ScriptLoader'

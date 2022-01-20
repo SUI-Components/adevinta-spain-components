@@ -1,7 +1,8 @@
 /* sass-lint:disable class-name-format, no-important */
 
-@import 'settings';
 @import '~@s-ui/theme/lib/index';
+@import '~@s-ui/theme/lib/settings-compat-v7/index';
+@import 'settings';
 
 .sui-DropdownUser {
   @include media-breakpoint-down(s) {
