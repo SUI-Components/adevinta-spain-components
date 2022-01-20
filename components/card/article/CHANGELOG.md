@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.31.0 (2022-01-20)
+
+
+### Features
+
+* **components/card/article:** Add the possibility of changing card article comments color by changi ([147ec50](https://github.com/SUI-Components/adevinta-spain-components/commit/147ec50f86a131c8f786b70aed95d17abfc486b0))
+
+
+
 # 1.30.0 (2022-01-17)
 
 
