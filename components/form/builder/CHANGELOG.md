@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.36.0 (2022-01-24)
+
+
+### Features
+
+* **components/form/builder:** add base api url support ([05bb7e8](https://github.com/SUI-Components/adevinta-spain-components/commit/05bb7e808600b302e2171c552e828470ba0b8f5a))
+
+
+
 # 4.35.0 (2022-01-14)
 
 
