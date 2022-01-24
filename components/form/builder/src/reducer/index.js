@@ -4,6 +4,7 @@ import {RULES} from './constants'
 export const reducer = (
   rules,
   formID,
+  baseAPIURL,
   responseInterceptor,
   requestInterceptor,
   locale
@@ -17,6 +18,7 @@ export const reducer = (
         rules,
         id,
         formID,
+        baseAPIURL,
         responseInterceptor,
         requestInterceptor,
         locale
