@@ -181,6 +181,9 @@ FormBuilder.propTypes = {
   errors: PropTypes.object,
   alerts: PropTypes.object,
   transformations: PropTypes.func,
+  /**
+   * Defines base api url to be used when a field is set as remote
+   */
   baseAPIURL: PropTypes.string,
   locale: PropTypes.string,
   useNativeFieldType: PropTypes.bool,
