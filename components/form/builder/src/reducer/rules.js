@@ -132,7 +132,7 @@ export const fetchRemoteFields = (
       .filter(([field, nextValue]) => nextValue.remote === REMOTE)
       .map(async ([field, nextValue]) => {
         const defaultUrl = encodeURI(
-          `${baseAPIURL}/${field}?${fieldsToQP(fields, formID)}`
+          `${baseAPIURL}/fieldrules/${field}?${fieldsToQP(fields, formID)}`
         )
 
         const defaultConfig = {url: defaultUrl}

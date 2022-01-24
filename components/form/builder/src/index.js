@@ -31,7 +31,7 @@ const FormBuilder = ({
   errors = {},
   alerts = {},
   transformations = (_, value) => value,
-  baseAPIURL = 'https://ptaformbuilder-classifiedads.spain.advgo.net/fieldrules',
+  baseAPIURL = 'https://ptaformbuilder-classifiedads.spain.advgo.net',
   locale = 'es-ES',
   useNativeFieldType = false,
   children: renderer = () => ({})
