@@ -123,6 +123,7 @@ export const shouldApplyRule = (fields, changeField, locale) => when => {
 export const fetchRemoteFields = (
   fields,
   formID,
+  baseAPIURL,
   responseInterceptor,
   requestInterceptor
 ) => async fieldsToChanges => {
@@ -131,15 +132,13 @@ export const fetchRemoteFields = (
       .filter(([field, nextValue]) => nextValue.remote === REMOTE)
       .map(async ([field, nextValue]) => {
         const defaultUrl = encodeURI(
-          `https://ptaformbuilder-classifiedads.spain.advgo.net/fieldrules/${field}?${fieldsToQP(
-            fields,
-            formID
-          )}`
+          `${baseAPIURL}/${field}?${fieldsToQP(fields, formID)}`
         )
 
         const defaultConfig = {url: defaultUrl}
 
         const requestInterceptorConfig = await requestInterceptor({
+          baseAPIURL,
           fieldID: field,
           fields
         })
@@ -177,6 +176,7 @@ export const applyRules = async (
   rules,
   changeField,
   formID,
+  baseAPIURL,
   responseInterceptor,
   requestInterceptor,
   locale
@@ -189,6 +189,7 @@ export const applyRules = async (
   const fetchRemoteFieldsForFieldsAndFormID = fetchRemoteFields(
     fields,
     formID,
+    baseAPIURL,
     responseInterceptor,
     requestInterceptor
   )

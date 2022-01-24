@@ -31,6 +31,7 @@ const FormBuilder = ({
   errors = {},
   alerts = {},
   transformations = (_, value) => value,
+  baseAPIURL = 'https://ptaformbuilder-classifiedads.spain.advgo.net/fieldrules',
   locale = 'es-ES',
   useNativeFieldType = false,
   children: renderer = () => ({})
@@ -56,6 +57,7 @@ const FormBuilder = ({
     const reducerWithRules = reducer(
       rules,
       formID,
+      baseAPIURL,
       responseInterceptor,
       requestInterceptor,
       locale
@@ -101,6 +103,7 @@ const FormBuilder = ({
     const reducerWithRules = reducer(
       rules,
       formID,
+      baseAPIURL,
       responseInterceptor,
       requestInterceptor,
       locale
@@ -178,6 +181,7 @@ FormBuilder.propTypes = {
   errors: PropTypes.object,
   alerts: PropTypes.object,
   transformations: PropTypes.func,
+  baseAPIURL: PropTypes.string,
   locale: PropTypes.string,
   useNativeFieldType: PropTypes.bool,
   children: PropTypes.func
