@@ -115,7 +115,11 @@ const DefaultSelect = ({
         multiselection={multiselection}
       >
         {datalist.map(data => (
-          <MoleculeSelectOption key={data.value} value={data.value}>
+          <MoleculeSelectOption
+            key={data.value}
+            value={data.value}
+            description={data.description}
+          >
             {data.text}
           </MoleculeSelectOption>
         ))}
