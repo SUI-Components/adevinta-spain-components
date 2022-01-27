@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.37.0 (2022-01-27)
+
+
+### Features
+
+* **components/form/builder:** pass description from data to the MoleculeSelectOption ([84bd39c](https://github.com/SUI-Components/adevinta-spain-components/commit/84bd39cb78d6252189ddacc9234f11239826c784))
+
+
+
 # 4.36.0 (2022-01-24)
 
 
