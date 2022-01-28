@@ -8,6 +8,7 @@ function AdSmartbanner({
   customRatingIcons,
   icon: IconClose = IconCloseDefault,
   imageUrl,
+  logoNode,
   onClick,
   onClose,
   ratingMax,
@@ -26,7 +27,9 @@ function AdSmartbanner({
         <IconClose svgClass="sui-AdSmartbanner-buttonCloseIcon" />
       </button>
       <div className="sui-AdSmartbanner-primary">
-        <img alt="logo" src={imageUrl} className="sui-AdSmartbanner-logo" />
+        {logoNode || (
+          <img alt="logo" src={imageUrl} className="sui-AdSmartbanner-logo" />
+        )}
       </div>
       <div className="sui-AdSmartbanner-secondary">
         <h3 className="sui-AdSmartbanner-title">{title}</h3>
@@ -52,7 +55,8 @@ AdSmartbanner.propTypes = {
   buttonText: PropTypes.string.isRequired,
   customRatingIcons: PropTypes.object,
   icon: PropTypes.func,
-  imageUrl: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string,
+  logoNode: PropTypes.node,
   onClick: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
   ratingMax: PropTypes.number,
