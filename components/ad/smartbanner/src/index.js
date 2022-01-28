@@ -27,7 +27,9 @@ function AdSmartbanner({
         <IconClose svgClass="sui-AdSmartbanner-buttonCloseIcon" />
       </button>
       <div className="sui-AdSmartbanner-primary">
-        {logoNode || (
+        {logoNode ? (
+          <div className="sui-AdSmartbanner-logo">{logoNode}</div>
+        ) : (
           <img alt="logo" src={imageUrl} className="sui-AdSmartbanner-logo" />
         )}
       </div>
