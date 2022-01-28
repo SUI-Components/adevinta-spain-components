@@ -17,27 +17,30 @@ function AdSmartbanner({
   text,
   title
 }) {
-  const className = cx('sui-AdSmartbanner', {
+  const baseClass = 'sui-AdSmartbanner'
+
+  const className = cx(baseClass, {
     'is-static': staticPosition
   })
+  const baseClassLogo = `${baseClass}-logo`
 
   return (
     <div className={className}>
-      <button className="sui-AdSmartbanner-buttonClose" onClick={onClose}>
-        <IconClose svgClass="sui-AdSmartbanner-buttonCloseIcon" />
+      <button className={`${baseClass}-buttonClose`} onClick={onClose}>
+        <IconClose svgClass={`${baseClass}-buttonCloseIcon`} />
       </button>
-      <div className="sui-AdSmartbanner-primary">
+      <div className={`${baseClass}-primary`}>
         {logoNode ? (
-          <div className="sui-AdSmartbanner-logo">{logoNode}</div>
+          <div className={baseClassLogo}>{logoNode}</div>
         ) : (
-          <img alt="logo" src={imageUrl} className="sui-AdSmartbanner-logo" />
+          <img alt="logo" src={imageUrl} className={baseClassLogo} />
         )}
       </div>
-      <div className="sui-AdSmartbanner-secondary">
-        <h3 className="sui-AdSmartbanner-title">{title}</h3>
-        <p className="sui-AdSmartbanner-text">{text}</p>
+      <div className={`${baseClass}-secondary`}>
+        <h3 className={`${baseClass}-title`}>{title}</h3>
+        <p className={`${baseClass}-text`}>{text}</p>
         {ratingValue !== null && (
-          <div className="sui-AdSmartbanner-ratingContainer">
+          <div className={`${baseClass}-ratingContainer`}>
             <RatingStar
               ratingValue={ratingValue}
               ratingMax={ratingMax}
@@ -46,7 +49,7 @@ function AdSmartbanner({
           </div>
         )}
       </div>
-      <button className="sui-AdSmartbanner-buttonInstall" onClick={onClick}>
+      <button className={`${baseClass}-buttonInstall`} onClick={onClick}>
         {buttonText}
       </button>
     </div>
