@@ -63,6 +63,7 @@ const DefaultSelect = ({
     label: select.label,
     name: select.name,
     placeholder: select.hint,
+    children: select.children,
     iconArrowDown: <IconChevronDown />,
     iconCloseTag: <IconCloseTag />,
     value: select.value || DEFAULT_SELECT_VALUE,
@@ -104,6 +105,7 @@ const DefaultSelect = ({
     <div
       className={`sui-FormBuilder-field sui-FormBuilder-DefaultSelect sui-FormBuilder-${selectProps.id}`}
     >
+      {selectProps.children}
       {selectProps.label && (
         <label className="sui-FormBuilder-label" htmlFor={selectProps.id}>
           {selectProps.label}
