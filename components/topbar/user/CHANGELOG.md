@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.49.0 (2022-02-01)
+
+
+### Features
+
+* **components/topbar/user:** Add a scss token to topbar/user to make the icon color customizble fro ([9b2890c](https://github.com/SUI-Components/adevinta-spain-components/commit/9b2890ce379e961b8d920afee0c950b2ac986c89))
+
+
+
 # 1.48.0 (2022-01-18)
 
 
