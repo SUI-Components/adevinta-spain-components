@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.38.0 (2022-02-01)
+
+
+### Features
+
+* **components/form/builder:** allow to pass children to the Select component ([50b66d8](https://github.com/SUI-Components/adevinta-spain-components/commit/50b66d8b9d2922739346dd5375a314747e41d472))
+
+
+
 # 4.37.0 (2022-01-27)
 
 
