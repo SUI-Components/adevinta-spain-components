@@ -54,7 +54,7 @@ const InlineButton = ({
 
   const rendererResponse = renderer({
     id: inlineButton.id,
-    innerProps: {...inlineButtonProps, datalist}
+    innerProps: {...inlineButtonProps, datalist, display: inlineButton.display}
   })
 
   // render custom component
