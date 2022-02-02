@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.39.0 (2022-02-02)
+
+
+### Features
+
+* **components/form/builder:** adds display to innerProps ([0ba245d](https://github.com/SUI-Components/adevinta-spain-components/commit/0ba245dcc8d2e3189087c18ed59bb794e560cfea))
+
+
+
 # 4.38.0 (2022-02-01)
 
 
