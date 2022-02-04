@@ -11,6 +11,7 @@
 
   &-trigger {
     align-items: center;
+    background-color: $bgc-collapsible-basic-trigger;
     border: $bd-collapsible-basic-trigger;
     border-radius: $bdr-collapsible-basic-trigger;
     display: flex;
