@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.39.0 (2022-02-07)
+
+
+### Features
+
+* **components/dropdown/basic:** add variable to modify font-weight ([e3cd730](https://github.com/SUI-Components/adevinta-spain-components/commit/e3cd7306765ab8f5d65d8a585e5197f248dfea82))
+
+
+
 # 1.38.0 (2021-09-23)
 
 
