@@ -125,7 +125,8 @@ export const fetchRemoteFields = (
   formID,
   baseAPIURL,
   responseInterceptor,
-  requestInterceptor
+  requestInterceptor,
+  extraParams
 ) => async fieldsToChanges => {
   const remoteFieldsToChange = await Promise.all(
     Object.entries(fieldsToChanges)
@@ -140,7 +141,8 @@ export const fetchRemoteFields = (
         const requestInterceptorConfig = await requestInterceptor({
           baseAPIURL,
           fieldID: field,
-          fields
+          fields,
+          extraParams
         })
         // Config must be follow the Axios pattern
         // https://github.com/axios/axios
@@ -179,7 +181,8 @@ export const applyRules = async (
   baseAPIURL,
   responseInterceptor,
   requestInterceptor,
-  locale
+  locale,
+  extraParams
 ) => {
   const shouldApplyRuleForFieldsAndChangeField = shouldApplyRule(
     fields,
@@ -191,7 +194,8 @@ export const applyRules = async (
     formID,
     baseAPIURL,
     responseInterceptor,
-    requestInterceptor
+    requestInterceptor,
+    extraParams
   )
 
   const fieldsToChanges = Object.entries(rules).reduce(

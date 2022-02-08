@@ -53,14 +53,15 @@ const FormBuilder = ({
     return nextFields
   }
 
-  const handlerChange = useCallback(async (id, value) => {
+  const handlerChange = useCallback(async (id, value, extraParams) => {
     const reducerWithRules = reducer(
       rules,
       formID,
       baseAPIURL,
       responseInterceptor,
       requestInterceptor,
-      locale
+      locale,
+      extraParams
     )
     const timerShowSpinner = setTimeout(
       () => setStateShowSpinner(true),
@@ -71,6 +72,7 @@ const FormBuilder = ({
       value,
       pickFieldById(fields, id)
     )
+
     const nextFields = changeField(id, transformedValue)
     clearTimeout(timerShowSpinner)
 

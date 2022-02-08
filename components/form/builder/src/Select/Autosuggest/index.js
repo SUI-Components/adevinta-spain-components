@@ -49,7 +49,7 @@ const AutosuggestSelect = ({
     (evt, {value: text}) => {
       const value = fromTextToValueWithDatalist(text)
       setLocalStateText(text)
-      onChange(select.id, value)
+      onChange(select.id, value, {text})
     },
     [fromTextToValueWithDatalist, onChange, select]
   )

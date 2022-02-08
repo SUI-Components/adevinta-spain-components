@@ -7,7 +7,8 @@ export const reducer = (
   baseAPIURL,
   responseInterceptor,
   requestInterceptor,
-  locale
+  locale,
+  extraParams
 ) => async (fields, action) => {
   const {type, id} = action
   let nextFields
@@ -21,7 +22,8 @@ export const reducer = (
         baseAPIURL,
         responseInterceptor,
         requestInterceptor,
-        locale
+        locale,
+        extraParams
       )
       return nextFields
     default:
