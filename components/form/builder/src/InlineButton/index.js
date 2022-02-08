@@ -75,6 +75,7 @@ const InlineButton = ({
               onClick={() => onClickHandler(button.value)}
               isSubmit={false}
               isButton
+              disabled={button.disabled}
             >
               {button.text}
             </Button>
