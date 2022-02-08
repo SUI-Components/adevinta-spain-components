@@ -89,6 +89,7 @@
 
       .is-expanded > &-wrap > & {
         background-color: $bgc-dropdown-menu-hover;
+        border-radius: $bdrs-dropdown-user-menu;
         border-top: $bdt-dropdown-menu;
         box-shadow: $bxsh-dropdown-menu;
       }

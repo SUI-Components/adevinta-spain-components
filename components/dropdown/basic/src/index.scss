@@ -97,6 +97,7 @@
       }
       @include media-breakpoint-up(m) {
         background-color: $bgc-dropdown-menu-hover;
+        border-radius: $bdrs-dropdown-basic-menu;
         box-shadow: $bxsh-dropdown-menu;
         position: absolute;
         white-space: nowrap;
