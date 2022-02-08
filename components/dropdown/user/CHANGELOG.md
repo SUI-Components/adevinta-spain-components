@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 1.33.0 (2022-02-08)
+
+
+### Bug Fixes
+
+* **components/dropdown/basic:** set proper emmet naming to border radius ([4024496](https://github.com/SUI-Components/adevinta-spain-components/commit/4024496e7b3163d4fe641387266d0a5e5602f674))
+
+
+### Features
+
+* **components/dropdown/user:** add border radius to dropdown user ([f553540](https://github.com/SUI-Components/adevinta-spain-components/commit/f5535402358afe37794f4b40ea9ddea33265d2da))
+
+
+
 # 1.32.0 (2022-01-19)
 
 
