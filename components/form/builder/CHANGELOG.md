@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.40.0 (2022-02-08)
+
+
+### Features
+
+* **components/form/builder:** pass text input value to onChange and add as extraParams as new param ([b272a94](https://github.com/SUI-Components/adevinta-spain-components/commit/b272a94388fa6ff39812f1e47e8c44e3331d5f11))
+
+
+
 # 4.39.0 (2022-02-02)
 
 
