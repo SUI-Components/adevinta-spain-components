@@ -6,9 +6,12 @@
 
 $c-article-tag-types: () !default;
 $fw-article-info-inner: normal !default;
+$ov-card-article: initial !default;
 
 .sui-CardArticle {
   @include sui-card;
+
+  overflow: $ov-card-article;
 
   &-link {
     @include reset-link;
