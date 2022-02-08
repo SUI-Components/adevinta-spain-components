@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.41.0 (2022-02-08)
+
+
+### Features
+
+* **components/form/builder:** Implement disabled option for inlineButton ([eedaa74](https://github.com/SUI-Components/adevinta-spain-components/commit/eedaa74e2496982e9ce109b22b94a90e1707c4c6))
+
+
+
 # 4.40.0 (2022-02-08)
 
 
