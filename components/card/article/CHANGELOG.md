@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.32.0 (2022-02-08)
+
+
+### Features
+
+* **components/card/article:** Add overflow param to card article component ([8b80d42](https://github.com/SUI-Components/adevinta-spain-components/commit/8b80d423bc04920c02c10036218f2ca3347d5e97))
+
+
+
 # 1.31.0 (2022-01-20)
 
 
