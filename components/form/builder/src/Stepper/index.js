@@ -13,7 +13,9 @@ const Stepper = ({stepper, tabIndex, onChange, errors, alerts, renderer}) => {
   const errorMessages = errors[stepper.id]
   const alertMessages = alerts[stepper.id]
 
-  const onChangeHandler = ({target: {outerText: OPERATION}}) => {
+  const onChangeHandler = ({target: stepperEvent}) => {
+    const OPERATION = stepperEvent.innerText
+
     if (OPERATION === OPERATIONS.ADD) {
       return onChange(stepper.id, `${Number(stepper.value) + 1}`)
     }
