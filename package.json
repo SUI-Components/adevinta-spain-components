@@ -9,18 +9,21 @@
   "scripts": {
     "build": "sui-studio build",
     "co": "sui-mono commit",
+    "commit-msg": "validate-commit-msg",
     "dev": "sui-studio dev",
     "generate": "sui-studio generate -S s-ui",
-    "lint": "npm run lint:js && npm run lint:sass",
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",
-    "phoenix": "npx @s-ui/mono@2 run 'rm -rf ./node_modules' && rm -rf ./node_modules package-lock.json && npm install --legacy-peer-deps",
+    "lint": "npm run lint:js && npm run lint:sass",
     "phoenix:ci": "npm run phoenix",
-    "update:commit:status": "npx @s-ui/ci update-commit-status",
+    "phoenix": "npx @s-ui/mono@2 run 'rm -rf ./node_modules' && rm -rf ./node_modules package-lock.json && npm install --legacy-peer-deps",
+    "pre-commit": "sui-precommit run",
     "start": "sui-studio start",
-    "test": "npm run test:studio && npm run test:jest",
+    "test:jest": "jest",
     "test:studio": "sui-studio test",
-    "test:jest": "jest"
+    "test": "npm run test:studio && npm run test:jest",
+    "update:commit:status": "npx @s-ui/ci update-commit-status",
+    "pre-push": "npm run test"
   },
   "repository": {
     "type": "git",
@@ -32,12 +35,11 @@
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "7.16.8",
     "@s-ui/documentation-library": "1",
-    "@s-ui/lint": "3",
-    "@s-ui/precommit": "2",
+    "@s-ui/lint": "4",
+    "@s-ui/precommit": "3",
     "@s-ui/studio": "11",
     "@wojtekmaj/enzyme-adapter-react-17": "0.4.1",
     "enzyme": "3.11.0",
-    "husky": "4.3.0",
     "jest": "26.6.3",
     "typescript": "4.3.4",
     "validate-commit-msg": "2.14.0"
@@ -77,11 +79,5 @@
   "prettier": "./node_modules/@s-ui/lint/.prettierrc.js",
   "stylelint": {
     "extends": "./node_modules/@s-ui/lint/stylelint.config.js"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "validate-commit-msg",
-      "pre-commit": "sui-precommit run"
-    }
   }
 }
