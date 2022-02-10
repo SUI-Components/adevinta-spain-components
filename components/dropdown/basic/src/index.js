@@ -55,7 +55,7 @@ export default function DropdownBasic({
   )
 
   useEffect(
-    function() {
+    function () {
       const handleListener = add => {
         const listenerMethod = add ? 'addEventListener' : 'removeEventListener'
         document[listenerMethod]('click', onDocumentClick, false)

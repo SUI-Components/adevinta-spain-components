@@ -43,7 +43,7 @@ function CookieBanner({
     onAccept()
   }
 
-  useMount(function() {
+  useMount(function () {
     const hasAccepted = getHasAcceptedCookie()
     setHasAcceptedCookies(hasAccepted)
   })

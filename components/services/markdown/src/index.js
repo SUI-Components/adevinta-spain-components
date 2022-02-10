@@ -9,7 +9,7 @@ function ServiceMarkdown({src}) {
   const [loaded, setLoaded] = useState(false)
 
   useEffect(
-    function() {
+    function () {
       import(/* webpackChunkName: "marked" */ 'marked').then(markedLibrary => {
         const {default: marked} = markedLibrary
         const req = new window.XMLHttpRequest()
@@ -27,7 +27,7 @@ function ServiceMarkdown({src}) {
   )
 
   useEffect(
-    function() {
+    function () {
       if (loaded) {
         const id = document.location.hash.substring(1)
         if (id) {

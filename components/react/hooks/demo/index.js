@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   Anchor,
   Box,
@@ -7,21 +8,21 @@ import {
   OrderedList
 } from '@s-ui/documentation-library'
 
-import UseBooleanDemo from './UseBooleanDemo'
-import UseEventListenerDemo from './UseEventListenerDemo'
-import UseLegacyStateDemo from './UseLegacyStateDemo'
-import UseMediaQueryDemo from './UseMediaQueryDemo'
-import UseMergeRefsDemo from './UseMergeRefsDemo'
-import UseMountDemo from './UseMountDemo'
-import UseMountedStateDemo from './UseMountedStateDemo'
-import UseNearScreenDemo from './UseNearScreenDemo'
-import UseOnScreenDemo from './UseOnScreenDemo'
-import UseScrollDemo from './UseScrollDemo'
-import UseStepsDemo from './UseStepsDemo'
-import UseSwipeDemo from './UseSwipeDemo'
-import UseToggleDemo from './UseToggleDemo'
-import UseControlledStateDemo from './UseControlledStateDemo'
-import UseCopyToClipboardDemo from './UseCopyToClipboardDemo'
+import UseBooleanDemo from './UseBooleanDemo.js'
+import UseEventListenerDemo from './UseEventListenerDemo.js'
+import UseLegacyStateDemo from './UseLegacyStateDemo.js'
+import UseMediaQueryDemo from './UseMediaQueryDemo.js'
+import UseMergeRefsDemo from './UseMergeRefsDemo.js'
+import UseMountDemo from './UseMountDemo.js'
+import UseMountedStateDemo from './UseMountedStateDemo.js'
+import UseNearScreenDemo from './UseNearScreenDemo.js'
+import UseOnScreenDemo from './UseOnScreenDemo.js'
+import UseScrollDemo from './UseScrollDemo.js'
+import UseStepsDemo from './UseStepsDemo.js'
+import UseSwipeDemo from './UseSwipeDemo.js'
+import UseToggleDemo from './UseToggleDemo.js'
+import UseControlledStateDemo from './UseControlledStateDemo.js'
+import UseCopyToClipboardDemo from './UseCopyToClipboardDemo.js'
 
 const orderedHookList = [
   UseBooleanDemo,

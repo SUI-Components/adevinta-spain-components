@@ -77,8 +77,9 @@ const Multipicker = ({
   // render SUI component
   return (
     <div
-      className={`sui-FormBuilder-field sui-FormBuilder-Multipicker sui-FormBuilder-${multipickerProps.id ||
-        tabIndex}`}
+      className={`sui-FormBuilder-field sui-FormBuilder-Multipicker sui-FormBuilder-${
+        multipickerProps.id || tabIndex
+      }`}
     >
       <MoleculeField {...multipickerProps}>
         {multipicker.datalist.map(item => (

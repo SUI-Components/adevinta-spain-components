@@ -5,7 +5,7 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17'
 
 Enzyme.configure({adapter: new Adapter()})
 describe('<FormPta />', () => {
-  describe('submit listeners', function() {
+  describe('submit listeners', function () {
     let component, wrapper
     const onSubmitSpy = jest.fn()
     const onErrorSpy = jest.fn()
@@ -24,9 +24,9 @@ describe('<FormPta />', () => {
       wrapper.unmount()
     })
 
-    it('should call onSubmit callback when SUBMIT message is listened from PTA', function(done) {
+    it('should call onSubmit callback when SUBMIT message is listened from PTA', function (done) {
       const EVENT_TYPE = 'SUBMIT_FORM_SUCCEEDED'
-      const listener = function(e) {
+      const listener = function (e) {
         // Then
         expect(onSubmitSpy.mock.calls.length).toEqual(1)
         done()
@@ -37,9 +37,9 @@ describe('<FormPta />', () => {
       window.postMessage({type: EVENT_TYPE}, '*')
     })
 
-    it('should call onError callback when SUBMIT message is listened from PTA', function(done) {
+    it('should call onError callback when SUBMIT message is listened from PTA', function (done) {
       const EVENT_TYPE = 'SUBMIT_FORM_FAILED'
-      const listener = function(e) {
+      const listener = function (e) {
         // Then
         expect(onErrorSpy.mock.calls.length).toEqual(1)
         done()
@@ -50,10 +50,10 @@ describe('<FormPta />', () => {
       window.postMessage({type: EVENT_TYPE}, '*')
     })
 
-    it('should NOT call onSubmit callback when NO SUBMIT message is listened from PTA', function(done) {
+    it('should NOT call onSubmit callback when NO SUBMIT message is listened from PTA', function (done) {
       const NO_SUBMIT_TYPE = 'NOSUBMIT'
 
-      const listener = function(e) {
+      const listener = function (e) {
         // Then
         expect(onSubmitSpy.mock.calls.length).toEqual(0)
         expect(onErrorSpy.mock.calls.length).toEqual(0)
@@ -66,7 +66,7 @@ describe('<FormPta />', () => {
     })
 
     it('shoul call eventListeners when event emmited type matches', done => {
-      const listener = function(e) {
+      const listener = function (e) {
         // Then
         expect(onSubmitSpy.mock.calls.length).toEqual(0)
         expect(onErrorSpy.mock.calls.length).toEqual(0)
@@ -79,7 +79,7 @@ describe('<FormPta />', () => {
     })
   })
 
-  describe('generic listeners', function() {
+  describe('generic listeners', function () {
     let component, wrapper
     const listener1Spy = jest.fn()
     const listener2Spy = jest.fn()
@@ -117,7 +117,7 @@ describe('<FormPta />', () => {
     })
 
     it('shoul call eventListeners when event emmited type matches many listener', done => {
-      const listener = function(e) {
+      const listener = function (e) {
         // Then
         expect(listener1Spy.mock.calls.length).toEqual(1)
         expect(listener2Spy.mock.calls.length).toEqual(1)
@@ -131,7 +131,7 @@ describe('<FormPta />', () => {
     })
 
     it('shoul call eventListeners when event emmited type matches one listener', done => {
-      const listener = function(e) {
+      const listener = function (e) {
         // Then
         expect(listener1Spy.mock.calls.length).toEqual(1)
         expect(listener2Spy.mock.calls.length).toEqual(0)
@@ -145,7 +145,7 @@ describe('<FormPta />', () => {
     })
 
     it('shoul not call eventListeners when event emmited type does not match any listener', done => {
-      const listener = function(e) {
+      const listener = function (e) {
         // Then
         expect(listener1Spy.mock.calls.length).toEqual(0)
         expect(listener2Spy.mock.calls.length).toEqual(0)

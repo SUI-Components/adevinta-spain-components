@@ -56,7 +56,7 @@ export default class SearchMapPolygons {
       className,
       onEachFeature: (feature, layer) => {
         layer.on({
-          mouseout: function(e) {
+          mouseout: function (e) {
             const {originalEvent} = e
             // get the element we're entering now
             const elementAfterOut = document.elementFromPoint(
@@ -79,7 +79,7 @@ export default class SearchMapPolygons {
             if (tooltipElement)
               tooltipElement.classList.remove(that.HOVER_CLASSNAME)
           },
-          mouseover: function(e) {
+          mouseover: function (e) {
             hoverStyles && this.setStyle(hoverStyles)
             // remove previous hovered polygons
             const polygonWithHover = document.querySelector(
@@ -100,7 +100,7 @@ export default class SearchMapPolygons {
               this.bringToFront()
             }
           },
-          click: function(event) {
+          click: function (event) {
             if (!layer?.feature?.properties?.Code) return
 
             const {Code} = layer.feature.properties
@@ -118,7 +118,7 @@ export default class SearchMapPolygons {
     polygonGeoJSon.addTo(map)
 
     if (this.showLabels) {
-      polygonGeoJSon.eachLayer(function(layer) {
+      polygonGeoJSon.eachLayer(function (layer) {
         if (
           !layer?.feature?.properties?.LocationName ||
           !layer?.feature?.properties?.Code

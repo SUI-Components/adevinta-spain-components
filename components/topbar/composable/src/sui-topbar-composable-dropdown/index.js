@@ -48,7 +48,7 @@ function DropdownMenu({
     if (renderOnClick) setRenderBody(true)
   }
 
-  useEffect(function() {
+  useEffect(function () {
     document.body.addEventListener('click', closeMenu)
     return () => document.body.removeEventListener('click', closeMenu)
   })

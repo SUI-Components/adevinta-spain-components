@@ -44,15 +44,13 @@ const RatingStar = ({
 
   return (
     <span className="sui-AdSmartbanner-rating">
-      {Array(ratingMax)
-        .fill()
-        .map(_renderStar)}
+      {Array(ratingMax).fill().map(_renderStar)}
     </span>
   )
 }
 
 RatingStar.propTypes = {
-  ratingValue: function(props, propName, componentName) {
+  ratingValue: function (props, propName, componentName) {
     if (
       !checkRatingValue({
         ratingValue: props[propName],

@@ -58,8 +58,9 @@ const Switch = ({
   // render SUI component
   return (
     <div
-      className={`sui-FormBuilder-field sui-FormBuilder-Switch sui-FormBuilder-${switchProps.id ||
-        tabIndex}`}
+      className={`sui-FormBuilder-field sui-FormBuilder-Switch sui-FormBuilder-${
+        switchProps.id || tabIndex
+      }`}
     >
       <MoleculeSwitch {...switchProps} {...rendererResponse} />
     </div>

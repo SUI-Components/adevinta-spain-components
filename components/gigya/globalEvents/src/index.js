@@ -19,7 +19,7 @@ export default function GigyaGlobalEvents({onLogin, onLogout}) {
     onLogout && removeOnLogoutSubscriber(onLogout)
   }
 
-  useEffect(function() {
+  useEffect(function () {
     initListener()
     registerEvents({onLogin, onLogout})
     return () => unregisterEvents({onLogin, onLogout})

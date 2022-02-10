@@ -7,7 +7,7 @@ import {getWidth, matchQueries} from './helpers'
 
 import {BREAKPOINTS} from './breakpoints'
 
-const LayoutMediaQueryFactory = function(BREAKPOINTS) {
+const LayoutMediaQueryFactory = function (BREAKPOINTS) {
   return class extends Component {
     static defaultProps = {
       initialMediaQueries: {}

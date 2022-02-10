@@ -24,7 +24,7 @@ const fetch = config =>
   new Promise((resolve, reject) => {
     const {url, headers} = config
     const request = new window.XMLHttpRequest()
-    request.onreadystatechange = function() {
+    request.onreadystatechange = function () {
       if (request.readyState === window.XMLHttpRequest.DONE) {
         if (request.status === 200) {
           resolve(request.response)
@@ -34,7 +34,7 @@ const fetch = config =>
       }
     }
 
-    request.onerror = function() {
+    request.onerror = function () {
       reject(Error('Network Error'))
     }
     request.open('GET', url, true)

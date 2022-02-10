@@ -63,8 +63,9 @@ const InlineButton = ({
   // render SUI component
   return (
     <div
-      className={`sui-FormBuilder-field sui-FormBuilder-InlineButton sui-FormBuilder-${inlineButtonProps.id ||
-        tabIndex}`}
+      className={`sui-FormBuilder-field sui-FormBuilder-InlineButton sui-FormBuilder-${
+        inlineButtonProps.id || tabIndex
+      }`}
     >
       <MoleculeButtonGroupField {...inlineButtonProps} {...rendererResponse}>
         {rendererResponse?.children ||

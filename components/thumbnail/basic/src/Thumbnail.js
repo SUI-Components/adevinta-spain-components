@@ -5,7 +5,7 @@ const BASE_CLASS = 'sui-ThumbnailBasic'
 const CAPTION_CLASS = 'sui-ThumbnailBasic-caption'
 const CAPTION_TEXT_CLASS = 'sui-ThumbnailBasic-caption-text'
 
-const Thumbnail = function({captionText, ...placeholderProps}) {
+const Thumbnail = function ({captionText, ...placeholderProps}) {
   return (
     <figure className={BASE_CLASS}>
       <ImagePlaceholder

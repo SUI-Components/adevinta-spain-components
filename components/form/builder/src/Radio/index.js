@@ -48,8 +48,9 @@ const Radio = ({radio, tabIndex, onChange, errors, alerts, renderer}) => {
   // render SUI component
   return (
     <div
-      className={`sui-FormBuilder-field sui-FormBuilder-Radio sui-FormBuilder-${radioProps.id ||
-        tabIndex}`}
+      className={`sui-FormBuilder-field sui-FormBuilder-Radio sui-FormBuilder-${
+        radioProps.id || tabIndex
+      }`}
     >
       {radio.label && (
         <label className="sui-FormBuilder-Radio-label">{radio.label}</label>

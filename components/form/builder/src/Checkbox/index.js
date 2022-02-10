@@ -83,8 +83,9 @@ const Checkbox = ({
   // render SUI component
   return (
     <div
-      className={`sui-FormBuilder-field sui-FormBuilder-Switch sui-FormBuilder-${checkboxProps.id ||
-        tabIndex}`}
+      className={`sui-FormBuilder-field sui-FormBuilder-Switch sui-FormBuilder-${
+        checkboxProps.id || tabIndex
+      }`}
     >
       <MoleculeCheckboxField {...checkboxProps} {...rendererResponse} />
     </div>

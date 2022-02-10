@@ -64,8 +64,9 @@ const MultiButton = ({
   // render SUI component
   return (
     <div
-      className={`sui-FormBuilder-field sui-FormBuilder-MultiButton sui-FormBuilder-${multiButtonProps.id ||
-        tabIndex}`}
+      className={`sui-FormBuilder-field sui-FormBuilder-MultiButton sui-FormBuilder-${
+        multiButtonProps.id || tabIndex
+      }`}
     >
       <MoleculeField {...multiButtonProps}>
         <div className="sui-FormBuilder-MultiButton-itemList">

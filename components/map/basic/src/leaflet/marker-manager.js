@@ -147,7 +147,7 @@ class MarkerManager {
       if (icon.popup) {
         const {content} = icon.popup
         // wait some time in order to get the correct position for the popup
-        setTimeout(function() {
+        setTimeout(function () {
           marker.bindPopup(content).openPopup()
         }, this.POPUP_WAIT_TIME)
       }
