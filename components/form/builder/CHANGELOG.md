@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.42.0 (2022-02-10)
+
+
+### Bug Fixes
+
+* **components/form/builder:** Reemplace outerText by innerText to improve compatibility with firefox ([4eb9781](https://github.com/SUI-Components/adevinta-spain-components/commit/4eb9781148d1fa01471b430182ec846164db42d4))
+
+
+
 # 4.41.0 (2022-02-08)
 
 
