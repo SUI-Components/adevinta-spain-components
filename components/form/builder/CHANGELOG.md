@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.43.0 (2022-02-11)
+
+
+### Features
+
+* **components/form/builder:** Improve formbuilder stepper using custom event ([c6a5254](https://github.com/SUI-Components/adevinta-spain-components/commit/c6a5254d4203dba18a80430efd430ead4f066f56))
+
+
+
 # 4.42.0 (2022-02-10)
 
 
