@@ -13,16 +13,7 @@ const Stepper = ({stepper, tabIndex, onChange, errors, alerts, renderer}) => {
   const errorMessages = errors[stepper.id]
   const alertMessages = alerts[stepper.id]
 
-  const onChangeHandler = ({target: stepperEvent}) => {
-    const OPERATION = stepperEvent.innerText
-
-    if (OPERATION === OPERATIONS.ADD) {
-      return onChange(stepper.id, `${Number(stepper.value) + 1}`)
-    }
-    if (OPERATION === OPERATIONS.SUBSTRACT) {
-      return onChange(stepper.id, `${Number(stepper.value) - 1}`)
-    }
-  }
+  const onChangeHandler = (__, {value}) => onChange(stepper.id, value)
 
   const stepperProps = {
     id: stepper.id,
@@ -65,9 +56,8 @@ const Stepper = ({stepper, tabIndex, onChange, errors, alerts, renderer}) => {
   // render SUI component
   return (
     <div
-      className={`sui-FormBuilder-field sui-FormBuilder-Stepper sui-FormBuilder-${
-        stepperProps.id || tabIndex
-      }`}
+      className={`sui-FormBuilder-field sui-FormBuilder-Stepper sui-FormBuilder-${stepperProps.id ||
+        tabIndex}`}
     >
       <MoleculeDataCounter {...stepperProps} onChange={onChangeHandler} />
     </div>
