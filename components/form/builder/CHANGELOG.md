@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.44.0 (2022-02-15)
+
+
+### Features
+
+* **components/form/builder:** Add content prop to select ([6b5e79d](https://github.com/SUI-Components/adevinta-spain-components/commit/6b5e79d6ecc8304b32a745f80b104c9ac5cda0df))
+
+
+
 # 4.43.0 (2022-02-11)
 
 
