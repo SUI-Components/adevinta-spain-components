@@ -64,6 +64,7 @@ const DefaultSelect = ({
     name: select.name,
     placeholder: select.hint,
     children: select.children,
+    content: select.content,
     iconArrowDown: <IconChevronDown />,
     iconCloseTag: <IconCloseTag />,
     value: select.value || DEFAULT_SELECT_VALUE,
@@ -106,11 +107,13 @@ const DefaultSelect = ({
       className={`sui-FormBuilder-field sui-FormBuilder-DefaultSelect sui-FormBuilder-${selectProps.id}`}
     >
       {selectProps.children}
+
       {selectProps.label && (
         <label className="sui-FormBuilder-label" htmlFor={selectProps.id}>
           {selectProps.label}
         </label>
       )}
+
       <MoleculeSelectField
         {...selectProps}
         {...rendererResponse}
@@ -126,6 +129,8 @@ const DefaultSelect = ({
           </MoleculeSelectOption>
         ))}
       </MoleculeSelectField>
+
+      {selectProps.content}
     </div>
   )
 }
