@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types'
 import IconCloseDefault from '@s-ui/react-icons/lib/X'
 import cx from 'classnames'
-import RatingStar from './RatingStar'
+import RatingStar from './RatingStar/index.js'
 
 function AdSmartbanner({
+  button: Button,
   buttonText,
   customRatingIcons,
   icon: IconClose = IconCloseDefault,
@@ -49,14 +50,19 @@ function AdSmartbanner({
           </div>
         )}
       </div>
-      <button className={`${baseClass}-buttonInstall`} onClick={onClick}>
-        {buttonText}
-      </button>
+      {Button === undefined ? (
+        <button className={`${baseClass}-buttonInstall`} onClick={onClick}>
+          {buttonText}
+        </button>
+      ) : (
+        <Button onClick={onClick}>{buttonText}</Button>
+      )}
     </div>
   )
 }
 
 AdSmartbanner.propTypes = {
+  button: PropTypes.func,
   buttonText: PropTypes.string.isRequired,
   customRatingIcons: PropTypes.object,
   icon: PropTypes.func,
