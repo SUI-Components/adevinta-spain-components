@@ -3,6 +3,8 @@
 @import '~@s-ui/theme/lib/settings-compat-v7/index';
 @import '~@s-ui/theme/lib/index';
 
+$bdrs-dropdown-button-desktop: 0 !default;
+
 .sui-DropdownBasic {
   @include media-breakpoint-down(s) {
     position: relative;
