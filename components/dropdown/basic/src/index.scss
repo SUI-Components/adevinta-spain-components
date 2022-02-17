@@ -24,6 +24,7 @@
       width: 100%;
     }
     @include media-breakpoint-up(m) {
+      border-radius: $bdrs-dropdown-button-desktop;
       padding: $p-m;
 
       .is-expanded & {
