@@ -6,6 +6,7 @@
 @import '~@s-ui/react-atom-button/lib/index';
 
 // Topbar user
+$bdrs-topbar-user: 0 !default;
 $bg-topbar-user-brand: null !default;
 $bgc-topbar-user: $c-white !default;
 $bgsz-topbar-user-brand: 100% !default;
@@ -39,6 +40,10 @@ $w-topbar-user-nav: 90% !default;
   justify-content: space-between;
   padding: 0 $p-h;
   position: relative;
+
+  @include media-breakpoint-up(m) {
+    border-radius: $bdrs-topbar-user;
+  }
 
   &-ctaButtonIcon {
     fill: currentColor !important;
