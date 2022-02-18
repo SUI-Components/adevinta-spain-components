@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 2.11.0 (2022-02-18)
+
+
+### Features
+
+* **components/ad/smartbanner:** Add the possibility of defining a custom button element in smartban ([eec9c27](https://github.com/SUI-Components/adevinta-spain-components/commit/eec9c277d92b9a4cc6d9e2bba17ef92c05ab9eb7))
+* **components/ad/smartbanner:** Apply code improvements to smartbanner ([99e233a](https://github.com/SUI-Components/adevinta-spain-components/commit/99e233a206c69a82e7c6b561c584ab51acab77ab))
+* **components/ad/smartbanner:** Improve tidiness in smartbanner ([d448e85](https://github.com/SUI-Components/adevinta-spain-components/commit/d448e8542746ae55b168a91a5db17698d300570d))
+
+
+
 # 2.10.0 (2022-01-31)
 
 
