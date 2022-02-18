@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.41.0 (2022-02-18)
+
+
+### Features
+
+* **components/dropdown/basic:** add border radius token ([5a32738](https://github.com/SUI-Components/adevinta-spain-components/commit/5a3273800e34666d88f3cf0a68874d3332f5a509))
+* **components/dropdown/basic:** add default new token value ([545629d](https://github.com/SUI-Components/adevinta-spain-components/commit/545629de748fb42e10a09c9e3a077f86be174d3c))
+
+
+
 # 1.40.0 (2022-02-08)
 
 
