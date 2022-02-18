@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 
-const InstallButton = ({children, onClick}) => {
-  const baseClass = 'sui-AdSmartbanner'
+const InstallButton = ({baseClass, children, onClick}) => {
   return (
     <button className={`${baseClass}-buttonInstall`} onClick={onClick}>
       {children}
@@ -11,6 +10,7 @@ const InstallButton = ({children, onClick}) => {
 
 InstallButton.displayName = 'InstallButton'
 InstallButton.propTypes = {
+  baseClass: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func.isRequired
 }

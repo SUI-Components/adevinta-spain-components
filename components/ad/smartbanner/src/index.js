@@ -51,16 +51,18 @@ function AdSmartbanner({
           </div>
         )}
       </div>
-      <Button onClick={onClick}>{buttonText}</Button>
+      <Button baseClass={baseClass} onClick={onClick}>
+        {buttonText}
+      </Button>
     </div>
   )
 }
 
 AdSmartbanner.propTypes = {
-  button: PropTypes.func,
+  button: PropTypes.node,
   buttonText: PropTypes.string.isRequired,
   customRatingIcons: PropTypes.object,
-  icon: PropTypes.func,
+  icon: PropTypes.node,
   imageUrl: PropTypes.string,
   logoNode: PropTypes.node,
   onClick: PropTypes.func.isRequired,
