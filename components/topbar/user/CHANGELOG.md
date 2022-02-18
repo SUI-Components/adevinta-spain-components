@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.50.0 (2022-02-18)
+
+
+### Features
+
+* **components/topbar/user:** add border radius token ([6d8b35c](https://github.com/SUI-Components/adevinta-spain-components/commit/6d8b35cdaff38c3d265f1327dd67920e495d86f1))
+* **components/topbar/user:** fix scss condition ([1ab7e63](https://github.com/SUI-Components/adevinta-spain-components/commit/1ab7e639848e22f466bd1276ecb2b3cd0d321e06))
+* **components/topbar/user:** use if not instead if x not null, to fit linter rules ([095e2d8](https://github.com/SUI-Components/adevinta-spain-components/commit/095e2d8acf777e7a5061c0346dd71f8a366e8b1f))
+
+
+
 # 1.49.0 (2022-02-01)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-topbar-user",
-  "version": "1.49.0",
+  "version": "1.50.0",
   "description": "SUI Topbar User",
   "main": "lib/index.js",
   "scripts": {
