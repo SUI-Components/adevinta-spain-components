@@ -1,12 +1,14 @@
-import PropTypes from 'prop-types'
-import IconCloseDefault from '@s-ui/react-icons/lib/X'
 import cx from 'classnames'
-import RatingStar from './RatingStar'
+import DefaultCloseIcon from '@s-ui/react-icons/lib/X'
+import DefaultInstallButton from './InstallButton/index.js'
+import PropTypes from 'prop-types'
+import RatingStar from './RatingStar/index.js'
 
 function AdSmartbanner({
+  button: Button = DefaultInstallButton,
   buttonText,
   customRatingIcons,
-  icon: IconClose = IconCloseDefault,
+  icon: IconClose = DefaultCloseIcon,
   imageUrl,
   logoNode,
   onClick,
@@ -49,17 +51,18 @@ function AdSmartbanner({
           </div>
         )}
       </div>
-      <button className={`${baseClass}-buttonInstall`} onClick={onClick}>
+      <Button baseClass={baseClass} onClick={onClick}>
         {buttonText}
-      </button>
+      </Button>
     </div>
   )
 }
 
 AdSmartbanner.propTypes = {
+  button: PropTypes.node,
   buttonText: PropTypes.string.isRequired,
   customRatingIcons: PropTypes.object,
-  icon: PropTypes.func,
+  icon: PropTypes.node,
   imageUrl: PropTypes.string,
   logoNode: PropTypes.node,
   onClick: PropTypes.func.isRequired,
