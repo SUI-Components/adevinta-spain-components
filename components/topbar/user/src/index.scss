@@ -75,7 +75,7 @@ $w-topbar-user-nav: 90% !default;
 
   &-brand {
     @include reset-link;
-    @if not $bg-topbar-user-brand {
+    @if $bg-topbar-user-brand {
       @include text-hide;
       @include media-breakpoint-up(m) {
         height: $h-topbar-user-brand-large;
