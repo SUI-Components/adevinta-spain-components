@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.34.0 (2022-02-18)
+
+
+### Features
+
+* **components/dropdown/user:** add border radius token ([d143d0f](https://github.com/SUI-Components/adevinta-spain-components/commit/d143d0fe9892795ff0274cb1f2832b72dcbd6574))
+
+
+
 # 1.33.0 (2022-02-08)
 
 
