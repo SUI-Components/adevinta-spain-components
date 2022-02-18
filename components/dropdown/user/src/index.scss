@@ -20,6 +20,7 @@
 
     @include media-breakpoint-up(m) {
       background: none;
+      border-radius: $bdrs-drowpdown-user-button-desktop;
       padding: $p-v-small $p-h;
       width: auto;
 
