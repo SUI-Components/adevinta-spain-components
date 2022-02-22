@@ -72,6 +72,7 @@ const TextArea = ({
     id: textArea.id,
     name: textArea.id,
     label: textArea.label || '',
+    nodeLabel: textArea.nodeLabel || '',
     help: textArea.help,
     tabIndex,
     value: textArea.value || '',
