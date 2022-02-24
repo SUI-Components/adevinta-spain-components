@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.45.0 (2022-02-24)
+
+
+### Features
+
+* **components/form/builder:** add nodeLabel prop ([d655d47](https://github.com/SUI-Components/adevinta-spain-components/commit/d655d47b51e6b3a5de0b0b4fb5edd4e40ccc8eff))
+
+
+
 # 4.44.0 (2022-02-15)
 
 
