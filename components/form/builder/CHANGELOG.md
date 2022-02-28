@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 4.46.0 (2022-02-28)
+
+
+### Bug Fixes
+
+* **components/form/builder:** linter error ([f25f8c5](https://github.com/SUI-Components/adevinta-spain-components/commit/f25f8c5dc3f67a3f2f6aae8ada452d55d9cad3a1))
+* **components/form/builder:** stepper - pass factory props to SUI component ([d8717d9](https://github.com/SUI-Components/adevinta-spain-components/commit/d8717d9febdaefc3589e58f8f95f989a471cb5b1))
+
+
+
 # 4.45.0 (2022-02-24)
 
 
