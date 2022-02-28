@@ -1,7 +1,7 @@
 import {isValidElement, memo} from 'react'
 
 import PropTypes from 'prop-types'
-import {field, createComponentMemo} from '../prop-types'
+import {field, createComponentMemo} from '../prop-types/index.js'
 import MoleculeDataCounter from '@s-ui/react-molecule-data-counter'
 
 export const OPERATIONS = {
@@ -56,8 +56,9 @@ const Stepper = ({stepper, tabIndex, onChange, errors, alerts, renderer}) => {
   // render SUI component
   return (
     <div
-      className={`sui-FormBuilder-field sui-FormBuilder-Stepper sui-FormBuilder-${stepperProps.id ||
-        tabIndex}`}
+      className={`sui-FormBuilder-field sui-FormBuilder-Stepper sui-FormBuilder-${
+        stepperProps.id || tabIndex
+      }`}
     >
       <MoleculeDataCounter
         {...stepperProps}
