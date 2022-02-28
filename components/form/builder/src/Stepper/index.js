@@ -1,7 +1,7 @@
 import {isValidElement, memo} from 'react'
 
 import PropTypes from 'prop-types'
-import {field, createComponentMemo} from '../prop-types'
+import {field, createComponentMemo} from '../prop-types/index.js'
 import MoleculeDataCounter from '@s-ui/react-molecule-data-counter'
 
 export const OPERATIONS = {
@@ -60,7 +60,11 @@ const Stepper = ({stepper, tabIndex, onChange, errors, alerts, renderer}) => {
         stepperProps.id || tabIndex
       }`}
     >
-      <MoleculeDataCounter {...stepperProps} onChange={onChangeHandler} />
+      <MoleculeDataCounter
+        {...stepperProps}
+        {...rendererResponse}
+        onChange={onChangeHandler}
+      />
     </div>
   )
 }
