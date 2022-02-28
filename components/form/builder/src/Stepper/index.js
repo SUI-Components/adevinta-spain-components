@@ -56,11 +56,14 @@ const Stepper = ({stepper, tabIndex, onChange, errors, alerts, renderer}) => {
   // render SUI component
   return (
     <div
-      className={`sui-FormBuilder-field sui-FormBuilder-Stepper sui-FormBuilder-${
-        stepperProps.id || tabIndex
-      }`}
+      className={`sui-FormBuilder-field sui-FormBuilder-Stepper sui-FormBuilder-${stepperProps.id ||
+        tabIndex}`}
     >
-      <MoleculeDataCounter {...stepperProps} onChange={onChangeHandler} />
+      <MoleculeDataCounter
+        {...stepperProps}
+        {...rendererResponse}
+        onChange={onChangeHandler}
+      />
     </div>
   )
 }
