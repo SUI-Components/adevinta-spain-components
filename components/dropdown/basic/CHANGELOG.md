@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.42.0 (2022-03-01)
+
+
+### Features
+
+* **components/dropdown/basic:** add new tokens to be modified in our theme ([707b655](https://github.com/SUI-Components/adevinta-spain-components/commit/707b655cc8788cb03d8c99941b1b10c85dda9b16))
+
+
+
 # 1.41.0 (2022-02-18)
 
 
