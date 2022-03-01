@@ -3,7 +3,14 @@
 @import '~@s-ui/theme/lib/settings-compat-v7/index';
 @import '~@s-ui/theme/lib/index';
 
+$bdb-dropdown-basic-menu-title: 1px solid $c-gray-light !default;
 $bdrs-dropdown-button-desktop: 0 !default;
+$c-dropdown-basic-menu-list-link: $c-text-base !default;
+$c-dropdown-basic-menu-title: $c-gray !default;
+$fw-dropdown-basic-menu-title: $fw-bold !default;
+$fz-dropdown-basic-menu-title: inherit !default;
+$td-dropdown-basic-menu-list-link-hover: none !default;
+$tt-dropdown-basic-menu-title: uppercase !default;
 
 .sui-DropdownBasic {
   @include media-breakpoint-down(s) {
@@ -130,13 +137,14 @@ $bdrs-dropdown-button-desktop: 0 !default;
         padding: $p-l 0 0 $p-m;
       }
       @include media-breakpoint-up(m) {
-        border-bottom: 1px solid $c-gray-light;
+        border-bottom: $bdb-dropdown-basic-menu-title;
       }
-      color: $c-gray;
-      font-weight: $fw-bold;
+      color: $c-dropdown-basic-menu-title;
+      font-weight: $fw-dropdown-basic-menu-title;
+      font-size: $fz-dropdown-basic-menu-title;
       margin-bottom: $m-l;
       padding: $p-m 0;
-      text-transform: uppercase;
+      text-transform: $tt-dropdown-basic-menu-title;
     }
 
     &-list {
@@ -153,6 +161,7 @@ $bdrs-dropdown-button-desktop: 0 !default;
 
       &Link {
         @include reset-link;
+        color: $c-dropdown-basic-menu-list-link;
         @include media-breakpoint-down(s) {
           font-size: $fz-l;
           padding: $p-s $p-l;
@@ -165,6 +174,7 @@ $bdrs-dropdown-button-desktop: 0 !default;
 
         &:hover {
           color: $c-dropdown-basic-list-link;
+          text-decoration: $td-dropdown-basic-menu-list-link-hover;
         }
       }
     }
