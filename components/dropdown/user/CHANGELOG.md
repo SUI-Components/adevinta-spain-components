@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.35.0 (2022-03-03)
+
+
+### Features
+
+* **components/dropdown/user:** new scss tokens ([a6020fc](https://github.com/SUI-Components/adevinta-spain-components/commit/a6020fcddd3c3bb5c0b0d505289502ab6b3abd18))
+
+
+
 # 1.34.0 (2022-02-18)
 
 
