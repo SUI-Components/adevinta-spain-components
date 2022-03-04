@@ -239,7 +239,9 @@ export default function TopbarUser({
             design="solid"
             href={navCTA.url}
             title={navCTA.text}
-            leftIcon={<navCTA.icon svgClass="sui-TopbarUser-ctaButtonIcon" />}
+            {...(navCTA.icon && {
+              leftIcon: <navCTA.icon svgClass="sui-TopbarUser-ctaButtonIcon" />
+            })}
             shape={navCTA.shape}
             size={atomButtonSizes.SMALL}
             onClick={handleCTAclick}
