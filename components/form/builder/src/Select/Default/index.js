@@ -24,8 +24,8 @@ const DefaultSelect = ({
   const alertMessages = alerts[select.id]
 
   const onChangeCallback = useCallback(
-    (evt, {value}) => {
-      return onChange(select.id, value)
+    (evt, {value, inputId = select.id}) => {
+      return onChange(inputId, value)
     },
     [onChange, select]
   )
