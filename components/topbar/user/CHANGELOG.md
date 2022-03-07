@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.51.0 (2022-03-07)
+
+
+### Features
+
+* **components/topbar/user:** make CTA icon optional ([108dcf3](https://github.com/SUI-Components/adevinta-spain-components/commit/108dcf308c78c70f8d077e156609c7fbb3f190dd))
+
+
+
 # 1.50.0 (2022-02-18)
 
 
