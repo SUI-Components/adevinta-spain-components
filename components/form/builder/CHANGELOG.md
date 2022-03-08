@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.47.0 (2022-03-08)
+
+
+### Features
+
+* **components/form/builder:** add the possibility of getting field id from outside ([cd7a53b](https://github.com/SUI-Components/adevinta-spain-components/commit/cd7a53b9c7380f03bd4db0906f05f7c5f6e6c932))
+
+
+
 # 4.46.0 (2022-02-28)
 
 
