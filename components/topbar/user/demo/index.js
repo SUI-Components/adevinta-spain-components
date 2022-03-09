@@ -1,4 +1,18 @@
-/* eslint-disable react/prop-types, react/react-in-jsx-scope, react/jsx-no-undef */
+/* eslint-disable react/prop-types */
+
+import TopbarUser from 'components/topbar/user/src'
+
+const Topbar = props => (
+  <TopbarUser
+    brand={brand}
+    navMain={navMain}
+    navUser={navUser}
+    navCTA={navCTA}
+    onToggle={console.log}
+    {...props}
+  />
+)
+
 const AudioIcon = ({svgClass}) => (
   <svg
     width="24"
@@ -124,23 +138,16 @@ const navCTA = {
   text: 'Check our code'
 }
 
-const Topbar = props => (
-  <TopbarUser
-    brand={brand}
-    navMain={navMain}
-    navUser={navUser}
-    navCTA={navCTA}
-    onToggle={console.log}
-    {...props}
-  />
-)
+const Demo = () => {
+  return (
+    <>
+      <h1>Topbar with CTA</h1>
+      <Topbar />
 
-return (
-  <>
-  <h1>Topbar with CTA</h1>
-  <Topbar/>
+      <h1>Topbar with Custom content</h1>
+      <Topbar customContent={<div>custom content</div>} />
+    </>
+  )
+}
 
-  <h1>Topbar with Custom content</h1>
-  <Topbar customContent={<div>custom content</div>}/>
-  </>
-)
+export default Demo
