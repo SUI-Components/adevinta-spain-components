@@ -4,7 +4,7 @@
 
 /* eslint react/jsx-no-undef:0 */
 
-import {render} from '@testing-library/react'
+import {render, fireEvent, waitFor} from '@testing-library/react'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
@@ -31,6 +31,19 @@ describe('topbar/user', () => {
 
     expect(getByText(/custom content/i)).to.exist
     expect(queryByTitle(navCTA.text)).not.exist
+  })
+
+  it('The user can open toggable menus', async () => {
+    const {queryByText} = setup()
+
+    const firstNavButtonElement = queryByText(navMain[0].label)
+
+    fireEvent.click(firstNavButtonElement)
+
+    await waitFor(() => {
+      const firstLinkItemElement = queryByText(navMain[0].menu[0].links[0].text)
+      expect(firstLinkItemElement).to.have.attribute('href', '#link-1')
+    })
   })
 })
 
