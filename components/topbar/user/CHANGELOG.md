@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.52.0 (2022-03-11)
+
+
+### Features
+
+* **components/topbar/user:** add test ([50baaba](https://github.com/SUI-Components/adevinta-spain-components/commit/50baaba67022612b9d30ec5b42a61996ec96a1ea))
+* **components/topbar/user:** fix demo ([a097e59](https://github.com/SUI-Components/adevinta-spain-components/commit/a097e59918e400d8237bad552a8358f2a1a16c40))
+* **components/topbar/user:** refactor, and extract fixtures ([ea635c2](https://github.com/SUI-Components/adevinta-spain-components/commit/ea635c2fb45107b3fd715295624a2e80cd95af0b))
+
+
+
 # 1.51.0 (2022-03-07)
 
 
