@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import {operators} from './operators'
+import {operators} from './operators.js'
 import {
   IN,
   INPATTERN,
@@ -17,14 +17,14 @@ import {
   SUPERSET,
   NSUPERSET,
   HIDDEN
-} from './constants'
-import {changeFieldById, fieldsToQP} from './fields'
+} from './constants.js'
+import {changeFieldById, fieldsToQP} from './fields.js'
 
 const fetch = config =>
   new Promise((resolve, reject) => {
-    const {url, headers} = config
+    const {url, headers, withCredentials = true} = config
     const request = new window.XMLHttpRequest()
-    request.onreadystatechange = function () {
+    request.onreadystatechange = function() {
       if (request.readyState === window.XMLHttpRequest.DONE) {
         if (request.status === 200) {
           resolve(request.response)
@@ -34,7 +34,7 @@ const fetch = config =>
       }
     }
 
-    request.onerror = function () {
+    request.onerror = function() {
       reject(Error('Network Error'))
     }
     request.open('GET', url, true)
@@ -42,9 +42,8 @@ const fetch = config =>
       Object.entries(headers).map(([header, value]) =>
         request.setRequestHeader(header, value)
       )
-
     request.responseType = 'json'
-    request.withCredentials = true
+    request.withCredentials = withCredentials
     request.send()
   })
 
