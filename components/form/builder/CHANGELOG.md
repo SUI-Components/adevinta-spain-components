@@ -1,5 +1,19 @@
 # CHANGELOG
 
+# 4.48.0 (2022-04-05)
+
+
+### Bug Fixes
+
+* **components/form/builder:** Dummy change to fix version ([d124c5a](https://github.com/SUI-Components/adevinta-spain-components/commit/d124c5a6990804967c057aa3637ce66a75ef7d24))
+
+
+### Features
+
+* **components/form/builder:** Parametrize the withCredentials request option ([b65f27d](https://github.com/SUI-Components/adevinta-spain-components/commit/b65f27d3faad511c3ffd38a868fa9826efa8a75b))
+
+
+
 # 4.47.0 (2022-03-08)
 
 
