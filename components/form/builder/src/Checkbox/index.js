@@ -1,9 +1,8 @@
 import {isValidElement, memo} from 'react'
-
 import PropTypes from 'prop-types'
-import {field, createComponentMemo} from '../prop-types'
+import {field, createComponentMemo} from '../prop-types/index.js'
 import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
-import IconCheck from '../Icons/IconCheck'
+import IconCheck from '../Icons/IconCheck.js'
 
 const Checkbox = ({
   checkbox,
