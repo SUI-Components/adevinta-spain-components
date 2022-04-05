@@ -51,7 +51,6 @@ export const shouldApplyRule = (fields, changeField, locale) => when => {
   // Reduce works as AND operator, all rules should be true
   const isValid = when.reduce((acc, rule) => {
     // if (rule.id !== changeField) {
-
     if (!when.some(rule => rule.id === changeField)) {
       return false
     }
