@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import {operators} from './operators'
+import {operators} from './operators.js'
 import {
   IN,
   INPATTERN,
@@ -17,12 +17,12 @@ import {
   SUPERSET,
   NSUPERSET,
   HIDDEN
-} from './constants'
-import {changeFieldById, fieldsToQP} from './fields'
+} from './constants.js'
+import {changeFieldById, fieldsToQP} from './fields.js'
 
 const fetch = config =>
   new Promise((resolve, reject) => {
-    const {url, headers} = config
+    const {url, headers, withCredentials = true} = config
     const request = new window.XMLHttpRequest()
     request.onreadystatechange = function () {
       if (request.readyState === window.XMLHttpRequest.DONE) {
@@ -42,9 +42,8 @@ const fetch = config =>
       Object.entries(headers).map(([header, value]) =>
         request.setRequestHeader(header, value)
       )
-
     request.responseType = 'json'
-    request.withCredentials = true
+    request.withCredentials = withCredentials
     request.send()
   })
 
@@ -120,58 +119,60 @@ export const shouldApplyRule = (fields, changeField, locale) => when => {
   return isValid
 }
 
-export const fetchRemoteFields = (
-  fields,
-  formID,
-  baseAPIURL,
-  responseInterceptor,
-  requestInterceptor,
-  extraParams
-) => async fieldsToChanges => {
-  const remoteFieldsToChange = await Promise.all(
-    Object.entries(fieldsToChanges)
-      .filter(([field, nextValue]) => nextValue.remote === REMOTE)
-      .map(async ([field, nextValue]) => {
-        const defaultUrl = encodeURI(
-          `${baseAPIURL}/fieldrules/${field}?${fieldsToQP(fields, formID)}`
-        )
+export const fetchRemoteFields =
+  (
+    fields,
+    formID,
+    baseAPIURL,
+    responseInterceptor,
+    requestInterceptor,
+    extraParams
+  ) =>
+  async fieldsToChanges => {
+    const remoteFieldsToChange = await Promise.all(
+      Object.entries(fieldsToChanges)
+        .filter(([field, nextValue]) => nextValue.remote === REMOTE)
+        .map(async ([field, nextValue]) => {
+          const defaultUrl = encodeURI(
+            `${baseAPIURL}/fieldrules/${field}?${fieldsToQP(fields, formID)}`
+          )
 
-        const defaultConfig = {url: defaultUrl}
+          const defaultConfig = {url: defaultUrl}
 
-        const requestInterceptorConfig = await requestInterceptor({
-          baseAPIURL,
-          fieldID: field,
-          fields,
-          extraParams
-        })
-        // Config must be follow the Axios pattern
-        // https://github.com/axios/axios
-        const config = requestInterceptorConfig || defaultConfig
+          const requestInterceptorConfig = await requestInterceptor({
+            baseAPIURL,
+            fieldID: field,
+            fields,
+            extraParams
+          })
+          // Config must be follow the Axios pattern
+          // https://github.com/axios/axios
+          const config = requestInterceptorConfig || defaultConfig
 
-        const {remote, ...resetValue} = nextValue
-        return fetch(config)
-          .then(async json => {
-            const {url} = config
-            const nextJSON = await responseInterceptor({
-              field,
-              url,
-              response:
-                typeof json === 'string' || json instanceof String
-                  ? JSON.parse(json)
-                  : json
+          const {remote, ...resetValue} = nextValue
+          return fetch(config)
+            .then(async json => {
+              const {url} = config
+              const nextJSON = await responseInterceptor({
+                field,
+                url,
+                response:
+                  typeof json === 'string' || json instanceof String
+                    ? JSON.parse(json)
+                    : json
+              })
+              return [field, {...resetValue, ...nextJSON}]
             })
-            return [field, {...resetValue, ...nextJSON}]
-          })
-          .catch(error => {
-            console.error(
-              `FAILED requesting remote nextValue for ${field} with error: ${error}`
-            )
-            return [field, {}]
-          })
-      })
-  )
-  return remoteFieldsToChange
-}
+            .catch(error => {
+              console.error(
+                `FAILED requesting remote nextValue for ${field} with error: ${error}`
+              )
+              return [field, {}]
+            })
+        })
+    )
+    return remoteFieldsToChange
+  }
 
 export const applyRules = async (
   fields,
