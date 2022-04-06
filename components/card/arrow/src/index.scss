@@ -8,6 +8,8 @@ $bdrs-card-arrow: 0 !default;
 $bxsh-card-arrow: $bxsh-m !default;
 $bxsh-card-arrow-hover: $bxsh-l !default;
 $bxsh-card-arrow-active: $bxsh-l !default;
+$fz-card-carrow-title: $fz-s !default;
+$fz-card-carrow-description: $fz-xs !default;
 
 .sui-CardArrow {
   @include sui-card;
@@ -45,7 +47,7 @@ $bxsh-card-arrow-active: $bxsh-l !default;
 
   &-inner {
     &Title {
-      font-size: $fz-s;
+      font-size: $fz-card-carrow-title;
       margin-top: 0;
       margin-bottom: 0;
     }
@@ -53,7 +55,7 @@ $bxsh-card-arrow-active: $bxsh-l !default;
     padding: $p-l;
 
     &Description {
-      font-size: $fz-xs;
+      font-size: $fz-card-carrow-description;
       margin-bottom: 0;
     }
   }
