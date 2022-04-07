@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
-
 import PropTypes from 'prop-types'
 import AtomImage from '@s-ui/react-atom-image'
-
 import Chevronright from '@s-ui/react-icons/lib/Chevronright'
 
 const CardArrow = ({media, text, icon, linkFactory: Link, link}) => {
