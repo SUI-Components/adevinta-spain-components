@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 4.50.0 (2022-04-07)
+
+
+### Bug Fixes
+
+* **components/form/builder:** fix release ([92c4a1d](https://github.com/SUI-Components/adevinta-spain-components/commit/92c4a1de7f321245149c3cc732c21b54de5400e5))
+* **components/form/builder:** force new release ([1fac732](https://github.com/SUI-Components/adevinta-spain-components/commit/1fac732bed84bd2cac6836771a796171d94ba15c))
+
+
+
 # 4.48.0 (2022-04-05)
 
 
