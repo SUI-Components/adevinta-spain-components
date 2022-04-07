@@ -1,5 +1,21 @@
 # CHANGELOG
 
+# 1.12.0 (2022-04-07)
+
+
+### Bug Fixes
+
+* **components/card/arrow:** fix release ([773d86b](https://github.com/SUI-Components/adevinta-spain-components/commit/773d86b639326c08f6c4f8464f3ce93d012f88e4))
+
+
+### Features
+
+* **card/arrow:** add card arrow color variable ([e175014](https://github.com/SUI-Components/adevinta-spain-components/commit/e175014eb38bca457dcede7cb6cd8299ef2f7b0d))
+* **card/arrow:** add variables to card arrow font sizes ([09d907c](https://github.com/SUI-Components/adevinta-spain-components/commit/09d907c0f1045404497a9f117b649ce24037f0a1))
+* **card/arrow:** fixing typo ([fe9e384](https://github.com/SUI-Components/adevinta-spain-components/commit/fe9e384ffd54897c68ae098fd693bd45a5e429ed))
+
+
+
 # 1.11.0 (2022-01-11)
 
 
