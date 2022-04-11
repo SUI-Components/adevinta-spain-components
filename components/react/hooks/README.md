@@ -411,6 +411,27 @@ function Component() {
 }
 ```
 
+### useCallbackRef
+
+> Persist a function between renders but keeps it up-to-date if it changes.
+
+#### Usage
+
+```js
+function Component({onChange: onChangeProp}) {
+  const onChange = useCallbackRef(onChangeProp)
+
+  useEffect(() => {
+    window.library.init({
+      id: '#id',
+      onChange
+    })
+  }, [onChange])
+
+  return <div id="id" />
+}
+```
+
 ### useSteps
 
 > The `useSteps` hook allow to create a steps handler for navigating between steps.
