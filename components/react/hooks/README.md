@@ -411,9 +411,25 @@ function Component() {
 }
 ```
 
+### useIsomorphicLayoutEffect
+
+> An alternative to `useLayoutEffect` that does not show warning when server-side rendering
+
+#### Usage
+
+```js
+function Component({value}) {
+  useIsomorphicLayoutEffect(() => {
+    window.console.log(value)
+  }, [value])
+
+  return null
+}
+```
+
 ### useCallbackRef
 
-> Persist a function between renders but keeps it up-to-date if it changes.
+> Persist a function between renders but keeps it up-to-date if it changes (commonly known as [The Latest Ref Pattern](https://epicreact.dev/the-latest-ref-pattern-in-react/)).
 
 #### Usage
 
