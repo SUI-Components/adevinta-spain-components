@@ -14,12 +14,8 @@ describe('useControlledState hook', () => {
 
     // When
     const hook = setupHook(props)
-    let [
-      response,
-      setResponse,
-      isControlledValue,
-      initialValue
-    ] = hook.result.current
+    let [response, setResponse, isControlledValue, initialValue] =
+      hook.result.current
 
     // Then
     expect(typeof response).toBe('number')
@@ -36,12 +32,8 @@ describe('useControlledState hook', () => {
 
     // When
     hook.rerender(props)
-    ;[
-      response,
-      setResponse,
-      isControlledValue,
-      initialValue
-    ] = hook.result.current
+    ;[response, setResponse, isControlledValue, initialValue] =
+      hook.result.current
 
     // Then
     expect(typeof response).toBe('number')
@@ -58,12 +50,8 @@ describe('useControlledState hook', () => {
 
     // When
     hook.rerender(props)
-    ;[
-      response,
-      setResponse,
-      isControlledValue,
-      initialValue
-    ] = hook.result.current
+    ;[response, setResponse, isControlledValue, initialValue] =
+      hook.result.current
 
     // Then
     expect(typeof response).toBe('number')
@@ -81,12 +69,8 @@ describe('useControlledState hook', () => {
 
     // When
     const hook = setupHook(props)
-    const [
-      response,
-      setResponse,
-      isControlledValue,
-      initialValue
-    ] = hook.result.current
+    const [response, setResponse, isControlledValue, initialValue] =
+      hook.result.current
 
     // Then
     expect(typeof response).toBe('number')
@@ -104,12 +88,8 @@ describe('useControlledState hook', () => {
 
     // When
     const hook = setupHook(props)
-    let [
-      response,
-      setResponse,
-      isControlledValue,
-      initialValue
-    ] = hook.result.current
+    let [response, setResponse, isControlledValue, initialValue] =
+      hook.result.current
 
     // Then
     expect(typeof response).toBe('number')

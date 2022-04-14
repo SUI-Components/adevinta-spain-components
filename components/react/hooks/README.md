@@ -411,6 +411,43 @@ function Component() {
 }
 ```
 
+### useIsomorphicLayoutEffect
+
+> An alternative to `useLayoutEffect` that does not show warning when server-side rendering
+
+#### Usage
+
+```js
+function Component({value}) {
+  useIsomorphicLayoutEffect(() => {
+    window.console.log(value)
+  }, [value])
+
+  return null
+}
+```
+
+### useCallbackRef
+
+> Persist a function between renders but keeps it up-to-date if it changes (commonly known as [The Latest Ref Pattern](https://epicreact.dev/the-latest-ref-pattern-in-react/)).
+
+#### Usage
+
+```js
+function Component({onChange: onChangeProp}) {
+  const onChange = useCallbackRef(onChangeProp)
+
+  useEffect(() => {
+    window.library.init({
+      id: '#id',
+      onChange
+    })
+  }, [onChange])
+
+  return <div id="id" />
+}
+```
+
 ### useSteps
 
 > The `useSteps` hook allow to create a steps handler for navigating between steps.
