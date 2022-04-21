@@ -280,16 +280,16 @@ export default function Demo() {
 
 It accept 4 arguments, the first 2 mandatory, the others are optionals.
 
-- **event type<String|Array<String>>**: It could be a single string representing an event or more passed with an array
+- **event type`<String|Array<String>>`**: It could be a single string representing an event or more passed with an array
   [required]
 
-- **handler<Function>**: The function handler to invoke when the event occurs
+- **handler`<Function>`**: The function handler to invoke when the event occurs
   [required]
 
-- **target<HtmlElement>**: The target of our event listeners
+- **target`<HtmlElement>`**: The target of our event listeners
   [default: Client: window | Server: null]
 
-- **options<Object>**: Optional options to pass to the event listener
+- **options`<Object>`**: Optional options to pass to the event listener
   [default: {}]
 
 ```js
