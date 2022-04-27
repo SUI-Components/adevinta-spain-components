@@ -1,8 +1,7 @@
 import ServicesMarkdown from 'components/services/markdown/src/index'
 
 const handleOnLoad = ({html, setHtml}) => {
-  console.log('markdown content loaded')
-  console.log('html:', html)
+  console.log('markdown content loaded', {html})
   setHtml(
     '<h1>Hello World</h1><p>This content was injected after the markdown was loaded</p>'
   )
