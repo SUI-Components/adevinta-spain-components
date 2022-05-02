@@ -42,9 +42,9 @@ const FormBuilder = ({
   const __PERFORMANCE_UGLY_HACK_STATE_FIELDS__ = useRef()
   __PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current = stateFields
 
-  const changeField = (fieldId, fieldValue) => {
+  const changeField = (fieldId, fieldValue, previousFields) => {
     const nextFields = changeFieldById(
-      __PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current,
+      previousFields || __PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current,
       fieldId,
       {value: fieldValue}
     )
@@ -124,7 +124,11 @@ const FormBuilder = ({
           return previousFields
         }
 
-        const nextFieldsChanged = changeField(fieldId, initFields[fieldId])
+        const nextFieldsChanged = changeField(
+          fieldId,
+          initFields[fieldId],
+          previousFields
+        )
 
         const nextFieldsWithRules = await reducerWithRules(nextFieldsChanged, {
           type: RULES,
