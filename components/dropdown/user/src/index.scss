@@ -2,6 +2,7 @@
 
 @import '~@s-ui/theme/lib/index';
 @import '~@s-ui/theme/lib/settings-compat-v7/index';
+@import '~@s-ui/react-molecule-badge-counter/lib/index';
 @import 'settings';
 
 .sui-DropdownUser {
@@ -155,11 +156,9 @@
       }
 
       &Notification {
-        @include sui-badge-notification;
-        margin-top: -$size-badge-notification * 0.5;
+        margin-bottom: $size-badge-notification * 0.5;
         position: absolute;
-        right: $p-h-small;
-        top: 50%;
+        right: $p-h-large;
       }
 
       &Link:hover &Text {
