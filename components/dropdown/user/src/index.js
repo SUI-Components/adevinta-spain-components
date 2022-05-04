@@ -2,6 +2,9 @@
 import {useReducer} from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import MoleculeBadgeCounter, {
+  moleculeBadgeCounterSizes
+} from '@s-ui/react-molecule-badge-counter'
 
 import {reducerActions, reducerInitialState, reducer} from './reducer'
 
@@ -57,7 +60,10 @@ const DropdownUser = ({
           <span className="sui-DropdownUserMenu-listText">{text}</span>
           {hasLinkNotifications && (
             <span className="sui-DropdownUserMenu-listNotification">
-              {notifications}
+              <MoleculeBadgeCounter
+                label={notifications}
+                size={moleculeBadgeCounterSizes.LARGE}
+              />
             </span>
           )}
         </Link>
