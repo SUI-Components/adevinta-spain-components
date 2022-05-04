@@ -15,7 +15,7 @@ $ npm install @s-ui/react-hooks --save
 Hook that will be executed when the component mounts. Similar behaviour to old `componentDidMount` but `useMount` could return a function that will executed when the component unmounts. Useful for clearing events or timers.
 
 ```js
-import {useMount} from '@s-ui/react-hooks'
+import useMount from '@s-ui/react-hooks/lib/useMount/index.js'
 
 export default () => {
   useMount(() => {
@@ -46,7 +46,7 @@ Hook to detect if an element is on the screen. Useful for lazy loading component
 You could configure if it should only be fired `once` by using the parameter with the same name (default: `true`).
 
 ```js
-import { useOnScreen } from '@s-ui/react-hooks'
+import useOnScreen from '@s-ui/react-hooks/lib/useOnScreen/index.js'
 
 export default () => {
   const [isIntersecting, outerRef] = useOnScreen({ once: true })
@@ -67,7 +67,7 @@ This Hook listens for orientation changes and returns current orientation inform
 Returns: `{orientation, side}`
 
 ```js
-import {useOrientation, orientations} from '@s-ui/react-hooks'
+import useOrientation, {orientations} from '@s-ui/react-hooks/lib/useOrientation/index.js'
 
 export default () => {
   const {orientation, side} = useOrientation()
@@ -86,7 +86,7 @@ export default () => {
 Similar to `useOnScreen` but it let you configure when the distance is enough to return true. By default if the element is 200px near the screen it will change the inner state of the hook. You could define the `offset` in pixels to fire the event sooner or later.
 
 ```js
-import { useNearScreen } from '@s-ui/react-hooks'
+import {useNearScreen} from '@s-ui/react-hooks/lib/useOnScreen/index.js'
 
 export default () => {
   const [isNear, outerRef] = useNearScreen({ offset: '300px' })
@@ -109,7 +109,7 @@ Useful to cover quick functional migrations in components with complex states th
 If you apply this when migrating to a functional component, please take in mind that you may later rethink the strategy of its state.
 
 ```js
-import {useLegacyState} from '@s-ui/react-hooks'
+import {useLegacyState} from '@s-ui/react-hooks/lib/useLegacyState/index.js'
 
 export default () => {
   const initialState = {
@@ -165,7 +165,7 @@ This is a CSS media query hook for React. It listens for matches to a CSS media 
 Hook `useMediaQuery` always returns a boolean and it indicates if query matches or not.
 
 ```js
-import {useMediaQuery} from '@s-ui/react-hooks'
+import useMediaQuery from '@s-ui/react-hooks/lib/useMediaQuery'
 
 export default function Demo() {
   const isMatching = useMediaQuery('(min-width:600px)')
@@ -177,7 +177,7 @@ export default function Demo() {
 **On the server, by default, the mediaQuery doesn't match** but you could pass an option to change this.
 
 ```js
-import {useMediaQuery} from '@s-ui/react-hooks'
+import useMediaQuery from '@s-ui/react-hooks/lib/useMediaQuery'
 
 export default function Demo() {
   const isMatching = useMediaQuery('(min-width:600px)', {defaultMatches: true})
@@ -194,7 +194,7 @@ Hook to get the scroll position and the direction of scroll, limited to the Y ax
 The hook `useScroll` always returns an object with **position** and **direction of scroll**
 
 ```js
-import {useScroll} from '@s-ui/react-hooks'
+import useScroll from '@s-ui/react-hooks/lib/useScroll/index.js'
 
 export default function Demo() {
   const {position, direction} = useScroll()
@@ -215,7 +215,7 @@ Hook to debounce any fast changing value.
 The hook `useDebounce` always returns a given value after some miliseconds.
 
 ```js
-import {useDebounce} from '@s-ui/react-hooks'
+import useDebounce from '@s-ui/react-hooks/lib/useDebounce/index.js'
 
 export default function Demo() {
   const [searchTerm, setSearchTerm] = useState('')
@@ -246,7 +246,7 @@ This hook is copied from [useHooks](https://usehooks.com/useOnClickOutside/)
 
 ```js
 import {useRef, useState} from 'react'
-import {useOnClickOutside} from '@s-ui/react-hooks'
+import useOnClickOutside from '@s-ui/react-hooks/lib/useOnClickOutside/index.js'
 
 export default function Demo() {
   // Create a ref that we add to the element for which we want to detect outside clicks
@@ -293,6 +293,8 @@ It accept 4 arguments, the first 2 mandatory, the others are optionals.
   [default: {}]
 
 ```js
+import useEventListener from '@s-ui/react-hooks/lib/useEventListener/index.js'
+
 function Component() {
   const divRef = useRef()
 
@@ -378,6 +380,8 @@ It accepts a single boolean argument which is used as initial value.
   - _off_: Set to `false` the value
 
 ```js
+import useBoolean from '@s-ui/react-hooks/lib/useBoolean/index.js'
+
 function Component() {
   const [value, {toggle, on, off}] = useBoolean()
 
@@ -399,6 +403,8 @@ function Component() {
 #### Usage
 
 ```js
+import useToogle from '@s-ui/react-hooks/lib/useToggle/index.js'
+
 function Component() {
   const [value, toggle] = useToggle()
 
@@ -471,6 +477,8 @@ It accepts a single argument which is used as initial value. If not passed, the 
 - _isActive_: `(step) => boolean` Check if the passed step is marked as the current
 
 ```js
+import useSteps from '@s-ui/react-hooks/lib/useSteps/index.js'
+
 function Component() {
   const {next, prev, step, history, lastAction, reset} = useSteps(0)
 
@@ -500,6 +508,8 @@ It accepts a list of ref arguments.
 **Return value**: `Ref<(value) => void>`
 
 ```js
+import useMergeRefs from '@s-ui/react-hooks/lib/useMergeRefs/index.js'
+
 const Component = React.forwardRef((props, forwardedRef) => {
   const firstRef = useRef()
   const secondRef = useRef()
@@ -517,6 +527,8 @@ const Component = React.forwardRef((props, forwardedRef) => {
 > The `useControlledState` hook has the purpose of combine the state of a value prop and its default value.
 
 ```js
+import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
+
 const Component = ({value, initialValue, onClick, onReset}) => {
   const [
     innerValue, // state
@@ -544,6 +556,8 @@ const Component = ({value, initialValue, onClick, onReset}) => {
 > Returns a function that will return true if component mounted and false otherwise.
 
 ```js
+import useMountedState from '@s-ui/react-hooks/lib/useMountedState/index.js'
+
 const Demo = () => {
   const isMounted = useMountedState()
 
@@ -559,36 +573,13 @@ const Demo = () => {
 }
 ```
 
-### useSetState
-
-> React state hook that creates setState method which works similar to how this.setState works in class components—it merges object changes into current state.
-
-```js
-const Demo = () => {
-  const [{input1, input2}, setState] = useSetState({
-    input1: 'input1',
-    input2: 'input2'
-  })
-  return (
-    <div>
-      <input
-        value={input1}
-        onChange={event => setState({input1: event.target.value})}
-      />
-      <input
-        value={input2}
-        onChange={event => setState({input2: event.target.value})}
-      />
-    </div>
-  )
-}
-```
-
 ### useCopyToClipboard
 
 > Copy text to a user's clipboard.
 
 ```js
+import useCopyToClipboard from '@s-ui/react-hooks/lib/useCopyToClipboard/index.js'
+
 const Demo = () => {
   const [text, setText] = React.useState('')
   const [{value, error}, copyToClipboard] = useCopyToClipboard()
