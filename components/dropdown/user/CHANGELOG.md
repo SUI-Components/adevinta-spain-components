@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.36.0 (2022-05-04)
+
+
+### Features
+
+* **components/dropdown/user:** Replace custom notification by badgeCounter component ([63f411a](https://github.com/SUI-Components/adevinta-spain-components/commit/63f411ae014941e6d2648a5aa3b83034b3f55c96))
+
+
+
 # 1.35.0 (2022-03-03)
 
 
