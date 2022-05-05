@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.37.0 (2022-05-05)
+
+
+### Features
+
+* **components/dropdown/user:** Dummy commit to force release ([f607014](https://github.com/SUI-Components/adevinta-spain-components/commit/f607014c0f76da2ac53187bcff6b82cefa5bfa20))
+
+
+
 # 1.36.0 (2022-05-04)
 
 
