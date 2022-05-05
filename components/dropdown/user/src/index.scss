@@ -156,9 +156,8 @@
       }
 
       &Notification {
-        margin-bottom: $size-badge-notification * 0.5;
         position: absolute;
-        right: $p-h-large;
+        right: $p-base;
       }
 
       &Link:hover &Text {
