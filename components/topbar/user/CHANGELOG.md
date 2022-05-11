@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 1.53.0 (2022-05-11)
+
+
+### Bug Fixes
+
+* **components/topbar/user:** fix brandName rendering ([227c3cc](https://github.com/SUI-Components/adevinta-spain-components/commit/227c3cc842f7ca6a49ef2dcf8b87293b8c79f09b))
+
+
+### Features
+
+* **components/topbar/user:** accept image node within brand prop ([34784a3](https://github.com/SUI-Components/adevinta-spain-components/commit/34784a35e9043d0add4b2c7cad9a7fc95811952c))
+* **components/topbar/user:** adjust styles after including brand image ([1d2277d](https://github.com/SUI-Components/adevinta-spain-components/commit/1d2277d2231c3204c48e7baa7bacae81ab4db77b))
+
+
+
 # 1.52.0 (2022-03-11)
 
 
