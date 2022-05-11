@@ -200,7 +200,7 @@ export default function TopbarUser({
           className="sui-TopbarUser-brand"
           title={brandName}
         >
-          {BrandImage ? <BrandImage /> : {brandName}}
+          {BrandImage ? <BrandImage /> : brandName}
         </Link>
         <div
           className={navWrapClassName}
