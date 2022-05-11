@@ -48,12 +48,8 @@ export default function TopbarUser({
    * Set navigation wrap inline styles.
    */
   const _setNavWrapStyles = () => {
-    const {
-      top,
-      left,
-      height,
-      width
-    } = _topbarUserNode.current.getBoundingClientRect()
+    const {top, left, height, width} =
+      _topbarUserNode.current.getBoundingClientRect()
     const navWrapTop = top + height
     setNavWrapStyle({
       top: navWrapTop,
@@ -123,9 +119,8 @@ export default function TopbarUser({
       window.document.documentElement.classList.add(HTML_HAS_SCROLL_DISABLED)
       window.document.body.classList.add(BODY_HAS_SCROLL_DISABLED)
       elementsToKeepScrollOnToggleMenu.forEach(selector => {
-        document.querySelector(
-          selector
-        ).style.transform = transformStyleToKeepScroll
+        document.querySelector(selector).style.transform =
+          transformStyleToKeepScroll
       })
     }
 
@@ -157,27 +152,26 @@ export default function TopbarUser({
   /**
    * Render main navigation function.
    */
-  const _renderNavMain = isToggleHidden => (
-    {icon, label: text, menu, arrowButtonIcon, onClick = noop},
-    index
-  ) => {
-    const handleToggleMenu = () => onClick()
+  const _renderNavMain =
+    isToggleHidden =>
+    ({icon, label: text, menu, arrowButtonIcon, onClick = noop}, index) => {
+      const handleToggleMenu = () => onClick()
 
-    return (
-      <DropdownBasic
-        key={index}
-        button={{icon, text, arrowButtonIcon}}
-        menu={menu}
-        expandOnMouseOver={isToggleHidden}
-        linkFactory={linkFactory}
-        onToggleMenu={handleToggleMenu}
-      />
-    )
-  }
+      return (
+        <DropdownBasic
+          key={index}
+          button={{icon, text, arrowButtonIcon}}
+          menu={menu}
+          expandOnMouseOver={isToggleHidden}
+          linkFactory={linkFactory}
+          onToggleMenu={handleToggleMenu}
+        />
+      )
+    }
 
   const Link = linkFactory
   const ToggleIcon = toggleIcon
-  const {name: brandName, url: brandUrl} = brand
+  const {image: BrandImage, name: brandName, url: brandUrl} = brand
   const {avatar, name, menu} = navUser
   const navWrapClassName = cx('sui-TopbarUser-navWrap', {
     'is-expanded': menuExpanded
@@ -206,7 +200,7 @@ export default function TopbarUser({
           className="sui-TopbarUser-brand"
           title={brandName}
         >
-          {brandName}
+          {BrandImage ? <BrandImage /> : brandName}
         </Link>
         <div
           className={navWrapClassName}
@@ -266,13 +260,17 @@ TopbarUser.propTypes = {
    */
   brand: PropTypes.shape({
     /**
-     * Brand url.
+     * Brand image.
      */
-    url: PropTypes.string.isRequired,
+    image: PropTypes.node,
     /**
      * Brand name.
      */
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    /**
+     * Brand url.
+     */
+    url: PropTypes.string.isRequired
   }).isRequired,
   /**
    * Main navigation containing an array of dropdown menus.
