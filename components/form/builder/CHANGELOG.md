@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.51.0 (2022-05-11)
+
+
+### Features
+
+* **components/form/builder:** add autocompleted field info on changing values ([4f30348](https://github.com/SUI-Components/adevinta-spain-components/commit/4f3034886cc4b1066f51d4b94871fcac049a9cd7))
+
+
+
 # 4.50.0 (2022-04-07)
 
 
