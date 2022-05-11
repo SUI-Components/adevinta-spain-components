@@ -53,52 +53,56 @@ const FormBuilder = ({
     return nextFields
   }
 
-  const handlerChange = useCallback(async (id, value, extraParams) => {
-    const reducerWithRules = reducer(
-      rules,
-      formID,
-      baseAPIURL,
-      responseInterceptor,
-      requestInterceptor,
-      locale,
-      extraParams
-    )
-    const timerShowSpinner = setTimeout(
-      () => setStateShowSpinner(true),
-      FormBuilder.USER_MINIMAL_DELAY
-    )
-    const transformedValue = transformations(
-      id,
-      value,
-      pickFieldById(fields, id)
-    )
+  const handlerChange = useCallback(
+    async (id, value, extraParams, autocompletedField = false) => {
+      const reducerWithRules = reducer(
+        rules,
+        formID,
+        baseAPIURL,
+        responseInterceptor,
+        requestInterceptor,
+        locale,
+        extraParams
+      )
+      const timerShowSpinner = setTimeout(
+        () => setStateShowSpinner(true),
+        FormBuilder.USER_MINIMAL_DELAY
+      )
+      const transformedValue = transformations(
+        id,
+        value,
+        pickFieldById(fields, id)
+      )
 
-    const nextFields = changeField(id, transformedValue)
-    clearTimeout(timerShowSpinner)
+      const nextFields = changeField(id, transformedValue)
+      clearTimeout(timerShowSpinner)
 
-    const nextStateFields = await reducerWithRules(nextFields, {
-      type: RULES,
-      id
-    })
-
-    clearTimeout(timerShowSpinner)
-    setStateFields(nextStateFields)
-    const nextStateFieldsObject = useNativeFieldType
-      ? fieldsToObjectNativeTypes(nextStateFields)
-      : fieldsToObject(nextStateFields)
-
-    const fieldsToUpdate = await onChange({
-      ...nextStateFieldsObject,
-      __FIELD_CHANGED__: id,
-      __FORM_STATE__: getUpdatedFormState(json.form, nextStateFields)
-    })
-
-    if (typeof fieldsToUpdate === 'object' && fieldsToUpdate !== null)
-      Object.entries(fieldsToUpdate).forEach(async ([key, value]) => {
-        await handlerChange(key, value)
+      const nextStateFields = await reducerWithRules(nextFields, {
+        type: RULES,
+        id
       })
 
-    setStateShowSpinner(false)
+      clearTimeout(timerShowSpinner)
+      setStateFields(nextStateFields)
+      const nextStateFieldsObject = useNativeFieldType
+        ? fieldsToObjectNativeTypes(nextStateFields)
+        : fieldsToObject(nextStateFields)
+
+      const fieldsToUpdate = await onChange({
+        ...nextStateFieldsObject,
+        __AUTOCOMPLETED_FIELD__: Boolean(autocompletedField),
+        __FIELD_CHANGED__: id,
+        __FORM_STATE__: getUpdatedFormState(json.form, nextStateFields)
+      })
+
+      if (typeof fieldsToUpdate === 'object' && fieldsToUpdate !== null) {
+        const autocompletedFields = true
+        Object.entries(fieldsToUpdate).forEach(async ([key, value]) => {
+          await handlerChange(key, value, undefined, autocompletedFields)
+        })
+      }
+
+      setStateShowSpinner(false)
   }, []) // eslint-disable-line
 
   useEffect(() => {
