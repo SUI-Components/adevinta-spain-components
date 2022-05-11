@@ -2,13 +2,18 @@
 
 > Useful hooks to be used in your React projects
 
+## Requirements
+Hooks where a new addition in React 16.8. They let you use state and other React features without writing a class.
+
+`react >=16.8`
+
 ## Installation
 
 ```sh
 $ npm install @s-ui/react-hooks --save
 ```
 
-## Avaiable hooks
+## Available hooks
 
 ### useMount
 
@@ -109,7 +114,7 @@ Useful to cover quick functional migrations in components with complex states th
 If you apply this when migrating to a functional component, please take in mind that you may later rethink the strategy of its state.
 
 ```js
-import {useLegacyState} from '@s-ui/react-hooks/lib/useLegacyState/index.js'
+import useLegacyState from '@s-ui/react-hooks/lib/useLegacyState/index.js'
 
 export default () => {
   const initialState = {
@@ -165,7 +170,7 @@ This is a CSS media query hook for React. It listens for matches to a CSS media 
 Hook `useMediaQuery` always returns a boolean and it indicates if query matches or not.
 
 ```js
-import useMediaQuery from '@s-ui/react-hooks/lib/useMediaQuery'
+import useMediaQuery from '@s-ui/react-hooks/lib/useMediaQuery/index.js'
 
 export default function Demo() {
   const isMatching = useMediaQuery('(min-width:600px)')
@@ -177,7 +182,7 @@ export default function Demo() {
 **On the server, by default, the mediaQuery doesn't match** but you could pass an option to change this.
 
 ```js
-import useMediaQuery from '@s-ui/react-hooks/lib/useMediaQuery'
+import useMediaQuery from '@s-ui/react-hooks/lib/useMediaQuery/index.js'
 
 export default function Demo() {
   const isMatching = useMediaQuery('(min-width:600px)', {defaultMatches: true})
@@ -311,18 +316,18 @@ function Component() {
 
 ### useInterval
 
-> The `useInterval` hook is useful to create intervals conditionaly.
+> The `useInterval` hook is useful to create intervals conditionally.
 
 #### Usage
 
 **Params**
 
-It accept 2 arguments.
+It accepts 2 arguments.
 
 - **callback<Function>>**: The function to invoke
   [required]
 
-- **delay<Function>**: The delay time in miliseconds
+- **delay<Function>**: The delay time in milliseconds
   [default: 0]
 
 ```js
@@ -424,6 +429,8 @@ function Component() {
 #### Usage
 
 ```js
+import useIsomorphicLayoutEffect from '@s-ui/react-hooks/lib/useIsomorphicLayoutEffect/index.js'
+
 function Component({value}) {
   useIsomorphicLayoutEffect(() => {
     window.console.log(value)
@@ -440,6 +447,8 @@ function Component({value}) {
 #### Usage
 
 ```js
+import useCallbackRef from '@s-ui/react-hooks/lib/useCallbackRef/index.js'
+
 function Component({onChange: onChangeProp}) {
   const onChange = useCallbackRef(onChangeProp)
 
