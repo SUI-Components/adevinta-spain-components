@@ -75,28 +75,28 @@ $w-topbar-user-nav: 90% !default;
 
   &-brand {
     @include reset-link;
+    align-self: center;
     @if $bg-topbar-user-brand {
-      @include text-hide;
-      @include media-breakpoint-up(m) {
-        height: $h-topbar-user-brand-large;
-        margin-right: $m-l;
-        width: $w-topbar-user-brand-large;
-      }
-      @include media-breakpoint-up(l) {
-        margin-right: $m-xxl;
-      }
       background: $bg-topbar-user-brand;
       background-size: $bgsz-topbar-user-brand;
-      box-sizing: content-box;
-      height: $h-topbar-user-brand-small;
-      margin-bottom: $m-s;
-      padding: $p-v 0;
-      width: $w-topbar-user-brand-small;
     }
-    align-self: center;
+    box-sizing: content-box;
     font-size: $fz-h2;
     font-weight: $fw-bold;
+    height: $h-topbar-user-brand-small;
+    margin-bottom: $m-s;
     margin-right: $m-l;
+    @include text-hide;
+    @include media-breakpoint-up(m) {
+      height: $h-topbar-user-brand-large;
+      margin-right: $m-l;
+      width: $w-topbar-user-brand-large;
+    }
+    @include media-breakpoint-up(l) {
+      margin-right: $m-xxl;
+    }
+    padding: $p-v 0;
+    width: $w-topbar-user-brand-small;
   }
 
   &-nav {
