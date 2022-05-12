@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.53.0 (2022-05-12)
+
+
+### Features
+
+* **components/form/builder:** allow init fields to be reloaded via prop, optional feature ([eddcde8](https://github.com/SUI-Components/adevinta-spain-components/commit/eddcde803406092abb23daa088ad9c75dd90a6d2))
+
+
+
 # 4.52.0 (2022-05-12)
 
 
