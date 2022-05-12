@@ -54,7 +54,7 @@ const FormBuilder = ({
   }
 
   const handlerChange = useCallback(
-    async (id, value, extraParams, autocompletedField = false) => {
+    async (id, value, extraParams, autocompletedField) => {
       const reducerWithRules = reducer(
         rules,
         formID,
@@ -90,7 +90,9 @@ const FormBuilder = ({
 
       const fieldsToUpdate = await onChange({
         ...nextStateFieldsObject,
-        __AUTOCOMPLETED_FIELD__: Boolean(autocompletedField),
+        ...(autocompletedField && {
+          __AUTOCOMPLETED_FIELD__: autocompletedField
+        }),
         __FIELD_CHANGED__: id,
         __FORM_STATE__: getUpdatedFormState(json.form, nextStateFields)
       })
