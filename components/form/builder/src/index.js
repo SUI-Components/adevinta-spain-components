@@ -18,6 +18,7 @@ import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
 import {getUpdatedFormState} from './mapper/formState'
 
 const FormBuilder = ({
+  allowInitFieldsReload = false,
   forceRulesOnAllFields,
   json,
   initFields = {},
@@ -144,7 +145,7 @@ const FormBuilder = ({
         setStateFields(nextFields)
         setStateShowSpinner(false)
       })
-  }, []) // eslint-disable-line
+  }, [allowInitFieldsReload ? initFields : null]) // eslint-disable-line
 
   return (
     <div className="sui-FormBuilder">
@@ -176,6 +177,10 @@ FormBuilder.USER_MINIMAL_DELAY = 250
 FormBuilder.displayName = 'FormBuilder'
 
 FormBuilder.propTypes = {
+  /**
+   * If it is true, formBuilder can reload its initFields via props.
+   */
+  allowInitFieldsReload: PropTypes.bool,
   forceRulesOnAllFields: PropTypes.bool,
   initFields: PropTypes.arrayOf(PropTypes.object),
   json,
