@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 1.30.0 (2022-05-12)
+
+
+### Features
+
+* **components/react/hooks:** bump version ([d6a1eeb](https://github.com/SUI-Components/adevinta-spain-components/commit/d6a1eeb96125681b52db19236c510a78f26553cb))
+* **react/hooks:** add more info in readme ([34b95b5](https://github.com/SUI-Components/adevinta-spain-components/commit/34b95b509e15e110ff4abef5281f8a38a38dfaec))
+* **react/hooks:** add use callback ref ([b7fdaa5](https://github.com/SUI-Components/adevinta-spain-components/commit/b7fdaa5fd91c6b40fee937f8ddc94f72096517b7))
+* **react/hooks:** fix linting errors ([746b349](https://github.com/SUI-Components/adevinta-spain-components/commit/746b349bc1077a53e1fdf0e74146c4fb516d0343))
+* **react/hooks:** remove not needed deps ([516f073](https://github.com/SUI-Components/adevinta-spain-components/commit/516f0738d605af02b1bf538caa92ae88d54ca18d))
+* **react/hooks:** update tests ([8b7c101](https://github.com/SUI-Components/adevinta-spain-components/commit/8b7c101ceded73206ae70f8356747ad405566f08))
+* **react/hooks:** update use callback ref ([b98ad86](https://github.com/SUI-Components/adevinta-spain-components/commit/b98ad869f1e90a453e3acc39224a6149a3056e89))
+
+
+
 # 1.29.0 (2021-12-27)
 
 
