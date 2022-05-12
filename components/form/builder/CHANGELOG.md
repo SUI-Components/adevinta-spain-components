@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.52.0 (2022-05-12)
+
+
+### Features
+
+* **components/form/builder:** prevent send autocompleted info on onChange if it has a falsy value, ([5cf3fa7](https://github.com/SUI-Components/adevinta-spain-components/commit/5cf3fa722c1b38e3d89f1089d126b79a55953208))
+
+
+
 # 4.51.0 (2022-05-11)
 
 
