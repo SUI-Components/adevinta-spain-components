@@ -18,6 +18,7 @@ import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
 import {getUpdatedFormState} from './mapper/formState'
 
 const FormBuilder = ({
+  allowAutoFillOnInitLoad = false,
   allowInitFieldsReload = false,
   forceRulesOnAllFields,
   json,
@@ -124,15 +125,29 @@ const FormBuilder = ({
     fieldsNamesInOrderOfDefinition(fields)
       .reduce(async (previousPromise, fieldId) => {
         const previousFields = await previousPromise
+
+        const fieldHasNoInitValue =
+          !initFields[fieldId] || initFields[fieldId] === ''
+
+        const fieldDatalist = pickFieldById(previousFields, fieldId)?.datalist
+
+        const fieldCanBeAutocompleted =
+          allowAutoFillOnInitLoad &&
+          fieldHasNoInitValue &&
+          fieldDatalist?.length === 1
+
         if (
           !forceRulesOnAllFields &&
-          (!initFields[fieldId] || initFields[fieldId] === '')
+          fieldHasNoInitValue &&
+          !fieldCanBeAutocompleted
         ) {
           return previousFields
         }
 
-        const nextFieldsChanged = changeField(fieldId, initFields[fieldId])
-
+        const nextFieldsChanged = changeField(
+          fieldId,
+          fieldCanBeAutocompleted ? fieldDatalist[0].value : initFields[fieldId]
+        )
         const nextFieldsWithRules = await reducerWithRules(nextFieldsChanged, {
           type: RULES,
           id: fieldId
@@ -177,6 +192,11 @@ FormBuilder.USER_MINIMAL_DELAY = 250
 FormBuilder.displayName = 'FormBuilder'
 
 FormBuilder.propTypes = {
+  /**
+   * If it is true, formBuilder will autocomplete fields after load initFields,
+   * if the next empty field it's an input select and has only one value in the loaded datalist.
+   */
+  allowAutoFillOnInitLoad: PropTypes.bool,
   /**
    * If it is true, formBuilder can reload its initFields via props.
    */
