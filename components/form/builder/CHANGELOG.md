@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.54.0 (2022-05-13)
+
+
+### Features
+
+* **components/form/builder:** allow form builder to autofill fields after load initfields ([cf94719](https://github.com/SUI-Components/adevinta-spain-components/commit/cf947191c0e3442edeb01f39f255dbe022b2434c))
+
+
+
 # 4.53.0 (2022-05-12)
 
 
