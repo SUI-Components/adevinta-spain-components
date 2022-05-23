@@ -1,11 +1,8 @@
 import PropTypes from 'prop-types'
 
-import Input from '../../../Input/index.js'
-import TextArea from '../../../TextArea/index.js'
+import DefaultRange from '../../../Range/Default/index.js'
 
-import {FIELDS, DISPLAYS} from '../../index.js'
-
-const TextField = ({
+const RangeField = ({
   field,
   tabIndex,
   onChange,
@@ -15,10 +12,10 @@ const TextField = ({
   alerts,
   renderer
 }) => {
-  if (field.display === DISPLAYS[FIELDS.TEXT].MULTILINE)
+  if (!field.display)
     return (
-      <TextArea
-        textArea={field}
+      <DefaultRange
+        range={field}
         onChange={onChange}
         onFocus={onFocus}
         onBlur={onBlur}
@@ -28,21 +25,9 @@ const TextField = ({
         renderer={renderer}
       />
     )
-  return (
-    <Input
-      input={field}
-      onChange={onChange}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      tabIndex={tabIndex}
-      errors={errors}
-      alerts={alerts}
-      renderer={renderer}
-    />
-  )
 }
 
-TextField.propTypes = {
+RangeField.propTypes = {
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
@@ -53,4 +38,4 @@ TextField.propTypes = {
   renderer: PropTypes.func
 }
 
-export default TextField
+export default RangeField

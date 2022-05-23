@@ -1,15 +1,16 @@
 import {isValidElement} from 'react'
 import PropTypes from 'prop-types'
-import {field} from '../prop-types'
+import {field} from '../prop-types/index.js'
 
-import {FIELDS} from '../Standard'
+import {FIELDS} from '../Standard/index.js'
 
 // fields
-import TextField from '../Standard/Fields/Text'
-import NumericField from '../Standard/Fields/Numeric'
-import FieldSetField from '../Standard/Fields/FieldSet'
-import PickerField from '../Standard/Fields/Picker'
-import MultiPickerField from '../Standard/Fields/Multicheckbox'
+import TextField from '../Standard/Fields/Text/index.js'
+import NumericField from '../Standard/Fields/Numeric/index.js'
+import FieldSetField from '../Standard/Fields/FieldSet/index.js'
+import PickerField from '../Standard/Fields/Picker/index.js'
+import MultiPickerField from '../Standard/Fields/Multicheckbox/index.js'
+import RangeField from '../Standard/Fields/Range/index.js'
 
 const ProxyField = ({
   field,
@@ -77,6 +78,19 @@ const ProxyField = ({
 
     case FIELDS.MULTIPICKER:
       Field = MultiPickerField({
+        field,
+        tabIndex,
+        onChange,
+        onFocus,
+        onBlur,
+        errors,
+        alerts,
+        renderer
+      })
+      break
+
+    case FIELDS.RANGE:
+      Field = RangeField({
         field,
         tabIndex,
         onChange,

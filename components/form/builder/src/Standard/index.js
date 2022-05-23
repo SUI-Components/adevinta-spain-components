@@ -1,13 +1,17 @@
 // map the DSL standard to JS: https://docs.mpi-internal.com/scmspain/all--lib-form-builder-docs/form-specification/field/
 
-import {pickFieldById, fieldsNamesInOrderOfDefinition} from '../reducer/fields'
-import {LocalizationFactory} from './../Standard/Localization/LocalizationFactory'
+import {
+  pickFieldById,
+  fieldsNamesInOrderOfDefinition
+} from '../reducer/fields.js'
+import {LocalizationFactory} from './../Standard/Localization/LocalizationFactory.js'
 const FIELDS = {
   TEXT: 'text',
   NUMERIC: 'numeric',
   FIELDSET: 'fieldset',
   PICKER: 'picker',
-  MULTIPICKER: 'multipicker'
+  MULTIPICKER: 'multipicker',
+  RANGE: 'range'
 }
 
 const DISPLAYS = {
@@ -36,6 +40,9 @@ const DISPLAYS = {
   [FIELDS.MULTIPICKER]: {
     BUTTON: 'button',
     DROPDOWN: 'dropdown'
+  },
+  [FIELDS.RANGE]: {
+    DEFAULT: ''
   }
 }
 
@@ -183,7 +190,7 @@ const checkConstraintsFactory = (json, locale) => ({for: fieldID, all}) => {
 
   const fieldsWithErrors = {}
   fieldsToValidate.forEach(fieldId => {
-    const field = pickFieldById(json.form.fields, fieldId)
+    const field = pickFieldById(json?.form?.fields, fieldId)
     if (!field.hidden) {
       fieldsWithErrors[field.id] = checkConstraintsFromField(field, locale)
     } else {
