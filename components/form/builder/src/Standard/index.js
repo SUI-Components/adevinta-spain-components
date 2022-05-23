@@ -190,7 +190,7 @@ const checkConstraintsFactory = (json, locale) => ({for: fieldID, all}) => {
 
   const fieldsWithErrors = {}
   fieldsToValidate.forEach(fieldId => {
-    const field = pickFieldById(json?.form?.fields, fieldId)
+    const field = pickFieldById(json.form.fields, fieldId)
     if (!field.hidden) {
       fieldsWithErrors[field.id] = checkConstraintsFromField(field, locale)
     } else {
