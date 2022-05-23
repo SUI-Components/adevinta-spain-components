@@ -18,7 +18,6 @@ const splitInputValues = inputValues =>
 
 const DefaultRange = ({
   range,
-  tabIndex,
   onChange,
   onFocus,
   onBlur,
@@ -50,11 +49,10 @@ const DefaultRange = ({
   const onBlurCallback = ev => onBlur(ev.target.id)
   const onFocusCallback = ev => onFocus(ev.target.id)
 
-  const {datalist = []} = range
-
   const rangeProps = {
     id: range.id,
     display: range.display,
+    value: range.value,
     onChange: onChangeCallback,
     onBlur: onBlurCallback,
     onFocus: onFocusCallback,
@@ -98,7 +96,8 @@ const DefaultRange = ({
   }
 
   const rendererResponse = renderer({
-    innerProps: {...rangeProps, datalist}
+    id: rangeProps.id,
+    innerProps: rangeProps
   })
 
   // render custom component
@@ -109,8 +108,12 @@ const DefaultRange = ({
     <div
       className={`sui-FormBuilder-field sui-FormBuilder-DefaultRange sui-FormBuilder-${rangeProps.id}`}
     >
-      <MoleculeInputField {...fromInputProps} {...rendererResponse} />
-      <MoleculeInputField {...toInputProps} {...rendererResponse} />
+      <div className="sui-FormBuilder-DefaultRange-from">
+        <MoleculeInputField {...fromInputProps} {...rendererResponse} />
+      </div>
+      <div className="sui-FormBuilder-DefaultRange-to">
+        <MoleculeInputField {...toInputProps} {...rendererResponse} />
+      </div>
     </div>
   )
 }
@@ -118,7 +121,6 @@ const DefaultRange = ({
 DefaultRange.displayName = 'DefaultRange'
 DefaultRange.propTypes = {
   range: field,
-  tabIndex: PropTypes.number,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,

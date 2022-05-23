@@ -12,19 +12,17 @@ const RangeField = ({
   alerts,
   renderer
 }) => {
-  if (!field.display)
-    return (
-      <DefaultRange
-        range={field}
-        onChange={onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        tabIndex={tabIndex}
-        errors={errors}
-        alerts={alerts}
-        renderer={renderer}
-      />
-    )
+  return (
+    <DefaultRange
+      range={field}
+      onChange={onChange}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      errors={errors}
+      alerts={alerts}
+      renderer={renderer}
+    />
+  )
 }
 
 RangeField.propTypes = {
