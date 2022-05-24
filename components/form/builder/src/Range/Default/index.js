@@ -102,10 +102,10 @@ const DefaultRange = ({
     <div
       className={`sui-FormBuilder-field sui-FormBuilder-DefaultRange sui-FormBuilder-${rangeProps.id}`}
     >
-      <div className="sui-FormBuilder-DefaultRange-from">
+      <div className="sui-FormBuilder-Input sui-FormBuilder-DefaultRange-from">
         <MoleculeInputField {...fromInputProps} {...rendererResponse} />
       </div>
-      <div className="sui-FormBuilder-DefaultRange-to">
+      <div className="sui-FormBuilder-Input sui-FormBuilder-DefaultRange-to">
         <MoleculeInputField {...toInputProps} {...rendererResponse} />
       </div>
     </div>
