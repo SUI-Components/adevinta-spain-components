@@ -8,8 +8,8 @@ import MoleculeInputField from '@s-ui/react-molecule-input-field'
 const joinInputValues = inputValues =>
   inputValues ? Object.values(inputValues).join(',') : ''
 
-const splitInputValues = (inputValues = []) => {
-  const [from, to] = inputValues?.split(',')
+const splitInputValues = inputValues => {
+  const [from, to] = inputValues?.split(',') || []
   return {
     ...(from && {from}),
     ...(to && {to})
