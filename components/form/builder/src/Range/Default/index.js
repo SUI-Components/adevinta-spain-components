@@ -18,6 +18,7 @@ const splitInputValues = inputValues => {
 
 const DefaultRange = ({
   range,
+  tabIndex,
   onChange,
   onFocus,
   onBlur,
@@ -68,7 +69,7 @@ const DefaultRange = ({
     onBlur: onBlurCallback,
     onFocus: onFocusCallback,
     helpText: range.help,
-    tabIndex: '0'
+    tabIndex
   }
 
   const toInputProps = {
@@ -81,7 +82,7 @@ const DefaultRange = ({
     onBlur: onBlurCallback,
     onFocus: onFocusCallback,
     helpText: range.help,
-    tabIndex: '0'
+    tabIndex
   }
 
   if (rangeProps.hidden) {

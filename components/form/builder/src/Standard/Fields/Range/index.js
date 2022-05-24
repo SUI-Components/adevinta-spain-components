@@ -16,6 +16,7 @@ const RangeField = ({
     <DefaultRange
       range={field}
       onChange={onChange}
+      tabIndex={tabIndex}
       onFocus={onFocus}
       onBlur={onBlur}
       errors={errors}
