@@ -30,8 +30,6 @@ const DefaultRange = ({
 
   const [inputValues, setInputValues] = useState(splitInputValues(range.value))
 
-  console.log({range: range.value})
-
   useEffect(() => {
     onChange(range.id, joinInputValues(inputValues))
   }, [inputValues, onChange, range])
