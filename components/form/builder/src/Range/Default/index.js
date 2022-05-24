@@ -115,6 +115,7 @@ const DefaultRange = ({
 DefaultRange.displayName = 'DefaultRange'
 DefaultRange.propTypes = {
   range: field,
+  tabIndex: PropTypes.string,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
