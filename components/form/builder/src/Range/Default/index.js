@@ -1,4 +1,4 @@
-import {isValidElement, memo, useCallback, useState, useEffect} from 'react'
+import {isValidElement, memo} from 'react'
 
 import PropTypes from 'prop-types'
 import {field, createComponentMemo} from '../../prop-types/index.js'
@@ -28,23 +28,16 @@ const DefaultRange = ({
   const fromInputId = `${range.id}From`
   const toInputId = `${range.id}To`
 
-  const [inputValues, setInputValues] = useState(splitInputValues(range.value))
+  const inputValues = splitInputValues(range.value)
 
-  useEffect(() => {
-    onChange(range.id, joinInputValues(inputValues))
-  }, [inputValues, onChange, range])
-
-  const onChangeCallback = useCallback(
-    (ev, {value, name}) => {
-      if (name === fromInputId) {
-        setInputValues(prev => ({...prev, from: value}))
-      }
-      if (name === toInputId) {
-        setInputValues(prev => ({...prev, to: value}))
-      }
-    },
-    [fromInputId, toInputId]
-  )
+  const onChangeCallback = (ev, {value, name}) => {
+    if (name === fromInputId) {
+      onChange(range.id, joinInputValues({...inputValues, from: value}))
+    }
+    if (name === toInputId) {
+      onChange(range.id, joinInputValues({...inputValues, to: value}))
+    }
+  }
 
   const onBlurCallback = ev => onBlur(ev.target.id)
   const onFocusCallback = ev => onFocus(ev.target.id)
