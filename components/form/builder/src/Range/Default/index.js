@@ -7,14 +7,14 @@ import MoleculeInputField from '@s-ui/react-molecule-input-field'
 
 const joinInputValues = inputValues =>
   inputValues ? Object.values(inputValues).join(',') : ''
-const splitInputValues = inputValues =>
-  inputValues?.split(',').reduce((acc, curr, index) => {
-    if (index === 0) {
-      return {...acc, from: curr}
-    }
 
-    return {...acc, to: curr}
-  }, {})
+const splitInputValues = inputValues => {
+  const [from, to] = inputValues?.split(',') || []
+  return {
+    ...(from && {from}),
+    ...(to && {to})
+  }
+}
 
 const DefaultRange = ({
   range,
@@ -29,6 +29,8 @@ const DefaultRange = ({
   const toInputId = `${range.id}To`
 
   const [inputValues, setInputValues] = useState(splitInputValues(range.value))
+
+  console.log({range: range.value})
 
   useEffect(() => {
     onChange(range.id, joinInputValues(inputValues))
