@@ -1,0 +1,12 @@
+@import '~@s-ui/react-molecule-input-field/lib/index';
+
+$defaultrange-formbuilder-classname: 'sui-FormBuilder-DefaultRange';
+
+.#{$defaultrange-formbuilder-classname} {
+  display: flex;
+
+  &-to {
+    align-self: flex-end;
+    margin-left: $m-m;
+  }
+}

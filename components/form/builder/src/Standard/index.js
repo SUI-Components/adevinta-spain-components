@@ -1,13 +1,17 @@
 // map the DSL standard to JS: https://docs.mpi-internal.com/scmspain/all--lib-form-builder-docs/form-specification/field/
 
-import {pickFieldById, fieldsNamesInOrderOfDefinition} from '../reducer/fields'
-import {LocalizationFactory} from './../Standard/Localization/LocalizationFactory'
+import {
+  pickFieldById,
+  fieldsNamesInOrderOfDefinition
+} from '../reducer/fields.js'
+import {LocalizationFactory} from './../Standard/Localization/LocalizationFactory.js'
 const FIELDS = {
   TEXT: 'text',
   NUMERIC: 'numeric',
   FIELDSET: 'fieldset',
   PICKER: 'picker',
-  MULTIPICKER: 'multipicker'
+  MULTIPICKER: 'multipicker',
+  RANGE: 'range'
 }
 
 const DISPLAYS = {
@@ -36,6 +40,9 @@ const DISPLAYS = {
   [FIELDS.MULTIPICKER]: {
     BUTTON: 'button',
     DROPDOWN: 'dropdown'
+  },
+  [FIELDS.RANGE]: {
+    DEFAULT: ''
   }
 }
 
@@ -165,32 +172,34 @@ const checkConstraintsFromField = (field, locale) => {
   return errorMessages
 }
 
-const checkConstraintsFactory = (json, locale) => ({for: fieldID, all}) => {
-  let fieldsToValidate = []
-  if (all && fieldID) {
-    window.console.warn(
-      '[form/builder]: checkConstraintsFactory: both modes validate all fields and validate a concrete field are not compatible, please use one of them'
-    )
-  } else if (all) {
-    fieldsToValidate = fieldsNamesInOrderOfDefinition(json?.form?.fields)
-  } else if (fieldID) {
-    fieldsToValidate = [fieldID]
-  } else {
-    window.console.warn(
-      '[form/builder]: checkConstraintsFactory: Specify if you want to validate a specific field or all the fields'
-    )
-  }
-
-  const fieldsWithErrors = {}
-  fieldsToValidate.forEach(fieldId => {
-    const field = pickFieldById(json.form.fields, fieldId)
-    if (!field.hidden) {
-      fieldsWithErrors[field.id] = checkConstraintsFromField(field, locale)
+const checkConstraintsFactory =
+  (json, locale) =>
+  ({for: fieldID, all}) => {
+    let fieldsToValidate = []
+    if (all && fieldID) {
+      window.console.warn(
+        '[form/builder]: checkConstraintsFactory: both modes validate all fields and validate a concrete field are not compatible, please use one of them'
+      )
+    } else if (all) {
+      fieldsToValidate = fieldsNamesInOrderOfDefinition(json?.form?.fields)
+    } else if (fieldID) {
+      fieldsToValidate = [fieldID]
     } else {
-      fieldsWithErrors[field.id] = []
+      window.console.warn(
+        '[form/builder]: checkConstraintsFactory: Specify if you want to validate a specific field or all the fields'
+      )
     }
-  })
-  return fieldsWithErrors
-}
+
+    const fieldsWithErrors = {}
+    fieldsToValidate.forEach(fieldId => {
+      const field = pickFieldById(json.form.fields, fieldId)
+      if (!field.hidden) {
+        fieldsWithErrors[field.id] = checkConstraintsFromField(field, locale)
+      } else {
+        fieldsWithErrors[field.id] = []
+      }
+    })
+    return fieldsWithErrors
+  }
 
 export {FIELDS, DISPLAYS, CONSTRAINTS, checkConstraintsFactory}

@@ -107,7 +107,9 @@ const FormBuilder = ({
       }
 
       setStateShowSpinner(false)
-  }, []) // eslint-disable-line
+    },
+    []
+  ) // eslint-disable-line
 
   useEffect(() => {
     const reducerWithRules = reducer(
@@ -227,5 +229,5 @@ export {fieldSizes as formBuilderFieldSizes}
 export {pickFieldById as formBuilderPickFieldById}
 export {changeFieldById as formBuilderChangeFieldById}
 export {fieldsNamesInOrderOfDefinition as formBuilderFieldsNamesInOrderOfDefinition}
-export {checkConstraintsFactory} from './Standard'
+export {checkConstraintsFactory} from './Standard/index.js'
 export default FormBuilder
