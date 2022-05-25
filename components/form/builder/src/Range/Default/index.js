@@ -32,12 +32,13 @@ const DefaultRange = ({
   const inputValues = splitInputValues(range.value)
 
   const onChangeCallback = (ev, {value, name}) => {
-    if (name === fromInputId) {
-      onChange(range.id, joinInputValues({...inputValues, from: value}))
-    }
-    if (name === toInputId) {
-      onChange(range.id, joinInputValues({...inputValues, to: value}))
-    }
+    onChange(
+      range.id,
+      joinInputValues({
+        ...inputValues,
+        [`${fromInputId === name ? 'from' : 'to'}`]: value
+      })
+    )
   }
 
   const onBlurCallback = ev => onBlur(ev.target.id)
