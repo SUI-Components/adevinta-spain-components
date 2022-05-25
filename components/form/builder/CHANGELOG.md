@@ -1,5 +1,25 @@
 # CHANGELOG
 
+# 5.0.0 (2022-05-25)
+
+
+### Features
+
+* **components/form/builder:** add inputValues as an array by default ([9ea5c15](https://github.com/SUI-Components/adevinta-spain-components/commit/9ea5c15cee19608ca8844ba17371ea3b0e6764e6))
+* **components/form/builder:** adds formBuilder-Input class to both inputs ([4352149](https://github.com/SUI-Components/adevinta-spain-components/commit/4352149bc85c5efb6b51703c8d76f26c92c59c69))
+* **components/form/builder:** Create new range field type with a default display being text range ([18478b2](https://github.com/SUI-Components/adevinta-spain-components/commit/18478b2ed75bb12d044fead67190d2fa59196cb1))
+* **components/form/builder:** fix lint ([c0e3a60](https://github.com/SUI-Components/adevinta-spain-components/commit/c0e3a60a4ccb84b7b4e359beae77ee55acaedfb2))
+* **components/form/builder:** improve behaviour ([0366b79](https://github.com/SUI-Components/adevinta-spain-components/commit/0366b79014d1ece73dc478b588e70731811719f8))
+* **components/form/builder:** improve code ([0e8d79e](https://github.com/SUI-Components/adevinta-spain-components/commit/0e8d79e022a4ab6b116d619322af768e8a04821c))
+* **components/form/builder:** improve code ([13b87c0](https://github.com/SUI-Components/adevinta-spain-components/commit/13b87c0ad74ad26635bbb064b634a603372d2e69))
+* **components/form/builder:** pass tabIndex ([0bd970a](https://github.com/SUI-Components/adevinta-spain-components/commit/0bd970aee4b13ce66d5885f554489211b93af7d3))
+* **components/form/builder:** remove console.log ([24bd6ec](https://github.com/SUI-Components/adevinta-spain-components/commit/24bd6eceace9e92240d4d8b93fd5726662c2b901))
+* **components/form/builder:** remove optional chaining ([db6176f](https://github.com/SUI-Components/adevinta-spain-components/commit/db6176f4e7dc0b73797f738da4fcce2f8105d27c))
+* **components/form/builder:** restore array as default param ([e72d4d7](https://github.com/SUI-Components/adevinta-spain-components/commit/e72d4d7c3403658879db878eb6fc6629cb5395a3))
+* **components/form/builder:** simplify code ([a5d40ea](https://github.com/SUI-Components/adevinta-spain-components/commit/a5d40eadf9bd61b92a98e3ac8dc3046f810c88d2))
+
+
+
 # 4.54.0 (2022-05-13)
 
 
