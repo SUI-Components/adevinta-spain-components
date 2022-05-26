@@ -5,7 +5,7 @@ import {field, createComponentMemo} from '../../prop-types/index.js'
 
 import MoleculeInputField from '@s-ui/react-molecule-input-field'
 
-const joinInputValues = inputValues => {
+const joinInputValues = (inputValues = {}) => {
   const {from, to} = inputValues
   return [from, to].join(',')
 }
