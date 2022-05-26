@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 5.1.0 (2022-05-26)
+
+
+### Features
+
+* **components/form/builder:** add an empty object as inputValues default value ([c825793](https://github.com/SUI-Components/adevinta-spain-components/commit/c82579316f81be1b6f8b9f181a46b3cc7bc54cd5))
+* **components/form/builder:** improve joinInputValues function ([4f5962e](https://github.com/SUI-Components/adevinta-spain-components/commit/4f5962ed797d252f48654283fdfb78699fd6709d))
+
+
+
 # 5.0.0 (2022-05-25)
 
 
