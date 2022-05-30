@@ -14,7 +14,7 @@ import {
 
 import ProxyField from './ProxyField'
 import {inputSizes as fieldSizes} from '@s-ui/react-atom-input'
-import AtomSpinner, {AtomSpinnerTypes} from '@s-ui/react-atom-spinner'
+import AtomSpinner, {atomSpinnerTypes} from '@s-ui/react-atom-spinner'
 import {getUpdatedFormState} from './mapper/formState'
 
 const FormBuilder = ({
@@ -184,7 +184,7 @@ const FormBuilder = ({
         )
       })}
       {stateShowSpinner && (
-        <AtomSpinner type={AtomSpinnerTypes.SECTION} loader={loader} />
+        <AtomSpinner type={atomSpinnerTypes.SECTION} loader={loader} />
       )}
     </div>
   )
