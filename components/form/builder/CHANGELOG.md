@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 5.2.0 (2022-05-30)
+
+
+### Features
+
+* **components/form/builder:** fix import ([262dcc1](https://github.com/SUI-Components/adevinta-spain-components/commit/262dcc1c1ce693cfed10fdc6c538a4f92f48d182))
+* **components/form/builder:** update atom spinner version ([e5f97b2](https://github.com/SUI-Components/adevinta-spain-components/commit/e5f97b2cae585dcba63fef5012b52ff13af6f7e4))
+
+
+
 # 5.1.0 (2022-05-26)
 
 
