@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.3.0 (2022-06-01)
+
+
+### Features
+
+* **components/form/builder:** add two new props to add a callback on init fields load ends and add ([b7a9da7](https://github.com/SUI-Components/adevinta-spain-components/commit/b7a9da776c596677aac7918d7927c447a7f91bac))
+
+
+
 # 5.2.0 (2022-05-30)
 
 
