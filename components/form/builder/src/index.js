@@ -25,9 +25,11 @@ const FormBuilder = ({
   initFields = {},
   onChange = () => {},
   onBlur = () => {},
+  onInitFieldsLoadEnd = () => {},
   onFocus = () => {},
   responseInterceptor = ({response}) => response,
   requestInterceptor = () => {},
+  showSpinnerOnInitLoad = true,
   loader,
   fieldSize,
   errors = {},
@@ -121,7 +123,7 @@ const FormBuilder = ({
       locale
     )
     const timerShowSpinner = setTimeout(
-      () => setStateShowSpinner(true),
+      () => setStateShowSpinner(showSpinnerOnInitLoad),
       FormBuilder.USER_MINIMAL_DELAY
     )
     fieldsNamesInOrderOfDefinition(fields)
@@ -161,6 +163,7 @@ const FormBuilder = ({
         clearTimeout(timerShowSpinner)
         setStateFields(nextFields)
         setStateShowSpinner(false)
+        onInitFieldsLoadEnd()
       })
   }, [allowInitFieldsReload ? initFields : null]) // eslint-disable-line
 
@@ -208,9 +211,17 @@ FormBuilder.propTypes = {
   json,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
+  /**
+   * Function to call when init fields are filled.
+   */
+  onInitFieldsLoadEnd: PropTypes.func,
   onFocus: PropTypes.func,
   responseInterceptor: PropTypes.func,
   requestInterceptor: PropTypes.func,
+  /**
+   * Show or not the spinner on init load. Useful if you want to control your own spinner on your page or component.
+   */
+  showSpinnerOnInitLoad: PropTypes.func,
   loader: PropTypes.object,
   fieldSize: PropTypes.oneOf(Object.values(fieldSizes)),
   errors: PropTypes.object,
