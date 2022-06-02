@@ -3,10 +3,11 @@
 $defaultrange-formbuilder-classname: 'sui-FormBuilder-DefaultRange';
 
 .#{$defaultrange-formbuilder-classname} {
-  display: flex;
-
+  &-inputs {
+    display: flex;
+    gap: $m-m;
+  }
   &-to {
     align-self: flex-end;
-    margin-left: $m-m;
   }
 }
