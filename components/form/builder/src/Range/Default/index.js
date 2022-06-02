@@ -100,11 +100,10 @@ const DefaultRange = ({
   if (isValidElement(rendererResponse)) return rendererResponse
 
   // render SUI component
-  const {from: fromValue, to: toValue} = rendererResponse.value
-    ? splitInputValues(rendererResponse.value)
-    : inputValues
-
   const {children, ...rendererProps} = rendererResponse
+  const {from: fromValue, to: toValue} = rendererProps.value
+    ? splitInputValues(rendererProps.value)
+    : inputValues
 
   return (
     <div
