@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 5.4.0 (2022-06-02)
+
+
+### Features
+
+* **components/form/builder:** sort props ([9306b31](https://github.com/SUI-Components/adevinta-spain-components/commit/9306b3188726d131118a2e33f1b3bc08db97b6f3))
+* **components/form/builder:** update range values by renderer ([772fb09](https://github.com/SUI-Components/adevinta-spain-components/commit/772fb093b61d6064a7e7b2c1e4e7c88e980a19f0))
+
+
+
 # 5.3.0 (2022-06-01)
 
 

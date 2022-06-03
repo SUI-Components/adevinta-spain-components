@@ -28,19 +28,20 @@ const DefaultRange = ({
   alerts,
   renderer
 }) => {
-  const fromInputId = `${range.id}From`
-  const toInputId = `${range.id}To`
+  const fromInputId = `${range.id}-from`
+  const toInputId = `${range.id}-to`
 
   const inputValues = splitInputValues(range.value)
 
   const onChangeCallback = (ev, {value, name}) => {
-    onChange(
-      range.id,
-      joinInputValues({
-        ...inputValues,
-        [`${fromInputId === name ? 'from' : 'to'}`]: value
-      })
-    )
+    const inputId = name?.split('-')[1]
+    const nextValue = inputId
+      ? joinInputValues({
+          ...inputValues,
+          [`${inputId}`]: value
+        })
+      : value
+    onChange(range.id, nextValue)
   }
 
   const onBlurCallback = ev => onBlur(ev.target.id)
@@ -65,7 +66,6 @@ const DefaultRange = ({
     id: fromInputId,
     name: fromInputId,
     label: range.label || '',
-    value: inputValues?.from,
     placeholder: 'Desde',
     type: 'number',
     onChange: onChangeCallback,
@@ -78,7 +78,6 @@ const DefaultRange = ({
   const toInputProps = {
     id: toInputId,
     name: toInputId,
-    value: inputValues?.to,
     placeholder: 'Hasta',
     type: 'number',
     onChange: onChangeCallback,
@@ -101,16 +100,32 @@ const DefaultRange = ({
   if (isValidElement(rendererResponse)) return rendererResponse
 
   // render SUI component
+  const {children, ...rendererProps} = rendererResponse
+  const {from: fromValue, to: toValue} = rendererProps.value
+    ? splitInputValues(rendererProps.value)
+    : inputValues
+
   return (
     <div
       className={`sui-FormBuilder-field sui-FormBuilder-DefaultRange sui-FormBuilder-${rangeProps.id}`}
     >
-      <div className="sui-FormBuilder-Input sui-FormBuilder-DefaultRange-from">
-        <MoleculeInputField {...fromInputProps} {...rendererResponse} />
+      <div className={`sui-FormBuilder-DefaultRange-inputs`}>
+        <div className="sui-FormBuilder-Input sui-FormBuilder-DefaultRange-from">
+          <MoleculeInputField
+            {...fromInputProps}
+            {...rendererProps}
+            value={fromValue}
+          />
+        </div>
+        <div className="sui-FormBuilder-Input sui-FormBuilder-DefaultRange-to">
+          <MoleculeInputField
+            {...toInputProps}
+            {...rendererProps}
+            value={toValue}
+          />
+        </div>
       </div>
-      <div className="sui-FormBuilder-Input sui-FormBuilder-DefaultRange-to">
-        <MoleculeInputField {...toInputProps} {...rendererResponse} />
-      </div>
+      {children}
     </div>
   )
 }
