@@ -2,6 +2,8 @@
 import {renderHook} from '@testing-library/react-hooks'
 import mediaQuery from 'css-mediaquery'
 
+import {useMediaQuery} from '../src/index.js'
+
 // @see: https://jestjs.io/docs/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
@@ -16,9 +18,6 @@ Object.defineProperty(window, 'matchMedia', {
     dispatchEvent: jest.fn()
   }))
 })
-
-// eslint-disable-next-line import/first
-import {useMediaQuery} from '../src/index.js'
 
 describe('useMediaQuery hook', () => {
   describe('without window.matchMedia', () => {
