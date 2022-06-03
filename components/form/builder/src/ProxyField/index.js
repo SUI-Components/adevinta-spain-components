@@ -11,6 +11,7 @@ import FieldSetField from '../Standard/Fields/FieldSet/index.js'
 import PickerField from '../Standard/Fields/Picker/index.js'
 import MultiPickerField from '../Standard/Fields/Multicheckbox/index.js'
 import RangeField from '../Standard/Fields/Range/index.js'
+import Images from '../Images/index.js'
 
 const ProxyField = ({
   field,
@@ -91,6 +92,19 @@ const ProxyField = ({
 
     case FIELDS.RANGE:
       Field = RangeField({
+        field,
+        tabIndex,
+        onChange,
+        onFocus,
+        onBlur,
+        errors,
+        alerts,
+        renderer
+      })
+      break
+
+    case FIELDS.IMAGES:
+      Field = Images({
         field,
         tabIndex,
         onChange,
