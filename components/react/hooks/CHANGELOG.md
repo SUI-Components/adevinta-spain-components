@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.31.0 (2022-06-07)
+
+
+### Features
+
+* **components/react/hooks:** use matchMedia by default when is supported ([b6d6560](https://github.com/SUI-Components/adevinta-spain-components/commit/b6d6560fd9eb04a87952698ba61c1277b4ec391b))
+
+
+
 # 1.30.0 (2022-05-12)
 
 
