@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.32.0 (2022-06-08)
+
+
+### Features
+
+* **components/react/hooks:** add rollback of hook for compatibility with some verticals ([941426f](https://github.com/SUI-Components/adevinta-spain-components/commit/941426f7c6ac13bd56376e7d6c47709d848b0232))
+
+
+
 # 1.31.0 (2022-06-07)
 
 
