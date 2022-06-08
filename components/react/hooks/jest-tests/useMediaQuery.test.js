@@ -1,6 +1,7 @@
 /* eslint-env jest */
-import {renderHook} from '@testing-library/react-hooks'
 import mediaQuery from 'css-mediaquery'
+
+import {renderHook} from '@testing-library/react-hooks'
 
 import {useMediaQuery} from '../src/index.js'
 
@@ -65,22 +66,6 @@ describe('useMediaQuery hook', () => {
 
       const {result} = renderHook(() => useMediaQuery('(min-width: 900px)'))
       expect(result.current).toBe(false)
-    })
-    it('should the match value to be true when matches the query', () => {
-      const screenWidth = 1280
-      jest.spyOn(window, 'matchMedia').mockImplementation(query => ({
-        matches: mediaQuery.match(query, {width: screenWidth}),
-        media: query,
-        onchange: null,
-        addListener: jest.fn(),
-        removeListener: jest.fn(),
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
-        dispatchEvent: jest.fn()
-      }))
-
-      const {result} = renderHook(() => useMediaQuery('(min-width: 900px)'))
-      expect(result.current).toBe(true)
     })
   })
 })
