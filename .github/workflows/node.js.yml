@@ -54,6 +54,7 @@ jobs:
     - name: Testing
       run: |
         npm install --legacy-peer-deps --no-audit --no-fund --no-optional
+        npx -y ultra-runner --raw --recursive prepublishOnly &>/dev/null
         xvfb-run --auto-servernum npm run test -- --ci
 
   release:
