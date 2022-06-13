@@ -16,7 +16,7 @@
     "lint:sass": "sui-lint sass",
     "lint": "npm run lint:js && npm run lint:sass",
     "phoenix:ci": "npm run phoenix",
-    "phoenix": "npx @s-ui/mono@2 run 'rm -rf ./node_modules' && rm -rf ./node_modules package-lock.json && npm install --legacy-peer-deps",
+    "phoenix": "npx @s-ui/mono@2 phoenix && npx -y ultra-runner --raw --recursive prepublishOnly &>/dev/null",
     "pre-commit": "sui-precommit run",
     "start": "sui-studio start",
     "test:jest": "jest",
