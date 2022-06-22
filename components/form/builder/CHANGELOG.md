@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.5.0 (2022-06-22)
+
+
+### Features
+
+* **components/form/builder:** requestInterceptor returns a callback property that should be called ([f3f4135](https://github.com/SUI-Components/adevinta-spain-components/commit/f3f413594cae9532c9d3f78b09c761647f276cfe))
+
+
+
 # 5.4.0 (2022-06-02)
 
 
