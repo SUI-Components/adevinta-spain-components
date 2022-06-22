@@ -1,24 +1,24 @@
 /* eslint-disable no-console */
-import {operators} from './operators.js'
 import {
+  CHANGED,
+  EQUALS,
+  EXISTS,
+  GREATERTHAN,
+  GREATERTHANEQUALS,
+  HIDDEN,
   IN,
   INPATTERN,
+  LESSTHAN,
+  LESSTHANEQUALS,
+  NEXISTS,
   NIN,
   NINPATTERN,
-  EXISTS,
-  NEXISTS,
-  CHANGED,
-  REMOTE,
-  EQUALS,
-  GREATERTHAN,
-  LESSTHAN,
-  GREATERTHANEQUALS,
-  LESSTHANEQUALS,
-  SUPERSET,
   NSUPERSET,
-  HIDDEN
+  REMOTE,
+  SUPERSET
 } from './constants.js'
 import {changeFieldById, fieldsToQP} from './fields.js'
+import {operators} from './operators.js'
 
 const fetch = config =>
   new Promise((resolve, reject) => {
@@ -138,17 +138,31 @@ export const fetchRemoteFields =
 
           const defaultConfig = {url: defaultUrl}
 
-          const requestInterceptorConfig = await requestInterceptor({
-            baseAPIURL,
-            fieldID: field,
-            fields,
-            extraParams
-          })
+          const {callback, ...requestInterceptorConfig} =
+            await requestInterceptor({
+              baseAPIURL,
+              fieldID: field,
+              fields,
+              extraParams
+            })
+
           // Config must be follow the Axios pattern
           // https://github.com/axios/axios
           const config = requestInterceptorConfig || defaultConfig
 
           const {remote, ...resetValue} = nextValue
+
+          if (callback) {
+            const response = await callback()
+
+            const nextJSON = await responseInterceptor({
+              field,
+              url: '',
+              response
+            })
+            return [field, {...resetValue, ...nextJSON}]
+          }
+
           return fetch(config)
             .then(async json => {
               const {url} = config
