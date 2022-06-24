@@ -138,17 +138,17 @@ export const fetchRemoteFields =
 
           const defaultConfig = {url: defaultUrl}
 
-          const {callback, ...requestInterceptorConfig} =
-            await requestInterceptor({
-              baseAPIURL,
-              fieldID: field,
-              fields,
-              extraParams
-            })
+          const requestInterceptorConfig = await requestInterceptor({
+            baseAPIURL,
+            fieldID: field,
+            fields,
+            extraParams
+          })
 
           // Config must be follow the Axios pattern
           // https://github.com/axios/axios
-          const config = requestInterceptorConfig || defaultConfig
+          const {callback, ...config} =
+            requestInterceptorConfig || defaultConfig
 
           const {remote, ...resetValue} = nextValue
 
