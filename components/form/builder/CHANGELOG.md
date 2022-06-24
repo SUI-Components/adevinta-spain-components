@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.6.0 (2022-06-24)
+
+
+### Bug Fixes
+
+* **components/form/builder:** bugfix when requesInterceptor response is undefined ([c6afaaa](https://github.com/SUI-Components/adevinta-spain-components/commit/c6afaaae963070068d10b3e11d9c1d4da1d86a51))
+
+
+
 # 5.5.0 (2022-06-22)
 
 
