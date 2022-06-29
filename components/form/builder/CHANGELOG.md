@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.7.0 (2022-06-29)
+
+
+### Features
+
+* **components/form/builder:** add default value to range field ([69c4a82](https://github.com/SUI-Components/adevinta-spain-components/commit/69c4a825708f75309c73e6ffa6f646a05a9d2215))
+
+
+
 # 5.6.0 (2022-06-24)
 
 
