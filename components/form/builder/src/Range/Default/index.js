@@ -1,9 +1,10 @@
 import {isValidElement, memo} from 'react'
 
 import PropTypes from 'prop-types'
-import {field, createComponentMemo} from '../../prop-types/index.js'
 
 import MoleculeInputField from '@s-ui/react-molecule-input-field'
+
+import {createComponentMemo, field} from '../../prop-types/index.js'
 
 const joinInputValues = (inputValues = {}) => {
   const {from, to} = inputValues
@@ -101,7 +102,7 @@ const DefaultRange = ({
 
   // render SUI component
   const {children, ...rendererProps} = rendererResponse
-  const {from: fromValue, to: toValue} = rendererProps.value
+  const {from: fromValue = '', to: toValue = ''} = rendererProps.value
     ? splitInputValues(rendererProps.value)
     : inputValues
 
