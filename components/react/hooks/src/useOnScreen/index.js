@@ -62,7 +62,9 @@ export default function useOnScreen({
 
 useOnScreen.displayName = 'HookUseOnScreen'
 useOnScreen.propTypes = {
+  initialValue: PropTypes.bool,
+  offset: PropTypes.string,
+  once: PropTypes.bool,
   ref: PropTypes.element,
-  rootMargin: PropTypes.string,
   threshold: PropTypes.number
 }
