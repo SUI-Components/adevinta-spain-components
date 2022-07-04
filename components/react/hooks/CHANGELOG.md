@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.33.0 (2022-07-04)
+
+
+### Bug Fixes
+
+* **components/react/hooks:** Update the useOnScreen PropTypes ([cb84283](https://github.com/SUI-Components/adevinta-spain-components/commit/cb84283df64dc1ed084c41f3e71099edfea6d5fe))
+
+
+
 # 1.32.0 (2022-06-08)
 
 
