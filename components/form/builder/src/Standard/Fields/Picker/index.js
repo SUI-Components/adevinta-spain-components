@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types'
 
-import Switch from '../../../Switch'
-import Select from '../../../Select'
-import Checkbox from '../../../Checkbox'
-import InlineButton from '../../../InlineButton'
-import Radio from '../../../Radio'
-import Stepper from '../../../Stepper'
-
-import {FIELDS, DISPLAYS} from '../../index'
+import Checkbox from '../../../Checkbox/index.js'
+import InlineButton from '../../../InlineButton/index.js'
+import Radio from '../../../Radio/index.js'
+import Select from '../../../Select/index.js'
+import Slider from '../../../Slider/index.js'
+import Stepper from '../../../Stepper/index.js'
+import Switch from '../../../Switch/index.js'
+import {DISPLAYS, FIELDS} from '../../index.js'
 
 const PickerField = ({
   field,
@@ -91,6 +91,19 @@ const PickerField = ({
     return (
       <Stepper
         stepper={field}
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        tabIndex={tabIndex}
+        errors={errors}
+        alerts={alerts}
+        renderer={renderer}
+      />
+    )
+  } else if (field.display === DISPLAYS[FIELDS.PICKER].SLIDER) {
+    return (
+      <Slider
+        slider={field}
         onChange={onChange}
         onFocus={onFocus}
         onBlur={onBlur}
