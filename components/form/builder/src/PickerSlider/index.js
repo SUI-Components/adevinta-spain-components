@@ -1,4 +1,4 @@
-import {memo} from 'react'
+import {isValidElement, memo} from 'react'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -8,7 +8,15 @@ import MoleculeField from '@s-ui/react-molecule-field'
 
 import {createComponentMemo} from '../prop-types/index.js'
 
-const PickerSlider = ({slider, onChange, onFocus, onBlur, errors, alerts}) => {
+const PickerSlider = ({
+  slider,
+  onChange,
+  onFocus,
+  onBlur,
+  errors,
+  alerts,
+  renderer
+}) => {
   const {id, datalist} = slider
   const className = cx(
     'sui-FormBuilder-field',
@@ -47,14 +55,39 @@ const PickerSlider = ({slider, onChange, onFocus, onBlur, errors, alerts}) => {
     return null
   }
 
+  const errorText = errorMessages && errorMessages.join('\n')
+  const alertText = alertMessages && alertMessages.join('\n')
+  const helpText = slider.help
+  const marks = [formatter(min), formatter(max)]
+
+  const element = renderer({
+    id: slider.id,
+    innerProps: {
+      ...slider,
+      helpText,
+      errorText,
+      alertText,
+      value,
+      min,
+      max,
+      marks,
+      valueLabelFormatter: formatter,
+      onChange: handleChange,
+      onBlur: handleBlur,
+      onFocus: handleFocus
+    }
+  })
+
+  if (isValidElement(element)) return element
+
   return (
     <div className={className}>
       <MoleculeField
-        name={id}
+        name={slider.name}
         label={slider.label}
-        helpText={slider.help}
-        errorText={errorMessages && errorMessages.join('\n')}
-        alertText={alertMessages && alertMessages.join('\n')}
+        helpText={helpText}
+        errorText={errorText}
+        alertText={alertText}
         onChange={handleChange}
         onBlur={handleBlur}
         onFocus={handleFocus}
@@ -67,7 +100,7 @@ const PickerSlider = ({slider, onChange, onFocus, onBlur, errors, alerts}) => {
           valueLabelFormatter={formatter}
           valueLabel={true}
           hideTooltip={true}
-          marks={[formatter(min), formatter(max)]}
+          marks={marks}
         />
       </MoleculeField>
     </div>
@@ -81,7 +114,8 @@ PickerSlider.propTypes = {
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   errors: PropTypes.object,
-  alerts: PropTypes.object
+  alerts: PropTypes.object,
+  renderer: PropTypes.func.isRequired
 }
 
 export default memo(PickerSlider, createComponentMemo('slider'))
