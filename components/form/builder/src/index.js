@@ -1,21 +1,22 @@
-import {useState, useEffect, useCallback, useRef} from 'react'
+import {useCallback, useEffect, useRef, useState} from 'react'
+
 import PropTypes from 'prop-types'
 
-import {json} from './prop-types'
-import {reducer} from './reducer'
-import {RULES} from './reducer/constants'
-import {
-  pickFieldById,
-  fieldsToObject,
-  fieldsToObjectNativeTypes,
-  fieldsNamesInOrderOfDefinition,
-  changeFieldById
-} from './reducer/fields'
-
-import ProxyField from './ProxyField'
 import {inputSizes as fieldSizes} from '@s-ui/react-atom-input'
 import AtomSpinner, {atomSpinnerTypes} from '@s-ui/react-atom-spinner'
+
 import {getUpdatedFormState} from './mapper/formState'
+import {RULES} from './reducer/constants'
+import {
+  changeFieldById,
+  fieldsNamesInOrderOfDefinition,
+  fieldsToObject,
+  fieldsToObjectNativeTypes,
+  pickFieldById
+} from './reducer/fields'
+import {json} from './prop-types'
+import ProxyField from './ProxyField'
+import {reducer} from './reducer'
 
 const FormBuilder = ({
   allowAutoFillOnInitLoad = false,

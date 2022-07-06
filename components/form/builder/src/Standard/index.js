@@ -35,7 +35,8 @@ const DISPLAYS = {
     RADIO: 'radio',
     CHECKBOX: 'checkbox',
     BUTTON_INLINE: 'button-inline',
-    STEPPER: 'stepper'
+    STEPPER: 'stepper',
+    SLIDER: 'slider'
   },
   [FIELDS.MULTIPICKER]: {
     BUTTON: 'button',
