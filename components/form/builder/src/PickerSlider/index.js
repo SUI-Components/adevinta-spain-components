@@ -83,7 +83,7 @@ const PickerSlider = ({
   return (
     <div className={className}>
       <MoleculeField
-        name={slider.name}
+        name={slider.name || slider.id}
         label={slider.label}
         helpText={helpText}
         errorText={errorText}
