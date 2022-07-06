@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 5.8.0 (2022-07-06)
+
+
+### Features
+
+* **components/form/builder:** add form builder picker slider ([ad5e111](https://github.com/SUI-Components/adevinta-spain-components/commit/ad5e111759a3ee60df24d2f5484faa07d09cc1ac))
+* **components/form/builder:** rename slider ([73ce0d9](https://github.com/SUI-Components/adevinta-spain-components/commit/73ce0d946049369a62c1579029e0ed96e01490cb))
+* **components/form/builder:** update slider styles ([f0285e3](https://github.com/SUI-Components/adevinta-spain-components/commit/f0285e3ddf4a7b8057d6760330843881106dd96a))
+
+
+
 # 5.7.0 (2022-06-29)
 
 
