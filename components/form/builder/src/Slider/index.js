@@ -1,25 +1,19 @@
 import {memo} from 'react'
-import PropTypes from 'prop-types'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+
 import AtomSlider from '@s-ui/react-atom-slider'
 import MoleculeField from '@s-ui/react-molecule-field'
 
 import {createComponentMemo} from '../prop-types/index.js'
 
-const Slider = ({
-  slider,
-  tabIndex,
-  onChange,
-  onFocus,
-  onBlur,
-  errors,
-  alerts
-}) => {
+const Slider = ({slider, onChange, onFocus, onBlur, errors, alerts}) => {
   const {id, datalist} = slider
   const className = cx(
     'sui-FormBuilder-field',
     'sui-FormBuilder-Slider',
-    `sui-FormBuilder-${id || tabIndex}`
+    `sui-FormBuilder-${id}`
   )
   const min = 0
   const max = datalist.length - 1
@@ -28,13 +22,7 @@ const Slider = ({
   const alertMessages = alerts[id]
 
   const formatter = index => {
-    const value = datalist[index].value
-
-    if (slider.valueLabelFormatter) {
-      return slider.valueLabelFormatter(value)
-    }
-
-    return value
+    return datalist[index].text
   }
 
   const handleChange = (event, {value: index}) => {
@@ -93,8 +81,7 @@ Slider.propTypes = {
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   errors: PropTypes.object,
-  alerts: PropTypes.object,
-  renderer: PropTypes.func
+  alerts: PropTypes.object
 }
 
 export default memo(Slider, createComponentMemo('slider'))
