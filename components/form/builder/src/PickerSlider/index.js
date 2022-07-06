@@ -8,11 +8,11 @@ import MoleculeField from '@s-ui/react-molecule-field'
 
 import {createComponentMemo} from '../prop-types/index.js'
 
-const Slider = ({slider, onChange, onFocus, onBlur, errors, alerts}) => {
+const PickerSlider = ({slider, onChange, onFocus, onBlur, errors, alerts}) => {
   const {id, datalist} = slider
   const className = cx(
     'sui-FormBuilder-field',
-    'sui-FormBuilder-Slider',
+    'sui-FormBuilder-PickerSlider',
     `sui-FormBuilder-${id}`
   )
   const min = 0
@@ -74,8 +74,8 @@ const Slider = ({slider, onChange, onFocus, onBlur, errors, alerts}) => {
   )
 }
 
-Slider.displayName = 'Slider'
-Slider.propTypes = {
+PickerSlider.displayName = 'PickerSlider'
+PickerSlider.propTypes = {
   slider: PropTypes.object,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
@@ -84,4 +84,4 @@ Slider.propTypes = {
   alerts: PropTypes.object
 }
 
-export default memo(Slider, createComponentMemo('slider'))
+export default memo(PickerSlider, createComponentMemo('slider'))

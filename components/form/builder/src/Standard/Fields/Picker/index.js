@@ -2,9 +2,9 @@ import PropTypes from 'prop-types'
 
 import Checkbox from '../../../Checkbox/index.js'
 import InlineButton from '../../../InlineButton/index.js'
+import PickerSlider from '../../../PickerSlider/index.js'
 import Radio from '../../../Radio/index.js'
 import Select from '../../../Select/index.js'
-import Slider from '../../../Slider/index.js'
 import Stepper from '../../../Stepper/index.js'
 import Switch from '../../../Switch/index.js'
 import {DISPLAYS, FIELDS} from '../../index.js'
@@ -102,7 +102,7 @@ const PickerField = ({
     )
   } else if (field.display === DISPLAYS[FIELDS.PICKER].SLIDER) {
     return (
-      <Slider
+      <PickerSlider
         slider={field}
         onChange={onChange}
         onFocus={onFocus}
