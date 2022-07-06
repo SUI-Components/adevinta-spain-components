@@ -60,7 +60,7 @@ const PickerSlider = ({
   const helpText = slider.help
   const marks = [formatter(min), formatter(max)]
 
-  const element = renderer({
+  const response = renderer({
     id: slider.id,
     innerProps: {
       ...slider,
@@ -78,7 +78,7 @@ const PickerSlider = ({
     }
   })
 
-  if (isValidElement(element)) return element
+  if (isValidElement(response)) return response
 
   return (
     <div className={className}>
@@ -101,6 +101,7 @@ const PickerSlider = ({
           valueLabel={true}
           hideTooltip={true}
           marks={marks}
+          {...response}
         />
       </MoleculeField>
     </div>
