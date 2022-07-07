@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 5.9.0 (2022-07-07)
+
+
+### Features
+
+* **components/form/builder:** add missing id ([6bc4607](https://github.com/SUI-Components/adevinta-spain-components/commit/6bc46077f9f28f485164005f7ce46fdf621c798c))
+* **components/form/builder:** add renderer function ([c1b4c88](https://github.com/SUI-Components/adevinta-spain-components/commit/c1b4c88aa0434304b42aae215a20d812c953d46b))
+* **components/form/builder:** add response spread in picker slider ([c7515c2](https://github.com/SUI-Components/adevinta-spain-components/commit/c7515c287d983e98407768a2867832a6b6d28985))
+
+
+
 # 5.8.0 (2022-07-06)
 
 
