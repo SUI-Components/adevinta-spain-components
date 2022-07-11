@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.10.0 (2022-07-11)
+
+
+### Features
+
+* **components/form/builder:** get other params received from function prop and also use them ([21b651f](https://github.com/SUI-Components/adevinta-spain-components/commit/21b651f6c6eeb2770da0ce91a30a5e16d3b0c3cf))
+
+
+
 # 5.9.0 (2022-07-07)
 
 
