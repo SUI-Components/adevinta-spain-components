@@ -36,9 +36,11 @@ const DefaultSelect = ({
     label: select.label
   }
 
-  const onBlurCallback = () => onBlur(select.id, blurFocusParams)
+  const onBlurCallback = otherParams =>
+    onBlur(select.id, blurFocusParams, otherParams)
 
-  const onFocusCallback = () => onFocus(select.id, blurFocusParams)
+  const onFocusCallback = otherParams =>
+    onFocus(select.id, blurFocusParams, otherParams)
 
   const {datalist = []} = select
 
