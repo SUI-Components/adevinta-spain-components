@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types'
-import {useState, useEffect, useLayoutEffect, useRef} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import cx from 'classnames'
 import Menu from '@s-ui/react-icons/lib/Menu'
 import DropdownBasic from '@s-ui/react-dropdown-basic'
 import DropdownUser from '@s-ui/react-dropdown-user'
 import AtomButton, {atomButtonSizes} from '@s-ui/react-atom-button'
+import useIsomorphicLayoutEffect from '@s-ui/react-hooks/lib/useIsomorphicLayoutEffect/index.js'
 
 const noop = () => {}
 
@@ -80,7 +81,9 @@ export default function TopbarUser({
     }
   }
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
+    // Early return if not on client
+    if (window === undefined) return
     /**
      * Set the display state for toggle button.
      */
