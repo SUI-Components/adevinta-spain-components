@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.54.0 (2022-07-13)
+
+
+### Features
+
+* **components/topbar/user:** import new dep ([748d6e1](https://github.com/SUI-Components/adevinta-spain-components/commit/748d6e1c5e3a1bc99aa1e5f73cd41bd64bd8e304))
+* **components/topbar/user:** use useIsomorphicLayoutEffect for topbar ([9e8ca98](https://github.com/SUI-Components/adevinta-spain-components/commit/9e8ca9875ead17a8cd60e32c71b3697729ccc67d))
+
+
+
 # 1.53.0 (2022-05-11)
 
 
