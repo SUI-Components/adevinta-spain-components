@@ -1,5 +1,13 @@
 @import '~@s-ui/theme/lib/index';
 
-.sui-MapGoogle {
-  // Do your magic
+$BASE_CLASS: '.sui-MapGoogle';
+
+#{$BASE_CLASS} {
+  height: 100%;
+  width: 100%;
+
+  &-Container {
+    height: 100%;
+    width: 100%;
+  }
 }

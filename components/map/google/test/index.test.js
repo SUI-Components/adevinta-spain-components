@@ -1,7 +1,3 @@
-/*
- * Remember: YOUR COMPONENT IS DEFINED GLOBALLY
- * */
-
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
@@ -9,6 +5,8 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+import sinon from 'sinon'
+
 import Component from '../src/index.js'
 
 chai.use(chaiDOM)
@@ -52,5 +50,22 @@ describe('MapGoogle', () => {
 
     // Then
     expect(findClassName(container.innerHTML)).to.be.null
+  })
+
+  it('should render loading state and map successfully', async () => {
+    // Given
+    const spy = sinon.spy()
+    const props = {
+      apiKey: '',
+      loaderNode: <div>Loading</div>,
+      onLoad: spy
+    }
+
+    // When
+    setup(props)
+
+    // Then
+
+    sinon.assert.callCount(spy, 1)
   })
 })
