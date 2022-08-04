@@ -1,8 +1,10 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
-import Notification from '@s-ui/react-molecule-notification'
+
 import Button from '@s-ui/react-atom-button'
 import {useMount} from '@s-ui/react-hooks'
+import Notification from '@s-ui/react-molecule-notification'
 
 import {CLASS, I18N} from './settings'
 
