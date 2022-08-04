@@ -1,14 +1,15 @@
 /* eslint-env jest */
 import {act} from 'react-dom/test-utils'
-import Enzyme, {mount} from 'enzyme'
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17'
 
-import OptimizelyX from '../src/useExperimentCore/optimizely-x'
-import {useExperiment as useExperimentRaw, useExperimentCore} from '../src'
+import Enzyme, {mount} from 'enzyme'
+
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17'
 
 import AbTestOptimizelyXExperiment, {
   getExperimentContext
 } from '../../optimizelyXExperiment/src'
+import {useExperiment as useExperimentRaw, useExperimentCore} from '../src'
+import OptimizelyX from '../src/useExperimentCore/optimizely-x'
 
 // configure tests
 Enzyme.configure({adapter: new Adapter()})

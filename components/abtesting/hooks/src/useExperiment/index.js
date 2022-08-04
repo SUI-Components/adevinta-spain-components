@@ -1,5 +1,7 @@
 import {useContext} from 'react'
+
 import {getExperimentContext as getExperimentContextFromPackage} from '@s-ui/abtesting-optimizely-x'
+
 import useExperimentCore from '../useExperimentCore'
 
 // Fallback object in case the hook is used in some point of the hierarchy
