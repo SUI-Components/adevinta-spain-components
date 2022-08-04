@@ -1,5 +1,7 @@
 import {Component} from 'react'
+
 import PropTypes from 'prop-types'
+
 import {mapLanguages, mapViewModes, NO_OP} from './leaflet/constants'
 
 class MapBasic extends Component {

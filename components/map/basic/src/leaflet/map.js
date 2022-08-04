@@ -1,9 +1,10 @@
 import L from 'leaflet'
-import Polygons from './shapes/Polygons'
+
 import Circle from './shapes/Circle'
+import Polygons from './shapes/Polygons'
 import {mapViewModes} from './constants'
-import MarkerManager from './marker-manager'
 import LayerManager from './layer-manager'
+import MarkerManager from './marker-manager'
 
 const DRAW_CLASS = 'drawnPolygon'
 let simplifyGeoJson = null
