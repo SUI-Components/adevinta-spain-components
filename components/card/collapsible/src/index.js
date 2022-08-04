@@ -1,9 +1,11 @@
-import PropTypes from 'prop-types'
 import {Component} from 'react'
+
+import cx from 'classnames'
+import PropTypes from 'prop-types'
+
 import Button from '@s-ui/react-atom-button'
 import Collapsible from '@s-ui/react-collapsible-basic'
 import IconX from '@s-ui/react-icons/lib/X'
-import cx from 'classnames'
 
 class CardCollapsible extends Component {
   constructor(props) {
