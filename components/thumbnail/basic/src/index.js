@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+
 import Thumbnail from './Thumbnail'
 
 const ThumbnailBasic = function ({
