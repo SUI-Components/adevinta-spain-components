@@ -1,7 +1,8 @@
 import {useState} from 'react'
-import {Paragraph} from '@s-ui/documentation-library'
 
 import {useMount} from 'components/react/hooks/src'
+
+import {Paragraph} from '@s-ui/documentation-library'
 
 export default function UseMountDemo() {
   const [text, setText] = useState(

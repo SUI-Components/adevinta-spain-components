@@ -1,7 +1,7 @@
+import {useOnScreen} from 'components/react/hooks/src'
+
 import {Paragraph} from '@s-ui/documentation-library'
 import {Box} from '@s-ui/documentation-library/lib/components/Box/Box'
-
-import {useOnScreen} from 'components/react/hooks/src'
 
 export default function UseOnScreenDemo() {
   const [isIntersecting, outerRef] = useOnScreen({once: false})

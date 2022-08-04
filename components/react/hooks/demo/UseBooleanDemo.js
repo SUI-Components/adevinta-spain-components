@@ -1,6 +1,6 @@
-import {Strong, Button, Grid, Cell, Label} from '@s-ui/documentation-library'
-
 import {useBoolean} from 'components/react/hooks/src'
+
+import {Button, Cell, Grid, Label, Strong} from '@s-ui/documentation-library'
 
 export default function UseBooleanDemo() {
   const [value, {toggle, on, off}] = useBoolean()

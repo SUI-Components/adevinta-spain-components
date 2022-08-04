@@ -1,4 +1,5 @@
 import {useEffect, useRef, useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 export function useNearScreen({initialValue = false, offset = '200px'} = {}) {
