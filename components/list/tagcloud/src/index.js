@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+
 import TagChip from '@s-ui/react-tag-chip'
 
 const defaultLinkFactory = ({href, className, children}) => ( // eslint-disable-line
