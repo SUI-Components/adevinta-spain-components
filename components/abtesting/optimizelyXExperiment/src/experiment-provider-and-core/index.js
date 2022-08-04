@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
-import AbTestToggle from '@s-ui/abtesting-toggle'
 
 import {useExperimentCore as useExperimentCoreFromPackage} from '@s-ui/abtesting-hooks'
-import ExperimentProviderOnly from '../experiment-provider-only'
+import AbTestToggle from '@s-ui/abtesting-toggle'
 
+import ExperimentProviderOnly from '../experiment-provider-only'
 import experimentPropsMapper from './experiment-props-mapper'
 
 function ExperimentProviderAndCore(props) {
@@ -13,9 +13,8 @@ function ExperimentProviderAndCore(props) {
     (deps && deps.useExperimentCore) || useExperimentCoreFromPackage
 
   const experimentParams = experimentPropsMapper(props)
-  const {experimentData: experimentDataFromCore} = useExperimentCore(
-    experimentParams
-  )
+  const {experimentData: experimentDataFromCore} =
+    useExperimentCore(experimentParams)
   return (
     <ExperimentProviderOnly experimentData={experimentDataFromCore}>
       <AbTestToggle variation={experimentDataFromCore.variationId}>
