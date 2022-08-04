@@ -1,6 +1,8 @@
-import PropTypes from 'prop-types'
 import {Component} from 'react'
+
+import PropTypes from 'prop-types'
 import Swiper from 'swiper'
+
 import Chevronleft from '@s-ui/react-icons/lib/Chevronleft'
 import Chevronright from '@s-ui/react-icons/lib/Chevronright'
 
