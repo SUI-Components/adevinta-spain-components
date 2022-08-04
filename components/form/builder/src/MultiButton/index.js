@@ -1,9 +1,11 @@
 import {isValidElement, memo} from 'react'
+
 import PropTypes from 'prop-types'
+
 import AtomTag from '@s-ui/react-atom-tag'
 import MoleculeField from '@s-ui/react-molecule-field'
 
-import {field, createComponentMemo} from '../prop-types'
+import {createComponentMemo, field} from '../prop-types'
 
 const MultiButton = ({
   alerts,
@@ -35,7 +37,7 @@ const MultiButton = ({
     label: multiButton.label,
     onBlur: onBlurCallback,
     onFocus: onFocusCallback,
-    tabIndex: tabIndex,
+    tabIndex,
     value: multiButton.value,
     ...(multiButton.disabled && {
       disabled: true

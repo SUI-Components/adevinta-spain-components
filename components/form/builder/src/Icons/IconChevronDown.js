@@ -1,4 +1,5 @@
 import {memo} from 'react'
+
 import PropTypes from 'prop-types'
 
 const SVG = ({className}) => (

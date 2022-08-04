@@ -1,8 +1,10 @@
 import {isValidElement, memo} from 'react'
 
 import PropTypes from 'prop-types'
-import {field, createComponentMemo} from '../prop-types/index.js'
+
 import MoleculeDataCounter from '@s-ui/react-molecule-data-counter'
+
+import {createComponentMemo, field} from '../prop-types/index.js'
 
 export const OPERATIONS = {
   ADD: '+',
@@ -23,7 +25,7 @@ const Stepper = ({stepper, tabIndex, onChange, errors, alerts, renderer}) => {
     maxValueErrorText: stepper.maxValueErrorText,
     min: stepper.min,
     minValueErrorText: stepper.minValueErrorText,
-    tabIndex: tabIndex,
+    tabIndex,
     value: stepper.value,
     ...(stepper.disabled && {
       disabled: true

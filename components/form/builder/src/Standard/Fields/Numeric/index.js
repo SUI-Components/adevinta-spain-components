@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types'
 
 import Input from '../../../Input'
-
-import {FIELDS, DISPLAYS} from '../../index'
+import {DISPLAYS, FIELDS} from '../../index'
 
 const NumericField = ({
   field,

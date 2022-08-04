@@ -1,4 +1,4 @@
-import {deepFlatten, pipe, clean, head} from './fn-utils'
+import {clean, deepFlatten, head, pipe} from './fn-utils'
 
 export const datalistEntries = fields => {
   const entries = deepFlatten(

@@ -1,9 +1,11 @@
 import {isValidElement, memo, useCallback} from 'react'
 
 import PropTypes from 'prop-types'
-import {field, createComponentMemo} from '../prop-types'
-import MoleculeButtonGroupField from '@s-ui/react-molecule-button-group-field'
+
 import Button from '@s-ui/react-atom-button'
+import MoleculeButtonGroupField from '@s-ui/react-molecule-button-group-field'
+
+import {createComponentMemo, field} from '../prop-types'
 
 const InlineButton = ({
   inlineButton,
@@ -31,7 +33,7 @@ const InlineButton = ({
   const inlineButtonProps = {
     id: inlineButton.id,
     label: inlineButton.label,
-    tabIndex: tabIndex,
+    tabIndex,
     value: inlineButton.value || '',
     onChange: onChangeCallback,
     ...(inlineButton.disabled && {

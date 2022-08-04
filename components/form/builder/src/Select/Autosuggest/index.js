@@ -1,12 +1,13 @@
 import {isValidElement, memo, useCallback, useState} from 'react'
 
 import PropTypes from 'prop-types'
-import {field, createComponentMemo} from '../../prop-types'
 
+import {removeAccents} from '@s-ui/js/lib/string'
 import MoleculeAutosuggestField from '@s-ui/react-molecule-autosuggest-field'
 import MoleculeAutosuggestOption from '@s-ui/react-molecule-dropdown-option'
+
 import IconClose from '../../Icons/IconClose'
-import {removeAccents} from '@s-ui/js/lib/string'
+import {createComponentMemo, field} from '../../prop-types'
 
 const fromValueToText = datalist => value => {
   const item = datalist.find(item => item.value === value)

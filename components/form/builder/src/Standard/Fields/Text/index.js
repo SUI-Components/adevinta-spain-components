@@ -2,8 +2,7 @@ import PropTypes from 'prop-types'
 
 import Input from '../../../Input/index.js'
 import TextArea from '../../../TextArea/index.js'
-
-import {FIELDS, DISPLAYS} from '../../index.js'
+import {DISPLAYS, FIELDS} from '../../index.js'
 
 const TextField = ({
   field,
