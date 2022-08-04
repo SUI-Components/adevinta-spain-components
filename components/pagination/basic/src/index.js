@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+
 import PaginationItem from './sui-pagination-item'
 
 const FIRST_PAGE = 1
