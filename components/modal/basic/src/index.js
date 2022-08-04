@@ -1,8 +1,10 @@
-import PropTypes from 'prop-types'
-import {createRef, Component} from 'react'
+import {Component, createRef} from 'react'
 import {createPortal} from 'react-dom'
-import IconX from '@s-ui/react-icons/lib/X'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+
+import IconX from '@s-ui/react-icons/lib/X'
 
 const CLASS_MODAL_OPEN = 'is-modal-open'
 
