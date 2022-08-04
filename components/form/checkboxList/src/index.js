@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 const isChecked = ({selectedValues = [], value} = {}) => {
   return selectedValues.indexOf(value) !== -1
