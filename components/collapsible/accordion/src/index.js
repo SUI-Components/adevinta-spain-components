@@ -1,5 +1,7 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
+
 import CollapsibleBasic from '@s-ui/react-collapsible-basic'
 
 function CollapsibleAccordion({
