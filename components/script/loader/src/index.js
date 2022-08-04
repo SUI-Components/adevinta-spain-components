@@ -1,6 +1,9 @@
 import {useEffect, useState} from 'react'
-import {useMount} from '@s-ui/react-hooks'
+
 import PropTypes from 'prop-types'
+
+import {useMount} from '@s-ui/react-hooks'
+
 import {loadScript} from './helper.js'
 
 const ScriptLoader = ({
