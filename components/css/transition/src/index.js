@@ -1,8 +1,10 @@
-import PropTypes from 'prop-types'
 import {
-  TransitionGroup as AnimationTransitionGroup,
-  CSSTransition as Transition
+  CSSTransition as Transition,
+  TransitionGroup as AnimationTransitionGroup
 } from 'react-transition-group'
+
+import PropTypes from 'prop-types'
+
 import {CONFIG, TYPES} from './animations-config'
 
 const CssTransition = ({children, type, duration, ...attrs}) => {
