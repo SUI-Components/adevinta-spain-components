@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+
 import DropdownMenu from './sui-topbar-composable-dropdown'
 import DropdownMenuItem from './sui-topbar-composable-dropdown-item'
 
