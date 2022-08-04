@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types'
-import SuiLazyLoadImage from '@s-ui/react-image-lazy-load'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+
+import SuiLazyLoadImage from '@s-ui/react-image-lazy-load'
 
 const ensureFunction = func => {
   return func instanceof Function ? func : () => {}
