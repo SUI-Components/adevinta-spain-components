@@ -1,6 +1,8 @@
 import {Children, Component} from 'react'
-import PropTypes from 'prop-types'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+
 import ViewportResize from './viewport-resize'
 
 class LayoutBreakpointSplit extends Component {
