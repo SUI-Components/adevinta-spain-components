@@ -1,6 +1,7 @@
 /* eslint react/jsx-no-undef:0 */
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+
 import {render} from '@testing-library/react'
 
 chai.use(chaiDOM)
