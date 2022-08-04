@@ -1,5 +1,7 @@
-import PropTypes from 'prop-types'
 import {Component} from 'react'
+
+import PropTypes from 'prop-types'
+
 import TagSelectable from '@s-ui/react-tag-selectable'
 
 const removeFromArray = (arr, value) => {
