@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import cx from 'classnames'
+import SuiAtomTag from '@s-ui/react-atom-tag'
 import Commentsquare from '@s-ui/react-icons/lib/Commentsquare'
 import MediaPlay from '@s-ui/react-icons/lib/Mediaplay'
 import ImageLazyLoad from '@s-ui/react-image-lazy-load'
-import SuiAtomTag from '@s-ui/react-atom-tag'
 
 const cardArticleMediaClassName = video =>
   cx('sui-CardArticle-media', {
