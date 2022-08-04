@@ -1,11 +1,11 @@
 import {Component, createRef} from 'react'
+
 import PropTypes from 'prop-types'
 import ResizeObserver from 'resize-observer-polyfill'
 import shallowEqual from 'shallowequal'
 
-import {getWidth, matchQueries} from './helpers'
-
 import {BREAKPOINTS} from './breakpoints'
+import {getWidth, matchQueries} from './helpers'
 
 const LayoutMediaQueryFactory = function (BREAKPOINTS) {
   return class extends Component {
