@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types'
-import {Link} from '@s-ui/react-router'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+
+import {Link} from '@s-ui/react-router'
 
 const renderContent = (icon, literal) =>
   icon && literal ? (
