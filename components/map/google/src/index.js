@@ -1,16 +1,27 @@
+import {useCallback} from 'react'
 import PropTypes from 'prop-types'
 
 import {GoogleMap, useLoadScript} from '@react-google-maps/api'
 
-const baseClass = 'sui-MapGoogle'
+import {
+  BASE_CLASS,
+  CONTAINER_CLASSNAME,
+  DEFAULT_CENTER,
+  DEFAULT_LANGUAGE,
+  DEFAULT_ZOOM,
+  handle
+} from './config.js'
 
 export default function MapGoogle({
   apiKey,
-  center = {lat: 40.416775, lng: -3.70379},
-  language = 'es',
-  zoom = 7,
+  center = DEFAULT_CENTER,
+  language = DEFAULT_LANGUAGE,
+  zoom = DEFAULT_ZOOM,
   errorNode,
   loaderNode,
+  onLoad,
+  onError,
+  onUnmount,
   ...others
 }) {
   const {isLoaded, loadError} = useLoadScript({
@@ -18,17 +29,27 @@ export default function MapGoogle({
     language
   })
 
+  const handleOnLoad = useCallback(
+    mapInstance => {
+      handle(onLoad)(mapInstance)
+    },
+    [onLoad]
+  )
+
   if (loadError) {
-    return errorNode ? <div className={baseClass}>{errorNode}</div> : null
+    return errorNode ? <div className={BASE_CLASS}>{errorNode}</div> : null
   }
 
   return (
-    <div className={baseClass}>
+    <div className={BASE_CLASS}>
       {isLoaded ? (
         <GoogleMap
           center={center}
-          mapContainerClassName={`${baseClass}-Container`}
+          mapContainerClassName={CONTAINER_CLASSNAME}
           zoom={zoom}
+          onLoad={handleOnLoad}
+          onError={onError}
+          onUnmount={onUnmount}
           {...others}
         />
       ) : (
@@ -48,5 +69,8 @@ MapGoogle.propTypes = {
   }),
   zoom: PropTypes.number,
   loaderNode: PropTypes.node,
-  errorNode: PropTypes.node
+  errorNode: PropTypes.node,
+  onLoad: PropTypes.func,
+  onUnmount: PropTypes.func,
+  onError: PropTypes.func
 }
