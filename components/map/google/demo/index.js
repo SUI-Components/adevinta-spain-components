@@ -1,13 +1,33 @@
+import {useState} from 'react'
+
 import {H1} from '@s-ui/documentation-library'
 
-import DefaultArticle from './articles/DefaultArticle.js'
-import {CLASS_DEMO_SECTION} from './config.js'
+import MapArticle from './articles/MapArticle.js'
+import MapImageArticle from './articles/MapImageArticle.js'
+import {Box, Input} from '@s-ui/documentation-library'
+
+const className = 'DemoMapGoogle'
 
 export default () => {
+  const [apiKey, setApiKey] = useState('')
+
   return (
-    <div className="sui-StudioPreview">
-      <H1>Map-Google</H1>
-      <DefaultArticle className={CLASS_DEMO_SECTION} />
+    <div className={className}>
+      <H1>MapGoogle</H1>
+
+      <Box>
+        <label htmlFor="key" className={`${className}-label`}>
+          API Key
+        </label>
+        <Input
+          id="key"
+          value={apiKey}
+          onChange={event => setApiKey(event.target.value)}
+        />
+      </Box>
+
+      <MapArticle apiKey={apiKey} />
+      <MapImageArticle apiKey={apiKey} />
     </div>
   )
 }

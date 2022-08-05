@@ -1,3 +1,10 @@
 @import '~@s-ui/theme/lib/utils';
 
 @import '../src/index.scss';
+
+.DemoMapGoogle {
+  &-label {
+    display: block;
+    margin-bottom: $m-m;
+  }
+}

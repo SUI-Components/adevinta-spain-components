@@ -19,6 +19,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@react-google-maps/api": "2.12.1"
+    "@react-google-maps/api": "2.12.1",
+    "@s-ui/js": "2"
   }
 }
