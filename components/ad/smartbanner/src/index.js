@@ -1,7 +1,9 @@
 import cx from 'classnames'
-import DefaultCloseIcon from '@s-ui/react-icons/lib/X'
-import DefaultInstallButton from './InstallButton/index.js'
 import PropTypes from 'prop-types'
+
+import DefaultCloseIcon from '@s-ui/react-icons/lib/X'
+
+import DefaultInstallButton from './InstallButton/index.js'
 import RatingStar from './RatingStar/index.js'
 
 function AdSmartbanner({

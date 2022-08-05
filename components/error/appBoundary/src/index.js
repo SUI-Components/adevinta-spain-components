@@ -1,5 +1,7 @@
 import {Component, Suspense} from 'react'
+
 import PropTypes from 'prop-types'
+
 import MoleculeNotification from '@s-ui/react-molecule-notification'
 
 const CLOSE_ANIMATION_TIME = 1000
@@ -8,12 +10,8 @@ class ErrorAppBoundary extends Component {
   state = {errorCount: 0, hasError: false}
 
   componentDidCatch(errorMessage, errorStack) {
-    const {
-      errorThreshold,
-      onError,
-      redirectUrlOnBreakingThreshold,
-      silent
-    } = this.props
+    const {errorThreshold, onError, redirectUrlOnBreakingThreshold, silent} =
+      this.props
     const {errorCount} = this.state
 
     onError({errorMessage, errorStack})

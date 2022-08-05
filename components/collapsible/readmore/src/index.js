@@ -1,6 +1,8 @@
-import {createRef, Component} from 'react'
-import PropTypes from 'prop-types'
+import {Component, createRef} from 'react'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+
 import Chevronbottom from '@s-ui/react-icons/lib/Chevronbottom'
 
 const CLASS = 'sui-CollapsibleReadmore'

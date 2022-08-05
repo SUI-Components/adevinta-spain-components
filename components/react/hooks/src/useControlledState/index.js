@@ -1,4 +1,5 @@
-import {useState, useLayoutEffect, useCallback} from 'react'
+import {useCallback, useLayoutEffect, useState} from 'react'
+
 import useMountedState from '../useMountedState'
 
 /**

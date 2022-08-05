@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types'
 
-import Multipicker from '../../../Multicheckbox'
 import MultiButton from '../../../MultiButton'
+import Multipicker from '../../../Multicheckbox'
 import Select from '../../../Select/Default'
-
-import {FIELDS, DISPLAYS} from '../../index'
+import {DISPLAYS, FIELDS} from '../../index'
 
 export default function MultipickerField({
   alerts,

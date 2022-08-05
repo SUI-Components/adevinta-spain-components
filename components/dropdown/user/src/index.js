@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 import {useReducer} from 'react'
-import PropTypes from 'prop-types'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+
 import MoleculeBadgeCounter, {
   moleculeBadgeCounterSizes
 } from '@s-ui/react-molecule-badge-counter'
 
-import {reducerActions, reducerInitialState, reducer} from './reducer'
+import {reducer, reducerActions, reducerInitialState} from './reducer'
 
 const DropdownUser = ({
   expandOnMouseOver = false,

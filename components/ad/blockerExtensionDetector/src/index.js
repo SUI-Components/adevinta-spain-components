@@ -1,4 +1,5 @@
-import {createRef, Component} from 'react'
+import {Component, createRef} from 'react'
+
 import PropTypes from 'prop-types'
 
 class AdBlockerExtensionDetector extends Component {

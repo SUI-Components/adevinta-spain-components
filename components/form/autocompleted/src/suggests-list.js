@@ -1,5 +1,7 @@
 import {forwardRef} from 'react'
+
 import PropTypes from 'prop-types'
+
 import ListItem from './list-item'
 
 const SuggestsList = forwardRef((props, ref) => {

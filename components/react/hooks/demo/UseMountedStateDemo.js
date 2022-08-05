@@ -1,7 +1,8 @@
 import {useState} from 'react'
-import {Paragraph, Button} from '@s-ui/documentation-library'
 
 import {useMountedState} from 'components/react/hooks/src'
+
+import {Button, Paragraph} from '@s-ui/documentation-library'
 
 export default function UseMountedStateDemo() {
   const isMounted = useMountedState()

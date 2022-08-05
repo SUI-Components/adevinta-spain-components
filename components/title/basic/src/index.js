@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 const TITLE_ALIGN_CLASSNAMES = {
   left: 'sui-TitleBasic--alignLeft',

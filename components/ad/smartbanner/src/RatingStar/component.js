@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
+
 import IconStarFullDefault from '@s-ui/react-icons/lib/Star'
-import IconStarHalfDefault from '@s-ui/react-icons/lib/Starhalf'
 import IconStarEmptyDefault from '@s-ui/react-icons/lib/Starempty'
+import IconStarHalfDefault from '@s-ui/react-icons/lib/Starhalf'
 
 const baseNumber = 0.5
 const checkRatingValue = ({ratingValue, ratingMax}) =>

@@ -4,9 +4,10 @@
 
 /* eslint react/jsx-no-undef:0 */
 
-import {render, fireEvent, waitFor} from '@testing-library/react'
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
+
+import {fireEvent, render, waitFor} from '@testing-library/react'
 
 import {brand, navCTA, navMain, navUser} from './fixtures.js'
 

@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types'
 import ReactTooltip from 'react-tooltip'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 export default function TooltipBasic(props) {
   const {className} = props

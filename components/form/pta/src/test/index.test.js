@@ -1,7 +1,9 @@
 /* eslint-env jest */
 import Enzyme, {shallow} from 'enzyme'
-import FormPta from '../index'
+
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17'
+
+import FormPta from '../index'
 
 Enzyme.configure({adapter: new Adapter()})
 describe('<FormPta />', () => {

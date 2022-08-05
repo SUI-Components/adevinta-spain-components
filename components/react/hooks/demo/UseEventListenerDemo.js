@@ -1,16 +1,17 @@
-import {useState, useRef} from 'react'
-import {
-  Box,
-  H3,
-  UnorderedList,
-  ListItem,
-  Label,
-  Input,
-  Grid,
-  Cell
-} from '@s-ui/documentation-library'
+import {useRef, useState} from 'react'
 
 import {useEventListener} from 'components/react/hooks/src'
+
+import {
+  Box,
+  Cell,
+  Grid,
+  H3,
+  Input,
+  Label,
+  ListItem,
+  UnorderedList
+} from '@s-ui/documentation-library'
 
 const availableEvents = ['click', 'mouseenter', 'scroll']
 

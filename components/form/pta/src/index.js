@@ -1,5 +1,7 @@
 import {Component} from 'react'
+
 import PropTypes from 'prop-types'
+
 import {paramsToQueryString} from './querystring'
 import {transformEventsListenersIntoCallbackMap} from './transformEventListeners'
 

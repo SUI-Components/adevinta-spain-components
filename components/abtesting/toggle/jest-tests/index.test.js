@@ -1,8 +1,9 @@
 /* eslint-env jest */
 import Enzyme, {render} from 'enzyme'
-import AbTestToggle from '../src/index'
 
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17'
+
+import AbTestToggle from '../src/index'
 Enzyme.configure({adapter: new Adapter()})
 
 describe('<AbTestToggle />', () => {

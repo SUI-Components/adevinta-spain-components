@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+
 import LazyContent from './lazyContent'
 
 const BOTS_USER_AGENTS = [

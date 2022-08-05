@@ -1,14 +1,13 @@
 import {useState} from 'react'
-import {Input, Button, Grid, Cell, Label} from '@s-ui/documentation-library'
 
 import {useCopyToClipboard} from 'components/react/hooks/src'
 
+import {Button, Cell, Grid, Input, Label} from '@s-ui/documentation-library'
+
 export default function UseCopyToClipboardDemo() {
   const [value, setValue] = useState('')
-  const [
-    {value: copyValue, error: copyError},
-    copyToClipboard
-  ] = useCopyToClipboard()
+  const [{value: copyValue, error: copyError}, copyToClipboard] =
+    useCopyToClipboard()
 
   return (
     <Grid cols={7} gutter={[8, 8]}>

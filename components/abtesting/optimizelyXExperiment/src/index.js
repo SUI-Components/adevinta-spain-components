@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 
 import {getExperimentContext} from './context'
-import ExperimentProviderOnly from './experiment-provider-only'
 import ExperimentProviderAndCore from './experiment-provider-and-core'
+import ExperimentProviderOnly from './experiment-provider-only'
 
 function AbTestOptimizelyXExperiment(props) {
   const isProviderOnly = !!props.feed

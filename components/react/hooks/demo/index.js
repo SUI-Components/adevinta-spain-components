@@ -9,6 +9,8 @@ import {
 } from '@s-ui/documentation-library'
 
 import UseBooleanDemo from './UseBooleanDemo.js'
+import UseControlledStateDemo from './UseControlledStateDemo.js'
+import UseCopyToClipboardDemo from './UseCopyToClipboardDemo.js'
 import UseEventListenerDemo from './UseEventListenerDemo.js'
 import UseLegacyStateDemo from './UseLegacyStateDemo.js'
 import UseMediaQueryDemo from './UseMediaQueryDemo.js'
@@ -21,8 +23,6 @@ import UseScrollDemo from './UseScrollDemo.js'
 import UseStepsDemo from './UseStepsDemo.js'
 import UseSwipeDemo from './UseSwipeDemo.js'
 import UseToggleDemo from './UseToggleDemo.js'
-import UseControlledStateDemo from './UseControlledStateDemo.js'
-import UseCopyToClipboardDemo from './UseCopyToClipboardDemo.js'
 
 const orderedHookList = [
   UseBooleanDemo,

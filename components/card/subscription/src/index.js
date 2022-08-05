@@ -1,8 +1,10 @@
-import PropTypes from 'prop-types'
 import {Component} from 'react'
-import Chevronright from '@s-ui/react-icons/lib/Chevronright'
-import FormCheckbox from '@s-ui/react-form-checkbox'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+
+import FormCheckbox from '@s-ui/react-form-checkbox'
+import Chevronright from '@s-ui/react-icons/lib/Chevronright'
 
 export default class CardSubscription extends Component {
   state = {

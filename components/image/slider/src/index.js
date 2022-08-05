@@ -1,10 +1,11 @@
 import {useState} from 'react'
-import PropTypes from 'prop-types'
 import ReactSlidy from 'react-slidy'
-import cx from 'classnames'
 
-import IconCamera from '@s-ui/react-icons/lib/Camera'
+import cx from 'classnames'
+import PropTypes from 'prop-types'
+
 import AtomImage from '@s-ui/react-atom-image'
+import IconCamera from '@s-ui/react-icons/lib/Camera'
 
 export const IMAGE_SLIDER_COUNTER_POSITIONS = {
   BOTTOM_CENTER: 'bottomCenter',

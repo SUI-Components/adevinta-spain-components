@@ -1,11 +1,11 @@
 import {isValidElement, memo, useCallback} from 'react'
 
 import PropTypes from 'prop-types'
-import {field, createComponentMemo} from '../prop-types'
 
 import MoleculeInputField from '@s-ui/react-molecule-input-field'
 
-import {FIELDS, DISPLAYS} from '../Standard'
+import {createComponentMemo, field} from '../prop-types'
+import {DISPLAYS, FIELDS} from '../Standard'
 
 // mapping between DSL standard and HTML input type attribute
 const DISPLAY = {

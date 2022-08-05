@@ -1,7 +1,8 @@
+import cx from 'classnames'
 import PropTypes from 'prop-types'
+
 import CheckboxChecked from '@s-ui/react-icons/lib/Checkboxchecked'
 import CheckboxUnchecked from '@s-ui/react-icons/lib/Checkboxunchecked'
-import cx from 'classnames'
 
 const getCheckboxIcon = (checked, customIcons) => {
   let icon

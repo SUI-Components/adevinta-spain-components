@@ -1,7 +1,9 @@
 import {useState} from 'react'
+
 import PropTypes from 'prop-types'
-import ScriptLoader from '@s-ui/react-script-loader'
+
 import {useMount} from '@s-ui/react-hooks'
+import ScriptLoader from '@s-ui/react-script-loader'
 
 const CAPTCHA_SRC = 'https://www.google.com/recaptcha/api.js?render=explicit'
 const CAPTCHA_ID = 'sui-FormCaptchaContainer'

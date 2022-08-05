@@ -1,7 +1,9 @@
-import PropTypes from 'prop-types'
 import {Component} from 'react'
-import TabsBasic from '@s-ui/react-tab-basic'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+
+import TabsBasic from '@s-ui/react-tab-basic'
 
 const NO_OP = () => {}
 

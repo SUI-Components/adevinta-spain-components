@@ -1,8 +1,10 @@
 import {isValidElement, memo, useCallback} from 'react'
 
 import PropTypes from 'prop-types'
-import {field, createComponentMemo} from '../prop-types'
+
 import MoleculeSwitch from '@s-ui/react-atom-switch'
+
+import {createComponentMemo, field} from '../prop-types'
 
 const Switch = ({
   switchField,

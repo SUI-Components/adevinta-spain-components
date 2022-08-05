@@ -1,8 +1,9 @@
 import {useState} from 'react'
-import {Paragraph, Button, Grid, Cell, Bold} from '@s-ui/documentation-library'
-import PropTypes from 'prop-types'
 
 import {useControlledState} from 'components/react/hooks/src'
+import PropTypes from 'prop-types'
+
+import {Bold, Button, Cell, Grid, Paragraph} from '@s-ui/documentation-library'
 
 const noop = () => null
 

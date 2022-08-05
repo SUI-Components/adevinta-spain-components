@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+
 import ImagePlaceholder from '@s-ui/react-image-placeholder'
 
 const BASE_CLASS = 'sui-ThumbnailBasic'

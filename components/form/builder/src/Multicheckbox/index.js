@@ -1,10 +1,12 @@
 import {isValidElement, memo} from 'react'
 
 import PropTypes from 'prop-types'
-import {field, createComponentMemo} from '../prop-types'
+
 import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
 import MoleculeField from '@s-ui/react-molecule-field'
+
 import IconCheck from '../Icons/IconCheck'
+import {createComponentMemo, field} from '../prop-types'
 
 const Multipicker = ({
   multipicker,
@@ -44,7 +46,7 @@ const Multipicker = ({
     onChange: onChangeCallback,
     onFocus: onFocusCallback,
     onBlur: onBlurCallback,
-    tabIndex: tabIndex,
+    tabIndex,
     intermediate: false,
     ...(multipicker.disabled && {
       disabled: true

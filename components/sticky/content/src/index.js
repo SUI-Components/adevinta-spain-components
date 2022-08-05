@@ -1,7 +1,8 @@
 import {Component} from 'react'
-import PropTypes from 'prop-types'
-import throttle from 'lodash.throttle'
+
 import cx from 'classnames'
+import throttle from 'lodash.throttle'
+import PropTypes from 'prop-types'
 
 const STICKY_CONTENT_POSITION_CLASSNAME = {
   top: 'sui-StickyContent--top',

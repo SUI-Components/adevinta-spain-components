@@ -1,6 +1,6 @@
-import {Box, Paragraph} from '@s-ui/documentation-library'
-
 import {useNearScreen} from 'components/react/hooks/src'
+
+import {Box, Paragraph} from '@s-ui/documentation-library'
 
 export default function UseNearScreenDemo() {
   const [isNear, outerRefNear] = useNearScreen()

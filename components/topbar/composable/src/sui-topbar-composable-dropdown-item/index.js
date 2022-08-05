@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types'
 import {memo} from 'react'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 const getClasses = ({active, disabled}) =>
   cx('sui-DropdownMenuItem', {

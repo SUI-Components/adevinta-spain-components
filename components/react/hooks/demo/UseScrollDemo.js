@@ -1,6 +1,6 @@
-import {Box, Paragraph, H3} from '@s-ui/documentation-library'
-
 import {useScroll} from 'components/react/hooks/src'
+
+import {Box, H3, Paragraph} from '@s-ui/documentation-library'
 
 export default function UseScrollDemo() {
   const {position, direction} = useScroll()

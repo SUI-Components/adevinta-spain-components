@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types'
-import Bullet, {headingTags} from './bullet.js'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+
+import Bullet, {headingTags} from './bullet.js'
 
 export const responsiveTypes = {
   responsive: 'responsive',

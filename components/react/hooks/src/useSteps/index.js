@@ -1,4 +1,4 @@
-import {useEffect, useReducer, useMemo} from 'react'
+import {useEffect, useMemo, useReducer} from 'react'
 
 export const ACTIONS = {
   prev: 'prev',

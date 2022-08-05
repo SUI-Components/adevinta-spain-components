@@ -1,6 +1,8 @@
 import {PureComponent} from 'react'
-import FormCheckbox from '@s-ui/react-form-checkbox'
+
 import PropTypes from 'prop-types'
+
+import FormCheckbox from '@s-ui/react-form-checkbox'
 
 const BASE_CLASS = 'sui-FormCheckboxesWithParent'
 

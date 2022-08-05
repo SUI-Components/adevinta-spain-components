@@ -1,7 +1,8 @@
 import {useRef} from 'react'
-import {Paragraph} from '@s-ui/documentation-library'
 
 import {useSwipe} from 'components/react/hooks/src'
+
+import {Paragraph} from '@s-ui/documentation-library'
 
 export default function UseSwipeDemo() {
   const swipeRef = useRef()

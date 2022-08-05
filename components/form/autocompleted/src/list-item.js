@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-bind */
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 export default function ListItem({handleSelect, isActive, item}) {
   const classes = cx('sui-FormAutocompleted-suggestsItem', {

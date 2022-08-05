@@ -1,6 +1,8 @@
-import PropTypes from 'prop-types'
-import {useState, useEffect} from 'react'
+import {useEffect, useState} from 'react'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+
 import Chevronbottom from '@s-ui/react-icons/lib/Chevronbottom'
 
 const ANIMATION_SPEED_CLASSNAMES = {

@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 // Map object for title sizes and HTML Tags.
 const TAG_FOR_SIZE = {
