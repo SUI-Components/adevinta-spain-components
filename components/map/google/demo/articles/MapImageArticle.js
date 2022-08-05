@@ -1,5 +1,6 @@
 import MapGoogleImage from 'components/map/google/src/image/index.js'
 
+import PropTypes from 'prop-types'
 import {Article, Cell, Grid, H2, Text} from '@s-ui/documentation-library'
 
 const MapArticle = ({apiKey}) => {
@@ -25,5 +26,8 @@ const MapArticle = ({apiKey}) => {
 }
 
 MapArticle.displayName = 'MapArticle'
+MapArticle.propTypes = {
+  apiKey: PropTypes.string
+}
 
 export default MapArticle

@@ -1,10 +1,8 @@
 import {useState} from 'react'
 
-import {H1} from '@s-ui/documentation-library'
-
 import MapArticle from './articles/MapArticle.js'
 import MapImageArticle from './articles/MapImageArticle.js'
-import {Box, Input} from '@s-ui/documentation-library'
+import {Box, H1, Input} from '@s-ui/documentation-library'
 
 const className = 'DemoMapGoogle'
 
