@@ -1,9 +1,10 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
-import Socialtwitter from '@s-ui/react-icons/lib/Socialtwitter'
-import Socialfacebook from '@s-ui/react-icons/lib/Socialfacebook'
+import PropTypes from 'prop-types'
+
 import Commentsquare from '@s-ui/react-icons/lib/Commentsquare'
 import Envelopeclosed from '@s-ui/react-icons/lib/Envelopeclosed'
+import Socialfacebook from '@s-ui/react-icons/lib/Socialfacebook'
+import Socialtwitter from '@s-ui/react-icons/lib/Socialtwitter'
 
 const getOnClickHandle = src => () => window.open(src)
 

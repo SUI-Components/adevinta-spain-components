@@ -489,8 +489,7 @@ export const json = {
         datalist: [
           {
             value: 'true',
-            text:
-              'I want to double my business possibilities with the help of a property professional'
+            text: 'I want to double my business possibilities with the help of a property professional'
           },
           {value: 'false', text: 'No, perhaps another time'}
         ],

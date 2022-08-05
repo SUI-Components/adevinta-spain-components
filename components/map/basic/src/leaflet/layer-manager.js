@@ -1,4 +1,5 @@
 import L from 'leaflet'
+
 import {mapViewModes, mapViewNames} from './constants'
 
 export default class LayerManager {
@@ -31,8 +32,8 @@ export default class LayerManager {
           base: baseMapView,
           language,
           mapVersion: 'newest',
-          maxZoom: maxZoom,
-          minZoom: minZoom,
+          maxZoom,
+          minZoom,
           subdomains: '1234'
         }
       )

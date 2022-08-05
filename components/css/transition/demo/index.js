@@ -1,6 +1,7 @@
 import {useState} from 'react'
-import PropTypes from 'prop-types'
+
 import CssTransition, {TYPES} from 'components/css/transition/src'
+import PropTypes from 'prop-types'
 
 const ExampleContent = ({text, backgroundColor}) => {
   const styles = {

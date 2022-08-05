@@ -1,6 +1,7 @@
 import {Component} from 'react'
-import PropTypes from 'prop-types'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 class CollapsibleComposed extends Component {
   state = {collapsed: this.props.collapsed}

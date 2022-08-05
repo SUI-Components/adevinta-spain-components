@@ -1,7 +1,7 @@
 import {useCallback, useState} from 'react'
-import {clipboardCopy as copy} from './clipboard-copy'
 
 import useMountedState from '../useMountedState'
+import {clipboardCopy as copy} from './clipboard-copy'
 
 export default function useCopyToClipboard() {
   const isMounted = useMountedState()

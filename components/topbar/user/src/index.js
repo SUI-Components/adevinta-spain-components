@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
-import PropTypes from 'prop-types'
-import {useState, useEffect, useRef} from 'react'
+import {useEffect, useRef, useState} from 'react'
+
 import cx from 'classnames'
-import Menu from '@s-ui/react-icons/lib/Menu'
+import PropTypes from 'prop-types'
+
+import AtomButton, {atomButtonSizes} from '@s-ui/react-atom-button'
 import DropdownBasic from '@s-ui/react-dropdown-basic'
 import DropdownUser from '@s-ui/react-dropdown-user'
-import AtomButton, {atomButtonSizes} from '@s-ui/react-atom-button'
 import useIsomorphicLayoutEffect from '@s-ui/react-hooks/lib/useIsomorphicLayoutEffect/index.js'
+import Menu from '@s-ui/react-icons/lib/Menu'
 
 const noop = () => {}
 

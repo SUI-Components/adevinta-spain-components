@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 import {useCallback, useEffect, useRef, useState} from 'react'
-import PropTypes from 'prop-types'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+
 import Chevronbottom from '@s-ui/react-icons/lib/Chevronbottom'
 
 const BASE_CLASS = 'sui-DropdownBasic'

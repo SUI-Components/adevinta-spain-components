@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+
 import AtomButton from '@s-ui/react-atom-button'
 
 import DEFAULT_SOCIAL_MEDIA_DICTIONARY, {
@@ -11,7 +12,8 @@ export default function ShareSocialMediaButtonsGroup({
   buttonsToShow = DEFAULT_SOCIAL_MEDIA_BUTTONS,
   onShare,
   paramsUrlString = '',
-  socialMediaDictionary: socialMediaDictionaryFromProps = DEFAULT_SOCIAL_MEDIA_DICTIONARY
+  socialMediaDictionary:
+    socialMediaDictionaryFromProps = DEFAULT_SOCIAL_MEDIA_DICTIONARY
 }) {
   const socialMediaDictionary = buttonsToShow.map(
     key =>

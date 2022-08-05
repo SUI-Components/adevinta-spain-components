@@ -417,8 +417,7 @@ export const formPTAMiscLite = {
             id: 'terms',
             type: 'picker',
             label: 'Acepto las condiciones de uso y la política de privacidad',
-            hint:
-              'En la sección de gestión de privacidad del área de usuario podrás aprender más sobre los distintos usos de tus datos y gestionar los permisos sobre ellos.',
+            hint: 'En la sección de gestión de privacidad del área de usuario podrás aprender más sobre los distintos usos de tus datos y gestionar los permisos sobre ellos.',
             display: 'checkbox',
             value: 'false',
             required: true,

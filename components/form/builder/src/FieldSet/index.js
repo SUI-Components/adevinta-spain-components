@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import {field} from '../prop-types'
 
+import {field} from '../prop-types'
 import ProxyField from '../ProxyField'
 
 const baseClass = 'sui-FormBuilder-FieldSet'

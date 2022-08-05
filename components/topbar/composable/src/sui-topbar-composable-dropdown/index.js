@@ -1,6 +1,7 @@
 import {memo, useEffect, useRef, useState} from 'react'
-import PropTypes from 'prop-types'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import {usePrevious} from '@s-ui/react-hooks'
 

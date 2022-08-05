@@ -1,9 +1,11 @@
+import {LocalizationFactory} from '../Standard/Localization/LocalizationFactory'
 import {
   CHANGED,
   EQUALS,
   EXISTS,
   GREATERTHAN,
   GREATERTHANEQUALS,
+  HIDDEN,
   IN,
   INPATTERN,
   LESSTHAN,
@@ -12,11 +14,9 @@ import {
   NIN,
   NINPATTERN,
   NSUPERSET,
-  SUPERSET,
-  HIDDEN
+  SUPERSET
 } from './constants'
 import {pickFieldById} from './fields'
-import {LocalizationFactory} from '../Standard/Localization/LocalizationFactory'
 
 export const operators = {
   [IN]: (id, values, fields) => {

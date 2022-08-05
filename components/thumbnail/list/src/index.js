@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+
 import ThumbnailBasic from '@s-ui/react-thumbnail-basic'
 
 const ThumbnailList = ({

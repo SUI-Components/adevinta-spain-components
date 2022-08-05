@@ -1,6 +1,6 @@
-import {Paragraph} from '@s-ui/documentation-library'
-
 import {useMediaQuery} from 'components/react/hooks/src'
+
+import {Paragraph} from '@s-ui/documentation-library'
 
 export default function UseMediaQueryDemo() {
   const isMatching = useMediaQuery('(min-width:600px)')

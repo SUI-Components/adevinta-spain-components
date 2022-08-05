@@ -1,8 +1,11 @@
 import {Component} from 'react'
-import RatingIcons from '@s-ui/react-rating-icons/lib'
+
 import PropTypes from 'prop-types'
-import CounterBox from './CounterBox'
+
+import RatingIcons from '@s-ui/react-rating-icons/lib'
+
 import Avatar from './Avatar'
+import CounterBox from './CounterBox'
 
 class CardProfile extends Component {
   render() {

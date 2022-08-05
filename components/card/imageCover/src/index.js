@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import AtomPanel from '@s-ui/react-atom-panel'
 import PropTypes from 'prop-types'
+
+import AtomPanel from '@s-ui/react-atom-panel'
 import SuiTagChip from '@s-ui/react-tag-chip'
 
 const CardImageCover = ({

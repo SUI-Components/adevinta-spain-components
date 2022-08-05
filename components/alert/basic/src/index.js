@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import cx from 'classnames'
-import Info from '@s-ui/react-icons/lib/Info'
 import Bell from '@s-ui/react-icons/lib/Bell'
 import Check from '@s-ui/react-icons/lib/Check'
+import Info from '@s-ui/react-icons/lib/Info'
 
 const icons = {
   info: Info,

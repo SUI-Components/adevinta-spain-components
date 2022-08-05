@@ -1,7 +1,9 @@
 import {Component} from 'react'
+
 import PropTypes from 'prop-types'
-import SuiModal from '@s-ui/react-modal-basic'
+
 import ImageSlider from '@s-ui/react-image-slider'
+import SuiModal from '@s-ui/react-modal-basic'
 
 const NO_OP = () => {}
 
@@ -59,14 +61,8 @@ class ModalGallery extends Component {
 
   render() {
     const {currentSlide} = this.state
-    const {
-      open,
-      initialSlide,
-      lazyLoadSlider,
-      multimedia,
-      iconClose,
-      onClose
-    } = this.props
+    const {open, initialSlide, lazyLoadSlider, multimedia, iconClose, onClose} =
+      this.props
 
     return (
       <div className="sui-ModalGallery">

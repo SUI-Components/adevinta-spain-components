@@ -1,8 +1,11 @@
-import PropTypes from 'prop-types'
-import {useState, useEffect, useRef} from 'react'
-import {useMount} from '@s-ui/react-hooks'
-import SuggestsList from './suggests-list'
+import {useEffect, useRef, useState} from 'react'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+
+import {useMount} from '@s-ui/react-hooks'
+
+import SuggestsList from './suggests-list'
 
 const DELTA_MOVE = 1
 const UP = 'ArrowUp'

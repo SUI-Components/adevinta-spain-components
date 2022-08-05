@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import cx from 'classnames'
 import ImageLazyLoad from '@s-ui/react-image-lazy-load'
 
 const CardBasicMedia = ({src, alt = ''}) => (

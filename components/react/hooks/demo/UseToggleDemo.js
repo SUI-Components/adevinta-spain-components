@@ -1,6 +1,6 @@
-import {Strong, Button} from '@s-ui/documentation-library'
-
 import {useToggle} from 'components/react/hooks/src'
+
+import {Button, Strong} from '@s-ui/documentation-library'
 
 export default function UseToggleDemo() {
   const [value, toggle] = useToggle()

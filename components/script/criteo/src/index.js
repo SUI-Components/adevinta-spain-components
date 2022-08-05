@@ -1,19 +1,15 @@
 import {Component} from 'react'
+
 import PropTypes from 'prop-types'
+
 import ScriptLoader from '@s-ui/react-script-loader'
 
 const CRITEO_SCRIPT_URL = '//static.criteo.net/js/ld/ld.js'
 
 class ScriptCriteo extends Component {
   initCriteo() {
-    const {
-      accountIds,
-      customerId,
-      siteType,
-      email,
-      hashedEmail,
-      pageEvent
-    } = this.props
+    const {accountIds, customerId, siteType, email, hashedEmail, pageEvent} =
+      this.props
 
     const criteoData = [
       {event: 'setAccount', account: accountIds},

@@ -1,10 +1,12 @@
 import {useEffect} from 'react'
+
 import PropTypes from 'prop-types'
+
 import {
-  initListener,
   addOnLoginSubscriber,
-  removeOnLoginSubscriber,
   addOnLogoutSubscriber,
+  initListener,
+  removeOnLoginSubscriber,
   removeOnLogoutSubscriber
 } from './helper.js'
 

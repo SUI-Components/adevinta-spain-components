@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import PropTypes from 'prop-types'
+
 import ScriptLoader from '@s-ui/react-script-loader'
 
 const getGoogleOneTap = () => window && window.google?.accounts

@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 const baseClass = 'sui-PaginationBasic'
 const PAGE_NUMBER_HOLDER = '%{pageNumber}'

@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
-import PropTypes from 'prop-types'
 import {Component} from 'react'
+
 import cx from 'classnames'
-import CardProductSlider from './card-product-slider'
+import PropTypes from 'prop-types'
+
 import Star from '@s-ui/react-icons/lib/Star'
 import TagChip from '@s-ui/react-tag-chip'
+
+import CardProductSlider from './card-product-slider'
 
 /**
  * Product card containing a slider of images, title, description and some
@@ -62,13 +65,8 @@ class CardProduct extends Component {
       handleFavorite,
       linkFactory: Link
     } = this.props
-    const {
-      mediaHeight,
-      tagsHeight,
-      tagsPosition,
-      dateHeight,
-      datePosition
-    } = this.state
+    const {mediaHeight, tagsHeight, tagsPosition, dateHeight, datePosition} =
+      this.state
     const cardProductTagsStyle = {
       top: tagsPosition === 'absolute' ? mediaHeight - tagsHeight : 'inherit'
     }

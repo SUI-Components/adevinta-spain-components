@@ -1,7 +1,8 @@
 import {useRef, useState} from 'react'
-import {Paragraph} from '@s-ui/documentation-library'
 
 import {useMergeRefs} from 'components/react/hooks/src'
+
+import {Paragraph} from '@s-ui/documentation-library'
 
 export default function UseMergeRefsDemo() {
   const firstRef = useRef()

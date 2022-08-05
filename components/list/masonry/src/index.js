@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types'
 import {Component} from 'react'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 const DEFAULT_COLS = 1
 

@@ -1,6 +1,6 @@
-import {Strong, Button, Grid, Cell} from '@s-ui/documentation-library'
-
 import {useSteps} from 'components/react/hooks/src'
+
+import {Button, Cell, Grid, Strong} from '@s-ui/documentation-library'
 
 const steps = ['First', 'Second', 'Third', 'Last']
 

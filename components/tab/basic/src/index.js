@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types'
 import {useState} from 'react'
+
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 export default function TabBasic({
   activeTab: initialActiveTab = 0,

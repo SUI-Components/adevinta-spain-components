@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+
 import Check from '@s-ui/react-icons/lib/Check'
 
 const tagSelectableClassName = ({isSelected}) =>

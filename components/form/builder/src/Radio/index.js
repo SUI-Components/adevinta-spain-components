@@ -1,9 +1,11 @@
 import {isValidElement, memo} from 'react'
 
 import PropTypes from 'prop-types'
-import {field, createComponentMemo} from '../prop-types'
-import MoleculeRadioButtonGroup from '@s-ui/react-molecule-radio-button-group'
+
 import MoleculeRadioButtonField from '@s-ui/react-molecule-radio-button-field'
+import MoleculeRadioButtonGroup from '@s-ui/react-molecule-radio-button-group'
+
+import {createComponentMemo, field} from '../prop-types'
 
 const Radio = ({radio, tabIndex, onChange, errors, alerts, renderer}) => {
   const errorMessages = errors[radio.id]
@@ -16,7 +18,7 @@ const Radio = ({radio, tabIndex, onChange, errors, alerts, renderer}) => {
   const radioProps = {
     id: radio.id,
     label: radio.label,
-    tabIndex: tabIndex,
+    tabIndex,
     ...(radio.disabled && {
       disabled: true
     }),

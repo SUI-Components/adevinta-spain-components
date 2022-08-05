@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types'
-import CircleX from '@s-ui/react-icons/lib/Circlex'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
+
+import CircleX from '@s-ui/react-icons/lib/Circlex'
 
 const Tag = ({Link, children, url, ...rest} = {}) =>
   url ? (

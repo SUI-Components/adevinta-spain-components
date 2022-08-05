@@ -1,6 +1,6 @@
-import {H3, Button, ListItem, OrderedList} from '@s-ui/documentation-library'
-
 import {useLegacyState} from 'components/react/hooks/src'
+
+import {Button, H3, ListItem, OrderedList} from '@s-ui/documentation-library'
 
 const initialState = {
   available: 20,

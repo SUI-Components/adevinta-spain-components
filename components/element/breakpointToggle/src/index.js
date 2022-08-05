@@ -1,5 +1,7 @@
 import {Component} from 'react'
+
 import PropTypes from 'prop-types'
+
 import ViewportResize from './viewport-resize'
 
 class BreakpointToggle extends Component {

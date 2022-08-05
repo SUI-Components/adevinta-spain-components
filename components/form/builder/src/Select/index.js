@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types'
+
 import {field} from '../prop-types'
-
-import {FIELDS, DISPLAYS} from '../Standard'
-
-import DefaultSelect from './Default'
+import {DISPLAYS, FIELDS} from '../Standard'
 import AutosuggestSelect from './Autosuggest'
+import DefaultSelect from './Default'
 
 const Select = ({
   select,
