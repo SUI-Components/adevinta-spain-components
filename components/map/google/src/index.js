@@ -1,7 +1,9 @@
 import {useCallback} from 'react'
 import PropTypes from 'prop-types'
 
-import {GoogleMap, useLoadScript} from '@react-google-maps/api'
+import {GoogleMap as DinamicMap, useLoadScript} from '@react-google-maps/api'
+import StaticMap from './image'
+import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
 
 import {
   BASE_CLASS,
@@ -22,8 +24,12 @@ export default function MapGoogle({
   onLoad,
   onError,
   onUnmount,
+  isInteractive: isInteractiveProp,
   ...others
 }) {
+  const [isInteractive, setIsInteractive] =
+    useControlledState(isInteractiveProp)
+
   const {isLoaded, loadError} = useLoadScript({
     googleMapsApiKey: apiKey,
     language
@@ -40,16 +46,23 @@ export default function MapGoogle({
     return errorNode ? <div className={BASE_CLASS}>{errorNode}</div> : null
   }
 
+  const handleClick = event => {
+    setIsInteractive(true)
+  }
+
+  const MapElement = isInteractive ? DinamicMap : StaticMap
+
   return (
-    <div className={BASE_CLASS}>
+    <div className={BASE_CLASS} onClick={handleClick}>
       {isLoaded ? (
-        <GoogleMap
+        <MapElement
           center={center}
           mapContainerClassName={CONTAINER_CLASSNAME}
           zoom={zoom}
           onLoad={handleOnLoad}
           onError={onError}
           onUnmount={onUnmount}
+          apiKey={apiKey}
           {...others}
         />
       ) : (
@@ -72,5 +85,6 @@ MapGoogle.propTypes = {
   errorNode: PropTypes.node,
   onLoad: PropTypes.func,
   onUnmount: PropTypes.func,
-  onError: PropTypes.func
+  onError: PropTypes.func,
+  isInteractive: PropTypes.bool
 }
