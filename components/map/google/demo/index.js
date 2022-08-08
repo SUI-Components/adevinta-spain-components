@@ -24,7 +24,7 @@ export default () => {
         />
       </Box>
 
-      <MapArticle apiKey={apiKey} />
+      <MapArticle apiKey={apiKey} key={apiKey} />
       <MapImageArticle apiKey={apiKey} />
     </div>
   )

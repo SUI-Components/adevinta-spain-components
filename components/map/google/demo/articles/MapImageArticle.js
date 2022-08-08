@@ -3,7 +3,7 @@ import MapGoogleImage from 'components/map/google/src/image/index.js'
 import PropTypes from 'prop-types'
 import {Article, Cell, Grid, H2, Text} from '@s-ui/documentation-library'
 
-const MapArticle = ({apiKey}) => {
+const MapImageArticle = ({apiKey}) => {
   return (
     <Article>
       <H2>Static image map</H2>
@@ -16,18 +16,17 @@ const MapArticle = ({apiKey}) => {
             apiKey={apiKey}
             center="40.714728,-73.998672"
             size="600x600"
-          >
-            {({src}) => <img alt="Map" src={src} width="600" height="600" />}
-          </MapGoogleImage>
+            zoom="14"
+          />
         </Cell>
       </Grid>
     </Article>
   )
 }
 
-MapArticle.displayName = 'MapArticle'
-MapArticle.propTypes = {
+MapImageArticle.displayName = 'MapImageArticle'
+MapImageArticle.propTypes = {
   apiKey: PropTypes.string
 }
 
-export default MapArticle
+export default MapImageArticle

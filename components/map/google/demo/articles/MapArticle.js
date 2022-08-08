@@ -12,7 +12,7 @@ const MapArticle = ({apiKey}) => {
       <Grid cols={1} gutter={[8, 8]}>
         <Cell></Cell>
         <Cell style={{height: 600}}>
-          <MapGoogle apiKey={apiKey} />
+          <MapGoogle apiKey={apiKey} size="600x600" />
         </Cell>
       </Grid>
     </Article>
