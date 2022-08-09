@@ -8,6 +8,7 @@
     "build:js": "babel --presets sui ./src --out-dir ./lib",
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
+  "sideEffects": false,
   "peerDependencies": {
     "@s-ui/theme": "8"
   },
