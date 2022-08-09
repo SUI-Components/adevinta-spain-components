@@ -1,8 +1,9 @@
 {
   "name": "@s-ui/react-hooks",
-  "version": "1.33.0",
+  "version": "1.34.0",
   "description": "",
   "main": "lib/index.js",
+  "sideEffects": false,
   "scripts": {
     "prepublishOnly": "npm run build:js && npm run build:styles",
     "build:js": "babel --presets sui ./src --out-dir ./lib",

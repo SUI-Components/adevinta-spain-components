@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.34.0 (2022-08-09)
+
+
+### Features
+
+* **components/react/hooks:** add useLocalStorage hook ([722a673](https://github.com/SUI-Components/adevinta-spain-components/commit/722a6730069a3de9eb3100580b9eda2cecd4a77f))
+
+
+
 # 1.33.0 (2022-07-04)
 
 
