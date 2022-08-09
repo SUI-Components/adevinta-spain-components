@@ -4,12 +4,13 @@
 import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
-import {screen, waitFor} from '@testing-library/react'
 import chaiDOM from 'chai-dom'
 import sinon from 'sinon'
 
-import MapGoogle from '../src/index.js'
+import {screen, waitFor} from '@testing-library/react'
+
 import MapGoogleImage from '../src/image/index.js'
+import MapGoogle from '../src/index.js'
 
 chai.use(chaiDOM)
 
@@ -54,13 +55,14 @@ describe('MapGoogle', () => {
     expect(findClassName(container.innerHTML)).to.be.null
   })
 
-  it('should render loading node and map successfully', async () => {
+  it('should render loading node and map successfully if map is in interactive mode on load', async () => {
     // Given
     const onLoad = sinon.spy()
     const props = {
       apiKey: 'AIzaSyDp7wqS1IyRZCvMMsY2LX2V1TXY4Lh8UGA',
       loaderNode: <div>Loading</div>,
-      onLoad
+      onLoad,
+      isInteractive: true
     }
 
     // When
@@ -78,7 +80,7 @@ describe('MapGoogleImage', () => {
   it('should render without crashing', () => {
     // Given
     const props = {
-      children: ({src}) => <img src={src} />
+      staticImageNode: <img />
     }
 
     // When
@@ -92,9 +94,7 @@ describe('MapGoogleImage', () => {
 
   it('should not render null', () => {
     // Given
-    const props = {
-      children: ({src}) => <img src={src} />
-    }
+    const props = {}
 
     // When
     const {container} = setup(props)
@@ -104,22 +104,34 @@ describe('MapGoogleImage', () => {
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 
-  it('should render image with proper src', async () => {
+  it('should render default image when no image component is passed by props', async () => {
     // Given
-    const alt = 'map'
     const props = {
+      alt: 'mapTest',
       apiKey: 'AIzaSyDp7wqS1IyRZCvMMsY2LX2V1TXY4Lh8UGA',
-      center: '40.714728,-73.998672',
-      children: ({src}) => <img alt={alt} src={src} />
+      center: {lat: 40.714728, lng: -73.998672}
     }
 
     // When
     setup(props)
 
     // Then
-    expect(screen.getByRole('img', {name: alt})).to.have.attr(
-      'src',
-      'https://maps.googleapis.com/maps/api/staticmap?center=40.714728%2C-73.998672&key=AIzaSyDp7wqS1IyRZCvMMsY2LX2V1TXY4Lh8UGA'
-    )
+    expect(screen.getByRole('img', {name: props.alt})).to.have.attr('src')
+  })
+
+  it('should render default custom image when prop children is defined', async () => {
+    // Given
+    const props = {
+      alt: 'mapTest',
+      apiKey: 'AIzaSyDp7wqS1IyRZCvMMsY2LX2V1TXY4Lh8UGA',
+      center: {lat: 40.714728, lng: -73.998672},
+      staticImageNode: <div role="img" />
+    }
+
+    // When
+    setup(props)
+
+    // Then
+    expect(screen.getByRole('img', {name: props.alt})).to.have.attr('src')
   })
 })
