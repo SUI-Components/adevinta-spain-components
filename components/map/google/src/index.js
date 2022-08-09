@@ -1,10 +1,16 @@
 import {useCallback} from 'react'
+
 import PropTypes from 'prop-types'
 
-import {GoogleMap as DinamicMap, useLoadScript} from '@react-google-maps/api'
-import StaticMap from './image'
-import useControlledState from '@s-ui/react-hooks/lib/useControlledState'
+import {GoogleMap as DynamicMap, useLoadScript} from '@react-google-maps/api'
 
+import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
+
+import MapGoogleCircle from './circle/index.js'
+import StaticMap from './image/index.js'
+import MapGooglePolygon from './polygon/index.js'
+import MapGooglePolyline from './polyline/index.js'
+import MapGoogleRectangle from './rectangle/index.js'
 import {
   BASE_CLASS,
   CONTAINER_CLASSNAME,
@@ -14,17 +20,19 @@ import {
   handle
 } from './config.js'
 
-export default function MapGoogle({
+function MapGoogle({
   apiKey,
   center = DEFAULT_CENTER,
-  language = DEFAULT_LANGUAGE,
-  zoom = DEFAULT_ZOOM,
+  children,
   errorNode,
-  loaderNode,
-  onLoad,
-  onError,
-  onUnmount,
   isInteractive: isInteractiveProp,
+  language = DEFAULT_LANGUAGE,
+  loaderNode,
+  staticImageNode,
+  zoom = DEFAULT_ZOOM,
+  onError,
+  onLoad,
+  onUnmount,
   ...others
 }) {
   const [isInteractive, setIsInteractive] =
@@ -42,15 +50,15 @@ export default function MapGoogle({
     [onLoad]
   )
 
+  const handleClick = useCallback(() => {
+    setIsInteractive(true)
+  }, [setIsInteractive])
+
   if (loadError) {
     return errorNode ? <div className={BASE_CLASS}>{errorNode}</div> : null
   }
 
-  const handleClick = event => {
-    setIsInteractive(true)
-  }
-
-  const MapElement = isInteractive ? DinamicMap : StaticMap
+  const MapElement = isInteractive ? DynamicMap : StaticMap
 
   return (
     <div className={BASE_CLASS} onClick={handleClick}>
@@ -64,7 +72,9 @@ export default function MapGoogle({
           onUnmount={onUnmount}
           apiKey={apiKey}
           {...others}
-        />
+        >
+          {isInteractive ? children : staticImageNode}
+        </MapElement>
       ) : (
         loaderNode
       )}
@@ -75,16 +85,28 @@ export default function MapGoogle({
 MapGoogle.displayName = 'MapGoogle'
 MapGoogle.propTypes = {
   apiKey: PropTypes.string.isRequired,
-  language: PropTypes.string,
   center: PropTypes.shape({
     lat: PropTypes.number.isRequired,
     lng: PropTypes.number.isRequired
   }),
-  zoom: PropTypes.number,
-  loaderNode: PropTypes.node,
+  children: PropTypes.node,
   errorNode: PropTypes.node,
+  isInteractive: PropTypes.bool,
+  language: PropTypes.string,
+  loaderNode: PropTypes.node,
+  onError: PropTypes.func,
   onLoad: PropTypes.func,
   onUnmount: PropTypes.func,
-  onError: PropTypes.func,
-  isInteractive: PropTypes.bool
+  staticImageNode: PropTypes.node,
+  zoom: PropTypes.number
+}
+
+export default MapGoogle
+
+export {
+  MapGoogleCircle,
+  MapGoogleRectangle,
+  StaticMap as MapGoogleImage,
+  MapGooglePolygon,
+  MapGooglePolyline
 }
