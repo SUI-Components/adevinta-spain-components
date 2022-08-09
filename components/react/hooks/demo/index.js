@@ -13,6 +13,7 @@ import UseControlledStateDemo from './UseControlledStateDemo.js'
 import UseCopyToClipboardDemo from './UseCopyToClipboardDemo.js'
 import UseEventListenerDemo from './UseEventListenerDemo.js'
 import UseLegacyStateDemo from './UseLegacyStateDemo.js'
+import UseLocalStorageDemo from './UseLocalStorageDemo.js'
 import UseMediaQueryDemo from './UseMediaQueryDemo.js'
 import UseMergeRefsDemo from './UseMergeRefsDemo.js'
 import UseMountDemo from './UseMountDemo.js'
@@ -30,6 +31,7 @@ const orderedHookList = [
   UseCopyToClipboardDemo,
   UseEventListenerDemo,
   UseLegacyStateDemo,
+  UseLocalStorageDemo,
   UseMediaQueryDemo,
   UseMergeRefsDemo,
   UseMountDemo,
