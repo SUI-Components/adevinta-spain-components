@@ -1,6 +1,6 @@
 import MapGoogleImage from 'components/map/google/src/image/index.js'
-
 import PropTypes from 'prop-types'
+
 import {Article, Cell, Grid, H2, Text} from '@s-ui/documentation-library'
 
 const MapImageArticle = ({apiKey}) => {
