@@ -12,7 +12,7 @@ $ npm install @s-ui/sui-map-google
 
 #### Map
 
-Render a dynamic map. It is a wrapper of [GoogleMap](https://react-google-maps-api-docs.netlify.app/#googlemap) but also loads Google Maps script out of the box. Use `loaderNode` and `errorNode` to optionally display loading and error states. All the props defined in the wrapped component are also available.
+Render a map. Toggle between a static map image and a dynamic map using `isInteractive` prop. The dynamic map is a wrapper of [GoogleMap](https://react-google-maps-api-docs.netlify.app/#googlemap) but also loads Google Maps script out of the box. Use `loaderNode` and `errorNode` to optionally display loading and error states. All the props defined in the wrapped component are also available.
 
 ```js
 import MapGoogle from '@s-ui/sui-map-google'
@@ -22,7 +22,7 @@ const MapGoogleExample = () => {
 }
 ```
 
-#### Add-ons
+##### Add-ons
 
 Render a set of add-ons on the dynamic map setting the following components as children of `MapGoogle`.
 
@@ -54,9 +54,15 @@ import MapGoogleImage from '@s-ui/sui-map-google/lib/image/index.js'
 
 const MapGoogleImageExample = () => {
   return (
-    <MapGoogleImage apiKey="AIzaSyDp7wqS1IyRZCvMMsY2LX2V1TXY4Lh8UGA" center="40.714728,-73.998672" zoom="12" size="600x600">
-      {({src}) => <img alt="mapa" src={src} />}
-    <MapGoogleImage>
+    <MapGoogleImage
+      apiKey="AIzaSyDp7wqS1IyRZCvMMsY2LX2V1TXY4Lh8UGA"
+      center="40.714728,-73.998672"
+      zoom="12"
+      size="600x600"
+      alt="Mapa"
+      with="600"
+      height="600"
+    />
   )
 }
 ```
