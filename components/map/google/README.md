@@ -60,7 +60,7 @@ const MapGoogleImageExample = () => {
       zoom="12"
       size="600x600"
       alt="Mapa"
-      with="600"
+      width="600"
       height="600"
     />
   )
