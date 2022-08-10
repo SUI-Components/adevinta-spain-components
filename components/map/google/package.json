@@ -8,6 +8,7 @@
     "build:js": "babel --presets sui ./src --out-dir ./lib",
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
+  "sideEffects": false,
   "peerDependencies": {
     "@s-ui/theme": "8"
   },
@@ -19,6 +20,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@react-google-maps/api": "2.12.1"
+    "@react-google-maps/api": "2.12.1",
+    "@s-ui/js": "2",
+    "@s-ui/react-hooks": "1",
+    "@s-ui/react-primitive-injector": "1"
   }
 }

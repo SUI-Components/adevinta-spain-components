@@ -1,5 +1,10 @@
 @import '~@s-ui/theme/lib/utils';
 
-body {
-  background: white;
+@import '../src/index.scss';
+
+.DemoMapGoogle {
+  &-label {
+    display: block;
+    margin-bottom: $m-m;
+  }
 }
