@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 1.2.0 (2022-08-10)
+
+
+### Features
+
+* **components/map/google/demo:** Add static mode demo and update dynamic mode demo ([cabcf3d](https://github.com/SUI-Components/adevinta-spain-components/commit/cabcf3d20083290be4b696b2b477fc53d4f889a2))
+* **components/map/google:** add missing props and config file ([abb1576](https://github.com/SUI-Components/adevinta-spain-components/commit/abb15763ee2ff25a20db9c08e2a09a806a20dc33))
+* **components/map/google:** Create Map/Google dynamic mode ([3dcdf2e](https://github.com/SUI-Components/adevinta-spain-components/commit/3dcdf2e498166aee181769fe8f069fb30005e98b))
+* **components/map/google:** Implement dynamic/static mode switch ([9cce3ec](https://github.com/SUI-Components/adevinta-spain-components/commit/9cce3ecdf452777227ae2babd1e72c9bf320d722))
+* **components/map/google:** Improve static mode ([a7c2a4d](https://github.com/SUI-Components/adevinta-spain-components/commit/a7c2a4d6eb27ef61e9fb02dddff0c5584ac2f91d))
+* **components/map/google:** Modify image component default params ([b3fdee1](https://github.com/SUI-Components/adevinta-spain-components/commit/b3fdee153775d631ef771644f33675277f8868a5))
+* **components/map/google:** update components ([3ae360f](https://github.com/SUI-Components/adevinta-spain-components/commit/3ae360f292e502decabcb683818a814eae97fcef))
+
+
+
 # 1.1.0 (2022-08-01)
 
 
