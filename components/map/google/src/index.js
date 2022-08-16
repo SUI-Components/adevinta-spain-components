@@ -8,6 +8,7 @@ import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.j
 
 import MapGoogleCircle from './circle/index.js'
 import StaticMap from './image/index.js'
+import MapGoogleMarker from './marker/index.js'
 import MapGooglePolygon from './polygon/index.js'
 import MapGooglePolyline from './polyline/index.js'
 import MapGoogleRectangle from './rectangle/index.js'
@@ -105,6 +106,7 @@ export default MapGoogle
 
 export {
   MapGoogleCircle,
+  MapGoogleMarker,
   MapGoogleRectangle,
   StaticMap as MapGoogleImage,
   MapGooglePolygon,
