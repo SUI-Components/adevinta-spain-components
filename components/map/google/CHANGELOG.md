@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.3.0 (2022-08-16)
+
+
+### Features
+
+* **components/map/google:** Add MapGoogleMarker import and export in MapGoogle ([fa78b82](https://github.com/SUI-Components/adevinta-spain-components/commit/fa78b82e3f2362d502b42b050b75037052c81bec))
+
+
+
 # 1.2.0 (2022-08-10)
 
 
