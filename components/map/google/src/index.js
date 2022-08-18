@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 import {GoogleMap as DynamicMap, useLoadScript} from '@react-google-maps/api'
 
+import AtomSkeleton from '@s-ui/react-atom-skeleton'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
 
 import MapGoogleCircle from './circle/index.js'
@@ -27,6 +28,8 @@ function MapGoogle({
   children,
   errorNode,
   isInteractive: isInteractiveProp,
+  height,
+  width,
   language = DEFAULT_LANGUAGE,
   loaderNode,
   staticImageNode,
@@ -72,12 +75,14 @@ function MapGoogle({
           onError={onError}
           onUnmount={onUnmount}
           apiKey={apiKey}
+          height={height}
+          width={width}
           {...others}
         >
           {isInteractive ? children : staticImageNode}
         </MapElement>
       ) : (
-        loaderNode
+        loaderNode || <AtomSkeleton height={height} width={width} />
       )}
     </div>
   )
@@ -92,6 +97,8 @@ MapGoogle.propTypes = {
   }),
   children: PropTypes.node,
   errorNode: PropTypes.node,
+  height: PropTypes.number,
+  width: PropTypes.number,
   isInteractive: PropTypes.bool,
   language: PropTypes.string,
   loaderNode: PropTypes.node,

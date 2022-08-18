@@ -3,27 +3,27 @@ import PropTypes from 'prop-types'
 import {toQueryString} from '@s-ui/js/lib/string'
 import Injector from '@s-ui/react-primitive-injector'
 
-import {
-  BASE_URL,
-  DEFAULT_CENTER,
-  DEFAULT_CHILDREN_ALT,
-  DEFAULT_HEIGHT,
-  DEFAULT_WIDTH
-} from './config.js'
+import {BASE_URL, DEFAULT_CENTER, DEFAULT_CHILDREN_ALT} from './config.js'
 
 function MapGoogleImage({
   alt = DEFAULT_CHILDREN_ALT,
   apiKey,
   center: {lat, lng} = DEFAULT_CENTER,
   children = <img />,
-  height = DEFAULT_HEIGHT,
-  width = DEFAULT_WIDTH,
+  height,
+  size,
+  width,
   ...others
 }) {
+  if (!height || !width) {
+    throw new Error('Height and Width are mandatory in static map')
+  }
+
   const params = toQueryString({
     ...others,
     key: apiKey,
-    center: `${lat},${lng}`
+    center: `${lat},${lng}`,
+    size: size ?? `${width}x${height}`
   })
   const src = `${BASE_URL}?${params}`
 
@@ -40,8 +40,9 @@ MapGoogleImage.propTypes = {
   apiKey: PropTypes.string.isRequired,
   center: PropTypes.shape({lat: PropTypes.number, lng: PropTypes.number}),
   children: PropTypes.node,
-  height: PropTypes.number,
-  width: PropTypes.number
+  height: PropTypes.number.isRequired,
+  size: PropTypes.string,
+  width: PropTypes.number.isRequired
 }
 
 export default MapGoogleImage
