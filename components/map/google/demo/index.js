@@ -8,7 +8,9 @@ import MapImageArticle from './articles/MapImageArticle.js'
 const className = 'DemoMapGoogle'
 
 export default () => {
-  const [apiKey, setApiKey] = useState('')
+  const [apiKey, setApiKey] = useState(
+    'AIzaSyCOh1CZOm9_Wwo-U737gPbSZnUVpAuQMK0'
+  )
 
   return (
     <div className={className}>
@@ -25,8 +27,8 @@ export default () => {
         />
       </Box>
 
-      <MapArticle apiKey={apiKey} key={apiKey} />
-      <MapImageArticle apiKey={apiKey} />
+      <MapArticle apiKey={apiKey} key={apiKey} height={600} width={600} />
+      <MapImageArticle apiKey={apiKey} height={800} width={800} />
     </div>
   )
 }
