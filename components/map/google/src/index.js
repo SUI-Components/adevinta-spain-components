@@ -8,7 +8,8 @@ import AtomSkeleton from '@s-ui/react-atom-skeleton'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
 
 import MapGoogleCircle from './circle/index.js'
-import StaticMap from './image/index.js'
+import MapGoogleImage from './image/index.js'
+import StaticMap from './imageInteractive/index.js'
 import MapGoogleMarker from './marker/index.js'
 import MapGooglePolygon from './polygon/index.js'
 import MapGooglePolyline from './polyline/index.js'
@@ -19,6 +20,7 @@ import {
   DEFAULT_CENTER,
   DEFAULT_LANGUAGE,
   DEFAULT_ZOOM,
+  getDefaultMapSize,
   handle
 } from './config.js'
 
@@ -64,25 +66,30 @@ function MapGoogle({
 
   const MapElement = isInteractive ? DynamicMap : StaticMap
 
+  const mapSize = getDefaultMapSize({height, width})
+
   return (
     <div className={BASE_CLASS} onClick={handleClick}>
       {isLoaded ? (
-        <MapElement
-          center={center}
-          mapContainerClassName={CONTAINER_CLASSNAME}
-          zoom={zoom}
-          onLoad={handleOnLoad}
-          onError={onError}
-          onUnmount={onUnmount}
-          apiKey={apiKey}
-          height={height}
-          width={width}
-          {...others}
-        >
-          {isInteractive ? children : staticImageNode}
-        </MapElement>
+        <div style={mapSize}>
+          <MapElement
+            apiKey={apiKey}
+            center={center}
+            height={height}
+            isInteractive={isInteractive}
+            mapContainerClassName={CONTAINER_CLASSNAME}
+            onError={onError}
+            onLoad={handleOnLoad}
+            onUnmount={onUnmount}
+            width={width}
+            zoom={zoom}
+            {...others}
+          >
+            {isInteractive ? children : staticImageNode}
+          </MapElement>
+        </div>
       ) : (
-        loaderNode || <AtomSkeleton height={height} width={width} />
+        loaderNode || <AtomSkeleton {...mapSize} />
       )}
     </div>
   )
@@ -115,7 +122,7 @@ export {
   MapGoogleCircle,
   MapGoogleMarker,
   MapGoogleRectangle,
-  StaticMap as MapGoogleImage,
+  MapGoogleImage,
   MapGooglePolygon,
   MapGooglePolyline
 }
