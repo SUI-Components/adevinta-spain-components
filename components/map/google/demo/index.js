@@ -2,8 +2,8 @@ import {useState} from 'react'
 
 import {Box, H1, Input} from '@s-ui/documentation-library'
 
+import MapAddOnsArticle from './articles/MapAddOnsArticle.js'
 import MapArticle from './articles/MapArticle.js'
-import MapDynamicArticle from './articles/MapDynamicArticle.js'
 import MapImageArticle from './articles/MapImageArticle.js'
 
 const className = 'DemoMapGoogle'
@@ -32,12 +32,10 @@ export default () => {
         height={600}
         width={600}
       />
-      <MapDynamicArticle
-        apiKey={apiKey}
-        key={`${apiKey}-MapDynamicArticle`}
-        isInteractive
-      />
+
       <MapImageArticle apiKey={apiKey} height={600} width={600} />
+
+      <MapAddOnsArticle apiKey={apiKey} key={`${apiKey}-MapAddOnsArticle`} />
     </div>
   )
 }
