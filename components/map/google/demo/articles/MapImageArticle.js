@@ -15,7 +15,7 @@ const MapImageArticle = ({apiKey, height, width}) => {
           <MapGoogleImage
             apiKey={apiKey}
             center={{lat: 40.714728, lng: -73.998672}}
-            size="900x900"
+            size="600x600"
             zoom="14"
             height={height}
             width={width}
