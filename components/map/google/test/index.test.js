@@ -14,6 +14,13 @@ import MapGoogle from '../src/index.js'
 
 chai.use(chaiDOM)
 
+const REQUIRED_MAPGOOGLEIMAGE_PROPS = {
+  height: 600,
+  width: 600
+}
+
+const TEST_API_KEY = 'testApiKey'
+
 describe('MapGoogle', () => {
   const setup = setupEnvironment(MapGoogle)
 
@@ -59,7 +66,7 @@ describe('MapGoogle', () => {
     // Given
     const onLoad = sinon.spy()
     const props = {
-      apiKey: 'AIzaSyDp7wqS1IyRZCvMMsY2LX2V1TXY4Lh8UGA',
+      apiKey: TEST_API_KEY,
       loaderNode: <div>Loading</div>,
       onLoad,
       isInteractive: true
@@ -80,6 +87,7 @@ describe('MapGoogleImage', () => {
   it('should render without crashing', () => {
     // Given
     const props = {
+      ...REQUIRED_MAPGOOGLEIMAGE_PROPS,
       staticImageNode: <img />
     }
 
@@ -94,7 +102,9 @@ describe('MapGoogleImage', () => {
 
   it('should not render null', () => {
     // Given
-    const props = {}
+    const props = {
+      ...REQUIRED_MAPGOOGLEIMAGE_PROPS
+    }
 
     // When
     const {container} = setup(props)
@@ -107,8 +117,9 @@ describe('MapGoogleImage', () => {
   it('should render default image when no image component is passed by props', async () => {
     // Given
     const props = {
+      ...REQUIRED_MAPGOOGLEIMAGE_PROPS,
       alt: 'mapTest',
-      apiKey: 'AIzaSyDp7wqS1IyRZCvMMsY2LX2V1TXY4Lh8UGA',
+      apiKey: TEST_API_KEY,
       center: {lat: 40.714728, lng: -73.998672}
     }
 
@@ -122,8 +133,9 @@ describe('MapGoogleImage', () => {
   it('should render default custom image when prop children is defined', async () => {
     // Given
     const props = {
+      ...REQUIRED_MAPGOOGLEIMAGE_PROPS,
       alt: 'mapTest',
-      apiKey: 'AIzaSyDp7wqS1IyRZCvMMsY2LX2V1TXY4Lh8UGA',
+      apiKey: TEST_API_KEY,
       center: {lat: 40.714728, lng: -73.998672},
       staticImageNode: <div role="img" />
     }
