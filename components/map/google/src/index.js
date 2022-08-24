@@ -8,8 +8,7 @@ import AtomSkeleton from '@s-ui/react-atom-skeleton'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
 
 import MapGoogleCircle from './circle/index.js'
-import MapGoogleImage from './image/index.js'
-import StaticMap from './imageInteractive/index.js'
+import StaticMap from './image/index.js'
 import MapGoogleMarker from './marker/index.js'
 import MapGooglePolygon from './polygon/index.js'
 import MapGooglePolyline from './polyline/index.js'
@@ -122,7 +121,7 @@ export {
   MapGoogleCircle,
   MapGoogleMarker,
   MapGoogleRectangle,
-  MapGoogleImage,
+  StaticMap as MapGoogleImage,
   MapGooglePolygon,
   MapGooglePolyline
 }
