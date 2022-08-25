@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.4.0 (2022-08-25)
+
+
+### Features
+
+* **components/map/google/demo:** Modify static map behaviour ([3c062ea](https://github.com/SUI-Components/adevinta-spain-components/commit/3c062ea8b2205df08c0bfaecb2aa82be26bff8ab))
+* **components/map/google:** Create and implement MapGoogleImageInteractive ([ec82fad](https://github.com/SUI-Components/adevinta-spain-components/commit/ec82fade3fec2fd4c406e6e2db65d687efe05b35))
+* **components/map/google:** Modify static map behaviour ([62c612e](https://github.com/SUI-Components/adevinta-spain-components/commit/62c612e1e18ce7dbb84bc09d8e7578220bab83e4))
+
+
+
 # 1.3.0 (2022-08-16)
 
 
