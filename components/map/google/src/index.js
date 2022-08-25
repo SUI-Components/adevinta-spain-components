@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 import {GoogleMap as DynamicMap, useLoadScript} from '@react-google-maps/api'
 
+import AtomSkeleton from '@s-ui/react-atom-skeleton'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
 
 import MapGoogleCircle from './circle/index.js'
@@ -18,6 +19,7 @@ import {
   DEFAULT_CENTER,
   DEFAULT_LANGUAGE,
   DEFAULT_ZOOM,
+  getDefaultMapSize,
   handle
 } from './config.js'
 
@@ -27,6 +29,8 @@ function MapGoogle({
   children,
   errorNode,
   isInteractive: isInteractiveProp,
+  height,
+  width,
   language = DEFAULT_LANGUAGE,
   loaderNode,
   staticImageNode,
@@ -61,23 +65,30 @@ function MapGoogle({
 
   const MapElement = isInteractive ? DynamicMap : StaticMap
 
+  const mapSize = getDefaultMapSize({height, width})
+
   return (
     <div className={BASE_CLASS} onClick={handleClick}>
       {isLoaded ? (
-        <MapElement
-          center={center}
-          mapContainerClassName={CONTAINER_CLASSNAME}
-          zoom={zoom}
-          onLoad={handleOnLoad}
-          onError={onError}
-          onUnmount={onUnmount}
-          apiKey={apiKey}
-          {...others}
-        >
-          {isInteractive ? children : staticImageNode}
-        </MapElement>
+        <div style={mapSize}>
+          <MapElement
+            apiKey={apiKey}
+            center={center}
+            height={height}
+            isInteractive={isInteractive}
+            mapContainerClassName={CONTAINER_CLASSNAME}
+            onError={onError}
+            onLoad={handleOnLoad}
+            onUnmount={onUnmount}
+            width={width}
+            zoom={zoom}
+            {...others}
+          >
+            {isInteractive ? children : staticImageNode}
+          </MapElement>
+        </div>
       ) : (
-        loaderNode
+        loaderNode || <AtomSkeleton {...mapSize} />
       )}
     </div>
   )
@@ -92,6 +103,8 @@ MapGoogle.propTypes = {
   }),
   children: PropTypes.node,
   errorNode: PropTypes.node,
+  height: PropTypes.number,
+  width: PropTypes.number,
   isInteractive: PropTypes.bool,
   language: PropTypes.string,
   loaderNode: PropTypes.node,

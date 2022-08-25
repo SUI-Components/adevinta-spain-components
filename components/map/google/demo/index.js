@@ -2,6 +2,7 @@ import {useState} from 'react'
 
 import {Box, H1, Input} from '@s-ui/documentation-library'
 
+import MapAddOnsArticle from './articles/MapAddOnsArticle.js'
 import MapArticle from './articles/MapArticle.js'
 import MapImageArticle from './articles/MapImageArticle.js'
 
@@ -25,8 +26,16 @@ export default () => {
         />
       </Box>
 
-      <MapArticle apiKey={apiKey} key={apiKey} />
-      <MapImageArticle apiKey={apiKey} />
+      <MapArticle
+        apiKey={apiKey}
+        key={`${apiKey}-MapArticle`}
+        height={600}
+        width={600}
+      />
+
+      <MapImageArticle apiKey={apiKey} height={600} width={600} />
+
+      <MapAddOnsArticle apiKey={apiKey} key={`${apiKey}-MapAddOnsArticle`} />
     </div>
   )
 }

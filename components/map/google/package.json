@@ -23,6 +23,7 @@
     "@react-google-maps/api": "2.12.1",
     "@s-ui/js": "2",
     "@s-ui/react-hooks": "1",
-    "@s-ui/react-primitive-injector": "1"
+    "@s-ui/react-primitive-injector": "1",
+    "@s-ui/react-atom-skeleton": "1"
   }
 }
