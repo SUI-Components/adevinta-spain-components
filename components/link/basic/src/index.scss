@@ -9,6 +9,14 @@
   margin: $m-link-basic;
   text-decoration: $td-link-basic;
 
+  &-button {
+    background-color: transparent;
+    border: none;
+    display: inline;
+    line-height: normal;
+    padding: 0;
+  }
+
   &-icon {
     margin-right: $m-link-basic-icon;
   }

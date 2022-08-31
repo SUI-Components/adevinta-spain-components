@@ -22,10 +22,14 @@ export default function LinkBasic({
   rel,
   target,
   title,
+  useHiddenLink,
   useReactRouterLinks,
   url = '#'
 }) {
-  const linkClassName = cx('sui-LinkBasic', className)
+  const BASE_CLASS = 'sui-LinkBasic'
+  const linkClassName = cx(BASE_CLASS, className, {
+    [`${BASE_CLASS}-button`]: useHiddenLink
+  })
   const content = renderContent(icon, literal)
 
   if (disabled) {
@@ -48,6 +52,24 @@ export default function LinkBasic({
       >
         {content}
       </Link>
+    )
+  }
+
+  if (useHiddenLink) {
+    const handleHiddenLinkClick = () => {
+      handleClick && handleClick()
+      window.location.href = url
+    }
+
+    return (
+      <button
+        className={linkClassName}
+        name={title}
+        onClick={handleHiddenLinkClick}
+        rel={rel}
+      >
+        {content}
+      </button>
     )
   }
 
