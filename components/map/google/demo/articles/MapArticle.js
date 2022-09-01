@@ -2,7 +2,6 @@ import MapGoogle from 'components/map/google/src/index.js'
 import PropTypes from 'prop-types'
 
 import {
-  Anchor,
   Article,
   Cell,
   Code,
@@ -15,17 +14,10 @@ import {
 const MapArticle = ({apiKey, height, width}) => {
   return (
     <Article>
-      <H2>Map</H2>
+      <H2>Interactive Map</H2>
       <Text>
         Render a map. Toggle between a static map image and a dynamic map using{' '}
-        <Code>isInteractive</Code> prop. The dynamic map is a wrapper of{' '}
-        <Anchor href="https://react-google-maps-api-docs.netlify.app/#googlemap">
-          GoogleMap
-        </Anchor>{' '}
-        but also loads Google Maps script out of the box. Use{' '}
-        <Code>loaderNode</Code> and <Code>errorNode</Code> to optionally display
-        loading and error states. All the props defined in the wrapped component
-        are also available.
+        <Code>isInteractive</Code> prop.
       </Text>
 
       <Grid cols={2} gutter={[8, 8]}>
