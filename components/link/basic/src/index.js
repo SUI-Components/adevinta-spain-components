@@ -22,13 +22,13 @@ export default function LinkBasic({
   rel,
   target,
   title,
-  useHiddenLink,
+  hideSemanticLink,
   useReactRouterLinks,
   url = '#'
 }) {
   const BASE_CLASS = 'sui-LinkBasic'
   const linkClassName = cx(BASE_CLASS, className, {
-    [`${BASE_CLASS}-button`]: useHiddenLink
+    [`${BASE_CLASS}-button`]: hideSemanticLink
   })
   const content = renderContent(icon, literal)
 
@@ -55,7 +55,7 @@ export default function LinkBasic({
     )
   }
 
-  if (useHiddenLink) {
+  if (hideSemanticLink) {
     const handleHiddenLinkClick = () => {
       handleClick && handleClick()
       window.location.href = url
