@@ -93,6 +93,7 @@ LinkBasic.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   handleClick: PropTypes.func,
+  hideSemanticLink: PropTypes.bool,
   icon: PropTypes.element,
   literal: PropTypes.string,
   rel: PropTypes.string,
