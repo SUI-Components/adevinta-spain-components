@@ -3,19 +3,16 @@
 @import './settings';
 
 .sui-LinkBasic {
+  background-color: transparent;
+  border: none;
   color: $c-link-basic;
   cursor: pointer;
+  display: inline;
   font-size: $fz-link-basic;
+  line-height: normal;
   margin: $m-link-basic;
+  padding: 0;
   text-decoration: $td-link-basic;
-
-  &-button {
-    background-color: transparent;
-    border: none;
-    display: inline;
-    line-height: normal;
-    padding: 0;
-  }
 
   &-icon {
     margin-right: $m-link-basic-icon;
