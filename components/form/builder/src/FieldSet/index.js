@@ -1,3 +1,5 @@
+import {isValidElement} from 'react'
+
 import PropTypes from 'prop-types'
 
 import {field} from '../prop-types'
@@ -16,16 +18,34 @@ const FieldSet = ({
   alerts,
   renderer
 }) => {
-  const {fields = [], label} = fieldset
-
   if (fieldset.hidden) {
     return null
   }
+
+  const fieldsetProps = {
+    id: fieldset.id,
+    name: fieldset.id,
+    label: fieldset.label || '',
+    fields: fieldset.fields
+  }
+
+  const rendererResponse = renderer({
+    id: fieldset.id,
+    innerProps: fieldsetProps
+  })
+
+  // render custom component
+  if (isValidElement(rendererResponse)) return rendererResponse
+
+  const label = rendererResponse?.label || fieldset.label
+  const icon = rendererResponse?.icon || fieldset.icon
+  const fields = rendererResponse?.fields || fieldset.fields || []
 
   return (
     <fieldset className={`${baseClass} ${baseClass}-${fieldset.id}`}>
       {label && (
         <legend>
+          {icon && <span>{icon}</span>}
           <span>{label}</span>
         </legend>
       )}

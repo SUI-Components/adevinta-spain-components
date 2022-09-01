@@ -14,4 +14,17 @@ $self: 'sui-FormBuilder-FieldSet';
     flex-wrap: wrap;
     justify-content: flex-start;
   }
+
+  legend {
+    display: flex;
+    align-items: center;
+
+    & > * {
+      margin-right: $m-m;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
 }
