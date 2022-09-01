@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.11.0 (2022-09-01)
+
+
+### Features
+
+* **components/form/builder:** add fieldset custom render ([2ed4fe4](https://github.com/SUI-Components/adevinta-spain-components/commit/2ed4fe43da8545831e81ece8069bd5232e0fab76))
+
+
+
 # 5.10.0 (2022-07-11)
 
 
