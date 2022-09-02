@@ -2,6 +2,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import {Link} from '@s-ui/react-router'
+import PolymorphicElement from '@s-ui/react-primitive-polymorphic-element'
 
 const renderContent = (icon, literal) =>
   icon && literal ? (
@@ -14,6 +15,7 @@ const renderContent = (icon, literal) =>
   )
 
 export default function LinkBasic({
+  as = 'a',
   className,
   disabled,
   handleClick,
@@ -25,12 +27,35 @@ export default function LinkBasic({
   useReactRouterLinks,
   url = '#'
 }) {
-  const linkClassName = cx('sui-LinkBasic', className)
+  const BASE_CLASS = 'sui-LinkBasic'
+  const linkBasicClassName = cx(BASE_CLASS, className)
   const content = renderContent(icon, literal)
+  const isAnchor = as === 'a'
+  const commonProps = {
+    className: linkBasicClassName,
+    rel,
+    title
+  }
+  const anchorProps = {
+    href: url,
+    target
+  }
+  const linkProps = {
+    target,
+    to: url
+  }
+
+  const onClick = () => {
+    handleClick && handleClick()
+
+    if (!isAnchor) {
+      window.location.href = url
+    }
+  }
 
   if (disabled) {
     return (
-      <span className={linkClassName} onClick={handleClick} title={title}>
+      <span onClick={handleClick} {...commonProps}>
         {content}
       </span>
     )
@@ -38,36 +63,28 @@ export default function LinkBasic({
 
   if (useReactRouterLinks) {
     return (
-      <Link
-        className={linkClassName}
-        onClick={handleClick}
-        rel={rel}
-        target={target}
-        title={title}
-        to={url}
-      >
+      <Link onClick={handleClick} {...commonProps} {...linkProps}>
         {content}
       </Link>
     )
   }
 
   return (
-    <a
-      className={linkClassName}
-      href={url}
-      onClick={handleClick}
-      rel={rel}
-      target={target}
-      title={title}
+    <PolymorphicElement
+      as={as}
+      onClick={onClick}
+      {...commonProps}
+      {...(isAnchor ? anchorProps : {})}
     >
       {content}
-    </a>
+    </PolymorphicElement>
   )
 }
 
 LinkBasic.displayName = 'LinkBasic'
 
 LinkBasic.propTypes = {
+  as: PropTypes.string,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   handleClick: PropTypes.func,
