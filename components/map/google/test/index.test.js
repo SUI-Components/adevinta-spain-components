@@ -26,7 +26,7 @@ describe('MapGoogle', () => {
 
   it('should render without crashing', () => {
     // Given
-    const props = {}
+    const props = {...REQUIRED_MAPGOOGLEIMAGE_PROPS}
 
     // When
     const Component = <MapGoogle {...props} />
@@ -39,7 +39,7 @@ describe('MapGoogle', () => {
 
   it('should not render null', () => {
     // Given
-    const props = {}
+    const props = {...REQUIRED_MAPGOOGLEIMAGE_PROPS}
 
     // When
     const {container} = setup(props)
@@ -51,7 +51,10 @@ describe('MapGoogle', () => {
 
   it('should not extend classNames', () => {
     // Given
-    const props = {className: 'extended-classNames'}
+    const props = {
+      className: 'extended-classNames',
+      ...REQUIRED_MAPGOOGLEIMAGE_PROPS
+    }
     const findSentence = str => string => string.match(new RegExp(`S*${str}S*`))
 
     // When
