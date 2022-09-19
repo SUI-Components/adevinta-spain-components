@@ -111,7 +111,7 @@ const FormBuilder = ({
 
       setStateShowSpinner(false)
     },
-    [] // eslint-disable-line
+    [renderer] // eslint-disable-line
   )
 
   useEffect(() => {
