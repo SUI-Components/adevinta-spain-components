@@ -111,8 +111,8 @@ const FormBuilder = ({
 
       setStateShowSpinner(false)
     },
-    []
-  ) // eslint-disable-line
+    [] // eslint-disable-line
+  )
 
   useEffect(() => {
     const reducerWithRules = reducer(
