@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 5.12.0 (2022-09-22)
+
+
+### Features
+
+* **components/form/builder:** Add prop to rerender all fields on change in form builder+ ([c4186f8](https://github.com/SUI-Components/adevinta-spain-components/commit/c4186f86cb9ce86d09d7695c7f002a9848df02e3))
+* **components/form/builder:** Linting ([2273625](https://github.com/SUI-Components/adevinta-spain-components/commit/2273625b378f7dcd8a38c8621589935c6d4cb660))
+
+
+
 # 5.11.0 (2022-09-01)
 
 
