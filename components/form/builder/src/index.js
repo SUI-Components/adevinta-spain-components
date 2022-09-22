@@ -111,10 +111,10 @@ const FormBuilder = ({
       }
 
       setStateShowSpinner(false)
-    }, 
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [...(shouldRerenderAllFieldsOnChange && {renderer})] 
-  ) 
+    [...(shouldRerenderAllFieldsOnChange && {renderer})]
+  )
 
   useEffect(() => {
     const reducerWithRules = reducer(
