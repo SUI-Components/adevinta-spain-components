@@ -39,6 +39,7 @@ const FormBuilder = ({
   baseAPIURL = 'https://ptaformbuilder-classifiedads.spain.advgo.net',
   locale = 'es-ES',
   useNativeFieldType = false,
+  shouldRerenderAllFieldsOnChange = false,
   children: renderer = () => ({})
 }) => {
   const {fields = [], rules = {}, id: formID} = json.form
@@ -110,9 +111,10 @@ const FormBuilder = ({
       }
 
       setStateShowSpinner(false)
-    },
-    []
-  ) // eslint-disable-line
+    }, 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [...(shouldRerenderAllFieldsOnChange && {renderer})] 
+  ) 
 
   useEffect(() => {
     const reducerWithRules = reducer(
@@ -234,6 +236,7 @@ FormBuilder.propTypes = {
   baseAPIURL: PropTypes.string,
   locale: PropTypes.string,
   useNativeFieldType: PropTypes.bool,
+  shouldRerenderAllFieldsOnChange: PropTypes.bool,
   children: PropTypes.func
 }
 
