@@ -18,8 +18,6 @@ import {json} from './prop-types'
 import ProxyField from './ProxyField'
 import {reducer} from './reducer'
 
-const NOOP = () => ({})
-
 const FormBuilder = ({
   allowAutoFillOnInitLoad = false,
   allowInitFieldsReload = false,
