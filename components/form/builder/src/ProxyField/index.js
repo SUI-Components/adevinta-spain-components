@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import {field} from '../prop-types/index.js'
 import FieldSetField from '../Standard/Fields/FieldSet/index.js'
 import MultiPickerField from '../Standard/Fields/Multicheckbox/index.js'
+import MultiField from '../Standard/Fields/MultiField/index.js'
 import NumericField from '../Standard/Fields/Numeric/index.js'
 import PickerField from '../Standard/Fields/Picker/index.js'
 import RangeField from '../Standard/Fields/Range/index.js'
@@ -91,6 +92,19 @@ const ProxyField = ({
 
     case FIELDS.RANGE:
       Field = RangeField({
+        field,
+        tabIndex,
+        onChange,
+        onFocus,
+        onBlur,
+        errors,
+        alerts,
+        renderer
+      })
+      break
+
+    case FIELDS.MULTIFIELD:
+      Field = MultiField({
         field,
         tabIndex,
         onChange,

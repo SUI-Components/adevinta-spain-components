@@ -11,7 +11,8 @@ const FIELDS = {
   FIELDSET: 'fieldset',
   PICKER: 'picker',
   MULTIPICKER: 'multipicker',
-  RANGE: 'range'
+  RANGE: 'range',
+  MULTIFIELD: 'multifield'
 }
 
 const DISPLAYS = {
