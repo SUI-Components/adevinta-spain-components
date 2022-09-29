@@ -14,7 +14,7 @@ const MultiField = ({
 
   const rendererResponse = renderer({
     id: field.id,
-    type: field.type,
+    display: field.display,
     innerProps: fields.map(props => ({
       ...props,
       tabIndex,
