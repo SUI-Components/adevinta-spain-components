@@ -1,9 +1,4 @@
 import PropTypes from 'prop-types'
-import {useEffect, useState} from 'react'
-
-import Input from '../../../Input/index.js'
-import TextArea from '../../../TextArea/index.js'
-import {DISPLAYS, FIELDS} from '../../index.js'
 
 const MultiField = ({
   field,
