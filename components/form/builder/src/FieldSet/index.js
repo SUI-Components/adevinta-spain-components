@@ -22,16 +22,27 @@ const FieldSet = ({
     return null
   }
 
-  const fieldsetProps = {
-    id: fieldset.id,
-    name: fieldset.id,
-    label: fieldset.label || '',
-    fields: fieldset.fields
-  }
+  const innerProps = fieldset.fields.map((props, index) => {
+    const fieldTabIndex = field.tabIndex ?? tabIndex + index * 0.1
+    return {
+      ...props,
+      tabIndex: fieldTabIndex,
+      onChange,
+      onFocus,
+      onBlur,
+      fieldSize,
+      errors,
+      alerts,
+      renderer
+    }
+  })
 
   const rendererResponse = renderer({
     id: fieldset.id,
-    innerProps: fieldsetProps
+    name: fieldset.id,
+    label: fieldset.label || '',
+    fields: fieldset.fields,
+    innerProps
   })
 
   // render custom component

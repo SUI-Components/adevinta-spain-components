@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import FieldSet from '../../../FieldSet'
+import FieldSet from '../../../FieldSet/index.js'
 
 const FieldSetField = ({
   field,
