@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 5.13.0 (2022-09-30)
+
+
+### Features
+
+* **components/form/builder:** add multifield typè ([370ef64](https://github.com/SUI-Components/adevinta-spain-components/commit/370ef64fde3c1eb847bbef8f9d156c65cb56d77d))
+* **components/form/builder:** create multifield type to be able to handle two fields in one ([2a6d2bf](https://github.com/SUI-Components/adevinta-spain-components/commit/2a6d2bf04091cd6a0fbaca87d7806d2306fba092))
+* **components/form/builder:** fix path ([ad28df2](https://github.com/SUI-Components/adevinta-spain-components/commit/ad28df263cdd4d2fa76fdcc0ce9765fdcce5b7e2))
+* **components/form/builder:** remove multifield type and instead of it, it's exposed  each field wi ([1389346](https://github.com/SUI-Components/adevinta-spain-components/commit/13893468509a30fb03856e45185aba83c7556224))
+* **components/form/builder:** remove unnecessary constant ([a6b8b48](https://github.com/SUI-Components/adevinta-spain-components/commit/a6b8b48b621f96aa926584d7d5d9e0ee7bf7dacf))
+* **components/form/builder:** remove unnecessary file ([42c1404](https://github.com/SUI-Components/adevinta-spain-components/commit/42c1404d57c45b8aa0572159d57ee2b05bcb18cd))
+* **components/form/builder:** remove unnecessary imports ([b74dd78](https://github.com/SUI-Components/adevinta-spain-components/commit/b74dd78a546ba902de4791fc4095a6a24e89d60a))
+
+
+
 # 5.12.0 (2022-09-22)
 
 
