@@ -85,7 +85,7 @@ function useLocalStorage(key, initialValue) {
     const eventKey = event.key || event.detail?.key
     const eventValue = event.newValue || event.detail?.newValue
 
-    if (eventKey === key) setValue(eventValue)
+    if (eventKey === key) setValue(JSON.parse(eventValue))
   }
 
   useEventListener(LOCAL_STORAGE_KEY, handleStorageChange)
