@@ -13,7 +13,7 @@ const hasWindow = () => typeof window !== 'undefined'
  * @param initialValue any
  * @returns {UseLocalStorageResult}
  */
-function useLocalStorage(key, initialValue) {
+function useLocalStorage(key, initialValue, isBoolean = false) {
   /**
    * The loadStoredValue retrieve the stored value
    * from the localStorage if it exists.
@@ -85,7 +85,8 @@ function useLocalStorage(key, initialValue) {
     const eventKey = event.key || event.detail?.key
     const eventValue = event.newValue || event.detail?.newValue
 
-    if (eventKey === key) setValue(JSON.parse(eventValue))
+    if (eventKey === key)
+      setValue(isBoolean ? JSON.parse(eventValue) : eventValue)
   }
 
   useEventListener(LOCAL_STORAGE_KEY, handleStorageChange)
