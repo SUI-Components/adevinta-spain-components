@@ -11,9 +11,10 @@ const hasWindow = () => typeof window !== 'undefined'
  *
  * @param key string
  * @param initialValue any
+ * @param parserFn func - Function applied in the listener when changing a local storage value manually in the browser
  * @returns {UseLocalStorageResult}
  */
-function useLocalStorage(key, initialValue, isBoolean = false) {
+function useLocalStorage(key, initialValue, parserFn = value => value) {
   /**
    * The loadStoredValue retrieve the stored value
    * from the localStorage if it exists.
@@ -85,8 +86,7 @@ function useLocalStorage(key, initialValue, isBoolean = false) {
     const eventKey = event.key || event.detail?.key
     const eventValue = event.newValue || event.detail?.newValue
 
-    if (eventKey === key)
-      setValue(isBoolean ? JSON.parse(eventValue) : eventValue)
+    if (eventKey === key) setValue(parserFn(eventValue))
   }
 
   useEventListener(LOCAL_STORAGE_KEY, handleStorageChange)
