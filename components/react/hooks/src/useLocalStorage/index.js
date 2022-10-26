@@ -14,7 +14,7 @@ const hasWindow = () => typeof window !== 'undefined'
  * @param parserFn func - Function applied in the listener when changing a local storage value manually in the browser
  * @returns {UseLocalStorageResult}
  */
-function useLocalStorage(key, initialValue, parserFn = value => value) {
+function useLocalStorage(key, initialValue, {parserFn = value => value} = {}) {
   /**
    * The loadStoredValue retrieve the stored value
    * from the localStorage if it exists.
