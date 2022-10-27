@@ -1,13 +1,24 @@
-# Change Log
+# CHANGELOG
 
-All notable changes to this project will be documented in this file.
+# 1.15.0 (2022-10-27)
+
+
+
+# 1.14.0 (2020-11-24)
+
+
+### Features
+
+* **list/tagcloud:** Use new jsx runtime ([3cc9de7](https://github.com/SUI-Components/adevinta-spain-components/commit/3cc9de7a48a2266fa0b5b2cc22453249870eecd0))
+
+
 
 # 1.13.0 (2020-03-09)
 
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([2616291](https://github.com/SUI-Components/adevinta-spain-components/commit/2616291acc42942012fa2ea209cde27c8d195e7e))
+* **list/tagcloud:** Use new [@s-ui-theme](https://github.com/s-ui-theme) ([2616291](https://github.com/SUI-Components/adevinta-spain-components/commit/2616291acc42942012fa2ea209cde27c8d195e7e))
 
 
 
@@ -16,7 +27,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) packages ([09ad3e2](https://github.com/SUI-Components/adevinta-spain-components/commit/09ad3e2be63b06989668f1bbdbc244b5cd093912))
+* **list/tagcloud:** Use new [@s-ui](https://github.com/s-ui) packages ([09ad3e2](https://github.com/SUI-Components/adevinta-spain-components/commit/09ad3e2be63b06989668f1bbdbc244b5cd093912))
 
 
 
@@ -25,7 +36,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([29e7246](https://github.com/SUI-Components/adevinta-spain-components/commit/29e72461850618f3072a0c09ce27c5eae3887f37))
+* **list/tagcloud:** Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([29e7246](https://github.com/SUI-Components/adevinta-spain-components/commit/29e72461850618f3072a0c09ce27c5eae3887f37))
 
 
 
@@ -34,7 +45,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Stop using defaultProps ([9b6fcea](https://github.com/SUI-Components/adevinta-spain-components/commit/9b6fceab1dfe3f42a4f7c3df34b27359665ae2eb))
+* **list/tagcloud:** Stop using defaultProps ([9b6fcea](https://github.com/SUI-Components/adevinta-spain-components/commit/9b6fceab1dfe3f42a4f7c3df34b27359665ae2eb))
 
 
 
@@ -43,7 +54,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([7a92e82](https://github.com/SUI-Components/adevinta-spain-components/commit/7a92e821e71a40c96204160bf501756456cf0f35))
+* **list/tagcloud:** Remove .npmignore ([7a92e82](https://github.com/SUI-Components/adevinta-spain-components/commit/7a92e821e71a40c96204160bf501756456cf0f35))
 
 
 
@@ -52,7 +63,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([ab0434c](https://github.com/SUI-Components/adevinta-spain-components/commit/ab0434c749debf6cc1ccfdd4270c8252e1725330))
+* **list/tagcloud:** Bump version ([ab0434c](https://github.com/SUI-Components/adevinta-spain-components/commit/ab0434c749debf6cc1ccfdd4270c8252e1725330))
 
 
 
@@ -61,8 +72,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* migrate to PropTypes package ([525a327](https://github.com/SUI-Components/adevinta-spain-components/commit/525a327e84bcc04f26a03851f42830f1df4432af))
-* switch to s-ui/component-dependencies and sui-theme@8 ([3d6a467](https://github.com/SUI-Components/adevinta-spain-components/commit/3d6a4672c641fcfce4e725df590aab53e6c0e668))
+* **list/tagcloud:** migrate to PropTypes package ([525a327](https://github.com/SUI-Components/adevinta-spain-components/commit/525a327e84bcc04f26a03851f42830f1df4432af))
+* **list/tagcloud:** switch to s-ui/component-dependencies and sui-theme@8 ([3d6a467](https://github.com/SUI-Components/adevinta-spain-components/commit/3d6a4672c641fcfce4e725df590aab53e6c0e668))
 
 
 
@@ -71,7 +82,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* modify label proptype to support a node prop. ([894236c](https://github.com/SUI-Components/adevinta-spain-components/commit/894236c88ade93b4caa9cead299c5073f9cb5231))
+* **list/tagcloud:** modify label proptype to support a node prop. ([894236c](https://github.com/SUI-Components/adevinta-spain-components/commit/894236c88ade93b4caa9cead299c5073f9cb5231))
 
 
 
@@ -80,7 +91,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* pass the linkfactory to chip ([b68d111](https://github.com/SUI-Components/adevinta-spain-components/commit/b68d1112dc16076deac84c9951ef963ac409143c))
+* **list/tagcloud:** pass the linkfactory to chip ([b68d111](https://github.com/SUI-Components/adevinta-spain-components/commit/b68d1112dc16076deac84c9951ef963ac409143c))
 
 
 
@@ -89,8 +100,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* allow to pass a link factory ([fb7c57b](https://github.com/SUI-Components/adevinta-spain-components/commit/fb7c57bed9682e1daae35eac736a6e4c747cec2e))
-* fix package name and cleanup ([d3fcbac](https://github.com/SUI-Components/adevinta-spain-components/commit/d3fcbac91afb4eff5bd0d304626b60d955ddcae1))
+* **list/tagcloud:** allow to pass a link factory ([fb7c57b](https://github.com/SUI-Components/adevinta-spain-components/commit/fb7c57bed9682e1daae35eac736a6e4c747cec2e))
+* **tag/deletableList:** fix package name and cleanup ([d3fcbac](https://github.com/SUI-Components/adevinta-spain-components/commit/d3fcbac91afb4eff5bd0d304626b60d955ddcae1))
 
 
 
@@ -99,7 +110,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add dependency and publish in package json ([46be06b](https://github.com/SUI-Components/adevinta-spain-components/commit/46be06bd665deeac7140aef9bd64c10d9ec33e33))
+* **list/tagcloud:** add dependency and publish in package json ([46be06b](https://github.com/SUI-Components/adevinta-spain-components/commit/46be06bd665deeac7140aef9bd64c10d9ec33e33))
 
 
 
