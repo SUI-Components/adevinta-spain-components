@@ -1,13 +1,24 @@
-# Change Log
+# CHANGELOG
 
-All notable changes to this project will be documented in this file.
+# 1.15.0 (2022-10-27)
+
+
+
+# 1.14.0 (2020-11-24)
+
+
+### Features
+
+* **card/subscription:** Use new jsx runtime ([c5c0bc5](https://github.com/SUI-Components/adevinta-spain-components/commit/c5c0bc54ad66848e5cbb0d0381f29293101bdc88))
+
+
 
 # 1.13.0 (2020-03-09)
 
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([f90588a](https://github.com/SUI-Components/adevinta-spain-components/commit/f90588a4ffeef940f2aaffc69fdf523937969662))
+* **card/subscription:** Use new [@s-ui-theme](https://github.com/s-ui-theme) ([f90588a](https://github.com/SUI-Components/adevinta-spain-components/commit/f90588a4ffeef940f2aaffc69fdf523937969662))
 
 
 
@@ -16,7 +27,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) packages ([5b7249a](https://github.com/SUI-Components/adevinta-spain-components/commit/5b7249a259d0ff23350d17dd14cfd271e8ed1b9e))
+* **card/subscription:** Use new [@s-ui](https://github.com/s-ui) packages ([5b7249a](https://github.com/SUI-Components/adevinta-spain-components/commit/5b7249a259d0ff23350d17dd14cfd271e8ed1b9e))
 
 
 
@@ -25,7 +36,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([94f3115](https://github.com/SUI-Components/adevinta-spain-components/commit/94f31151ec717f353a4abf1b13eb6c0485fad9e9))
+* **card/subscription:** Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([94f3115](https://github.com/SUI-Components/adevinta-spain-components/commit/94f31151ec717f353a4abf1b13eb6c0485fad9e9))
 
 
 
@@ -34,7 +45,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) react icons ([8408b52](https://github.com/SUI-Components/adevinta-spain-components/commit/8408b52f9e7a019e4a350ccc772a0383489d2aa8))
+* **card/subscription:** Use new [@s-ui](https://github.com/s-ui) react icons ([8408b52](https://github.com/SUI-Components/adevinta-spain-components/commit/8408b52f9e7a019e4a350ccc772a0383489d2aa8))
 
 
 
@@ -43,7 +54,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([a6ecc9a](https://github.com/SUI-Components/adevinta-spain-components/commit/a6ecc9a37f13ee0d90c68adaa7eeec9a95ca40a1))
+* **card/subscription:** Remove .npmignore ([a6ecc9a](https://github.com/SUI-Components/adevinta-spain-components/commit/a6ecc9a37f13ee0d90c68adaa7eeec9a95ca40a1))
 
 
 
@@ -52,7 +63,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* pass optional checkbox icons ([ef0457d](https://github.com/SUI-Components/adevinta-spain-components/commit/ef0457df82822b975e0cb98f99df24a375933288))
+* **card/subscription:** pass optional checkbox icons ([ef0457d](https://github.com/SUI-Components/adevinta-spain-components/commit/ef0457df82822b975e0cb98f99df24a375933288))
 
 
 
@@ -61,12 +72,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* remove required flag for checkbox name ([64e16d0](https://github.com/SUI-Components/adevinta-spain-components/commit/64e16d07242f28f47b00498a570717a877947798))
+* **card/subscription:** remove required flag for checkbox name ([64e16d0](https://github.com/SUI-Components/adevinta-spain-components/commit/64e16d07242f28f47b00498a570717a877947798))
 
 
 ### Features
 
-* add optional checkbox ([9c175f5](https://github.com/SUI-Components/adevinta-spain-components/commit/9c175f58258ba68c39afad63e8ebd78bf0313076))
+* **card/subscription:** add optional checkbox ([9c175f5](https://github.com/SUI-Components/adevinta-spain-components/commit/9c175f58258ba68c39afad63e8ebd78bf0313076))
 
 
 
@@ -75,7 +86,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([cf0a944](https://github.com/SUI-Components/adevinta-spain-components/commit/cf0a944a5f99987829918888d8f6fd57bbca766d))
+* **card/subscription:** Bump version ([cf0a944](https://github.com/SUI-Components/adevinta-spain-components/commit/cf0a944a5f99987829918888d8f6fd57bbca766d))
 
 
 
@@ -84,8 +95,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Migrate to PropTypes package ([434518c](https://github.com/SUI-Components/adevinta-spain-components/commit/434518c7d2b9214d38350cb44bf8f1e2b76a5306))
-* switch to s-ui/component-dependencies and sui-theme@8 ([c3521dd](https://github.com/SUI-Components/adevinta-spain-components/commit/c3521dd49cd94cf12f163bb83557168d8c229724))
+* **card/subscription:** Migrate to PropTypes package ([434518c](https://github.com/SUI-Components/adevinta-spain-components/commit/434518c7d2b9214d38350cb44bf8f1e2b76a5306))
+* **card/subscription:** switch to s-ui/component-dependencies and sui-theme@8 ([c3521dd](https://github.com/SUI-Components/adevinta-spain-components/commit/c3521dd49cd94cf12f163bb83557168d8c229724))
 
 
 
@@ -94,7 +105,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* responseContent is really a func not an element ([c26fc18](https://github.com/SUI-Components/adevinta-spain-components/commit/c26fc1812aebf5f6faa9f21aea827f6ed2cea76f))
+* **card/subscription:** responseContent is really a func not an element ([c26fc18](https://github.com/SUI-Components/adevinta-spain-components/commit/c26fc1812aebf5f6faa9f21aea827f6ed2cea76f))
 
 
 
@@ -103,14 +114,14 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* back to button type ([f5a0c92](https://github.com/SUI-Components/adevinta-spain-components/commit/f5a0c928a64bc56c529932208770cff87a1250b1))
-* button styles ([df014bd](https://github.com/SUI-Components/adevinta-spain-components/commit/df014bd75464e030532173872a9ad9270e1009f8))
-* use custom button to assign button color ([881ee6e](https://github.com/SUI-Components/adevinta-spain-components/commit/881ee6e3072df89a4bc0b11aba8ca9b363051c25))
+* **card/subscription:** back to button type ([f5a0c92](https://github.com/SUI-Components/adevinta-spain-components/commit/f5a0c928a64bc56c529932208770cff87a1250b1))
+* **card/subscription:** button styles ([df014bd](https://github.com/SUI-Components/adevinta-spain-components/commit/df014bd75464e030532173872a9ad9270e1009f8))
+* **card/subscription:** use custom button to assign button color ([881ee6e](https://github.com/SUI-Components/adevinta-spain-components/commit/881ee6e3072df89a4bc0b11aba8ca9b363051c25))
 
 
 ### Features
 
-* simplify compoment according to responses types ([bd730b5](https://github.com/SUI-Components/adevinta-spain-components/commit/bd730b562c4b720b6353470483d9a0547fa2b062))
+* **card/subscription:** simplify compoment according to responses types ([bd730b5](https://github.com/SUI-Components/adevinta-spain-components/commit/bd730b562c4b720b6353470483d9a0547fa2b062))
 
 
 
@@ -119,7 +130,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* adjust component to fit new UX flow ([08ee930](https://github.com/SUI-Components/adevinta-spain-components/commit/08ee93007f31dd441cf671cb123f5d7b6ccb31a1))
+* **card/subscription:** adjust component to fit new UX flow ([08ee930](https://github.com/SUI-Components/adevinta-spain-components/commit/08ee93007f31dd441cf671cb123f5d7b6ccb31a1))
 
 
 
@@ -128,7 +139,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* init card subscription ([afaf33b](https://github.com/SUI-Components/adevinta-spain-components/commit/afaf33b1cba9bc40838b4b745f2f28b61a9e5123))
+* **card/subscription:** init card subscription ([afaf33b](https://github.com/SUI-Components/adevinta-spain-components/commit/afaf33b1cba9bc40838b4b745f2f28b61a9e5123))
 
 
 
