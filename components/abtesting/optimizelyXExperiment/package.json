@@ -5,8 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "rm -Rf ./lib && mkdir -p ./lib && npm run build:js",
-    "build:js": "babel --presets sui ./src --out-dir ./lib",
-    "version": "npm run build"
+    "build:js": "babel --presets sui ./src --out-dir ./lib"
   },
   "keywords": [],
   "author": "David Almeida <davidbarna@gmail.com>",
