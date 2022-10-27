@@ -1,13 +1,24 @@
-# Change Log
+# CHANGELOG
 
-All notable changes to this project will be documented in this file.
+# 1.11.0 (2022-10-27)
+
+
+
+# 1.10.0 (2020-11-24)
+
+
+### Features
+
+* **tab/content:** Use new jsx runtime ([ce068d6](https://github.com/SUI-Components/adevinta-spain-components/commit/ce068d63ee69c378399ed73f55956ebe103fcbae))
+
+
 
 # 1.9.0 (2020-03-09)
 
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([daa9851](https://github.com/SUI-Components/adevinta-spain-components/commit/daa9851ca246b7cafe5aedc7a451a17a89b0f860))
+* **tab/content:** Use new [@s-ui-theme](https://github.com/s-ui-theme) ([daa9851](https://github.com/SUI-Components/adevinta-spain-components/commit/daa9851ca246b7cafe5aedc7a451a17a89b0f860))
 
 
 
@@ -16,7 +27,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) packages ([dedb0a6](https://github.com/SUI-Components/adevinta-spain-components/commit/dedb0a6db7b10bb8f5eb87e92fb805b0d2fa1bb9))
+* **tab/content:** Use new [@s-ui](https://github.com/s-ui) packages ([dedb0a6](https://github.com/SUI-Components/adevinta-spain-components/commit/dedb0a6db7b10bb8f5eb87e92fb805b0d2fa1bb9))
 
 
 
@@ -25,7 +36,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([461c061](https://github.com/SUI-Components/adevinta-spain-components/commit/461c0616fcd4c21fa74e47897d077e0a4b49a263))
+* **tab/content:** Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([461c061](https://github.com/SUI-Components/adevinta-spain-components/commit/461c0616fcd4c21fa74e47897d077e0a4b49a263))
 
 
 
@@ -34,7 +45,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([65e8955](https://github.com/SUI-Components/adevinta-spain-components/commit/65e8955eb61e9cca19ab539ec91ed2fb4d33574d))
+* **tab/content:** Remove .npmignore ([65e8955](https://github.com/SUI-Components/adevinta-spain-components/commit/65e8955eb61e9cca19ab539ec91ed2fb4d33574d))
 
 
 
@@ -43,7 +54,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add handler method to execute when active tab is changed. ([48e8fe3](https://github.com/SUI-Components/adevinta-spain-components/commit/48e8fe34cd6033bea53cde485e2193cbd729cc47))
+* **tab/content:** add handler method to execute when active tab is changed. ([48e8fe3](https://github.com/SUI-Components/adevinta-spain-components/commit/48e8fe34cd6033bea53cde485e2193cbd729cc47))
 
 
 
@@ -52,7 +63,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([d3a3b24](https://github.com/SUI-Components/adevinta-spain-components/commit/d3a3b242a7efe00384fc9383b532284aa7f10f9a))
+* **tab/content:** Bump version ([d3a3b24](https://github.com/SUI-Components/adevinta-spain-components/commit/d3a3b242a7efe00384fc9383b532284aa7f10f9a))
 
 
 
@@ -61,8 +72,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* migrate to PropTypes package ([6ef0a41](https://github.com/SUI-Components/adevinta-spain-components/commit/6ef0a41018455b4cf2f0e10b1501488d5ec8b7b7))
-* switch to s-ui/component-dependencies and sui-theme@8 ([0741d72](https://github.com/SUI-Components/adevinta-spain-components/commit/0741d72c71a1374090f060a67fa045d85ccec744))
+* **tab/content:** migrate to PropTypes package ([6ef0a41](https://github.com/SUI-Components/adevinta-spain-components/commit/6ef0a41018455b4cf2f0e10b1501488d5ec8b7b7))
+* **tab/content:** switch to s-ui/component-dependencies and sui-theme@8 ([0741d72](https://github.com/SUI-Components/adevinta-spain-components/commit/0741d72c71a1374090f060a67fa045d85ccec744))
 
 
 
@@ -75,12 +86,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* use correct name for the package ([e665076](https://github.com/SUI-Components/adevinta-spain-components/commit/e6650764108f00f61362ae2666a370dc113bc8e7))
+* **tab/content:** use correct name for the package ([e665076](https://github.com/SUI-Components/adevinta-spain-components/commit/e6650764108f00f61362ae2666a370dc113bc8e7))
 
 
 ### Features
 
-* add new tab content component ([11d613f](https://github.com/SUI-Components/adevinta-spain-components/commit/11d613f38cb2dd4e99c9b5a4764efe19e66635a8))
+* **tab/content:** add new tab content component ([11d613f](https://github.com/SUI-Components/adevinta-spain-components/commit/11d613f38cb2dd4e99c9b5a4764efe19e66635a8))
 
 
 
