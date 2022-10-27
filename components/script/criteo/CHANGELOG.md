@@ -1,13 +1,24 @@
-# Change Log
+# CHANGELOG
 
-All notable changes to this project will be documented in this file.
+# 1.6.0 (2022-10-27)
+
+
+
+# 1.5.0 (2020-11-24)
+
+
+### Features
+
+* **script/criteo:** Use new jsx runtime ([023d6ae](https://github.com/SUI-Components/adevinta-spain-components/commit/023d6ae6a781e4488d0b25072c31cb32e408912d))
+
+
 
 # 1.4.0 (2020-02-25)
 
 
 ### Features
 
-* Use latest [@s-ui](https://github.com/s-ui) packages ([a9be12c](https://github.com/SUI-Components/adevinta-spain-components/commit/a9be12c37f865d5b3559deee239c85327a141e86))
+* **script/criteo:** Use latest [@s-ui](https://github.com/s-ui) packages ([a9be12c](https://github.com/SUI-Components/adevinta-spain-components/commit/a9be12c37f865d5b3559deee239c85327a141e86))
 
 
 
@@ -16,7 +27,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([077a54d](https://github.com/SUI-Components/adevinta-spain-components/commit/077a54d103d228efa85951818e6cf3df7237501f))
+* **script/criteo:** Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([077a54d](https://github.com/SUI-Components/adevinta-spain-components/commit/077a54d103d228efa85951818e6cf3df7237501f))
 
 
 
@@ -25,7 +36,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([a9acddd](https://github.com/SUI-Components/adevinta-spain-components/commit/a9acddd8d42e33db4e17789858970287986c7b5f))
+* **script/criteo:** Remove .npmignore ([a9acddd](https://github.com/SUI-Components/adevinta-spain-components/commit/a9acddd8d42e33db4e17789858970287986c7b5f))
 
 
 
@@ -34,7 +45,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* new component for criteo tracking ([9a9523d](https://github.com/SUI-Components/adevinta-spain-components/commit/9a9523d84759d012161cbdceb8e7a9346683eac8))
+* **script/criteo:** new component for criteo tracking ([9a9523d](https://github.com/SUI-Components/adevinta-spain-components/commit/9a9523d84759d012161cbdceb8e7a9346683eac8))
 
 
 
