@@ -1,5 +1,21 @@
 # CHANGELOG
 
+# 1.35.0 (2022-10-27)
+
+
+### Bug Fixes
+
+* **components/react/hooks:** Parse localstorage event value when changing it in the browser ([1028bea](https://github.com/SUI-Components/adevinta-spain-components/commit/1028bea750f09838067e4f637950e9fdbcec131c))
+
+
+### Features
+
+* **components/react/hooks:** Add isBoolean flag to localStorage hook ([62ff1eb](https://github.com/SUI-Components/adevinta-spain-components/commit/62ff1eb47f7ab85f5da7efd9308266e63e62db8c))
+* **components/react/hooks:** Add options object argument with default parser function ([786f959](https://github.com/SUI-Components/adevinta-spain-components/commit/786f95955345bc5520bb1a33c767c1bf92365a33))
+* **components/react/hooks:** Add parser function instead of boolean argument ([1105826](https://github.com/SUI-Components/adevinta-spain-components/commit/11058269893c13123d23d25ea0a4ce5b98534b07))
+
+
+
 # 1.34.0 (2022-08-09)
 
 
