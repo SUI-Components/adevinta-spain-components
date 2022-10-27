@@ -1,13 +1,24 @@
-# Change Log
+# CHANGELOG
 
-All notable changes to this project will be documented in this file.
+# 1.10.0 (2022-10-27)
+
+
+
+# 1.9.0 (2020-11-24)
+
+
+### Features
+
+* **list/masonry:** Use new jsx runtime ([72358b7](https://github.com/SUI-Components/adevinta-spain-components/commit/72358b7c170fd24e09a9538e95a5dde5c16bf6ac))
+
+
 
 # 1.8.0 (2020-03-09)
 
 
 ### Features
 
-* Use new [@s-ui-theme](https://github.com/s-ui-theme) ([d3b9a83](https://github.com/SUI-Components/adevinta-spain-components/commit/d3b9a836b839140dc7a05ba481cdea6ea02d3187))
+* **list/masonry:** Use new [@s-ui-theme](https://github.com/s-ui-theme) ([d3b9a83](https://github.com/SUI-Components/adevinta-spain-components/commit/d3b9a836b839140dc7a05ba481cdea6ea02d3187))
 
 
 
@@ -16,7 +27,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([42f5433](https://github.com/SUI-Components/adevinta-spain-components/commit/42f5433622cfec3e844dbe6f81ca857b3ab01649))
+* **list/masonry:** Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([42f5433](https://github.com/SUI-Components/adevinta-spain-components/commit/42f5433622cfec3e844dbe6f81ca857b3ab01649))
 
 
 
@@ -25,7 +36,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([f7c9786](https://github.com/SUI-Components/adevinta-spain-components/commit/f7c97869a433d6110e4bb5b6d4a1c079f19e7a3c))
+* **list/masonry:** Remove .npmignore ([f7c9786](https://github.com/SUI-Components/adevinta-spain-components/commit/f7c97869a433d6110e4bb5b6d4a1c079f19e7a3c))
 
 
 
@@ -34,7 +45,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([8de68d4](https://github.com/SUI-Components/adevinta-spain-components/commit/8de68d4ba281e752336b3f8f03ff701d1dd5887c))
+* **list/masonry:** Bump version ([8de68d4](https://github.com/SUI-Components/adevinta-spain-components/commit/8de68d4ba281e752336b3f8f03ff701d1dd5887c))
 
 
 
@@ -43,12 +54,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* add default prop ([92c3091](https://github.com/SUI-Components/adevinta-spain-components/commit/92c30912ac516e398c71cc99c6f32e8e8d351878))
+* **list/masonry:** add default prop ([92c3091](https://github.com/SUI-Components/adevinta-spain-components/commit/92c30912ac516e398c71cc99c6f32e8e8d351878))
 
 
 ### Features
 
-* add new props oncolumnsready and oncolumnsupdated ([3cdc973](https://github.com/SUI-Components/adevinta-spain-components/commit/3cdc97305c5f2f093a7c1d46102c8a90ff15607c))
+* **list/masonry:** add new props oncolumnsready and oncolumnsupdated ([3cdc973](https://github.com/SUI-Components/adevinta-spain-components/commit/3cdc97305c5f2f093a7c1d46102c8a90ff15607c))
 
 
 
@@ -57,8 +68,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* migrate to PropTypes package ([8a65db0](https://github.com/SUI-Components/adevinta-spain-components/commit/8a65db0921abb79ee2fb6669b8b0a58284e4108e))
-* switch to s-ui/component-dependencies and sui-theme@8 ([d5935ea](https://github.com/SUI-Components/adevinta-spain-components/commit/d5935ea68fd806bff73493fb7670eb3b2d21f862))
+* **list/masonry:** migrate to PropTypes package ([8a65db0](https://github.com/SUI-Components/adevinta-spain-components/commit/8a65db0921abb79ee2fb6669b8b0a58284e4108e))
+* **list/masonry:** switch to s-ui/component-dependencies and sui-theme@8 ([d5935ea](https://github.com/SUI-Components/adevinta-spain-components/commit/d5935ea68fd806bff73493fb7670eb3b2d21f862))
 
 
 
@@ -67,7 +78,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* fix demo not working ([df52dab](https://github.com/SUI-Components/adevinta-spain-components/commit/df52dab1923eb06a98082180fef49bb30e1dedb5))
+* **list/masonry:** fix demo not working ([df52dab](https://github.com/SUI-Components/adevinta-spain-components/commit/df52dab1923eb06a98082180fef49bb30e1dedb5))
 
 
 
@@ -76,10 +87,10 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* fix ref item ([b1f2d99](https://github.com/SUI-Components/adevinta-spain-components/commit/b1f2d9987c2750cbdd47a99fbca913904536639c))
-* init masonry component ([3b19f7e](https://github.com/SUI-Components/adevinta-spain-components/commit/3b19f7e6d762a441214327411ef4f10e28957c3f))
-* minor review improvements ([046f47b](https://github.com/SUI-Components/adevinta-spain-components/commit/046f47bcc8c00841d4c29dbafcb4fe7f28c18522))
-* remove event listener in componentWillUnmount ([05788ec](https://github.com/SUI-Components/adevinta-spain-components/commit/05788eceaabed4fc5efa732d07451f4ac27ece39))
+* **list/masonry:** fix ref item ([b1f2d99](https://github.com/SUI-Components/adevinta-spain-components/commit/b1f2d9987c2750cbdd47a99fbca913904536639c))
+* **list/masonry:** init masonry component ([3b19f7e](https://github.com/SUI-Components/adevinta-spain-components/commit/3b19f7e6d762a441214327411ef4f10e28957c3f))
+* **list/masonry:** minor review improvements ([046f47b](https://github.com/SUI-Components/adevinta-spain-components/commit/046f47bcc8c00841d4c29dbafcb4fe7f28c18522))
+* **list/masonry:** remove event listener in componentWillUnmount ([05788ec](https://github.com/SUI-Components/adevinta-spain-components/commit/05788eceaabed4fc5efa732d07451f4ac27ece39))
 
 
 
