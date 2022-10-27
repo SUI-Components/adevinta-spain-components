@@ -1,18 +1,29 @@
-# Change Log
+# CHANGELOG
 
-All notable changes to this project will be documented in this file.
+# 2.2.0 (2022-10-27)
+
+
+
+# 2.1.0 (2020-11-24)
+
+
+### Features
+
+* **list/link:** Use new jsx runtime ([4f40e1b](https://github.com/SUI-Components/adevinta-spain-components/commit/4f40e1b8f2b8ee1f629c85246a804bfecc97a040))
+
+
 
 # 2.0.0 (2020-11-10)
 
 
 ### Features
 
-* use @s-ui/react-router ([ebb2e9c](https://github.com/SUI-Components/adevinta-spain-components/commit/ebb2e9c0560987037e056f9bcab45c26d57ef902))
+* **list/link:** use @s-ui/react-router ([ebb2e9c](https://github.com/SUI-Components/adevinta-spain-components/commit/ebb2e9c0560987037e056f9bcab45c26d57ef902))
 
 
 ### BREAKING CHANGES
 
-* Yes, react-routet not longer used
+* **list/link:** Yes, react-routet not longer used
 
 
 
@@ -21,7 +32,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* use new @s-ui/react-link-basic ([d7b016c](https://github.com/SUI-Components/adevinta-spain-components/commit/d7b016c61589153fda01a3172af4675652bdfa4a))
+* **list/link:** use new @s-ui/react-link-basic ([d7b016c](https://github.com/SUI-Components/adevinta-spain-components/commit/d7b016c61589153fda01a3172af4675652bdfa4a))
 
 
 
@@ -30,7 +41,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) and [@adv-ui](https://github.com/adv-ui) organization pkgs ([f6def90](https://github.com/SUI-Components/adevinta-spain-components/commit/f6def9097b0ee02667fd9cd9b0a504fa920156c0))
+* **list/link:** Use new [@s-ui](https://github.com/s-ui) and [@adv-ui](https://github.com/adv-ui) organization pkgs ([f6def90](https://github.com/SUI-Components/adevinta-spain-components/commit/f6def9097b0ee02667fd9cd9b0a504fa920156c0))
 
 
 
@@ -39,7 +50,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([e4bba52](https://github.com/SUI-Components/adevinta-spain-components/commit/e4bba52bb9857dbcafc22c33384003db8977114f))
+* **list/link:** Use new [@s-ui](https://github.com/s-ui) org and stop using schibstedspain ([e4bba52](https://github.com/SUI-Components/adevinta-spain-components/commit/e4bba52bb9857dbcafc22c33384003db8977114f))
 
 
 
@@ -48,7 +59,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Remove .npmignore ([78a4b0a](https://github.com/SUI-Components/adevinta-spain-components/commit/78a4b0a95b6bef90ab7e48caa08aa435265729c4))
+* **list/link:** Remove .npmignore ([78a4b0a](https://github.com/SUI-Components/adevinta-spain-components/commit/78a4b0a95b6bef90ab7e48caa08aa435265729c4))
 
 
 
@@ -57,7 +68,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* move from class to function ([f4fbc3d](https://github.com/SUI-Components/adevinta-spain-components/commit/f4fbc3d5721e5bbc06704116006034be7245deb9))
+* **list/link:** move from class to function ([f4fbc3d](https://github.com/SUI-Components/adevinta-spain-components/commit/f4fbc3d5721e5bbc06704116006034be7245deb9))
 
 
 
@@ -66,7 +77,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* Bump version ([301e71a](https://github.com/SUI-Components/adevinta-spain-components/commit/301e71ab5dc879e4626bb387e94bd41a328b19c9))
+* **list/link:** Bump version ([301e71a](https://github.com/SUI-Components/adevinta-spain-components/commit/301e71ab5dc879e4626bb387e94bd41a328b19c9))
 
 
 
@@ -75,7 +86,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* add missing import for link/basic styles ([c3ad2ae](https://github.com/SUI-Components/adevinta-spain-components/commit/c3ad2aeb16577af073887ae13b5048a09927b083))
+* **list/link:** add missing import for link/basic styles ([c3ad2ae](https://github.com/SUI-Components/adevinta-spain-components/commit/c3ad2aeb16577af073887ae13b5048a09927b083))
 
 
 
@@ -84,7 +95,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* add new sui-list-link component ([1ddb351](https://github.com/SUI-Components/adevinta-spain-components/commit/1ddb351aaa13a998e2f998e38698917d2f783b02))
+* **list/link:** add new sui-list-link component ([1ddb351](https://github.com/SUI-Components/adevinta-spain-components/commit/1ddb351aaa13a998e2f998e38698917d2f783b02))
 
 
 
