@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-tag-selectable",
-  "version": "2.8.0",
+  "version": "2.9.0",
   "description": "SUI tag selectable",
   "main": "lib/index.js",
   "scripts": {
