@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import MoleculeTextAreaField from '@s-ui/react-molecule-textarea-field'
 
-import {createComponentMemo, field} from '../prop-types'
+import {createComponentMemo, field} from '../prop-types/index.js'
 
 const TextArea = ({
   textArea,
@@ -26,7 +26,7 @@ const TextArea = ({
     [onChange, textArea]
   )
 
-  const onBlurCallback = () => onBlur(textArea.id)
+  const onBlurCallback = () => onBlur(textArea.id, textArea.value)
 
   const onFocusCallback = () => onFocus(textArea.id)
 
