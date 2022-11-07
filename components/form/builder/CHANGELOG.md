@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.14.0 (2022-11-07)
+
+
+### Features
+
+* **components/form/builder:** expose textarea value on blur callback ([9b74708](https://github.com/SUI-Components/adevinta-spain-components/commit/9b7470852ebb3d06a8fa80be2ee5d8bd7cf3985b))
+
+
+
 # 5.13.0 (2022-09-30)
 
 
