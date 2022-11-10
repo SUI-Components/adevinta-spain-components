@@ -1,11 +1,11 @@
 import {useState} from 'react'
-import ReactSlidy from 'react-slidy'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import AtomImage from '@s-ui/react-atom-image'
 import IconCamera from '@s-ui/react-icons/lib/Camera'
+import MoleculeCarousel from '@s-ui/react-molecule-carousel'
 
 export const IMAGE_SLIDER_COUNTER_POSITIONS = {
   BOTTOM_CENTER: 'bottomCenter',
@@ -128,9 +128,9 @@ export default function ImageSlider({
     slides.length > 0 && (
       <div onClick={handleClick} className={BASE_CLASS}>
         {slides.length > 1 ? (
-          <ReactSlidy {...sliderOptions} doAfterSlide={handleAfterSlide}>
+          <MoleculeCarousel {...sliderOptions} doAfterSlide={handleAfterSlide}>
             {slides}
-          </ReactSlidy>
+          </MoleculeCarousel>
         ) : (
           slides
         )}
