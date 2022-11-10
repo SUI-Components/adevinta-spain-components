@@ -123,16 +123,19 @@ export default function ImageSlider({
     )
   }
 
-  const handleAfterSlide = ({currentSlide}) => {
+  const onSlideAfterHandler = ({currentSlide}) => {
     setCurrentSlide(currentSlide)
-    sliderOptions.doAfterSlide && sliderOptions.doAfterSlide(currentSlide)
+    sliderOptions.onSlideAfter && sliderOptions.onSlideAfter(currentSlide)
   }
 
   return (
     slides.length > 0 && (
       <div onClick={handleClick} className={BASE_CLASS}>
         {slides.length > 1 ? (
-          <MoleculeCarousel {...sliderOptions} doAfterSlide={handleAfterSlide}>
+          <MoleculeCarousel
+            {...sliderOptions}
+            onSlideAfter={onSlideAfterHandler}
+          >
             {slides}
           </MoleculeCarousel>
         ) : (
@@ -173,15 +176,14 @@ ImageSlider.propTypes = {
    */
   handleClick: PropTypes.func,
   /**
-   * Custom configuration options to pass to react-slidy component.
+   * Custom configuration options to pass to SUI molecule/carousel component.
    */
   sliderOptions: PropTypes.shape({
-    classNameArrows: PropTypes.string,
-    doAfterSlide: PropTypes.func,
-    lazyLoadSlider: PropTypes.bool,
+    defaultSlide: PropTypes.number,
+    hasLazyLoadSlider: PropTypes.bool,
     imageObjectFit: PropTypes.oneOf(['cover', 'contain']),
-    initialSlide: PropTypes.number,
-    numOfSlides: PropTypes.number
+    numOfSlides: PropTypes.number,
+    onSlideAfter: PropTypes.func
   }),
   linkFactory: PropTypes.func,
   /**
