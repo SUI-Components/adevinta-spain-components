@@ -3,9 +3,11 @@ import {useState} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import AtomImage from '@s-ui/react-atom-image'
+import AtomImage, {FETCHPRIORITY} from '@s-ui/react-atom-image'
 import IconCamera from '@s-ui/react-icons/lib/Camera'
 import MoleculeCarousel from '@s-ui/react-molecule-carousel'
+
+export {FETCHPRIORITY}
 
 export const IMAGE_SLIDER_COUNTER_POSITIONS = {
   BOTTOM_CENTER: 'bottomCenter',
@@ -37,6 +39,7 @@ const getSlides = (currentSlide, content = [], linkFactory) => {
   return content.map((contentItem, index) => {
     const {
       alt,
+      fetchpriority,
       height,
       key: imageKey,
       link,
@@ -55,6 +58,7 @@ const getSlides = (currentSlide, content = [], linkFactory) => {
           alt={alt}
           aria-selected={currentSlide === index}
           className="sui-ImageSlider-image"
+          fetchpriority={fetchpriority}
           height={height}
           key={key}
           sources={sources}
@@ -148,8 +152,9 @@ ImageSlider.propTypes = {
     PropTypes.shape({
       src: PropTypes.string.isRequired,
       alt: PropTypes.string,
+      fetchpriority: PropTypes.oneOf(Object.values(FETCHPRIORITY)),
       /**
-       * If you want to change images dynamically, you should change this key when chaning items of the slider
+       * If you want to change images dynamically, you should change this key when chaining items of the slider
        */
       key: PropTypes.string,
       link: PropTypes.string,
