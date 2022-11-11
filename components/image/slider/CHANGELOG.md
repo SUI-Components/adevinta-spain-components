@@ -1,5 +1,17 @@
 # CHANGELOG
 
+# 4.0.0 (2022-11-11)
+
+
+### Features
+
+* **components/image/slider:** add fetchpriority prop and export FETCHPRIORITY from atom/image ([d1c9727](https://github.com/SUI-Components/adevinta-spain-components/commit/d1c9727835badaa97d8511881413b6a967b87823))
+* **components/image/slider:** add sui carousel dep and remove old slidy dep ([7fff87f](https://github.com/SUI-Components/adevinta-spain-components/commit/7fff87f3eb1d73a18b2d925fc12f520bf391fc75))
+* **components/image/slider:** use SUI carousel component instead of react slidy ([63811d4](https://github.com/SUI-Components/adevinta-spain-components/commit/63811d46e7636aec3b053b68438454d2395aa53f))
+* **components/image/slider:** use the right props for molecule/carousel ([e4e7ed6](https://github.com/SUI-Components/adevinta-spain-components/commit/e4e7ed6b0849af4278eb2e91904f3b533af4cd23))
+
+
+
 # 3.16.0 (2022-10-27)
 
 
