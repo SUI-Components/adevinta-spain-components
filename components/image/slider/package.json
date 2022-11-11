@@ -15,6 +15,6 @@
     "@s-ui/component-dependencies": "1",
     "@s-ui/react-atom-image": "2",
     "@s-ui/react-icons": "1",
-    "react-slidy": "4"
+    "@s-ui/react-molecule-carousel": "1"
   }
 }

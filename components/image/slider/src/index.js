@@ -1,11 +1,13 @@
 import {useState} from 'react'
-import ReactSlidy from 'react-slidy'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import AtomImage from '@s-ui/react-atom-image'
+import AtomImage, {FETCHPRIORITY} from '@s-ui/react-atom-image'
 import IconCamera from '@s-ui/react-icons/lib/Camera'
+import MoleculeCarousel from '@s-ui/react-molecule-carousel'
+
+export {FETCHPRIORITY}
 
 export const IMAGE_SLIDER_COUNTER_POSITIONS = {
   BOTTOM_CENTER: 'bottomCenter',
@@ -37,6 +39,7 @@ const getSlides = (currentSlide, content = [], linkFactory) => {
   return content.map((contentItem, index) => {
     const {
       alt,
+      fetchpriority,
       height,
       key: imageKey,
       link,
@@ -55,6 +58,7 @@ const getSlides = (currentSlide, content = [], linkFactory) => {
           alt={alt}
           aria-selected={currentSlide === index}
           className="sui-ImageSlider-image"
+          fetchpriority={fetchpriority}
           height={height}
           key={key}
           sources={sources}
@@ -119,18 +123,21 @@ export default function ImageSlider({
     )
   }
 
-  const handleAfterSlide = ({currentSlide}) => {
+  const onSlideAfterHandler = ({currentSlide}) => {
     setCurrentSlide(currentSlide)
-    sliderOptions.doAfterSlide && sliderOptions.doAfterSlide(currentSlide)
+    sliderOptions.onSlideAfter && sliderOptions.onSlideAfter(currentSlide)
   }
 
   return (
     slides.length > 0 && (
       <div onClick={handleClick} className={BASE_CLASS}>
         {slides.length > 1 ? (
-          <ReactSlidy {...sliderOptions} doAfterSlide={handleAfterSlide}>
+          <MoleculeCarousel
+            {...sliderOptions}
+            onSlideAfter={onSlideAfterHandler}
+          >
             {slides}
-          </ReactSlidy>
+          </MoleculeCarousel>
         ) : (
           slides
         )}
@@ -148,8 +155,9 @@ ImageSlider.propTypes = {
     PropTypes.shape({
       src: PropTypes.string.isRequired,
       alt: PropTypes.string,
+      fetchpriority: PropTypes.oneOf(Object.values(FETCHPRIORITY)),
       /**
-       * If you want to change images dynamically, you should change this key when chaning items of the slider
+       * If you want to change images dynamically, you should change this key when chaining items of the slider
        */
       key: PropTypes.string,
       link: PropTypes.string,
@@ -168,15 +176,14 @@ ImageSlider.propTypes = {
    */
   handleClick: PropTypes.func,
   /**
-   * Custom configuration options to pass to react-slidy component.
+   * Custom configuration options to pass to SUI molecule/carousel component.
    */
   sliderOptions: PropTypes.shape({
-    classNameArrows: PropTypes.string,
-    doAfterSlide: PropTypes.func,
-    lazyLoadSlider: PropTypes.bool,
+    defaultSlide: PropTypes.number,
+    hasLazyLoadSlider: PropTypes.bool,
     imageObjectFit: PropTypes.oneOf(['cover', 'contain']),
-    initialSlide: PropTypes.number,
-    numOfSlides: PropTypes.number
+    numOfSlides: PropTypes.number,
+    onSlideAfter: PropTypes.func
   }),
   linkFactory: PropTypes.func,
   /**
