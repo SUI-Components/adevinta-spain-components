@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.17.0 (2022-12-01)
+
+
+### Features
+
+* **components/perf/dynamicRendering:** Add clasname to perf dynamic rendering placeholder div ([889c7aa](https://github.com/SUI-Components/adevinta-spain-components/commit/889c7aa73ce45dd8bdd6d000452e9dc62da96d24))
+
+
+
 # 1.16.0 (2022-10-27)
 
 
