@@ -13,7 +13,11 @@ export default function LazyContent({
   if (isNearScreen) {
     return children
   } else if (placeholder) {
-    return <div ref={fromRef}>{placeholder}</div>
+    return (
+      <div className="sui-PerfDynamicRendering-placeholder" ref={fromRef}>
+        {placeholder}
+      </div>
+    )
   } else {
     return (
       <div ref={fromRef} style={{height: `${height}px`, marginBottom: '1px'}} />
