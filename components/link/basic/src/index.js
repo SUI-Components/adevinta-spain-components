@@ -45,8 +45,8 @@ export default function LinkBasic({
     to: url
   }
 
-  const onClick = () => {
-    handleClick && handleClick()
+  const onClick = event => {
+    handleClick && handleClick(event)
 
     if (!isAnchor) {
       window.location.href = url
