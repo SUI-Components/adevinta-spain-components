@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.3.0 (2022-12-14)
+
+
+### Features
+
+* **components/link/basic:** pass event to onClick function ([7b14222](https://github.com/SUI-Components/adevinta-spain-components/commit/7b14222b4ea7a5991faa13e397c5288e8e6e953d))
+
+
+
 # 2.2.0 (2022-09-02)
 
 
