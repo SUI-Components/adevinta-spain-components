@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.5.0 (2022-12-28)
+
+
+### Features
+
+* **components/map/google/demo:** add infoWindow ([574453c](https://github.com/SUI-Components/adevinta-spain-components/commit/574453c3039352674ceada925d36ef1e4b72cad9))
+* **components/map/google:** add and export infoWindow component ([3d423ba](https://github.com/SUI-Components/adevinta-spain-components/commit/3d423ba049f1dcaad22594c1dc404fad82e78f5e))
+
+
+
 # 1.4.0 (2022-08-25)
 
 
