@@ -12,6 +12,7 @@ import {
   Text,
   UnorderedList
 } from '@s-ui/documentation-library'
+import {MapGoogleInfoWindow} from '../../src/index.js'
 
 const MapAddOnsArticle = ({apiKey}) => {
   const handleDragEnd = center => {
@@ -55,6 +56,11 @@ const MapAddOnsArticle = ({apiKey}) => {
             Rectangle
           </Anchor>
         </ListItem>
+        <ListItem>
+          <Anchor href="https://react-google-maps-api-docs.netlify.app/#infowindow">
+            InfoWindow
+          </Anchor>
+        </ListItem>
       </UnorderedList>
 
       <H3>Marker</H3>
@@ -68,6 +74,25 @@ const MapAddOnsArticle = ({apiKey}) => {
               onDragEnd={handleDragEnd}
               draggable
             />
+          </MapGoogle>
+        </Cell>
+      </Grid>
+      <H3>InfoWindow</H3>
+      <Text>
+        An InfoWindow displays content (usually text or images) in a popup
+        window above the map, at a given location.
+      </Text>
+      <Grid cols={1} gutter={[8, 8]}>
+        <Cell style={{width: 600, height: 600}}>
+          <MapGoogle
+            apiKey={apiKey}
+            center={{lat: 42, lng: 2}}
+            isInteractive
+            zoom={14}
+          >
+            <MapGoogleInfoWindow position={{lat: 42, lng: 2}}>
+              <div>This is an InfoWindow</div>
+            </MapGoogleInfoWindow>
           </MapGoogle>
         </Cell>
       </Grid>
