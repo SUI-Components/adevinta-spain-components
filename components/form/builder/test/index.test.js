@@ -1,22 +1,70 @@
-/*
- * Remember: YOUR COMPONENT IS DEFINED GLOBALLY
- * */
-
 /* eslint react/jsx-no-undef:0 */
+/* eslint no-undef:0 */
 
-// import React from 'react'
-// import {render} from '@testing-library/react'
+import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
+import userEvent from '@testing-library/user-event'
+
+import BasicFormSection from '../demo/BasicFormSection.js'
+import {FORM_BUILDER_SELECT_FIELD_MOCK} from '../mocks/index.js'
+import FormBuilder from '../src/index.js'
+import {checkConstraintsFactory} from '../src/Standard/index.js'
+
 chai.use(chaiDOM)
 
-describe.skip('form/builder', () => {
-  it('Render', () => {
-    // Example TO BE DELETED!!!!
-    // const {getByRole} = render(<AtomButton>HOLA</AtomButton>)
-    // expect(getByRole('button')).to.have.text('HOLA')
-    expect(true).to.be.eql(false)
+describe('form/builder', () => {
+  const WrappedFormComponent = props => <BasicFormSection {...props} />
+
+  const setup = setupEnvironment(FormBuilder)
+  const setupForm = setupEnvironment(WrappedFormComponent)
+
+  it('should render without crashing', () => {
+    // Given
+    const props = {
+      json: FORM_BUILDER_SELECT_FIELD_MOCK
+    }
+
+    // When
+    const Component = <FormBuilder {...props} />
+
+    // Then
+    const div = document.createElement('div')
+    ReactDOM.render(Component, div)
+    ReactDOM.unmountComponentAtNode(div)
+  })
+
+  it('should not render null', () => {
+    // Given
+    const props = {
+      json: FORM_BUILDER_SELECT_FIELD_MOCK
+    }
+
+    // When
+    const {container} = setup(props)
+
+    // Then
+    expect(container.innerHTML).to.be.a('string')
+    expect(container.innerHTML).to.not.have.lengthOf(0)
+  })
+
+  it('should render all required message errors when user clicks without fill any input', async () => {
+    const props = {
+      json: FORM_BUILDER_SELECT_FIELD_MOCK,
+      errors: checkConstraintsFactory(
+        FORM_BUILDER_SELECT_FIELD_MOCK,
+        'es-ES'
+      )({all: true})
+    }
+
+    const {queryAllByText, getByText} = setupForm(props)
+
+    const button = getByText(/Submit/)
+    await userEvent.click(button)
+    const requiredFields = queryAllByText('Este campo es obligatorio')
+
+    expect(requiredFields).to.have.lengthOf(2)
   })
 })
