@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.15.0 (2023-01-03)
+
+
+### Bug Fixes
+
+* **components/form/builder:** pickers autocomplete/dropdown are shown duplicated errors ([e03a1fe](https://github.com/SUI-Components/adevinta-spain-components/commit/e03a1fe8581bc3489d7bf36c469e82fedca1b7a1))
+
+
+
 # 5.14.0 (2022-11-07)
 
 
