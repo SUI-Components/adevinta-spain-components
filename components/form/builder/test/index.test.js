@@ -53,41 +53,39 @@ describe('form/builder', () => {
     expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 
-  describe('should display correct error messages', () => {
-    it('when user clicks without fill any input', async () => {
-      const props = {
-        json: FORM_BUILDER_SELECT_FIELD_MOCK,
-        errors: checkConstraintsFactory(
-          FORM_BUILDER_SELECT_FIELD_MOCK,
-          'es-ES'
-        )({all: true})
-      }
+  it('should display error validation message when field is required', async () => {
+    const props = {
+      json: FORM_BUILDER_SELECT_FIELD_MOCK,
+      errors: checkConstraintsFactory(
+        FORM_BUILDER_SELECT_FIELD_MOCK,
+        'es-ES'
+      )({all: true})
+    }
 
-      const {queryAllByText, getByText} = setupForm(props)
+    const {queryAllByText, getByText} = setupForm(props)
 
-      const button = getByText(/Submit/)
-      await userEvent.click(button)
-      const requiredFields = queryAllByText('Este campo es obligatorio')
+    const button = getByText(/Submit/)
+    await userEvent.click(button)
+    const requiredFields = queryAllByText('Este campo es obligatorio')
 
-      expect(requiredFields).to.have.lengthOf(2)
-    })
+    expect(requiredFields).to.have.lengthOf(2)
+  })
 
-    it('when we aa required field is disabled', async () => {
-      const props = {
-        json: FORM_BUILDER_SELECT_FIELD_WITH_DISABLED_MOCK,
-        errors: checkConstraintsFactory(
-          FORM_BUILDER_SELECT_FIELD_WITH_DISABLED_MOCK,
-          'es-ES'
-        )({all: true})
-      }
+  it('should not display error validation message when field is disabled', async () => {
+    const props = {
+      json: FORM_BUILDER_SELECT_FIELD_WITH_DISABLED_MOCK,
+      errors: checkConstraintsFactory(
+        FORM_BUILDER_SELECT_FIELD_WITH_DISABLED_MOCK,
+        'es-ES'
+      )({all: true})
+    }
 
-      const {queryAllByText, getByText} = setupForm(props)
+    const {queryAllByText, getByText} = setupForm(props)
 
-      const button = getByText(/Submit/)
-      await userEvent.click(button)
-      const requiredFields = queryAllByText('Este campo es obligatorio')
+    const button = getByText(/Submit/)
+    await userEvent.click(button)
+    const requiredFields = queryAllByText('Este campo es obligatorio')
 
-      expect(requiredFields).to.have.lengthOf(1)
-    })
+    expect(requiredFields).to.have.lengthOf(1)
   })
 })
