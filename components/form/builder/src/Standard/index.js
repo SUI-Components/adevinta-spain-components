@@ -95,24 +95,6 @@ const checkConstraintsFromField = (field, locale) => {
     )
       errorMessages = [...errorMessages, textAreaHasMinLength.message]
   }
-  // custom validation: since SUI select and autocomplete add disabled and readOnly props to input the default validity function marks allways as valid the field
-  if (
-    field.type === FIELDS.PICKER &&
-    (field.display === DISPLAYS[FIELDS.PICKER].AUTOCOMPLETE ||
-      field.display === DISPLAYS[FIELDS.PICKER].DROPDOWN ||
-      field.display === '')
-  ) {
-    const pickerValue = elementNode?.value
-    const pickerShouldNotBeNullConstraint = field.constraints?.find(
-      constraint => constraint.property?.notnull === ''
-    )
-    if (pickerShouldNotBeNullConstraint && !pickerValue) {
-      errorMessages = [
-        pickerShouldNotBeNullConstraint.message,
-        ...errorMessages
-      ]
-    }
-  }
 
   // custom validation: pattern constraint in html input (type=checkbox) is not natively supported, need to handle it manually
   if (
@@ -170,6 +152,7 @@ const checkConstraintsFromField = (field, locale) => {
       errorMessages = [...errorMessages, inputHasMax.message]
     }
   }
+
   return errorMessages
 }
 

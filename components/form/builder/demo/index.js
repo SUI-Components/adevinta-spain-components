@@ -3,20 +3,23 @@ import {useState} from 'react'
 import FormBuilder from 'components/form/builder/src/index.js'
 
 import {json as fakeJSON} from './formList'
-// import {json as fakeJSON} from './formCCAA'
-// import {categories as fakeJSON} from './form'
 import {formPTACar as fakeFormPTACarJSON} from './formPTACar'
 import {formPTAMiscLite as fakeFormPTAMiscLite} from './formPTAMiscLite'
 import {formPTAMotor as fakeFormPTAMotor} from './formPTAMotor'
 import {initValues as fakeInit} from './initvalue'
+import BasicFormSection from './BasicFormSection.js'
 
 const DemoFormBuilder = () => {
   const [stateFields, setStateFields] = useState({})
   const [stateFieldsPTACar, setStateFieldsPTACar] = useState({})
   const [stateFieldsPTAMotor, setStateFieldsPTAMotor] = useState({})
   const [stateFieldsPTAMiscLite, setStateFieldsPTAMiscLite] = useState({})
+
   return (
     <div className="DemoFormBuilder">
+      <h1>Form / Builder</h1>
+      <h2>Basic form example</h2>
+      <BasicFormSection />
       <h1>Filters FormBuilder</h1>
       <div style={{padding: '20px'}}>
         <FormBuilder
