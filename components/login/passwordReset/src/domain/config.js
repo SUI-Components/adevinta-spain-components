@@ -5,7 +5,10 @@ export default class Config {
    * @param {String} deps.appName
    */
   constructor() {
-    this._config = {}
+    this._config = {
+      DEFAULT_CULTURE: 'es-ES',
+      DEFAULT_CURRENCY: 'EUR'
+    }
   }
 
   /**

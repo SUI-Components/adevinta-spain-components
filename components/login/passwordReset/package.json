@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@s-ui/decorators": "3",
-    "@s-ui/domain": "2"
+    "@s-ui/domain": "2",
+    "@s-ui/i18n": "1"
   },
   "peerDependencies": {
     "@s-ui/theme": "8"
