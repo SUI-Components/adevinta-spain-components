@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.4.0 (2023-01-18)
+
+
+### Features
+
+* **components/login/passwordReset:** Add extensible i18n to the component ([6e2e772](https://github.com/SUI-Components/adevinta-spain-components/commit/6e2e7723fe9ab3d9f8864aa6b573e4f497d2b6a8))
+
+
+
 # 1.3.0 (2023-01-18)
 
 
