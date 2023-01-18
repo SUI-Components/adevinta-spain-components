@@ -3,13 +3,22 @@ import {createContext} from 'react'
 import PropTypes from 'prop-types'
 
 import Domain from './domain/index.js'
+import useI18nInitializer from './hooks/useI18nInitializer.js'
 
 export const PasswordResetContext = createContext()
 
-const PasswordResetProvider = ({children}) => {
+const PasswordResetProvider = ({children, customI18n}) => {
+  const domain = new Domain()
+  const config = domain.get('config')
+  const i18n = useI18nInitializer(
+    config.get('DEFAULT_CULTURE'),
+    config.get('DEFAULT_CURRENCY')
+  )
+
   const value = {
-    domain: new Domain(),
-    i18n: null
+    customI18n,
+    domain,
+    i18n
   }
   return (
     <PasswordResetContext.Provider value={value}>
@@ -19,7 +28,8 @@ const PasswordResetProvider = ({children}) => {
 }
 
 PasswordResetProvider.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  customI18n: PropTypes.object
 }
 
 export {PasswordResetProvider}

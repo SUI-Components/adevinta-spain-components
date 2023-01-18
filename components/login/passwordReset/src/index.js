@@ -1,11 +1,12 @@
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
+
 import FormHandler from './components/FormHandler.js'
 import StageInfo from './components/StageInfo.js'
 import {PasswordResetProvider} from './context.js'
 
-export default function LoginPasswordReset() {
+export default function LoginPasswordReset({i18n: customI18n}) {
   return (
-    <PasswordResetProvider>
+    <PasswordResetProvider customI18n={customI18n}>
       <div className="sui-LoginPasswordReset">
         <StageInfo />
         <FormHandler />
@@ -15,4 +16,6 @@ export default function LoginPasswordReset() {
 }
 
 LoginPasswordReset.displayName = 'LoginPasswordReset'
-LoginPasswordReset.propTypes = {}
+LoginPasswordReset.propTypes = {
+  i18n: PropTypes.object
+}
