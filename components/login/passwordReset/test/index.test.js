@@ -39,6 +39,6 @@ describe('LoginPasswordReset', () => {
 
     // Then
     expect(container.innerHTML).to.be.a('string')
-    expect(container.innerHTML).to.have.lengthOf(0)
+    expect(container.innerHTML).to.not.have.lengthOf(0)
   })
 })

@@ -1,5 +1,5 @@
 const StageInfo = () => {
-  return <>TBD</>
+  return <div className="sui-LoginPasswordReset-stageInfo">StageInfo</div>
 }
 
 StageInfo.displayName = 'StageInfo'
