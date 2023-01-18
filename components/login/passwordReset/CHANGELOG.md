@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.3.0 (2023-01-18)
+
+
+### Features
+
+* **components/login/passwordReset:** Add domain ([63c7d06](https://github.com/SUI-Components/adevinta-spain-components/commit/63c7d06c990117b79fdf3129085ac222c486a777))
+
+
+
 # 1.2.0 (2023-01-18)
 
 
