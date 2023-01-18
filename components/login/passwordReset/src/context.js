@@ -2,11 +2,13 @@ import {createContext} from 'react'
 
 import PropTypes from 'prop-types'
 
+import Domain from './domain/index.js'
+
 export const PasswordResetContext = createContext()
 
 const PasswordResetProvider = ({children}) => {
   const value = {
-    domain: null,
+    domain: new Domain(),
     i18n: null
   }
   return (
