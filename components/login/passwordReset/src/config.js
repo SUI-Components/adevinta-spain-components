@@ -1,2 +1,3 @@
+export const BASE_CLASS = 'sui-LoginPasswordReset'
 export const STAGE_PASSWORD_RESET_START = 'STAGE_PASSWORD_RESET_START'
 export const STAGE_PASSWORD_CHANGE = 'STAGE_PASSWORD_CHANGE'
