@@ -10,19 +10,27 @@ export const PasswordResetContext = createContext()
 
 const PasswordResetProvider = ({
   children,
-  customI18n,
-  defaultStage = STAGE_PASSWORD_RESET_START
+  i18n: customI18n,
+  defaultStage = STAGE_PASSWORD_RESET_START,
+  endpoints = {}
 }) => {
   const domain = new Domain()
   const config = domain.get('config')
+  config.set('RESET_PASSWORD_ENDPOINT', endpoints.resetPassword)
+  config.set('CHANGE_PASSWORD_ENDPOINT', endpoints.resetPassword)
+
   const i18n = useI18nInitializer(
     config.get('DEFAULT_CULTURE'),
     config.get('DEFAULT_CURRENCY')
   )
+
   const value = {
-    customI18n,
+    props: {
+      i18n: customI18n,
+      defaultStage,
+      endpoints
+    },
     domain,
-    defaultStage,
     i18n
   }
   return (
@@ -34,11 +42,15 @@ const PasswordResetProvider = ({
 
 PasswordResetProvider.propTypes = {
   children: PropTypes.node.isRequired,
-  customI18n: PropTypes.object,
   defaultStage: PropTypes.oneOf([
     STAGE_PASSWORD_RESET_START,
     STAGE_PASSWORD_CHANGE
-  ])
+  ]),
+  endpoints: PropTypes.shape({
+    resetPassword: PropTypes.string.isRequired,
+    changePassword: PropTypes.string.isRequired
+  }),
+  i18n: PropTypes.object
 }
 
 export {PasswordResetProvider}
