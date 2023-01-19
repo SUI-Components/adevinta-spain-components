@@ -1,5 +1,69 @@
 @import '~@s-ui/theme/lib/index';
 
+// Fixed variables
+$maw-login-password-reset: 1280px;
+$w-login-password-reset-item: 308px;
+$w-login-password-reset-item-large: 416px;
+
+// Overwritable variables
+$c-login-password-reset-main: #4d4d4d !default;
+
+$bgc-login-password-reset-item: #ffffff; // TODO: Delete
+
 .sui-LoginPasswordReset {
-  // Do your magic
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: $maw-login-password-reset;
+  padding: $p-xl $p-l;
+
+  @include media-breakpoint-up(m) {
+    align-items: flex-start;
+    flex-direction: row;
+    padding: 80px $p-l; // TODO
+  }
+
+  &-item {
+    width: 100%;
+
+    @include media-breakpoint-up(s) {
+      width: auto;
+    }
+
+    @include media-breakpoint-up(m) {
+      flex-basis: 33.33%;
+      margin-right: $m-xxl;
+    }
+
+    &False {
+      display: none;
+
+      @include media-breakpoint-up(m) {
+        display: block;
+      }
+    }
+  }
+
+  &-stageInfo {
+    background-color: $bgc-login-password-reset-item; // TODO: Delete
+    color: $c-login-password-reset-main;
+
+    @include media-breakpoint-up(s) {
+      width: $w-login-password-reset-item-large;
+    }
+
+    @include media-breakpoint-up(m) {
+      width: $w-login-password-reset-item;
+    }
+  }
+
+  &-formHandler {
+    background-color: $bgc-login-password-reset-item; // TODO: Delete
+
+    @include media-breakpoint-up(s) {
+      width: $w-login-password-reset-item-large;
+    }
+  }
 }
