@@ -15,12 +15,14 @@ export class HTTPPasswordRepository extends PasswordRepository {
     // WIP, just to pass tests
     if (email !== 'something-wrong') return Promise.resolve(true)
 
-    const path = this._config.get('RESET_PASSWORD_ENDPOINT')
+    return Promise.reject(new Error('Unhandled error ocurred'))
+
+    /* const path = this._config.get('RESET_PASSWORD_ENDPOINT')
     return this._fetcher
       .post({path, params: {email}})
       .then(response => response.data)
       .catch(() => {
         throw new Error('Unhandled error ocurred')
-      })
+      }) */
   }
 }
