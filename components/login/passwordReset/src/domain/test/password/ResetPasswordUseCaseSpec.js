@@ -1,19 +1,17 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 import chai, {expect} from 'chai'
+
 import Domain from '../../index.js'
 
 describe('[Domain] ResetPasswordUseCase', () => {
-
-  let domain = new Domain()
-  let useCase = domain.get('reset_password_use_case')
+  const domain = new Domain()
+  const useCase = domain.get('reset_password_use_case')
 
   it('should successfully start the password reset process', async () => {
     const [error, result] = await useCase.execute({
       email: 'someone@adevinta.com'
     })
-    console.log('error', error)
-    console.log('result', result)
     expect(error).to.be.null
     expect(result).to.eql(true)
   })
@@ -22,8 +20,6 @@ describe('[Domain] ResetPasswordUseCase', () => {
     const [error, result] = await useCase.execute({
       email: 'something-wrong'
     })
-    console.log('error', error)
-    console.log('result', result)
     expect(error).to.not.be.null
     expect(error.toString()).to.eql('Error: Unhandled error ocurred')
     expect(result).to.be.null

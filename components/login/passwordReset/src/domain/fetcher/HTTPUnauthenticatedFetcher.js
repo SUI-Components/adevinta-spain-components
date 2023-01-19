@@ -28,9 +28,6 @@ export default class HTTPUnauthenticatedFetcher extends Repository {
         ...(options.headers || {})
       }
     }
-    console.log('path', path)
-    console.log('params', params)
-    console.log('optionsWithExtraHeaders', optionsWithExtraHeaders)
     return this._fetcher.post(path, params, optionsWithExtraHeaders)
   }
 }
