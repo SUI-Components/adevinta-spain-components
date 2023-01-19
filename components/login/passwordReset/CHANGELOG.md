@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.5.0 (2023-01-19)
+
+
+### Features
+
+* **components/login/passwordReset:** Init html structure ([7d1206a](https://github.com/SUI-Components/adevinta-spain-components/commit/7d1206af973a43e244c2a83920b4c89a876cf966))
+
+
+
 # 1.4.0 (2023-01-18)
 
 
