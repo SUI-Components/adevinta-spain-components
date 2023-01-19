@@ -12,6 +12,8 @@ describe('[Domain] ResetPasswordUseCase', () => {
     const [error, result] = await useCase.execute({
       email: 'someone@adevinta.com'
     })
+    console.log('error', error)
+    console.log('result', result)
     expect(error).to.be.null
     expect(result).to.eql(true)
   })
@@ -20,6 +22,8 @@ describe('[Domain] ResetPasswordUseCase', () => {
     const [error, result] = await useCase.execute({
       email: 'something-wrong'
     })
+    console.log('error', error)
+    console.log('result', result)
     expect(error).to.not.be.null
     expect(error.toString()).to.eql('Error: Unhandled error ocurred')
     expect(result).to.be.null

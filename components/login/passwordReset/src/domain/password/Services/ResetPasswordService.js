@@ -12,10 +12,14 @@ export class ResetPasswordService extends Service {
    */
   @inlineError
   execute({resetPasswordRequest}) {
-    const email = resetPasswordRequest.getEmail()
-    if (email === 'something-wrong') {
-      throw new Error('Unhandled error ocurred')
-    }
-    return Promise.resolve(true)
+    console.log(this._passwordRepository.resetPassword)
+    return this._passwordRepository.resetPassword({
+      resetPasswordRequest
+    }).then(([error, result]) => {
+      if (error) {
+        throw error
+      }
+      return result
+    })
   }
 }
