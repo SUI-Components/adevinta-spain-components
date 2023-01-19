@@ -1,6 +1,6 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
-import chai, {expect} from 'chai'
+import {expect} from 'chai'
 
 import Domain from '../../index.js'
 

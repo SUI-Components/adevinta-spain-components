@@ -19,7 +19,7 @@ export class HTTPPasswordRepository extends PasswordRepository {
     return this._fetcher
       .post({path, params: {email}})
       .then(response => response.data)
-      .catch(error => {
+      .catch(() => {
         throw new Error('Unhandled error ocurred')
       })
   }
