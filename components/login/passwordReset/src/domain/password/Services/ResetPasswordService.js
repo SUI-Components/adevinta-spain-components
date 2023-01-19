@@ -11,7 +11,8 @@ export class ResetPasswordService extends Service {
    * @param {String} request
    */
   @inlineError
-  execute({email}) {
+  execute({resetPasswordRequest}) {
+    const email = resetPasswordRequest.getEmail()
     if (email === 'something-wrong') {
       throw new Error('Unhandled error ocurred')
     }
