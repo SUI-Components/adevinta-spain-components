@@ -12,14 +12,15 @@ export class ResetPasswordService extends Service {
    */
   @inlineError
   execute({resetPasswordRequest}) {
-    console.log(this._passwordRepository.resetPassword)
-    return this._passwordRepository.resetPassword({
-      resetPasswordRequest
-    }).then(([error, result]) => {
-      if (error) {
-        throw error
-      }
-      return result
-    })
+    return this._passwordRepository
+      .resetPassword({
+        resetPasswordRequest
+      })
+      .then(([error, result]) => {
+        if (error) {
+          throw error
+        }
+        return result
+      })
   }
 }

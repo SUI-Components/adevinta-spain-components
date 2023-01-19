@@ -7,7 +7,7 @@ export default class HTTPUnauthenticatedFetcher extends Repository {
     this._fetcher = fetcher
   }
 
-  async get({path, params, options = {}}) {
+  get({path, params, options = {}}) {
     const optionsWithExtraHeaders = {
       ...options,
       headers: {
@@ -15,26 +15,22 @@ export default class HTTPUnauthenticatedFetcher extends Repository {
       }
     }
 
-    const response = await this._fetcher.get(path, {
+    return this._fetcher.get(path, {
       ...optionsWithExtraHeaders,
       params
     })
-    return response
   }
 
-  async post({path, params, options = {}, skipCSRF = true}) {
+  post({path, params, options = {}}) {
     const optionsWithExtraHeaders = {
       ...options,
       headers: {
         ...(options.headers || {})
       }
     }
-
-    const response = await this._fetcher.post(
-      path,
-      params,
-      optionsWithExtraHeaders
-    )
-    return response
+    console.log('path', path)
+    console.log('params', params)
+    console.log('optionsWithExtraHeaders', optionsWithExtraHeaders)
+    return this._fetcher.post(path, params, optionsWithExtraHeaders)
   }
 }

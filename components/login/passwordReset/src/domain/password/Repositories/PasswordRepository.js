@@ -1,7 +1,7 @@
 import {Repository} from '@s-ui/domain'
 
 export class PasswordRepository extends Repository {
-  constructor({}) {
+  constructor() {
     super()
   }
 
