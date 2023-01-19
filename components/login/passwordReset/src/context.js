@@ -19,7 +19,6 @@ const PasswordResetProvider = ({
     config.get('DEFAULT_CULTURE'),
     config.get('DEFAULT_CURRENCY')
   )
-
   const value = {
     customI18n,
     domain,
