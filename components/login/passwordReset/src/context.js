@@ -4,10 +4,15 @@ import PropTypes from 'prop-types'
 
 import Domain from './domain/index.js'
 import useI18nInitializer from './hooks/useI18nInitializer.js'
+import {STAGE_PASSWORD_CHANGE, STAGE_PASSWORD_RESET_START} from './config.js'
 
 export const PasswordResetContext = createContext()
 
-const PasswordResetProvider = ({children, customI18n}) => {
+const PasswordResetProvider = ({
+  children,
+  customI18n,
+  defaultStage = STAGE_PASSWORD_RESET_START
+}) => {
   const domain = new Domain()
   const config = domain.get('config')
   const i18n = useI18nInitializer(
@@ -18,6 +23,7 @@ const PasswordResetProvider = ({children, customI18n}) => {
   const value = {
     customI18n,
     domain,
+    defaultStage,
     i18n
   }
   return (
@@ -29,7 +35,11 @@ const PasswordResetProvider = ({children, customI18n}) => {
 
 PasswordResetProvider.propTypes = {
   children: PropTypes.node.isRequired,
-  customI18n: PropTypes.object
+  customI18n: PropTypes.object,
+  defaultStage: PropTypes.oneOf([
+    STAGE_PASSWORD_RESET_START,
+    STAGE_PASSWORD_CHANGE
+  ])
 }
 
 export {PasswordResetProvider}

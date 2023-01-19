@@ -1,27 +1,24 @@
 import PropTypes from 'prop-types'
 
-import FormHandler from './components/FormHandler.js'
-import StageInfo from './components/StageInfo.js'
-import {BASE_CLASS} from './config.js'
+import PasswordResetHandler from './components/PasswordResetHandler.js'
+import {STAGE_PASSWORD_CHANGE, STAGE_PASSWORD_RESET_START} from './config.js'
 import {PasswordResetProvider} from './context.js'
 
-export default function LoginPasswordReset({i18n: customI18n}) {
+export default function LoginPasswordReset(props) {
   return (
-    <PasswordResetProvider customI18n={customI18n}>
-      <div className={BASE_CLASS}>
-        <div className={`${BASE_CLASS}-item`}>
-          <StageInfo />
-        </div>
-        <div className={`${BASE_CLASS}-item`}>
-          <FormHandler />
-        </div>
-        <div className={`${BASE_CLASS}-item ${BASE_CLASS}-itemFalse`} />
-      </div>
+    <PasswordResetProvider {...props}>
+      <PasswordResetHandler />
     </PasswordResetProvider>
   )
 }
 
 LoginPasswordReset.displayName = 'LoginPasswordReset'
 LoginPasswordReset.propTypes = {
+  /* Allows to define which stage will be rendered in case the component is loaded in SSR mode */
+  defaultStage: PropTypes.oneOf([
+    STAGE_PASSWORD_RESET_START,
+    STAGE_PASSWORD_CHANGE
+  ]),
+  /* Allows to override total or partially the i18n dictionary */
   i18n: PropTypes.object
 }
