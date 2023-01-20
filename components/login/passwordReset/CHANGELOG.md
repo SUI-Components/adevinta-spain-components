@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.7.0 (2023-01-20)
+
+
+### Features
+
+* **components/login/passwordReset:** Mock endpoint with sui-mock ([12fd464](https://github.com/SUI-Components/adevinta-spain-components/commit/12fd464ec5b8a56df4df0e9fe68f3478fefadde6))
+
+
+
 # 1.6.0 (2023-01-20)
 
 
