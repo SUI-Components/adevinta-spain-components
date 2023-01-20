@@ -12,17 +12,12 @@ export class HTTPPasswordRepository extends PasswordRepository {
   @inlineError
   resetPassword({resetPasswordRequest}) {
     const email = resetPasswordRequest.getEmail()
-    // WIP, just to pass tests
-    if (email !== 'something-wrong') return Promise.resolve(true)
-
-    return Promise.reject(new Error('Unhandled error ocurred'))
-
-    /* const path = this._config.get('RESET_PASSWORD_ENDPOINT')
+    const path = this._config.get('RESET_PASSWORD_ENDPOINT')
     return this._fetcher
       .post({path, params: {email}})
-      .then(response => response.data)
+      .then(() => true)
       .catch(() => {
         throw new Error('Unhandled error ocurred')
-      }) */
+      })
   }
 }
