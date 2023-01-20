@@ -13,6 +13,9 @@
     "@s-ui/domain": "2",
     "@s-ui/i18n": "1"
   },
+  "devDependencies": {
+    "@s-ui/mockmock": "1"
+  },
   "peerDependencies": {
     "@s-ui/theme": "8"
   },
