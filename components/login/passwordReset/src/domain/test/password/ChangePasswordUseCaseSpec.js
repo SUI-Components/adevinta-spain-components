@@ -6,9 +6,9 @@ import Mocker from '@s-ui/mockmock/lib/http'
 
 import Domain from '../../index.js'
 
-describe('[Domain] ResetPasswordUseCase', () => {
+describe('[Domain] ChangePasswordUseCase', () => {
   const domain = new Domain()
-  const useCase = domain.get('reset_password_use_case')
+  const useCase = domain.get('change_password_use_case')
   const mocker = new Mocker()
 
   beforeEach(() => {
@@ -19,13 +19,13 @@ describe('[Domain] ResetPasswordUseCase', () => {
     mocker.restore()
   })
 
-  it('should successfully start the password reset process', async () => {
-    const requestBody = {email: 'someone@adevinta.com'}
+  it('should successfully change the password and finish the process', async () => {
+    const requestBody = {password: 'newPassword', token: '123'}
 
     mocker
       .httpMock('http://localhost/')
-      .post('v1/ecg/password-reset', requestBody)
-      .reply(null, 202)
+      .post('v1/ecg/password-change', requestBody)
+      .reply(null, 204)
 
     const [error, result] = await useCase.execute(requestBody)
     expect(error).to.be.null
@@ -33,13 +33,11 @@ describe('[Domain] ResetPasswordUseCase', () => {
   })
 
   it('should return an exception if something goes wrong', async () => {
-    const requestBody = {
-      email: 'something-wrong'
-    }
+    const requestBody = {password: 'newPassword', token: 'invalid'}
 
     mocker
       .httpMock('http://localhost/')
-      .post('v1/ecg/password-reset', requestBody)
+      .post('v1/ecg/password-change', requestBody)
       .reply(null, 400)
 
     const [error, result] = await useCase.execute(requestBody)
