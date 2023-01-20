@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 1.6.0 (2023-01-20)
+
+
+### Features
+
+* **components/login/passwordReset:** Add repository and fetcher for password context ([2bf14ef](https://github.com/SUI-Components/adevinta-spain-components/commit/2bf14ef0484e7df9389b651615c0d4d39a0f50aa))
+* **components/login/passwordReset:** Add request value object to store e-mail ([3a4cd48](https://github.com/SUI-Components/adevinta-spain-components/commit/3a4cd4845bc9788cd665ee97f03b107abb065226))
+* **components/login/passwordReset:** Add scaffolding for password reset use case ([6dce8f9](https://github.com/SUI-Components/adevinta-spain-components/commit/6dce8f9d485cc85c746076c21f2c036e7bd94820))
+* **components/login/passwordReset:** Add tests and create service ([95d6108](https://github.com/SUI-Components/adevinta-spain-components/commit/95d61087510d3c3a13ccc9adab73e0ea4495000c))
+* **components/login/passwordReset:** Add the possibility of defining endpoints by props and propaga ([f22aa25](https://github.com/SUI-Components/adevinta-spain-components/commit/f22aa256282dc114780286e7fec396116ecb1575))
+* **components/login/passwordReset:** Avoid performing real calls until use case is finished ([a98d5a2](https://github.com/SUI-Components/adevinta-spain-components/commit/a98d5a2a7104b532355e45c3724ee1fc7fe937ef))
+* **components/login/passwordReset:** Hook to retrieve token ([764c36f](https://github.com/SUI-Components/adevinta-spain-components/commit/764c36ffe0c78bd7b53c0a23adca20c234bec493))
+* **components/login/passwordReset:** Perform real requests to the endpoint (still wip) ([d33ac3c](https://github.com/SUI-Components/adevinta-spain-components/commit/d33ac3cf9dce1c166faac073c03ae9014df3dd39))
+* **components/login/passwordReset:** Remove no-longer needed console instructions ([2833efc](https://github.com/SUI-Components/adevinta-spain-components/commit/2833efce5292c87a798233cee359df77f79d86a2))
+* **components/login/passwordReset:** Solve lint problems ([6669271](https://github.com/SUI-Components/adevinta-spain-components/commit/66692715104edc379cd08741228bd001981abdaf))
+
+
+
 # 1.5.0 (2023-01-19)
 
 
