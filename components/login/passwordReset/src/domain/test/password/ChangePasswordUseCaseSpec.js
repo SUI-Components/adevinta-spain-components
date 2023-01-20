@@ -37,7 +37,7 @@ describe('[Domain] ChangePasswordUseCase', () => {
 
     mocker
       .httpMock('http://localhost/')
-      .post('v1/ecg/password-reset', requestBody)
+      .post('v1/ecg/password-change', requestBody)
       .reply(null, 400)
 
     const [error, result] = await useCase.execute(requestBody)
