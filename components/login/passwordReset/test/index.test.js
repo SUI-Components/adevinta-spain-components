@@ -12,6 +12,7 @@ import chaiDOM from 'chai-dom'
 
 import Component from '../src/index.js'
 
+import '../src/domain/test/index.js'
 chai.use(chaiDOM)
 
 describe('LoginPasswordReset', () => {

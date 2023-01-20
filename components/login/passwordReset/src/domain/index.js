@@ -2,17 +2,14 @@ import {EntryPointFactory} from '@s-ui/domain'
 
 import Config from './config.js'
 
-/* const importActivityFactory = () => import('./activity/UseCases/factory.js')
+const importPasswordFactory = () => import('./password/UseCases/factory.js')
 
-const activityUseCases = {
-  get_account_activity_use_case: [
-    importActivityFactory,
-    'getAccountActivityUseCase'
-  ]
-} */
+const passwordUseCases = {
+  reset_password_use_case: [importPasswordFactory, 'resetPasswordUseCase']
+}
 
 const useCases = {
-  // ...activityUseCases
+  ...passwordUseCases
 }
 
 export default EntryPointFactory({config: new Config(), useCases})

@@ -19,6 +19,12 @@ LoginPasswordReset.propTypes = {
     STAGE_PASSWORD_RESET_START,
     STAGE_PASSWORD_CHANGE
   ]),
+  endpoints: PropTypes.shape({
+    /* Endpoint to start the reset process */
+    resetPassword: PropTypes.string.isRequired,
+    /* Endpoint to change the password */
+    changePassword: PropTypes.string.isRequired
+  }),
   /* Allows to override total or partially the i18n dictionary */
   i18n: PropTypes.object
 }

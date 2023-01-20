@@ -7,7 +7,9 @@ export default class Config {
   constructor() {
     this._config = {
       DEFAULT_CULTURE: 'es-ES',
-      DEFAULT_CURRENCY: 'EUR'
+      DEFAULT_CURRENCY: 'EUR',
+      RESET_PASSWORD_ENDPOINT: 'http://localhost/v1/ecg/password-reset',
+      CHANGE_PASSWORD_ENDPOINT: 'http://localhost/v1/ecg/password-change'
     }
   }
 
@@ -27,7 +29,7 @@ export default class Config {
    * @return {*}
    */
   set(key, value) {
-    this._config[key] = value
+    if (value !== undefined) this._config[key] = value
     return this
   }
 }

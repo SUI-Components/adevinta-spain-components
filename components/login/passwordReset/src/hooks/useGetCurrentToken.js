@@ -4,7 +4,9 @@ import {STAGE_PASSWORD_CHANGE, STAGE_PASSWORD_RESET_START} from '../config.js'
 import {PasswordResetContext} from '../context.js'
 
 const useGetCurrentToken = () => {
-  const {defaultStage} = useContext(PasswordResetContext)
+  const {
+    props: {defaultStage}
+  } = useContext(PasswordResetContext)
 
   // This could be a use case
   const getCurrentToken = () => {
