@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.8.0 (2023-01-20)
+
+
+### Features
+
+* **components/login/passwordReset:** Add new endpoint to finish password change process ([fbc129b](https://github.com/SUI-Components/adevinta-spain-components/commit/fbc129bf4b1eab1bae786d69e1a3c5f88978e8a8))
+* **components/login/passwordReset:** Adjust url in tests ([ab9f718](https://github.com/SUI-Components/adevinta-spain-components/commit/ab9f7185bca00ac9dff675ef2e6c9d88b2401506))
+
+
+
 # 1.7.0 (2023-01-20)
 
 
