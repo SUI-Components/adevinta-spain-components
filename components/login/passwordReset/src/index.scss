@@ -1,4 +1,5 @@
 @import '~@s-ui/theme/lib/index';
+@import '~@s-ui/react-molecule-progress-steps/lib/index';
 
 // Fixed variables
 $maw-login-password-reset: 1280px;
@@ -7,8 +8,8 @@ $w-login-password-reset-item-large: 416px;
 
 // Overwritable variables
 $c-login-password-reset-main: #4d4d4d !default;
-
-$bgc-login-password-reset-item: #ffffff; // TODO: Delete
+$c-login-password-reset-main-text: #3b4a5a !default;
+$lh-login-password-reset-message: 22px !default;
 
 .sui-LoginPasswordReset {
   align-items: center;
@@ -47,7 +48,6 @@ $bgc-login-password-reset-item: #ffffff; // TODO: Delete
   }
 
   &-stageInfo {
-    background-color: $bgc-login-password-reset-item; // TODO: Delete
     color: $c-login-password-reset-main;
 
     @include media-breakpoint-up(s) {
@@ -57,11 +57,24 @@ $bgc-login-password-reset-item: #ffffff; // TODO: Delete
     @include media-breakpoint-up(m) {
       width: $w-login-password-reset-item;
     }
+
+    &Progress {
+      margin-bottom: $m-l;
+    }
+
+    &Title {
+      letter-spacing: -1px;
+      margin: 0;
+    }
+
+    &Message {
+      color: $c-login-password-reset-main-text;
+      line-height: $lh-login-password-reset-message;
+      margin: $m-l 0 0;
+    }
   }
 
   &-formHandler {
-    background-color: $bgc-login-password-reset-item; // TODO: Delete
-
     @include media-breakpoint-up(s) {
       width: $w-login-password-reset-item-large;
     }
