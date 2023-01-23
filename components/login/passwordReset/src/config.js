@@ -1,3 +1,8 @@
 export const BASE_CLASS = 'sui-LoginPasswordReset'
+export const EVENTS = {
+  RESET_PASSWORD: 'RESET_PASSWORD',
+  CHANGE_PASSWORD: 'CHANGE_PASSWORD'
+}
 export const STAGE_PASSWORD_RESET_START = 'STAGE_PASSWORD_RESET_START'
 export const STAGE_PASSWORD_CHANGE = 'STAGE_PASSWORD_CHANGE'
+export const NO_OP = () => null
