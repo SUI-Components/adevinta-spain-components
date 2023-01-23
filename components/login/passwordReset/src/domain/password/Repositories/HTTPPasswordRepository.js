@@ -3,10 +3,11 @@ import {inlineError} from '@s-ui/decorators'
 import {PasswordRepository} from './PasswordRepository.js'
 
 export class HTTPPasswordRepository extends PasswordRepository {
-  constructor({config, fetcher}) {
+  constructor({config, fetcher, passwordError}) {
     super()
     this._config = config
     this._fetcher = fetcher
+    this._passwordError = passwordError
   }
 
   @inlineError
@@ -18,7 +19,7 @@ export class HTTPPasswordRepository extends PasswordRepository {
       .post({path, params: {password, token}})
       .then(() => true)
       .catch(() => {
-        throw new Error('Unhandled error ocurred')
+        throw this._passwordError('Unhandled error ocurred')
       })
   }
 
@@ -30,7 +31,7 @@ export class HTTPPasswordRepository extends PasswordRepository {
       .post({path, params: {email}})
       .then(() => true)
       .catch(() => {
-        throw new Error('Unhandled error ocurred')
+        throw this._passwordError('Unhandled error ocurred')
       })
   }
 }
