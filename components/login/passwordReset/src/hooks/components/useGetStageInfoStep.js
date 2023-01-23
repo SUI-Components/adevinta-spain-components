@@ -12,15 +12,19 @@ const useGetStageInfoStep = () => {
   const {stage} = getCurrentToken()
 
   const getStageInfoData = () => {
-    const title =
-      stage === STAGE_PASSWORD_RESET_START
-        ? i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.TITLE')
-        : i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.TITLE')
+    let data = {}
 
-    const message =
-      stage === STAGE_PASSWORD_RESET_START
-        ? i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.MESSAGE')
-        : i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.MESSAGE')
+    if (stage === STAGE_PASSWORD_RESET_START) {
+      data = {
+        title: i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.TITLE'),
+        message: i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.MESSAGE')
+      }
+    } else {
+      data = {
+        title: i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.TITLE'),
+        message: i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.MESSAGE')
+      }
+    }
 
     const initialStepperState = {
       label: i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.LABEL'),
@@ -37,8 +41,8 @@ const useGetStageInfoStep = () => {
     }
 
     return {
-      title,
-      message,
+      title: data.title,
+      message: data.message,
       initialStepperState,
       endStepperState
     }
