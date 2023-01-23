@@ -1,12 +1,19 @@
 # CHANGELOG
 
+# 1.11.0 (2023-01-23)
+
+
+
 # 1.10.0 (2023-01-23)
 
 
 ### Features
 
 * **components/login/passwordReset:** Add event bus for tagging and other extensible features ([eb02346](https://github.com/SUI-Components/adevinta-spain-components/commit/eb023462e21174259515901580b00d7faee63b89))
+* **components/login/passwordReset:** add literals ([fa8e662](https://github.com/SUI-Components/adevinta-spain-components/commit/fa8e662a02a7b216d7a959ff5d0fc93b8a6b81ec))
+* **components/login/passwordReset:** add stepper to component ([281f9f4](https://github.com/SUI-Components/adevinta-spain-components/commit/281f9f40aa2d3ff22b93a531ee7e40cd4f803715))
 * **components/login/passwordReset:** Remove not required check ([3630f8e](https://github.com/SUI-Components/adevinta-spain-components/commit/3630f8e4ba501e3b57b4a7adc81f7feaa62ebee4))
+* **components/login/passwordReset:** reorder css properties ([ed06296](https://github.com/SUI-Components/adevinta-spain-components/commit/ed062963c08054ae72e20f710297d548640c7b44))
 * **components/login/passwordReset:** Use proper event name nomenclature ([88f2f90](https://github.com/SUI-Components/adevinta-spain-components/commit/88f2f901d5beb71fd6862e82b41b149c4b23cf68))
 
 
