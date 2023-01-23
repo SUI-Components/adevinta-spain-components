@@ -8,6 +8,7 @@ $w-login-password-reset-item-large: 416px;
 
 // Overwritable variables
 $c-login-password-reset-main: #4d4d4d !default;
+$c-login-password-reset-main-text: #3b4a5a !default;
 $lh-login-password-reset-message: 22px !default;
 
 .sui-LoginPasswordReset {
@@ -67,6 +68,7 @@ $lh-login-password-reset-message: 22px !default;
     }
 
     &Message {
+      color: $c-login-password-reset-main-text;
       margin: $m-l 0 0;
       line-height: $lh-login-password-reset-message;
     }
