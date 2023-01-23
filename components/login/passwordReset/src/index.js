@@ -26,5 +26,7 @@ LoginPasswordReset.propTypes = {
     changePassword: PropTypes.string.isRequired
   }),
   /* Allows to override total or partially the i18n dictionary */
-  i18n: PropTypes.object
+  i18n: PropTypes.object,
+  /* Function executed every time an event is submitted */
+  onEvent: PropTypes.func
 }
