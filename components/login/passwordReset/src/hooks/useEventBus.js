@@ -10,14 +10,7 @@ const useEventBus = () => {
 
   const emit = (event, payload) => {
     if (Object.values(EVENTS).includes(event) === false)
-      throw new Error(`"${event}" is not a valid event name`)
-
-    if (onEvent === undefined) {
-      console.warn(
-        `"${event}" cannot be emitted because "onEvent" function has not been provided`
-      )
-      return
-    }
+      throw new Error(`"${event}" is not an accepted event name`)
 
     onEvent(event, payload)
   }
