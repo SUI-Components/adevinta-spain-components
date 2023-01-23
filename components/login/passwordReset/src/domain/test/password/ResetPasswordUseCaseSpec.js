@@ -5,6 +5,7 @@ import {expect} from 'chai'
 import Mocker from '@s-ui/mockmock/lib/http'
 
 import Domain from '../../index.js'
+import {PasswordError} from '../../password/Errors/PasswordError.js'
 
 describe('[Domain] ResetPasswordUseCase', () => {
   const domain = new Domain()
@@ -44,6 +45,7 @@ describe('[Domain] ResetPasswordUseCase', () => {
 
     const [error, result] = await useCase.execute(requestBody)
     expect(error).to.not.be.null
+    expect(error).to.be.an.instanceof(PasswordError)
     expect(error.toString()).to.eql(
       'Error: [PasswordError] Unhandled error occurred'
     )

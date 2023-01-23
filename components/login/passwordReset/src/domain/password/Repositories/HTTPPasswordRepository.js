@@ -19,7 +19,7 @@ export class HTTPPasswordRepository extends PasswordRepository {
       .post({path, params: {password, token}})
       .then(() => true)
       .catch(() => {
-        throw this._passwordError('Unhandled error occured')
+        throw this._passwordError('Unhandled error occurred')
       })
   }
 
@@ -31,7 +31,7 @@ export class HTTPPasswordRepository extends PasswordRepository {
       .post({path, params: {email}})
       .then(() => true)
       .catch(() => {
-        throw this._passwordError('Unhandled error occured')
+        throw this._passwordError('Unhandled error occurred')
       })
   }
 }
