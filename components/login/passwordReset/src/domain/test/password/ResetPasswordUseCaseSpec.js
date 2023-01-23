@@ -45,7 +45,7 @@ describe('[Domain] ResetPasswordUseCase', () => {
     const [error, result] = await useCase.execute(requestBody)
     expect(error).to.not.be.null
     expect(error.toString()).to.eql(
-      'Error: [PasswordError] Unhandled error ocurred'
+      'Error: [PasswordError] Unhandled error occurred'
     )
     expect(result).to.be.null
   })
