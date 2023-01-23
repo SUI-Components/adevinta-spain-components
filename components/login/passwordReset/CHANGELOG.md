@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.9.0 (2023-01-23)
+
+
+### Features
+
+* **components/login/passwordReset:** Add more semantic errors ([1b2d637](https://github.com/SUI-Components/adevinta-spain-components/commit/1b2d637e9c5c19c476077fdb77a3ae0d985afd08))
+* **components/login/passwordReset:** Add verification to check that thrown error is instance of Pas ([9a0efa7](https://github.com/SUI-Components/adevinta-spain-components/commit/9a0efa73528759dd3737c6daa5091fb7298f33ce))
+* **components/login/passwordReset:** Adjust literals ([b77ed28](https://github.com/SUI-Components/adevinta-spain-components/commit/b77ed28c27ede90dcee84f9c03eb6f6958a65b81))
+
+
+
 # 1.8.0 (2023-01-20)
 
 
