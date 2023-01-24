@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.12.0 (2023-01-24)
+
+
+### Features
+
+* **components/login/passwordReset:** add hook to check info stage info step ([843099f](https://github.com/SUI-Components/adevinta-spain-components/commit/843099fda15b78f48932a0210ffba35cef4da30a))
+* **components/login/passwordReset:** update data ([a16947f](https://github.com/SUI-Components/adevinta-spain-components/commit/a16947f0d69d57d64a3338da14ec3fc83cf78d52))
+
+
+
 # 1.11.0 (2023-01-23)
 
 
