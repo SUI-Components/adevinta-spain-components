@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.13.0 (2023-01-26)
+
+
+### Features
+
+* **components/login/passwordReset:** add screens to reset password: step 1 and step 2 ([b0c4c1e](https://github.com/SUI-Components/adevinta-spain-components/commit/b0c4c1e11a7071cdf38ab97e10ba603352ba295a))
+
+
+
 # 1.12.0 (2023-01-24)
 
 
