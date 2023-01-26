@@ -5,14 +5,49 @@ export default {
         LABEL: 'Introduce tu email',
         MESSAGE:
           'Escribe tu email de usuario y te enviaremos un correo para poder restaurarla. Recuerda que solo es válido durante 24h.',
-        TITLE: '¿Has olvidado tu contraseña?'
+        TITLE: '¿Has olvidado tu contraseña?',
+        EMAIL_LABEL: 'Email',
+        EMAIL_PLACEHOLDER: 'Escribe email',
+        ERRORS: {
+          EMPTY_EMAIL: 'Introduce tu email'
+        },
+        RETURN_BUTTON: 'Volver a iniciar sesión',
+        RESEND_TEXT:
+          '<strong>¿No has recibido aún el email?</strong> Espera unos minutos, comprueba tu bandeja de SPAM y si sigues sin recibirlo clica en este',
+        RESEND_LINK: 'enlace',
+        SUCCESS: {
+          EMAIL_SENDED:
+            'Email enviado a %{email}. Revisa tu bandeja de entrada antes de 24h',
+          EMAIL_RESEND:
+            'Te hemos vuelto a enviar un email con las instrucciones para recuperar la contraseña.'
+        },
+        SUBMIT_BUTTON: 'Enviar código de verificación por email'
       },
       STEP_2: {
         LABEL: 'Crea tu nueva contraseña',
         MESSAGE:
           'Recuerda que para que la contraseña sea válida esta debe contener un mínimo de 8 letras o números.',
-        TITLE: '¿Has olvidado tu contraseña?'
-      }
+        TITLE: '¿Has olvidado tu contraseña?',
+        PLACEHOLDER: 'Escribe tu contraseña',
+        REPEAT_PASSWORD_LABEL: 'Repite tu nueva contraseña',
+        SUBMIT_BUTTON: 'Guardar nueva contraseña',
+        NEW_PASSWORD_LABEL: 'Tu nueva contraseña',
+        ERRORS: {
+          INVALID_INPUT:
+            'La contraseña debe contener un mínimo de 8 letras o números',
+          INVALID_PASSWORDS: 'Las contraseñas no coinciden.'
+        }
+      },
+      REMEMBER_PASSWORD_TITLE: 'Recuperar contraseña',
+      ERRORS: {
+        GENERIC_ERROR:
+          'Ha habido un error técnico. Vuelve a iniciar el proceso para recuperar tu contraseña.'
+      },
+      INFO: '<strong>¿No eres cliente aún?</strong> <a href="xxxxxx" target="_blank">Pide más información</a> y empieza a disfrutar de una gestión mucho más eficiente.'
+    },
+    URLS: {
+      ROOT: '/u/login',
+      ROOT_CIS: '/u/id/login'
     }
   }
 }

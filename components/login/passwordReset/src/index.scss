@@ -1,5 +1,8 @@
 @import '~@s-ui/theme/lib/index';
+@import '~@s-ui/react-atom-button/lib/index';
+@import '~@s-ui/react-molecule-input-field/lib/index';
 @import '~@s-ui/react-molecule-progress-steps/lib/index';
+@import '~@s-ui/react-molecule-notification/lib/index';
 
 // Fixed variables
 $maw-login-password-reset: 1280px;
@@ -7,9 +10,15 @@ $w-login-password-reset-item: 308px;
 $w-login-password-reset-item-large: 416px;
 
 // Overwritable variables
+$bdt-login-password-reset-form-footer: $bdw-s solid #f1f1f1 !default;
+$bxsh-login-password-reset-form: 0px 0px 16px rgba(0, 0, 0, 0.08) !default;
+$c-login-password-reset-form-title: #1d1d1d !default;
 $c-login-password-reset-main: #4d4d4d !default;
 $c-login-password-reset-main-text: #3b4a5a !default;
 $lh-login-password-reset-message: 22px !default;
+$lh-login-password-reset-form-footer: 20px !default;
+$c-login-password-reset-form-text-anchor: #1d1d1d !default;
+$td-login-password-reset-form-text-anchor: underline !default;
 
 .sui-LoginPasswordReset {
   align-items: center;
@@ -78,5 +87,79 @@ $lh-login-password-reset-message: 22px !default;
     @include media-breakpoint-up(s) {
       width: $w-login-password-reset-item-large;
     }
+  }
+
+  &-form {
+    background-color: $c-white;
+    border-radius: $bdrs-xl;
+    box-shadow: $bxsh-login-password-reset-form;
+    padding: $p-xxl $p-xl;
+
+    &Header {
+      display: flex;
+      justify-content: space-between;
+
+      &Title {
+        color: $c-login-password-reset-form-title;
+        font-size: $fz-l;
+        margin: 0;
+      }
+
+      &Secure {
+        align-items: center;
+        color: $c-gray-light-1;
+        display: flex;
+        font-size: $fz-s;
+
+        & .sui-AtomIcon {
+          margin-right: $m-m;
+        }
+      }
+    }
+
+    &Text {
+      &Anchor {
+        cursor: pointer;
+        text-decoration: $td-login-password-reset-form-text-anchor;
+      }
+    }
+
+    &Input {
+      margin-top: $m-xl;
+    }
+
+    &Buttons {
+      margin: $m-xl 0 0;
+    }
+
+    &Button {
+      margin-bottom: $m-l;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    &Footer {
+      border-top: $bdt-login-password-reset-form-footer;
+      font-size: $fz-m;
+      line-height: $lh-login-password-reset-form-footer;
+      padding: $p-xl 0 0 0;
+      // margin: $m-xl -#{$m-l} 0 -#{$m-l};
+      margin-top: $m-xl;
+
+      a {
+        color: $c-primary;
+        text-decoration: underline;
+      }
+    }
+
+    &Notification {
+      margin-top: $m-xl;
+    }
+  }
+
+  &-banner {
+    margin-top: $m-l;
   }
 }

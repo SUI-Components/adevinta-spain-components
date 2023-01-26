@@ -12,6 +12,9 @@
     "@s-ui/decorators": "3",
     "@s-ui/domain": "2",
     "@s-ui/i18n": "1",
+    "@s-ui/react-atom-button": "1",
+    "@s-ui/react-molecule-input-field": "4",
+    "@s-ui/react-molecule-notification": "1",
     "@s-ui/react-molecule-progress-steps": "2"
   },
   "devDependencies": {
