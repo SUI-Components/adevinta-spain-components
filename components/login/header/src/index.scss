@@ -1,0 +1,21 @@
+@import '~@s-ui/theme/lib/index';
+@import '~@s-ui/react-atom-button/lib/index';
+
+// Overwritable variables
+$bgc-login-header: $c-primary !default;
+$h-login-header: 56px !default;
+$p-login-header: 0 $p-xl !default;
+$w-login-header-image: 80px !default;
+
+.sui-LoginHeader {
+  align-items: center;
+  background-color: $bgc-login-header;
+  display: flex;
+  justify-content: space-between;
+  height: $h-login-header;
+  padding: $p-login-header;
+
+  &-image {
+    width: $w-login-header-image;
+  }
+}
