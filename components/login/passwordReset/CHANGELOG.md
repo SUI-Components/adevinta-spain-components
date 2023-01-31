@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.14.0 (2023-01-31)
+
+
+### Features
+
+* **components/login/passwordReset:** add help content component to login password reset ([d9bd194](https://github.com/SUI-Components/adevinta-spain-components/commit/d9bd194cf521ffd62eb1a0d1e4c213a83859432b))
+
+
+
 # 1.13.0 (2023-01-26)
 
 
