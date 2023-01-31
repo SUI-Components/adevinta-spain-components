@@ -7,10 +7,15 @@ import AtomButton, {
 } from '@s-ui/react-atom-button'
 
 import {BASE_CLASS} from '../../config.js'
+import useDomain from '../../hooks/useDomain.js'
+import useGetCurrentToken from '../../hooks/useGetCurrentToken.js'
 import useI18n from '../../hooks/useI18n.js'
 import MoleculePasswordInputField from '../molecules/PasswordInputField.js'
 const OrganismPasswordChangeForm = () => {
   const i18n = useI18n()
+  const domain = useDomain()
+  const {getCurrentToken} = useGetCurrentToken()
+  const {token} = getCurrentToken()
   const [newPassword, setNewPassword] = useState('')
   const [repeatPassword, setRepeatPassword] = useState('')
 
@@ -27,6 +32,16 @@ const OrganismPasswordChangeForm = () => {
 
   const handleSubmit = () => {
     console.log('handleSubmit: Call to use case')
+    domain
+      .get('change_password_use_case')
+      .execute({password: newPassword, token})
+      .then(([error, result]) => {
+        if (error) {
+          console.log('error', error)
+        } else {
+          console.log('result', result)
+        }
+      })
   }
 
   return (
