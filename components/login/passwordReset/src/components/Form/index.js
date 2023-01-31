@@ -1,6 +1,7 @@
 import {BASE_CLASS, STAGE_PASSWORD_RESET_START} from '../../config.js'
 import useGetCurrentToken from '../../hooks/useGetCurrentToken.js'
 import useI18n from './../../hooks/useI18n.js'
+import HelpContent from './HelpContent.js'
 import PasswordChangeForm from './PasswordChangeForm.js'
 import PasswordResetForm from './PasswordResetForm.js'
 import UserAcquisitionText from './UserAcquisitionText.js'
@@ -24,8 +25,7 @@ const Form = () => {
           {isInitialStep ? <UserAcquisitionText /> : null}
         </div>
       </div>
-
-      <div className="sui-LoginPasswordReset-banner">BANNER ;-)</div>
+      <HelpContent />
     </>
   )
 }

@@ -3,6 +3,8 @@
 @import '~@s-ui/react-molecule-input-field/lib/index';
 @import '~@s-ui/react-molecule-progress-steps/lib/index';
 @import '~@s-ui/react-molecule-notification/lib/index';
+@import '~@s-ui/react-atom-tooltip/lib/index';
+@import '~@s-ui/react-atom-icon/lib/index';
 
 // Fixed variables
 $maw-login-password-reset: 1280px;
@@ -10,6 +12,10 @@ $w-login-password-reset-item: 308px;
 $w-login-password-reset-item-large: 416px;
 
 // Overwritable variables
+$bgc-login-password-reset-form: #ffffff !default;
+$bdrs-login-password-reset-form: $bdrs-xl !default;
+$bgc-login-password-reset-form-help-content: #ffffff !default;
+$bdrs-login-password-reset-form-help-content: $bdrs-xl !default;
 $bdt-login-password-reset-form-footer: $bdw-s solid #f1f1f1 !default;
 $bxsh-login-password-reset-form: 0px 0px 16px rgba(0, 0, 0, 0.08) !default;
 $c-login-password-reset-form-title: #1d1d1d !default;
@@ -19,6 +25,12 @@ $lh-login-password-reset-message: 22px !default;
 $lh-login-password-reset-form-footer: 20px !default;
 $c-login-password-reset-form-text-anchor: #1d1d1d !default;
 $td-login-password-reset-form-text-anchor: underline !default;
+$p-login-password-reset-form-help-content: $p-l $p-m !default;
+$c-login-password-reset-form-help-content-icon-tooltip: $c-primary !default;
+
+$bd-login-password-reset-form-help-content: 1px solid #d1d0d5 !default;
+$fz-login-password-reset-form-help-content-title: 14px !default;
+$fz-login-password-reset-form-help-content-text: 14px !default;
 
 .sui-LoginPasswordReset {
   align-items: center;
@@ -90,8 +102,8 @@ $td-login-password-reset-form-text-anchor: underline !default;
   }
 
   &-form {
-    background-color: $c-white;
-    border-radius: $bdrs-xl;
+    background-color: $bgc-login-password-reset-form;
+    border-radius: $bdrs-login-password-reset-form;
     box-shadow: $bxsh-login-password-reset-form;
     padding: $p-xxl $p-xl;
 
@@ -144,9 +156,8 @@ $td-login-password-reset-form-text-anchor: underline !default;
       border-top: $bdt-login-password-reset-form-footer;
       font-size: $fz-m;
       line-height: $lh-login-password-reset-form-footer;
-      padding: $p-xl 0 0 0;
-      // margin: $m-xl -#{$m-l} 0 -#{$m-l};
       margin-top: $m-xl;
+      padding: $p-xl 0 0 0;
 
       a {
         color: $c-primary;
@@ -159,7 +170,42 @@ $td-login-password-reset-form-text-anchor: underline !default;
     }
   }
 
-  &-banner {
+  &-helpContent {
+    align-items: center;
+    background-color: $bgc-login-password-reset-form-help-content;
+    border: $bd-login-password-reset-form-help-content;
+    border-radius: $bdrs-login-password-reset-form-help-content;
+    display: flex;
     margin-top: $m-l;
+    padding: $p-login-password-reset-form-help-content;
+
+    &Image {
+      height: 48px;
+      margin-right: $m-l;
+      width: 48px;
+    }
+
+    &Title {
+      font-size: $fz-login-password-reset-form-help-content-title;
+      font-weight: bold;
+      margin: 0 0 $m-s;
+    }
+
+    &Text {
+      align-items: center;
+      display: flex;
+      font-size: $fz-login-password-reset-form-help-content-text;
+      margin: 0;
+
+      a {
+        color: $c-primary;
+        text-decoration: underline;
+      }
+    }
+
+    &IconTooltip {
+      color: $c-login-password-reset-form-help-content-icon-tooltip;
+      margin-left: $m-m;
+    }
   }
 }

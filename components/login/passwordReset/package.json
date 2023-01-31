@@ -15,7 +15,9 @@
     "@s-ui/react-atom-button": "1",
     "@s-ui/react-molecule-input-field": "4",
     "@s-ui/react-molecule-notification": "1",
-    "@s-ui/react-molecule-progress-steps": "2"
+    "@s-ui/react-molecule-progress-steps": "2",
+    "@s-ui/react-atom-icon": "1",
+    "@s-ui/react-atom-tooltip": "2"
   },
   "devDependencies": {
     "@s-ui/mockmock": "1"

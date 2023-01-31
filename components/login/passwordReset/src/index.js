@@ -7,7 +7,7 @@ import {PasswordResetProvider} from './context.js'
 export default function LoginPasswordReset(props) {
   return (
     <PasswordResetProvider {...props}>
-      <PasswordResetHandler />
+      <PasswordResetHandler icon={props.icon} />
     </PasswordResetProvider>
   )
 }
@@ -28,5 +28,6 @@ LoginPasswordReset.propTypes = {
   /* Allows to override total or partially the i18n dictionary */
   i18n: PropTypes.object,
   /* Function executed every time an event is submitted */
-  onEvent: PropTypes.func
+  onEvent: PropTypes.func,
+  icon: PropTypes.oneOfType([PropTypes.node, PropTypes.string])
 }
