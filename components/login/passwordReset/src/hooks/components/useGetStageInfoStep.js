@@ -1,9 +1,6 @@
 import {STATUSES} from '@s-ui/react-molecule-progress-steps'
 
-import {
-  STAGE_PASSWORD_CHANGE,
-  STAGE_PASSWORD_RESET_START
-} from '../../config.js'
+import {STAGE_PASSWORD_RESET_START} from '../../config.js'
 import useGetCurrentToken from '../useGetCurrentToken.js'
 import useI18n from '../useI18n.js'
 const useGetStageInfoStep = () => {
@@ -11,40 +8,36 @@ const useGetStageInfoStep = () => {
   const {getCurrentToken} = useGetCurrentToken()
   const {stage} = getCurrentToken()
 
-  const getStageInfoData = () => {
-    let data = {}
-
-    if (stage === STAGE_PASSWORD_RESET_START) {
-      data = {
-        title: i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.TITLE'),
-        message: i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.MESSAGE')
-      }
-    } else {
-      data = {
-        title: i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.TITLE'),
-        message: i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.MESSAGE')
-      }
-    }
-
-    const initialStepperState = {
+  const defaultStageInfoData = {
+    title: i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.TITLE'),
+    message: i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.MESSAGE'),
+    initialStepperState: {
       label: i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.LABEL'),
-      status:
-        stage === STAGE_PASSWORD_RESET_START
-          ? STATUSES.ACTIVE
-          : STATUSES.VISITED
-    }
-
-    const endStepperState = {
+      status: STATUSES.ACTIVE
+    },
+    endStepperState: {
       label: i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.LABEL'),
-      status:
-        stage === STAGE_PASSWORD_CHANGE ? STATUSES.ACTIVE : STATUSES.NORMAL
+      status: STATUSES.NORMAL
+    }
+  }
+
+  const getStageInfoData = () => {
+    if (stage === STAGE_PASSWORD_RESET_START) {
+      return defaultStageInfoData
     }
 
     return {
-      title: data.title,
-      message: data.message,
-      initialStepperState,
-      endStepperState
+      ...defaultStageInfoData,
+      title: i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.TITLE'),
+      message: i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.MESSAGE'),
+      initialStepperState: {
+        ...defaultStageInfoData.initialStepperState,
+        status: STATUSES.VISITED
+      },
+      endStepperState: {
+        ...defaultStageInfoData.endStepperState,
+        status: STATUSES.ACTIVE
+      }
     }
   }
 
