@@ -7,9 +7,9 @@ import MoleculeInputField from '@s-ui/react-molecule-input-field'
 import {
   DEFAULT_EYE_CLOSED_OUTLINE,
   DEFAULT_EYE_OPEN_OUTLINE
-} from './../../config.js'
+} from '../../config.js'
 
-const PasswordInputField = ({
+const MoleculePasswordInputField = ({
   id,
   label,
   name,
@@ -46,8 +46,8 @@ const PasswordInputField = ({
   )
 }
 
-PasswordInputField.displayName = 'PasswordInputField'
-PasswordInputField.propTypes = {
+MoleculePasswordInputField.displayName = 'MoleculePasswordInputField'
+MoleculePasswordInputField.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string,
@@ -56,4 +56,4 @@ PasswordInputField.propTypes = {
   value: PropTypes.string
 }
 
-export default PasswordInputField
+export default MoleculePasswordInputField

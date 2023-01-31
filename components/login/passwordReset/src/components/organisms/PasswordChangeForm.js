@@ -6,10 +6,10 @@ import AtomButton, {
   atomButtonSizes
 } from '@s-ui/react-atom-button'
 
-import {BASE_CLASS} from './../../config.js'
-import useI18n from './../../hooks/useI18n.js'
-import PasswordInputField from './PasswordInputField.js'
-const PasswordChangeForm = () => {
+import {BASE_CLASS} from '../../config.js'
+import useI18n from '../../hooks/useI18n.js'
+import MoleculePasswordInputField from '../molecules/PasswordInputField.js'
+const OrganismPasswordChangeForm = () => {
   const i18n = useI18n()
   const [newPassword, setNewPassword] = useState('')
   const [repeatPassword, setRepeatPassword] = useState('')
@@ -32,7 +32,7 @@ const PasswordChangeForm = () => {
   return (
     <>
       <div className={`${BASE_CLASS}-formInput`}>
-        <PasswordInputField
+        <MoleculePasswordInputField
           // errorText={errorText}
           id="new_password"
           label={i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.NEW_PASSWORD_LABEL')}
@@ -43,7 +43,7 @@ const PasswordChangeForm = () => {
         />
       </div>
       <div className={`${BASE_CLASS}-formInput`}>
-        <PasswordInputField
+        <MoleculePasswordInputField
           // errorText={errorText}
           id="repeat_password"
           label={i18n.t(
@@ -73,6 +73,6 @@ const PasswordChangeForm = () => {
   )
 }
 
-PasswordChangeForm.displayName = 'PasswordChangeForm'
+OrganismPasswordChangeForm.displayName = 'OrganismPasswordChangeForm'
 
-export default PasswordChangeForm
+export default OrganismPasswordChangeForm

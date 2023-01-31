@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
 
 import {BASE_CLASS} from '../../config.js'
-import useI18n from './../../hooks/useI18n.js'
-import HelpContent from './HelpContent.js'
+import useI18n from '../../hooks/useI18n.js'
+import MoleculeHelpContent from '../molecules/HelpContent.js'
 
-const Form = ({children}) => {
+const TemplateForm = ({children}) => {
   const i18n = useI18n()
   const title = i18n.t('LOGIN_CROSS.PASSWORD_RESET.REMEMBER_PASSWORD_TITLE')
   return (
@@ -15,14 +15,14 @@ const Form = ({children}) => {
         </div>
         <div className={`${BASE_CLASS}-formContent`}>{children}</div>
       </div>
-      <HelpContent />
+      <MoleculeHelpContent />
     </>
   )
 }
 
-Form.displayName = 'Form'
-Form.propTypes = {
+TemplateForm.displayName = 'TemplateForm'
+TemplateForm.propTypes = {
   children: PropTypes.node.isRequired
 }
 
-export default Form
+export default TemplateForm

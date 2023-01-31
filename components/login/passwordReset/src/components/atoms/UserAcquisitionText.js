@@ -1,6 +1,6 @@
 import {BASE_CLASS} from '../../config.js'
 import useI18n from '../../hooks/useI18n.js'
-const UserAcquisitionText = () => {
+const AtomUserAcquisitionText = () => {
   const i18n = useI18n()
   return (
     <div className={`${BASE_CLASS}-formFooter`}>
@@ -13,6 +13,6 @@ const UserAcquisitionText = () => {
   )
 }
 
-UserAcquisitionText.displayName = 'UserAcquisitionText'
+AtomUserAcquisitionText.displayName = 'AtomUserAcquisitionText'
 
-export default UserAcquisitionText
+export default AtomUserAcquisitionText

@@ -1,15 +1,15 @@
 import useI18n from '../../hooks/useI18n.js'
-import {BASE_CLASS} from './../../config.js'
-import HelpContentTooltip from './HelpContentTooltip.js'
-import Icon from './Icon.js'
+import {BASE_CLASS} from '../../config.js'
+import MoleculeHelpContentTooltip from './HelpContentTooltip.js'
+import AtomIcon from '../atoms/Icon.js'
 
-const HelpContent = () => {
+const MoleculeHelpContent = () => {
   const i18n = useI18n()
   return (
     <div className={`${BASE_CLASS}-helpContent`}>
       {/* <Icon /> */}
       {/* <Icon icon={DEFAULT_TOOLTIP_INFO_ICON} /> */}
-      <Icon icon="https://frtassets.fotocasa.es/ut/statics/img/service-desk.svg" />
+      <AtomIcon icon="https://frtassets.fotocasa.es/ut/statics/img/service-desk.svg" />
 
       <div className="">
         <div className={`${BASE_CLASS}-helpContentTitle`}>
@@ -21,13 +21,13 @@ const HelpContent = () => {
               __html: i18n.t('LOGIN_CROSS.PASSWORD_RESET.DOUBTS.TEXT')
             }}
           ></span>
-          <HelpContentTooltip />
+          <MoleculeHelpContentTooltip />
         </div>
       </div>
     </div>
   )
 }
 
-HelpContent.displayName = 'HelpContent'
+MoleculeHelpContent.displayName = 'MoleculeHelpContent'
 
-export default HelpContent
+export default MoleculeHelpContent

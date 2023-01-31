@@ -2,9 +2,9 @@ import MoleculeProgressSteps, {
   MoleculeProgressStep
 } from '@s-ui/react-molecule-progress-steps'
 
-import {BASE_CLASS} from './../config.js'
-import useGetStageInfoStep from './../hooks/components/useGetStageInfoStep.js'
-const StageInfo = () => {
+import {BASE_CLASS} from '../../config.js'
+import useGetStageInfoStep from '../../hooks/components/useGetStageInfoStep.js'
+const OrganismStageInfo = () => {
   const {getStageInfoData} = useGetStageInfoStep()
 
   const {title, message, initialStepperState, endStepperState} =
@@ -30,6 +30,6 @@ const StageInfo = () => {
   )
 }
 
-StageInfo.displayName = 'StageInfo'
+OrganismStageInfo.displayName = 'OrganismStageInfo'
 
-export default StageInfo
+export default OrganismStageInfo

@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types'
 
-import MoleculeNotification, {
+import SuiMoleculeNotification, {
   BRDS_SIZE,
   TYPES,
   VARIATIONS
 } from '@s-ui/react-molecule-notification'
 
-import {BASE_CLASS} from './../../config.js'
-import useI18n from './../../hooks/useI18n.js'
-const Notification = ({notificationText, handleResend}) => {
+import {BASE_CLASS} from '../../config.js'
+import useI18n from '../../hooks/useI18n.js'
+const MoleculeNotification = ({notificationText, handleResend}) => {
   const i18n = useI18n()
   return (
     <div className={`${BASE_CLASS}-formNotification`}>
-      <MoleculeNotification
+      <SuiMoleculeNotification
         autoClose={null}
         icon=" "
         roundedCorners={BRDS_SIZE.medium}
@@ -37,11 +37,11 @@ const Notification = ({notificationText, handleResend}) => {
   )
 }
 
-Notification.displayName = 'Notification'
+MoleculeNotification.displayName = 'MoleculeNotification'
 
-Notification.propTypes = {
+MoleculeNotification.propTypes = {
   handleResend: PropTypes.func,
   notificationText: PropTypes.string
 }
 
-export default Notification
+export default MoleculeNotification
