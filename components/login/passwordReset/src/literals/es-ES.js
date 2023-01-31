@@ -1,6 +1,12 @@
 export default {
   LOGIN_CROSS: {
     PASSWORD_RESET: {
+      DOUBTS: {
+        TEXT: 'Envíanos un <a href="mailto:xxxxxx">email</a> o llámanos al <a href="tel:xxxxxx">xxxxx</a>.',
+        TITLE: '¿Tienes dudas?',
+        TOOLTIP:
+          'Horario de atención al cliente: <br> De lunes a viernes de 9 a 20 h <br> Sábados de 9 a 14 h'
+      },
       STEP_1: {
         LABEL: 'Introduce tu email',
         MESSAGE:
