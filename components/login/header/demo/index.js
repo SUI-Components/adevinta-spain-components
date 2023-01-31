@@ -20,7 +20,7 @@ export default () => {
   return (
     <>
       <h1>Login Header</h1>
-      <h2>Header ith default logo</h2>
+      <h2>Header with default logo</h2>
       <LoginHeader button={button} />
       <br />
       <h2>Header with custom logo</h2>
