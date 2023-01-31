@@ -9,6 +9,7 @@ import AtomButton, {
 import MoleculeInputField from '@s-ui/react-molecule-input-field'
 
 import {BASE_CLASS} from '../../config.js'
+import useDomain from '../../hooks/useDomain.js'
 import useI18n from '../../hooks/useI18n.js'
 import MoleculeLoginButton from '../molecules/LoginButton.js'
 import Notification from '../molecules/Notification.js'
@@ -20,6 +21,7 @@ const OrganismPasswordResetForm = () => {
   const [notificationText, setNotificationText] = useState('')
 
   const i18n = useI18n()
+  const domain = useDomain()
 
   const checkIfInputIsEmpty = value => {
     const isEmpty = value.length === 0
@@ -42,6 +44,27 @@ const OrganismPasswordResetForm = () => {
   const handleSubmit = () => {
     console.log('handleSubmit: Call to use case')
     setIsLoading(true)
+
+    domain
+      .get('reset_password_use_case')
+      .execute({email})
+      .then(([error, result]) => {
+        if (error) {
+          console.log('error', error)
+          setNotificationText(
+            i18n.t('LOGIN_CROSS.PASSWORD_RESET.ERRORS.GENERIC_ERROR')
+          ) // FAIL
+          setIsLoading(false)
+        } else {
+          console.log('result', result)
+          setNotificationText(
+            i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUCCESS.EMAIL_SENDED', {
+              email
+            })
+          ) // SUCCESS
+          setIsLoading(false)
+        }
+      })
 
     /* CALL TO USE CASE */
     setNotificationText(
