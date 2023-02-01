@@ -65,13 +65,6 @@ const OrganismPasswordResetForm = () => {
           setIsLoading(false)
         }
       })
-
-    /* CALL TO USE CASE */
-    setNotificationText(
-      i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUCCESS.EMAIL_SENDED', {email})
-    ) // SUCCESS
-    // setNotificationText(i18n.t('LOGIN_CROSS.PASSWORD_RESET.ERRORS.GENERIC_ERRORS')) // FAIL
-    // setIsLoading(false)
   }
 
   const handleResend = () => {
