@@ -1,10 +1,10 @@
 import {BASE_CLASS, STAGE_PASSWORD_RESET_START} from '../../config.js'
 import useGetCurrentToken from '../../hooks/useGetCurrentToken.js'
-import UserAcquisitionText from '../atoms/UserAcquisitionText.js'
+import UserAcquisitionText from '../Info/UserAcquisitionText.js'
 import PasswordChangeForm from '../Form/PasswordChangeForm.js'
 import PasswordResetForm from '../Form/PasswordResetForm.js'
-import StageInfo from '../organisms/StageInfo.js'
-import Form from '../templates/Form.js'
+import StageInfo from './StageInfo.js'
+import Form from './Form.js'
 
 const PasswordReset = () => {
   const {getCurrentToken} = useGetCurrentToken()
