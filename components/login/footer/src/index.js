@@ -16,8 +16,8 @@ export default function LoginFooter({
   links = [],
   linkFactory: LinkFactory = DEFAULT_LINK
 }) {
-  const footerLinks = links.map(link => (
-    <li className={`${BASE_CLASS}-listItem`}>
+  const footerLinks = links.map((link, index) => (
+    <li key={index} className={`${BASE_CLASS}-listItem`}>
       <LinkFactory url={link.url}>{link.title}</LinkFactory>
     </li>
   ))

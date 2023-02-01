@@ -1,10 +1,10 @@
 import LoginFooter from 'components/login/footer/src'
 
 const links = [
-  {title: 'Aviso legal', url: '/aviso-legal'},
-  {title: 'Política de privacidad', url: '/privacidad'},
-  {title: 'Política de cookies', url: '/cookies'},
-  {title: 'Términos de uso del servicio', url: '/terminos-de-uso'}
+  {title: 'Link 1', url: '/url-link-1'},
+  {title: 'Link 2', url: '/url-link-2'},
+  {title: 'Link 3', url: '/url-link-3'},
+  {title: 'Link 4', url: '/url-link-4'}
 ]
 
 export default () => (
