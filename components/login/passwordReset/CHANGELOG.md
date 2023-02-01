@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 1.16.0 (2023-02-01)
+
+
+### Features
+
+* **components/login/passwordReset:** Adopt atomic design scaffolding to improve components organiza ([5cf59e7](https://github.com/SUI-Components/adevinta-spain-components/commit/5cf59e78270baea26417f48263e0ca72cc4e4950))
+* **components/login/passwordReset:** Execute change password use case ([7fd652b](https://github.com/SUI-Components/adevinta-spain-components/commit/7fd652b0be5a81d9b1009fae12cd95bc54d5a14f))
+* **components/login/passwordReset:** Execute reset password use case ([3dc5a9c](https://github.com/SUI-Components/adevinta-spain-components/commit/3dc5a9c0d9449379314adfcb011fdd93d8aab9b5))
+* **components/login/passwordReset:** Remove atomic design prefixes in component names ([e75f8e5](https://github.com/SUI-Components/adevinta-spain-components/commit/e75f8e558f2617cd071fbdbb6535bca894e3c5e5))
+* **components/login/passwordReset:** Remove commented code ([fbafb59](https://github.com/SUI-Components/adevinta-spain-components/commit/fbafb596a4ea7664693e1a55358c2174702af612))
+* **components/login/passwordReset:** Stop using atomic design ([2fa7e40](https://github.com/SUI-Components/adevinta-spain-components/commit/2fa7e40cc12d99db63c5dc1a53635250aceb4ea8))
+* **components/login/passwordReset:** Use context scaffolding instead of atomic design ([bf4dcb2](https://github.com/SUI-Components/adevinta-spain-components/commit/bf4dcb264f7a32b7c1b90a969bb69095ab05d678))
+
+
+
 # 1.15.0 (2023-01-31)
 
 
