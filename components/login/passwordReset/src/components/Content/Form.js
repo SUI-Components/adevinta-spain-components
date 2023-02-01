@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 
 import {BASE_CLASS} from '../../config.js'
-import useI18n from './../../hooks/useI18n.js'
-import HelpContent from './HelpContent.js'
+import useI18n from '../../hooks/useI18n.js'
+import HelpContent from '../Info/HelpContent.js'
 
 const Form = ({children}) => {
   const i18n = useI18n()

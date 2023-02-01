@@ -2,8 +2,8 @@ import MoleculeProgressSteps, {
   MoleculeProgressStep
 } from '@s-ui/react-molecule-progress-steps'
 
-import {BASE_CLASS} from './../config.js'
-import useGetStageInfoStep from './../hooks/components/useGetStageInfoStep.js'
+import {BASE_CLASS} from '../../config.js'
+import useGetStageInfoStep from '../../hooks/components/useGetStageInfoStep.js'
 const StageInfo = () => {
   const {getStageInfoData} = useGetStageInfoStep()
 

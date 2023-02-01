@@ -6,8 +6,8 @@ import MoleculeNotification, {
   VARIATIONS
 } from '@s-ui/react-molecule-notification'
 
-import {BASE_CLASS} from './../../config.js'
-import useI18n from './../../hooks/useI18n.js'
+import {BASE_CLASS} from '../../config.js'
+import useI18n from '../../hooks/useI18n.js'
 const Notification = ({notificationText, handleResend}) => {
   const i18n = useI18n()
   return (

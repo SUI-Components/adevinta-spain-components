@@ -1,7 +1,7 @@
+import {BASE_CLASS} from '../../config.js'
 import useI18n from '../../hooks/useI18n.js'
-import {BASE_CLASS} from './../../config.js'
+import AtomIcon from '../Icon/Icon.js'
 import HelpContentTooltip from './HelpContentTooltip.js'
-import Icon from './Icon.js'
 
 const HelpContent = () => {
   const i18n = useI18n()
@@ -9,7 +9,7 @@ const HelpContent = () => {
     <div className={`${BASE_CLASS}-helpContent`}>
       {/* <Icon /> */}
       {/* <Icon icon={DEFAULT_TOOLTIP_INFO_ICON} /> */}
-      <Icon icon="https://frtassets.fotocasa.es/ut/statics/img/service-desk.svg" />
+      <AtomIcon icon="https://frtassets.fotocasa.es/ut/statics/img/service-desk.svg" />
 
       <div className="">
         <div className={`${BASE_CLASS}-helpContentTitle`}>

@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types'
 
-import PasswordResetHandler from './components/PasswordResetHandler.js'
+import PasswordReset from './components/Content/PasswordReset.js'
 import {STAGE_PASSWORD_CHANGE, STAGE_PASSWORD_RESET_START} from './config.js'
 import {PasswordResetProvider} from './context.js'
 
 export default function LoginPasswordReset(props) {
   return (
     <PasswordResetProvider {...props}>
-      <PasswordResetHandler icon={props.icon} />
+      <PasswordReset icon={props.icon} />
     </PasswordResetProvider>
   )
 }

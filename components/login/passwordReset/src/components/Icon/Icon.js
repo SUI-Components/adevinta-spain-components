@@ -5,7 +5,7 @@ import AtomIcon, {
   ATOM_ICON_SIZES
 } from '@s-ui/react-atom-icon'
 
-import {BASE_CLASS, DEFAULT_ATC_ICON} from './../../config.js'
+import {BASE_CLASS, DEFAULT_ATC_ICON} from '../../config.js'
 const Icon = ({icon: Image = DEFAULT_ATC_ICON}) => {
   const image =
     typeof Image === 'string' ? (

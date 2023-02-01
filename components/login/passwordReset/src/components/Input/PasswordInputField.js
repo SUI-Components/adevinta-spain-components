@@ -7,7 +7,7 @@ import MoleculeInputField from '@s-ui/react-molecule-input-field'
 import {
   DEFAULT_EYE_CLOSED_OUTLINE,
   DEFAULT_EYE_OPEN_OUTLINE
-} from './../../config.js'
+} from '../../config.js'
 
 const PasswordInputField = ({
   id,
