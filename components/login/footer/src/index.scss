@@ -1,0 +1,88 @@
+@import '~@s-ui/theme/lib/index';
+
+// Overwritable variables
+$bdt-login-footer: 1px solid #cbceec !default;
+$w-login-footer-logo: 80px !default;
+$c-login-footer-list-item: #000e23 !default;
+$c-login-footer-list-item-visited: #000e23 !default;
+$fw-login-footer-list-item-visited: $fw-regular !default;
+$c-login-footer-list-text: #7b7986 !default;
+$fw-login-footer-list-text: $fw-bold !default;
+$p-login-footer: $p-l !default;
+$fz-login-footer: 14px !default;
+$fz-login-footer-list-text: 14px !default;
+$z-login-footer: 800 !default;
+$td-login-footer-list-item: none !default;
+$td-login-footer-list-item-visited: none !default;
+
+.sui-LoginFooter {
+  border-top: $bdt-login-footer;
+  display: flex;
+  flex-direction: column;
+  font-size: $fz-login-footer;
+  padding: $p-login-footer;
+  z-index: $z-login-footer;
+
+  @include media-breakpoint-up(m) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  &-logo {
+    display: flex;
+    margin: $m-m 0 $m-xl;
+    width: $w-login-footer-logo;
+
+    @include media-breakpoint-up(m) {
+      margin: 0;
+    }
+
+    img {
+      width: $w-login-footer-logo;
+    }
+  }
+
+  &-list {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include media-breakpoint-up(m) {
+      align-items: center;
+      flex-direction: row;
+    }
+
+    &Item {
+      display: block;
+      margin: $m-m 0;
+
+      @include media-breakpoint-up(m) {
+        margin-left: $m-xl;
+      }
+
+      a {
+        color: $c-login-footer-list-item;
+        text-decoration: $td-login-footer-list-item;
+
+        &:visited {
+          color: $c-login-footer-list-item-visited;
+          font-weight: $fw-login-footer-list-item-visited;
+          text-decoration: $td-login-footer-list-item-visited;
+        }
+      }
+    }
+  }
+
+  &-text {
+    color: $c-login-footer-list-text;
+    font-size: $fz-login-footer-list-text;
+    font-weight: $fw-login-footer-list-text;
+  }
+}
