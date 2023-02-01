@@ -4,7 +4,7 @@ import AtomTooltip from '@s-ui/react-atom-tooltip'
 import {BASE_CLASS, DEFAULT_TOOLTIP_INFO_ICON} from '../../config.js'
 import useI18n from '../../hooks/useI18n.js'
 
-const MoleculeHelpContentTooltip = () => {
+const HelpContentTooltip = () => {
   const i18n = useI18n()
   const tooltipText = i18n.t('LOGIN_CROSS.PASSWORD_RESET.DOUBTS.TOOLTIP')
   const iconTooltip = (
@@ -35,6 +35,6 @@ const MoleculeHelpContentTooltip = () => {
   )
 }
 
-MoleculeHelpContentTooltip.displayName = 'MoleculeHelpContentTooltip'
+HelpContentTooltip.displayName = 'HelpContentTooltip'
 
-export default MoleculeHelpContentTooltip
+export default HelpContentTooltip

@@ -5,7 +5,7 @@ import AtomButton, {
 } from '@s-ui/react-atom-button'
 
 import useI18n from '../../hooks/useI18n.js'
-const MoleculeLoginButton = () => {
+const LoginButton = () => {
   const i18n = useI18n()
   return (
     <AtomButton
@@ -22,6 +22,6 @@ const MoleculeLoginButton = () => {
   )
 }
 
-MoleculeLoginButton.displayName = 'MoleculeLoginButton'
+LoginButton.displayName = 'LoginButton'
 
-export default MoleculeLoginButton
+export default LoginButton

@@ -9,7 +9,7 @@ import {
   DEFAULT_EYE_OPEN_OUTLINE
 } from '../../config.js'
 
-const MoleculePasswordInputField = ({
+const PasswordInputField = ({
   id,
   label,
   name,
@@ -46,8 +46,8 @@ const MoleculePasswordInputField = ({
   )
 }
 
-MoleculePasswordInputField.displayName = 'MoleculePasswordInputField'
-MoleculePasswordInputField.propTypes = {
+PasswordInputField.displayName = 'PasswordInputField'
+PasswordInputField.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string,
@@ -56,4 +56,4 @@ MoleculePasswordInputField.propTypes = {
   value: PropTypes.string
 }
 
-export default MoleculePasswordInputField
+export default PasswordInputField

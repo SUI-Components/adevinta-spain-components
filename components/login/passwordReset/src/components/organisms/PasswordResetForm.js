@@ -11,10 +11,10 @@ import MoleculeInputField from '@s-ui/react-molecule-input-field'
 import {BASE_CLASS} from '../../config.js'
 import useDomain from '../../hooks/useDomain.js'
 import useI18n from '../../hooks/useI18n.js'
-import MoleculeLoginButton from '../molecules/LoginButton.js'
+import LoginButton from '../molecules/LoginButton.js'
 import Notification from '../molecules/Notification.js'
 
-const OrganismPasswordResetForm = () => {
+const PasswordResetForm = () => {
   const [email, setEmail] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [errorText, setErrorText] = useState('')
@@ -115,13 +115,13 @@ const OrganismPasswordResetForm = () => {
           </div>
         ) : null}
         <div className={`${BASE_CLASS}-formButton`}>
-          <MoleculeLoginButton />
+          <LoginButton />
         </div>
       </div>
     </>
   )
 }
 
-OrganismPasswordResetForm.displayName = 'OrganismPasswordResetForm'
+PasswordResetForm.displayName = 'PasswordResetForm'
 
-export default OrganismPasswordResetForm
+export default PasswordResetForm

@@ -1,12 +1,12 @@
 import {BASE_CLASS, STAGE_PASSWORD_RESET_START} from '../../config.js'
-import TemplateForm from '../templates/Form.js'
-import OrganismStageInfo from '../organisms/StageInfo.js'
-import OrganismPasswordChangeForm from '../organisms/PasswordChangeForm.js'
-import OrganismPasswordResetForm from '../organisms/PasswordResetForm.js'
-import MoleculeUserAcquisitionText from '../atoms/UserAcquisitionText.js'
 import useGetCurrentToken from '../../hooks/useGetCurrentToken.js'
+import UserAcquisitionText from '../atoms/UserAcquisitionText.js'
+import PasswordChangeForm from '../organisms/PasswordChangeForm.js'
+import PasswordResetForm from '../organisms/PasswordResetForm.js'
+import StageInfo from '../organisms/StageInfo.js'
+import Form from '../templates/Form.js'
 
-const PagePasswordReset = () => {
+const PasswordReset = () => {
   const {getCurrentToken} = useGetCurrentToken()
   const {stage} = getCurrentToken()
   const isInitialStep = stage === STAGE_PASSWORD_RESET_START
@@ -14,27 +14,27 @@ const PagePasswordReset = () => {
   return (
     <div className={BASE_CLASS}>
       <div className={`${BASE_CLASS}-item`}>
-        <OrganismStageInfo />
+        <StageInfo />
       </div>
       <div className={`${BASE_CLASS}-item`}>
-        <TemplateForm>
+        <Form>
           {isInitialStep ? (
             <>
-              <OrganismPasswordResetForm />
-              <MoleculeUserAcquisitionText />
+              <PasswordResetForm />
+              <UserAcquisitionText />
             </>
           ) : (
             <>
-              <OrganismPasswordChangeForm />
+              <PasswordChangeForm />
             </>
           )}
-        </TemplateForm>
+        </Form>
       </div>
       <div className={`${BASE_CLASS}-item ${BASE_CLASS}-itemFalse`} />
     </div>
   )
 }
 
-PagePasswordReset.displayName = 'PagePasswordReset'
+PasswordReset.displayName = 'PasswordReset'
 
-export default PagePasswordReset
+export default PasswordReset

@@ -4,7 +4,7 @@ import MoleculeProgressSteps, {
 
 import {BASE_CLASS} from '../../config.js'
 import useGetStageInfoStep from '../../hooks/components/useGetStageInfoStep.js'
-const OrganismStageInfo = () => {
+const StageInfo = () => {
   const {getStageInfoData} = useGetStageInfoStep()
 
   const {title, message, initialStepperState, endStepperState} =
@@ -30,6 +30,6 @@ const OrganismStageInfo = () => {
   )
 }
 
-OrganismStageInfo.displayName = 'OrganismStageInfo'
+StageInfo.displayName = 'StageInfo'
 
-export default OrganismStageInfo
+export default StageInfo

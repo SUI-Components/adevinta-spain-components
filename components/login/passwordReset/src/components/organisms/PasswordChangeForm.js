@@ -10,8 +10,8 @@ import {BASE_CLASS} from '../../config.js'
 import useDomain from '../../hooks/useDomain.js'
 import useGetCurrentToken from '../../hooks/useGetCurrentToken.js'
 import useI18n from '../../hooks/useI18n.js'
-import MoleculePasswordInputField from '../molecules/PasswordInputField.js'
-const OrganismPasswordChangeForm = () => {
+import PasswordInputField from '../molecules/PasswordInputField.js'
+const PasswordChangeForm = () => {
   const i18n = useI18n()
   const domain = useDomain()
   const {getCurrentToken} = useGetCurrentToken()
@@ -47,7 +47,7 @@ const OrganismPasswordChangeForm = () => {
   return (
     <>
       <div className={`${BASE_CLASS}-formInput`}>
-        <MoleculePasswordInputField
+        <PasswordInputField
           // errorText={errorText}
           id="new_password"
           label={i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.NEW_PASSWORD_LABEL')}
@@ -58,7 +58,7 @@ const OrganismPasswordChangeForm = () => {
         />
       </div>
       <div className={`${BASE_CLASS}-formInput`}>
-        <MoleculePasswordInputField
+        <PasswordInputField
           // errorText={errorText}
           id="repeat_password"
           label={i18n.t(
@@ -88,6 +88,6 @@ const OrganismPasswordChangeForm = () => {
   )
 }
 
-OrganismPasswordChangeForm.displayName = 'OrganismPasswordChangeForm'
+PasswordChangeForm.displayName = 'PasswordChangeForm'
 
-export default OrganismPasswordChangeForm
+export default PasswordChangeForm
