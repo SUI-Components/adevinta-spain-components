@@ -42,7 +42,13 @@ export default {
         ERRORS: {
           INVALID_INPUT:
             'La contraseña debe contener un mínimo de 8 letras o números',
-          INVALID_PASSWORDS: 'Las contraseñas no coinciden.'
+          INVALID_PASSWORDS: 'Las contraseñas no coinciden.',
+          SERVER_ERROR:
+            'Hemos detectado un error. Vuelve a intentarlo en unos minutos.'
+        },
+        SUCCESS: {
+          PASSWORD_CHANGED:
+            '¡La contraseña ha sido modificada con éxito! Dirígete a la pantalla de iniciar sesión para acceder a la herramienta'
         }
       },
       REMEMBER_PASSWORD_TITLE: 'Recuperar contraseña',
