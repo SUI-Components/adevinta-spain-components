@@ -21,7 +21,14 @@ $ npm install @s-ui/sui-login-password-reset
 ```js
 import LoginPasswordReset from '@s-ui/sui-login-password-reset'
 
-return (<LoginPasswordReset />)
+const icons = {
+  helpContent: 'https://frtassets.fotocasa.es/ut/statics/img/service-desk.svg',
+  helpContentInfoTooltip: <InfoOutline />,
+  inputShowPassword: <EyeOffOutline size="medium" />,
+  inputHidePassword: <EyeOpenOutline size="medium" />
+}
+
+return (<LoginPasswordReset icons={icons} />)
 ```
 
 #### Import the styles (Sass)

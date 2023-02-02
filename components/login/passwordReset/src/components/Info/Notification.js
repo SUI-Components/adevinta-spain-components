@@ -22,6 +22,12 @@ const Notification = ({notificationText, handleResend}) => {
         variation={VARIATIONS.negative}
       />
       <p className={`${BASE_CLASS}-formText`}>
+        <div
+          className={`${BASE_CLASS}-formTextTitle`}
+          dangerouslySetInnerHTML={{
+            __html: i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.RESEND_TITLE')
+          }}
+        />
         <span
           dangerouslySetInnerHTML={{
             __html: i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.RESEND_TEXT')

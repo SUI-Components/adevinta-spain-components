@@ -8,11 +8,11 @@ const HelpContentTooltip = () => {
   const i18n = useI18n()
   const tooltipText = i18n.t('LOGIN_CROSS.PASSWORD_RESET.DOUBTS.TOOLTIP')
   const iconTooltip = (
-    <div className={`${BASE_CLASS}-helpContentIconTooltip`}>
+    <span className={`${BASE_CLASS}-helpContentIconTooltip`}>
       <AtomIcon size={ATOM_ICON_SIZES.medium}>
         {DEFAULT_TOOLTIP_INFO_ICON}
       </AtomIcon>
-    </div>
+    </span>
   )
 
   const ATOM_TOOLTIP_OPTION = {

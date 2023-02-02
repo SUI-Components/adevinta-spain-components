@@ -19,7 +19,8 @@ export default {
         },
         RETURN_BUTTON: 'Volver a iniciar sesión',
         RESEND_TEXT:
-          '<strong>¿No has recibido aún el email?</strong> Espera unos minutos, comprueba tu bandeja de SPAM y si sigues sin recibirlo clica en este',
+          'Espera unos minutos, comprueba tu bandeja de SPAM y si sigues sin recibirlo clica en este',
+        RESEND_TITLE: '<strong>¿No has recibido aún el email?</strong>',
         RESEND_LINK: 'enlace',
         SUCCESS: {
           EMAIL_SENDED:
