@@ -1,5 +1,7 @@
 import {useState} from 'react'
 
+import PropTypes from 'prop-types'
+
 import AtomButton, {
   // atomButtonDesigns,
   atomButtonShapes,
@@ -11,7 +13,7 @@ import useDomain from '../../hooks/useDomain.js'
 import useGetCurrentToken from '../../hooks/useGetCurrentToken.js'
 import useI18n from '../../hooks/useI18n.js'
 import PasswordInputField from '../Input/PasswordInputField.js'
-const PasswordChangeForm = () => {
+const PasswordChangeForm = ({icons}) => {
   const i18n = useI18n()
   const domain = useDomain()
   const {getCurrentToken} = useGetCurrentToken()
@@ -55,6 +57,7 @@ const PasswordChangeForm = () => {
           onChange={handleChange}
           placeholder={i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.PLACEHOLDER')}
           value={newPassword}
+          icons={icons}
         />
       </div>
       <div className={`${BASE_CLASS}-formInput`}>
@@ -68,6 +71,7 @@ const PasswordChangeForm = () => {
           onChange={handleChangeRepeat}
           placeholder={i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.PLACEHOLDER')}
           value={repeatPassword}
+          icons={icons}
         />
       </div>
       <div className={`${BASE_CLASS}-formButtons`}>
@@ -89,5 +93,7 @@ const PasswordChangeForm = () => {
 }
 
 PasswordChangeForm.displayName = 'PasswordChangeForm'
-
+PasswordChangeForm.propTypes = {
+  icons: PropTypes.arrayOf(PropTypes.object)
+}
 export default PasswordChangeForm

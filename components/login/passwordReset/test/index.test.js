@@ -5,14 +5,14 @@
 /* eslint react/jsx-no-undef:0 */
 /* eslint no-undef:0 */
 
+import '../src/domain/test/index.js'
+
 import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
 import Component from '../src/index.js'
-
-import '../src/domain/test/index.js'
 chai.use(chaiDOM)
 
 describe('LoginPasswordReset', () => {

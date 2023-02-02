@@ -10,6 +10,7 @@ import {
 } from '../../config.js'
 
 const PasswordInputField = ({
+  icons,
   id,
   label,
   name,
@@ -31,8 +32,8 @@ const PasswordInputField = ({
       type={fieldType}
       rightIcon={
         fieldType === 'sui-password'
-          ? DEFAULT_EYE_CLOSED_OUTLINE
-          : DEFAULT_EYE_OPEN_OUTLINE
+          ? icons.inputShowPassword || DEFAULT_EYE_CLOSED_OUTLINE
+          : icons.inputHidePassword || DEFAULT_EYE_OPEN_OUTLINE
       }
       onClickRightIcon={() =>
         fieldType === 'sui-password'
@@ -48,6 +49,7 @@ const PasswordInputField = ({
 
 PasswordInputField.displayName = 'PasswordInputField'
 PasswordInputField.propTypes = {
+  icons: PropTypes.arrayOf(PropTypes.object),
   id: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string,
