@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.22.0 (2023-02-02)
+
+
+### Features
+
+* **components/login/passwordReset:** Move PasswordResetForm state management to a custom hook using ([b4475c0](https://github.com/SUI-Components/adevinta-spain-components/commit/b4475c0afe7f96ce2f8bf5d29fe19da2c9f35920))
+
+
+
 # 1.21.0 (2023-02-02)
 
 
