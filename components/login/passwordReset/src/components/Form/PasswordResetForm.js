@@ -11,14 +11,17 @@ import MoleculeInputField from '@s-ui/react-molecule-input-field'
 import {BASE_CLASS} from '../../config.js'
 import useDomain from '../../hooks/useDomain.js'
 import useI18n from '../../hooks/useI18n.js'
-import LoginButton from '../Input/LoginButton.js'
 import Notification from '../Info/Notification.js'
+import LoginButton from '../Input/LoginButton.js'
 
 const PasswordResetForm = () => {
   const [email, setEmail] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [errorText, setErrorText] = useState('')
-  const [notificationText, setNotificationText] = useState('')
+  const [notificationState, setNotificationState] = useState({
+    text: '',
+    isError: false
+  })
 
   const i18n = useI18n()
   const domain = useDomain()
@@ -34,55 +37,66 @@ const PasswordResetForm = () => {
   }
 
   const handleChange = e => {
-    console.log('handleChange')
     const {value} = e?.target
     setEmail(value)
     checkIfInputIsEmpty(value)
     setIsLoading(false)
   }
 
-  const handleSubmit = () => {
-    console.log('handleSubmit: Call to use case')
-    setIsLoading(true)
-
+  const executeResetPasswordUseCase = ({onSuccessText}) => {
     domain
       .get('reset_password_use_case')
       .execute({email})
       .then(([error, result]) => {
         if (error) {
-          console.log('error', error)
-          setNotificationText(
-            i18n.t('LOGIN_CROSS.PASSWORD_RESET.ERRORS.GENERIC_ERROR')
-          ) // FAIL
-          setIsLoading(false)
+          setNotificationState({
+            text: i18n.t('LOGIN_CROSS.PASSWORD_RESET.ERRORS.GENERIC_ERROR'),
+            isError: true
+          })
         } else {
-          console.log('result', result)
-          setNotificationText(
-            i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUCCESS.EMAIL_SENDED', {
-              email
-            })
-          ) // SUCCESS
-          setIsLoading(false)
+          setNotificationState({
+            text: onSuccessText,
+            isError: false
+          })
         }
+        setIsLoading(false)
       })
   }
 
+  const handleSubmit = () => {
+    setIsLoading(true)
+
+    executeResetPasswordUseCase({
+      onSuccessText: i18n.t(
+        'LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUCCESS.EMAIL_SENDED',
+        {
+          email
+        }
+      )
+    })
+  }
+
   const handleResend = () => {
-    console.log('handleResend')
-    setNotificationText(
-      i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUCCESS.EMAIL_RESEND', {email})
-    ) // SUCCESS
+    executeResetPasswordUseCase({
+      onSuccessText: i18n.t(
+        'LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUCCESS.EMAIL_RESEND',
+        {
+          email
+        }
+      )
+    })
   }
 
   return (
     <>
-      {notificationText ? (
+      {notificationState.text ? (
         <Notification
-          notificationText={notificationText}
+          notificationText={notificationState.text}
+          isError={notificationState.isError}
           handleResend={handleResend}
         />
       ) : null}
-      {!notificationText ? (
+      {!notificationState.text ? (
         <div className={`${BASE_CLASS}-formInput`}>
           <MoleculeInputField
             errorText={errorText}
@@ -100,7 +114,7 @@ const PasswordResetForm = () => {
         </div>
       ) : null}
       <div className={`${BASE_CLASS}-formButtons`}>
-        {!notificationText ? (
+        {!notificationState.text ? (
           <div className={`${BASE_CLASS}-formButton`}>
             <AtomButton
               // disabled={} // TODO

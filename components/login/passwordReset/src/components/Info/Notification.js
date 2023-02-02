@@ -8,7 +8,7 @@ import MoleculeNotification, {
 
 import {BASE_CLASS} from '../../config.js'
 import useI18n from '../../hooks/useI18n.js'
-const Notification = ({notificationText, handleResend}) => {
+const Notification = ({notificationText, handleResend, isError = false}) => {
   const i18n = useI18n()
   return (
     <div className={`${BASE_CLASS}-formNotification`}>
@@ -18,7 +18,7 @@ const Notification = ({notificationText, handleResend}) => {
         roundedCorners={BRDS_SIZE.medium}
         showCloseButton={false}
         text={notificationText}
-        type={TYPES.success}
+        type={isError ? TYPES.error : TYPES.success}
         variation={VARIATIONS.negative}
       />
       <p className={`${BASE_CLASS}-formText`}>
@@ -47,7 +47,8 @@ Notification.displayName = 'Notification'
 
 Notification.propTypes = {
   handleResend: PropTypes.func,
-  notificationText: PropTypes.string
+  notificationText: PropTypes.string,
+  isError: PropTypes.bool
 }
 
 export default Notification
