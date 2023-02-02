@@ -7,7 +7,7 @@ import {PasswordResetProvider} from './context.js'
 export default function LoginPasswordReset(props) {
   return (
     <PasswordResetProvider {...props}>
-      <PasswordReset icons={props.icons} />
+      <PasswordReset icons={props.icons || {}} />
     </PasswordResetProvider>
   )
 }
