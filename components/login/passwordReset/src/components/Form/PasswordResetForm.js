@@ -1,6 +1,3 @@
-// import {Link} from 'react-router-dom'
-import {useState} from 'react'
-
 import AtomButton, {
   // atomButtonDesigns,
   atomButtonShapes,
@@ -9,6 +6,7 @@ import AtomButton, {
 import MoleculeInputField from '@s-ui/react-molecule-input-field'
 
 import {BASE_CLASS} from '../../config.js'
+import usePasswordResetFormState from '../../hooks/components/usePasswordResetFormState.js'
 import useDomain from '../../hooks/useDomain.js'
 import useI18n from '../../hooks/useI18n.js'
 import Notification from '../Info/Notification.js'
@@ -16,13 +14,13 @@ import ResendText from '../Info/ResendText.js'
 import LoginButton from '../Input/LoginButton.js'
 
 const PasswordResetForm = () => {
-  const [email, setEmail] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
-  const [errorText, setErrorText] = useState('')
-  const [notificationState, setNotificationState] = useState({
-    text: '',
-    isError: false
-  })
+  const {
+    state: {email, isLoading, errorText, notification},
+    setEmail,
+    setNotification,
+    setIsLoading,
+    setErrorText
+  } = usePasswordResetFormState()
 
   const i18n = useI18n()
   const domain = useDomain()
@@ -41,7 +39,6 @@ const PasswordResetForm = () => {
     const {value} = e?.target
     setEmail(value)
     checkIfInputIsEmpty(value)
-    setIsLoading(false)
   }
 
   const executeResetPasswordUseCase = ({onSuccessText}) => {
@@ -49,16 +46,15 @@ const PasswordResetForm = () => {
       .get('reset_password_use_case')
       .execute({email})
       .then(([error]) => {
-        setIsLoading(false)
         if (error) {
-          setNotificationState({
+          setNotification({
             text: i18n.t('LOGIN_CROSS.PASSWORD_RESET.ERRORS.GENERIC_ERROR'),
             isError: true
           })
           return
         }
 
-        setNotificationState({
+        setNotification({
           text: onSuccessText,
           isError: false
         })
@@ -91,16 +87,16 @@ const PasswordResetForm = () => {
 
   return (
     <>
-      {notificationState.text ? (
+      {notification.text ? (
         <>
           <Notification
-            notificationText={notificationState.text}
-            isError={notificationState.isError}
+            notificationText={notification.text}
+            isError={notification.isError}
           />
           <ResendText handleResend={handleResend} />
         </>
       ) : null}
-      {!notificationState.text ? (
+      {!notification.text ? (
         <div className={`${BASE_CLASS}-formInput`}>
           <MoleculeInputField
             errorText={errorText}
@@ -118,7 +114,7 @@ const PasswordResetForm = () => {
         </div>
       ) : null}
       <div className={`${BASE_CLASS}-formButtons`}>
-        {!notificationState.text ? (
+        {!notification.text ? (
           <div className={`${BASE_CLASS}-formButton`}>
             <AtomButton
               // disabled={} // TODO
