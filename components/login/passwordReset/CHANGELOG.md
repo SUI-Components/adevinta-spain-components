@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.18.0 (2023-02-02)
+
+
+### Features
+
+* **components/login/passwordReset:** add new icons ([b59a890](https://github.com/SUI-Components/adevinta-spain-components/commit/b59a89087795589fced20d8511f93d703221b0c3))
+* **components/login/passwordReset:** update tests ([647f04f](https://github.com/SUI-Components/adevinta-spain-components/commit/647f04fa17165c60bbce5f8c558908f575c4a558))
+
+
+
 # 1.17.0 (2023-02-02)
 
 
