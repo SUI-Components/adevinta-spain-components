@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.19.0 (2023-02-02)
+
+
+### Features
+
+* **components/login/passwordReset:** Display error notification when an error occurs ([5cd8611](https://github.com/SUI-Components/adevinta-spain-components/commit/5cd861148fef95a82e1912e84f1cf684b0477fa2))
+
+
+
 # 1.18.0 (2023-02-02)
 
 
