@@ -12,6 +12,7 @@ import {BASE_CLASS} from '../../config.js'
 import useDomain from '../../hooks/useDomain.js'
 import useI18n from '../../hooks/useI18n.js'
 import Notification from '../Info/Notification.js'
+import ResendText from '../Info/ResendText.js'
 import LoginButton from '../Input/LoginButton.js'
 
 const PasswordResetForm = () => {
@@ -47,19 +48,20 @@ const PasswordResetForm = () => {
     domain
       .get('reset_password_use_case')
       .execute({email})
-      .then(([error, result]) => {
+      .then(([error]) => {
+        setIsLoading(false)
         if (error) {
           setNotificationState({
             text: i18n.t('LOGIN_CROSS.PASSWORD_RESET.ERRORS.GENERIC_ERROR'),
             isError: true
           })
-        } else {
-          setNotificationState({
-            text: onSuccessText,
-            isError: false
-          })
+          return
         }
-        setIsLoading(false)
+
+        setNotificationState({
+          text: onSuccessText,
+          isError: false
+        })
       })
   }
 
@@ -90,11 +92,13 @@ const PasswordResetForm = () => {
   return (
     <>
       {notificationState.text ? (
-        <Notification
-          notificationText={notificationState.text}
-          isError={notificationState.isError}
-          handleResend={handleResend}
-        />
+        <>
+          <Notification
+            notificationText={notificationState.text}
+            isError={notificationState.isError}
+          />
+          <ResendText handleResend={handleResend} />
+        </>
       ) : null}
       {!notificationState.text ? (
         <div className={`${BASE_CLASS}-formInput`}>
