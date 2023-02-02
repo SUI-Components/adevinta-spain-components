@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.2.0 (2023-02-02)
+
+
+### Features
+
+* **components/login/header:** update mobile padding login header ([375b7b3](https://github.com/SUI-Components/adevinta-spain-components/commit/375b7b34ac6bf1bd34623eecc6fb23a8de526cdb))
+
+
+
 # 1.1.0 (2023-01-31)
 
 
