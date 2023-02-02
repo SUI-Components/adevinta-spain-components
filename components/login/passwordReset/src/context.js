@@ -22,7 +22,7 @@ const PasswordResetProvider = ({
   const domain = new Domain()
   const config = domain.get('config')
   config.set('RESET_PASSWORD_ENDPOINT', endpoints.resetPassword)
-  config.set('CHANGE_PASSWORD_ENDPOINT', endpoints.resetPassword)
+  config.set('CHANGE_PASSWORD_ENDPOINT', endpoints.changePassword)
 
   const i18n = useI18nInitializer(
     config.get('DEFAULT_CULTURE'),
