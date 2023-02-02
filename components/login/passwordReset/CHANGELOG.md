@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.17.0 (2023-02-02)
+
+
+### Features
+
+* **components/login/passwordReset:** Adjust which endpoint is called to change password ([5cc8955](https://github.com/SUI-Components/adevinta-spain-components/commit/5cc89550c83b32b0cd0602427d5d0a3f91700299))
+
+
+
 # 1.16.0 (2023-02-01)
 
 
