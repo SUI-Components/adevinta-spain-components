@@ -1,10 +1,15 @@
 # CHANGELOG
 
+# 1.21.0 (2023-02-02)
+
+
+
 # 1.20.0 (2023-02-02)
 
 
 ### Features
 
+* **components/login/passwordReset:** Display success or error notification when finish password cha ([79fa32a](https://github.com/SUI-Components/adevinta-spain-components/commit/79fa32aaa100bf082dbe26488ab04bd80f3d43e0))
 * **components/login/passwordReset:** update max and min width reset password component ([bfddd52](https://github.com/SUI-Components/adevinta-spain-components/commit/bfddd5294151fe6128b869d6f84b7c2d299d60ea))
 
 
