@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.20.0 (2023-02-02)
+
+
+### Features
+
+* **components/login/passwordReset:** update max and min width reset password component ([bfddd52](https://github.com/SUI-Components/adevinta-spain-components/commit/bfddd5294151fe6128b869d6f84b7c2d299d60ea))
+
+
+
 # 1.19.0 (2023-02-02)
 
 
