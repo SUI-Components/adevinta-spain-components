@@ -4,7 +4,8 @@
 // Overwritable variables
 $bgc-login-header: $c-primary !default;
 $h-login-header: 56px !default;
-$p-login-header: 0 $p-xl !default;
+$p-login-header: $p-l $p-xl !default;
+$p-login-header-desktop: 0 $p-xl !default;
 $w-login-header-image: 80px !default;
 
 .sui-LoginHeader {
@@ -14,6 +15,10 @@ $w-login-header-image: 80px !default;
   justify-content: space-between;
   height: $h-login-header;
   padding: $p-login-header;
+
+  @include media-breakpoint-up(m) {
+    padding: $p-login-header-desktop;
+  }
 
   &-image {
     width: $w-login-header-image;

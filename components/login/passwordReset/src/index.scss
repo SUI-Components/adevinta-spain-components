@@ -10,6 +10,7 @@
 $maw-login-password-reset: 1280px;
 $w-login-password-reset-item: 308px;
 $w-login-password-reset-item-large: 416px;
+$miw-login-password-reset-item-large: 384px;
 
 // Overwritable variables
 $bd-login-password-reset-form-help-content: 1px solid #d1d0d5 !default;
@@ -33,6 +34,7 @@ $lh-login-password-reset-form-title: 22px !default;
 $lh-login-password-reset-message: 22px !default;
 $lh-login-password-reset-form-footer: 20px !default;
 $p-login-password-reset-form-help-content: $p-l $p-m !default;
+$p-login-password-reset: 80px $p-l !default;
 $sz-login-password-reset-form-help-content-image: 48px !default;
 $td-login-password-reset-form-text-anchor: underline !default;
 
@@ -52,14 +54,17 @@ $td-login-password-reset-form-text-anchor: underline !default;
   }
 
   &-item {
+    margin-bottom: 24px;
     width: 100%;
 
     @include media-breakpoint-up(s) {
-      width: auto;
+      max-width: $w-login-password-reset-item-large;
+      min-width: $miw-login-password-reset-item-large;
     }
 
     @include media-breakpoint-up(m) {
       flex-basis: 33.33%;
+      margin-bottom: 0;
       margin-right: $m-xxl;
     }
 
