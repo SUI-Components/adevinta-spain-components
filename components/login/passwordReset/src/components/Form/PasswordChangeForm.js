@@ -1,5 +1,3 @@
-import {useState} from 'react'
-
 import PropTypes from 'prop-types'
 
 import AtomButton, {
@@ -9,23 +7,26 @@ import AtomButton, {
 } from '@s-ui/react-atom-button'
 
 import {BASE_CLASS} from '../../config.js'
+import usePasswordChangeFormState from '../../hooks/components/usePasswordChangeFormState.js'
 import useDomain from '../../hooks/useDomain.js'
 import useGetCurrentToken from '../../hooks/useGetCurrentToken.js'
 import useI18n from '../../hooks/useI18n.js'
 import Notification from '../Info/Notification.js'
 import LoginButton from '../Input/LoginButton.js'
 import PasswordInputField from '../Input/PasswordInputField.js'
+
 const PasswordChangeForm = ({icons}) => {
   const i18n = useI18n()
   const domain = useDomain()
   const {getCurrentToken} = useGetCurrentToken()
   const {token} = getCurrentToken()
-  const [newPassword, setNewPassword] = useState('')
-  const [repeatPassword, setRepeatPassword] = useState('')
-  const [notificationState, setNotificationState] = useState({
-    text: '',
-    isError: false
-  })
+  const {
+    state: {newPassword, repeatPassword, isLoading, notification},
+    setNewPassword,
+    setRepeatPassword,
+    setNotification,
+    setIsLoading
+  } = usePasswordChangeFormState()
 
   const handleChange = e => {
     const {value} = e?.target
@@ -37,12 +38,13 @@ const PasswordChangeForm = ({icons}) => {
   }
 
   const handleSubmit = () => {
+    setIsLoading(true)
     domain
       .get('change_password_use_case')
       .execute({password: newPassword, token})
       .then(([error]) => {
         if (error) {
-          setNotificationState({
+          setNotification({
             text: i18n.t(
               'LOGIN_CROSS.PASSWORD_RESET.STEP_2.ERRORS.SERVER_ERROR'
             ),
@@ -51,7 +53,7 @@ const PasswordChangeForm = ({icons}) => {
           return
         }
 
-        setNotificationState({
+        setNotification({
           text: i18n.t(
             'LOGIN_CROSS.PASSWORD_RESET.STEP_2.SUCCESS.PASSWORD_CHANGED'
           ),
@@ -62,11 +64,11 @@ const PasswordChangeForm = ({icons}) => {
 
   return (
     <>
-      {notificationState.text ? (
+      {notification.text ? (
         <>
           <Notification
-            notificationText={notificationState.text}
-            isError={notificationState.isError}
+            notificationText={notification.text}
+            isError={notification.isError}
           />
           <div className={`${BASE_CLASS}-formButtons`}>
             <div className={`${BASE_CLASS}-formButton`}>
@@ -75,7 +77,7 @@ const PasswordChangeForm = ({icons}) => {
           </div>
         </>
       ) : null}
-      {!notificationState.text ? (
+      {!notification.text ? (
         <>
           <div className={`${BASE_CLASS}-formInput`}>
             <PasswordInputField
@@ -114,7 +116,7 @@ const PasswordChangeForm = ({icons}) => {
               <AtomButton
                 // disabled={}  // TODO
                 fullWidth
-                // isLoading={isLoading}  // TODO
+                isLoading={isLoading} // TODO
                 onClick={handleSubmit}
                 shape={atomButtonShapes.CIRCULAR}
                 size={atomButtonSizes.LARGE}
