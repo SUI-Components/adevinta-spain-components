@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.23.0 (2023-02-02)
+
+
+### Features
+
+* **components/login/passwordReset:** Start using reducers on PasswordChangeForm ([93f7476](https://github.com/SUI-Components/adevinta-spain-components/commit/93f747645dcd35622716a119f22c5df5411c43fa))
+
+
+
 # 1.22.0 (2023-02-02)
 
 
