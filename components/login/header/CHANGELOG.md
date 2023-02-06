@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.3.0 (2023-02-06)
+
+
+### Features
+
+* **components/login/header:** add link to login header logo ([58722f5](https://github.com/SUI-Components/adevinta-spain-components/commit/58722f5074ae5f688cd41416966009014e995b49))
+
+
+
 # 1.2.0 (2023-02-02)
 
 
