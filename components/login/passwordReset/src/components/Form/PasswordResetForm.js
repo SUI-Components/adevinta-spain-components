@@ -31,8 +31,31 @@ const PasswordResetForm = () => {
     return isEmpty
   }
 
+  const validateErrors = value => {
+    domain
+      .get('validate_email_password_use_case')
+      .execute({email: value})
+      .then(([error]) => {
+        if (error === null) return
+
+        if (error.constructor.name === 'InvalidEmailPasswordError') {
+          setErrorText(
+            i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.ERRORS.INVALID_EMAIL')
+          )
+          return
+        }
+
+        if (error.constructor.name === 'EmptyEmailPasswordError') {
+          setErrorText(
+            i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.ERRORS.EMPTY_EMAIL')
+          )
+        }
+      })
+  }
+
   const handleChange = e => {
     const {value} = e?.target
+    validateErrors(value)
     setEmail(value)
     checkIfInputIsEmpty(value)
   }
@@ -111,7 +134,11 @@ const PasswordResetForm = () => {
       ) : null}
       <div className={`${BASE_CLASS}-formButtons`}>
         {!notification.text ? (
-          <SubmitButton isLoading={isLoading} onClick={handleSubmit}>
+          <SubmitButton
+            isEnabled={errorText.length < 1}
+            isLoading={isLoading}
+            onClick={handleSubmit}
+          >
             {i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUBMIT_BUTTON')}
           </SubmitButton>
         ) : null}

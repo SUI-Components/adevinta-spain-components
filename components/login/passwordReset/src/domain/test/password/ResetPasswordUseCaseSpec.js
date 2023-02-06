@@ -35,7 +35,7 @@ describe('[Domain] ResetPasswordUseCase', () => {
 
   it('should return an exception if something goes wrong', async () => {
     const requestBody = {
-      email: 'something-wrong'
+      email: 'something-wrong@adevinta.com'
     }
 
     mocker

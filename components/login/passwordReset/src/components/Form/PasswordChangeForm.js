@@ -109,7 +109,11 @@ const PasswordChangeForm = ({icons}) => {
             />
           </div>
           <div className={`${BASE_CLASS}-formButtons`}>
-            <SubmitButton isLoading={isLoading} onClick={handleSubmit}>
+            <SubmitButton
+              isEnabled={true}
+              isLoading={isLoading}
+              onClick={handleSubmit}
+            >
               {i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.SUBMIT_BUTTON')}
             </SubmitButton>
           </div>
