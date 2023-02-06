@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.24.0 (2023-02-06)
+
+
+### Features
+
+* **components/login/passwordReset:** Display an error if token is expired ([5c5e71b](https://github.com/SUI-Components/adevinta-spain-components/commit/5c5e71b4886954f1ec60d5a0c994b183e01c1a7a))
+
+
+
 # 1.23.0 (2023-02-02)
 
 
