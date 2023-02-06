@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.26.0 (2023-02-06)
+
+
+### Features
+
+* **components/login/passwordReset:** Add new scss variables to login reset password component ([e0706ce](https://github.com/SUI-Components/adevinta-spain-components/commit/e0706cee1987fa80f212594d573e84a0daf223d9))
+
+
+
 # 1.25.0 (2023-02-06)
 
 
