@@ -3,6 +3,7 @@ import {PasswordServicesFactory} from '../Services/factory.js'
 import {ChangePasswordUseCase} from './ChangePasswordUseCase.js'
 import {ResetPasswordUseCase} from './ResetPasswordUseCase.js'
 import {ValidateEmailPasswordUseCase} from './ValidateEmailPasswordUseCase.js'
+import {ValidatePasswordUseCase} from './ValidatePasswordUseCase.js'
 
 export default class PasswordUseCasesFactory {
   static changePasswordUseCase = ({config}) =>
@@ -27,5 +28,11 @@ export default class PasswordUseCasesFactory {
     new ValidateEmailPasswordUseCase({
       config,
       resetPasswordRequest: PasswordRequestsFactory.resetPasswordRequest
+    })
+
+  static validatePasswordUseCase = ({config}) =>
+    new ValidatePasswordUseCase({
+      config,
+      changePasswordRequest: PasswordRequestsFactory.changePasswordRequest
     })
 }

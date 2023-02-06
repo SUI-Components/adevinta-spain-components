@@ -8,4 +8,20 @@ export class ChangePasswordRequest extends ValueObject {
   getToken() {
     return this._token
   }
+
+  static validate({
+    password,
+    emptyPasswordErrorFactory,
+    invalidPasswordErrorFactory
+  }) {
+    if (password.length === 0) {
+      throw emptyPasswordErrorFactory()
+    }
+
+    const isValidPassword = password.length >= 8
+
+    if (!isValidPassword) {
+      throw invalidPasswordErrorFactory()
+    }
+  }
 }

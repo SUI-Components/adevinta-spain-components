@@ -11,7 +11,7 @@ export class ChangePasswordUseCase extends UseCase {
 
   @inlineError
   async execute({password, token}) {
-    const changePasswordRequest = new this._changePasswordRequest({
+    const changePasswordRequest = this._changePasswordRequest({
       password,
       token
     })

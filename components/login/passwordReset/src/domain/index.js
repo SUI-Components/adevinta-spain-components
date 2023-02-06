@@ -10,7 +10,8 @@ const passwordUseCases = {
   validate_email_password_use_case: [
     importPasswordFactory,
     'validateEmailPasswordUseCase'
-  ]
+  ],
+  validate_password_use_case: [importPasswordFactory, 'validatePasswordUseCase']
 }
 
 const useCases = {
