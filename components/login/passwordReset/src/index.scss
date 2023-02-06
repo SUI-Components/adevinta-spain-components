@@ -24,17 +24,28 @@ $c-login-password-reset-form-help-content-icon-tooltip: $c-primary !default;
 $c-login-password-reset-form-text-anchor: #1d1d1d !default;
 $c-login-password-reset-form-title: #1d1d1d !default;
 $c-login-password-reset-main: #4d4d4d !default;
-$c-login-password-reset-main-text: #3b4a5a !default;
+$c-login-password-reset-stage-info-text: #3b4a5a !default;
+$fw-login-password-reset-form-help-content-title-anchor: 600 !default;
+$fw-login-password-reset-form-help-content-text-anchor: 600 !default;
+$fw-login-password-reset-form-text-title: 600 !default;
+$fw-login-password-reset-form-text-anchor: 600 !default;
+$fw-login-password-reset-form-title: 600 !default;
 $fz-login-password-reset-form-help-content-title: 14px !default;
 $fz-login-password-reset-form-help-content-text: 14px !default;
+$fz-login-password-reset-stage-info-title: 34px !default;
 $fz-login-password-reset-form-text: 14px !default;
-$fz-login-password-reset-form-title: 16px !default;
+$fz-login-password-reset-form-text-title: 16px !default;
+$fz-login-password-reset-form-title: 20px !default;
+$fz-login-password-reset-stage-info-text: 16px !default;
 $lh-login-password-reset-form-text: 20px !default;
-$lh-login-password-reset-form-title: 22px !default;
+$lh-login-password-reset-form-text-title: 22px !default;
 $lh-login-password-reset-message: 22px !default;
 $lh-login-password-reset-form-footer: 20px !default;
+$lh-login-password-reset-stage-info-title: 34px !default;
 $p-login-password-reset-form-help-content: $p-l $p-m !default;
 $p-login-password-reset: 80px $p-l !default;
+$p-login-password-reset-form: $p-xl $p-l !default;
+$p-login-password-reset-form-desktop: $p-xl $p-xxl !default;
 $sz-login-password-reset-form-help-content-image: 48px !default;
 $td-login-password-reset-form-text-anchor: underline !default;
 
@@ -45,16 +56,16 @@ $td-login-password-reset-form-text-anchor: underline !default;
   flex-direction: column;
   margin: 0 auto;
   max-width: $maw-login-password-reset;
-  padding: $p-xl $p-l;
+  padding: $p-xl 0;
 
   @include media-breakpoint-up(m) {
     align-items: flex-start;
     flex-direction: row;
-    padding: 80px $p-l; // TODO
+    padding: $p-login-password-reset;
   }
 
   &-item {
-    margin-bottom: 24px;
+    margin-bottom: $m-xl;
     width: 100%;
 
     @include media-breakpoint-up(s) {
@@ -93,12 +104,15 @@ $td-login-password-reset-form-text-anchor: underline !default;
     }
 
     &Title {
+      font-size: $fz-login-password-reset-stage-info-title;
       letter-spacing: -1px;
+      line-height: $lh-login-password-reset-stage-info-title;
       margin: 0;
     }
 
     &Message {
-      color: $c-login-password-reset-main-text;
+      color: $c-login-password-reset-stage-info-text;
+      font-size: $fz-login-password-reset-stage-info-text;
       line-height: $lh-login-password-reset-message;
       margin: $m-l 0 0;
     }
@@ -114,7 +128,11 @@ $td-login-password-reset-form-text-anchor: underline !default;
     background-color: $bgc-login-password-reset-form;
     border-radius: $bdrs-login-password-reset-form;
     box-shadow: $bxsh-login-password-reset-form;
-    padding: $p-xxl $p-xl;
+    padding: $p-login-password-reset-form;
+
+    @include media-breakpoint-up(s) {
+      padding: $p-login-password-reset-form-desktop;
+    }
 
     &Header {
       display: flex;
@@ -122,7 +140,8 @@ $td-login-password-reset-form-text-anchor: underline !default;
 
       &Title {
         color: $c-login-password-reset-form-title;
-        font-size: $fz-l;
+        font-size: $fz-login-password-reset-form-title;
+        font-weight: $fw-login-password-reset-form-title;
         margin: 0;
       }
 
@@ -144,12 +163,14 @@ $td-login-password-reset-form-text-anchor: underline !default;
       margin-top: $m-xl;
 
       &Title {
-        font-size: $fz-login-password-reset-form-title;
-        line-height: $lh-login-password-reset-form-title;
+        font-size: $fz-login-password-reset-form-text-title;
+        font-weight: $fw-login-password-reset-form-text-title;
+        line-height: $lh-login-password-reset-form-text-title;
       }
 
       &Anchor {
         cursor: pointer;
+        font-weight: $fw-login-password-reset-form-text-anchor;
         text-decoration: $td-login-password-reset-form-text-anchor;
       }
     }
@@ -206,7 +227,7 @@ $td-login-password-reset-form-text-anchor: underline !default;
 
     &Title {
       font-size: $fz-login-password-reset-form-help-content-title;
-      font-weight: bold;
+      font-weight: $fw-login-password-reset-form-help-content-title-anchor;
       margin: 0 0 $m-s;
     }
 
@@ -216,6 +237,7 @@ $td-login-password-reset-form-text-anchor: underline !default;
 
       a {
         color: $c-primary;
+        font-weight: $fw-login-password-reset-form-help-content-text-anchor;
         text-decoration: underline;
       }
     }
