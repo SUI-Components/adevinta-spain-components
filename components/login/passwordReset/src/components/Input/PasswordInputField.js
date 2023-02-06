@@ -10,6 +10,7 @@ import {
 } from '../../config.js'
 
 const PasswordInputField = ({
+  errorText,
   icons,
   id,
   label,
@@ -22,7 +23,7 @@ const PasswordInputField = ({
 
   return (
     <MoleculeInputField
-      // errorText={errorText}
+      errorText={errorText}
       id={id}
       label={label}
       name={name}
@@ -49,6 +50,7 @@ const PasswordInputField = ({
 
 PasswordInputField.displayName = 'PasswordInputField'
 PasswordInputField.propTypes = {
+  errorText: PropTypes.string,
   icons: PropTypes.arrayOf(PropTypes.object),
   id: PropTypes.string,
   label: PropTypes.string,

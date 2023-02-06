@@ -18,17 +18,54 @@ const PasswordChangeForm = ({icons}) => {
   const {token} = getCurrentToken()
 
   const {
-    state: {newPassword, repeatPassword, isLoading, notification},
+    state: {
+      newPassword,
+      repeatPassword,
+      isLoading,
+      notification,
+      newPasswordErrorText,
+      repeatPasswordErrorText
+    },
     setNewPassword,
     setRepeatPassword,
     setNotification,
-    setIsLoading
+    setIsLoading,
+    setNewPasswordErrorText,
+    setRepeatPasswordErrorText
   } = usePasswordChangeFormState()
 
   useDisplayExpiredTokenError(setNotification)
 
+  const validateErrors = value => {
+    domain
+      .get('validate_password_use_case')
+      .execute({password: value})
+      .then(([error]) => {
+        if (error === null) {
+          setNewPasswordErrorText('')
+          setRepeatPasswordErrorText('')
+          return
+        }
+
+        if (error.constructor.name === 'InvalidPasswordError') {
+          setNewPasswordErrorText(
+            i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.ERRORS.INVALID_PASSWORD')
+          )
+
+          return
+        }
+
+        if (error.constructor.name === 'EmptyPasswordError') {
+          setNewPasswordErrorText(
+            i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.ERRORS.EMPTY_PASSWORD')
+          )
+        }
+      })
+  }
+
   const handleChange = e => {
     const {value} = e?.target
+    validateErrors(value)
     setNewPassword(value)
   }
   const handleChangeRepeat = e => {
@@ -78,7 +115,7 @@ const PasswordChangeForm = ({icons}) => {
         <>
           <div className={`${BASE_CLASS}-formInput`}>
             <PasswordInputField
-              // errorText={errorText}
+              errorText={newPasswordErrorText}
               id="new_password"
               label={i18n.t(
                 'LOGIN_CROSS.PASSWORD_RESET.STEP_2.NEW_PASSWORD_LABEL'
@@ -94,7 +131,7 @@ const PasswordChangeForm = ({icons}) => {
           </div>
           <div className={`${BASE_CLASS}-formInput`}>
             <PasswordInputField
-              // errorText={errorText}
+              errorText={repeatPasswordErrorText}
               id="repeat_password"
               label={i18n.t(
                 'LOGIN_CROSS.PASSWORD_RESET.STEP_2.REPEAT_PASSWORD_LABEL'
