@@ -15,7 +15,8 @@ export default {
         EMAIL_LABEL: 'Email',
         EMAIL_PLACEHOLDER: 'Escribe email',
         ERRORS: {
-          EMPTY_EMAIL: 'Introduce tu email'
+          EMPTY_EMAIL: 'Introduce tu email',
+          INVALID_EMAIL: 'El email no es válido'
         },
         RETURN_BUTTON: 'Volver a iniciar sesión',
         RESEND_TEXT:
