@@ -1,8 +1,3 @@
-import AtomButton, {
-  // atomButtonDesigns,
-  atomButtonShapes,
-  atomButtonSizes
-} from '@s-ui/react-atom-button'
 import MoleculeInputField from '@s-ui/react-molecule-input-field'
 
 import {BASE_CLASS} from '../../config.js'
@@ -12,6 +7,7 @@ import useI18n from '../../hooks/useI18n.js'
 import Notification from '../Info/Notification.js'
 import ResendText from '../Info/ResendText.js'
 import LoginButton from '../Input/LoginButton.js'
+import SubmitButton from '../Input/SubmitButton.js'
 
 const PasswordResetForm = () => {
   const {
@@ -115,22 +111,12 @@ const PasswordResetForm = () => {
       ) : null}
       <div className={`${BASE_CLASS}-formButtons`}>
         {!notification.text ? (
-          <div className={`${BASE_CLASS}-formButton`}>
-            <AtomButton
-              // disabled={} // TODO
-              fullWidth
-              isLoading={isLoading} // TODO
-              onClick={handleSubmit} // TODO
-              shape={atomButtonShapes.CIRCULAR}
-              size={atomButtonSizes.LARGE}
-            >
-              {i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUBMIT_BUTTON')}
-            </AtomButton>
-          </div>
+          <SubmitButton isLoading={isLoading} onClick={handleSubmit}>
+            {i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUBMIT_BUTTON')}
+          </SubmitButton>
         ) : null}
-        <div className={`${BASE_CLASS}-formButton`}>
-          <LoginButton />
-        </div>
+
+        <LoginButton />
       </div>
     </>
   )

@@ -1,11 +1,5 @@
 import PropTypes from 'prop-types'
 
-import AtomButton, {
-  // atomButtonDesigns,
-  atomButtonShapes,
-  atomButtonSizes
-} from '@s-ui/react-atom-button'
-
 import {BASE_CLASS} from '../../config.js'
 import useDisplayExpiredTokenError from '../../hooks/components/useDisplayExpiredTokenError.js'
 import usePasswordChangeFormState from '../../hooks/components/usePasswordChangeFormState.js'
@@ -15,6 +9,7 @@ import useI18n from '../../hooks/useI18n.js'
 import Notification from '../Info/Notification.js'
 import LoginButton from '../Input/LoginButton.js'
 import PasswordInputField from '../Input/PasswordInputField.js'
+import SubmitButton from '../Input/SubmitButton.js'
 
 const PasswordChangeForm = ({icons}) => {
   const i18n = useI18n()
@@ -75,9 +70,7 @@ const PasswordChangeForm = ({icons}) => {
             isError={notification.isError}
           />
           <div className={`${BASE_CLASS}-formButtons`}>
-            <div className={`${BASE_CLASS}-formButton`}>
-              <LoginButton />
-            </div>
+            <LoginButton />
           </div>
         </>
       ) : null}
@@ -116,18 +109,9 @@ const PasswordChangeForm = ({icons}) => {
             />
           </div>
           <div className={`${BASE_CLASS}-formButtons`}>
-            <div className={`${BASE_CLASS}-formButton`}>
-              <AtomButton
-                // disabled={}  // TODO
-                fullWidth
-                isLoading={isLoading} // TODO
-                onClick={handleSubmit}
-                shape={atomButtonShapes.CIRCULAR}
-                size={atomButtonSizes.LARGE}
-              >
-                {i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.SUBMIT_BUTTON')}
-              </AtomButton>
-            </div>
+            <SubmitButton isLoading={isLoading} onClick={handleSubmit}>
+              {i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.SUBMIT_BUTTON')}
+            </SubmitButton>
           </div>
         </>
       ) : null}
