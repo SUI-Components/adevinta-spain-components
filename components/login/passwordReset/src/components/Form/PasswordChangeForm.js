@@ -7,6 +7,7 @@ import AtomButton, {
 } from '@s-ui/react-atom-button'
 
 import {BASE_CLASS} from '../../config.js'
+import useDisplayExpiredTokenError from '../../hooks/components/useDisplayExpiredTokenError.js'
 import usePasswordChangeFormState from '../../hooks/components/usePasswordChangeFormState.js'
 import useDomain from '../../hooks/useDomain.js'
 import useGetCurrentToken from '../../hooks/useGetCurrentToken.js'
@@ -20,6 +21,7 @@ const PasswordChangeForm = ({icons}) => {
   const domain = useDomain()
   const {getCurrentToken} = useGetCurrentToken()
   const {token} = getCurrentToken()
+
   const {
     state: {newPassword, repeatPassword, isLoading, notification},
     setNewPassword,
@@ -27,6 +29,8 @@ const PasswordChangeForm = ({icons}) => {
     setNotification,
     setIsLoading
   } = usePasswordChangeFormState()
+
+  useDisplayExpiredTokenError(setNotification)
 
   const handleChange = e => {
     const {value} = e?.target
