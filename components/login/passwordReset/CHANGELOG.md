@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.25.0 (2023-02-06)
+
+
+### Features
+
+* **components/login/passwordReset:** Apply small component refactoring in buttons ([a35d423](https://github.com/SUI-Components/adevinta-spain-components/commit/a35d42315bb7f58ec917908753c9f0bd430d0ce3))
+* **components/login/passwordReset:** Remove no-longer needed import statements ([0598694](https://github.com/SUI-Components/adevinta-spain-components/commit/0598694914e3d217112663a66c51504c028d6294))
+
+
+
 # 1.24.0 (2023-02-06)
 
 
