@@ -47,7 +47,10 @@ export default {
           SERVER_ERROR:
             'Hemos detectado un error. Vuelve a intentarlo en unos minutos.',
           EXPIRED_TOKEN:
-            'El enlace que has clicado ha expirado. Vuelve a iniciar el proceso para recuperar tu contraseña.'
+            'El enlace que has clicado ha expirado. Vuelve a iniciar el proceso para recuperar tu contraseña.',
+          EMPTY_PASSWORD: 'Introduce tu nueva contraseña',
+          INVALID_PASSWORD:
+            'La contraseña debe contener un mínimo de 8 letras o números'
         },
         SUCCESS: {
           PASSWORD_CHANGED:

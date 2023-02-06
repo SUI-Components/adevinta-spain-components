@@ -5,6 +5,8 @@ const usePasswordChangeFormState = () => {
     newPassword: '',
     repeatPassword: '',
     isLoading: false,
+    newPasswordErrorText: '',
+    repeatPasswordErrorText: '',
     notification: {
       text: '',
       isError: false
@@ -41,6 +43,18 @@ const usePasswordChangeFormState = () => {
         return {
           ...state,
           isLoading: action.payload
+        }
+
+      case 'SET_NEW_PASSWORD_ERROR_TEXT':
+        return {
+          ...state,
+          newPasswordErrorText: action.payload
+        }
+
+      case 'SET_REPEAT_PASSWORD_ERROR_TEXT':
+        return {
+          ...state,
+          repeatPasswordErrorText: action.payload
         }
 
       default:
@@ -82,12 +96,28 @@ const usePasswordChangeFormState = () => {
     })
   }
 
+  const setNewPasswordErrorText = errorText => {
+    dispatch({
+      type: 'SET_NEW_PASSWORD_ERROR_TEXT',
+      payload: errorText
+    })
+  }
+
+  const setRepeatPasswordErrorText = errorText => {
+    dispatch({
+      type: 'SET_REPEAT_PASSWORD_ERROR_TEXT',
+      payload: errorText
+    })
+  }
+
   return {
     state,
     setNewPassword,
     setRepeatPassword,
     setNotification,
-    setIsLoading
+    setIsLoading,
+    setNewPasswordErrorText,
+    setRepeatPasswordErrorText
   }
 }
 

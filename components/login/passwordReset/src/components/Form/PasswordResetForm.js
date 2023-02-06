@@ -21,22 +21,16 @@ const PasswordResetForm = () => {
   const i18n = useI18n()
   const domain = useDomain()
 
-  const checkIfInputIsEmpty = value => {
-    const isEmpty = value.length === 0
-    isEmpty
-      ? setErrorText(
-          i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.ERRORS.EMPTY_EMAIL')
-        )
-      : setErrorText('')
-    return isEmpty
-  }
-
   const validateErrors = value => {
     domain
       .get('validate_email_password_use_case')
       .execute({email: value})
       .then(([error]) => {
-        if (error === null) return
+        // TODO: Refactor this to minimize re-renders. Value update and error should be updated at once
+        if (error === null) {
+          setErrorText('')
+          return
+        }
 
         if (error.constructor.name === 'InvalidEmailPasswordError') {
           setErrorText(
@@ -57,7 +51,6 @@ const PasswordResetForm = () => {
     const {value} = e?.target
     validateErrors(value)
     setEmail(value)
-    checkIfInputIsEmpty(value)
   }
 
   const executeResetPasswordUseCase = ({onSuccessText}) => {
