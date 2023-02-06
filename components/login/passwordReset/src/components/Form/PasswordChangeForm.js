@@ -1,11 +1,5 @@
 import PropTypes from 'prop-types'
 
-import AtomButton, {
-  // atomButtonDesigns,
-  atomButtonShapes,
-  atomButtonSizes
-} from '@s-ui/react-atom-button'
-
 import {BASE_CLASS} from '../../config.js'
 import useDisplayExpiredTokenError from '../../hooks/components/useDisplayExpiredTokenError.js'
 import usePasswordChangeFormState from '../../hooks/components/usePasswordChangeFormState.js'

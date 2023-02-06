@@ -1,8 +1,3 @@
-import AtomButton, {
-  // atomButtonDesigns,
-  atomButtonShapes,
-  atomButtonSizes
-} from '@s-ui/react-atom-button'
 import MoleculeInputField from '@s-ui/react-molecule-input-field'
 
 import {BASE_CLASS} from '../../config.js'
