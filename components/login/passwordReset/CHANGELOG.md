@@ -1,11 +1,24 @@
 # CHANGELOG
 
+# 1.27.0 (2023-02-06)
+
+
+### Features
+
+* **components/login/passwordReset:** Avoid breaking things ([3d6c519](https://github.com/SUI-Components/adevinta-spain-components/commit/3d6c519bcf0068e754a717e7e05abc10f7bef81b))
+* **components/login/passwordReset:** Avoid linter problems ([a4979f0](https://github.com/SUI-Components/adevinta-spain-components/commit/a4979f0ade543adb15326f4f809e96b404df9cf4))
+
+
+
 # 1.26.0 (2023-02-06)
 
 
 ### Features
 
 * **components/login/passwordReset:** Add new scss variables to login reset password component ([e0706ce](https://github.com/SUI-Components/adevinta-spain-components/commit/e0706cee1987fa80f212594d573e84a0daf223d9))
+* **components/login/passwordReset:** Add tests to ValidateEmailPasswordUseCase ([6028eae](https://github.com/SUI-Components/adevinta-spain-components/commit/6028eae189cfdfe0302ebf9d8152d7fd8eb261a6))
+* **components/login/passwordReset:** Add use case to validate email ([7e5a38d](https://github.com/SUI-Components/adevinta-spain-components/commit/7e5a38dafc7a19e483b9042d428939c1179a9583))
+* **components/login/passwordReset:** Validate email and display errors ([3875e78](https://github.com/SUI-Components/adevinta-spain-components/commit/3875e7888daa0a4008756d3f8df965c8aab01801))
 
 
 
