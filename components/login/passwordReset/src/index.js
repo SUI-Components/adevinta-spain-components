@@ -27,7 +27,7 @@ LoginPasswordReset.propTypes = {
   }),
   /* Allows to override total or partially the i18n dictionary */
   i18n: PropTypes.object,
+  icons: PropTypes.arrayOf(PropTypes.object),
   /* Function executed every time an event is submitted */
-  onEvent: PropTypes.func,
-  icons: PropTypes.arrayOf(PropTypes.object)
+  onEvent: PropTypes.func
 }
