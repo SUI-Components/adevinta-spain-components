@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.29.0 (2023-02-06)
+
+
+### Features
+
+* **components/login/passwordReset:** Basic error validation for passwords ([92a6551](https://github.com/SUI-Components/adevinta-spain-components/commit/92a6551e7cb8dbe1c0f779d438aa4d59859191fd))
+
+
+
 # 1.28.0 (2023-02-06)
 
 
