@@ -44,7 +44,9 @@ export default {
             'La contraseña debe contener un mínimo de 8 letras o números',
           INVALID_PASSWORDS: 'Las contraseñas no coinciden.',
           SERVER_ERROR:
-            'Hemos detectado un error. Vuelve a intentarlo en unos minutos.'
+            'Hemos detectado un error. Vuelve a intentarlo en unos minutos.',
+          EXPIRED_TOKEN:
+            'El enlace que has clicado ha expirado. Vuelve a iniciar el proceso para recuperar tu contraseña.'
         },
         SUCCESS: {
           PASSWORD_CHANGED:
