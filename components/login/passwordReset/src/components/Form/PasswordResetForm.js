@@ -11,14 +11,9 @@ import SubmitButton from '../Input/SubmitButton.js'
 
 const PasswordResetForm = () => {
   const {
-    state: {
-      defaultDisabledSubmitButton,
-      email,
-      isLoading,
-      errorText,
-      notification
-    },
+    state: {email, isLoading, errorText, notification},
     setEmail,
+    setErrorText,
     setNotification,
     setIsLoading
   } = usePasswordResetFormState()
@@ -48,9 +43,7 @@ const PasswordResetForm = () => {
 
   const handleChange = e => {
     const {value} = e?.target
-    getErrorText(value).then(errorText => {
-      setEmail({email: value, errorText})
-    })
+    setEmail({email: value})
   }
 
   const executeResetPasswordUseCase = ({onSuccessText}) => {
@@ -74,15 +67,20 @@ const PasswordResetForm = () => {
   }
 
   const handleSubmit = () => {
-    setIsLoading(true)
-
-    executeResetPasswordUseCase({
-      onSuccessText: i18n.t(
-        'LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUCCESS.EMAIL_SENDED',
-        {
-          email
-        }
-      )
+    getErrorText(email).then(errorText => {
+      if (errorText) {
+        setErrorText({errorText})
+        return
+      }
+      setIsLoading(true)
+      executeResetPasswordUseCase({
+        onSuccessText: i18n.t(
+          'LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUCCESS.EMAIL_SENDED',
+          {
+            email
+          }
+        )
+      })
     })
   }
 
@@ -128,9 +126,7 @@ const PasswordResetForm = () => {
       <div className={`${BASE_CLASS}-formButtons`}>
         {!notification.text ? (
           <SubmitButton
-            isEnabled={
-              defaultDisabledSubmitButton === false && errorText.length < 1
-            }
+            isEnabled={errorText.length < 1}
             isLoading={isLoading}
             onClick={handleSubmit}
           >
