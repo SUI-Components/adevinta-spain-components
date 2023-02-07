@@ -19,6 +19,7 @@ const PasswordChangeForm = ({icons}) => {
 
   const {
     state: {
+      defaultDisabledSubmitButton,
       newPassword,
       repeatPassword,
       isLoading,
@@ -29,48 +30,69 @@ const PasswordChangeForm = ({icons}) => {
     setNewPassword,
     setRepeatPassword,
     setNotification,
-    setIsLoading,
-    setNewPasswordErrorText,
-    setRepeatPasswordErrorText
+    setIsLoading
   } = usePasswordChangeFormState()
 
   useDisplayExpiredTokenError(setNotification)
 
-  const validateErrors = value => {
-    domain
+  const getNewPasswordErrors = value => {
+    return domain
       .get('validate_password_use_case')
       .execute({password: value})
       .then(([error]) => {
-        if (error === null) {
-          setNewPasswordErrorText('')
-          setRepeatPasswordErrorText('')
-          return
-        }
-
-        if (error.constructor.name === 'InvalidPasswordError') {
-          setNewPasswordErrorText(
-            i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.ERRORS.INVALID_PASSWORD')
-          )
-
-          return
-        }
-
-        if (error.constructor.name === 'EmptyPasswordError') {
-          setNewPasswordErrorText(
-            i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.ERRORS.EMPTY_PASSWORD')
-          )
+        switch (error?.constructor?.name) {
+          case undefined:
+            return ''
+          case 'EmptyPasswordError':
+            return i18n.t(
+              'LOGIN_CROSS.PASSWORD_RESET.STEP_2.ERRORS.EMPTY_PASSWORD'
+            )
+          default:
+            return i18n.t(
+              'LOGIN_CROSS.PASSWORD_RESET.STEP_2.ERRORS.INVALID_PASSWORD'
+            )
         }
       })
   }
 
+  const getRepeatPasswordErrors = (
+    repeatPasswordValue,
+    newPasswordValue = newPassword
+  ) => {
+    if (repeatPasswordValue !== newPasswordValue) {
+      return i18n.t(
+        'LOGIN_CROSS.PASSWORD_RESET.STEP_2.ERRORS.PASSWORDS_NOT_MATCH'
+      )
+    }
+
+    return ''
+  }
+
   const handleChange = e => {
     const {value} = e?.target
-    validateErrors(value)
-    setNewPassword(value)
+    getNewPasswordErrors(value).then(errorText => {
+      const repeatPasswordErrorText = getRepeatPasswordErrors(
+        repeatPassword,
+        value
+      )
+      setNewPassword({
+        newPassword: value,
+        newPasswordErrorText: errorText,
+        repeatPasswordErrorText
+      })
+    })
   }
   const handleChangeRepeat = e => {
     const {value} = e?.target
-    setRepeatPassword(value)
+
+    getNewPasswordErrors(newPassword).then(errorText => {
+      const repeatPasswordErrorText = getRepeatPasswordErrors(value)
+      setRepeatPassword({
+        repeatPassword: value,
+        newPasswordErrorText: errorText,
+        repeatPasswordErrorText
+      })
+    })
   }
 
   const handleSubmit = () => {
@@ -79,24 +101,27 @@ const PasswordChangeForm = ({icons}) => {
       .get('change_password_use_case')
       .execute({password: newPassword, token})
       .then(([error]) => {
+        let isError = false
+        let text = i18n.t(
+          'LOGIN_CROSS.PASSWORD_RESET.STEP_2.SUCCESS.PASSWORD_CHANGED'
+        )
+
         if (error) {
-          setNotification({
-            text: i18n.t(
-              'LOGIN_CROSS.PASSWORD_RESET.STEP_2.ERRORS.SERVER_ERROR'
-            ),
-            isError: true
-          })
-          return
+          text = i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.ERRORS.SERVER_ERROR')
+          isError = true
         }
 
         setNotification({
-          text: i18n.t(
-            'LOGIN_CROSS.PASSWORD_RESET.STEP_2.SUCCESS.PASSWORD_CHANGED'
-          ),
-          isError: false
+          text,
+          isError
         })
       })
   }
+
+  const isSubmitButtonEnabled = () =>
+    defaultDisabledSubmitButton === false &&
+    newPasswordErrorText.length === 0 &&
+    repeatPasswordErrorText.length === 0
 
   return (
     <>
@@ -147,7 +172,7 @@ const PasswordChangeForm = ({icons}) => {
           </div>
           <div className={`${BASE_CLASS}-formButtons`}>
             <SubmitButton
-              isEnabled={true}
+              isEnabled={isSubmitButtonEnabled()}
               isLoading={isLoading}
               onClick={handleSubmit}
             >

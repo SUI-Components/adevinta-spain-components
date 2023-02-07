@@ -2,6 +2,7 @@ import {useReducer} from 'react'
 
 const usePasswordChangeFormState = () => {
   const initialState = {
+    defaultDisabledSubmitButton: true,
     newPassword: '',
     repeatPassword: '',
     isLoading: false,
@@ -18,14 +19,20 @@ const usePasswordChangeFormState = () => {
       case 'SET_NEW_PASSWORD':
         return {
           ...state,
-          newPassword: action.payload,
+          defaultDisabledSubmitButton: false,
+          newPassword: action.payload.newPassword,
+          newPasswordErrorText: action.payload.newPasswordErrorText,
+          repeatPasswordErrorText: action.payload.repeatPasswordErrorText,
           isLoading: false
         }
 
       case 'SET_REPEAT_PASSWORD':
         return {
           ...state,
-          repeatPassword: action.payload,
+          defaultDisabledSubmitButton: false,
+          repeatPassword: action.payload.repeatPassword,
+          newPasswordErrorText: action.payload.newPasswordErrorText,
+          repeatPasswordErrorText: action.payload.repeatPasswordErrorText,
           isLoading: false
         }
 
@@ -45,18 +52,6 @@ const usePasswordChangeFormState = () => {
           isLoading: action.payload
         }
 
-      case 'SET_NEW_PASSWORD_ERROR_TEXT':
-        return {
-          ...state,
-          newPasswordErrorText: action.payload
-        }
-
-      case 'SET_REPEAT_PASSWORD_ERROR_TEXT':
-        return {
-          ...state,
-          repeatPasswordErrorText: action.payload
-        }
-
       default:
         return state
     }
@@ -65,17 +60,33 @@ const usePasswordChangeFormState = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   // Action for each of the above
-  const setNewPassword = newPassword => {
+  const setNewPassword = ({
+    newPassword,
+    newPasswordErrorText,
+    repeatPasswordErrorText
+  }) => {
     dispatch({
       type: 'SET_NEW_PASSWORD',
-      payload: newPassword
+      payload: {
+        newPassword,
+        newPasswordErrorText,
+        repeatPasswordErrorText
+      }
     })
   }
 
-  const setRepeatPassword = repeatPassword => {
+  const setRepeatPassword = ({
+    repeatPassword,
+    repeatPasswordErrorText,
+    newPasswordErrorText
+  }) => {
     dispatch({
       type: 'SET_REPEAT_PASSWORD',
-      payload: repeatPassword
+      payload: {
+        repeatPassword,
+        repeatPasswordErrorText,
+        newPasswordErrorText
+      }
     })
   }
 
@@ -96,28 +107,12 @@ const usePasswordChangeFormState = () => {
     })
   }
 
-  const setNewPasswordErrorText = errorText => {
-    dispatch({
-      type: 'SET_NEW_PASSWORD_ERROR_TEXT',
-      payload: errorText
-    })
-  }
-
-  const setRepeatPasswordErrorText = errorText => {
-    dispatch({
-      type: 'SET_REPEAT_PASSWORD_ERROR_TEXT',
-      payload: errorText
-    })
-  }
-
   return {
     state,
     setNewPassword,
     setRepeatPassword,
     setNotification,
-    setIsLoading,
-    setNewPasswordErrorText,
-    setRepeatPasswordErrorText
+    setIsLoading
   }
 }
 

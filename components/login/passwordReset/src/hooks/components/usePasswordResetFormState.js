@@ -2,6 +2,7 @@ import {useReducer} from 'react'
 
 const usePasswordResetFormState = () => {
   const initialState = {
+    defaultDisabledSubmitButton: true,
     email: '',
     isLoading: false,
     errorText: '',
@@ -16,7 +17,9 @@ const usePasswordResetFormState = () => {
       case 'SET_EMAIL':
         return {
           ...state,
-          email: action.payload,
+          defaultDisabledSubmitButton: false,
+          email: action.payload.email,
+          errorText: action.payload.errorText,
           isLoading: false
         }
 
@@ -36,12 +39,6 @@ const usePasswordResetFormState = () => {
           isLoading: action.payload
         }
 
-      case 'SET_ERROR_TEXT':
-        return {
-          ...state,
-          errorText: action.payload
-        }
-
       default:
         return state
     }
@@ -50,10 +47,13 @@ const usePasswordResetFormState = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   // Action for each of the above
-  const setEmail = email => {
+  const setEmail = ({email, errorText}) => {
     dispatch({
       type: 'SET_EMAIL',
-      payload: email
+      payload: {
+        email,
+        errorText
+      }
     })
   }
 
@@ -74,19 +74,11 @@ const usePasswordResetFormState = () => {
     })
   }
 
-  const setErrorText = errorText => {
-    dispatch({
-      type: 'SET_ERROR_TEXT',
-      payload: errorText
-    })
-  }
-
   return {
     state,
     setEmail,
     setNotification,
-    setIsLoading,
-    setErrorText
+    setIsLoading
   }
 }
 

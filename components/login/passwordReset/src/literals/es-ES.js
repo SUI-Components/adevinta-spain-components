@@ -50,7 +50,8 @@ export default {
             'El enlace que has clicado ha expirado. Vuelve a iniciar el proceso para recuperar tu contraseña.',
           EMPTY_PASSWORD: 'Introduce tu nueva contraseña',
           INVALID_PASSWORD:
-            'La contraseña debe contener un mínimo de 8 letras o números'
+            'La contraseña debe contener un mínimo de 8 letras o números',
+          PASSWORDS_NOT_MATCH: 'Las contraseñas no coinciden'
         },
         SUCCESS: {
           PASSWORD_CHANGED:
