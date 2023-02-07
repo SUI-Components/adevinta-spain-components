@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.33.0 (2023-02-07)
+
+
+### Features
+
+* **components/login/passwordReset:** Add docs and small fixes ([1bffa35](https://github.com/SUI-Components/adevinta-spain-components/commit/1bffa35d4c99e04f04a65d628c6af711927f2683))
+* **components/login/passwordReset:** Repair props ([cf0981c](https://github.com/SUI-Components/adevinta-spain-components/commit/cf0981c9d70cad3f76ed1a15414ad98ae841b61a))
+
+
+
 # 1.32.0 (2023-02-07)
 
 
