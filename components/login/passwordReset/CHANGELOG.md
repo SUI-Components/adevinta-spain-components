@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.31.0 (2023-02-07)
+
+
+### Features
+
+* **components/login/passwordReset:** add new variable ([9fa3323](https://github.com/SUI-Components/adevinta-spain-components/commit/9fa3323b1b2e67c857e140ab008bb63403d61391))
+
+
+
 # 1.30.0 (2023-02-07)
 
 
