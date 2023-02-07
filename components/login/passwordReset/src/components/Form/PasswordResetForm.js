@@ -11,46 +11,46 @@ import SubmitButton from '../Input/SubmitButton.js'
 
 const PasswordResetForm = () => {
   const {
-    state: {email, isLoading, errorText, notification},
+    state: {
+      defaultDisabledSubmitButton,
+      email,
+      isLoading,
+      errorText,
+      notification
+    },
     setEmail,
     setNotification,
-    setIsLoading,
-    setErrorText
+    setIsLoading
   } = usePasswordResetFormState()
 
   const i18n = useI18n()
   const domain = useDomain()
 
-  const validateErrors = value => {
-    domain
+  const getErrorText = value => {
+    return domain
       .get('validate_email_password_use_case')
       .execute({email: value})
       .then(([error]) => {
-        // TODO: Refactor this to minimize re-renders. Value update and error should be updated at once
-        if (error === null) {
-          setErrorText('')
-          return
-        }
-
-        if (error.constructor.name === 'InvalidEmailPasswordError') {
-          setErrorText(
-            i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.ERRORS.INVALID_EMAIL')
-          )
-          return
-        }
-
-        if (error.constructor.name === 'EmptyEmailPasswordError') {
-          setErrorText(
-            i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.ERRORS.EMPTY_EMAIL')
-          )
+        switch (error?.constructor?.name) {
+          case undefined:
+            return ''
+          case 'EmptyEmailPasswordError':
+            return i18n.t(
+              'LOGIN_CROSS.PASSWORD_RESET.STEP_1.ERRORS.EMPTY_EMAIL'
+            )
+          default:
+            return i18n.t(
+              'LOGIN_CROSS.PASSWORD_RESET.STEP_1.ERRORS.INVALID_EMAIL'
+            )
         }
       })
   }
 
   const handleChange = e => {
     const {value} = e?.target
-    validateErrors(value)
-    setEmail(value)
+    getErrorText(value).then(errorText => {
+      setEmail({email: value, errorText})
+    })
   }
 
   const executeResetPasswordUseCase = ({onSuccessText}) => {
@@ -128,7 +128,9 @@ const PasswordResetForm = () => {
       <div className={`${BASE_CLASS}-formButtons`}>
         {!notification.text ? (
           <SubmitButton
-            isEnabled={errorText.length < 1}
+            isEnabled={
+              defaultDisabledSubmitButton === false && errorText.length < 1
+            }
             isLoading={isLoading}
             onClick={handleSubmit}
           >
