@@ -145,10 +145,11 @@ return (<LoginPasswordReset icons={icons} />)
 ```
 
 ### Endpoints
-
+TBD
 ### Events
-
+TBD
 ## Technical comments
+TBD
 
 -> Algunas cosas deberían estar en un repo aparte pero está TBD. Por ejemplo el dominio que para simplificar está aquí.
 
