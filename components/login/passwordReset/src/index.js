@@ -24,10 +24,11 @@ LoginPasswordReset.propTypes = {
     resetPassword: PropTypes.string.isRequired,
     /* Endpoint to change the password */
     changePassword: PropTypes.string.isRequired
-  }),
+  }).isRequired,
   /* Allows to override total or partially the i18n dictionary */
   i18n: PropTypes.object,
   /* Function executed every time an event is submitted */
   onEvent: PropTypes.func,
+  /* Allows to override the icons used in the component */
   icons: PropTypes.arrayOf(PropTypes.object)
 }
