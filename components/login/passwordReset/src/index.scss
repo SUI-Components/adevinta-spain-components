@@ -20,6 +20,7 @@ $bgc-login-password-reset-form-help-content: #ffffff !default;
 $bdrs-login-password-reset-form-help-content: $bdrs-xl !default;
 $bdt-login-password-reset-form-footer: $bdw-s solid #f1f1f1 !default;
 $bxsh-login-password-reset-form: 0px 0px 16px rgba(0, 0, 0, 0.08) !default;
+$c-login-password-reset: #000e23 !default;
 $c-login-password-reset-form-help-content-icon-tooltip: $c-primary !default;
 $c-login-password-reset-form-text-anchor: #1d1d1d !default;
 $c-login-password-reset-form-title: #1d1d1d !default;
@@ -51,6 +52,7 @@ $td-login-password-reset-form-text-anchor: underline !default;
 
 .sui-LoginPasswordReset {
   align-items: center;
+  color: $c-login-password-reset;
   display: flex;
   flex: 1;
   flex-direction: column;
