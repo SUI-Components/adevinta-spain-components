@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.34.0 (2023-02-08)
+
+
+### Features
+
+* **components/login/passwordReset:** Emit events to the event bus ([ed1c32b](https://github.com/SUI-Components/adevinta-spain-components/commit/ed1c32b2a82e48b929b65a684d66f94d3d97b932))
+* **components/login/passwordReset:** Finish documentation ([f9d8983](https://github.com/SUI-Components/adevinta-spain-components/commit/f9d89834913ffe917535abdab8380c5051a60c37))
+* **components/login/passwordReset:** Remove work in progress ([bb5e332](https://github.com/SUI-Components/adevinta-spain-components/commit/bb5e33291afc07a0cfe1c641f0577678a6a11492))
+
+
+
 # 1.33.0 (2023-02-07)
 
 
