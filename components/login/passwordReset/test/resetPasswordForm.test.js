@@ -21,6 +21,11 @@ describe('ResetPasswordForm', () => {
 
   beforeEach(() => {
     mocker.create()
+
+    const url = new URL(global.window.location)
+    url.searchParams.set('token', '')
+    url.searchParams.set('exp', '')
+    global.window.history.pushState(null, '', url.toString())
   })
 
   afterEach(() => {
@@ -78,17 +83,17 @@ describe('ResetPasswordForm', () => {
       }
     }
 
+    mocker
+      .httpMock('http://fake/')
+      .post('reset-password', {email: VALID_EMAIL})
+      .reply(null, 202)
+
     // When
     const {getByText, findByText, getByLabelText} = setup(props)
     const submitButton = getByText(
       LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUBMIT_BUTTON
     )
     const emailInput = getByLabelText('Email')
-
-    mocker
-      .httpMock('http://fake/')
-      .post('reset-password', {email: VALID_EMAIL})
-      .reply(null, 202)
 
     // Then
 
