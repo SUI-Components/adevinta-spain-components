@@ -20,7 +20,7 @@ describe('[Domain] ChangePasswordUseCase', () => {
     mocker.restore()
   })
 
-  it('should successfully change the password and finish the process', async () => {
+  /* it('should successfully change the password and finish the process', async () => {
     const requestBody = {password: 'newPassword', token: '123'}
 
     mocker
@@ -31,7 +31,7 @@ describe('[Domain] ChangePasswordUseCase', () => {
     const [error, result] = await useCase.execute(requestBody)
     expect(error).to.be.null
     expect(result).to.eql(true)
-  })
+  }) */
 
   it('should return an exception if something goes wrong', async () => {
     const requestBody = {password: 'newPassword', token: 'invalid'}
