@@ -125,11 +125,18 @@ return (<LoginPasswordReset i18n={i18n} {...otherProps} />)
 
 ### Style customization
 
-TBD
+Most styles can be customized by ovewriting the default value of some Scss tokens. Available tokens can be found in `src/index.scss`, under the ` Overwritable variables` section.
 
 ### Icons
 
-TBD
+There are some icons that can be customized through the `icons` prop, which expects an object containing the following properties:
+
+* `helpContent`.
+* `helpContentInfoTooltip`.
+* `inputShowPassword`.
+* `inputHidePassword`.
+
+Each property can receive both a string containing the URL of an icon, or a React node.
 
 ```js
 import LoginPasswordReset from '@s-ui/sui-login-password-reset'
@@ -141,16 +148,106 @@ const icons = {
   inputHidePassword: <EyeOpenOutline size="medium" />
 }
 
-return (<LoginPasswordReset icons={icons} />)
+return (<LoginPasswordReset icons={icons} {...otherProps} />)
 ```
 
 ### Endpoints
-TBD
+
+This component performs two http/s requests to complete the password reset process. One to start the process, and send to the user an e-mail to provide the user with a validation link, and another one to complete the process and change the user's password.
+
+These endpoints must maintain a specific contract to be usable by the component. This should not be a problem as long as the component is used along with Adevinta common authentication services.
+
+To specify to the endpoint which URL should be called for each of these two requests, the `endpoints` prop must be used. It expects an object containing the following properties:
+
+* `resetPassword`: URL to be called to start the password reset process.
+* `changePassword`: URL to be called to complete the password reset process.
+
+```js
+import LoginPasswordReset from '@s-ui/sui-login-password-reset'
+
+const endpoints = {
+  resetPassword: `http://reset-password-endpoint.com/api/v1/reset-password`,
+  changePassword: `http://change-password-endpoint.com/api/v1/change-password`
+}
+
+return (<LoginPasswordReset endpoints={endpoints} {...otherProps} />)
+```
+
+Use cases in order to perform requests to these endpoints can be found in the `src/domain/password/UseCases` folder.
+
 ### Events
-TBD
-## Technical comments
-TBD
 
--> Algunas cosas deberían estar en un repo aparte pero está TBD. Por ejemplo el dominio que para simplificar está aquí.
+In order to allow the application to execute side-effects when certain interactions and events occur, this component exposes a mechanism to subscribe to these events.
 
--> Explicar quizás estructura de directorios de componentes ?
+As a large number of events are emitted, this component exposes them through a single prop called `onEvent`. This prop expects to recieve a function that will be called every time an event is emitted.
+
+The `onEvent` function will receive two parameters:
+
+* `event`: A string containing the name of the event that has been emitted.
+* `payload`: An object containing the data associated to the event.
+
+This is an example about how rendering the component and subscribing to events through this prop.
+
+```js
+import LoginPasswordReset from '@s-ui/sui-login-password-reset'
+
+const onEvent = (event, payload) => {
+  console.log(`Event ${event} emitted with payload:`, payload)
+}
+
+return (<LoginPasswordReset onEvent={onEvent} {...otherProps} />)
+```
+
+The following table shows the list of events that can be subscribed to, and the data associated to each of them.
+
+| Event | Payload | Description |
+| --- | --- | --- |
+| `RESET_PASSWORD_BUTTON_CLICK` | `{ email }` | Emitted when the user clicks on the submit button from the reset password form. |
+| `RESET_PASSWORD_EMAIL_VALIDATION_ERROR` | `{ email, error }` | Emitted when the user tries to submit the form using an invalid or empty email. |
+| `RESET_PASSWORD_SUCCESS` | `{ email }` | Emitted when the password reset process has been started successfully after making a request to the reset password endpoint. |
+| `RESET_PASSWORD_ERROR` | `{ email, error }` | Emitted when the request to the reset password endpoint fails. |
+| `RESET_PASSWORD_RESEND_CLICK` | `{ email }` | Emitted when the user clicks on the "Resend" button from the reset password form. |
+| `CHANGE_PASSWORD_BUTTON_CLICK` | `{}` | Emitted when the submit button from the change password form is clicked. |
+| `CHANGE_PASSWORD_SUCCESS` | `{}` | Emitted when the password reset process has been totally completed with success, after making a request to the change password endpoint. |
+| `CHANGE_PASSWORD_ERROR` | `{ error }` | Emitted when the request to the change password endpoint fails. |
+
+In order to create a new event, it is needed to add it to the `config.js` file, within the `EVENTS` constant, and then use the `useEventBus` hook to emit the event in the desired place.
+
+With demonstration purposes, the following example shows how to emit the `RESET_PASSWORD_BUTTON_CLICK` event, when the user clicks on the submit button from the reset password form.
+
+```js
+import useEventBus from '../../hooks/useEventBus.js'
+
+const { emit } = useEventBus()
+
+const handleSubmit = (email) => {
+  emit('RESET_PASSWORD_BUTTON_CLICK', { email })
+}
+```
+
+```
+
+## Other technical comments
+
+### How to start developing and running tests
+
+The following command can be used to start the demo environment, and run available tests:
+
+```sh
+$ npm run dev login/passwordReset
+```
+
+### Project scaffolding
+
+This component follows the same structure than other Adevinta projects based on the `sui` toolkit. Inside the `src` directory, there is a subfolder for each of the project areas, which are:
+
+* `domain`: Contains the business logic of the component.
+* `literals`: Contains the literals used by the component.
+* `components`: Contains the subcomponents needed by the main component.
+* `hooks`: Contains the custom hooks created to avoid repeating logic.
+
+### Package splitting
+
+Although this component has been developed and published as a single package to make the initial development easier and faster, it may be considered to split it into several packages in the future, as part of development next steps. 
+
+i.e. it could be useful to have a domain package for all cross login use cases on a different repository.
