@@ -6,24 +6,24 @@
 /* eslint no-undef:0 */
 
 import '../src/domain/test/index.js'
+import './resetPasswordForm.test.js'
 
 import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
 
-import Component from '../src/index.js'
 chai.use(chaiDOM)
 
 describe('LoginPasswordReset', () => {
-  const setup = setupEnvironment(Component)
+  const setup = setupEnvironment(LoginPasswordReset)
 
   it('should render without crashing', () => {
     // Given
     const props = {}
 
     // When
-    const component = <Component {...props} />
+    const component = <LoginPasswordReset {...props} />
 
     // Then
     const div = document.createElement('div')
