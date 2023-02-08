@@ -211,8 +211,6 @@ The following table shows the list of events that can be subscribed to, and the 
 | `CHANGE_PASSWORD_SUCCESS` | `{}` | Emitted when the password reset process has been totally completed with success, after making a request to the change password endpoint. |
 | `CHANGE_PASSWORD_ERROR` | `{ error }` | Emitted when the request to the change password endpoint fails. |
 
-(Work in progress)
-
 In order to create a new event, it is needed to add it to the `config.js` file, within the `EVENTS` constant, and then use the `useEventBus` hook to emit the event in the desired place.
 
 With demonstration purposes, the following example shows how to emit the `RESET_PASSWORD_BUTTON_CLICK` event, when the user clicks on the submit button from the reset password form.
