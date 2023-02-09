@@ -8,20 +8,17 @@ import {fireEvent, waitFor} from '@testing-library/react'
 import Mocker from '@s-ui/mockmock/lib/http'
 
 import literals from '../src/literals/es-ES.js'
-import {SECOND_STEP_TEXT} from './fixtures.js'
+import {
+  DEFAULT_TOKEN,
+  ONE_DAY,
+  SECOND_STEP_TEXT,
+  VALID_PASSWORD
+} from './fixtures.js'
+import {setTokenAndExpiration} from './utils.js'
 
 const {LOGIN_CROSS} = literals
 
 chai.use(chaiDOM)
-
-const ONE_DAY = 1000 * 60 * 60 * 24
-
-const setTokenAndExpiration = (token, exp, global) => {
-  const url = new URL(global.window.location)
-  url.searchParams.set('token', token)
-  url.searchParams.set('exp', exp)
-  global.window.history.pushState(null, '', url.toString())
-}
 
 describe('ChangePasswordForm', () => {
   const setup = setupEnvironment(LoginPasswordReset)
@@ -31,7 +28,7 @@ describe('ChangePasswordForm', () => {
   beforeEach(() => {
     mocker.create()
     const FUTURE_TIMESTAMP = new Date().getTime() + ONE_DAY
-    setTokenAndExpiration('1234', FUTURE_TIMESTAMP, global)
+    setTokenAndExpiration(DEFAULT_TOKEN, FUTURE_TIMESTAMP, global)
   })
 
   afterEach(() => {
@@ -50,7 +47,7 @@ describe('ChangePasswordForm', () => {
   })
 
   it('should display an error if the token has expired', async () => {
-    setTokenAndExpiration('1234', 0, global)
+    setTokenAndExpiration(DEFAULT_TOKEN, 0, global)
 
     // Given
     const props = {}
@@ -132,12 +129,12 @@ describe('ChangePasswordForm', () => {
     const repeatPasswordInput = await findByLabelText(
       LOGIN_CROSS.PASSWORD_RESET.STEP_2.REPEAT_PASSWORD_LABEL
     )
-    fireEvent.change(repeatPasswordInput, {target: {value: '12345678'}})
+    fireEvent.change(repeatPasswordInput, {target: {value: VALID_PASSWORD}})
 
     const passwordInput = await findByLabelText(
       LOGIN_CROSS.PASSWORD_RESET.STEP_2.NEW_PASSWORD_LABEL
     )
-    fireEvent.change(passwordInput, {target: {value: '12345678'}})
+    fireEvent.change(passwordInput, {target: {value: VALID_PASSWORD}})
 
     // Then
     const submitButton = getByRole('button', {
@@ -158,7 +155,7 @@ describe('ChangePasswordForm', () => {
 
     mocker
       .httpMock('http://fake/')
-      .post('change-password', {token: '1234', password: '12345678'})
+      .post('change-password', {token: DEFAULT_TOKEN, password: VALID_PASSWORD})
       .reply(null, 202)
 
     // When
@@ -167,12 +164,12 @@ describe('ChangePasswordForm', () => {
     const repeatPasswordInput = await findByLabelText(
       LOGIN_CROSS.PASSWORD_RESET.STEP_2.REPEAT_PASSWORD_LABEL
     )
-    fireEvent.change(repeatPasswordInput, {target: {value: '12345678'}})
+    fireEvent.change(repeatPasswordInput, {target: {value: VALID_PASSWORD}})
 
     const passwordInput = await findByLabelText(
       LOGIN_CROSS.PASSWORD_RESET.STEP_2.NEW_PASSWORD_LABEL
     )
-    fireEvent.change(passwordInput, {target: {value: '12345678'}})
+    fireEvent.change(passwordInput, {target: {value: VALID_PASSWORD}})
 
     const submitButton = getByRole('button', {
       name: LOGIN_CROSS.PASSWORD_RESET.STEP_2.SUBMIT_BUTTON
@@ -196,7 +193,7 @@ describe('ChangePasswordForm', () => {
 
     mocker
       .httpMock('http://fake/')
-      .post('change-password', {token: '1234', password: '12345678'})
+      .post('change-password', {token: DEFAULT_TOKEN, password: VALID_PASSWORD})
       .reply(null, 400)
 
     // When
@@ -205,12 +202,12 @@ describe('ChangePasswordForm', () => {
     const repeatPasswordInput = await findByLabelText(
       LOGIN_CROSS.PASSWORD_RESET.STEP_2.REPEAT_PASSWORD_LABEL
     )
-    fireEvent.change(repeatPasswordInput, {target: {value: '12345678'}})
+    fireEvent.change(repeatPasswordInput, {target: {value: VALID_PASSWORD}})
 
     const passwordInput = await findByLabelText(
       LOGIN_CROSS.PASSWORD_RESET.STEP_2.NEW_PASSWORD_LABEL
     )
-    fireEvent.change(passwordInput, {target: {value: '12345678'}})
+    fireEvent.change(passwordInput, {target: {value: VALID_PASSWORD}})
 
     const submitButton = getByRole('button', {
       name: LOGIN_CROSS.PASSWORD_RESET.STEP_2.SUBMIT_BUTTON

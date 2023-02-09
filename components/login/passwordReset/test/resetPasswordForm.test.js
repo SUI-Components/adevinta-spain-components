@@ -9,6 +9,7 @@ import Mocker from '@s-ui/mockmock/lib/http'
 
 import literals from '../src/literals/es-ES.js'
 import {FIRST_STEP_TEXT, VALID_EMAIL} from './fixtures.js'
+import {setTokenAndExpiration} from './utils.js'
 
 const {LOGIN_CROSS} = literals
 
@@ -21,11 +22,7 @@ describe('ResetPasswordForm', () => {
 
   beforeEach(() => {
     mocker.create()
-
-    const url = new URL(global.window.location)
-    url.searchParams.set('token', '')
-    url.searchParams.set('exp', '')
-    global.window.history.pushState(null, '', url.toString())
+    setTokenAndExpiration('', '', global)
   })
 
   afterEach(() => {
