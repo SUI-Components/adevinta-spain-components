@@ -1,3 +1,7 @@
+export const DEFAULT_RESET_PASSWORD_ENDPOINT =
+  'http://localhost/v1/ecg/password-reset'
+export const DEFAULT_CHANGE_PASSWORD_ENDPOINT =
+  'http://localhost/v1/ecg/password-change'
 export default class Config {
   /**
    * @constructor
@@ -8,8 +12,8 @@ export default class Config {
     this._config = {
       DEFAULT_CULTURE: 'es-ES',
       DEFAULT_CURRENCY: 'EUR',
-      RESET_PASSWORD_ENDPOINT: 'http://localhost/v1/ecg/password-reset',
-      CHANGE_PASSWORD_ENDPOINT: 'http://localhost/v1/ecg/password-change'
+      RESET_PASSWORD_ENDPOINT: DEFAULT_RESET_PASSWORD_ENDPOINT,
+      CHANGE_PASSWORD_ENDPOINT: DEFAULT_CHANGE_PASSWORD_ENDPOINT
     }
   }
 
