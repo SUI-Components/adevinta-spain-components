@@ -225,8 +225,6 @@ const handleSubmit = (email) => {
 }
 ```
 
-```
-
 ## Other technical comments
 
 ### How to start developing and running tests
