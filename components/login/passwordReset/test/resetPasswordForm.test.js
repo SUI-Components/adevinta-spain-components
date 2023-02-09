@@ -1,6 +1,9 @@
+/* eslint react/jsx-no-undef:0 */
+/* eslint no-undef:0 */
+
 import ReactDOM from 'react-dom'
 
-import chai, {expect} from 'chai'
+import chai from 'chai'
 import chaiDOM from 'chai-dom'
 
 import {fireEvent} from '@testing-library/react'
