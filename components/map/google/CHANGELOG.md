@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.6.0 (2023-02-13)
+
+
+### Features
+
+* **components/map/google:** Add signed url prop, update documentation and add test ([d6b27fe](https://github.com/SUI-Components/adevinta-spain-components/commit/d6b27fec634205e5e9c9f7816f6eba08e966ec36))
+
+
+
 # 1.5.0 (2022-12-28)
 
 
