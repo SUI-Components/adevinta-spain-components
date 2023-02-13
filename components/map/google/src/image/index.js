@@ -13,6 +13,7 @@ function MapGoogleImage({
   height,
   size,
   width,
+  signedUrl,
   ...others
 }) {
   if (!height || !width) {
@@ -25,7 +26,7 @@ function MapGoogleImage({
     center: `${lat},${lng}`,
     size: size ?? `${width}x${height}`
   })
-  const src = `${BASE_URL}?${params}`
+  const src = signedUrl || `${BASE_URL}?${params}`
 
   return (
     <Injector src={src} alt={alt} width={width} height={height}>
@@ -42,7 +43,8 @@ MapGoogleImage.propTypes = {
   children: PropTypes.node,
   height: PropTypes.number.isRequired,
   size: PropTypes.string,
-  width: PropTypes.number.isRequired
+  width: PropTypes.number.isRequired,
+  signedUrl: PropTypes.string
 }
 
 export default MapGoogleImage

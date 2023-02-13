@@ -49,6 +49,8 @@ const MapGoogleAddOnsExample = () => {
 
 Render a static map image. Similar to `MapGoogle` it requires the `apiKey` prop. The rest of the props are the parameters defined in the Maps Static API [documentation](https://developers.google.com/maps/documentation/maps-static/start) (e.g. `center` and `zoom`).
 
+It is recommended, depending on your usage of this static map, a digital signature - in addition to an API key - to authenticate requests. So, if you need to use a signed url, you can use `signedUrl` prop. This prop has priority over the rest of the props that generate the url when you don't need a signature. Pay attention to the [digital signature documentation](https://developers.google.com/maps/documentation/maps-static/digital-signature?hl=en) to see how to create this url in your web app.
+
 ```js
 import MapGoogleImage from '@s-ui/sui-map-google/lib/image/index.js'
 

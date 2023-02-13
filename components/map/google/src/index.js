@@ -8,12 +8,12 @@ import AtomSkeleton from '@s-ui/react-atom-skeleton'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
 
 import MapGoogleCircle from './circle/index.js'
+import StaticMap from './image/index.js'
 import MapGoogleInfoWindow from './infoWindow/index.js'
 import MapGoogleMarker from './marker/index.js'
 import MapGooglePolygon from './polygon/index.js'
 import MapGooglePolyline from './polyline/index.js'
 import MapGoogleRectangle from './rectangle/index.js'
-import StaticMap from './image/index.js'
 import {
   BASE_CLASS,
   CONTAINER_CLASSNAME,
@@ -39,6 +39,7 @@ function MapGoogle({
   onError,
   onLoad,
   onUnmount,
+  signedUrl,
   ...others
 }) {
   const [isInteractive, setIsInteractive] =
@@ -83,6 +84,7 @@ function MapGoogle({
             onUnmount={onUnmount}
             width={width}
             zoom={zoom}
+            signedUrl={signedUrl}
             {...others}
           >
             {isInteractive ? children : staticImageNode}
@@ -113,7 +115,8 @@ MapGoogle.propTypes = {
   onLoad: PropTypes.func,
   onUnmount: PropTypes.func,
   staticImageNode: PropTypes.node,
-  zoom: PropTypes.number
+  zoom: PropTypes.number,
+  signedUrl: PropTypes.string
 }
 
 export default MapGoogle
