@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types'
 
-import {BASE_CLASS} from '../../config.js'
+import {BASE_CLASS, EVENTS} from '../../config.js'
 import useDisplayExpiredTokenError from '../../hooks/components/useDisplayExpiredTokenError.js'
 import usePasswordChangeFormState from '../../hooks/components/usePasswordChangeFormState.js'
 import useDomain from '../../hooks/useDomain.js'
+import useEventBus from '../../hooks/useEventBus.js'
 import useGetCurrentToken from '../../hooks/useGetCurrentToken.js'
 import useI18n from '../../hooks/useI18n.js'
 import Notification from '../Info/Notification.js'
@@ -16,6 +17,13 @@ const PasswordChangeForm = ({icons}) => {
   const domain = useDomain()
   const {getCurrentToken} = useGetCurrentToken()
   const {token} = getCurrentToken()
+  const {emit} = useEventBus()
+
+  const {
+    CHANGE_PASSWORD_BUTTON_CLICK,
+    CHANGE_PASSWORD_ERROR,
+    CHANGE_PASSWORD_SUCCESS
+  } = EVENTS
 
   const {
     state: {
@@ -96,6 +104,7 @@ const PasswordChangeForm = ({icons}) => {
   }
 
   const handleSubmit = () => {
+    emit(CHANGE_PASSWORD_BUTTON_CLICK, {})
     setIsLoading(true)
     domain
       .get('change_password_use_case')
@@ -107,9 +116,10 @@ const PasswordChangeForm = ({icons}) => {
         )
 
         if (error) {
+          emit(CHANGE_PASSWORD_ERROR, {error})
           text = i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.ERRORS.SERVER_ERROR')
           isError = true
-        }
+        } else emit(CHANGE_PASSWORD_SUCCESS, {})
 
         setNotification({
           text,

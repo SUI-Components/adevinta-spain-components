@@ -4,11 +4,18 @@ import {expect} from 'chai'
 
 import Mocker from '@s-ui/mockmock/lib/http'
 
+import {
+  DEFAULT_CHANGE_PASSWORD_ENDPOINT,
+  DEFAULT_RESET_PASSWORD_ENDPOINT
+} from '../../config.js'
 import Domain from '../../index.js'
 import {PasswordError} from '../../password/Errors/PasswordError.js'
 
 describe('[Domain] ResetPasswordUseCase', () => {
   const domain = new Domain()
+  const config = domain.get('config')
+  config.set('CHANGE_PASSWORD_ENDPOINT', DEFAULT_CHANGE_PASSWORD_ENDPOINT)
+  config.set('RESET_PASSWORD_ENDPOINT', DEFAULT_RESET_PASSWORD_ENDPOINT)
   const useCase = domain.get('reset_password_use_case')
   const mocker = new Mocker()
 

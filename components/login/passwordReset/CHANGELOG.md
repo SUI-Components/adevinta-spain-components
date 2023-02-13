@@ -1,5 +1,40 @@
 # CHANGELOG
 
+# 1.35.0 (2023-02-09)
+
+
+### Features
+
+* **components/login/passwordReset:** Add component tests for reset password form ([a6321bf](https://github.com/SUI-Components/adevinta-spain-components/commit/a6321bfb5c736e070b7c4fdec6c5477ca8a7adf4))
+* **components/login/passwordReset:** Add tests to existing forms ([240e861](https://github.com/SUI-Components/adevinta-spain-components/commit/240e8616519ca6aa396764fde6c0af8c332e6e7c))
+* **components/login/passwordReset:** Apply small refactors ([a6ade85](https://github.com/SUI-Components/adevinta-spain-components/commit/a6ade85db4232bb3e3703e94a061a67b69048f52))
+* **components/login/passwordReset:** Comment test ([33f0789](https://github.com/SUI-Components/adevinta-spain-components/commit/33f0789173005be6956ddfcc7f21d8297f9b50dc))
+* **components/login/passwordReset:** Reset domain config before each test to ensure it works as exp ([a6a7a8a](https://github.com/SUI-Components/adevinta-spain-components/commit/a6a7a8a76014d8eec0ace54793480938bb9da557))
+* **components/login/passwordReset:** Solve linter issues ([3f0a4ef](https://github.com/SUI-Components/adevinta-spain-components/commit/3f0a4ef2a818c888a0f4c746cb167b0a4c8b7d79))
+
+
+
+# 1.34.0 (2023-02-08)
+
+
+### Features
+
+* **components/login/passwordReset:** Emit events to the event bus ([ed1c32b](https://github.com/SUI-Components/adevinta-spain-components/commit/ed1c32b2a82e48b929b65a684d66f94d3d97b932))
+* **components/login/passwordReset:** Finish documentation ([f9d8983](https://github.com/SUI-Components/adevinta-spain-components/commit/f9d89834913ffe917535abdab8380c5051a60c37))
+* **components/login/passwordReset:** Remove work in progress ([bb5e332](https://github.com/SUI-Components/adevinta-spain-components/commit/bb5e33291afc07a0cfe1c641f0577678a6a11492))
+
+
+
+# 1.33.0 (2023-02-07)
+
+
+### Features
+
+* **components/login/passwordReset:** Add docs and small fixes ([1bffa35](https://github.com/SUI-Components/adevinta-spain-components/commit/1bffa35d4c99e04f04a65d628c6af711927f2683))
+* **components/login/passwordReset:** Repair props ([cf0981c](https://github.com/SUI-Components/adevinta-spain-components/commit/cf0981c9d70cad3f76ed1a15414ad98ae841b61a))
+
+
+
 # 1.32.0 (2023-02-07)
 
 
