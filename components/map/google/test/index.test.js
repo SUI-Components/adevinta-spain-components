@@ -146,4 +146,22 @@ describe('MapGoogleImage', () => {
     // Then
     expect(screen.getByRole('img', {name: props.alt})).to.have.attr('src')
   })
+
+  it('should render default custom image when passing a signed url prop', async () => {
+    // Given
+    const props = {
+      alt: 'mapTest',
+      staticImageNode: <div role="img" />,
+      signedUrl: 'signedUrl'
+    }
+
+    // When
+    setup(props)
+
+    // Then
+    expect(screen.getByRole('img', {name: props.alt})).to.have.attr(
+      'src',
+      props.signedUrl
+    )
+  })
 })
