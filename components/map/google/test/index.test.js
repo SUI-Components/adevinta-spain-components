@@ -147,7 +147,7 @@ describe('MapGoogleImage', () => {
     expect(screen.getByRole('img', {name: props.alt})).to.have.attr('src')
   })
 
-  it.only('should render default custom image when passing a signed url prop', async () => {
+  it('should render default custom image when passing a signed url prop', async () => {
     // Given
     const props = {
       ...REQUIRED_MAPGOOGLEIMAGE_PROPS,
