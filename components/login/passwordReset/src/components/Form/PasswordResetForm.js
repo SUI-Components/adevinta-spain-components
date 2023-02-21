@@ -141,11 +141,7 @@ const PasswordResetForm = () => {
       ) : null}
       <div className={`${BASE_CLASS}-formButtons`}>
         {!notification.text ? (
-          <SubmitButton
-            isEnabled={errorText.length < 1}
-            isLoading={isLoading}
-            onClick={handleSubmit}
-          >
+          <SubmitButton isEnabled isLoading={isLoading} onClick={handleSubmit}>
             {i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUBMIT_BUTTON')}
           </SubmitButton>
         ) : null}

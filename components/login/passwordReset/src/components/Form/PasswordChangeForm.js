@@ -67,7 +67,10 @@ const PasswordChangeForm = ({icons}) => {
     repeatPasswordValue,
     newPasswordValue = newPassword
   ) => {
-    if (repeatPasswordValue !== newPasswordValue) {
+    if (
+      repeatPasswordValue !== newPasswordValue &&
+      repeatPasswordValue !== ''
+    ) {
       return i18n.t(
         'LOGIN_CROSS.PASSWORD_RESET.STEP_2.ERRORS.PASSWORDS_NOT_MATCH'
       )
@@ -131,7 +134,8 @@ const PasswordChangeForm = ({icons}) => {
   const isSubmitButtonEnabled = () =>
     defaultDisabledSubmitButton === false &&
     newPasswordErrorText.length === 0 &&
-    repeatPasswordErrorText.length === 0
+    repeatPasswordErrorText.length === 0 &&
+    repeatPassword.length > 0
 
   return (
     <>
