@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.36.0 (2023-02-21)
+
+
+### Features
+
+* **components/login/passwordReset:** Improve UX in error management ([4f5a1b9](https://github.com/SUI-Components/adevinta-spain-components/commit/4f5a1b9dd9789ff111b1d522c20e6f343228db30))
+
+
+
 # 1.35.0 (2023-02-09)
 
 
