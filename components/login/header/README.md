@@ -19,6 +19,15 @@ $ npm install @s-ui/sui-login-header
 ```js
 import LoginHeader from '@s-ui/sui-login-header'
 
+const button = {
+  text: 'Help',
+  props: { // AtomButton props
+    href: 'http://www.adevinta.es'
+  }
+}
+
+const logo = 'https://statics.awesomecdn.com/images/adevinta.svg'
+
 return (<LoginHeader button={button} logo={logo} />)
 ```
 
