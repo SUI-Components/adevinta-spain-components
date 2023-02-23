@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.2.0 (2023-02-23)
+
+
+### Features
+
+* **components/login/footer:** add footer links styles ([65cf2c1](https://github.com/SUI-Components/adevinta-spain-components/commit/65cf2c190e025b8d49ea45176a3ca772e1f1e1f2))
+
+
+
 # 1.1.0 (2023-02-01)
 
 
