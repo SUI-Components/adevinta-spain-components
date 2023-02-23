@@ -42,6 +42,7 @@ $lh-login-password-reset-form-text: 20px !default;
 $lh-login-password-reset-form-text-title: 22px !default;
 $lh-login-password-reset-message: 22px !default;
 $lh-login-password-reset-form-footer: 20px !default;
+$lh-login-password-reset-help-content-text: 22px !default;
 $lh-login-password-reset-stage-info-title: 34px !default;
 $p-login-password-reset-form-help-content: $p-l $p-m !default;
 $p-login-password-reset: 80px $p-l !default;
@@ -79,13 +80,9 @@ $td-login-password-reset-form-text-anchor: underline !default;
       flex-basis: 33.33%;
       margin-bottom: 0;
       margin-right: $m-xxl;
-    }
 
-    &False {
-      display: none;
-
-      @include media-breakpoint-up(m) {
-        display: block;
+      &:last-child {
+        margin-right: 0;
       }
     }
   }
@@ -234,7 +231,11 @@ $td-login-password-reset-form-text-anchor: underline !default;
     }
 
     &Text {
+      align-items: end;
+      display: flex;
+      flex-direction: row;
       font-size: $fz-login-password-reset-form-help-content-text;
+      line-height: $lh-login-password-reset-help-content-text;
       margin: 0;
 
       a {

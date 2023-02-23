@@ -31,7 +31,6 @@ const PasswordReset = ({icons}) => {
           )}
         </Form>
       </div>
-      <div className={`${BASE_CLASS}-item ${BASE_CLASS}-itemFalse`} />
     </div>
   )
 }
