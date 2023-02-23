@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.37.0 (2023-02-23)
+
+
+### Features
+
+* **components/login/passwordReset:** update styles ([9d8d8ed](https://github.com/SUI-Components/adevinta-spain-components/commit/9d8d8ed63d60c9e6e3824a71baccf4d5688aaaf0))
+
+
+
 # 1.36.0 (2023-02-21)
 
 
