@@ -13,6 +13,7 @@ $fz-login-footer: 14px !default;
 $fz-login-footer-list-text: 14px !default;
 $z-login-footer: 800 !default;
 $td-login-footer-list-item: none !default;
+$td-login-footer-list-item-hover: underline !default;
 $td-login-footer-list-item-visited: none !default;
 
 .sui-LoginFooter {
@@ -32,7 +33,7 @@ $td-login-footer-list-item-visited: none !default;
 
   &-logo {
     display: flex;
-    margin: $m-m 0 $m-xl;
+    margin: $m-m 0 $m-m;
     width: $w-login-footer-logo;
 
     @include media-breakpoint-up(m) {
@@ -55,7 +56,7 @@ $td-login-footer-list-item-visited: none !default;
     padding: 0;
 
     @include media-breakpoint-up(m) {
-      align-items: center;
+      align-items: flex-end;
       flex-direction: row;
     }
 
@@ -70,6 +71,10 @@ $td-login-footer-list-item-visited: none !default;
       a {
         color: $c-login-footer-list-item;
         text-decoration: $td-login-footer-list-item;
+
+        &:hover {
+          text-decoration: $td-login-footer-list-item-hover;
+        }
 
         &:visited {
           color: $c-login-footer-list-item-visited;
