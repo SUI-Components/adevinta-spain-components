@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.38.0 (2023-02-27)
+
+
+### Features
+
+* **components/login/passwordReset:** center box to center at screnn ([b06acdf](https://github.com/SUI-Components/adevinta-spain-components/commit/b06acdf50dc233ab7953f893dd202457ed99ac11))
+
+
+
 # 1.37.0 (2023-02-23)
 
 
