@@ -79,11 +79,6 @@ $td-login-password-reset-form-text-anchor: underline !default;
     @include media-breakpoint-up(m) {
       flex-basis: 33.33%;
       margin-bottom: 0;
-      margin-right: $m-xxl;
-
-      &:last-child {
-        margin-right: 0;
-      }
     }
   }
 
