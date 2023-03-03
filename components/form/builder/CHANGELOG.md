@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.16.0 (2023-03-03)
+
+
+### Bug Fixes
+
+* **components/form/builder:** we bumped into a race condition when a field had a hidden rule being a ([6323d4c](https://github.com/SUI-Components/adevinta-spain-components/commit/6323d4c2a2aea25608839ce4b3ebf1e5cf006127))
+
+
+
 # 5.15.0 (2023-01-03)
 
 
