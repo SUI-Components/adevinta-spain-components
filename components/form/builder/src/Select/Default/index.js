@@ -92,14 +92,14 @@ const DefaultSelect = ({
     ...constraintsProps
   }
 
-  if (selectProps.hidden) {
-    return null
-  }
-
   const rendererResponse = renderer({
     id: select.id,
     innerProps: {...selectProps, datalist, display: select.display}
   })
+
+  if (selectProps.hidden) {
+    return null
+  }
 
   // render custom component
   if (isValidElement(rendererResponse)) return rendererResponse
