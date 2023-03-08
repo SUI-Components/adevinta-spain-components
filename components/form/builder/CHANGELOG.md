@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.17.0 (2023-03-08)
+
+
+### Features
+
+* **components/form/builder:** Update dependencies ([1a15ff5](https://github.com/SUI-Components/adevinta-spain-components/commit/1a15ff5ff8c0f6a51709892c465002a8db9b3d57))
+
+
+
 # 5.16.0 (2023-03-03)
 
 
