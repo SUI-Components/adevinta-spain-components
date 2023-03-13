@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.39.0 (2023-03-13)
+
+
+### Bug Fixes
+
+* **components/login/passwordReset:** fix login session link ([c87a6ca](https://github.com/SUI-Components/adevinta-spain-components/commit/c87a6ca4e4fa0df4be1325001c26a6966e6cb6fb))
+
+
+
 # 1.38.0 (2023-02-27)
 
 
