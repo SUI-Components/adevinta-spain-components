@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.40.0 (2023-03-13)
+
+
+### Bug Fixes
+
+* **components/login/passwordReset:** fix prop to the link ([e91b98b](https://github.com/SUI-Components/adevinta-spain-components/commit/e91b98ba80c13fbb0c1411a9e7c0ab03b303c2e2))
+
+
+
 # 1.39.0 (2023-03-13)
 
 
