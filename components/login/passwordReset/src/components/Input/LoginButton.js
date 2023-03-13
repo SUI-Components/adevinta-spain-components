@@ -17,7 +17,7 @@ const LoginButton = () => {
         // linkFactory={Link}
         shape={atomButtonShapes.CIRCULAR}
         size={atomButtonSizes.LARGE}
-        to={i18n.t('LOGIN_CROSS.URLS.LOGIN.ROOT')}
+        to={i18n.t('LOGIN_CROSS.URLS.ROOT_CIS')}
       >
         {i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.RETURN_BUTTON')}
       </AtomButton>
