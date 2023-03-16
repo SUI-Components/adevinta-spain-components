@@ -29,7 +29,7 @@ export default {
           EMAIL_RESEND:
             'Te hemos vuelto a enviar un email con las instrucciones para recuperar la contraseña.'
         },
-        SUBMIT_BUTTON: 'Enviar código de verificación por email'
+        SUBMIT_BUTTON: 'Enviar email'
       },
       STEP_2: {
         LABEL: 'Crea tu nueva contraseña',
