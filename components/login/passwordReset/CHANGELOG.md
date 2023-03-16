@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.41.0 (2023-03-16)
+
+
+### Bug Fixes
+
+* **components/login/passwordReset:** change recovery password copy ([368e187](https://github.com/SUI-Components/adevinta-spain-components/commit/368e187392324f451a490db059da4c389c47cbf5))
+
+
+
 # 1.40.0 (2023-03-13)
 
 
