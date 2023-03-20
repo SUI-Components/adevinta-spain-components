@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.36.0 (2023-03-20)
+
+
+### Features
+
+* **components/react/hooks:** add tests ([f45c6b0](https://github.com/SUI-Components/adevinta-spain-components/commit/f45c6b041158cc90374cb734d4b6ff2c53d6250b))
+* **components/react/hooks:** create usePrecalculatedMediaQuery to avoid CLS in some scenarios ([9ccb695](https://github.com/SUI-Components/adevinta-spain-components/commit/9ccb6953a16a576e0ca12a215725671d5c59d651))
+
+
+
 # 1.35.0 (2022-10-27)
 
 
