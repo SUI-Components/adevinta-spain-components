@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.18.0 (2023-03-22)
+
+
+### Features
+
+* **components/form/builder:** pass leftAddon prop ([a9ce75e](https://github.com/SUI-Components/adevinta-spain-components/commit/a9ce75ef03f957f819e10c4c9cbe0ef46c896b0f))
+
+
+
 # 5.17.0 (2023-03-08)
 
 
