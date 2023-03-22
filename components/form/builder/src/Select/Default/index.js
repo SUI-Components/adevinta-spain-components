@@ -127,6 +127,7 @@ const DefaultSelect = ({
             key={data.value}
             value={data.value}
             description={data.description}
+            leftAddon={data.leftAddon}
           >
             {data.text}
           </MoleculeSelectOption>
