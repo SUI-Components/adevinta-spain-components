@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.19.0 (2023-03-23)
+
+
+### Features
+
+* **components/form/builder:** Add fields status when calling to onInitFieldsLoadEnd ([5b4a147](https://github.com/SUI-Components/adevinta-spain-components/commit/5b4a147f3a99f19aabea8b163fa2b1c85bf1e1aa))
+
+
+
 # 5.18.0 (2023-03-22)
 
 
