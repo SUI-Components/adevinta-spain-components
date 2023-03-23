@@ -166,7 +166,14 @@ const FormBuilder = ({
         clearTimeout(timerShowSpinner)
         setStateFields(nextFields)
         setStateShowSpinner(false)
-        onInitFieldsLoadEnd()
+
+        const nextStateFieldsObject = useNativeFieldType
+          ? fieldsToObjectNativeTypes(nextFields)
+          : fieldsToObject(nextFields)
+
+        onInitFieldsLoadEnd({
+          ...nextStateFieldsObject
+        })
       })
   }, [allowInitFieldsReload ? initFields : null]) // eslint-disable-line
 
