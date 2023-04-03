@@ -94,7 +94,12 @@ const DefaultSelect = ({
 
   const rendererResponse = renderer({
     id: select.id,
-    innerProps: {...selectProps, datalist, display: select.display}
+    innerProps: {
+      ...selectProps,
+      datalist,
+      display: select.display,
+      type: select.type
+    }
   })
 
   if (selectProps.hidden) {
