@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.20.0 (2023-04-03)
+
+
+### Features
+
+* **components/form/builder:** add type prop to default select renderer ([fdef473](https://github.com/SUI-Components/adevinta-spain-components/commit/fdef47304074fd9de59af1cf45ce228b4b8ea2b3))
+
+
+
 # 5.19.0 (2023-03-23)
 
 
