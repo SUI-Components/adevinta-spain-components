@@ -42,29 +42,22 @@ export default function MapDrawerArticle({apiKey, height, width}) {
           {draw ? 'Stop drawing' : 'Start drawing'}
         </Button>
       </div>
-
-      <div style={{width: '100%', height: '400px'}}>
-        <MapGoogle
-          apiKey={apiKey}
-          height={height}
-          width={width}
-          center={{lat: 40.714728, lng: -73.998672}}
-          isInteractive
-        >
-          {pathLatLangLiteral && (
-            <MapGooglePolygon
-              path={pathLatLangLiteral}
-              options={polygonStyles}
-            />
-          )}
-          <MapGoogleDrawer
-            drawing={draw}
-            onStopDrawing={handleStopDrawing}
-            polylineOptions={polylineStyles}
-          />
-        </MapGoogle>
-      </div>
-
+      <MapGoogle
+        apiKey={apiKey}
+        height={height}
+        width={width}
+        center={{lat: 40.714728, lng: -73.998672}}
+        isInteractive
+      >
+        {pathLatLangLiteral && (
+          <MapGooglePolygon path={pathLatLangLiteral} options={polygonStyles} />
+        )}
+        <MapGoogleDrawer
+          drawing={draw}
+          onStopDrawing={handleStopDrawing}
+          polylineOptions={polylineStyles}
+        />
+      </MapGoogle>
       <textarea
         key={pathLatLangLiteral}
         width={width}
