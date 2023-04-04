@@ -69,6 +69,35 @@ const MapGoogleImageExample = () => {
 }
 ```
 
+##### MapDrawer
+
+Utility component to freehand draw on map, as child of `MapGoogle`.
+
+```js
+import MapGoogle from '@s-ui/sui-map-google'
+import MapGoogleDrawer from '@s-ui/sui-map-google/lib/drawer/index.js'
+
+const polylineStyles = {
+  strokeColor: '#2b91c1',
+  strokeOpacity: 0.5,
+  strokeWeight: 4
+}
+
+const MapGoogleAddOnsExample = () => {
+  const handleStopDrawing = ({path}) => console.log(path)
+
+  return (
+    <MapGoogle apiKey="AIzaSyDp7wqS1IyRZCvMMsY2LX2V1TXY4Lh8UGA">
+      <MapGoogleDrawer
+        drawing
+        onStopDrawing={handleStopDrawing}
+        polylineOptions={polylineStyles}
+      />
+    </MapGoogle>
+  )
+}
+```
+
 #### Import the styles (Sass)
 
 ```css
