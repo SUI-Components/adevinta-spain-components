@@ -15,6 +15,7 @@ import {
 import MapAddOnsArticle from './articles/MapAddOnsArticle.js'
 import MapArticle from './articles/MapArticle.js'
 import MapCustomUIArticle from './articles/MapCustomUIArticle.js'
+import MapDrawerArticle from './articles/MapDrawerArticle.js'
 import MapImageArticle from './articles/MapImageArticle.js'
 
 const className = 'DemoMapGoogle'
@@ -73,6 +74,13 @@ export default () => {
         key={`${apiKey}-MapCustomUIArticle`}
         height={600}
         width={600}
+      />
+
+      <MapDrawerArticle
+        apiKey={apiKey}
+        height={600}
+        width={600}
+        key={`${apiKey}-MapDrawerArticle`}
       />
     </div>
   )

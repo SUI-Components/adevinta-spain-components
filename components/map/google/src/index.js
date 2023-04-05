@@ -8,6 +8,7 @@ import AtomSkeleton from '@s-ui/react-atom-skeleton'
 import useControlledState from '@s-ui/react-hooks/lib/useControlledState/index.js'
 
 import MapGoogleCircle from './circle/index.js'
+import MapGoogleDrawer from './drawer/index.js'
 import StaticMap from './image/index.js'
 import MapGoogleInfoWindow from './infoWindow/index.js'
 import MapGoogleMarker from './marker/index.js'
@@ -123,6 +124,7 @@ export default MapGoogle
 
 export {
   MapGoogleCircle,
+  MapGoogleDrawer,
   MapGoogleMarker,
   MapGoogleRectangle,
   StaticMap as MapGoogleImage,
