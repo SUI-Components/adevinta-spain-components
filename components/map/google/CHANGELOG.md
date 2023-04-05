@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.7.0 (2023-04-05)
+
+
+### Features
+
+* **components/map/google:** Add google drawer component to google map ([27b1caa](https://github.com/SUI-Components/adevinta-spain-components/commit/27b1caa365ba26e618049f31e50b6ddd64d6561d))
+* **components/map/google:** Create Google Maps Drawer ([9d466d0](https://github.com/SUI-Components/adevinta-spain-components/commit/9d466d013b085d8d2c5fc8291942001b8b0fc867))
+
+
+
 # 1.6.0 (2023-02-13)
 
 
