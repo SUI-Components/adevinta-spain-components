@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.56.0 (2023-04-06)
+
+
+### Features
+
+* **components/topbar/user:** pass linkfactory prop to CTA button ([2c5091d](https://github.com/SUI-Components/adevinta-spain-components/commit/2c5091dcdc40b23d81b638743f6c80c7654cefae))
+
+
+
 # 1.55.0 (2022-10-27)
 
 
