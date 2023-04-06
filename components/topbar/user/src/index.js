@@ -235,6 +235,7 @@ export default function TopbarUser({
         <div className="sui-TopbarUser-ctaButton">
           <AtomButton
             link
+            linkFactory={linkFactory}
             design="solid"
             href={navCTA.url}
             title={navCTA.text}
