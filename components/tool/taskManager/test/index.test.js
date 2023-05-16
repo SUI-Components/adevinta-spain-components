@@ -9,19 +9,20 @@ import ReactDOM from 'react-dom'
 
 import chai, {expect} from 'chai'
 import chaiDOM from 'chai-dom'
-import Component from '../src/index.js'
+import {TaskManagerProvider} from 'components/tool/taskManager/src'
+import ToolTaskManager from '../src'
 
 chai.use(chaiDOM)
 
 describe('ToolTaskManager', () => {
-  const setup = setupEnvironment(Component)
+  const setup = setupEnvironment(() => <TaskManagerProvider><ToolTaskManager /></TaskManagerProvider>)
 
   it('should render without crashing', () => {
     // Given
     const props = {}
 
     // When
-    const component = <Component {...props} />
+    const component = <TaskManagerProvider><ToolTaskManager {...props} /></TaskManagerProvider>
 
     // Then
     const div = document.createElement('div')
