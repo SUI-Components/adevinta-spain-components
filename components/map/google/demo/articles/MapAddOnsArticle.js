@@ -12,6 +12,7 @@ import {
   Text,
   UnorderedList
 } from '@s-ui/documentation-library'
+
 import {MapGoogleInfoWindow} from '../../src/index.js'
 
 const MapAddOnsArticle = ({apiKey}) => {

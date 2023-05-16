@@ -1,0 +1,29 @@
+{
+  "name": "@s-ui/sui-tool-task-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublishOnly": "rimraf lib && npm run build:js && npm run build:styles",
+    "build:js": "babel --presets sui ./src --out-dir ./lib",
+    "build:styles": "cpx './src/**/*.scss' ./lib"
+  },
+  "dependencies": {
+    "@s-ui/decorators": "3",
+    "@s-ui/domain": "2",
+    "@s-ui/react-molecule-accordion": "2",
+    "@s-ui/react-molecule-badge-counter": "1",
+    "@s-ui/react-atom-progress-bar": "2",
+    "@s-ui/react-molecule-drawer": "4"
+  },
+  "peerDependencies": {
+    "@s-ui/theme": "8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/adevinta-spain-components.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
