@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.4.0 (2023-05-16)
+
+
+### Features
+
+* **components/login/header:** Solve lint issues ([0d8083d](https://github.com/SUI-Components/adevinta-spain-components/commit/0d8083d340ee891bc55a055df3e1578b5afc5b3a))
+
+
+
 # 1.3.0 (2023-02-06)
 
 
