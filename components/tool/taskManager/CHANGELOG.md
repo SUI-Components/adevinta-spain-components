@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.2.0 (2023-05-16)
+
+
+### Features
+
+* **components/tool/taskManager:** Add a prop to hide the task manager ([775490d](https://github.com/SUI-Components/adevinta-spain-components/commit/775490df8334ebe7402d5e4046aa0ddee86b821f))
+
+
+
 # 1.1.0 (2023-05-16)
 
 
