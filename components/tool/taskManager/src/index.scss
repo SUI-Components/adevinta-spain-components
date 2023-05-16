@@ -1,5 +1,53 @@
 @import '~@s-ui/theme/lib/index';
+@import '~@s-ui/react-molecule-accordion/lib/index';
+@import '~@s-ui/react-molecule-drawer/lib/index';
+@import '~@s-ui/react-molecule-badge-counter/lib/index';
+@import '~@s-ui/react-atom-progress-bar/lib/index';
 
 .sui-ToolTaskManager {
-  // Do your magic
+  border-radius: 8px;
+  bottom: 0px;
+  height: 50px;
+  position: fixed;
+  right: calc(50% - 200px);
+  z-index: 9999;
+
+  &-tab {
+    align-content: center;
+    align-items: center;
+    background-color: white;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    border: 1px solid black;
+    cursor: pointer;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    margin: auto;
+    width: 400px;
+  }
+
+  &-container {
+    max-height: 300px;
+    min-height: 50px;
+    overflow: auto;
+    padding: 16px;
+  }
+
+  &-work {
+    align-items: center;
+    display: flex;
+    font-size: 12px;
+    margin-bottom: 16px;
+    width: 100%;
+
+    &ProgressBar {
+      width: 100%;
+    }
+
+    &Info {
+      display: flex;
+      width: 400px;
+    }
+  }
 }
