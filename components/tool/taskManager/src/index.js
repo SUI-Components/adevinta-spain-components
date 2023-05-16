@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import {useRef} from 'react'
 
 import AtomProgressBar from '@s-ui/react-atom-progress-bar'
@@ -17,7 +18,9 @@ import MoleculeDrawer, {
 import {TaskManagerProvider} from './components/TaskManagerContext.js'
 import useContext from './hooks/useContext.js'
 
-export default function ToolTaskManager() {
+export default function ToolTaskManager({
+  isVisible = true
+}) {
   window.taskManager = useContext()
   const {state, toggleTab} = window.taskManager
   const drawerRef = useRef()
@@ -86,6 +89,9 @@ export default function ToolTaskManager() {
     )
   }
 
+  if (!isVisible)
+    return null
+
   return (
     <div className="sui-ToolTaskManager">
       <MoleculeBadgeCounter
@@ -102,6 +108,8 @@ export default function ToolTaskManager() {
 }
 
 ToolTaskManager.displayName = 'ToolTaskManager'
-ToolTaskManager.propTypes = {}
+ToolTaskManager.propTypes = {
+  isVisible: PropTypes.bool
+}
 
 export {TaskManagerProvider, useContext as useTaskManagerContext}
