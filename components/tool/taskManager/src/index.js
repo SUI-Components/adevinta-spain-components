@@ -1,5 +1,6 @@
 import {useRef} from 'react'
 
+import AtomProgressBar from '@s-ui/react-atom-progress-bar'
 import MoleculeAccordion, {
   moleculeAccordionBehavior,
   MoleculeAccordionItem
@@ -12,7 +13,6 @@ import MoleculeDrawer, {
   moleculeDrawerPlacements,
   moleculeDrawerSizes
 } from '@s-ui/react-molecule-drawer'
-import AtomProgressBar from '@s-ui/react-atom-progress-bar'
 
 import {TaskManagerProvider} from './components/TaskManagerContext.js'
 import useContext from './hooks/useContext.js'
