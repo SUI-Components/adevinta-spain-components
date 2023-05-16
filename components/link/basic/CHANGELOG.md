@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.4.0 (2023-05-16)
+
+
+### Features
+
+* **components/link/basic:** Solve lint issues ([6da89af](https://github.com/SUI-Components/adevinta-spain-components/commit/6da89af8e6c40266bf71107727b9dcfc3964cc8f))
+
+
+
 # 2.3.0 (2022-12-14)
 
 
