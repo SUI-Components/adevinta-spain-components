@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.3.0 (2023-05-17)
+
+
+### Features
+
+* **components/tool/taskManager:** Modify taskManager to process work having into account dependenci ([184b7bc](https://github.com/SUI-Components/adevinta-spain-components/commit/184b7bcf12cc38b91225f09440e1eae434f05cf8))
+
+
+
 # 1.2.0 (2023-05-16)
 
 
