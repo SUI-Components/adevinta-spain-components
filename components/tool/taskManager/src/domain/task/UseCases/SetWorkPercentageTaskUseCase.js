@@ -8,11 +8,12 @@ export class SetWorkPercentageTaskUseCase extends UseCase {
       setWorkPercentageTaskServiceFactory
   }
 
-  execute({localState, workId, percentage} = {}) {
+  execute({localState, taskId, workId, percentage} = {}) {
     const result = this._setWorkPercentageTaskServiceFactory({
       config: this._config,
       localState
     }).execute({
+      taskId,
       workId,
       percentage
     })

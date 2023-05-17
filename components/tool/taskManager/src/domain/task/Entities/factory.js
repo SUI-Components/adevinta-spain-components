@@ -15,12 +15,13 @@ export class TaskEntitiesFactory {
     createdAt,
     finishedAt = null,
     updatedAt = null
-  }) =>
-    new TaskEntity({
+  }) => {
+    const taskId = SharedValueObjectsFactory.idSharedValueObject(id)
+    return new TaskEntity({
       config,
       createdAt: SharedValueObjectsFactory.dateSharedValueObject(createdAt),
       finishedAt: SharedValueObjectsFactory.dateSharedValueObject(finishedAt),
-      id: SharedValueObjectsFactory.idSharedValueObject(id),
+      id: taskId,
       log: SharedValueObjectsFactory.stringSharedValueObject(log),
       name: SharedValueObjectsFactory.stringSharedValueObject(name),
       priority: TaskValueObjectsFactory.priorityTaskValueObject(
@@ -29,8 +30,13 @@ export class TaskEntitiesFactory {
       ),
       status: TaskValueObjectsFactory.statusTaskValueObject(config, status),
       updatedAt: SharedValueObjectsFactory.dateSharedValueObject(updatedAt),
-      work: TaskValueObjectsFactory.workListTaskValueObject(config, work)
+      work: TaskValueObjectsFactory.workListTaskValueObject(
+        config,
+        work,
+        taskId.get()
+      )
     })
+  }
 
   static workTaskEntity = ({
     config,
@@ -46,6 +52,7 @@ export class TaskEntitiesFactory {
     percentage,
     start,
     status,
+    taskId = null,
     updatedAt = null
   }) =>
     new WorkTaskEntity({
@@ -63,6 +70,7 @@ export class TaskEntitiesFactory {
       percentage: SharedValueObjectsFactory.numberSharedValueObject(percentage),
       start: SharedValueObjectsFactory.callbackSharedValueObject(start),
       status: TaskValueObjectsFactory.statusTaskValueObject(config, status),
+      taskId: SharedValueObjectsFactory.idSharedValueObject(taskId),
       updatedAt: SharedValueObjectsFactory.dateSharedValueObject(updatedAt)
     })
 }

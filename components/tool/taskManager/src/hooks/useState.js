@@ -63,29 +63,33 @@ const useState = () => {
       ...task
     })
 
-  const setPercentage = (workId, percentage) =>
+  const setPercentage = (taskId, workId, percentage) =>
     executeUseCase('set_work_percentage_task_use_case', {
       localState: stateRef.current,
+      taskId,
       workId,
       percentage
     })
 
-  const finishWork = workId =>
+  const finishWork = (taskId, workId) =>
     executeUseCase('finish_work_task_use_case', {
       localState: stateRef.current,
+      taskId,
       workId
     })
 
-  const cancelWork = workId =>
+  const cancelWork = (taskId, workId) =>
     executeUseCase('cancel_work_task_use_case', {
       localState: stateRef.current,
+      taskId,
       workId
     })
 
-  const errorWork = (workId, log) =>
+  const errorWork = (taskId, workId, log) =>
     executeUseCase('error_work_task_use_case', {
       localState: stateRef.current,
       log,
+      taskId,
       workId
     })
 

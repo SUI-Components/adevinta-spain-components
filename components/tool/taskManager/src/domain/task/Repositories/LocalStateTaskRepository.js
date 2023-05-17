@@ -20,10 +20,8 @@ export class LocalStateTaskRepository extends TaskRepository {
     return updatedState
   }
 
-  getWork(workId) {
-    const parentTask = this._localState.tasks.find(
-      task => task.work.find(work => work.id === workId) !== undefined
-    )
+  getWork(taskId, workId) {
+    const parentTask = this._localState.tasks.find(task => task.id === taskId)
     if (parentTask === undefined) return null
 
     const work = parentTask.work.find(work => work.id === workId)
@@ -44,9 +42,9 @@ export class LocalStateTaskRepository extends TaskRepository {
     }
 
     const parentTaskIndex = updatedState.tasks.findIndex(
-      task =>
-        task.work.find(work => work.id === workEntity._id.get()) !== undefined
+      task => task.id === workEntity._taskId.get()
     )
+
     if (parentTaskIndex === -1) return this._localState
 
     const currentWorkIndex = updatedState.tasks[parentTaskIndex].work.findIndex(

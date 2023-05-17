@@ -11,7 +11,7 @@ export class ProcessInProgressTaskService extends Service {
     const tasks = this._taskRepository.getInProgressTasks()
     const updatedTasks = tasks.map(task => {
       if (task.hasInProgressWork()) return task
-      const queuedWork = task.getQueuedWork()
+      const queuedWork = task.getRunnableWork()
 
       if (queuedWork.length === 0) {
         task.markAsCompleted()

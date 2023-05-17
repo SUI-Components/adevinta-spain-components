@@ -7,11 +7,12 @@ export class CancelWorkTaskUseCase extends UseCase {
     this._cancelWorkTaskServiceFactory = cancelWorkTaskServiceFactory
   }
 
-  execute({localState, workId} = {}) {
+  execute({localState, workId, taskId} = {}) {
     const result = this._cancelWorkTaskServiceFactory({
       config: this._config,
       localState
     }).execute({
+      taskId,
       workId
     })
     return result

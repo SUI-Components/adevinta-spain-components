@@ -31,9 +31,9 @@ export class TaskValueObjectsFactory {
     return statusValueObject
   }
 
-  static workListTaskValueObject = (config, work = []) => {
+  static workListTaskValueObject = (config, work = [], taskId = null) => {
     const workEntities = work.map(workItem =>
-      TaskEntitiesFactory.workTaskEntity({config, ...workItem})
+      TaskEntitiesFactory.workTaskEntity({config, taskId, ...workItem})
     )
     return new WorkListTaskValueObject({work: workEntities})
   }
