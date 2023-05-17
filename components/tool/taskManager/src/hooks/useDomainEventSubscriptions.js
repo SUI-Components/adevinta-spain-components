@@ -1,21 +1,5 @@
 import useMount from '@s-ui/react-hooks/lib/useMount/index.js'
 
-/*
-taskManager.runTask({
-
-    name: 'Prueba de tarea compleja',
-    priority: 0,
-    work: [
-        {
-            name: 'Primer trabajo',
-            start: (work) => taskManager.finishWork(work.id)
-            
-        }
-    ]
-    
-})
-
-*/
 const useDomainEventSubscriptions = (domain, executeUseCase) => {
   useMount(() => {
     const subscriptions = []

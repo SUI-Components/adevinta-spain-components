@@ -47,8 +47,8 @@ export class TaskEntity extends Entity {
     return this._work.hasInProgressWork()
   }
 
-  getQueuedWork() {
-    return this._work.getQueuedWork()
+  getRunnableWork() {
+    return this._work.getRunnableWork()
   }
 
   toJSON() {

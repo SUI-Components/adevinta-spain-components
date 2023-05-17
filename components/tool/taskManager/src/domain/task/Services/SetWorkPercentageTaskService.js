@@ -7,8 +7,8 @@ export class SetWorkPercentageTaskService extends Service {
     this._taskRepository = taskRepository
   }
 
-  execute({workId, percentage} = {}) {
-    const work = this._taskRepository.getWork(workId)
+  execute({taskId, workId, percentage} = {}) {
+    const work = this._taskRepository.getWork(taskId, workId)
     work._percentage.set(percentage)
     return this._taskRepository.updateWork(work)
   }

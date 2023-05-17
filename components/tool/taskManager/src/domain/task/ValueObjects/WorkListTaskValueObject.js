@@ -9,6 +9,10 @@ export class WorkListTaskValueObject extends ValueObject {
     this._work = work
   }
 
+  getById(idValueObject) {
+    return this._work.find(work => work._id.get() === idValueObject.get())
+  }
+
   push(work) {
     this._work.push(work)
   }
@@ -17,8 +21,10 @@ export class WorkListTaskValueObject extends ValueObject {
     return this._work.some(work => work.isInProgress())
   }
 
-  getQueuedWork() {
-    return this._work.filter(work => work.isQueued())
+  getRunnableWork() {
+    return this._work.filter(
+      work => work.isQueued() && work.areDependenciesMet(this)
+    )
   }
 
   toJSON() {

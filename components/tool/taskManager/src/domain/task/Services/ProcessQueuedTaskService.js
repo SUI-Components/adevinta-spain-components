@@ -11,7 +11,7 @@ export class ProcessQueuedTaskService extends Service {
     const tasks = this._taskRepository.getNonStartedTasks()
 
     const updatedTasks = tasks.map(task => {
-      const queuedWork = task.getQueuedWork()
+      const queuedWork = task.getRunnableWork()
 
       if (queuedWork.length === 0) {
         task.markAsCompleted()

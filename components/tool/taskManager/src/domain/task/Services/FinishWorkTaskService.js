@@ -7,8 +7,8 @@ export class FinishWorkTaskService extends Service {
     this._taskRepository = taskRepository
   }
 
-  execute({workId} = {}) {
-    const work = this._taskRepository.getWork(workId)
+  execute({taskId, workId} = {}) {
+    const work = this._taskRepository.getWork(taskId, workId)
     work._status.setValue(this._config.get('AVAILABLE_STATUS').COMPLETED)
     work._percentage.set(100)
     work._finishedAt.set(new Date())

@@ -7,8 +7,8 @@ export class ErrorWorkTaskService extends Service {
     this._taskRepository = taskRepository
   }
 
-  execute({log, workId} = {}) {
-    const work = this._taskRepository.getWork(workId)
+  execute({log, taskId, workId} = {}) {
+    const work = this._taskRepository.getWork(taskId, workId)
     work._log.set(log)
     work._status.setValue(this._config.get('AVAILABLE_STATUS').ERROR)
     work._finishedAt.set(new Date())

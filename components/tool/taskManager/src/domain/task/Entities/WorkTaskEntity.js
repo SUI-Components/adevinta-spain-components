@@ -14,6 +14,7 @@ export class WorkTaskEntity extends Entity {
     percentage,
     start,
     status,
+    taskId,
     updatedAt
   }) {
     super({
@@ -30,6 +31,7 @@ export class WorkTaskEntity extends Entity {
       percentage,
       start,
       status,
+      taskId,
       updatedAt
     })
   }
@@ -44,9 +46,28 @@ export class WorkTaskEntity extends Entity {
     return false
   }
 
+  isCompleted() {
+    if (
+      this._status.getValue() === this._config.get('AVAILABLE_STATUS').COMPLETED
+    )
+      return true
+
+    return false
+  }
+
   isQueued() {
     if (this._status.getValue() === this._config.get('AVAILABLE_STATUS').QUEUED)
       return true
+
+    return false
+  }
+
+  areDependenciesMet(siblingWorkList) {
+    if (this._parentId.get() === null) return true
+
+    const parent = siblingWorkList.getById(this._parentId)
+
+    if (parent === undefined || parent.isCompleted()) return true
 
     return false
   }
@@ -72,6 +93,7 @@ export class WorkTaskEntity extends Entity {
       percentage: this._percentage.toJSON(),
       start: this._start.toJSON(),
       status: this._status.toJSON(),
+      taskId: this._taskId.toJSON(),
       updatedAt: this._updatedAt.toJSON()
     }
   }

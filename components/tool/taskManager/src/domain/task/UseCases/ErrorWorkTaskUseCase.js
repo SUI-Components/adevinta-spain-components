@@ -7,12 +7,13 @@ export class ErrorWorkTaskUseCase extends UseCase {
     this._errorWorkTaskServiceFactory = errorWorkTaskServiceFactory
   }
 
-  execute({localState, log, workId} = {}) {
+  execute({localState, log, workId, taskId} = {}) {
     const result = this._errorWorkTaskServiceFactory({
       config: this._config,
       localState
     }).execute({
       log,
+      taskId,
       workId
     })
     return result
