@@ -18,7 +18,8 @@ describe('[Domain] RunSimpleTaskUseCase', () => {
     // When
     const result = await useCase.execute({
       localState,
-      name: 'Test task'
+      name: 'Test task',
+      start: () => null
     })
 
     // Then
