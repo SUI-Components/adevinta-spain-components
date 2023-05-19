@@ -11,9 +11,9 @@
   "dependencies": {
     "@s-ui/decorators": "3",
     "@s-ui/domain": "2",
+    "@s-ui/react-atom-progress-bar": "2",
     "@s-ui/react-molecule-accordion": "2",
     "@s-ui/react-molecule-badge-counter": "1",
-    "@s-ui/react-atom-progress-bar": "2",
     "@s-ui/react-molecule-drawer": "4"
   },
   "peerDependencies": {
@@ -25,5 +25,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "sinon-chai": "^3.7.0"
+  }
 }
