@@ -1,3 +1,4 @@
+import './CancelWorkTaskUseCaseSpec.js'
 import './ErrorWorkTaskUseCaseSpec.js'
 import './RunSimpleTaskUseCaseSpec.js'
 import './RunTaskUseCaseSpec.js'
