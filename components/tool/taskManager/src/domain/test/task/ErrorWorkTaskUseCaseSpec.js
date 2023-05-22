@@ -139,6 +139,7 @@ describe('[Domain] ErrorWorkTaskUseCase', () => {
     const task = nextState.tasks[0]
     const work = task.work[0]
     expect(work.retryAttempts).to.eql(1)
+    expect(work.percentage).to.eql(0)
     expect(work.status).to.eql(config.get('AVAILABLE_STATUS').QUEUED)
   })
 })

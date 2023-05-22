@@ -74,6 +74,7 @@ export class WorkTaskEntity extends Entity {
 
   retry() {
     this._retryAttempts.decreaseBy(1)
+    this._percentage.set(0)
     this._status.setValue(this._config.get('AVAILABLE_STATUS').QUEUED)
   }
 
