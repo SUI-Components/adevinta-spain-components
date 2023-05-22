@@ -35,7 +35,7 @@ export class TaskEntitiesFactory {
 
   static workTaskEntity = ({
     config,
-    autoRetry,
+    retryAttempts,
     createdAt,
     finishedAt = null,
     id,
@@ -51,7 +51,8 @@ export class TaskEntitiesFactory {
     updatedAt = null
   }) =>
     new WorkTaskEntity({
-      autoRetry: SharedValueObjectsFactory.numberSharedValueObject(autoRetry),
+      retryAttempts:
+        SharedValueObjectsFactory.numberSharedValueObject(retryAttempts),
       config,
       createdAt: SharedValueObjectsFactory.dateSharedValueObject(createdAt),
       finishedAt: SharedValueObjectsFactory.dateSharedValueObject(finishedAt),

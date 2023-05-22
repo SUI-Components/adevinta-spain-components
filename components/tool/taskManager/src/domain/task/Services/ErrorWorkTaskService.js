@@ -9,11 +9,7 @@ export class ErrorWorkTaskService extends Service {
 
   execute({log, taskId, workId} = {}) {
     const work = this._taskRepository.getWork(taskId, workId)
-    work._log.set(log)
-    work._status.setValue(this._config.get('AVAILABLE_STATUS').ERROR)
-    work._finishedAt.set(new Date())
-    const callback = work._onError.get()
-    callback(work.toJSON())
+    work.markAsError(log)
     return this._taskRepository.updateWork(work)
   }
 }
