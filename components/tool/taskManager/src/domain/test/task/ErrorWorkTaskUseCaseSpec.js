@@ -12,6 +12,7 @@ describe('[Domain] ErrorWorkTaskUseCase', () => {
   const domain = new Domain()
   const config = domain.get('config')
   const runSimpleTaskUseCase = domain.get('run_simple_task_use_case')
+  const runTaskUseCase = domain.get('run_task_use_case')
   const errorWorkTaskUseCase = domain.get('error_work_task_use_case')
 
   it('should set the status as error when marking a work as errored', async () => {
@@ -108,5 +109,36 @@ describe('[Domain] ErrorWorkTaskUseCase', () => {
     const work = task.work[0]
     expect(work.onError).to.have.callCount(1)
     expect(work.onError).to.have.been.calledWith(work)
+  })
+
+  it('should move the work back to the queue if it has pending retries', async () => {
+    // Given
+    const localState = await runTaskUseCase.execute({
+      localState: {
+        tasks: []
+      },
+      name: 'Test task',
+      work: [
+        {
+          name: 'Work with retries',
+          autoRetry: 2,
+          onError: () => null,
+          start: () => null
+        }
+      ]
+    })
+
+    // When
+    const nextState = await errorWorkTaskUseCase.execute({
+      localState,
+      workId: localState.tasks[0].work[0].id,
+      taskId: localState.tasks[0].id
+    })
+
+    // Then
+    const task = nextState.tasks[0]
+    const work = task.work[0]
+    expect(work.autoRetry).to.eql(1)
+    expect(work.status).to.eql(config.get('AVAILABLE_STATUS').QUEUED)
   })
 })

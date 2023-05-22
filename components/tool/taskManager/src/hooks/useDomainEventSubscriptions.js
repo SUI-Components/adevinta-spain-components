@@ -21,11 +21,15 @@ const useDomainEventSubscriptions = (domain, executeUseCase) => {
       ),
       /* domain.get('cancel_work_task_use_case')
         .subscribe(({result}) => executeUseCase('process_task_use_case',{localState: result})), */
-      domain
-        .get('error_work_task_use_case')
-        .subscribe(({result}) =>
-          executeUseCase('mark_error_task_use_case', {localState: result})
-        )
+      domain.get('error_work_task_use_case').subscribe(async ({result}) => {
+        const nextState = await domain.get('mark_error_task_use_case').execute({
+          localState: result
+        })
+
+        executeUseCase('process_in_progress_task_use_case', {
+          localState: nextState
+        })
+      })
     )
 
     return () =>
