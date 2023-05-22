@@ -8,7 +8,6 @@ export class TaskEntity extends Entity {
     id,
     log,
     name,
-    priority,
     status,
     updatedAt,
     work
@@ -20,7 +19,6 @@ export class TaskEntity extends Entity {
       id,
       log,
       name,
-      priority,
       status,
       updatedAt,
       work
@@ -58,7 +56,6 @@ export class TaskEntity extends Entity {
       id: this._id.toJSON(),
       log: this._log.toJSON(),
       name: this._name.toJSON(),
-      priority: this._priority.toJSON(),
       status: this._status.toJSON(),
       updatedAt: this._updatedAt.toJSON(),
       work: this._work.toJSON()

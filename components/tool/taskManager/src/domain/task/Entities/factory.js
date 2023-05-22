@@ -9,7 +9,6 @@ export class TaskEntitiesFactory {
     id,
     log,
     name,
-    priority,
     work,
     status,
     createdAt,
@@ -24,10 +23,6 @@ export class TaskEntitiesFactory {
       id: taskId,
       log: SharedValueObjectsFactory.stringSharedValueObject(log),
       name: SharedValueObjectsFactory.stringSharedValueObject(name),
-      priority: TaskValueObjectsFactory.priorityTaskValueObject(
-        config,
-        priority
-      ),
       status: TaskValueObjectsFactory.statusTaskValueObject(config, status),
       updatedAt: SharedValueObjectsFactory.dateSharedValueObject(updatedAt),
       work: TaskValueObjectsFactory.workListTaskValueObject(
