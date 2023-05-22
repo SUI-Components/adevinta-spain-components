@@ -14,7 +14,7 @@ describe('[Domain] ProcessQueuedTaskUseCase', () => {
   const runTaskUseCase = domain.get('run_task_use_case')
   const processQueuedTaskUseCase = domain.get('process_queued_task_use_case')
 
-  it('should mark as completed all queued tasks that does not have runnable queued work', async() => {
+  it('should mark as completed all queued tasks that does not have runnable queued work', async () => {
     // Given
     const localState = await runTaskUseCase.execute({
       localState: {
@@ -30,7 +30,9 @@ describe('[Domain] ProcessQueuedTaskUseCase', () => {
     })
 
     // Then
-    expect(nextState.tasks[0].status).to.eql(config.get('AVAILABLE_STATUS').COMPLETED)
+    expect(nextState.tasks[0].status).to.eql(
+      config.get('AVAILABLE_STATUS').COMPLETED
+    )
   })
 
   it('should mark as in progress all queued tasks that have runnable queued work', async () => {
@@ -57,10 +59,12 @@ describe('[Domain] ProcessQueuedTaskUseCase', () => {
     })
 
     // Then
-    expect(nextState.tasks[0].status).to.eql(config.get('AVAILABLE_STATUS').IN_PROGRESS)
+    expect(nextState.tasks[0].status).to.eql(
+      config.get('AVAILABLE_STATUS').IN_PROGRESS
+    )
   })
 
-  it ('should execute all runnable queued work from queued tasks', async () => {
+  it('should execute all runnable queued work from queued tasks', async () => {
     // Given
     const localState = await runTaskUseCase.execute({
       localState: {

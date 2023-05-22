@@ -36,7 +36,6 @@ describe('[Domain] ErrorWorkTaskUseCase', () => {
     const task = nextState.tasks[0]
     const work = task.work[0]
     expect(work.status).to.eql(config.get('AVAILABLE_STATUS').ERROR)
-    
   })
 
   it('should set the log field when marking a work as errored', async () => {
