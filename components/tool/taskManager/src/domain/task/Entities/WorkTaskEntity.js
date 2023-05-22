@@ -75,7 +75,7 @@ export class WorkTaskEntity extends Entity {
   retry() {
     this._retryAttempts.decreaseBy(1)
     this._percentage.set(0)
-    this._status.setValue(this._config.get('AVAILABLE_STATUS').QUEUED)
+    this._status.setQueued()
   }
 
   markAsError(log) {
@@ -83,14 +83,14 @@ export class WorkTaskEntity extends Entity {
 
     if (this._retryAttempts.get() > 0) return this.retry()
 
-    this._status.setValue(this._config.get('AVAILABLE_STATUS').ERROR)
-    this._finishedAt.set(new Date())
+    this._status.setError()
+    this._finishedAt.setNow()
     const errorCallback = this._onError.get()
     errorCallback(this.toJSON())
   }
 
   execute() {
-    this._status.setValue(this._config.get('AVAILABLE_STATUS').IN_PROGRESS)
+    this._status.setInProgress()
 
     const startCallback = this._start.get()
     startCallback(this.toJSON())

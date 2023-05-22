@@ -26,19 +26,19 @@ export class TaskEntity extends Entity {
   }
 
   markAsCompleted() {
-    this._status.setValue(this._config.get('AVAILABLE_STATUS').COMPLETED)
-    this._finishedAt.set(new Date())
-    this._updatedAt.set(new Date())
+    this._status.setCompleted()
+    this._finishedAt.setNow()
+    this._updatedAt.setNow()
   }
 
   markAsInProgress() {
-    this._status.setValue(this._config.get('AVAILABLE_STATUS').IN_PROGRESS)
-    this._updatedAt.set(new Date())
+    this._status.setInProgress()
+    this._updatedAt.setNow()
   }
 
   markAsError() {
-    this._status.setValue(this._config.get('AVAILABLE_STATUS').ERROR)
-    this._updatedAt.set(new Date())
+    this._status.setError()
+    this._updatedAt.setNow()
   }
 
   hasInProgressWork() {

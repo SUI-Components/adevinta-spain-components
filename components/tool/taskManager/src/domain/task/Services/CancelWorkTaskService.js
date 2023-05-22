@@ -9,8 +9,8 @@ export class CancelWorkTaskService extends Service {
 
   execute({taskId, workId} = {}) {
     const work = this._taskRepository.getWork(taskId, workId)
-    work._status.setValue(this._config.get('AVAILABLE_STATUS').CANCELLED)
-    work._finishedAt.set(new Date())
+    work._status.setCancelled()
+    work._finishedAt.setNow()
     return this._taskRepository.updateWork(work)
   }
 }
