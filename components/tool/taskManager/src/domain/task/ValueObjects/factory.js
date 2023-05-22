@@ -1,22 +1,8 @@
 import {TaskEntitiesFactory} from '../Entities/factory.js'
-import {PriorityTaskValueObject} from './PriorityTaskValueObject.js'
 import {StatusTaskValueObject} from './StatusTaskValueObject.js'
 import {WorkListTaskValueObject} from './WorkListTaskValueObject.js'
 
 export class TaskValueObjectsFactory {
-  static priorityTaskValueObject = (
-    config,
-    priority = config.get('AVAILABLE_PRIORITIES').LOW
-  ) => {
-    const priorityValueObject = new PriorityTaskValueObject({
-      config,
-      value: priority
-    })
-
-    priorityValueObject.validate()
-    return priorityValueObject
-  }
-
   static statusTaskValueObject = (
     config,
     status = config.get('AVAILABLE_STATUS').QUEUED

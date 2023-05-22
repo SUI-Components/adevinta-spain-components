@@ -9,24 +9,24 @@ describe('[Domain] RunSimpleTaskUseCase', () => {
   const config = domain.get('config')
   const useCase = domain.get('run_simple_task_use_case')
 
-  it('should successfully add a new task', async () => {
+  it('should successfully add a new task with one single work inside', async () => {
     // Given
     const localState = {
       tasks: []
     }
 
     // When
-    const result = await useCase.execute({
+    const nextState = await useCase.execute({
       localState,
       name: 'Test task',
       start: () => null
     })
 
     // Then
-    expect(result).to.have.property('tasks')
-    expect(result.tasks).to.have.length(1)
+    expect(nextState).to.have.property('tasks')
+    expect(nextState.tasks).to.have.length(1)
 
-    const task = result.tasks[0]
+    const task = nextState.tasks[0]
     expect(task.id).to.be.a('string')
     expect(task.createdAt).to.be.an.instanceOf(Date)
     expect(task.name).to.eql('Test task')

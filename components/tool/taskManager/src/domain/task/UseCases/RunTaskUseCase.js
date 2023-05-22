@@ -6,13 +6,12 @@ export class RunTaskUseCase extends UseCase {
     this._runTaskServiceFactory = runTaskServiceFactory
   }
 
-  execute({localState, name, priority, work} = {}) {
+  execute({localState, name, work} = {}) {
     const result = this._runTaskServiceFactory({
       config: this._config,
       localState
     }).execute({
       name,
-      priority,
       work
     })
     return result

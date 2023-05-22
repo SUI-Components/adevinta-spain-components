@@ -8,7 +8,7 @@ export class RunTaskService extends Service {
     this._taskRepository = taskRepository
   }
 
-  execute({name, priority, work} = {}) {
+  execute({name, work} = {}) {
     const withConfigWork = work.map(workItem => ({
       ...workItem,
       config: this._config
@@ -17,7 +17,6 @@ export class RunTaskService extends Service {
     const task = this._taskEntityFactory({
       config: this._config,
       name,
-      priority,
       work: withConfigWork
     })
     return this._taskRepository.saveTask(task)

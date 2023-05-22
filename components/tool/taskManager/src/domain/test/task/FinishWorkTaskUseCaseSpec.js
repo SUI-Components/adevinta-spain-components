@@ -51,14 +51,14 @@ describe('[Domain] FinishWorkTaskUseCase', () => {
     })
 
     // When
-    const stateResult = await finishWorkTaskUseCase.execute({
+    const nextState = await finishWorkTaskUseCase.execute({
       localState,
       workId: localState.tasks[0].work[0].id,
       taskId: localState.tasks[0].id
     })
 
     // Then
-    const task = stateResult.tasks[0]
+    const task = nextState.tasks[0]
     const work = task.work[0]
     expect(work.onComplete).to.have.callCount(1)
     expect(work.onComplete).to.have.been.calledWith(work)
