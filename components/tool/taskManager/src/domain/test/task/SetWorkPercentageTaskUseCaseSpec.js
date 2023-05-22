@@ -22,7 +22,7 @@ describe('[Domain] SetWorkPercentageTaskUseCase', () => {
     })
 
     // When
-    const stateResult = await setWorkPercentageUseCase.execute({
+    const nextState = await setWorkPercentageUseCase.execute({
       localState,
       workId: localState.tasks[0].work[0].id,
       taskId: localState.tasks[0].id,
@@ -30,7 +30,7 @@ describe('[Domain] SetWorkPercentageTaskUseCase', () => {
     })
 
     // Then
-    const task = stateResult.tasks[0]
+    const task = nextState.tasks[0]
     const work = task.work[0]
     expect(work.percentage).to.eql(25)
   })

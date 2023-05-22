@@ -16,7 +16,7 @@ describe('[Domain] RunTaskUseCase', () => {
     }
 
     // When
-    const result = await useCase.execute({
+    const nextState = await useCase.execute({
       localState,
       name: 'Test task',
       work: [
@@ -38,10 +38,10 @@ describe('[Domain] RunTaskUseCase', () => {
     })
 
     // Then
-    expect(result).to.have.property('tasks')
-    expect(result.tasks).to.have.length(1)
+    expect(nextState).to.have.property('tasks')
+    expect(nextState.tasks).to.have.length(1)
 
-    const task = result.tasks[0]
+    const task = nextState.tasks[0]
     expect(task.id).to.be.a('string')
     expect(task.createdAt).to.be.an.instanceOf(Date)
     expect(task.name).to.eql('Test task')
