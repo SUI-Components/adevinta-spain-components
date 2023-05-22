@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.5.0 (2023-05-22)
+
+
+### Features
+
+* **components/tool/taskManager:** Add a feature to retry a work when it fails ([e4b456e](https://github.com/SUI-Components/adevinta-spain-components/commit/e4b456e66003d7b94c534978e375f8c442018eff))
+* **components/tool/taskManager:** Make small improvements in the retry feature ([daaddae](https://github.com/SUI-Components/adevinta-spain-components/commit/daaddae7ebe8bcb50aaae1fe91b0a8f2c2bce048))
+
+
+
 # 1.4.0 (2023-05-22)
 
 
