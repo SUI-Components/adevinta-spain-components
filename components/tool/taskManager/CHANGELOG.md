@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.4.0 (2023-05-22)
+
+
+### Features
+
+* **components/tool/taskManager:** Remove priority field as finally it is not being required ([6d0e875](https://github.com/SUI-Components/adevinta-spain-components/commit/6d0e875ceb4f1ed539988e2b936a70ffcba5e776))
+
+
+
 # 1.3.0 (2023-05-17)
 
 
