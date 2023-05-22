@@ -1,7 +1,7 @@
 import {Entity} from '@s-ui/domain'
 export class WorkTaskEntity extends Entity {
   constructor({
-    autoRetry,
+    retryAttempts,
     config,
     createdAt,
     finishedAt,
@@ -18,7 +18,7 @@ export class WorkTaskEntity extends Entity {
     updatedAt
   }) {
     super({
-      autoRetry,
+      retryAttempts,
       config,
       createdAt,
       finishedAt,
@@ -73,14 +73,14 @@ export class WorkTaskEntity extends Entity {
   }
 
   retry() {
-    this._autoRetry.decreaseBy(1)
+    this._retryAttempts.decreaseBy(1)
     this._status.setValue(this._config.get('AVAILABLE_STATUS').QUEUED)
   }
 
   markAsError(log) {
     this._log.set(log)
 
-    if (this._autoRetry.get() > 0) return this.retry()
+    if (this._retryAttempts.get() > 0) return this.retry()
 
     this._status.setValue(this._config.get('AVAILABLE_STATUS').ERROR)
     this._finishedAt.set(new Date())
@@ -97,7 +97,7 @@ export class WorkTaskEntity extends Entity {
 
   toJSON() {
     return {
-      autoRetry: this._autoRetry.toJSON(),
+      retryAttempts: this._retryAttempts.toJSON(),
       createdAt: this._createdAt.toJSON(),
       finishedAt: this._finishedAt.toJSON(),
       id: this._id.toJSON(),

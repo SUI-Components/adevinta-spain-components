@@ -121,7 +121,7 @@ describe('[Domain] ErrorWorkTaskUseCase', () => {
       work: [
         {
           name: 'Work with retries',
-          autoRetry: 2,
+          retryAttempts: 2,
           onError: () => null,
           start: () => null
         }
@@ -138,7 +138,7 @@ describe('[Domain] ErrorWorkTaskUseCase', () => {
     // Then
     const task = nextState.tasks[0]
     const work = task.work[0]
-    expect(work.autoRetry).to.eql(1)
+    expect(work.retryAttempts).to.eql(1)
     expect(work.status).to.eql(config.get('AVAILABLE_STATUS').QUEUED)
   })
 })
