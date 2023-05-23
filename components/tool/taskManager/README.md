@@ -95,7 +95,7 @@ const {
 } = useTaskManagerContext()
 ```
 
-Each of these methods allow to perform a specific interaction with the system, let's see them on detail.
+Each of these methods allows to perform a specific interaction with the system, let's see them on detail.
 
 ### runSimpleTask
 
