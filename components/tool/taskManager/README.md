@@ -52,7 +52,7 @@ $ npm install @s-ui/sui-tool-task-manager
 The TaskManager component requires two main elements to be rendered in order to work:
 
 1. A Context Provider, which stores the state of the TaskManager system, and exposes an API to interact with it. Please note that the Conext Provider needs to wrap all components that will interact with the TaskManager, so it is advised to render it near to the root of the components tree.
-2. The ToolTaskManager component, which renders a UI to let the user know about the existing tasks and its status. 
+2. The ToolTaskManager component, which renders a UI to let the user know about the existing tasks and their status. 
 
 ```js
 import ToolTaskManager, { TaskManagerProvider } from '@s-ui/sui-tool-task-manager'
