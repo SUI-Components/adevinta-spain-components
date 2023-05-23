@@ -9,9 +9,9 @@ export class FinishWorkTaskService extends Service {
 
   execute({taskId, workId} = {}) {
     const work = this._taskRepository.getWork(taskId, workId)
-    work._status.setValue(this._config.get('AVAILABLE_STATUS').COMPLETED)
+    work._status.setCompleted()
     work._percentage.set(100)
-    work._finishedAt.set(new Date())
+    work._finishedAt.setNow()
     const callback = work._onComplete.get()
     callback(work.toJSON())
     return this._taskRepository.updateWork(work)

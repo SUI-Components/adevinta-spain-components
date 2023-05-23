@@ -9,6 +9,10 @@ export class DateSharedValueObject extends ValueObject {
     this._date = date
   }
 
+  setNow() {
+    this.set(new Date())
+  }
+
   toJSON() {
     return this._date
   }
