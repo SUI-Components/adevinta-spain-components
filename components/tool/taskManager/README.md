@@ -12,7 +12,7 @@ Additionally, as each task needs to match the shape expected by the TaskManager 
 
 TaskManager mainly works with two entities, which are the followings:
 
-### Task
+### Task
 
 A task is an undivisible set of actions which represent a transaction. The sum of the successful execution of these actions, which can depend between them, leads to a fully completed transaction.
 
@@ -22,7 +22,7 @@ Therefore, a `task` can be considered just a group of `work` that will only be c
 
 Alongisde with this set of `work` items, some metadata is defined, like a name, a unique identifier, among others.
 
-### Work
+### Work
 
 As it is previoustly mentioned, a `work` is a specific action which belongs to a `task`.
 
