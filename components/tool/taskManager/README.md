@@ -18,7 +18,7 @@ A task is an undivisible set of actions which represent a transaction. The sum o
 
 Within the whole TaskManager system, these actions that compose a task are called `work`.
 
-Therefore, a `task` can be considered just a group of `work` that will only be completed, once all of its `work` is sucessfully executed. If one single `work` from a task fails or is cancelled, the transaction is not fully completed, so the `task` execution is not considered sucessful.
+Therefore, a `task` can be considered just a group of `work` items that will only be completed, once all of its `work` is sucessfully executed. If one single `work` from a task fails or is cancelled, the transaction is not fully completed, so the `task` execution is not considered sucessful.
 
 Alongisde with this set of `work` items, some metadata is defined, like a name, a unique identifier, among others.
 
