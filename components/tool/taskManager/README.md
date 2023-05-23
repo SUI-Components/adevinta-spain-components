@@ -18,7 +18,7 @@ A task is an undivisible set of actions which represent a transaction. The sum o
 
 Within the whole TaskManager system, these actions that compose a task are called `work`.
 
-Therefore, a `task` can be considered just a group of `work` that will only be completed, once all of its `work` is sucessfully executed. If one single `work` from a task fails or is cancelled, the transaction is not fully completed, so the `task` execution is not considered sucessful.
+Therefore, a `task` can be considered just a group of `work` items that will only be completed, once all of its `work` is sucessfully executed. If one single `work` from a task fails or is cancelled, the transaction is not fully completed, so the `task` execution is not considered sucessful.
 
 Alongisde with this set of `work` items, some metadata is defined, like a name, a unique identifier, among others.
 
@@ -97,21 +97,79 @@ const {
 
 Each of these methods allows to perform a specific interaction with the system, let's see them on detail.
 
-### runSimpleTask
+## Available methods
 
-Sometimes a task is simple and consists only in one unit of work. In these cases, the TaskManager context offers a method that allows to easily create a new task receiving the following parameters:
+| method | description  | parameters |
+|--------|--------------|------------|
+| cancelWork | Marks a work as cancelled  | `taskId: string, workId: string` |
+| errorWork | Marks a work as errored | `taskId: string, workId: string, log: string` |
+| runTask       | Runs a complex task composed by one or more work | `{ name: string, work: Work[] }` |
+| runSimpleTask | Runs a simple task composed by just one work, and including the minimum possible amount of metadata | `{ name: string, onComplete: function, onError: function, start: function }` |
+| setPercentage | Sets the completion percentage of an specific work | `taskId: string, workId: string, percentage: number` |
+| finishWork    | Marks a work as finished, which will lead to running the next queued work or marking the task as finished if all work has been completed | `taskId: string, workId: string` |
+
+## runTask
+
+Runs a complex `task` composed by one or more `work`. 
+Each `work` needs to have at least an entry point defined. The entry point must be a callback `function` contained within the `start` property.
 
 ```js
 runTask({
-  name: 'My simple task',
-  onComplete: () => console.log('Task has been successfully completed'),
-  onError: () => console.log('Something wrong happened'),
-  start: () => console.log('Yeah, I have started to execute the task')
+  name: 'Complex task test',
+  work: [
+    {
+      id: 'This should be unique in the whole task. Leave it undefined to autogenerate',
+      parentId: 'The work id that must be completed before this can be executed. Leave it undefined to have no-dependencies.',
+      retryAttempts: 3, // Will try the start method three times before calling the onError function
+      name: 'Complex task first work',
+      onComplete: () => alert('This work has been completed'),
+      onError: () => alert('This work has thrown an error'),
+      start: (work) => {
+        console.log('Running work, all work data is available inside the work variable')
+        let interval
+        let iteration = 0
+        interval = setInterval(() => {
+          console.log('Simulating async progress')
+          iteration++
+          setPercentage(work.taskId, work.id, iteration * 10)
+          if (iteration >= 10) {
+              finishWork(work.taskId, work.id)
+              clearInterval(interval)
+          }
+        },500)
+      }
+    }
+  ]
+})
+```
+Please note how in the previous example, the `start` function represents the entry point of the work. It receives the whole `work` object so it can be later referenced when invoking the `finishWork` method in case the `work` successfully completes, or the `setPercentage` method to report `work` execution progress.
+
+Once the work successfully finishes, the task will be automatically marked as finished too. In case of having more than one work (it could be done just by adding another element into the array), the system will then execute the next runnable `work` from the queue.
+
+Additionally, note that it is possible to invoke different methods inside the `start` entry point. For example, if an error occurs, the start method should report it by invoking the `errorWork` method in a way similar to this:
+
+`errorWork(work.taskId, work.id, 'Include here any available log information. Leave it undefined to include no-logs.')`
+
+## runSimpleTask
+
+Some tasks may not have multiple works. In fact, when migrating an already existing system to the TaskManager, we could have a lot of simple tasks composed just by one `work`.
+
+In these cases, the ideal approach is to add new simple tasks by using the `runSimpleTask` method, which will create a simple `task` with one single `work`, and as little props as possible.
+
+```js
+runSimpleTask({
+  name: 'Simple task test',
+  onComplete: () => alert('This work has been completed'),
+  onError: () => alert('This work has thrown an error'),
+  start: (work) => {
+    console.log('Running work, all work data is available inside the work variable')
+    setTimeout(() => {
+      console.log('Simulating async progress')
+      finishWork(work.taskId, work.id)
+      setPercentage(work.taskId, work.id, iteration * 10)
+    },2000)
+  }
 })
 ```
 
-Under the hood, this command will create a new task which will contain just one `work` item.
-
-### Under construction
-
-This section is under construction, please refer to the domain tests in order to see examples of how to work with the exposed API.
+If you do not need to include some specific callback (i.e. `onComplete` or `inError`, just leave it undefined. The only mandatory callback is the `start` function, as it acts as the `work` entry point)
