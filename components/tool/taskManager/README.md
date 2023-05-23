@@ -119,7 +119,7 @@ runTask({
   work: [
     {
       id: 'This should be unique in the whole task. Leave it undefined to autogenerate',
-      parentId: 'The work id that must be completed before this can be executed. Leave it undefined to have no-dependencies.'
+      parentId: 'The work id that must be completed before this can be executed. Leave it undefined to have no-dependencies.',
       retryAttempts: 3, // Will try the start method three times before calling the onError function
       name: 'Complex task first work',
       onComplete: () => alert('This work has been completed'),
@@ -152,7 +152,7 @@ Additionally, note that it is possible to invoke different methods inside the `s
 
 ## runSimpleTask
 
-Some tasks may not have multiple works. In fact, when migratin an already existing system to the TaskManager, we could have a lot of simple tasks composed just by one `work`.
+Some tasks may not have multiple works. In fact, when migrating an already existing system to the TaskManager, we could have a lot of simple tasks composed just by one `work`.
 
 In these cases, the ideal approach is to add new simple tasks by using the `runSimpleTask` method, which will create a simple `task` with one single `work`, and as little props as possible.
 
@@ -172,4 +172,4 @@ runSimpleTask({
 })
 ```
 
-If you do not need to include some specific callback (i.e. `onComplete` or `inError`, just leave it undefined. The only mandatory callback is the `start`, as it acts as the `work` entry point)
+If you do not need to include some specific callback (i.e. `onComplete` or `inError`, just leave it undefined. The only mandatory callback is the `start` function, as it acts as the `work` entry point)
