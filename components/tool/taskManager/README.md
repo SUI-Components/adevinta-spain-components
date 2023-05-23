@@ -1,6 +1,6 @@
 # ToolTaskManager
 
-## How can TaskManager help me?
+## How can TaskManager help me?
 
 This component provides a set of tools and methods to register and run async tasks. It is specially useful in situations where heavy tasks need to be executed, or when a task is composed by many differentiated steps or actions that could depend between them.
 
