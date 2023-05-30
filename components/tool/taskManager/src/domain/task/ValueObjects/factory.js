@@ -1,6 +1,7 @@
 import {TaskEntitiesFactory} from '../Entities/factory.js'
 import {StatusTaskValueObject} from './StatusTaskValueObject.js'
 import {WorkListTaskValueObject} from './WorkListTaskValueObject.js'
+import {WorkResultTaskValueObject} from './WorkResultTaskValueObject.js'
 
 export class TaskValueObjectsFactory {
   static statusTaskValueObject = (
@@ -23,4 +24,7 @@ export class TaskValueObjectsFactory {
     )
     return new WorkListTaskValueObject({work: workEntities})
   }
+
+  static workResultTaskValueObject = result =>
+    new WorkResultTaskValueObject({result})
 }

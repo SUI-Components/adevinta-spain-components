@@ -35,7 +35,6 @@ export class TaskEntitiesFactory {
 
   static workTaskEntity = ({
     config,
-    retryAttempts,
     createdAt,
     finishedAt = null,
     id,
@@ -45,14 +44,14 @@ export class TaskEntitiesFactory {
     onError,
     parentId = null,
     percentage,
+    result = null,
+    retryAttempts,
     start,
     status,
     taskId = null,
     updatedAt = null
   }) =>
     new WorkTaskEntity({
-      retryAttempts:
-        SharedValueObjectsFactory.numberSharedValueObject(retryAttempts),
       config,
       createdAt: SharedValueObjectsFactory.dateSharedValueObject(createdAt),
       finishedAt: SharedValueObjectsFactory.dateSharedValueObject(finishedAt),
@@ -64,6 +63,9 @@ export class TaskEntitiesFactory {
       onError: SharedValueObjectsFactory.callbackSharedValueObject(onError),
       parentId: SharedValueObjectsFactory.idSharedValueObject(parentId),
       percentage: SharedValueObjectsFactory.numberSharedValueObject(percentage),
+      result: TaskValueObjectsFactory.workResultTaskValueObject(result),
+      retryAttempts:
+        SharedValueObjectsFactory.numberSharedValueObject(retryAttempts),
       start: SharedValueObjectsFactory.callbackSharedValueObject(start),
       status: TaskValueObjectsFactory.statusTaskValueObject(config, status),
       taskId: SharedValueObjectsFactory.idSharedValueObject(taskId),

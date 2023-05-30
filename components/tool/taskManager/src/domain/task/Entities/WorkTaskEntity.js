@@ -1,7 +1,6 @@
 import {Entity} from '@s-ui/domain'
 export class WorkTaskEntity extends Entity {
   constructor({
-    retryAttempts,
     config,
     createdAt,
     finishedAt,
@@ -12,13 +11,14 @@ export class WorkTaskEntity extends Entity {
     onError,
     parentId,
     percentage,
+    result,
+    retryAttempts,
     start,
     status,
     taskId,
     updatedAt
   }) {
     super({
-      retryAttempts,
       config,
       createdAt,
       finishedAt,
@@ -29,6 +29,8 @@ export class WorkTaskEntity extends Entity {
       onError,
       parentId,
       percentage,
+      result,
+      retryAttempts,
       start,
       status,
       taskId,
@@ -89,6 +91,16 @@ export class WorkTaskEntity extends Entity {
     errorCallback(this.toJSON())
   }
 
+  markAsCompleted(result) {
+    this._status.setCompleted()
+    this._percentage.set(100)
+    this._finishedAt.setNow()
+    this._result.set(result)
+
+    const callback = this._onComplete.get()
+    callback(this.toJSON())
+  }
+
   execute() {
     this._status.setInProgress()
 
@@ -98,7 +110,6 @@ export class WorkTaskEntity extends Entity {
 
   toJSON() {
     return {
-      retryAttempts: this._retryAttempts.toJSON(),
       createdAt: this._createdAt.toJSON(),
       finishedAt: this._finishedAt.toJSON(),
       id: this._id.toJSON(),
@@ -108,6 +119,8 @@ export class WorkTaskEntity extends Entity {
       onError: this._onError.toJSON(),
       parentId: this._parentId.toJSON(),
       percentage: this._percentage.toJSON(),
+      result: this._result.toJSON(),
+      retryAttempts: this._retryAttempts.toJSON(),
       start: this._start.toJSON(),
       status: this._status.toJSON(),
       taskId: this._taskId.toJSON(),

@@ -7,13 +7,9 @@ export class FinishWorkTaskService extends Service {
     this._taskRepository = taskRepository
   }
 
-  execute({taskId, workId} = {}) {
+  execute({taskId, workId, result} = {}) {
     const work = this._taskRepository.getWork(taskId, workId)
-    work._status.setCompleted()
-    work._percentage.set(100)
-    work._finishedAt.setNow()
-    const callback = work._onComplete.get()
-    callback(work.toJSON())
+    work.markAsCompleted(result)
     return this._taskRepository.updateWork(work)
   }
 }

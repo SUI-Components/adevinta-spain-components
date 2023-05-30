@@ -63,4 +63,32 @@ describe('[Domain] FinishWorkTaskUseCase', () => {
     expect(work.onComplete).to.have.callCount(1)
     expect(work.onComplete).to.have.been.calledWith(work)
   })
+
+  it('should be able to receive a result object and store it inside the work', async () => {
+    // Given
+    const localState = await runSimpleTaskUseCase.execute({
+      localState: {
+        tasks: []
+      },
+      name: 'Simple task with one work',
+      start: () => null
+    })
+
+    // When
+    const stateResult = await finishWorkTaskUseCase.execute({
+      localState,
+      workId: localState.tasks[0].work[0].id,
+      taskId: localState.tasks[0].id,
+      result: {
+        fakeResultId: '123456'
+      }
+    })
+
+    // Then
+    const task = stateResult.tasks[0]
+    const work = task.work[0]
+    expect(work.result).to.deep.eql({
+      fakeResultId: '123456'
+    })
+  })
 })
