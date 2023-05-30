@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.8.0 (2023-05-30)
+
+
+### Features
+
+* **components/tool/taskManager:** Expose state reference and add method to get a specific task ([fc5899f](https://github.com/SUI-Components/adevinta-spain-components/commit/fc5899f7e2b77e99f15259dacc798790f5c1ae1f))
+
+
+
 # 1.7.0 (2023-05-30)
 
 
