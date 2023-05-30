@@ -40,6 +40,8 @@ const useState = () => {
   })
   const stateRef = useRef(state)
   stateRef.current = state
+
+  const getState = () => stateRef.current
   const setState = state => dispatch({type: ACTIONS.SET_STATE, payload: state})
   const toggleTab = () => dispatch({type: ACTIONS.TOOGLE_TAB})
 
@@ -50,6 +52,8 @@ const useState = () => {
       .then(result => setState(result))
 
   useDomainEventSubscriptions(domain, executeUseCase)
+
+  const getTask = taskId => getState().tasks.find(task => task.id === taskId)
 
   const runSimpleTask = task =>
     executeUseCase('run_simple_task_use_case', {
@@ -95,13 +99,14 @@ const useState = () => {
     })
 
   return {
-    state,
     cancelWork,
     errorWork,
-    runTask,
-    runSimpleTask,
-    setPercentage,
     finishWork,
+    getState,
+    getTask,
+    runSimpleTask,
+    runTask,
+    setPercentage,
     toggleTab
   }
 }
