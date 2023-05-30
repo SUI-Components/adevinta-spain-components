@@ -21,7 +21,8 @@ import useContext from './hooks/useContext.js'
 
 export default function ToolTaskManager({isVisible = true}) {
   window.taskManager = useContext()
-  const {state, toggleTab} = window.taskManager
+  const {getState, toggleTab} = window.taskManager
+  const state = getState()
   const drawerRef = useRef()
   const _onClick = () => {
     toggleTab()
