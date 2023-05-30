@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.7.0 (2023-05-30)
+
+
+### Features
+
+* **components/tool/taskManager:** Add the result param to works, so it can be referenced later when ([e6fdca4](https://github.com/SUI-Components/adevinta-spain-components/commit/e6fdca4d5578ea4080cb753996b568aab5691dd9))
+
+
+
 # 1.6.0 (2023-05-23)
 
 
