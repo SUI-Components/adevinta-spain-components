@@ -106,7 +106,7 @@ Each of these methods allows to perform a specific interaction with the system, 
 | runTask       | Runs a complex task composed by one or more work | `{ name: string, work: Work[] }` |
 | runSimpleTask | Runs a simple task composed by just one work, and including the minimum possible amount of metadata | `{ name: string, onComplete: function, onError: function, start: function }` |
 | setPercentage | Sets the completion percentage of an specific work | `taskId: string, workId: string, percentage: number` |
-| finishWork    | Marks a work as finished, which will lead to running the next queued work or marking the task as finished if all work has been completed | `taskId: string, workId: string` |
+| finishWork    | Marks a work as finished, which will lead to running the next queued work or marking the task as finished if all work has been completed | `taskId: string, workId: string, result: any` |
 
 ## runTask
 
@@ -133,7 +133,9 @@ runTask({
           iteration++
           setPercentage(work.taskId, work.id, iteration * 10)
           if (iteration >= 10) {
-              finishWork(work.taskId, work.id)
+              finishWork(work.taskId, work.id, {
+                success: true
+              }) /* result can be left empty */
               clearInterval(interval)
           }
         },500)
@@ -165,7 +167,7 @@ runSimpleTask({
     console.log('Running work, all work data is available inside the work variable')
     setTimeout(() => {
       console.log('Simulating async progress')
-      finishWork(work.taskId, work.id)
+      finishWork(work.taskId, work.id, 'include a result message or object as third param')
       setPercentage(work.taskId, work.id, iteration * 10)
     },2000)
   }

@@ -71,11 +71,12 @@ const useState = () => {
       percentage
     })
 
-  const finishWork = (taskId, workId) =>
+  const finishWork = (taskId, workId, result = null) =>
     executeUseCase('finish_work_task_use_case', {
       localState: stateRef.current,
       taskId,
-      workId
+      workId,
+      result
     })
 
   const cancelWork = (taskId, workId) =>

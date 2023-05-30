@@ -7,14 +7,15 @@ export class FinishWorkTaskUseCase extends UseCase {
     this._finishWorkTaskServiceFactory = finishWorkTaskServiceFactory
   }
 
-  execute({localState, workId, taskId} = {}) {
-    const result = this._finishWorkTaskServiceFactory({
+  execute({localState, workId, taskId, result} = {}) {
+    const finishResult = this._finishWorkTaskServiceFactory({
       config: this._config,
       localState
     }).execute({
       taskId,
-      workId
+      workId,
+      result
     })
-    return result
+    return finishResult
   }
 }
