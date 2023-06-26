@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.11.0 (2023-06-26)
+
+
+### Features
+
+* **components/form/select:** add support for aria label ([c745bea](https://github.com/SUI-Components/adevinta-spain-components/commit/c745bea932653e5eefdc9d2015d2c9b1aade555b))
+
+
+
 # 1.10.0 (2022-10-27)
 
 
