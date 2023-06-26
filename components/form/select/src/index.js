@@ -2,6 +2,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 export default function FormSelect({
+  ariaLabel,
   className,
   disabled,
   onChange,
@@ -19,6 +20,7 @@ export default function FormSelect({
 
   return (
     <select
+      aria-label={ariaLabel}
       className={selectClassName}
       disabled={disabled}
       onChange={wrappedOnChange}
@@ -42,6 +44,10 @@ FormSelect.displayName = 'FormSelect'
 
 // Remove these comments if you need
 FormSelect.propTypes = {
+  /**
+   * Aria label to be added
+   */
+  ariaLabel: PropTypes.string,
   /**
    * Classname to be added along
    */
