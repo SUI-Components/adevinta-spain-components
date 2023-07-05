@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 3.0.0 (2023-07-05)
+
+
+### Features
+
+* **components/dropdown/user:** Add a flag to discard the badge label ([6cbd176](https://github.com/SUI-Components/adevinta-spain-components/commit/6cbd176fb3fab410a9389bb00681f0dfd7c4f06d))
+
+
+
 # 1.38.0 (2022-10-27)
 
 
