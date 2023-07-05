@@ -1,14 +1,12 @@
 /* eslint-disable react/prop-types */
 import {useReducer} from 'react'
-
-import cx from 'classnames'
 import PropTypes from 'prop-types'
-
+import cx from 'classnames'
 import MoleculeBadgeCounter, {
   moleculeBadgeCounterSizes
 } from '@s-ui/react-molecule-badge-counter'
 
-import {reducer, reducerActions, reducerInitialState} from './reducer'
+import {reducerActions, reducerInitialState, reducer} from './reducer'
 
 const DropdownUser = ({
   expandOnMouseOver = false,
@@ -19,7 +17,8 @@ const DropdownUser = ({
   ),
   menu,
   hasNotifications = menu.some(({notifications}) => Boolean(notifications)),
-  user
+  user,
+  hasBadgeLabel = false
 }) => {
   const [state, dispatch] = useReducer(reducer, reducerInitialState)
 
@@ -63,7 +62,7 @@ const DropdownUser = ({
           {hasLinkNotifications && (
             <span className="sui-DropdownUserMenu-listNotification">
               <MoleculeBadgeCounter
-                label={notifications}
+                label={!!hasBadgeLabel && notifications}
                 size={moleculeBadgeCounterSizes.LARGE}
               />
             </span>
@@ -157,9 +156,13 @@ DropdownUser.propTypes = {
    */
   linkFactory: PropTypes.func,
   /**
-   * Hasnotifications to show a badge notification.
+   * hasnotifications to show a badge notification.
    */
-  hasNotifications: PropTypes.bool
+  hasNotifications: PropTypes.bool,
+  /**
+   * hasBadgeLabel to show a counter in the badge notification.
+   */
+  hasBadgeLabel: PropTypes.bool
 }
 
 export default DropdownUser
