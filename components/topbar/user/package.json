@@ -15,7 +15,7 @@
     "@s-ui/component-dependencies": "1",
     "@s-ui/react-atom-button": "1",
     "@s-ui/react-dropdown-basic": "1",
-    "@s-ui/react-dropdown-user": "1",
+    "@s-ui/react-dropdown-user": "3",
     "@s-ui/react-hooks": "1",
     "@s-ui/react-icons": "1"
   }
