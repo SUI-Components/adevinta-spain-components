@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.0.0 (2023-07-05)
+
+
+### Features
+
+* **components/topbar/user:** Hide user badge ([1d94bfc](https://github.com/SUI-Components/adevinta-spain-components/commit/1d94bfc7cd5914937a17470509531e70dbcfed85))
+
+
+
 # 1.56.0 (2023-04-06)
 
 
