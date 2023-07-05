@@ -177,7 +177,7 @@ export default function TopbarUser({
   const Link = linkFactory
   const ToggleIcon = toggleIcon
   const {image: BrandImage, name: brandName, url: brandUrl} = brand
-  const {avatar, name, menu} = navUser
+  const {avatar, name, menu, hasUserBadgeLabel} = navUser
   const navWrapClassName = cx('sui-TopbarUser-navWrap', {
     'is-expanded': menuExpanded
   })
@@ -224,6 +224,7 @@ export default function TopbarUser({
                   expandOnMouseOver
                   hasNotifications={hasNotifications && !menuExpanded}
                   linkFactory={linkFactory}
+                  hasBadgeLabel={hasUserBadgeLabel}
                 />
               </div>
             )}
@@ -361,7 +362,11 @@ TopbarUser.propTypes = {
          */
         highlight: PropTypes.bool
       })
-    )
+    ),
+    /**
+     * hasUserBadgeLabel to show a counter in the badge notification.
+     */
+    hasUserBadgeLabel: PropTypes.bool
   }).isRequired,
   /**
    * Render custom content instead of a CTA.
