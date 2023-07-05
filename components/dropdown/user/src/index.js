@@ -156,7 +156,7 @@ DropdownUser.propTypes = {
    */
   linkFactory: PropTypes.func,
   /**
-   * Hasnotifications to show a badge notification.
+   * hasnotifications to show a badge notification.
    */
   hasNotifications: PropTypes.bool,
   /**
