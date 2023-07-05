@@ -160,7 +160,7 @@ DropdownUser.propTypes = {
    */
   hasNotifications: PropTypes.bool,
   /**
-   * HasBadgeLabel to show a counter in the badge notification.
+   * hasBadgeLabel to show a counter in the badge notification.
    */
   hasBadgeLabel: PropTypes.bool
 }
