@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-dropdown-user",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "SUI Dropdown User",
   "main": "lib/index.js",
   "scripts": {

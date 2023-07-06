@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.0.0 (2023-07-06)
+
+
+### Features
+
+* **components/dropdown/user:** Apply true small badge by default ([33537ad](https://github.com/SUI-Components/adevinta-spain-components/commit/33537adc71aec1790650a50855ce1f612b0002d6))
+
+
+
 # 3.0.0 (2023-07-05)
 
 
