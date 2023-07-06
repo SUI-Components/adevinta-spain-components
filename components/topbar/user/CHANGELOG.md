@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.1.0 (2023-07-06)
+
+
+### Features
+
+* **components/topbar/user:** Update topbar dependencies ([ea47d33](https://github.com/SUI-Components/adevinta-spain-components/commit/ea47d336bc4709a740fc0a1b266cc5a74ca914a7))
+
+
+
 # 2.0.0 (2023-07-05)
 
 
