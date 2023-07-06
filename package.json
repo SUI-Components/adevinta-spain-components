@@ -51,6 +51,9 @@
     "@s-ui/mono": "2",
     "@s-ui/react-primitive-injector": "^1.2.0"
   },
+  "overrides": {
+    "@babel/traverse": "7.22.6"
+  },
   "config": {
     "sui-studio": {
       "logo": "<img width='50' src='https://static.adevinta.com/wp-content/uploads/2019/03/AAFF_RGB_ADEVINTA-blue.png' />",
