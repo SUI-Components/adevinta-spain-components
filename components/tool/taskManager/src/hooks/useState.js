@@ -100,6 +100,7 @@ const useState = () => {
 
   return {
     cancelWork,
+    domain,
     errorWork,
     finishWork,
     getState,
