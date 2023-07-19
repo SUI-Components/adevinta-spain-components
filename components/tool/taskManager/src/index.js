@@ -17,6 +17,7 @@ import MoleculeDrawer, {
 } from '@s-ui/react-molecule-drawer'
 
 import {TaskManagerProvider} from './components/TaskManagerContext.js'
+import useBeforeUnloadEffect from './hooks/useBeforeUnloadEffect.js'
 import useContext from './hooks/useContext.js'
 
 export default function ToolTaskManager({isVisible = true}) {
@@ -24,6 +25,9 @@ export default function ToolTaskManager({isVisible = true}) {
   const {getState, toggleTab} = window.taskManager
   const state = getState()
   const drawerRef = useRef()
+
+  useBeforeUnloadEffect({isVisible})
+
   const _onClick = () => {
     toggleTab()
   }
