@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.9.0 (2023-07-19)
+
+
+### Features
+
+* **components/tool/taskManager:** Display an alert if there are in progress tasks and the window is ([57d50fc](https://github.com/SUI-Components/adevinta-spain-components/commit/57d50fc6526cb4355920d40c1356e0a487736529))
+
+
+
 # 1.8.0 (2023-05-30)
 
 
