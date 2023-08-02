@@ -10,12 +10,12 @@ export const useControlledState = (controlledValue, defaultValue) => {
   const [initialValue] = useState(isControlled ? controlledValue : defaultValue)
   const [innerValue, setInnerValue] = useState(initialValue)
   const updater = useCallback(
-  (value, forceFlag) => {
-    if (controlledValue === undefined || forceFlag) {
-      setInnerValue(value)
-    }
-  },
-  [setInnerValue, controlledValue]
+    (value, forceFlag) => {
+      if (controlledValue === undefined || forceFlag) {
+        setInnerValue(value)
+      }
+    },
+    [setInnerValue, controlledValue]
   )
 
   return [
