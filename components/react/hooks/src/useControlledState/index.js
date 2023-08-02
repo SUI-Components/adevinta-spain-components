@@ -5,26 +5,25 @@ import useMountedState from '../useMountedState'
 /**
  * React hook for combine the state of a value prop and its default value
  **/
-const useControlledState = (controlledValue, defaultValue) => {
-  const [initialValue] = useState(
-    controlledValue === undefined ? defaultValue : controlledValue
-  )
-  const [value, setValue] = useState(initialValue)
-  const isMounted = useMountedState()
-  useLayoutEffect(() => {
-    if (isMounted()) {
-      setValue(controlledValue)
-    }
-  }, [controlledValue, setValue, isMounted])
+export const useControlledState = (controlledValue, defaultValue) => {
+  const isControlled = controlledValue !== undefined
+  const [initialValue] = useState(isControlled ? controlledValue : defaultValue)
+  const [innerValue, setInnerValue] = useState(initialValue)
   const updater = useCallback(
-    (value, forceFlag) => {
-      if (controlledValue === undefined || forceFlag) {
-        setValue(value)
-      }
-    },
-    [controlledValue, setValue]
+  (value, forceFlag) => {
+    if (controlledValue === undefined || forceFlag) {
+      setInnerValue(value)
+    }
+  },
+  [setInnerValue, controlledValue]
   )
-  return [value, updater, controlledValue !== undefined, initialValue]
+
+  return [
+    isControlled ? controlledValue : innerValue,
+    updater,
+    isControlled,
+    initialValue
+  ]
 }
 
 export default useControlledState
