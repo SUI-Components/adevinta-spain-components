@@ -1,6 +1,4 @@
-import {useCallback, useLayoutEffect, useState} from 'react'
-
-import useMountedState from '../useMountedState'
+import {useCallback, useState} from 'react'
 
 /**
  * React hook for combine the state of a value prop and its default value
