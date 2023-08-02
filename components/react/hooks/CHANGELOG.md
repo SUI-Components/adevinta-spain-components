@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 1.38.0 (2023-08-02)
+
+
+### Bug Fixes
+
+* **components/react/hooks:** don't need to store the state when controlled outside (remove double re ([eea4bb3](https://github.com/SUI-Components/adevinta-spain-components/commit/eea4bb30b1beea51eb92d9a11e1e8d216f10c07a))
+* **components/react/hooks:** lint ([4b94488](https://github.com/SUI-Components/adevinta-spain-components/commit/4b9448875cc110092a2a786cc7cf35e71f99ec57))
+
+
+### Features
+
+* **components/react/hooks:** fix imports ([f21dbf0](https://github.com/SUI-Components/adevinta-spain-components/commit/f21dbf0e4f2b456aa030634638e332798c31051e))
+
+
+
 # 1.37.0 (2023-03-20)
 
 
