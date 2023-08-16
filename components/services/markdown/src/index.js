@@ -12,7 +12,7 @@ function ServiceMarkdown({onLoad = () => {}, src}) {
   useEffect(
     function () {
       import(/* webpackChunkName: "marked" */ 'marked').then(markedLibrary => {
-        const {default: marked} = markedLibrary
+        const {marked} = markedLibrary
         const req = new window.XMLHttpRequest()
         req.open('GET', src, true)
         req.onload = () => {
