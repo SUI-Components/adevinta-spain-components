@@ -7,12 +7,13 @@ import ServiceMarkdown from '../src/index.js'
 
 chai.use(chaiDOM)
 
-describe('services/markdown', () => {
+describe('services/markdown', async () => {
   it('Render', () => {
     const {findByText} = render(
       <ServiceMarkdown src="https://sui-statics-frontend.spain.advgo.net/texts/fotocasa-pro/es/cookies.md" />
     )
 
-    expect(findByText('Política de cookies de Fotocasa Pro')).not.to.be.null
+    const text = await findByText('Política de cookies de Fotocasa Pro')
+    expect(text).not.to.be.null
   })
 })

@@ -9,26 +9,23 @@ function ServiceMarkdown({onLoad = () => {}, src}) {
   const [html, setHtml] = useState('')
   const [loaded, setLoaded] = useState(false)
 
-  useEffect(
-    function () {
-      import(/* webpackChunkName: "marked" */ 'marked').then(markedLibrary => {
-        const {marked} = markedLibrary
-        const req = new window.XMLHttpRequest()
-        req.open('GET', src, true)
-        req.onload = () => {
-          if (req.readyState === COMPLETED && req.status === STATUS_OK) {
-            setHtml(marked(req.responseText))
-            setLoaded(true)
-          }
+  useEffect(() => {
+    import(/* webpackChunkName: "marked" */ 'marked').then(markedLibrary => {
+      const {marked} = markedLibrary
+      const req = new window.XMLHttpRequest()
+      req.open('GET', src, true)
+      req.onload = () => {
+        if (req.readyState === COMPLETED && req.status === STATUS_OK) {
+          setHtml(marked(req.responseText))
+          setLoaded(true)
         }
-        req.send(null)
-      })
-    },
-    [src]
-  )
+      }
+      req.send(null)
+    })
+  }, [src])
 
   useEffect(
-    function () {
+    () => {
       if (loaded) {
         onLoad({html, setHtml})
         const id = document.location.hash.substring(1)
