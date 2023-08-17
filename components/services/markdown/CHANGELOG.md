@@ -1,5 +1,20 @@
 # CHANGELOG
 
+# 1.15.0 (2023-08-17)
+
+
+### Features
+
+* **components/services/markdown:** add test ([687c3e4](https://github.com/SUI-Components/adevinta-spain-components/commit/687c3e4692d9c3d3bdd803dfae1f711c59c446ca))
+* **components/services/markdown:** add test ([9aaa32c](https://github.com/SUI-Components/adevinta-spain-components/commit/9aaa32c69c35fd72dfbbd92207d1d81c8fed93aa))
+* **components/services/markdown:** change version ([3ed6c15](https://github.com/SUI-Components/adevinta-spain-components/commit/3ed6c154ca61a0a385fcd97a5bacda45c29c9201))
+* **components/services/markdown:** Update marked ([c2c8031](https://github.com/SUI-Components/adevinta-spain-components/commit/c2c8031d6acd9d94a8de665725e8d3b38fa3a062))
+* **components/services/markdown:** update marked version ([92ef242](https://github.com/SUI-Components/adevinta-spain-components/commit/92ef24225c1aec091b0f94677e0b2922e0a6f5e8))
+* **components/services/markdown:** update test ([5ac94ba](https://github.com/SUI-Components/adevinta-spain-components/commit/5ac94ba61909d7ae984b4acd665100d37cb0580e))
+* **components/services/markdown:** update test ([962777f](https://github.com/SUI-Components/adevinta-spain-components/commit/962777f8aae04038a39a9e2d587ac3796dc71b74))
+
+
+
 # 1.13.0 (2022-10-27)
 
 
