@@ -17,6 +17,10 @@ export class WorkListTaskValueObject extends ValueObject {
     this._work.push(work)
   }
 
+  countVisibleWork() {
+    return this._work.filter(work => work.isVisible()).length
+  }
+
   hasInProgressWork() {
     return this._work.some(work => work.isInProgress())
   }

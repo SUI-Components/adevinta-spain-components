@@ -30,6 +30,7 @@ describe('[Domain] RunSimpleTaskUseCase', () => {
     expect(task.id).to.be.a('string')
     expect(task.createdAt).to.be.an.instanceOf(Date)
     expect(task.name).to.eql('Test task')
+    expect(task.visibleWork).to.eql(0)
 
     expect(task).to.have.property('work')
     expect(task.work).to.have.length(1)
@@ -41,5 +42,28 @@ describe('[Domain] RunSimpleTaskUseCase', () => {
     expect(work.id).to.be.a('string')
     expect(work.taskId).to.eql(task.id)
     expect(work.status).to.eql(config.get('AVAILABLE_STATUS').QUEUED)
+    expect(work.isVisible).to.eql(false)
+  })
+
+  it('should successfully add a new task with a visible work', async () => {
+    // Given
+    const localState = {
+      tasks: []
+    }
+
+    // When
+    const nextState = await useCase.execute({
+      localState,
+      isVisible: true,
+      name: 'Test task',
+      start: () => null
+    })
+
+    // Then
+    const task = nextState.tasks[0]
+    expect(task.visibleWork).to.eql(1)
+
+    const work = task.work[0]
+    expect(work.isVisible).to.eql(true)
   })
 })

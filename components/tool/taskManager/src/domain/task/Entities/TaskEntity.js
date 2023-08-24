@@ -58,6 +58,7 @@ export class TaskEntity extends Entity {
       name: this._name.toJSON(),
       status: this._status.toJSON(),
       updatedAt: this._updatedAt.toJSON(),
+      visibleWork: this._work.countVisibleWork(),
       work: this._work.toJSON()
     }
   }

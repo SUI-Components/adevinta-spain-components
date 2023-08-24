@@ -38,6 +38,7 @@ export class TaskEntitiesFactory {
     createdAt,
     finishedAt = null,
     id,
+    isVisible = false,
     log,
     name,
     onComplete,
@@ -56,6 +57,7 @@ export class TaskEntitiesFactory {
       createdAt: SharedValueObjectsFactory.dateSharedValueObject(createdAt),
       finishedAt: SharedValueObjectsFactory.dateSharedValueObject(finishedAt),
       id: SharedValueObjectsFactory.idSharedValueObject(id),
+      isVisible,
       log: SharedValueObjectsFactory.stringSharedValueObject(log),
       name: SharedValueObjectsFactory.stringSharedValueObject(name),
       onComplete:
