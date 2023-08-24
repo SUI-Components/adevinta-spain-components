@@ -62,4 +62,101 @@ describe('[Domain] RunTaskUseCase', () => {
     assertWork(task.work[0])
     assertWork(task.work[1])
   })
+
+  it('should mark as not visible all works by default when the "isVisible" param is not specified', async () => {
+    // Given
+    const localState = {
+      tasks: []
+    }
+
+    // When
+    const nextState = await useCase.execute({
+      localState,
+      name: 'Test task',
+      work: [
+        {
+          name: 'First work',
+          onComplete: () => null,
+          onError: () => null,
+          start: () => null
+        }
+      ]
+    })
+
+    // Then
+    const firstWork = nextState.tasks[0].work[0]
+    expect(firstWork.isVisible).to.eql(false)
+  })
+
+  it('should mark as visible a work when the "isVisible" param is set as true', async () => {
+    // Given
+    const localState = {
+      tasks: []
+    }
+
+    // When
+    const nextState = await useCase.execute({
+      localState,
+      name: 'Test task',
+      work: [
+        {
+          name: 'First work',
+          onComplete: () => null,
+          onError: () => null,
+          start: () => null,
+          isVisible: true
+        }
+      ]
+    })
+
+    // Then
+    const firstWork = nextState.tasks[0].work[0]
+    expect(firstWork.isVisible).to.eql(true)
+  })
+
+  it('should include a prop to know how many works from a task are visible', async () => {
+    // Given
+    const localState = {
+      tasks: []
+    }
+
+    // When
+    const nextState = await useCase.execute({
+      localState,
+      name: 'Test task',
+      work: [
+        {
+          name: 'Work 1',
+          onComplete: () => null,
+          onError: () => null,
+          start: () => null,
+          isVisible: true
+        },
+        {
+          name: 'Work 2',
+          onComplete: () => null,
+          onError: () => null,
+          start: () => null,
+          isVisible: true
+        },
+        {
+          name: 'Work 3',
+          onComplete: () => null,
+          onError: () => null,
+          start: () => null,
+          isVisible: false
+        },
+        {
+          name: 'Work 4',
+          onComplete: () => null,
+          onError: () => null,
+          start: () => null,
+          isVisible: false
+        }
+      ]
+    })
+
+    // Then
+    expect(nextState.tasks[0].visibleWork).to.eql(2)
+  })
 })

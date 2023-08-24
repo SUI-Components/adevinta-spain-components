@@ -1,6 +1,10 @@
 import {ValueObject} from '@s-ui/domain'
 
 export class IdSharedValueObject extends ValueObject {
+  isEmpty() {
+    return this._id === null
+  }
+
   get() {
     return this._id
   }

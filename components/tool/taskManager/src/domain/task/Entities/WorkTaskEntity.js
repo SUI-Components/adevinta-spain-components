@@ -5,6 +5,7 @@ export class WorkTaskEntity extends Entity {
     createdAt,
     finishedAt,
     id,
+    isVisible,
     log,
     name,
     onComplete,
@@ -23,6 +24,7 @@ export class WorkTaskEntity extends Entity {
       createdAt,
       finishedAt,
       id,
+      isVisible,
       log,
       name,
       onComplete,
@@ -64,8 +66,12 @@ export class WorkTaskEntity extends Entity {
     return false
   }
 
+  isVisible() {
+    return this._isVisible
+  }
+
   areDependenciesMet(siblingWorkList) {
-    if (this._parentId.get() === null) return true
+    if (this._parentId.isEmpty()) return true
 
     const parent = siblingWorkList.getById(this._parentId)
 
@@ -113,6 +119,7 @@ export class WorkTaskEntity extends Entity {
       createdAt: this._createdAt.toJSON(),
       finishedAt: this._finishedAt.toJSON(),
       id: this._id.toJSON(),
+      isVisible: this._isVisible,
       log: this._log.toJSON(),
       name: this._name.toJSON(),
       onComplete: this._onComplete.toJSON(),

@@ -6,11 +6,12 @@ export class RunSimpleTaskUseCase extends UseCase {
     this._runSimpleTaskServiceFactory = runSimpleTaskServiceFactory
   }
 
-  execute({localState, name, onComplete, onError, start} = {}) {
+  execute({localState, isVisible, name, onComplete, onError, start} = {}) {
     const result = this._runSimpleTaskServiceFactory({
       config: this._config,
       localState
     }).execute({
+      isVisible,
       name,
       onComplete,
       onError,

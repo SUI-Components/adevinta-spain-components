@@ -9,9 +9,10 @@ export class RunSimpleTaskService extends Service {
     this._taskRepository = taskRepository
   }
 
-  execute({name, onComplete, onError, start} = {}) {
+  execute({isVisible, name, onComplete, onError, start} = {}) {
     const work = {
       config: this._config,
+      isVisible,
       name,
       onComplete,
       onError,
