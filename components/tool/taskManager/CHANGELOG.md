@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.10.0 (2023-08-24)
+
+
+### Features
+
+* **components/tool/taskManager:** Add a feature to mark work as visible or hide it on the UI ([1fde7af](https://github.com/SUI-Components/adevinta-spain-components/commit/1fde7af8c8eba83d4c27e98ffd369ca1b87cee58))
+
+
+
 # 1.9.0 (2023-07-19)
 
 
