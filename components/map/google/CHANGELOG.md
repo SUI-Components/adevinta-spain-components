@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.8.0 (2023-08-31)
+
+
+### Features
+
+* **components/map/google/demo:** Solve lint issues ([7ad2b63](https://github.com/SUI-Components/adevinta-spain-components/commit/7ad2b631448c4967523e4e802e717105f29357fd))
+* **components/map/google:** Clean listeners for every useEffect execution ([f625573](https://github.com/SUI-Components/adevinta-spain-components/commit/f625573492d5e3fedf3bad3d97812941faca6a93))
+* **components/map/google:** Delete zoomControl from map_iteration_options in GoogleMapsDrawer ([b27c324](https://github.com/SUI-Components/adevinta-spain-components/commit/b27c324df1a1f914f825329b08e3ff954e39046e))
+
+
+
 # 1.7.0 (2023-04-05)
 
 
