@@ -24,6 +24,7 @@ function GoogleMapsDrawer({
     } else {
       stopDrawing()
     }
+    return () => clearListeners()
   }, [drawing]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const draw = ({polyline}) => {
@@ -33,9 +34,10 @@ function GoogleMapsDrawer({
   }
 
   const clearListeners = () => {
-    mapsLibrary.event.clearListeners(mapRef, 'mousemove')
     mapsLibrary.event.clearListeners(mapRef, 'mousedown')
+    mapsLibrary.event.clearListeners(mapRef, 'mousemove')
     mapsLibrary.event.clearListeners(mapRef, 'mouseup')
+    mapsLibrary.event.clearListeners(mapRef, 'touchmove')
   }
 
   // This will convert the path from MVCArray<LatLng> to a LatLngLiteral array
@@ -55,8 +57,6 @@ function GoogleMapsDrawer({
 
     // Remove the polyline from the map
     polyline.setMap(null)
-
-    clearListeners()
 
     mapRef.setOptions(ENABLED_MAP_INTERACTION_OPTIONS)
 
