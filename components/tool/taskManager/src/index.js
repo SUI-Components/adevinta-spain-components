@@ -1,20 +1,11 @@
-import {useRef} from 'react'
-
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 import AtomProgressBar from '@s-ui/react-atom-progress-bar'
 import MoleculeAccordion, {
   moleculeAccordionBehavior,
   MoleculeAccordionItem
 } from '@s-ui/react-molecule-accordion'
-import MoleculeBadgeCounter, {
-  moleculeBadgeCounterSizes
-} from '@s-ui/react-molecule-badge-counter'
-import MoleculeDrawer, {
-  MoleculeDrawerOverlay,
-  moleculeDrawerPlacements,
-  moleculeDrawerSizes
-} from '@s-ui/react-molecule-drawer'
 
 import {TaskManagerProvider} from './components/TaskManagerContext.js'
 import useBeforeUnloadEffect from './hooks/useBeforeUnloadEffect.js'
@@ -23,52 +14,42 @@ import useDevMode from './hooks/useDevMode.js'
 
 export default function ToolTaskManager({isVisible = true}) {
   window.taskManager = useContext()
-  const {getState, toggleTab} = window.taskManager
+  const {getState} = window.taskManager
   const state = getState()
-  const drawerRef = useRef()
-  const {isDevModeEnabled, registerClick} = useDevMode()
+  const isDevModeEnabled = true
+  const {registerClick} = useDevMode()
   useBeforeUnloadEffect({isVisible})
-
-  const _onClick = () => {
-    toggleTab()
-  }
-
-  const getDrawer = () => {
-    return (
-      <>
-        <MoleculeDrawerOverlay isVisible={state.toggleTab} />
-        <MoleculeDrawer
-          closeOnOutsideClick
-          isOpen={state.toggleTab}
-          onClose={_onClick}
-          placement={moleculeDrawerPlacements.BOTTOM}
-          ref={drawerRef}
-          size={moleculeDrawerSizes.AUTO}
-        >
-          <div className="sui-ToolTaskManager-container">
-            <MoleculeAccordion
-              as="div"
-              behavior={moleculeAccordionBehavior.MULTIPLE}
-            >
-              <>{getItems()}</>
-            </MoleculeAccordion>
-          </div>
-        </MoleculeDrawer>
-      </>
-    )
-  }
 
   const getItems = () => {
     return (
       <>
         {state.tasks.map(task => {
+          console.log('TASK,', task)
           if (task.visibleWork === 0 && isDevModeEnabled === false) return
+          const Icon = task.status
+          const taskClassName = cx('sui-ToolTaskManager-task')
+
+          const getLabel = () => {
+            return (
+              <div className={taskClassName}>
+                <div className="sui-ToolTaskManager-taskInfo">
+                  <div className="sui-ToolTaskManager-taskIcon">{Icon}</div>
+                  <div className="sui-ToolTaskManager-taskName">
+                    {task.name}
+                  </div>
+                </div>
+                <div className="sui-ToolTaskManager-taskCounter">
+                  1 de {task.work.length}
+                </div>
+              </div>
+            )
+          }
 
           return (
             <MoleculeAccordionItem
               key={task.id}
               value={task.id}
-              label={`${task.status} - ${task.name}`}
+              label={getLabel()}
               content={
                 <>
                   {task.work.map(work => {
@@ -77,19 +58,20 @@ export default function ToolTaskManager({isVisible = true}) {
                     return (
                       <div className="sui-ToolTaskManager-work">
                         <div className="sui-ToolTaskManager-workInfo">
-                          {work.status} - {work.name} - {work.percentage}%
-                          {work.percentage === 100 && '✅'}
+                          <span className="sui-ToolTaskManager-workInfoText">
+                            {work.name}
+                          </span>
+                          <span>{work.percentage}%</span>
                         </div>
-                        {work.percentage !== 100 ? (
-                          <div className="sui-ToolTaskManager-workProgressBar">
-                            <AtomProgressBar
-                              hideIndicator
-                              percentage={work.percentage}
-                              type="line"
-                              size="small"
-                            />
-                          </div>
-                        ) : null}
+
+                        <div className="sui-ToolTaskManager-workProgressBar">
+                          <AtomProgressBar
+                            hideIndicator
+                            percentage={work.percentage}
+                            type="line"
+                            size="medium"
+                          />
+                        </div>
                       </div>
                     )
                   })}
@@ -104,21 +86,20 @@ export default function ToolTaskManager({isVisible = true}) {
 
   if (!isVisible) return null
 
-  const existingTasks = isDevModeEnabled
-    ? state.tasks.length
-    : state.tasks.filter(task => task.visibleWork > 0).length
+  // const existingTasks = isDevModeEnabled
+  //   ? state.tasks.length
+  //   : state.tasks.filter(task => task.visibleWork > 0).length
 
   return (
     <div className="sui-ToolTaskManager" onClick={registerClick}>
-      <MoleculeBadgeCounter
-        label={existingTasks}
-        size={moleculeBadgeCounterSizes.LARGE}
-      >
-        <div className="sui-ToolTaskManager-tab" onClick={_onClick}>
-          🤩 TaskManager 🤩
-        </div>
-      </MoleculeBadgeCounter>
-      {getDrawer()}
+      <div className="sui-ToolTaskManager-container">
+        <MoleculeAccordion
+          as="div"
+          behavior={moleculeAccordionBehavior.MULTIPLE}
+        >
+          <>{getItems()}</>
+        </MoleculeAccordion>
+      </div>
     </div>
   )
 }

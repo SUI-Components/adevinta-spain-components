@@ -1,17 +1,8 @@
 @import '~@s-ui/theme/lib/index';
 @import '~@s-ui/react-molecule-accordion/lib/index';
-@import '~@s-ui/react-molecule-drawer/lib/index';
-@import '~@s-ui/react-molecule-badge-counter/lib/index';
 @import '~@s-ui/react-atom-progress-bar/lib/index';
 
 .sui-ToolTaskManager {
-  border-radius: 8px;
-  bottom: 0px;
-  height: 50px;
-  position: fixed;
-  right: calc(50% - 200px);
-  z-index: 9999;
-
   &-tab {
     align-content: center;
     align-items: center;
@@ -27,16 +18,43 @@
     width: 400px;
   }
 
-  &-container {
-    max-height: 300px;
-    min-height: 50px;
-    overflow: auto;
-    padding: 16px;
+  &-task {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    width: 100%;
+
+    &Info {
+      align-items: center;
+      display: flex;
+      gap: 8px;
+    }
+
+    &Icon {
+    }
+
+    &Name {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &Counter {
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 400;
+    }
   }
 
   &-work {
     align-items: center;
     display: flex;
+    flex-direction: column;
     font-size: 12px;
     margin-bottom: 16px;
     width: 100%;
@@ -47,7 +65,19 @@
 
     &Info {
       display: flex;
-      width: 400px;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      width: 100%;
+
+      &Text {
+        max-width: 230px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
     }
   }
 }
