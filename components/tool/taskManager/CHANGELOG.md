@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.12.0 (2023-09-05)
+
+
+### Features
+
+* **components/tool/taskManager:** Persist devmode in context so conditional rendering does not brea ([9ef47ef](https://github.com/SUI-Components/adevinta-spain-components/commit/9ef47ef34f83b49273207017f632b871639fd225))
+
+
+
 # 1.11.0 (2023-09-05)
 
 
