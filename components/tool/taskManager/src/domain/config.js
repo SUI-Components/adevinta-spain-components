@@ -8,8 +8,8 @@ export default class Config {
     this._config = {
       AVAILABLE_STATUS: {
         CANCELLED: 'CANCELLED',
-        COMPLETED: 'COMPLETED 🥳 ',
-        ERROR: 'ERROR 🤬',
+        COMPLETED: 'COMPLETED',
+        ERROR: 'ERROR',
         IN_PROGRESS: 'IN_PROGRESS',
         QUEUED: 'QUEUED'
       },
