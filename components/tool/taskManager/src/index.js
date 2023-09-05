@@ -23,7 +23,6 @@ export default function ToolTaskManager({isVisible = true, statusIcons = {}}) {
     return (
       <>
         {state.tasks.map(task => {
-          console.log('TASK,', task)
           if (task.visibleWork === 0 && isDevModeEnabled === false) return
           const Icon = statusIcons[task.status] || ''
           const taskClassName = cx(
