@@ -1,5 +1,3 @@
-import ChevronCircleDownSolid from '@adv-ui/mt-svg-icons/lib/ChevronCircleDownSolid'
-import Upwnload from '@adv-ui/mt-svg-icons/lib/Upwnload'
 export default class Config {
   /**
    * @constructor
@@ -10,9 +8,9 @@ export default class Config {
     this._config = {
       AVAILABLE_STATUS: {
         CANCELLED: 'CANCELLED',
-        COMPLETED: <ChevronCircleDownSolid size="medium" />,
-        ERROR: 'ERROR 🤬',
-        IN_PROGRESS: <Upwnload size="medium" />,
+        COMPLETED: 'COMPLETED',
+        ERROR: 'ERROR',
+        IN_PROGRESS: 'IN_PROGRESS',
         QUEUED: 'QUEUED'
       },
       AVAILABLE_PRIORITIES: {

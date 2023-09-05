@@ -12,7 +12,7 @@ import useBeforeUnloadEffect from './hooks/useBeforeUnloadEffect.js'
 import useContext from './hooks/useContext.js'
 import useDevMode from './hooks/useDevMode.js'
 
-export default function ToolTaskManager({isVisible = true}) {
+export default function ToolTaskManager({isVisible = true, statusIcons = {}}) {
   window.taskManager = useContext()
   const {getState} = window.taskManager
   const state = getState()
@@ -26,8 +26,11 @@ export default function ToolTaskManager({isVisible = true}) {
         {state.tasks.map(task => {
           console.log('TASK,', task)
           if (task.visibleWork === 0 && isDevModeEnabled === false) return
-          const Icon = task.status
-          const taskClassName = cx('sui-ToolTaskManager-task')
+          const Icon = statusIcons[task.status] || ''
+          const taskClassName = cx(
+            'sui-ToolTaskManager-task',
+            `is-${task.status.toLowerCase()}`
+          )
 
           const getLabel = () => {
             return (
@@ -106,7 +109,16 @@ export default function ToolTaskManager({isVisible = true}) {
 
 ToolTaskManager.displayName = 'ToolTaskManager'
 ToolTaskManager.propTypes = {
-  isVisible: PropTypes.bool
+  isVisible: PropTypes.bool,
+  statusIcons: PropTypes.arrayOf(
+    PropTypes.shape({
+      CANCELLED: PropTypes.node,
+      COMPLETED: PropTypes.node,
+      ERROR: PropTypes.node,
+      IN_PROGRESS: PropTypes.node,
+      QUEUED: PropTypes.node
+    })
+  )
 }
 
 export {TaskManagerProvider, useContext as useTaskManagerContext}

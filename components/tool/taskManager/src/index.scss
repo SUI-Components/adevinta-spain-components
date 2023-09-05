@@ -2,7 +2,10 @@
 @import '~@s-ui/react-molecule-accordion/lib/index';
 @import '~@s-ui/react-atom-progress-bar/lib/index';
 
-.sui-ToolTaskManager {
+$base-class: '.sui-ToolTaskManager';
+$class-taskIcon: '#{$base-class}-taskIcon';
+
+#{$base-class} {
   &-tab {
     align-content: center;
     align-items: center;
@@ -48,6 +51,18 @@
       font-size: 10px;
       font-style: normal;
       font-weight: 400;
+    }
+
+    &.is-completed {
+      #{$class-taskIcon} {
+        color: $c-success;
+      }
+    }
+
+    &.is-error {
+      #{$class-taskIcon} {
+        color: $c-accent;
+      }
     }
   }
 

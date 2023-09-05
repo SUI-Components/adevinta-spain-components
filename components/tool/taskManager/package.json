@@ -12,8 +12,7 @@
     "@s-ui/decorators": "3",
     "@s-ui/domain": "2",
     "@s-ui/react-atom-progress-bar": "2",
-    "@s-ui/react-molecule-accordion": "2",
-    "@adv-ui/mt-svg-icons": "2"
+    "@s-ui/react-molecule-accordion": "2"
   },
   "peerDependencies": {
     "@s-ui/theme": "8"
