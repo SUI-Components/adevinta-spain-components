@@ -6,16 +6,24 @@ import useDomainEventSubscriptions from './useDomainEventSubscriptions.js'
 const domain = new Domain()
 
 const ACTIONS = {
+  ENABLE_DEV_MODE: 'ENABLE_DEV_MODE',
   SET_STATE: 'SET_STATE',
   TOOGLE_TAB: 'toggleTab'
 }
 
 const initialState = {
   tasks: [],
-  toggleTab: false
+  toggleTab: false,
+  isDevModeEnabled: false
 }
 const reducer = (state, action) => {
   switch (action.type) {
+    case ACTIONS.ENABLE_DEV_MODE:
+      return {
+        ...state,
+        isDevModeEnabled: true
+      }
+
     case ACTIONS.SET_STATE:
       return {
         ...state,
@@ -98,9 +106,12 @@ const useState = () => {
       workId
     })
 
+  const enableDevMode = () => dispatch({type: ACTIONS.ENABLE_DEV_MODE})
+
   return {
     cancelWork,
     domain,
+    enableDevMode,
     errorWork,
     finishWork,
     getState,

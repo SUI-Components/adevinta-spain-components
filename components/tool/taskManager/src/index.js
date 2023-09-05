@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 
 import AtomProgressBar from '@s-ui/react-atom-progress-bar'
 import MoleculeAccordion, {
@@ -18,7 +18,6 @@ export default function ToolTaskManager({isVisible = true, statusIcons = {}}) {
   const state = getState()
   const {isDevModeEnabled, registerClick} = useDevMode()
   useBeforeUnloadEffect({isVisible})
-
   const getItems = () => {
     return (
       <>

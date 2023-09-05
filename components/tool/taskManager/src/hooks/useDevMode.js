@@ -1,18 +1,19 @@
-import {useRef, useState} from 'react'
+import {useRef} from 'react'
+
+import useContext from './useContext.js'
 
 const useDevMode = () => {
+  const {enableDevMode, getState} = useContext()
+  const {isDevModeEnabled} = getState()
+
   const clickingRef = useRef({
     clicks: 0,
     lastClickTime: 0
   })
 
-  const [state, setState] = useState({
-    isDevModeEnabled: false
-  })
-
   const registerClick = () => {
     // If dev mode is already enabled, just skip
-    if (state.isDevModeEnabled) return
+    if (isDevModeEnabled) return
 
     // First, if the lastClickTime was more than 500 msecs ago, we reset the clicks
     if (clickingRef.current.lastClickTime + 250 < Date.now()) {
@@ -28,14 +29,14 @@ const useDevMode = () => {
 
     // Third, if we just reached 20 clicks, display an alert
     if (clickingRef.current.clicks >= 20) {
-      setState({isDevModeEnabled: true})
+      enableDevMode()
       /* eslint-disable no-console */
       console.log('💻 TaskManager has entered in Developer mode 💻')
       console.log('All work will be visible and displayed from now on')
       console.log('🧘🏽‍♀️ We wish you a peaceful debugging session 🧘🏽‍♀️')
     }
   }
-  return {isDevModeEnabled: state.isDevModeEnabled, registerClick}
+  return {isDevModeEnabled, registerClick}
 }
 
 export default useDevMode
