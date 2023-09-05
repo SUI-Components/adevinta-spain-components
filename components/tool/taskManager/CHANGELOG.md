@@ -1,5 +1,18 @@
 # CHANGELOG
 
+# 1.11.0 (2023-09-05)
+
+
+### Features
+
+* **components/tool/taskManager:** remove console log ([64a1088](https://github.com/SUI-Components/adevinta-spain-components/commit/64a1088899a31c303cb9f5a0c0c5701e845c9cae))
+* **components/tool/taskManager:** remove unnused class ([87ca7a2](https://github.com/SUI-Components/adevinta-spain-components/commit/87ca7a2949ee5328f0aaf9841f011baa395bde75))
+* **components/tool/taskManager:** update const isDevModeEnabled ([1b1036a](https://github.com/SUI-Components/adevinta-spain-components/commit/1b1036a657d4e214fbb3cd757fc7eff4e485e2c5))
+* **components/tool/taskManager:** update layout styles taskManager ([4d7233d](https://github.com/SUI-Components/adevinta-spain-components/commit/4d7233d82a1e4dfce22089aa28c75e366dc6b552))
+* **components/tool/taskManager:** update status icons and add color status to icon ([1ae48c5](https://github.com/SUI-Components/adevinta-spain-components/commit/1ae48c5fb75cf5f526cfb7f3036327a3325aa6ba))
+
+
+
 # 1.10.0 (2023-08-24)
 
 
