@@ -16,8 +16,7 @@ export default function ToolTaskManager({isVisible = true, statusIcons = {}}) {
   window.taskManager = useContext()
   const {getState} = window.taskManager
   const state = getState()
-  const isDevModeEnabled = true
-  const {registerClick} = useDevMode()
+  const {isDevModeEnabled, registerClick} = useDevMode()
   useBeforeUnloadEffect({isVisible})
 
   const getItems = () => {
