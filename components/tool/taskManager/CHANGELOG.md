@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.14.0 (2023-09-06)
+
+
+### Features
+
+* **components/tool/taskManager:** update styles ([d6bfd4f](https://github.com/SUI-Components/adevinta-spain-components/commit/d6bfd4f42c43abe74eaa904d0dd27685410369d5))
+
+
+
 # 1.13.0 (2023-09-06)
 
 
