@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.15.0 (2023-09-06)
+
+
+### Features
+
+* **components/tool/taskManager:** Add new getters to retrieve status ([5ddac3c](https://github.com/SUI-Components/adevinta-spain-components/commit/5ddac3c5920eacc247e36c4979b5302103f44f42))
+
+
+
 # 1.14.0 (2023-09-06)
 
 
