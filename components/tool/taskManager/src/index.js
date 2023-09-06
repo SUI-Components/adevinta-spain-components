@@ -13,8 +13,7 @@ import useContext from './hooks/useContext.js'
 import useDevMode from './hooks/useDevMode.js'
 
 export default function ToolTaskManager({isVisible = true, statusIcons = {}}) {
-  window.taskManager = useContext()
-  const {getState} = window.taskManager
+  const {countWork, countFinishedWork, getState} = useContext()
   const state = getState()
   const {isDevModeEnabled, registerClick} = useDevMode()
   useBeforeUnloadEffect({isVisible})
@@ -39,7 +38,7 @@ export default function ToolTaskManager({isVisible = true, statusIcons = {}}) {
                   </div>
                 </div>
                 <div className="sui-ToolTaskManager-taskCounter">
-                  1 de {task.work.length}
+                  {countFinishedWork(task.id)} de {countWork(task.id)}
                 </div>
               </div>
             )
