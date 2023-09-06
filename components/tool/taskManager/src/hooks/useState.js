@@ -49,7 +49,6 @@ const useState = () => {
   const stateRef = useRef(state)
   stateRef.current = state
 
-  const getState = () => stateRef.current
   const setState = state => dispatch({type: ACTIONS.SET_STATE, payload: state})
   const toggleTab = () => dispatch({type: ACTIONS.TOOGLE_TAB})
 
@@ -60,8 +59,6 @@ const useState = () => {
       .then(result => setState(result))
 
   useDomainEventSubscriptions(domain, executeUseCase)
-
-  const getTask = taskId => getState().tasks.find(task => task.id === taskId)
 
   const runSimpleTask = task =>
     executeUseCase('run_simple_task_use_case', {
@@ -108,6 +105,47 @@ const useState = () => {
 
   const enableDevMode = () => dispatch({type: ACTIONS.ENABLE_DEV_MODE})
 
+  // Getters
+  const getState = () => stateRef.current
+  const getTask = taskId => getState().tasks.find(task => task.id === taskId)
+
+  const _isVisibleWork = work => work.isVisible || getState().isDevModeEnabled
+  const _isFinishedWork = work =>
+    work.status === domain.get('config').get('AVAILABLE_STATUS').COMPLETED
+  const _countWorkFromTask = (taskId, countCriteria) => {
+    const task = getTask(taskId)
+    if (task === undefined) return 0
+
+    return task.work.filter(countCriteria).length
+  }
+
+  // De una tarea concreta, conocer el work que está visible
+  const countWork = taskId => {
+    return _countWorkFromTask(taskId, work => _isVisibleWork(work))
+  }
+  // De una tarea concreta, conocer el work que está visible y completado
+  const countFinishedWork = taskId => {
+    return _countWorkFromTask(
+      taskId,
+      work => _isVisibleWork(work) && _isFinishedWork(work)
+    )
+  }
+
+  // Número de tareas que están in progress y visibles
+  const _isVisibleTask = taskId => {
+    // Una task es visible cuando tiene work visible
+    return countWork(taskId) > 0
+  }
+  const countInProgressTasks = () => {
+    const tasks = getState().tasks
+    // Si está visible, y su visibleWork es distinto al finished...
+    return tasks.filter(
+      task =>
+        _isVisibleTask(task.id) &&
+        countWork(task.id) > countFinishedWork(task.id)
+    ).length
+  }
+
   return {
     cancelWork,
     domain,
@@ -119,7 +157,11 @@ const useState = () => {
     runSimpleTask,
     runTask,
     setPercentage,
-    toggleTab
+    toggleTab,
+    /* getters */
+    countFinishedWork,
+    countInProgressTasks,
+    countWork
   }
 }
 
