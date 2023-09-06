@@ -71,6 +71,10 @@ $class-taskIcon: '#{$base-class}-taskIcon';
     margin-bottom: 16px;
     width: 100%;
 
+    &:last-child {
+      margin-bottom: 0;
+    }
+
     &ProgressBar {
       width: 100%;
     }
