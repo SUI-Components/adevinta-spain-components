@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.13.0 (2023-09-06)
+
+
+### Features
+
+* **components/tool/taskManager:** Add counter methods and use them to know in progress and finished ([837acd3](https://github.com/SUI-Components/adevinta-spain-components/commit/837acd3dab7c420ce193010c767f5fd3fefbb051))
+
+
+
 # 1.12.0 (2023-09-05)
 
 
