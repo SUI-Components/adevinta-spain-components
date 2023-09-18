@@ -123,11 +123,11 @@ const useState = () => {
     return task.work.filter(countCriteria).length
   }
 
-  // De una tarea concreta, conocer el work que está visible
+  // Count visible work from a specific task
   const countWork = taskId => {
     return _countWorkFromTask(taskId, work => _isVisibleWork(work))
   }
-  // De una tarea concreta, conocer el work que está visible y completado
+  // Count visible and finished work from a specific task
   const countFinishedWork = taskId => {
     return _countWorkFromTask(
       taskId,
@@ -152,6 +152,10 @@ const useState = () => {
         _isErroredTask(task.id) === false
     ).length
 
+  // Counts the number of tasks that are visible, regardless of their status
+  const countTasks = () =>
+    getState().tasks.filter(task => _isVisibleTask(task.id)).length
+
   const getInProgressTaskPercentage = () => {
     const inProgressTask = getState().tasks.find(
       task =>
@@ -160,7 +164,6 @@ const useState = () => {
 
     if (inProgressTask === undefined) return 0
 
-    // Contamos el work que existe
     const work = countWork(inProgressTask.id)
     const finishedWork = countFinishedWork(inProgressTask.id)
 
@@ -195,6 +198,7 @@ const useState = () => {
     /* getters */
     countFinishedWork,
     countInProgressTasks,
+    countTasks,
     countWork,
     getInProgressTaskPercentage
   }
