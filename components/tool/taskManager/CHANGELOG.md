@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.16.0 (2023-09-18)
+
+
+### Features
+
+* **components/tool/taskManager:** Add function to count visible tasks ([3c27a4c](https://github.com/SUI-Components/adevinta-spain-components/commit/3c27a4c57ed301203f4134f1e26c890698d5ff56))
+
+
+
 # 1.15.0 (2023-09-06)
 
 
