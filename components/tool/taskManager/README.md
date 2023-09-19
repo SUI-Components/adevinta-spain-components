@@ -118,7 +118,9 @@ runTask({
   name: 'Complex task test',
   work: [
     {
+      canBeInterrupted: false, // If true, an alert will be displayed if the user tries to close the browser while the work is still pending or in progress
       id: 'This should be unique in the whole task. Leave it undefined to autogenerate',
+      isVisible: true, // If false work won't be visible on the ui. However, it will be processed as expected, but without noticing the user
       parentId: 'The work id that must be completed before this can be executed. Leave it undefined to have no-dependencies.',
       retryAttempts: 3, // Will try the start method three times before calling the onError function
       name: 'Complex task first work',
