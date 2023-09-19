@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.17.0 (2023-09-19)
+
+
+### Features
+
+* **components/tool/taskManager:** Add canBeInterrupted prop to work in task manager ([870f677](https://github.com/SUI-Components/adevinta-spain-components/commit/870f6777ef47cf57ad3d610f7a8c29bf9b37d9f3))
+
+
+
 # 1.16.0 (2023-09-18)
 
 
