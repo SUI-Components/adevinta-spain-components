@@ -34,6 +34,7 @@ export class TaskEntitiesFactory {
   }
 
   static workTaskEntity = ({
+    canBeInterrupted = false,
     config,
     createdAt,
     finishedAt = null,
@@ -53,6 +54,7 @@ export class TaskEntitiesFactory {
     updatedAt = null
   }) =>
     new WorkTaskEntity({
+      canBeInterrupted,
       config,
       createdAt: SharedValueObjectsFactory.dateSharedValueObject(createdAt),
       finishedAt: SharedValueObjectsFactory.dateSharedValueObject(finishedAt),

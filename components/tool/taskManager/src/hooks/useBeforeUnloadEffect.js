@@ -14,9 +14,17 @@ const useBeforeUnloadEffect = ({isVisible}) => {
 
   const _displayCloseAlert = useCallback(
     e => {
+      // Si la task está in progress y además tiene algún work donde displayOnCloseAlert sea true
+      // y no esté finalizado
       const hasInProgressTasks =
         state.tasks.filter(
-          task => task.status === config.get('AVAILABLE_STATUS').IN_PROGRESS
+          task =>
+            task.status === config.get('AVAILABLE_STATUS').IN_PROGRESS &&
+            task.work.filter(
+              work =>
+                work.canBeInterrupted === false &&
+                work.status !== config.get('AVAILABLE_STATUS').COMPLETED
+            ).length > 0
         ).length > 0
 
       if (hasInProgressTasks) {

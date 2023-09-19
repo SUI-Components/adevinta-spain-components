@@ -1,6 +1,7 @@
 import {Entity} from '@s-ui/domain'
 export class WorkTaskEntity extends Entity {
   constructor({
+    canBeInterrupted,
     config,
     createdAt,
     finishedAt,
@@ -20,6 +21,7 @@ export class WorkTaskEntity extends Entity {
     updatedAt
   }) {
     super({
+      canBeInterrupted,
       config,
       createdAt,
       finishedAt,
@@ -116,6 +118,7 @@ export class WorkTaskEntity extends Entity {
 
   toJSON() {
     return {
+      canBeInterrupted: this._canBeInterrupted,
       createdAt: this._createdAt.toJSON(),
       finishedAt: this._finishedAt.toJSON(),
       id: this._id.toJSON(),
