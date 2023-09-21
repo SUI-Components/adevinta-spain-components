@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.18.0 (2023-09-21)
+
+
+### Features
+
+* **components/tool/taskManager:** Add the possibility to filter tasks by id or amount ([276ae64](https://github.com/SUI-Components/adevinta-spain-components/commit/276ae64f221903cdb65f8a00b2425b1e23ee13c8))
+* **components/tool/taskManager:** Adjust filtering logic ([77bd2b4](https://github.com/SUI-Components/adevinta-spain-components/commit/77bd2b46933465971c17de9c17bd7c2d06ad9c79))
+
+
+
 # 1.17.0 (2023-09-19)
 
 
