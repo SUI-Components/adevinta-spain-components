@@ -12,7 +12,12 @@ import useBeforeUnloadEffect from './hooks/useBeforeUnloadEffect.js'
 import useContext from './hooks/useContext.js'
 import useDevMode from './hooks/useDevMode.js'
 
-export default function ToolTaskManager({isVisible = true, statusIcons = {}}) {
+export default function ToolTaskManager({
+  isVisible = true,
+  statusIcons = {},
+  taskIdsFilter = [],
+  taskAmountFilter = 0
+}) {
   const {countWork, countFinishedWork, getState} = useContext()
   const state = getState()
   const {isDevModeEnabled, registerClick} = useDevMode()
@@ -20,8 +25,18 @@ export default function ToolTaskManager({isVisible = true, statusIcons = {}}) {
   const getItems = () => {
     return (
       <>
-        {state.tasks.map(task => {
+        {state.tasks.map((task, index) => {
           if (task.visibleWork === 0 && isDevModeEnabled === false) return
+
+          if (
+            Array.isArray(taskIdsFilter) &&
+            taskIdsFilter.length > 0 &&
+            taskIdsFilter.find(id => id === task.id) === undefined
+          )
+            return
+
+          if (taskAmountFilter !== 0 && taskAmountFilter > index) return
+
           const Icon = statusIcons[task.status] || ''
           const taskClassName = cx(
             'sui-ToolTaskManager-task',
@@ -114,7 +129,9 @@ ToolTaskManager.propTypes = {
       IN_PROGRESS: PropTypes.node,
       QUEUED: PropTypes.node
     })
-  )
+  ),
+  taskAmountFilter: PropTypes.number,
+  taskIdsFilter: PropTypes.arrayOf(PropTypes.string)
 }
 
 export {TaskManagerProvider, useContext as useTaskManagerContext}
