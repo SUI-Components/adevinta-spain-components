@@ -30,7 +30,8 @@ export default function ToolTaskManager({
 
           if (
             Array.isArray(taskIdsFilter) &&
-            taskIdsFilter.find((id => id === task.id) === undefined)
+            taskIdsFilter.length > 0 &&
+            taskIdsFilter.find(id => id === task.id) === undefined
           )
             return
 
