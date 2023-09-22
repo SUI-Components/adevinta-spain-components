@@ -42,7 +42,7 @@ const reducer = (state, action) => {
 }
 
 // Create a custom hook that uses the reducer and returns the state and dispatch function
-const useState = () => {
+const useState = ({onCompleteAllTasks}) => {
   const [state, dispatch] = useReducer(reducer, {
     ...initialState
   })
@@ -52,13 +52,16 @@ const useState = () => {
   const setState = state => dispatch({type: ACTIONS.SET_STATE, payload: state})
   const toggleTab = () => dispatch({type: ACTIONS.TOOGLE_TAB})
 
-  const executeUseCase = (useCaseName, params) =>
+  const executeUseCase = (useCaseName, params, next = () => null) =>
     domain
       .get(useCaseName)
       .execute(params)
-      .then(result => setState(result))
+      .then(result => {
+        setState(result)
+        next(result)
+      })
 
-  useDomainEventSubscriptions(domain, executeUseCase)
+  useDomainEventSubscriptions(domain, executeUseCase, onCompleteAllTasks)
 
   const runSimpleTask = task =>
     executeUseCase('run_simple_task_use_case', {
