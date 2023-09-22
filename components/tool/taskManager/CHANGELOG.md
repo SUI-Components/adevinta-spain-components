@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.19.0 (2023-09-22)
+
+
+### Features
+
+* **components/tool/taskManager:** Add onCompleteAllTasks event to task manager ([7b88149](https://github.com/SUI-Components/adevinta-spain-components/commit/7b88149372d3d1840b6ff74bf9f41a89f609bafc))
+
+
+
 # 1.18.0 (2023-09-21)
 
 
