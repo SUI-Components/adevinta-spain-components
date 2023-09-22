@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.20.0 (2023-09-22)
+
+
+### Features
+
+* **components/tool/taskManager:** Avoid noticing non-visible tasks ([b69d0c8](https://github.com/SUI-Components/adevinta-spain-components/commit/b69d0c8c78cf700013f12448469805f20e5d68a5))
+
+
+
 # 1.19.0 (2023-09-22)
 
 
