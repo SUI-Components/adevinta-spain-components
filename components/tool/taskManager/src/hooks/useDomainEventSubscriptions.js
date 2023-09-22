@@ -1,18 +1,6 @@
 import useMount from '@s-ui/react-hooks/lib/useMount/index.js'
 
-const useDomainEventSubscriptions = (
-  domain,
-  executeUseCase,
-  onCompleteAllTasks
-) => {
-  const checkIfAllTasksHaveBeenFinished = state => {
-    const notFinishedTasks = state.tasks.filter(
-      task =>
-        task.status !== domain.get('config').get('AVAILABLE_STATUS').COMPLETED
-    )
-    if (notFinishedTasks.length === 0) onCompleteAllTasks(state)
-  }
-
+const useDomainEventSubscriptions = (domain, executeUseCase) => {
   useMount(() => {
     const subscriptions = []
     subscriptions.push(
@@ -27,13 +15,9 @@ const useDomainEventSubscriptions = (
           executeUseCase('process_queued_task_use_case', {localState: result})
         ),
       domain.get('finish_work_task_use_case').subscribe(({result}) =>
-        executeUseCase(
-          'process_in_progress_task_use_case',
-          {
-            localState: result
-          },
-          checkIfAllTasksHaveBeenFinished
-        )
+        executeUseCase('process_in_progress_task_use_case', {
+          localState: result
+        })
       ),
       /* domain.get('cancel_work_task_use_case')
         .subscribe(({result}) => executeUseCase('process_task_use_case',{localState: result})), */

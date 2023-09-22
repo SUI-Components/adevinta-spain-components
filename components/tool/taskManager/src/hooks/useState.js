@@ -61,6 +61,12 @@ const useState = ({onCompleteAllTasks}) => {
         next(result)
       })
 
+  const checkIfAllTasksHaveBeenFinished = state => {
+    const completedTasks = countCompletedTasks(state)
+    const allTasks = countTasks(state)
+    if (completedTasks === allTasks && allTasks > 0) onCompleteAllTasks(state)
+  }
+
   useDomainEventSubscriptions(domain, executeUseCase, onCompleteAllTasks)
 
   const runSimpleTask = task =>
@@ -84,12 +90,16 @@ const useState = ({onCompleteAllTasks}) => {
     })
 
   const finishWork = (taskId, workId, result = null) =>
-    executeUseCase('finish_work_task_use_case', {
-      localState: stateRef.current,
-      taskId,
-      workId,
-      result
-    })
+    executeUseCase(
+      'finish_work_task_use_case',
+      {
+        localState: stateRef.current,
+        taskId,
+        workId,
+        result
+      },
+      checkIfAllTasksHaveBeenFinished
+    )
 
   const cancelWork = (taskId, workId) =>
     executeUseCase('cancel_work_task_use_case', {
@@ -111,30 +121,36 @@ const useState = ({onCompleteAllTasks}) => {
   // Getters
   // TODO: Most of this functions will be migrated to domain soon
   const getState = () => stateRef.current
-  const getTask = taskId => getState().tasks.find(task => task.id === taskId)
+  const getTask = (taskId, state = getState()) =>
+    state.tasks.find(task => task.id === taskId)
   // Work status check
-  const _isVisibleWork = work => work.isVisible || getState().isDevModeEnabled
+  const _isVisibleWork = (work, state = getState()) =>
+    work.isVisible || state.isDevModeEnabled
   const _isFinishedWork = work =>
     work.status === domain.get('config').get('AVAILABLE_STATUS').COMPLETED
   const _isErroredWork = work =>
     work.status === domain.get('config').get('AVAILABLE_STATUS').ERROR
   // Counts the number of work that meets a specific criteria
-  const _countWorkFromTask = (taskId, countCriteria) => {
-    const task = getTask(taskId)
+  const _countWorkFromTask = (taskId, countCriteria, state = getState()) => {
+    const task = getTask(taskId, state)
     if (task === undefined) return 0
 
     return task.work.filter(countCriteria).length
   }
 
   // Count visible work from a specific task
-  const countWork = taskId => {
-    return _countWorkFromTask(taskId, work => _isVisibleWork(work))
-  }
-  // Count visible and finished work from a specific task
-  const countFinishedWork = taskId => {
+  const countWork = (taskId, state = getState()) => {
     return _countWorkFromTask(
       taskId,
-      work => _isVisibleWork(work) && _isFinishedWork(work)
+      work => _isVisibleWork(work, state),
+      state
+    )
+  }
+  // Count visible and finished work from a specific task
+  const countFinishedWork = (taskId, state = getState()) => {
+    return _countWorkFromTask(
+      taskId,
+      work => _isVisibleWork(work, state) && _isFinishedWork(work)
     )
   }
 
@@ -143,7 +159,8 @@ const useState = ({onCompleteAllTasks}) => {
   }
 
   // Checks if a task is visible
-  const _isVisibleTask = taskId => countWork(taskId) > 0
+  const _isVisibleTask = (taskId, state = getState()) =>
+    countWork(taskId, state) > 0
   // Checks if a task has errored work
   const _isErroredTask = taskId => countErroredWork(taskId) > 0
   // Counts the number of tasks that are being processed
@@ -154,10 +171,17 @@ const useState = ({onCompleteAllTasks}) => {
         countWork(task.id) > countFinishedWork(task.id) &&
         _isErroredTask(task.id) === false
     ).length
+  // Counts the number of tasks that finished
+  const countCompletedTasks = (state = getState()) =>
+    state.tasks.filter(
+      task =>
+        _isVisibleTask(task.id, state) &&
+        countWork(task.id, state) === countFinishedWork(task.id, state)
+    ).length
 
   // Counts the number of tasks that are visible, regardless of their status
-  const countTasks = () =>
-    getState().tasks.filter(task => _isVisibleTask(task.id)).length
+  const countTasks = (state = getState()) =>
+    state.tasks.filter(task => _isVisibleTask(task.id, state)).length
 
   const getInProgressTaskPercentage = () => {
     const inProgressTask = getState().tasks.find(
