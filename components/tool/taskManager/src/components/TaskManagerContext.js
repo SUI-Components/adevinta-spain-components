@@ -4,10 +4,12 @@ import PropTypes from 'prop-types'
 
 import useState from '../hooks/useState.js'
 
+const NO_OP = () => null
+
 export const TaskManagerContext = createContext()
 
-export const TaskManagerProvider = ({children}) => {
-  const exposedApi = useState()
+export const TaskManagerProvider = ({children, onCompleteAllTasks = NO_OP}) => {
+  const exposedApi = useState({onCompleteAllTasks})
   return (
     <TaskManagerContext.Provider value={exposedApi}>
       {children}
@@ -16,5 +18,6 @@ export const TaskManagerProvider = ({children}) => {
 }
 
 TaskManagerProvider.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  onCompleteAllTasks: PropTypes.func
 }

@@ -11,12 +11,11 @@ import {TaskManagerProvider} from './components/TaskManagerContext.js'
 import useBeforeUnloadEffect from './hooks/useBeforeUnloadEffect.js'
 import useContext from './hooks/useContext.js'
 import useDevMode from './hooks/useDevMode.js'
-
 export default function ToolTaskManager({
   isVisible = true,
   statusIcons = {},
-  taskIdsFilter = [],
-  taskAmountFilter = 0
+  taskAmountFilter = 0,
+  taskIdsFilter = []
 }) {
   const {countWork, countFinishedWork, getState} = useContext()
   const state = getState()
