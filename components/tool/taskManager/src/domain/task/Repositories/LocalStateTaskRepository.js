@@ -15,7 +15,7 @@ export class LocalStateTaskRepository extends TaskRepository {
       tasks: [...this._localState.tasks]
     }
 
-    updatedState.tasks.push(task.toJSON())
+    updatedState.tasks.unshift(task.toJSON())
 
     return updatedState
   }
