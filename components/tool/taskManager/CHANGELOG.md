@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.22.0 (2023-09-28)
+
+
+### Features
+
+* **components/tool/taskManager:** Add new tasks to the top of the queue ([183ac0f](https://github.com/SUI-Components/adevinta-spain-components/commit/183ac0f2966028b269dac723c4e5e98755b0730e))
+
+
+
 # 1.21.0 (2023-09-28)
 
 
