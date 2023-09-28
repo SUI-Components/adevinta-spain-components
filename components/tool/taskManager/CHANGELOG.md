@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.21.0 (2023-09-28)
+
+
+### Features
+
+* **components/tool/taskManager:** Avoid displaying alerts when task is not visible ([570ff80](https://github.com/SUI-Components/adevinta-spain-components/commit/570ff80ea91aa6aacb4e486e6e3b08686c41158d))
+
+
+
 # 1.20.0 (2023-09-22)
 
 
