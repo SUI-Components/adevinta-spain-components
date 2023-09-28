@@ -61,7 +61,10 @@ const useState = ({onCompleteAllTasks}) => {
         next(result)
       })
 
-  const checkIfAllTasksHaveBeenFinished = state => {
+  const checkIfAllTasksHaveBeenFinished = (taskId, state) => {
+    // No notice on not-visible tasks
+    if (_isVisibleTask(taskId, state) === false) return
+
     const completedTasks = countCompletedTasks(state)
     const allTasks = countTasks(state)
     if (completedTasks === allTasks && allTasks > 0) onCompleteAllTasks(state)
@@ -98,7 +101,7 @@ const useState = ({onCompleteAllTasks}) => {
         workId,
         result
       },
-      checkIfAllTasksHaveBeenFinished
+      state => checkIfAllTasksHaveBeenFinished(taskId, state)
     )
 
   const cancelWork = (taskId, workId) =>
