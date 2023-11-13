@@ -51,7 +51,10 @@ function GoogleMapsDrawer({
   }
 
   const stopDrawing = ({polyline} = {}) => {
-    if (!mapsLibrary || !mapRef || !polyline) return []
+    // Check if user did just only 1 click to try to draw polygon in map
+    const hasPolyline = polyline?.getPath().getLength()
+
+    if (!mapsLibrary || !mapRef || !hasPolyline) return
 
     const path = convertMVCArrayToLatLngLiteralArray({polyline})
 
