@@ -11,6 +11,11 @@ yargs
     'inits an already-existing web app to start using sui-app',
     require('./commands/init.js')
   )
+  .command(
+    'remove',
+    'removes sui-app from an already-initialized project',
+    require('./commands/remove.js')
+  )
   /* .command(
     'asd [name]',
     'welcome ter yargs!',
