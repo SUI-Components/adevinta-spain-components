@@ -1,5 +1,8 @@
 // Constants
-const {PROJECT_CONFIG_FILE} = require('../infrastructure/config.js')
+const {
+  PACKAGE_NAME,
+  PROJECT_CONFIG_FILE
+} = require('../infrastructure/config.js')
 
 // Infra
 //   -> files
@@ -7,7 +10,8 @@ const {
   getCurrentDirectory,
   removeFile,
   removeDirectory,
-  reportError
+  reportError,
+  uninstallPackage
 } = require('../infrastructure/utils.js')
 
 const removeProject = () => {
@@ -20,6 +24,10 @@ const removeAndroid = () => {
 
 const removeIOS = () => {
   removeDirectory(`${getCurrentDirectory()}/ios`)
+}
+
+const uninstallSuiApp = () => {
+  uninstallPackage(`${PACKAGE_NAME}`)
 }
 
 // Business logic
@@ -53,6 +61,15 @@ const removeIOSProject = () => {
   else console.log('\n\n✅ iOS has been successfully removed\n\n')
 }
 
+const removeSuiApp = () => {
+  console.log('\n\n🚚 Uninstalling sui-app\n\n')
+  const result = uninstallSuiApp()
+
+  if (result === false)
+    reportError(`\n\n🚨 Something went wrong while uninstalling sui-app 🚨\n\n`)
+  else console.log('\n\n✅ sui-app has been successfully uninstalled\n\n')
+}
+
 // Command
 module.exports = () => {
   // If we are not placed on a webapp, we cannot continue
@@ -80,5 +97,5 @@ module.exports = () => {
   removeIOSProject()
 
   // Uninstall sui-app
-  // uninstallSuiApp()
+  removeSuiApp()
 }

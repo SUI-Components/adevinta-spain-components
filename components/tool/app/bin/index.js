@@ -16,6 +16,11 @@ yargs
     'removes sui-app from an already-initialized project',
     require('./commands/remove.js')
   )
+  .command(
+    'sync',
+    'syncs the compiled version of the web app with the ios and android projects',
+    require('./commands/sync.js')
+  )
   /* .command(
     'asd [name]',
     'welcome ter yargs!',

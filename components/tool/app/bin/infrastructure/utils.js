@@ -46,6 +46,10 @@ const installPackage = packageName => {
   return runCommand(`npm install ${packageName}`)
 }
 
+const uninstallPackage = packageName => {
+  return runCommand(`npm uninstall ${packageName}`)
+}
+
 module.exports = {
   getCurrentDirectory,
   fileExists,
@@ -54,5 +58,6 @@ module.exports = {
   runCommand,
   installPackage,
   removeFile,
-  removeDirectory
+  removeDirectory,
+  uninstallPackage
 }
