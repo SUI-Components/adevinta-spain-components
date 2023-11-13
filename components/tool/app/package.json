@@ -1,0 +1,33 @@
+{
+  "name": "@s-ui/sui-tool-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublishOnly": "rimraf lib && npm run build:js && npm run build:styles",
+    "build:js": "babel --presets sui ./src --out-dir ./lib",
+    "build:styles": "cpx './src/**/*.scss' ./lib"
+  },
+  "peerDependencies": {
+    "@s-ui/theme": "8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUI-Components/adevinta-spain-components.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bin": {
+    "sui-app": "./bin/index.js"
+  },
+  "dependencies": {
+    "@capacitor/android": "^5.5.1",
+    "@capacitor/core": "^5.5.1",
+    "@capacitor/ios": "^5.5.1",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^5.5.1"
+  }
+}
