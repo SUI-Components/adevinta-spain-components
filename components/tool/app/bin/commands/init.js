@@ -28,12 +28,13 @@ const reportError = error => {
   process.exit(1)
 }
 
-const installPackage = (package) => {
+const installPackage = packageName => {
   try {
-    //var child_process = require('child_process');
-    //child_process.execSync(`npm install ${package}`,{stdio:[0,1,2]});
+    console.log('Installing ', packageName)
+    // var child_process = require('child_process');
+    // child_process.execSync(`npm install ${packageName}`,{stdio:[0,1,2]});
     return true
-  } catch(error) {
+  } catch (error) {
     return false
   }
 }
@@ -55,16 +56,19 @@ const installDependency = dependency => {
   const result = installPackage(dependency)
 
   if (result === false)
-    reportError(`\n\n🚨 Something went wrong while installing dependencies 🚨\n\n`)
-  else
-    console.log(`\n\n✅ Dependency has been successfully installed\n\n`)
+    reportError(
+      `\n\n🚨 Something went wrong while installing dependencies 🚨\n\n`
+    )
+  else console.log(`\n\n✅ Dependency has been successfully installed\n\n`)
 }
 
 // Command
 module.exports = () => {
   // If we are not placed on a nodejs, we cannot continue
   if (!hasPackageJson()) {
-    reportError('\n\nsui-app should be executed from a web-app project.\nPlease be sure that there is a package.json file in your current directory.\n\n')
+    reportError(
+      '\n\nsui-app should be executed from a web-app project.\nPlease be sure that there is a package.json file in your current directory.\n\n'
+    )
     return
   }
 
