@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.2.0 (2023-11-13)
+
+
+### Features
+
+* **components/tool/app:** Make a working version of init command ([db28bfc](https://github.com/SUI-Components/adevinta-spain-components/commit/db28bfcf153361ba57c37ea39b13e95af357ee4e))
+
+
+
 # 1.1.0 (2023-11-13)
 
 
