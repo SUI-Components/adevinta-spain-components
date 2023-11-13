@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.3.0 (2023-11-13)
+
+
+### Features
+
+* **components/tool/app:** Add sync command and readme ([ae000c3](https://github.com/SUI-Components/adevinta-spain-components/commit/ae000c34a9bc843beb2452480a6162b84c0d99c4))
+
+
+
 # 1.2.0 (2023-11-13)
 
 
