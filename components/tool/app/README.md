@@ -49,3 +49,63 @@ After making changes to the web app and building it, both iOS and Android projec
 This can be performed by running `npx sui-app sync`.
 
 This command can be added after the standard build task.
+
+## Biometric login
+
+To add biometric login capabilities (touch id, face id, etc), it is possible to use the biometric login library.
+
+### Android prerequisites
+
+Before start using biometric auth, `USE_BIOMETRIC` permission needs to be added to the `AndroidManifest.xml`
+
+```
+<uses-permission android:name="android.permission.USE_BIOMETRIC">
+```
+
+### iOS configuration
+
+Add something similar to the following to `App/info.plist`:
+
+```
+<key>NSFaceIDUsageDescription</key>
+<string>For an easier and faster log in.</string>
+```
+
+### Check if biometric login is available
+
+```
+import {isBiometricLoginAvailable} from '@s-ui/sui-tool-app'
+
+const isAvailable = await isBiometricLoginAvailable()
+```
+
+### Set biometric login
+
+After user logs in, credentials can be stored for later usage through biometric API. 
+Normally the OS will prompt users to confirm they really want to use biometric auth for login.
+
+```
+import {setBiometricLoginCredentials} from '@s-ui/sui-tool-app'
+
+const isAvailable = await setBiometricLoginCredentials({
+  username: '123',
+  password: '456',
+  domain: 'pro.coches.net'
+})
+```
+
+### Get credentials
+
+If the user has previously authorized and registered biometric login, `getBiometricLoginCredentials` will prompt users to confirm their identity, and if authentication is successful, the credentials object will be returned.
+
+```
+import {getBiometricLoginCredentials} from '@s-ui/sui-tool-app'
+
+const isAvailable = await getBiometricLoginCredentials({
+  domain: 'pro.coches.net',
+  reason: 'Log in into the app',
+  title: 'Identify with your fingerprint or face',
+  subtitle: 'Confirm your identity without having to remember your password',
+  description: 'Please use a biometric device to identify yourself',
+})
+```
