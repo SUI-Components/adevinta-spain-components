@@ -202,6 +202,16 @@ $td-login-password-reset-form-text-anchor: underline !default;
     &Notification {
       margin-top: $m-xl;
     }
+
+    &Link {
+      color: $c-login-password-reset;
+      cursor: pointer;
+      display: inline-block;
+      font-size: $fz-s;
+      font-weight: bold;
+      line-height: normal;
+      text-decoration: underline;
+    }
   }
 
   &-helpContent {

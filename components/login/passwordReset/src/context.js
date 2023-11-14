@@ -57,7 +57,8 @@ PasswordResetProvider.propTypes = {
     changePassword: PropTypes.string.isRequired
   }),
   i18n: PropTypes.object,
-  onEvent: PropTypes.func
+  onEvent: PropTypes.func,
+  isLogin: PropTypes.bool
 }
 
 export {PasswordResetProvider}
