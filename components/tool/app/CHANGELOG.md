@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.6.0 (2023-11-14)
+
+
+### Features
+
+* **components/tool/app:** Install packages ([625c200](https://github.com/SUI-Components/adevinta-spain-components/commit/625c200db4a761c1b1be2115d7f8de8004df596c))
+
+
+
 # 1.5.0 (2023-11-14)
 
 
