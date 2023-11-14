@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types'
 
 import {BASE_CLASS} from '../../config.js'
-
 import LoginForm from '../Form/LoginForm.js'
 import FaceRecognition from '../Info/FaceRecognition.js'
 import Form from './Form.js'
 import LoginInfo from './LoginInfo.js'
 
-const Login = ({icons}) => {
+const Login = ({hasFaceRecognition = false, icons}) => {
   return (
     <div className={`${BASE_CLASS} no-padding`}>
       <div className={`${BASE_CLASS}-item`}>
@@ -17,7 +16,7 @@ const Login = ({icons}) => {
         <Form icons={icons} isLogin>
           <>
             <LoginForm icons={icons} />
-            <FaceRecognition icons={icons} />
+            {hasFaceRecognition && <FaceRecognition icons={icons} />}
           </>
         </Form>
       </div>
@@ -28,7 +27,8 @@ const Login = ({icons}) => {
 Login.displayName = 'Login'
 
 Login.propTypes = {
-  icons: PropTypes.arrayOf(PropTypes.object)
+  icons: PropTypes.arrayOf(PropTypes.object),
+  hasFaceRecognition: PropTypes.bool
 }
 
 export default Login
