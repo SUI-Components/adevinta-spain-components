@@ -26,7 +26,7 @@
     "@capacitor/cli": "^5.5.1",
     "@capacitor/core": "^5.5.1",
     "@capacitor/ios": "^5.5.1",
-    "capacitor-native-biometric": "^4.2.2",
+    "@capgo/capacitor-native-biometric": "^5.1.0",
     "yargs": "^17.7.2"
   }
 }
