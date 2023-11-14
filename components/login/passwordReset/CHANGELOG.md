@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.43.0 (2023-11-14)
+
+
+### Features
+
+* **components/login/passwordReset:** add face recognition to login layout ([b73fb6c](https://github.com/SUI-Components/adevinta-spain-components/commit/b73fb6ce7f3e3f17d94a941a1f1f675c0bf32c38))
+* **components/login/passwordReset:** update lint ([13eb9ad](https://github.com/SUI-Components/adevinta-spain-components/commit/13eb9adf2a1a3ba200d725dc9cc5d424b18836ef))
+
+
+
 # 1.42.0 (2023-11-14)
 
 
