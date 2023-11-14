@@ -1,12 +1,11 @@
-// import PropTypes from 'prop-types'
-
-export default function ToolApp() {
-  return (
-    <div className="sui-ToolApp">
-      <h1>ToolApp</h1>
-    </div>
+export default function SuiApp() {
+  throw new Error(
+    'sui-app is a set of tools and is not intended to be renderized as a React component'
   )
 }
 
-ToolApp.displayName = 'ToolApp'
-ToolApp.propTypes = {}
+export {
+  isBiometricLoginAvailable,
+  getBiometricLoginCredentials,
+  setBiometricLoginCredentials
+} from './biometric.js'
