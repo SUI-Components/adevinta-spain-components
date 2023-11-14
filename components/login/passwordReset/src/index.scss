@@ -45,6 +45,7 @@ $lh-login-password-reset-form-footer: 20px !default;
 $lh-login-password-reset-help-content-text: 22px !default;
 $lh-login-password-reset-stage-info-title: 34px !default;
 $p-login-password-reset-form-help-content: $p-l $p-m !default;
+$p-login-password-reset-form-text-content: $p-l !default;
 $p-login-password-reset: 80px $p-l !default;
 $p-login-password-reset-form: $p-xl $p-l !default;
 $p-login-password-reset-form-desktop: $p-xl $p-xxl !default;
@@ -197,6 +198,16 @@ $td-login-password-reset-form-text-anchor: underline !default;
         font-weight: bold;
         text-decoration: underline;
       }
+
+      &Icon {
+        align-items: center;
+        color: $c-primary;
+        display: flex;
+        font-size: $fz-l;
+        font-weight: bold;
+        gap: $g-m;
+        justify-content: center;
+      }
     }
 
     &Notification {
@@ -222,6 +233,12 @@ $td-login-password-reset-form-text-anchor: underline !default;
     display: flex;
     margin-top: $m-l;
     padding: $p-login-password-reset-form-help-content;
+
+    a {
+      color: $c-primary;
+      font-weight: bold;
+      text-decoration: underline;
+    }
 
     &Image {
       height: $sz-login-password-reset-form-help-content-image;
@@ -254,5 +271,31 @@ $td-login-password-reset-form-text-anchor: underline !default;
       color: $c-login-password-reset-form-help-content-icon-tooltip;
       margin-left: $m-m;
     }
+  }
+
+  &-textContent {
+    align-items: center;
+    background-color: $bgc-login-password-reset-form-help-content;
+    border: $bd-login-password-reset-form-help-content;
+    border-radius: $bdrs-login-password-reset-form-help-content;
+    display: flex;
+    margin-top: $m-l;
+    padding: $p-login-password-reset-form-text-content;
+
+    a {
+      color: $c-primary;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+
+  .no-margin,
+  &.no-margin {
+    margin: 0;
+  }
+
+  .no-padding,
+  &.no-padding {
+    padding: 0;
   }
 }

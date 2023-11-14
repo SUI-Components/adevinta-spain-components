@@ -27,7 +27,9 @@ const PasswordReset = ({icons}) => {
           {isInitialStep ? (
             <>
               <PasswordResetForm icons={icons} />
-              <UserAcquisitionText />
+              <div className={`${BASE_CLASS}-formFooter`}>
+                <UserAcquisitionText />
+              </div>
             </>
           ) : (
             <>

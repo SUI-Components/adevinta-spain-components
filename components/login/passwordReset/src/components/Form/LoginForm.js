@@ -124,7 +124,7 @@ const LoginForm = () => {
       ) : null}
       {!notification.text ? (
         <>
-          <div className={`${BASE_CLASS}-formInput`}>
+          <div className={`${BASE_CLASS}-formInput no-margin`}>
             <MoleculeInputField
               errorText={emailErrorText}
               id="email"
