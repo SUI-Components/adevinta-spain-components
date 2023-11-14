@@ -30,6 +30,10 @@ const uninstallSuiApp = () => {
   uninstallPackage(`${PACKAGE_NAME}`)
 }
 
+const uninstallPlugins = () => {
+  uninstallPackage('@capgo/capacitor-native-biometric')
+}
+
 // Business logic
 
 const {hasPackageJson, hasCapacitorConfig} = require('../domain/utils.js')
@@ -70,6 +74,15 @@ const removeSuiApp = () => {
   else console.log('\n\n✅ sui-app has been successfully uninstalled\n\n')
 }
 
+const removePlugins = () => {
+  console.log('\n\n🚚 Uninstalling plugins\n\n')
+  const result = uninstallPlugins()
+
+  if (result === false)
+    reportError(`\n\n🚨 Something went wrong while uninstalling plugins 🚨\n\n`)
+  else console.log('\n\n✅ plugins have been successfully uninstalled\n\n')
+}
+
 // Command
 module.exports = () => {
   // If we are not placed on a webapp, we cannot continue
@@ -98,4 +111,5 @@ module.exports = () => {
 
   // Uninstall sui-app
   removeSuiApp()
+  removePlugins()
 }

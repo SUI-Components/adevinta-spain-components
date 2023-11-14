@@ -87,6 +87,9 @@ module.exports = () => {
     installDependency(PACKAGE_NAME)
   }
 
+  if (!hasDependency('@capgo/capacitor-native-biometric'))
+    installDependency('@capgo/capacitor-native-biometric')
+
   // If app has already been initialized
   if (hasCapacitorConfig()) {
     reportError(
