@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 
-import PasswordReset from './components/Content/PasswordReset.js'
 import Login from './components/Content/Login.js'
+import PasswordReset from './components/Content/PasswordReset.js'
 import {STAGE_PASSWORD_CHANGE, STAGE_PASSWORD_RESET_START} from './config.js'
 import {PasswordResetProvider} from './context.js'
 
@@ -9,7 +9,10 @@ export default function LoginPasswordReset(props) {
   return (
     <PasswordResetProvider {...props}>
       {props.isLogin ? (
-        <Login icons={props.icons || {}} />
+        <Login
+          icons={props.icons || {}}
+          hasFaceRecognition={props.hasFaceRecognition}
+        />
       ) : (
         <PasswordReset icons={props.icons || {}} />
       )}
@@ -36,5 +39,6 @@ LoginPasswordReset.propTypes = {
   onEvent: PropTypes.func,
   /* Allows to override the icons used in the component */
   icons: PropTypes.arrayOf(PropTypes.object),
-  isLogin: PropTypes.bool
+  isLogin: PropTypes.bool,
+  hasFaceRecognition: PropTypes.bool
 }

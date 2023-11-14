@@ -1,12 +1,11 @@
 import MoleculeInputField from '@s-ui/react-molecule-input-field'
 
-import {BASE_CLASS} from '../../config.js'
+import {BASE_CLASS, EVENTS} from '../../config.js'
 import useLoginFormState from '../../hooks/components/useLoginFormState.js'
 // import useDomain from '../../hooks/useDomain.js'
-// import useEventBus from '../../hooks/useEventBus.js'
+import useEventBus from '../../hooks/useEventBus.js'
 import useI18n from '../../hooks/useI18n.js'
 import Notification from '../Info/Notification.js'
-
 // import LoginButton from '../Input/LoginButton.js'
 import SubmitButton from '../Input/SubmitButton.js'
 
@@ -29,15 +28,9 @@ const LoginForm = () => {
 
   const i18n = useI18n()
   // const domain = useDomain()
-  // const {emit} = useEventBus()
+  const {emit} = useEventBus()
 
-  // const {
-  //   RESET_PASSWORD_BUTTON_CLICK,
-  //   RESET_PASSWORD_EMAIL_VALIDATION_ERROR,
-  //   RESET_PASSWORD_ERROR,
-  //   RESET_PASSWORD_RESEND_CLICK,
-  //   RESET_PASSWORD_SUCCESS
-  // } = EVENTS
+  const {LOGIN} = EVENTS
 
   // const getErrorText = value => {
   //   return domain
@@ -93,7 +86,10 @@ const LoginForm = () => {
   // }
 
   const handleSubmit = () => {
-    console.log('Llamada al login')
+    emit(LOGIN, {
+      email,
+      password
+    })
     // emit(RESET_PASSWORD_BUTTON_CLICK, {email})
     // getErrorText(email).then(errorText => {
     //   if (errorText) {
