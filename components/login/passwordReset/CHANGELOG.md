@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.42.0 (2023-11-14)
+
+
+### Features
+
+* **components/login/passwordReset:** add login layout for POC ([2562914](https://github.com/SUI-Components/adevinta-spain-components/commit/25629143f453e3b70dafa1537fd2daa7088ef836))
+
+
+
 # 1.41.0 (2023-03-16)
 
 
