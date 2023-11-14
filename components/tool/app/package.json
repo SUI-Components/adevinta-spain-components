@@ -28,5 +28,8 @@
     "@capacitor/ios": "^5.5.1",
     "@capgo/capacitor-native-biometric": "^5.1.0",
     "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.1"
   }
 }
