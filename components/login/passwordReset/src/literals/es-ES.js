@@ -9,7 +9,8 @@ export default {
       ENTER_YOUR_PASSWORD: 'Escribe la contraseña',
       PASSWORD: 'Contraseña',
       SUBMIT_BUTTON: 'Iniciar sesión',
-      EMAIL: 'Email'
+      EMAIL: 'Email',
+      FACE_RECOGNITION: 'Acceder con Face ID'
     },
     PASSWORD_RESET: {
       DOUBTS: {

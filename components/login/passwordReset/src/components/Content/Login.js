@@ -5,24 +5,23 @@ import {BASE_CLASS} from '../../config.js'
 import useI18n from '../../hooks/useI18n.js'
 
 import LoginForm from '../Form/LoginForm.js'
-import UserAcquisitionText from '../Info/UserAcquisitionText.js'
+import FaceRecognition from '../Info/FaceRecognition.js'
 import Form from './Form.js'
 import LoginInfo from './LoginInfo.js'
 
 const Login = ({icons}) => {
   const i18n = useI18n()
 
-  const title = i18n.t('LOGIN_CROSS.LOGIN.TITLE')
   return (
-    <div className={BASE_CLASS}>
+    <div className={`${BASE_CLASS} no-padding`}>
       <div className={`${BASE_CLASS}-item`}>
         <LoginInfo />
       </div>
       <div className={`${BASE_CLASS}-item`}>
-        <Form icons={icons} title={title}>
+        <Form icons={icons} isLogin>
           <>
             <LoginForm icons={icons} />
-            <UserAcquisitionText />
+            <FaceRecognition icons={icons} />
           </>
         </Form>
       </div>
