@@ -4,11 +4,8 @@ import {BASE_CLASS} from '../../config.js'
 import HelpContent from '../Info/HelpContent.js'
 
 import UserAcquisitionText from '../Info/UserAcquisitionText.js'
-import useI18n from '../../hooks/useI18n.js'
 
 const Form = ({children, icons, isLogin = false, title}) => {
-  const i18n = useI18n()
-
   return (
     <>
       <div className={`${BASE_CLASS}-form`}>

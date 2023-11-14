@@ -1,7 +1,6 @@
-import AtomIcon, {
-  ATOM_ICON_COLORS,
-  ATOM_ICON_SIZES
-} from '@s-ui/react-atom-icon'
+import PropTypes from 'prop-types'
+
+import AtomIcon, {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 
 import {BASE_CLASS, DEFAULT_FACE_RECOGNITION_ICON} from '../../config.js'
 import useI18n from '../../hooks/useI18n.js'
@@ -19,4 +18,7 @@ const FaceRecognition = ({icons}) => {
 
 FaceRecognition.displayName = 'FaceRecognition'
 
+FaceRecognition.propTypes = {
+  icons: PropTypes.arrayOf(PropTypes.object)
+}
 export default FaceRecognition
