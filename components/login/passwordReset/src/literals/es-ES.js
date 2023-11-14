@@ -1,5 +1,16 @@
 export default {
   LOGIN_CROSS: {
+    LOGIN: {
+      INTRO_TEXT: 'Administra tu herramienta',
+      INTRO_TITLE: '¡Hola! Bienvenidos',
+      TITLE: 'Iniciar sesión',
+      FORGOT_YOUR_PASSWORD: '¿Has olvidado la contraseña?',
+      RELAYING_ON_THIS_DEVICE: 'Confiar en este dispositivo',
+      ENTER_YOUR_PASSWORD: 'Escribe la contraseña',
+      PASSWORD: 'Contraseña',
+      SUBMIT_BUTTON: 'Iniciar sesión',
+      EMAIL: 'Email'
+    },
     PASSWORD_RESET: {
       DOUBTS: {
         TEXT: 'Envíanos un <a href="mailto:xxxxxx">email</a> o llámanos al <a href="tel:xxxxxx">xxxxx</a>.',
