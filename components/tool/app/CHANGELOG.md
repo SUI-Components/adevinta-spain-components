@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.4.0 (2023-11-14)
+
+
+### Features
+
+* **components/tool/app:** Add biometric plugin ([7bf9191](https://github.com/SUI-Components/adevinta-spain-components/commit/7bf919176051e8d49be09f7f2fcab58390e4b7d1))
+* **components/tool/app:** Change imports ([246b090](https://github.com/SUI-Components/adevinta-spain-components/commit/246b0905c9775ff3e9729f21aee245cf270159b2))
+
+
+
 # 1.3.0 (2023-11-13)
 
 
