@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.44.0 (2023-11-14)
+
+
+### Features
+
+* **components/login/passwordReset:** Add events for login ([30c00a9](https://github.com/SUI-Components/adevinta-spain-components/commit/30c00a93bc1ff15bd04422182958f9ad5c6403e3))
+
+
+
 # 1.43.0 (2023-11-14)
 
 
