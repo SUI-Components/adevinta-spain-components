@@ -1,4 +1,9 @@
-import {NativeBiometric} from 'capacitor-native-biometric'
+import {NativeBiometric} from '@capgo/capacitor-native-biometric'
+
+// Delete user's credentials
+/* NativeBiometric.deleteCredentials({
+  server: "www.example.com",
+}).then(); */
 
 export const isBiometricLoginAvailable = () => NativeBiometric.isAvailable()
 
@@ -11,22 +16,24 @@ export const getBiometricLoginCredentials = async ({
 }) => {
   const biometrics = await NativeBiometric.isAvailable()
 
-  if (biometrics.isAvailable) {
-    const credentials = await NativeBiometric.getCredentials({
-      server: domain
-    })
+  if (!biometrics.isAvailable) return null
 
-    await NativeBiometric.verifyIdentity({
-      reason,
-      title,
-      subtitle,
-      description
-    })
+  const verified = await NativeBiometric.verifyIdentity({
+    reason,
+    title,
+    subtitle,
+    description
+  })
+    .then(() => true)
+    .catch(() => false)
 
-    return credentials
-  }
+  if (!verified) return null
 
-  return null
+  const credentials = await NativeBiometric.getCredentials({
+    server: domain
+  })
+
+  return credentials
 }
 
 export const setBiometricLoginCredentials = async ({
@@ -34,9 +41,17 @@ export const setBiometricLoginCredentials = async ({
   password,
   domain
 }) => {
+  const biometrics = await NativeBiometric.isAvailable()
+
+  if (!biometrics.isAvailable) return
+
+  NativeBiometric.deleteCredentials({
+    server: domain
+  }).then()
+
   await NativeBiometric.setCredentials({
     username,
     password,
     server: domain
-  })
+  }).then()
 }
