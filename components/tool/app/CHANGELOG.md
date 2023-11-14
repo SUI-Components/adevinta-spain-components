@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.5.0 (2023-11-14)
+
+
+### Features
+
+* **components/tool/app:** Change biometric plugin for a more maintained one that works with latest ([87cb69a](https://github.com/SUI-Components/adevinta-spain-components/commit/87cb69abc0edad475a8085d0651ec0afd53ab6d0))
+
+
+
 # 1.4.0 (2023-11-14)
 
 
