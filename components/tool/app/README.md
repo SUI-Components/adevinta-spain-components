@@ -109,3 +109,7 @@ const isAvailable = await getBiometricLoginCredentials({
   description: 'Please use a biometric device to identify yourself',
 })
 ```
+
+## Local notifications 
+
+Please refer to the following documentation: `https://capacitorjs.com/docs/apis/local-notifications`
