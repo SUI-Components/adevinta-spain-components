@@ -21,6 +21,11 @@ yargs
     'syncs the compiled version of the web app with the ios and android projects',
     require('./commands/sync.js')
   )
+  .command(
+    'icons',
+    'generates and transforms icons both for ios an android',
+    require('./commands/icons.js')
+  )
   /* .command(
     'asd [name]',
     'welcome ter yargs!',
