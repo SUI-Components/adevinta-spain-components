@@ -90,6 +90,9 @@ module.exports = () => {
   if (!hasDependency('@capgo/capacitor-native-biometric'))
     installDependency('@capgo/capacitor-native-biometric')
 
+  if (!hasDependency('@capacitor/local-notifications'))
+    installDependency('@capacitor/local-notifications')
+
   // If app has already been initialized
   if (hasCapacitorConfig()) {
     reportError(
