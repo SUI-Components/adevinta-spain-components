@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.7.0 (2023-11-15)
+
+
+### Features
+
+* **components/tool/app:** Add icons command ([ae7f3ef](https://github.com/SUI-Components/adevinta-spain-components/commit/ae7f3ef63e480898a7db409198b450d3658cca5b))
+
+
+
 # 1.6.0 (2023-11-14)
 
 
