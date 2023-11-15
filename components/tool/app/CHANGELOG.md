@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.8.0 (2023-11-15)
+
+
+### Features
+
+* **components/tool/app:** Local notifications ([6fad502](https://github.com/SUI-Components/adevinta-spain-components/commit/6fad502a5ae88e7f782439c7c72411aa93d7e6c8))
+
+
+
 # 1.7.0 (2023-11-15)
 
 
