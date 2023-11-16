@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.10.0 (2023-11-16)
+
+
+### Features
+
+* **components/tool/app:** Improve API organization ([dc3b16e](https://github.com/SUI-Components/adevinta-spain-components/commit/dc3b16e68de01839f5d23edfc7f70ddc3d2c4a97))
+
+
+
 # 1.9.0 (2023-11-16)
 
 
