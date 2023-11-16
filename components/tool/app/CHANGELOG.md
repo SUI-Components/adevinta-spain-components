@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.9.0 (2023-11-16)
+
+
+### Features
+
+* **components/tool/app:** Automatic optimization of the capacitor config file ([86b04d0](https://github.com/SUI-Components/adevinta-spain-components/commit/86b04d0e711255f36220ca03c70333be7cd7dd25))
+* **components/tool/app:** Lint issues ([68a1041](https://github.com/SUI-Components/adevinta-spain-components/commit/68a1041f8a0aa65b16866d9bf60af2c6f3a322f6))
+* **components/tool/app:** Linter nightmare ([8016865](https://github.com/SUI-Components/adevinta-spain-components/commit/8016865977c1c49e2895153a921cf0488aee847f))
+
+
+
 # 1.8.0 (2023-11-15)
 
 
