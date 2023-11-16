@@ -30,6 +30,7 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@capacitor/assets": "^3.0.1"
+    "@capacitor/assets": "^3.0.1",
+    "inquirer": "^8.2.6"
   }
 }

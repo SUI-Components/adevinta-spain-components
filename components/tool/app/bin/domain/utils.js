@@ -1,8 +1,5 @@
 // Constants
-const {
-  PACKAGE_JSON_FILE,
-  PROJECT_CONFIG_FILE
-} = require('../infrastructure/config.js')
+const {PACKAGE_JSON_FILE, PROJECT_CONFIG_FILE} = require('../infrastructure/config.js')
 
 const {getCurrentDirectory, fileExists} = require('../infrastructure/utils.js')
 

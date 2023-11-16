@@ -13,6 +13,8 @@ const {
   saveJSONFile
 } = require('../infrastructure/utils.js')
 
+const {confirmQuestion} = require('../infrastructure/inquirer.js')
+
 const initProject = () => {
   return runCommand(`npx cap init`)
 }
@@ -42,6 +44,10 @@ const optimizeConfigurations = () => {
   }
 
   saveJSONFile(config, './capacitor.config.json')
+}
+
+const addBiometricConfig = () => {
+  return runCommand(`npx sui-app add-biometric-config`)
 }
 
 // Business logic
@@ -77,7 +83,7 @@ const addAndroidProject = () => {
 }
 
 const addIOSProject = () => {
-  console.log('\n🍏 Adding iOS projectt\n')
+  console.log('\n🍏 Adding iOS project\n')
   const result = initIOS()
 
   if (result === false) reportError(`\n🚨 Something went wrong while configuring iOS 🚨\n`)
@@ -92,8 +98,22 @@ const applyConfigurationOptimizations = () => {
   else console.log('\n✅ Configuration optimizations have been successfully applied\n')
 }
 
+const biometricAPIsPermissions = async () => {
+  const usesBiometric = await confirmQuestion('Do you plan to use biometric authentication in this app?')
+  if (usesBiometric === false) {
+    console.log('\n ⚠️ Run npx sui-app add-biometric-config if you need to use biometric APIs on the future \n')
+    return
+  }
+
+  console.log('\n🪪  Configuring biometric permissions\n')
+  const result = addBiometricConfig()
+
+  if (result === false) reportError(`\n🚨 Something went wrong while configuring biometric permissions 🚨\n`)
+  else console.log('\n✅ Biometric permissions has been successfully configured\n')
+}
+
 // Command
-module.exports = () => {
+module.exports = async () => {
   // If we are not placed on a webapp, we cannot continue
   if (!hasPackageJson()) {
     reportError(
@@ -126,4 +146,7 @@ module.exports = () => {
 
   // Apply optimizations to capacitor config file
   applyConfigurationOptimizations()
+
+  // Add permissions for biometric APIs
+  await biometricAPIsPermissions()
 }
