@@ -62,7 +62,7 @@ Before start using biometric auth, `USE_BIOMETRIC` permission needs to be added 
 <uses-permission android:name="android.permission.USE_BIOMETRIC">
 ```
 
-### iOS configuration
+### iOS prerequisites
 
 Add something similar to the following to `App/info.plist`:
 
@@ -70,6 +70,8 @@ Add something similar to the following to `App/info.plist`:
 <key>NSFaceIDUsageDescription</key>
 <string>For an easier and faster log in.</string>
 ```
+
+Note that the string will be displayed on the user interface sometimes.
 
 ### Check if biometric login is available
 
@@ -111,5 +113,16 @@ const isAvailable = await getBiometricLoginCredentials({
 ```
 
 ## Local notifications 
+
+### Android prerequisites
+
+1. Create a `notification.png` icon and put it into the `res/drawable` folder, on the android project. It is also possible to edit `capacitor.config.json` file and change the `smallIcon` property contained inside the `LocalNotifications` node.
+2. Add the `SCHEDULE_EXACT_ALARM` permission to the `AndroidManifest.xml`.
+
+```
+<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+```
+
+### Other features
 
 Please refer to the following documentation: `https://capacitorjs.com/docs/apis/local-notifications`
