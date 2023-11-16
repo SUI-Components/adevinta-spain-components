@@ -1,8 +1,6 @@
+/* eslint-disable no-console */
 // Constants
-const {
-  PACKAGE_NAME,
-  PROJECT_CONFIG_FILE
-} = require('../infrastructure/config.js')
+const {PACKAGE_NAME, PROJECT_CONFIG_FILE} = require('../infrastructure/config.js')
 
 // Infra
 //   -> files
@@ -43,8 +41,7 @@ const removeConfiguration = () => {
   console.log('\n🚚 Removing the project\n')
   const result = removeProject()
 
-  if (result === false)
-    reportError(`\n🚨 Something went wrong while removing the project 🚨\n`)
+  if (result === false) reportError(`\n🚨 Something went wrong while removing the project 🚨\n`)
   else console.log('\n✅ Project has been successfully removed\n')
 }
 
@@ -52,8 +49,7 @@ const removeAndroidProject = () => {
   console.log('\n🚚 Removing android\n')
   const result = removeAndroid()
 
-  if (result === false)
-    reportError(`\n🚨 Something went wrong while removing android 🚨\n`)
+  if (result === false) reportError(`\n🚨 Something went wrong while removing android 🚨\n`)
   else console.log('\n✅ Android has been successfully removed\n')
 }
 
@@ -61,8 +57,7 @@ const removeIOSProject = () => {
   console.log('\n🚚 Removing iOS\n')
   const result = removeIOS()
 
-  if (result === false)
-    reportError(`\n🚨 Something went wrong while removing iOS 🚨\n`)
+  if (result === false) reportError(`\n🚨 Something went wrong while removing iOS 🚨\n`)
   else console.log('\n✅ iOS has been successfully removed\n')
 }
 
@@ -70,8 +65,7 @@ const removeSuiApp = () => {
   console.log('\n🚚 Uninstalling sui-app\n')
   const result = uninstallSuiApp()
 
-  if (result === false)
-    reportError(`\n🚨 Something went wrong while uninstalling sui-app 🚨\n`)
+  if (result === false) reportError(`\n🚨 Something went wrong while uninstalling sui-app 🚨\n`)
   else console.log('\n✅ sui-app has been successfully uninstalled\n')
 }
 
@@ -79,8 +73,7 @@ const removePlugins = () => {
   console.log('\n🚚 Uninstalling plugins\n')
   const result = uninstallPlugins()
 
-  if (result === false)
-    reportError(`\n🚨 Something went wrong while uninstalling plugins 🚨\n`)
+  if (result === false) reportError(`\n🚨 Something went wrong while uninstalling plugins 🚨\n`)
   else console.log('\n✅ plugins have been successfully uninstalled\n')
 }
 
@@ -96,9 +89,7 @@ module.exports = () => {
 
   // If app has already been initialized
   if (!hasCapacitorConfig()) {
-    reportError(
-      `\nThis project has not been initialized. sui-app cannot be removed\n`
-    )
+    reportError(`\nThis project has not been initialized. sui-app cannot be removed\n`)
   }
 
   // Remove configuration
