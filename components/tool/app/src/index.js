@@ -1,17 +1,8 @@
-import {
-  getBiometricLoginCredentials,
-  isBiometricLoginAvailable,
-  setBiometricLoginCredentials
-} from './biometric.js'
+import * as biometric from './biometric.js'
+import * as localNotifications from './localNotifications.js'
 
 export default function SuiApp() {
-  throw new Error(
-    'sui-app is a set of tools and is not intended to be renderized as a React component'
-  )
+  throw new Error('sui-app is a set of tools and is not intended to be renderized as a React component')
 }
 
-export {
-  isBiometricLoginAvailable,
-  getBiometricLoginCredentials,
-  setBiometricLoginCredentials
-}
+export {biometric, localNotifications}
