@@ -48,7 +48,9 @@ const optimizeConfigurations = () => {
 const {hasPackageJson, hasCapacitorConfig} = require('../domain/utils.js')
 
 const hasDependency = dependency => {
-  const packageData = readJSONFile(`${getCurrentDirectory()}/${PACKAGE_JSON_FILE}`)
+  const packageData = readJSONFile(
+    `${getCurrentDirectory()}/${PACKAGE_JSON_FILE}`
+  )
   return packageData.dependencies.hasOwnProperty(dependency)
 }
 
@@ -56,7 +58,8 @@ const installDependency = dependency => {
   console.log(`\n🚚 Installing required dependency 👉 ${dependency}\n`)
   const result = installPackage(dependency)
 
-  if (result === false) reportError(`\n🚨 Something went wrong while installing dependencies 🚨\n`)
+  if (result === false)
+    reportError(`\n🚨 Something went wrong while installing dependencies 🚨\n`)
   else console.log(`\n✅ Dependency has been successfully installed\n`)
 }
 
@@ -64,7 +67,8 @@ const initAppProject = () => {
   console.log('\n🚚 Initializing the project\n')
   const result = initProject()
 
-  if (result === false) reportError(`\n🚨 Something went wrong while initializing the project 🚨\n`)
+  if (result === false)
+    reportError(`\n🚨 Something went wrong while initializing the project 🚨\n`)
   else console.log('\n✅ Project has been successfully initialized\n')
 }
 
@@ -72,7 +76,8 @@ const addAndroidProject = () => {
   console.log('\n🤖 Adding android project\n')
   const result = initAndroid()
 
-  if (result === false) reportError(`\n🚨 Something went wrong while configuring android 🚨\n`)
+  if (result === false)
+    reportError(`\n🚨 Something went wrong while configuring android 🚨\n`)
   else console.log('\n✅ Android has been successfully initialized\n')
 }
 
@@ -80,7 +85,8 @@ const addIOSProject = () => {
   console.log('\n🍏 Adding iOS projectt\n')
   const result = initIOS()
 
-  if (result === false) reportError(`\n🚨 Something went wrong while configuring iOS 🚨\n`)
+  if (result === false)
+    reportError(`\n🚨 Something went wrong while configuring iOS 🚨\n`)
   else console.log('\n✅ iOS has been successfully initialized\n')
 }
 
@@ -88,8 +94,14 @@ const applyConfigurationOptimizations = () => {
   console.log('\n Applying configuration optimizations\n')
   const result = optimizeConfigurations()
 
-  if (result === false) reportError(`\n🚨 Something went wrong while applying configuration optimizations 🚨\n`)
-  else console.log('\n✅ Configuration optimizations have been successfully applied\n')
+  if (result === false)
+    reportError(
+      `\n🚨 Something went wrong while applying configuration optimizations 🚨\n`
+    )
+  else
+    console.log(
+      '\n✅ Configuration optimizations have been successfully applied\n'
+    )
 }
 
 // Command
@@ -106,13 +118,17 @@ module.exports = () => {
     installDependency(PACKAGE_NAME)
   }
 
-  if (!hasDependency('@capgo/capacitor-native-biometric')) installDependency('@capgo/capacitor-native-biometric')
+  if (!hasDependency('@capgo/capacitor-native-biometric'))
+    installDependency('@capgo/capacitor-native-biometric')
 
-  if (!hasDependency('@capacitor/local-notifications')) installDependency('@capacitor/local-notifications')
+  if (!hasDependency('@capacitor/local-notifications'))
+    installDependency('@capacitor/local-notifications')
 
   // If app has already been initialized
   if (hasCapacitorConfig()) {
-    reportError(`\nThis project has already-been initialized. Please run sui-app remove before initializing again.\n`)
+    reportError(
+      `\nThis project has already-been initialized. Please run sui-app remove before initializing again.\n`
+    )
   }
 
   // Init the project
