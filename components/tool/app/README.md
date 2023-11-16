@@ -76,9 +76,9 @@ Note that the string will be displayed on the user interface sometimes.
 ### Check if biometric login is available
 
 ```
-import {isBiometricLoginAvailable} from '@s-ui/sui-tool-app'
+import {biometric} from '@s-ui/sui-tool-app'
 
-const isAvailable = await isBiometricLoginAvailable()
+const isAvailable = await biometric.isAvailable()
 ```
 
 ### Set biometric login
@@ -87,9 +87,9 @@ After user logs in, credentials can be stored for later usage through biometric 
 Normally the OS will prompt users to confirm they really want to use biometric auth for login.
 
 ```
-import {setBiometricLoginCredentials} from '@s-ui/sui-tool-app'
+import {biometric} from '@s-ui/sui-tool-app'
 
-const isAvailable = await setBiometricLoginCredentials({
+await biometric.setCredentials({
   username: '123',
   password: '456',
   domain: 'pro.coches.net'
@@ -98,18 +98,20 @@ const isAvailable = await setBiometricLoginCredentials({
 
 ### Get credentials
 
-If the user has previously authorized and registered biometric login, `getBiometricLoginCredentials` will prompt users to confirm their identity, and if authentication is successful, the credentials object will be returned.
+If the user has previously authorized and registered biometric login, `getCredentials` will prompt users to confirm their identity, and if authentication is successful, the credentials object will be returned.
 
 ```
-import {getBiometricLoginCredentials} from '@s-ui/sui-tool-app'
+import {biometric} from '@s-ui/sui-tool-app'
 
-const isAvailable = await getBiometricLoginCredentials({
+const credentials = await biometric.getCredentials({
   domain: 'pro.coches.net',
   reason: 'Log in into the app',
   title: 'Identify with your fingerprint or face',
   subtitle: 'Confirm your identity without having to remember your password',
   description: 'Please use a biometric device to identify yourself',
 })
+
+console.log(credentials.username, credentials.password)
 ```
 
 ## Local notifications 
@@ -123,6 +125,57 @@ const isAvailable = await getBiometricLoginCredentials({
 <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 ```
 
-### Other features
+### Getting permissions
 
-Please refer to the following documentation: `https://capacitorjs.com/docs/apis/local-notifications`
+Before sending notifications, in some operating systems the user has to accept them. This can be easily done by calling to the `prepare` method.
+
+If the `prepare` method is not executed, permissions will be requested when the first notification is scheduled.
+
+```
+import {localNotifications} from '@s-ui/sui-tool-app'
+
+await localNotifications.prepare() // Returns true or false
+```
+
+### Scheduling a notification
+
+A basic local notification can be scheduled by running the `schedule` command:
+
+```
+import {localNotifications} from '@s-ui/sui-tool-app'
+const ONE_MINUTE = 1000 * 60
+localNotifications.schedule({
+    notifications: [
+      {
+        title: 'Fancy title here',
+        body: 'I am a fancy notification. Just click me!',
+        id: 1,
+        schedule: {at: new Date(Date.now() + ONE_MINUTE)},
+        sound: null,
+        attachments: null,
+        actionTypeId: '',
+        extra: null
+      }
+    ]
+  })
+
+```
+
+### Other available methods
+
+There are other methods available to interact with local notifications, that are offered by the original Capacitor plugin and can be accessed directly, without adding custom logic nor altering their behaviour.
+
+```
+import {localNotifications} from '@s-ui/sui-tool-app'
+
+// localNotifications.plugin.getPending()
+// .registerActionTypes
+// .cancel
+// .areEnabled
+// .createChannel
+// .deleteChannel
+// .listChannels
+
+```
+
+The exposed API through the `plugin` prop can be reviewed here `https://capacitorjs.com/docs/apis/local-notifications#api`
