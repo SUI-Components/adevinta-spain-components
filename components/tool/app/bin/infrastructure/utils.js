@@ -16,6 +16,12 @@ const readJSONFile = file => {
   return JSON.parse(data)
 }
 
+const saveJSONFile = (json, file) => {
+  const {writeFileSync} = require('fs')
+  const stringified = JSON.stringify(json, null, 2)
+  writeFileSync(file, stringified)
+}
+
 const removeFile = file => {
   const {rmSync} = require('fs')
   rmSync(file)
@@ -54,6 +60,7 @@ module.exports = {
   getCurrentDirectory,
   fileExists,
   readJSONFile,
+  saveJSONFile,
   reportError,
   runCommand,
   installPackage,
