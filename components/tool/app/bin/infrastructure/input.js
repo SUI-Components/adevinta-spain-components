@@ -1,7 +1,21 @@
-const readlineSync = require('readline-sync')
+const readline = require('readline')
 
 const confirmQuestion = async message => {
-  return readlineSync.keyInYN(`❓ ${message}`)
+  return new Promise((resolve, reject) => {
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout
+    })
+
+    rl.question(`❓ ${message} (Y/n)`, answer => {
+      if (answer.toLowerCase() === 'n') {
+        resolve(false)
+      } else {
+        resolve(true)
+      }
+      rl.close()
+    })
+  })
 }
 
 module.exports = {
