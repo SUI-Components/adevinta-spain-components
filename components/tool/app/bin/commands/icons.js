@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // Infra
 const {reportError, runCommand} = require('../infrastructure/utils.js')
 
@@ -11,9 +12,7 @@ const generateIcons = () => {
     runCommand('npx @capacitor/assets generate ios') === false ||
     runCommand('npx @capacitor/assets generate android') === false
   )
-    reportError(
-      `\n\n🚨 Something went wrong while installing dependencies 🚨\n\n`
-    )
+    reportError(`\n\n🚨 Something went wrong while installing dependencies 🚨\n\n`)
   else console.log(`\n\n✅ Icons successfully generated\n\n`)
 }
 
@@ -29,9 +28,7 @@ module.exports = () => {
 
   // If app has already been initialized
   if (!hasCapacitorConfig()) {
-    reportError(
-      `\n\nThis project has not been initialized. sui-app cannot be removed\n\n`
-    )
+    reportError(`\n\nThis project has not been initialized. sui-app cannot be removed\n\n`)
   }
 
   generateIcons()
