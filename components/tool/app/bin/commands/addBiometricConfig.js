@@ -19,6 +19,8 @@ module.exports = () => {
     reportError(`\n\nThis project has not been initialized. sui-app cannot perform a sync operation\n\n`)
   }
 
+  // If biometric has not been added yet
+
   // Sync project
   console.log('\nThis command is still not implemented.\n')
 }
