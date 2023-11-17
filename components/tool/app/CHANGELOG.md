@@ -1,5 +1,18 @@
 # CHANGELOG
 
+# 1.11.0 (2023-11-17)
+
+
+### Features
+
+* **components/tool/app:** Add readline dependency ([b85dabc](https://github.com/SUI-Components/adevinta-spain-components/commit/b85dabc20af236aacdb76b97fe3bf12db2c95f54))
+* **components/tool/app:** Avoid compiling problems ([8a85ab0](https://github.com/SUI-Components/adevinta-spain-components/commit/8a85ab0980bf30485591ea2df625f484607e99bc))
+* **components/tool/app:** Change dependencies ([75bf2cf](https://github.com/SUI-Components/adevinta-spain-components/commit/75bf2cf885a9b2b8da7f92e89767ca9e9a3aa20a))
+* **components/tool/app:** Remove readline-sync dependency ([803758a](https://github.com/SUI-Components/adevinta-spain-components/commit/803758a4183a73caa4985cd9a90df9cf202575ec))
+* **components/tool/app:** Start to work on addBiometricConfig command ([78f30ff](https://github.com/SUI-Components/adevinta-spain-components/commit/78f30ff9f43c145f54a40ace1d97dd7432331257))
+
+
+
 # 1.10.0 (2023-11-16)
 
 
