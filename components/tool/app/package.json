@@ -27,10 +27,10 @@
     "@capacitor/core": "^5.5.1",
     "@capacitor/ios": "^5.5.1",
     "@capgo/capacitor-native-biometric": "^5.1.0",
+    "readline-sync": "^1.4.10",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@capacitor/assets": "^3.0.1",
-    "inquirer": "^8.2.6"
+    "@capacitor/assets": "^3.0.1"
   }
 }

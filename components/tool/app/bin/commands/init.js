@@ -13,7 +13,7 @@ const {
   saveJSONFile
 } = require('../infrastructure/utils.js')
 
-const {confirmQuestion} = require('../infrastructure/inquirer.js')
+const {confirmQuestion} = require('../infrastructure/input.js')
 
 const initProject = () => {
   return runCommand(`npx cap init`)
