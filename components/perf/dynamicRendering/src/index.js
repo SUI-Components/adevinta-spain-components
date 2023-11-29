@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
 
+import LazyContent from './lazyContent.js'
+
 import './index.scss'
-import LazyContent from './lazyContent'
 
 const BOTS_USER_AGENTS = [
   'googlebot',
@@ -41,11 +42,7 @@ export default function PerfDynamicRendering({
   // so check if we're on the browser side and if is not disabled the component
   if (isOnBrowser && !disabled) {
     return (
-      <LazyContent
-        rootMargin={rootMargin}
-        placeholder={placeholder}
-        height={height}
-      >
+      <LazyContent rootMargin={rootMargin} placeholder={placeholder} height={height}>
         {children}
       </LazyContent>
     )
@@ -53,7 +50,7 @@ export default function PerfDynamicRendering({
     // so, we're on the server side or the component is disabled
     return placeholder
   } else {
-    return <div style={{containIntrinsicSize: auto `${height}px`, height: `${height}px`, marginBottom: '1px'}} />
+    return <div style={{containIntrinsicSize: `auto ${height}px`, height: `${height}px`, marginBottom: '1px'}} />
   }
 }
 
