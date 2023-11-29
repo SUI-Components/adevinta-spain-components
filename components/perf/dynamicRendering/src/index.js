@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 
+import './index.scss'
 import LazyContent from './lazyContent'
 
 const BOTS_USER_AGENTS = [
@@ -52,7 +53,7 @@ export default function PerfDynamicRendering({
     // so, we're on the server side or the component is disabled
     return placeholder
   } else {
-    return <div style={{height: `${height}px`, marginBottom: '1px'}} />
+    return <div style={{containIntrinsicSize: auto `${height}px`, height: `${height}px`, marginBottom: '1px'}} />
   }
 }
 
