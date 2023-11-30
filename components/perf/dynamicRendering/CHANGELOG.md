@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.18.0 (2023-11-30)
+
+
+### Features
+
+* **components/perf/dynamicRendering:** add content-visibility property ([1227650](https://github.com/SUI-Components/adevinta-spain-components/commit/1227650cf45c6ed4c19d5cbd9460ba271fd57764))
+* **components/perf/dynamicRendering:** apply linter rules ([908e20b](https://github.com/SUI-Components/adevinta-spain-components/commit/908e20ba229aa7a839877b5ded4b18cbb1779b96))
+
+
+
 # 1.17.0 (2022-12-01)
 
 
