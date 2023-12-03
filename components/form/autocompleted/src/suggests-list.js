@@ -8,12 +8,7 @@ const SuggestsList = forwardRef((props, ref) => {
   return (
     <ul ref={ref} className="sui-FormAutocompleted-suggests">
       {props.suggests.map((suggest, index) => (
-        <ListItem
-          {...props}
-          key={suggest.id || index}
-          item={suggest}
-          isActive={index === props.active}
-        />
+        <ListItem {...props} key={suggest.id || index} item={suggest} isActive={index === props.active} />
       ))}
     </ul>
   )
