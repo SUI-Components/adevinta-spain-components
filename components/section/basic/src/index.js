@@ -20,12 +20,7 @@ const SectionBasic = ({
 }) => (
   <section className={cx(CLASS, getSpacingClassName(sectionBottomSpacing))}>
     {title && (
-      <header
-        className={cx(
-          `${CLASS}-header`,
-          getSpacingClassName(headerBottomSpacing)
-        )}
-      >
+      <header className={cx(`${CLASS}-header`, getSpacingClassName(headerBottomSpacing))}>
         <h3 className={`${CLASS}-title`}>{title}</h3>
       </header>
     )}
@@ -34,11 +29,7 @@ const SectionBasic = ({
         [getSpacingClassName(contentBottomSpacing)]: separator
       })}
     >
-      {textContent ? (
-        <p className={`${CLASS}-textContent`}>{textContent}</p>
-      ) : (
-        children || customContentWhenEmpty
-      )}
+      {textContent ? <p className={`${CLASS}-textContent`}>{textContent}</p> : children || customContentWhenEmpty}
     </div>
     {separator && <hr className={`${CLASS}-separator`} />}
   </section>
