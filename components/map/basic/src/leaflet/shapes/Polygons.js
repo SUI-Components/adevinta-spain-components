@@ -16,14 +16,7 @@ export default class SearchMapPolygons {
 
   HOVER_CLASSNAME = 'is-hover'
 
-  constructor({
-    currentGeoCode,
-    hoverStyles,
-    onLayerClick,
-    onPolygonWithBounds,
-    radius,
-    showLabels
-  }) {
+  constructor({currentGeoCode, hoverStyles, onLayerClick, onPolygonWithBounds, radius, showLabels}) {
     this.currentGeoCode = currentGeoCode
     this.hoverStyles = hoverStyles
     this.onLayerClick = onLayerClick
@@ -45,8 +38,7 @@ export default class SearchMapPolygons {
 
   printPolygonOnMap({fitBound, map, polygon}) {
     const {BASE_CLASSNAME, hoverStyles} = this
-    const className =
-      fitBound && !this.radius ? `${BASE_CLASSNAME} fitBound` : BASE_CLASSNAME
+    const className = fitBound && !this.radius ? `${BASE_CLASSNAME} fitBound` : BASE_CLASSNAME
 
     const that = this
 
@@ -59,10 +51,7 @@ export default class SearchMapPolygons {
           mouseout: function (e) {
             const {originalEvent} = e
             // get the element we're entering now
-            const elementAfterOut = document.elementFromPoint(
-              originalEvent.clientX,
-              originalEvent.clientY
-            )
+            const elementAfterOut = document.elementFromPoint(originalEvent.clientX, originalEvent.clientY)
 
             if (elementAfterOut) {
               // if the element is a marker, avoid removing the hover class
@@ -76,25 +65,20 @@ export default class SearchMapPolygons {
 
             hoverStyles && polygonGeoJSon.resetStyle(this)
             const tooltipElement = getTooltipElement(this)
-            if (tooltipElement)
-              tooltipElement.classList.remove(that.HOVER_CLASSNAME)
+            if (tooltipElement) tooltipElement.classList.remove(that.HOVER_CLASSNAME)
           },
           mouseover: function (e) {
             hoverStyles && this.setStyle(hoverStyles)
             // remove previous hovered polygons
-            const polygonWithHover = document.querySelector(
-              `.${that.HOVER_CLASSNAME}`
-            )
+            const polygonWithHover = document.querySelector(`.${that.HOVER_CLASSNAME}`)
             // if there's a previous polygon, remove the hover class
-            polygonWithHover &&
-              polygonWithHover.classList.remove(that.HOVER_CLASSNAME)
+            polygonWithHover && polygonWithHover.classList.remove(that.HOVER_CLASSNAME)
 
             // add the hover classname to the new polygon
             e.originalEvent.target.classList.add(that.HOVER_CLASSNAME)
 
             const tooltipElement = getTooltipElement(this)
-            if (tooltipElement)
-              tooltipElement.classList.add(that.HOVER_CLASSNAME)
+            if (tooltipElement) tooltipElement.classList.add(that.HOVER_CLASSNAME)
 
             if (!L.Browser.ie && !L.Browser.opera) {
               this.bringToFront()
@@ -105,9 +89,7 @@ export default class SearchMapPolygons {
 
             const {Code} = layer.feature.properties
 
-            return !that.currentGeoCode.includes(Code)
-              ? that.onLayerClick(event)
-              : () => {}
+            return !that.currentGeoCode.includes(Code) ? that.onLayerClick(event) : () => {}
           }
         })
       }
@@ -119,20 +101,14 @@ export default class SearchMapPolygons {
 
     if (this.showLabels) {
       polygonGeoJSon.eachLayer(function (layer) {
-        if (
-          !layer?.feature?.properties?.LocationName ||
-          !layer?.feature?.properties?.Code
-        )
-          return
+        if (!layer?.feature?.properties?.LocationName || !layer?.feature?.properties?.Code) return
 
         try {
           const {Code, LocationName, counter = ''} = layer.feature.properties
           const tooltipLabelBlock = `<span class="leaflet-tooltip-label">${LocationName}</span>`
           const tooltipCounterBlock = `<span class="leaflet-tooltip-counter">${counter}</span>`
 
-          const allTooltipLabel = counter
-            ? `${tooltipLabelBlock}${tooltipCounterBlock}`
-            : tooltipLabelBlock
+          const allTooltipLabel = counter ? `${tooltipLabelBlock}${tooltipCounterBlock}` : tooltipLabelBlock
 
           !that.currentGeoCode.includes(Code) &&
             layer

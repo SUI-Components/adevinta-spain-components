@@ -8,16 +8,7 @@ export default class LayerManager {
     this.layers = {}
   }
 
-  createMapLayers({
-    appCode,
-    appId,
-    attribution,
-    id,
-    language,
-    mapViewModes,
-    maxZoom,
-    minZoom
-  }) {
+  createMapLayers({appCode, appId, attribution, id, language, mapViewModes, maxZoom, minZoom}) {
     const tileLayers = []
     mapViewModes.forEach((value, index) => {
       const baseMapView = this.getBaseMapView(value)
@@ -56,8 +47,7 @@ export default class LayerManager {
   }
 
   addLayersToGroup(layers, groupName) {
-    !this.layers[groupName] &&
-      (this.layers[groupName] = this.getLayerGroup(layers))
+    !this.layers[groupName] && (this.layers[groupName] = this.getLayerGroup(layers))
     layers.map(layer => {
       this.layers[groupName].addLayer(layer)
     })
@@ -66,9 +56,7 @@ export default class LayerManager {
   removeLayersFromGroup(layersToDelete, groupName) {
     !this.layers[groupName] && (this.layers.markers = this.getFullLayerGroup())
     this.layers[groupName].eachLayer(layer => {
-      const found = layersToDelete.find(
-        pointToDelete => layer.Id === pointToDelete.Id
-      )
+      const found = layersToDelete.find(pointToDelete => layer.Id === pointToDelete.Id)
       found && this.layers.markers.removeLayer(layer)
     })
   }
