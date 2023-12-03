@@ -2,9 +2,7 @@ import ServicesMarkdown from 'components/services/markdown/src/index'
 
 const handleOnLoad = ({html, setHtml}) => {
   console.log('markdown content loaded', {html})
-  setHtml(
-    '<h1>Hello World</h1><p>This content was injected after the markdown was loaded</p>'
-  )
+  setHtml('<h1>Hello World</h1><p>This content was injected after the markdown was loaded</p>')
 }
 
 const markdownStyles = {
@@ -20,16 +18,11 @@ const MARKDOWN_URL =
 const DemoServicesMarkdownGroup = () => {
   return (
     <>
-      <h1>
-        ServiceMarkdown component loading contents from an external source
-      </h1>
+      <h1>ServiceMarkdown component loading contents from an external source</h1>
       <div style={markdownStyles}>
         <ServicesMarkdown src={MARKDOWN_URL} />
       </div>
-      <h1>
-        ServiceMarkdown component loading contents from an external source and
-        overriding it when loaded
-      </h1>
+      <h1>ServiceMarkdown component loading contents from an external source and overriding it when loaded</h1>
       <div style={markdownStyles}>
         <ServicesMarkdown src={MARKDOWN_URL} onLoad={handleOnLoad} />
       </div>
