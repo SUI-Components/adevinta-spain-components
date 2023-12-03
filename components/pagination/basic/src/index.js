@@ -5,15 +5,7 @@ import PaginationItem from './sui-pagination-item'
 const FIRST_PAGE = 1
 const PAGINATION_STEP = 1
 
-function PaginationBasic({
-  createUrl,
-  currentPage,
-  factoryLink,
-  handlePaginate,
-  patternUrl,
-  totalPages,
-  ...props
-}) {
+function PaginationBasic({createUrl, currentPage, factoryLink, handlePaginate, patternUrl, totalPages, ...props}) {
   const renderPaginationItem = itemProps => (
     <PaginationItem
       {...itemProps}
@@ -40,10 +32,7 @@ function PaginationBasic({
     })
 
   const getFirstLastSeparator = key => (
-    <li
-      className="sui-PaginationBasic-item sui-PaginationBasic-item--separator"
-      key={key}
-    >
+    <li className="sui-PaginationBasic-item sui-PaginationBasic-item--separator" key={key}>
       {props.firstLastSeparatorText}
     </li>
   )
