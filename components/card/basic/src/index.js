@@ -14,16 +14,7 @@ const CardBasicMedia = ({src, alt = ''}) => (
  * Basic card containing a media object, an optional title and a description
  * text.
  */
-export default function CardBasic({
-  link,
-  linkFactory: Link,
-  media,
-  title,
-  titleStyle,
-  description,
-  button,
-  lazyLoad
-}) {
+export default function CardBasic({link, linkFactory: Link, media, title, titleStyle, description, button, lazyLoad}) {
   const cardBasicTitleClassName = cx('sui-CardBasic-title', {
     [`sui-CardBasic-title--${titleStyle}`]: titleStyle
   })
@@ -31,15 +22,9 @@ export default function CardBasic({
   return (
     <div className="sui-CardBasic">
       <Link href={link} className="sui-CardBasic-link">
-        {lazyLoad ? (
-          <ImageLazyLoad {...lazyLoad} {...media} />
-        ) : (
-          <CardBasicMedia {...media} />
-        )}
+        {lazyLoad ? <ImageLazyLoad {...lazyLoad} {...media} /> : <CardBasicMedia {...media} />}
         <div className="sui-CardBasic-content">
-          {title && (
-            <header className={cardBasicTitleClassName}>{title}</header>
-          )}
+          {title && <header className={cardBasicTitleClassName}>{title}</header>}
           <div className="sui-CardBasic-description">{description}</div>
 
           {button && <div className="sui-CardBasic-action">{button}</div>}
