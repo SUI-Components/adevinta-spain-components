@@ -39,10 +39,7 @@
 
   &-button {
     &Install {
-      @include sui-button(
-        'custom',
-        $background-color: $bgc-ad-smartbanner-button-install
-      );
+      @include sui-button('custom', $background-color: $bgc-ad-smartbanner-button-install);
     }
 
     &Close {
