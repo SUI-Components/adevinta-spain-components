@@ -3,11 +3,7 @@ import {useState} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-export default function TabBasic({
-  activeTab: initialActiveTab = 0,
-  handleClick,
-  tabsList
-}) {
+export default function TabBasic({activeTab: initialActiveTab = 0, handleClick, tabsList}) {
   const [activeTab, setActiveTab] = useState(initialActiveTab)
 
   const createHandleClick = index => {
@@ -26,11 +22,7 @@ export default function TabBasic({
 
       return (
         <li className="sui-TabBasic-item" key={index}>
-          <button
-            className={tabLinkClassName}
-            onClick={createHandleClick(index)}
-            role="tab"
-          >
+          <button className={tabLinkClassName} onClick={createHandleClick(index)} role="tab">
             {tabLabel}
           </button>
         </li>
