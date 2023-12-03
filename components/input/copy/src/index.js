@@ -52,9 +52,7 @@ export default function InputCopy({
     <div className={baseClass}>
       {labelText && <label className={`${baseClass}-label`}>{labelText}</label>}
       <AtomInput
-        button={
-          <AtomButton className={`${baseClass}-button`} {...copyButtonProps} />
-        }
+        button={<AtomButton className={`${baseClass}-button`} {...copyButtonProps} />}
         disabled
         value={textToCopy}
       />
