@@ -10,8 +10,7 @@ export default () => {
 
   const text = {
     title: 'Publica como Particular',
-    description:
-      'Puedes insertar hasta 2 anuncios gratis y actualizarlos tanto como tu quieras.'
+    description: 'Puedes insertar hasta 2 anuncios gratis y actualizarlos tanto como tu quieras.'
   }
 
   const text2 = {
