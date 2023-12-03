@@ -10,13 +10,7 @@ export const responsiveTypes = {
 
 const BASE_CLASS = 'sui-ListBullet'
 
-const ListBullet = ({
-  listItems,
-  responsive,
-  smallFont,
-  isString,
-  as: Heading = headingTags.h2
-}) => {
+const ListBullet = ({listItems, responsive, smallFont, isString, as: Heading = headingTags.h2}) => {
   const listBulletClass = cx(BASE_CLASS, {
     [`${BASE_CLASS}--${responsive}`]: Boolean(responsive),
     [`${BASE_CLASS}--smallFont`]: smallFont
@@ -26,13 +20,7 @@ const ListBullet = ({
     <div className={listBulletClass}>
       {listItems &&
         listItems.map((item, index) => (
-          <Bullet
-            {...item}
-            isString={isString}
-            key={index}
-            baseClass={BASE_CLASS}
-            as={Heading}
-          />
+          <Bullet {...item} isString={isString} key={index} baseClass={BASE_CLASS} as={Heading} />
         ))}
     </div>
   )
