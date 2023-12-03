@@ -2,15 +2,7 @@ import PropTypes from 'prop-types'
 
 import ThumbnailBasic from '@s-ui/react-thumbnail-basic'
 
-const ThumbnailList = ({
-  captionText,
-  fallback,
-  items = [],
-  onClick,
-  placeholder,
-  target,
-  rounded
-}) => (
+const ThumbnailList = ({captionText, fallback, items = [], onClick, placeholder, target, rounded}) => (
   <ul className="sui-ThumbnailList">
     {items.map((item, index) => (
       <li className="sui-ThumbnailList-item" key={index}>
