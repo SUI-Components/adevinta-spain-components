@@ -1529,8 +1529,7 @@ export const formPTACar = {
                 property: {
                   pattern: '^true$'
                 },
-                message:
-                  'Tienes que aceptar las condiciones de uso y la política de privacidad'
+                message: 'Tienes que aceptar las condiciones de uso y la política de privacidad'
               }
             ],
             datalist: [
