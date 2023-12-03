@@ -1,9 +1,6 @@
 // map the DSL standard to JS: https://docs.mpi-internal.com/scmspain/all--lib-form-builder-docs/form-specification/field/
 
-import {
-  fieldsNamesInOrderOfDefinition,
-  pickFieldById
-} from '../reducer/fields.js'
+import {fieldsNamesInOrderOfDefinition, pickFieldById} from '../reducer/fields.js'
 import {LocalizationFactory} from './../Standard/Localization/LocalizationFactory.js'
 const FIELDS = {
   TEXT: 'text',
@@ -84,23 +81,15 @@ const checkConstraintsFromField = (field, locale) => {
     // if element validity is tooShort means that it is working as expected and it is not required manual validation
     !elementValidity.tooShort
   ) {
-    const textAreaHasMinLength = field.constraints?.find(
-      constraint => constraint.property?.minlength
-    )
+    const textAreaHasMinLength = field.constraints?.find(constraint => constraint.property?.minlength)
     const textAreaValue = elementNode?.value
 
-    if (
-      textAreaValue?.length <
-      parseInt(textAreaHasMinLength?.property?.minlength)
-    )
+    if (textAreaValue?.length < parseInt(textAreaHasMinLength?.property?.minlength))
       errorMessages = [...errorMessages, textAreaHasMinLength.message]
   }
 
   // custom validation: pattern constraint in html input (type=checkbox) is not natively supported, need to handle it manually
-  if (
-    field.type === FIELDS.PICKER &&
-    field.display === DISPLAYS[FIELDS.PICKER].CHECKBOX
-  ) {
+  if (field.type === FIELDS.PICKER && field.display === DISPLAYS[FIELDS.PICKER].CHECKBOX) {
     const checkboxValue = elementNode?.value === 'true'
 
     const checkboxShouldBeTrueConstraint = field.constraints?.find(
@@ -115,13 +104,10 @@ const checkConstraintsFromField = (field, locale) => {
   // cutom validation: min html attributes in input type text are not nativelly supported
   if (
     // if is a field text and display text or default
-    (field.type === FIELDS.TEXT &&
-      field.display === DISPLAYS[FIELDS.TEXT].TEXT) ||
+    (field.type === FIELDS.TEXT && field.display === DISPLAYS[FIELDS.TEXT].TEXT) ||
     field.display === DISPLAYS[FIELDS.TEXT].DEFAULT
   ) {
-    const inputHasMin = field.constraints?.find(
-      constraint => constraint.property?.min
-    )
+    const inputHasMin = field.constraints?.find(constraint => constraint.property?.min)
     const localization = LocalizationFactory({
       value: elementNode?.value,
       locale
@@ -134,13 +120,10 @@ const checkConstraintsFromField = (field, locale) => {
   // cutom validation: max html attributes in input type text are not nativelly supported
   if (
     // if is a field text and display text or default
-    (field.type === FIELDS.TEXT &&
-      field.display === DISPLAYS[FIELDS.TEXT].TEXT) ||
+    (field.type === FIELDS.TEXT && field.display === DISPLAYS[FIELDS.TEXT].TEXT) ||
     field.display === DISPLAYS[FIELDS.TEXT].DEFAULT
   ) {
-    const inputHasMax = field.constraints?.find(
-      constraint => constraint.property?.max
-    )
+    const inputHasMax = field.constraints?.find(constraint => constraint.property?.max)
 
     const localization = LocalizationFactory({
       value: elementNode?.value,

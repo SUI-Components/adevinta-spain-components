@@ -2,16 +2,7 @@ import PropTypes from 'prop-types'
 
 import DefaultRange from '../../../Range/Default/index.js'
 
-const RangeField = ({
-  field,
-  tabIndex,
-  onChange,
-  onFocus,
-  onBlur,
-  errors,
-  alerts,
-  renderer
-}) => {
+const RangeField = ({field, tabIndex, onChange, onFocus, onBlur, errors, alerts, renderer}) => {
   return (
     <DefaultRange
       range={field}

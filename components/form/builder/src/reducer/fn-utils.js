@@ -6,5 +6,4 @@ export const pipe = (...fns) =>
         g(f(...args))
   )
 export const head = arr => arr[0]
-export const deepFlatten = arr =>
-  [].concat(...arr.map(v => (Array.isArray(v) ? deepFlatten(v) : v)))
+export const deepFlatten = arr => [].concat(...arr.map(v => (Array.isArray(v) ? deepFlatten(v) : v)))

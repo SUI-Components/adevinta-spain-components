@@ -19,16 +19,7 @@ const splitInputValues = inputValues => {
   }
 }
 
-const DefaultRange = ({
-  range,
-  tabIndex,
-  onChange,
-  onFocus,
-  onBlur,
-  errors,
-  alerts,
-  renderer
-}) => {
+const DefaultRange = ({range, tabIndex, onChange, onFocus, onBlur, errors, alerts, renderer}) => {
   const fromInputId = `${range.id}-from`
   const toInputId = `${range.id}-to`
 
@@ -107,23 +98,13 @@ const DefaultRange = ({
     : inputValues
 
   return (
-    <div
-      className={`sui-FormBuilder-field sui-FormBuilder-DefaultRange sui-FormBuilder-${rangeProps.id}`}
-    >
+    <div className={`sui-FormBuilder-field sui-FormBuilder-DefaultRange sui-FormBuilder-${rangeProps.id}`}>
       <div className={`sui-FormBuilder-DefaultRange-inputs`}>
         <div className="sui-FormBuilder-Input sui-FormBuilder-DefaultRange-from">
-          <MoleculeInputField
-            {...fromInputProps}
-            {...rendererProps}
-            value={fromValue}
-          />
+          <MoleculeInputField {...fromInputProps} {...rendererProps} value={fromValue} />
         </div>
         <div className="sui-FormBuilder-Input sui-FormBuilder-DefaultRange-to">
-          <MoleculeInputField
-            {...toInputProps}
-            {...rendererProps}
-            value={toValue}
-          />
+          <MoleculeInputField {...toInputProps} {...rendererProps} value={toValue} />
         </div>
       </div>
       {children}

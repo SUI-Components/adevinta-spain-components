@@ -7,23 +7,12 @@ import MoleculeField from '@s-ui/react-molecule-field'
 
 import {createComponentMemo, field} from '../prop-types'
 
-const MultiButton = ({
-  alerts,
-  errors,
-  multiButton,
-  onBlur,
-  onChange,
-  onFocus,
-  renderer,
-  tabIndex
-}) => {
+const MultiButton = ({alerts, errors, multiButton, onBlur, onChange, onFocus, renderer, tabIndex}) => {
   const errorMessages = errors[multiButton.id]
   const alertMessages = alerts[multiButton.id]
 
   const onClickCallback = ({value, checked}) => {
-    const newValue = checked
-      ? multiButton.value?.filter(id => id !== value)
-      : [...(multiButton.value || []), value]
+    const newValue = checked ? multiButton.value?.filter(id => id !== value) : [...(multiButton.value || []), value]
 
     return onChange(multiButton.id, newValue)
   }
@@ -66,9 +55,7 @@ const MultiButton = ({
   // render SUI component
   return (
     <div
-      className={`sui-FormBuilder-field sui-FormBuilder-MultiButton sui-FormBuilder-${
-        multiButtonProps.id || tabIndex
-      }`}
+      className={`sui-FormBuilder-field sui-FormBuilder-MultiButton sui-FormBuilder-${multiButtonProps.id || tabIndex}`}
     >
       <MoleculeField {...multiButtonProps}>
         <div className="sui-FormBuilder-MultiButton-itemList">

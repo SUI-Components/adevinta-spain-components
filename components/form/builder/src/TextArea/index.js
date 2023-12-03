@@ -6,16 +6,7 @@ import MoleculeTextAreaField from '@s-ui/react-molecule-textarea-field'
 
 import {createComponentMemo, field} from '../prop-types/index.js'
 
-const TextArea = ({
-  textArea,
-  tabIndex,
-  onChange,
-  onFocus,
-  onBlur,
-  errors,
-  alerts,
-  renderer
-}) => {
+const TextArea = ({textArea, tabIndex, onChange, onFocus, onBlur, errors, alerts, renderer}) => {
   const errorMessages = errors[textArea.id]
   const alertMessages = alerts[textArea.id]
 
@@ -97,9 +88,7 @@ const TextArea = ({
 
   // render SUI component
   return (
-    <div
-      className={`sui-FormBuilder-field sui-FormBuilder-TextArea sui-FormBuilder-${textAreaProps.id}`}
-    >
+    <div className={`sui-FormBuilder-field sui-FormBuilder-TextArea sui-FormBuilder-${textAreaProps.id}`}>
       <MoleculeTextAreaField {...textAreaProps} {...rendererResponse} />
     </div>
   )

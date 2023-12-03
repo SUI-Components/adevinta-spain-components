@@ -8,21 +8,9 @@ import MoleculeField from '@s-ui/react-molecule-field'
 
 import {createComponentMemo} from '../prop-types/index.js'
 
-const PickerSlider = ({
-  slider,
-  onChange,
-  onFocus,
-  onBlur,
-  errors,
-  alerts,
-  renderer
-}) => {
+const PickerSlider = ({slider, onChange, onFocus, onBlur, errors, alerts, renderer}) => {
   const {id, datalist} = slider
-  const className = cx(
-    'sui-FormBuilder-field',
-    'sui-FormBuilder-PickerSlider',
-    `sui-FormBuilder-${id}`
-  )
+  const className = cx('sui-FormBuilder-field', 'sui-FormBuilder-PickerSlider', `sui-FormBuilder-${id}`)
   const min = 0
   const max = datalist.length - 1
   const value = datalist.findIndex(data => data.value === slider.value)

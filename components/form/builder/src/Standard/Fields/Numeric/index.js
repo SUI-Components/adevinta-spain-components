@@ -3,16 +3,7 @@ import PropTypes from 'prop-types'
 import Input from '../../../Input'
 import {DISPLAYS, FIELDS} from '../../index'
 
-const NumericField = ({
-  field,
-  tabIndex,
-  onChange,
-  onFocus,
-  onBlur,
-  errors,
-  alerts,
-  renderer
-}) => {
+const NumericField = ({field, tabIndex, onChange, onFocus, onBlur, errors, alerts, renderer}) => {
   /* TODO: add the possibility to customize rightAddon in the DSL */
   if (field.display === DISPLAYS[FIELDS.NUMERIC].MONEY) {
     return (

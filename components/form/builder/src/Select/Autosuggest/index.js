@@ -15,23 +15,11 @@ const fromValueToText = datalist => value => {
 }
 
 const fromTextToValue = datalist => text => {
-  const item = datalist.find(
-    item => item.text.toLowerCase() === text.toLowerCase()
-  )
+  const item = datalist.find(item => item.text.toLowerCase() === text.toLowerCase())
   return item?.value
 }
 
-const AutosuggestSelect = ({
-  select,
-  tabIndex,
-  onChange,
-  onFocus,
-  onBlur,
-  size,
-  errors,
-  alerts,
-  renderer
-}) => {
+const AutosuggestSelect = ({select, tabIndex, onChange, onFocus, onBlur, size, errors, alerts, renderer}) => {
   const errorMessages = errors[select.id] || []
   const alertMessages = alerts[select.id] || []
 
@@ -43,8 +31,7 @@ const AutosuggestSelect = ({
 
   // case: a value is forced from outside the component
   // if text from prop is different from current local state text, update local text state
-  if (textFromValueProp && textFromValueProp !== localStateText)
-    setLocalStateText(textFromValueProp)
+  if (textFromValueProp && textFromValueProp !== localStateText) setLocalStateText(textFromValueProp)
 
   const onChangeCallback = useCallback(
     (evt, {value: text}) => {
@@ -82,11 +69,7 @@ const AutosuggestSelect = ({
   const normalize = str => removeAccents(str.toLowerCase()).replace(/\W|_/g)
 
   const getSuggestions = suggestionText =>
-    suggestionText
-      ? datalist.filter(({text, value}) =>
-          normalize(text).match(normalize(suggestionText))
-        )
-      : datalist
+    suggestionText ? datalist.filter(({text, value}) => normalize(text).match(normalize(suggestionText))) : datalist
 
   const suggestions = getSuggestions(localStateText)
 
@@ -97,10 +80,7 @@ const AutosuggestSelect = ({
    * - There are no other errors involved
    */
   const showEmptySuggestionText =
-    !suggestions.length &&
-    !!localStateText &&
-    select.emptySuggestionText &&
-    !errorMessages.length
+    !suggestions.length && !!localStateText && select.emptySuggestionText && !errorMessages.length
 
   if (showEmptySuggestionText) {
     errorMessages.push(select.emptySuggestionText)
@@ -153,9 +133,7 @@ const AutosuggestSelect = ({
 
   // render SUI component
   return (
-    <div
-      className={`sui-FormBuilder-field sui-FormBuilder-AutosuggestSelect sui-FormBuilder-${autosuggestProps.id}`}
-    >
+    <div className={`sui-FormBuilder-field sui-FormBuilder-AutosuggestSelect sui-FormBuilder-${autosuggestProps.id}`}>
       {autosuggestProps.label && (
         <label className="sui-FormBuilder-label" htmlFor={autosuggestProps.id}>
           {autosuggestProps.label}
@@ -163,10 +141,7 @@ const AutosuggestSelect = ({
       )}
       <MoleculeAutosuggestField {...autosuggestProps} {...rendererResponse}>
         {suggestions.map((suggestion, i) => (
-          <MoleculeAutosuggestOption
-            key={suggestion.value}
-            value={suggestion.text}
-          >
+          <MoleculeAutosuggestOption key={suggestion.value} value={suggestion.text}>
             {suggestion.text}
           </MoleculeAutosuggestOption>
         ))}

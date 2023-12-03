@@ -7,17 +7,7 @@ import ProxyField from '../ProxyField'
 
 const baseClass = 'sui-FormBuilder-FieldSet'
 
-const FieldSet = ({
-  fieldset,
-  tabIndex,
-  onChange,
-  onFocus,
-  onBlur,
-  fieldSize,
-  errors,
-  alerts,
-  renderer
-}) => {
+const FieldSet = ({fieldset, tabIndex, onChange, onFocus, onBlur, fieldSize, errors, alerts, renderer}) => {
   if (fieldset.hidden) {
     return null
   }

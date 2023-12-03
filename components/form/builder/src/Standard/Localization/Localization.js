@@ -16,8 +16,6 @@ export class Localization {
   }
 
   fromStringToLocaleFloat() {
-    throw new Error(
-      '[Localization#fromStringToLocaleFloat] must be implemented'
-    )
+    throw new Error('[Localization#fromStringToLocaleFloat] must be implemented')
   }
 }
