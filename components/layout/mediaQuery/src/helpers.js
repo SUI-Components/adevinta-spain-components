@@ -3,8 +3,7 @@ const getNumber = str => {
   return parseResults ? parseFloat(parseResults[1]) : 0
 }
 
-export const getWidth = element =>
-  getNumber(window.getComputedStyle(element).width)
+export const getWidth = element => getNumber(window.getComputedStyle(element).width)
 
 export const matchQueries = BREAKPOINTS => width =>
   Object.entries(BREAKPOINTS).reduce((query, [size, breakpoint]) => {
