@@ -8,12 +8,7 @@ export class MarkErrorTaskService extends Service {
   }
 
   getErroredWorkFromTask(task) {
-    return task._work
-      .getWork()
-      .filter(
-        work =>
-          work._status.getValue() === this._config.get('AVAILABLE_STATUS').ERROR
-      )
+    return task._work.getWork().filter(work => work._status.getValue() === this._config.get('AVAILABLE_STATUS').ERROR)
   }
 
   execute() {

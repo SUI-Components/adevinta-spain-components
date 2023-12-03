@@ -4,8 +4,7 @@ export class SetWorkPercentageTaskUseCase extends UseCase {
   constructor({config, setWorkPercentageTaskServiceFactory}) {
     super()
     this._config = config
-    this._setWorkPercentageTaskServiceFactory =
-      setWorkPercentageTaskServiceFactory
+    this._setWorkPercentageTaskServiceFactory = setWorkPercentageTaskServiceFactory
   }
 
   execute({localState, taskId, workId, percentage} = {}) {

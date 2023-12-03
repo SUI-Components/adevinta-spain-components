@@ -30,9 +30,7 @@ describe('[Domain] ProcessQueuedTaskUseCase', () => {
     })
 
     // Then
-    expect(nextState.tasks[0].status).to.eql(
-      config.get('AVAILABLE_STATUS').COMPLETED
-    )
+    expect(nextState.tasks[0].status).to.eql(config.get('AVAILABLE_STATUS').COMPLETED)
   })
 
   it('should mark as in progress all queued tasks that have runnable queued work', async () => {
@@ -59,9 +57,7 @@ describe('[Domain] ProcessQueuedTaskUseCase', () => {
     })
 
     // Then
-    expect(nextState.tasks[0].status).to.eql(
-      config.get('AVAILABLE_STATUS').IN_PROGRESS
-    )
+    expect(nextState.tasks[0].status).to.eql(config.get('AVAILABLE_STATUS').IN_PROGRESS)
   })
 
   it('should execute all runnable queued work from queued tasks', async () => {

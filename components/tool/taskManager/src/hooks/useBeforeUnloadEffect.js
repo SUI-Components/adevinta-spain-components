@@ -21,9 +21,7 @@ const useBeforeUnloadEffect = ({isVisible}) => {
           task =>
             task.status === config.get('AVAILABLE_STATUS').IN_PROGRESS &&
             task.work.filter(
-              work =>
-                work.canBeInterrupted === false &&
-                work.status !== config.get('AVAILABLE_STATUS').COMPLETED
+              work => work.canBeInterrupted === false && work.status !== config.get('AVAILABLE_STATUS').COMPLETED
             ).length > 0
         ).length > 0
 

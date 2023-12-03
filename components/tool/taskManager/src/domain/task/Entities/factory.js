@@ -4,17 +4,7 @@ import {TaskEntity} from './TaskEntity.js'
 import {WorkTaskEntity} from './WorkTaskEntity.js'
 
 export class TaskEntitiesFactory {
-  static taskEntity = ({
-    config,
-    id,
-    log,
-    name,
-    work,
-    status,
-    createdAt,
-    finishedAt = null,
-    updatedAt = null
-  }) => {
+  static taskEntity = ({config, id, log, name, work, status, createdAt, finishedAt = null, updatedAt = null}) => {
     const taskId = SharedValueObjectsFactory.idSharedValueObject(id)
     return new TaskEntity({
       config,
@@ -25,11 +15,7 @@ export class TaskEntitiesFactory {
       name: SharedValueObjectsFactory.stringSharedValueObject(name),
       status: TaskValueObjectsFactory.statusTaskValueObject(config, status),
       updatedAt: SharedValueObjectsFactory.dateSharedValueObject(updatedAt),
-      work: TaskValueObjectsFactory.workListTaskValueObject(
-        config,
-        work,
-        taskId.get()
-      )
+      work: TaskValueObjectsFactory.workListTaskValueObject(config, work, taskId.get())
     })
   }
 
@@ -62,14 +48,12 @@ export class TaskEntitiesFactory {
       isVisible,
       log: SharedValueObjectsFactory.stringSharedValueObject(log),
       name: SharedValueObjectsFactory.stringSharedValueObject(name),
-      onComplete:
-        SharedValueObjectsFactory.callbackSharedValueObject(onComplete),
+      onComplete: SharedValueObjectsFactory.callbackSharedValueObject(onComplete),
       onError: SharedValueObjectsFactory.callbackSharedValueObject(onError),
       parentId: SharedValueObjectsFactory.idSharedValueObject(parentId),
       percentage: SharedValueObjectsFactory.numberSharedValueObject(percentage),
       result: TaskValueObjectsFactory.workResultTaskValueObject(result),
-      retryAttempts:
-        SharedValueObjectsFactory.numberSharedValueObject(retryAttempts),
+      retryAttempts: SharedValueObjectsFactory.numberSharedValueObject(retryAttempts),
       start: SharedValueObjectsFactory.callbackSharedValueObject(start),
       status: TaskValueObjectsFactory.statusTaskValueObject(config, status),
       taskId: SharedValueObjectsFactory.idSharedValueObject(taskId),

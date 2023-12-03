@@ -4,8 +4,7 @@ export class ProcessInProgressTaskUseCase extends UseCase {
   constructor({config, processInProgressTaskServiceFactory}) {
     super()
     this._config = config
-    this._processInProgressTaskServiceFactory =
-      processInProgressTaskServiceFactory
+    this._processInProgressTaskServiceFactory = processInProgressTaskServiceFactory
   }
 
   execute({localState} = {}) {
