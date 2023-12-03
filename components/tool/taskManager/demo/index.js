@@ -1,6 +1,4 @@
-import ToolTaskManager, {
-  TaskManagerProvider
-} from 'components/tool/taskManager/src'
+import ToolTaskManager, {TaskManagerProvider} from 'components/tool/taskManager/src'
 export default () => (
   <TaskManagerProvider>
     <ToolTaskManager />
