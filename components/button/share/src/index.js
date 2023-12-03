@@ -9,9 +9,7 @@ import Socialtwitter from '@s-ui/react-icons/lib/Socialtwitter'
 const getOnClickHandle = src => () => window.open(src)
 
 const parseHttpSchemeOfUrl = urlToEval => {
-  return !urlToEval.indexOf('http') || !urlToEval.indexOf('https')
-    ? urlToEval
-    : `http://${urlToEval}`
+  return !urlToEval.indexOf('http') || !urlToEval.indexOf('https') ? urlToEval : `http://${urlToEval}`
 }
 
 const getShareDefinition = (url, shareText, type) => {
@@ -62,8 +60,7 @@ ButtonShare.propTypes = {
    * One of the enum types ['facebook', 'whatsapp', 'twitter', 'email']
    * used to know which social media button is going to be rendered
    */
-  type: PropTypes.oneOf(['facebook', 'whatsapp', 'twitter', 'email', 'custom'])
-    .isRequired,
+  type: PropTypes.oneOf(['facebook', 'whatsapp', 'twitter', 'email', 'custom']).isRequired,
   /**
    * A class definition, not instance, of our react icon component.
    */
