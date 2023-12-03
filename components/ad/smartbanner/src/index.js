@@ -45,11 +45,7 @@ function AdSmartbanner({
         <p className={`${baseClass}-text`}>{text}</p>
         {ratingValue !== null && (
           <div className={`${baseClass}-ratingContainer`}>
-            <RatingStar
-              ratingValue={ratingValue}
-              ratingMax={ratingMax}
-              icons={customRatingIcons}
-            />
+            <RatingStar ratingValue={ratingValue} ratingMax={ratingMax} icons={customRatingIcons} />
           </div>
         )}
       </div>
