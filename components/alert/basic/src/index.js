@@ -24,21 +24,10 @@ function _renderAction({handle, text, className}) {
 }
 
 function _renderActions(actions) {
-  return (
-    <div className="sui-AlertBasic-actions">
-      {actions.map((action, index) => _renderAction(action))}
-    </div>
-  )
+  return <div className="sui-AlertBasic-actions">{actions.map((action, index) => _renderAction(action))}</div>
 }
 
-export default function AlertBasic({
-  type,
-  children,
-  icon,
-  actions,
-  iconClose: IconClose,
-  handleClose
-}) {
+export default function AlertBasic({type, children, icon, actions, iconClose: IconClose, handleClose}) {
   const AlertIcon = icon || icons[type]
   return (
     <div>
