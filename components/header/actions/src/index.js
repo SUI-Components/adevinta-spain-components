@@ -4,13 +4,7 @@ import Button from '@s-ui/react-atom-button'
 
 const getClass = type => `sui-HeaderActions${type ? `-${type}` : ''}`
 
-const HeaderActions = ({
-  buttonLabel,
-  icon,
-  onButtonClick,
-  onIconClick,
-  title
-}) => (
+const HeaderActions = ({buttonLabel, icon, onButtonClick, onIconClick, title}) => (
   <header className={getClass()}>
     <span className={getClass('icon')} onClick={onIconClick}>
       {icon}
