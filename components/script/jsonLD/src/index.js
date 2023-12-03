@@ -1,16 +1,7 @@
 import PropTypes from 'prop-types'
 
 function ScriptJsonLD({json}) {
-  return (
-    <>
-      {json && (
-        <script
-          dangerouslySetInnerHTML={{__html: JSON.stringify(json)}}
-          type="application/ld+json"
-        />
-      )}
-    </>
-  )
+  return <>{json && <script dangerouslySetInnerHTML={{__html: JSON.stringify(json)}} type="application/ld+json" />}</>
 }
 
 ScriptJsonLD.displayName = 'ScriptJsonLD'
