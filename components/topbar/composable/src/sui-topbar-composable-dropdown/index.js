@@ -7,16 +7,7 @@ import {usePrevious} from '@s-ui/react-hooks'
 
 const noop = () => {}
 
-function DropdownMenu({
-  caret,
-  classname,
-  entries,
-  icon,
-  label,
-  onClose = noop,
-  onOpen = noop,
-  renderOnClick
-}) {
+function DropdownMenu({caret, classname, entries, icon, label, onClose = noop, onOpen = noop, renderOnClick}) {
   const [displayMenu, setDisplayMenu] = useState(false)
   const [renderBody, setRenderBody] = useState(false)
   const wrapperRef = useRef()
@@ -28,10 +19,7 @@ function DropdownMenu({
      *  - After first render
      *  - When displayMenu actually changes
      **/
-    if (
-      typeof previousDisplayMenu === 'undefined' ||
-      displayMenu === previousDisplayMenu
-    ) {
+    if (typeof previousDisplayMenu === 'undefined' || displayMenu === previousDisplayMenu) {
       return
     }
     const openEvent = displayMenu ? onOpen : onClose
@@ -67,14 +55,10 @@ function DropdownMenu({
       <div className="sui-DropdownMenu" ref={wrapperRef}>
         <div className="sui-DropdownMenu-header" onClick={toggle}>
           {icon}
-          {label && (
-            <span className="sui-DropdownMenu-headerMainLabel">{label}</span>
-          )}
+          {label && <span className="sui-DropdownMenu-headerMainLabel">{label}</span>}
           {caret}
         </div>
-        {(!renderOnClick || renderBody) && (
-          <ul className={visibleDropdown}>{entries}</ul>
-        )}
+        {(!renderOnClick || renderBody) && <ul className={visibleDropdown}>{entries}</ul>}
       </div>
     </div>
   )
