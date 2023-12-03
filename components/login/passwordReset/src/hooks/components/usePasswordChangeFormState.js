@@ -60,11 +60,7 @@ const usePasswordChangeFormState = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   // Action for each of the above
-  const setNewPassword = ({
-    newPassword,
-    newPasswordErrorText,
-    repeatPasswordErrorText
-  }) => {
+  const setNewPassword = ({newPassword, newPasswordErrorText, repeatPasswordErrorText}) => {
     dispatch({
       type: 'SET_NEW_PASSWORD',
       payload: {
@@ -75,11 +71,7 @@ const usePasswordChangeFormState = () => {
     })
   }
 
-  const setRepeatPassword = ({
-    repeatPassword,
-    repeatPasswordErrorText,
-    newPasswordErrorText
-  }) => {
+  const setRepeatPassword = ({repeatPassword, repeatPasswordErrorText, newPasswordErrorText}) => {
     dispatch({
       type: 'SET_REPEAT_PASSWORD',
       payload: {

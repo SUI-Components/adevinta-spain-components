@@ -19,11 +19,7 @@ const PasswordChangeForm = ({icons}) => {
   const {token} = getCurrentToken()
   const {emit} = useEventBus()
 
-  const {
-    CHANGE_PASSWORD_BUTTON_CLICK,
-    CHANGE_PASSWORD_ERROR,
-    CHANGE_PASSWORD_SUCCESS
-  } = EVENTS
+  const {CHANGE_PASSWORD_BUTTON_CLICK, CHANGE_PASSWORD_ERROR, CHANGE_PASSWORD_SUCCESS} = EVENTS
 
   const {
     state: {
@@ -52,28 +48,16 @@ const PasswordChangeForm = ({icons}) => {
           case undefined:
             return ''
           case 'EmptyPasswordError':
-            return i18n.t(
-              'LOGIN_CROSS.PASSWORD_RESET.STEP_2.ERRORS.EMPTY_PASSWORD'
-            )
+            return i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.ERRORS.EMPTY_PASSWORD')
           default:
-            return i18n.t(
-              'LOGIN_CROSS.PASSWORD_RESET.STEP_2.ERRORS.INVALID_PASSWORD'
-            )
+            return i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.ERRORS.INVALID_PASSWORD')
         }
       })
   }
 
-  const getRepeatPasswordErrors = (
-    repeatPasswordValue,
-    newPasswordValue = newPassword
-  ) => {
-    if (
-      repeatPasswordValue !== newPasswordValue &&
-      repeatPasswordValue !== ''
-    ) {
-      return i18n.t(
-        'LOGIN_CROSS.PASSWORD_RESET.STEP_2.ERRORS.PASSWORDS_NOT_MATCH'
-      )
+  const getRepeatPasswordErrors = (repeatPasswordValue, newPasswordValue = newPassword) => {
+    if (repeatPasswordValue !== newPasswordValue && repeatPasswordValue !== '') {
+      return i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.ERRORS.PASSWORDS_NOT_MATCH')
     }
 
     return ''
@@ -82,10 +66,7 @@ const PasswordChangeForm = ({icons}) => {
   const handleChange = e => {
     const {value} = e?.target
     getNewPasswordErrors(value).then(errorText => {
-      const repeatPasswordErrorText = getRepeatPasswordErrors(
-        repeatPassword,
-        value
-      )
+      const repeatPasswordErrorText = getRepeatPasswordErrors(repeatPassword, value)
       setNewPassword({
         newPassword: value,
         newPasswordErrorText: errorText,
@@ -114,9 +95,7 @@ const PasswordChangeForm = ({icons}) => {
       .execute({password: newPassword, token})
       .then(([error]) => {
         let isError = false
-        let text = i18n.t(
-          'LOGIN_CROSS.PASSWORD_RESET.STEP_2.SUCCESS.PASSWORD_CHANGED'
-        )
+        let text = i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.SUCCESS.PASSWORD_CHANGED')
 
         if (error) {
           emit(CHANGE_PASSWORD_ERROR, {error})
@@ -141,10 +120,7 @@ const PasswordChangeForm = ({icons}) => {
     <>
       {notification.text ? (
         <>
-          <Notification
-            notificationText={notification.text}
-            isError={notification.isError}
-          />
+          <Notification notificationText={notification.text} isError={notification.isError} />
           <div className={`${BASE_CLASS}-formButtons`}>
             <LoginButton />
           </div>
@@ -156,14 +132,10 @@ const PasswordChangeForm = ({icons}) => {
             <PasswordInputField
               errorText={newPasswordErrorText}
               id="new_password"
-              label={i18n.t(
-                'LOGIN_CROSS.PASSWORD_RESET.STEP_2.NEW_PASSWORD_LABEL'
-              )}
+              label={i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.NEW_PASSWORD_LABEL')}
               name="new_password"
               onChange={handleChange}
-              placeholder={i18n.t(
-                'LOGIN_CROSS.PASSWORD_RESET.STEP_2.PLACEHOLDER'
-              )}
+              placeholder={i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.PLACEHOLDER')}
               value={newPassword}
               icons={icons}
             />
@@ -172,24 +144,16 @@ const PasswordChangeForm = ({icons}) => {
             <PasswordInputField
               errorText={repeatPasswordErrorText}
               id="repeat_password"
-              label={i18n.t(
-                'LOGIN_CROSS.PASSWORD_RESET.STEP_2.REPEAT_PASSWORD_LABEL'
-              )}
+              label={i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.REPEAT_PASSWORD_LABEL')}
               name="repeat_password"
               onChange={handleChangeRepeat}
-              placeholder={i18n.t(
-                'LOGIN_CROSS.PASSWORD_RESET.STEP_2.PLACEHOLDER'
-              )}
+              placeholder={i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.PLACEHOLDER')}
               value={repeatPassword}
               icons={icons}
             />
           </div>
           <div className={`${BASE_CLASS}-formButtons`}>
-            <SubmitButton
-              isEnabled={isSubmitButtonEnabled()}
-              isLoading={isLoading}
-              onClick={handleSubmit}
-            >
+            <SubmitButton isEnabled={isSubmitButtonEnabled()} isLoading={isLoading} onClick={handleSubmit}>
               {i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_2.SUBMIT_BUTTON')}
             </SubmitButton>
           </div>

@@ -49,9 +49,7 @@ describe('ResetPasswordForm', () => {
 
     // When
     const {getByText, findByText} = setup(props)
-    const submitButton = getByText(
-      LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUBMIT_BUTTON
-    )
+    const submitButton = getByText(LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUBMIT_BUTTON)
 
     // Then
     submitButton.click()
@@ -64,9 +62,7 @@ describe('ResetPasswordForm', () => {
 
     // When
     const {getByText, findByText, getByLabelText} = setup(props)
-    const submitButton = getByText(
-      LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUBMIT_BUTTON
-    )
+    const submitButton = getByText(LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUBMIT_BUTTON)
     const emailInput = getByLabelText('Email')
 
     // Then
@@ -83,25 +79,16 @@ describe('ResetPasswordForm', () => {
       }
     }
 
-    mocker
-      .httpMock('http://fake/')
-      .post('reset-password', {email: VALID_EMAIL})
-      .reply(null, 202)
+    mocker.httpMock('http://fake/').post('reset-password', {email: VALID_EMAIL}).reply(null, 202)
 
     // When
     const {getByText, findByText, getByLabelText} = setup(props)
-    const submitButton = getByText(
-      LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUBMIT_BUTTON
-    )
+    const submitButton = getByText(LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUBMIT_BUTTON)
     const emailInput = getByLabelText('Email')
 
     // Then
 
-    const SUCCESS_MESSAGE =
-      LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUCCESS.EMAIL_SENDED.replace(
-        '%{email}',
-        VALID_EMAIL
-      )
+    const SUCCESS_MESSAGE = LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUCCESS.EMAIL_SENDED.replace('%{email}', VALID_EMAIL)
 
     fireEvent.change(emailInput, {target: {value: VALID_EMAIL}})
     submitButton.click()
@@ -118,15 +105,10 @@ describe('ResetPasswordForm', () => {
 
     // When
     const {getByText, findByText, getByLabelText} = setup(props)
-    const submitButton = getByText(
-      LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUBMIT_BUTTON
-    )
+    const submitButton = getByText(LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUBMIT_BUTTON)
     const emailInput = getByLabelText('Email')
 
-    mocker
-      .httpMock('http://fake/')
-      .post('reset-password', {email: VALID_EMAIL})
-      .reply(null, 400)
+    mocker.httpMock('http://fake/').post('reset-password', {email: VALID_EMAIL}).reply(null, 400)
 
     // Then
     fireEvent.change(emailInput, {target: {value: VALID_EMAIL}})
@@ -142,26 +124,17 @@ describe('ResetPasswordForm', () => {
       }
     }
 
-    mocker
-      .httpMock('http://fake/')
-      .post('reset-password', {email: VALID_EMAIL})
-      .reply(null, 202)
+    mocker.httpMock('http://fake/').post('reset-password', {email: VALID_EMAIL}).reply(null, 202)
 
     // When
     const {getByText, findByText, getByLabelText} = setup(props)
-    const submitButton = getByText(
-      LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUBMIT_BUTTON
-    )
-    const emailInput = getByLabelText(
-      LOGIN_CROSS.PASSWORD_RESET.STEP_1.EMAIL_LABEL
-    )
+    const submitButton = getByText(LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUBMIT_BUTTON)
+    const emailInput = getByLabelText(LOGIN_CROSS.PASSWORD_RESET.STEP_1.EMAIL_LABEL)
 
     fireEvent.change(emailInput, {target: {value: VALID_EMAIL}})
     submitButton.click()
 
-    const resendLink = await findByText(
-      LOGIN_CROSS.PASSWORD_RESET.STEP_1.RESEND_LINK
-    )
+    const resendLink = await findByText(LOGIN_CROSS.PASSWORD_RESET.STEP_1.RESEND_LINK)
     resendLink.click()
 
     // Then

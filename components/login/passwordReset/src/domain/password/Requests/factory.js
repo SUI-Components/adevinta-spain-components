@@ -15,10 +15,8 @@ export class PasswordRequestsFactory {
   static resetPasswordRequest = ({email}) => {
     ResetPasswordRequest.validate({
       email,
-      emptyEmailPasswordErrorFactory:
-        PasswordErrorsFactory.emptyEmailPasswordError,
-      invalidEmailPasswordErrorFactory:
-        PasswordErrorsFactory.invalidEmailPasswordError
+      emptyEmailPasswordErrorFactory: PasswordErrorsFactory.emptyEmailPasswordError,
+      invalidEmailPasswordErrorFactory: PasswordErrorsFactory.invalidEmailPasswordError
     })
     return new ResetPasswordRequest({email})
   }

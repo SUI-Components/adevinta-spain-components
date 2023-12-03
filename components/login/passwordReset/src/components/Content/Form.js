@@ -2,7 +2,6 @@ import PropTypes from 'prop-types'
 
 import {BASE_CLASS} from '../../config.js'
 import HelpContent from '../Info/HelpContent.js'
-
 import UserAcquisitionText from '../Info/UserAcquisitionText.js'
 
 const Form = ({children, icons, isLogin = false, title}) => {

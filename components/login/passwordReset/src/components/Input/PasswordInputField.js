@@ -4,21 +4,9 @@ import PropTypes from 'prop-types'
 
 import MoleculeInputField from '@s-ui/react-molecule-input-field'
 
-import {
-  DEFAULT_EYE_CLOSED_OUTLINE,
-  DEFAULT_EYE_OPEN_OUTLINE
-} from '../../config.js'
+import {DEFAULT_EYE_CLOSED_OUTLINE, DEFAULT_EYE_OPEN_OUTLINE} from '../../config.js'
 
-const PasswordInputField = ({
-  errorText,
-  icons,
-  id,
-  label,
-  name,
-  onChange,
-  placeholder,
-  value
-}) => {
+const PasswordInputField = ({errorText, icons, id, label, name, onChange, placeholder, value}) => {
   const [fieldType, setFieldType] = useState('sui-password')
 
   return (
@@ -36,11 +24,7 @@ const PasswordInputField = ({
           ? icons.inputShowPassword || DEFAULT_EYE_CLOSED_OUTLINE
           : icons.inputHidePassword || DEFAULT_EYE_OPEN_OUTLINE
       }
-      onClickRightIcon={() =>
-        fieldType === 'sui-password'
-          ? setFieldType('text')
-          : setFieldType('sui-password')
-      }
+      onClickRightIcon={() => (fieldType === 'sui-password' ? setFieldType('text') : setFieldType('sui-password'))}
       pwHideLabel=""
       pwShowLabel=""
       value={value}

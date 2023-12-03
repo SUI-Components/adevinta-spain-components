@@ -1,7 +1,5 @@
-export const DEFAULT_RESET_PASSWORD_ENDPOINT =
-  'http://localhost/v1/ecg/password-reset'
-export const DEFAULT_CHANGE_PASSWORD_ENDPOINT =
-  'http://localhost/v1/ecg/password-change'
+export const DEFAULT_RESET_PASSWORD_ENDPOINT = 'http://localhost/v1/ecg/password-reset'
+export const DEFAULT_CHANGE_PASSWORD_ENDPOINT = 'http://localhost/v1/ecg/password-change'
 export default class Config {
   /**
    * @constructor

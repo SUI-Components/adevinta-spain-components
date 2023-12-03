@@ -1,8 +1,4 @@
-import AtomButton, {
-  atomButtonDesigns,
-  atomButtonShapes,
-  atomButtonSizes
-} from '@s-ui/react-atom-button'
+import AtomButton, {atomButtonDesigns, atomButtonShapes, atomButtonSizes} from '@s-ui/react-atom-button'
 
 import useI18n from '../../hooks/useI18n.js'
 import ButtonWrapper from './ButtonWrapper.js'

@@ -9,10 +9,7 @@ export default function LoginPasswordReset(props) {
   return (
     <PasswordResetProvider {...props}>
       {props.isLogin ? (
-        <Login
-          icons={props.icons || {}}
-          hasFaceRecognition={props.hasFaceRecognition}
-        />
+        <Login icons={props.icons || {}} hasFaceRecognition={props.hasFaceRecognition} />
       ) : (
         <PasswordReset icons={props.icons || {}} />
       )}
@@ -23,10 +20,7 @@ export default function LoginPasswordReset(props) {
 LoginPasswordReset.displayName = 'LoginPasswordReset'
 LoginPasswordReset.propTypes = {
   /* Allows to define which stage will be rendered in case the component is loaded in SSR mode */
-  defaultStage: PropTypes.oneOf([
-    STAGE_PASSWORD_RESET_START,
-    STAGE_PASSWORD_CHANGE
-  ]),
+  defaultStage: PropTypes.oneOf([STAGE_PASSWORD_RESET_START, STAGE_PASSWORD_CHANGE]),
   endpoints: PropTypes.shape({
     /* Endpoint to start the reset process */
     resetPassword: PropTypes.string.isRequired,

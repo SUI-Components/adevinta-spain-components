@@ -4,10 +4,7 @@ import {expect} from 'chai'
 
 import Mocker from '@s-ui/mockmock/lib/http'
 
-import {
-  DEFAULT_CHANGE_PASSWORD_ENDPOINT,
-  DEFAULT_RESET_PASSWORD_ENDPOINT
-} from '../../config.js'
+import {DEFAULT_CHANGE_PASSWORD_ENDPOINT, DEFAULT_RESET_PASSWORD_ENDPOINT} from '../../config.js'
 import Domain from '../../index.js'
 import {PasswordError} from '../../password/Errors/PasswordError.js'
 
@@ -30,10 +27,7 @@ describe('[Domain] ResetPasswordUseCase', () => {
   it('should successfully start the password reset process', async () => {
     const requestBody = {email: 'someone@adevinta.com'}
 
-    mocker
-      .httpMock('http://localhost/')
-      .post('v1/ecg/password-reset', requestBody)
-      .reply(null, 202)
+    mocker.httpMock('http://localhost/').post('v1/ecg/password-reset', requestBody).reply(null, 202)
 
     const [error, result] = await useCase.execute(requestBody)
     expect(error).to.be.null
@@ -45,17 +39,12 @@ describe('[Domain] ResetPasswordUseCase', () => {
       email: 'something-wrong@adevinta.com'
     }
 
-    mocker
-      .httpMock('http://localhost/')
-      .post('v1/ecg/password-reset', requestBody)
-      .reply(null, 400)
+    mocker.httpMock('http://localhost/').post('v1/ecg/password-reset', requestBody).reply(null, 400)
 
     const [error, result] = await useCase.execute(requestBody)
     expect(error).to.not.be.null
     expect(error).to.be.an.instanceof(PasswordError)
-    expect(error.toString()).to.eql(
-      'Error: [PasswordError] Unhandled error occurred'
-    )
+    expect(error.toString()).to.eql('Error: [PasswordError] Unhandled error occurred')
     expect(result).to.be.null
   })
 })

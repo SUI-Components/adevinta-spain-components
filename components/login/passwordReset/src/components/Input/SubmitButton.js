@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types'
 
-import AtomButton, {
-  atomButtonShapes,
-  atomButtonSizes
-} from '@s-ui/react-atom-button'
+import AtomButton, {atomButtonShapes, atomButtonSizes} from '@s-ui/react-atom-button'
 
 import ButtonWrapper from './ButtonWrapper.js'
 
