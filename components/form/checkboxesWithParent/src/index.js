@@ -22,14 +22,12 @@ class FormCheckboxesWithParent extends PureComponent {
   _createHandleChangeChildren = index => () => {
     const {childrenCheckbox} = this.state
 
-    const newChildrenCheckbox = childrenCheckbox.map(
-      (checkbox, checkboxIndex) => {
-        if (checkboxIndex === index) {
-          return {...checkbox, checked: !checkbox.checked}
-        }
-        return checkbox
+    const newChildrenCheckbox = childrenCheckbox.map((checkbox, checkboxIndex) => {
+      if (checkboxIndex === index) {
+        return {...checkbox, checked: !checkbox.checked}
       }
-    )
+      return checkbox
+    })
 
     this.setState({childrenCheckbox: newChildrenCheckbox})
   }
