@@ -13,9 +13,7 @@ import {brand, navCTA, navMain, navUser} from './fixtures.js'
 
 chai.use(chaiDOM)
 
-const Component = props => (
-  <TopbarUser brand={brand} navMain={navMain} navUser={navUser} {...props} />
-)
+const Component = props => <TopbarUser brand={brand} navMain={navMain} navUser={navUser} {...props} />
 
 describe('topbar/user', () => {
   it('Render', () => {
@@ -34,9 +32,7 @@ describe('topbar/user', () => {
     const customContent = <div>custom content</div>
     // we make sure that, if a customContent is passed, even though a navCTA is provided as well
     // the custom content it's rendered instead of the navCTA
-    const {getByText, queryByTitle} = render(
-      <Component customContent={customContent} navCTA={navCTA} />
-    )
+    const {getByText, queryByTitle} = render(<Component customContent={customContent} navCTA={navCTA} />)
 
     expect(getByText(/custom content/i)).to.exist
     expect(queryByTitle(navCTA.text)).not.exist
