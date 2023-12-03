@@ -10,8 +10,7 @@ class ErrorAppBoundary extends Component {
   state = {errorCount: 0, hasError: false}
 
   componentDidCatch(errorMessage, errorStack) {
-    const {errorThreshold, onError, redirectUrlOnBreakingThreshold, silent} =
-      this.props
+    const {errorThreshold, onError, redirectUrlOnBreakingThreshold, silent} = this.props
     const {errorCount} = this.state
 
     onError({errorMessage, errorStack})
@@ -25,8 +24,7 @@ class ErrorAppBoundary extends Component {
     this.setState({errorCount: errorCount + 1})
 
     return errorCount >= errorThreshold
-      ? redirectUrlOnBreakingThreshold &&
-          (window.location.href = redirectUrlOnBreakingThreshold)
+      ? redirectUrlOnBreakingThreshold && (window.location.href = redirectUrlOnBreakingThreshold)
       : this.setState({hasError: true})
   }
 
@@ -78,10 +76,7 @@ ErrorAppBoundary.propTypes = {
   /**
    * Wrapped childrens to control errors
    */
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]),
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   /**
    * Message to show to the user in order to inform him about the error
    */
@@ -112,8 +107,7 @@ ErrorAppBoundary.defaultProps = {
   message: 'Error',
   errorThreshold: 4,
   silent: false,
-  onError: ({errorMessage, errorStack}) =>
-    console.error({errorMessage, errorStack}) // eslint-disable-line
+  onError: ({errorMessage, errorStack}) => console.error({errorMessage, errorStack}) // eslint-disable-line
 }
 
 export default ErrorAppBoundary
