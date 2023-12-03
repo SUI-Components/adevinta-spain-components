@@ -15,10 +15,7 @@ class FormRangeDatepicker extends Component {
     endDate: this.props.endDate ? moment(this.props.endDate) : null
   }
 
-  _handleChange = ({
-    startDate = this.state.startDate,
-    endDate = this.state.endDate
-  }) => {
+  _handleChange = ({startDate = this.state.startDate, endDate = this.state.endDate}) => {
     if (startDate && startDate.isAfter(endDate)) {
       endDate = startDate
     }
@@ -91,9 +88,7 @@ class FormRangeDatepicker extends Component {
         </div>
         {!!this.props.buttonLabel && (
           <div className="sui-FormRangeDatepicker-button">
-            <AtomButton onClick={this._handleClickButton}>
-              {this.props.buttonLabel}
-            </AtomButton>
+            <AtomButton onClick={this._handleClickButton}>{this.props.buttonLabel}</AtomButton>
           </div>
         )}
       </div>
