@@ -67,13 +67,7 @@ const injectStyles = stylesheet => {
  * @param  {number} interval
  * @return {void}
  */
-const waitUntil = (
-  truthyFn,
-  callback,
-  timeoutCallback,
-  delay,
-  interval = 100
-) => {
+const waitUntil = (truthyFn, callback, timeoutCallback, delay, interval = 100) => {
   const intervalId = setInterval(() => {
     const value = truthyFn()
 
