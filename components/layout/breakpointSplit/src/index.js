@@ -45,10 +45,7 @@ class LayoutBreakpointSplit extends Component {
       <Type
         {...props}
         key={index}
-        className={cx(
-          props.className,
-          isSplitted && 'sui-LayoutBreakpointSplit-currentView'
-        )}
+        className={cx(props.className, isSplitted && 'sui-LayoutBreakpointSplit-currentView')}
       />
     ))
 
