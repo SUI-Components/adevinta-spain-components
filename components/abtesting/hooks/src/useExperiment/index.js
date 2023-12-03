@@ -29,8 +29,6 @@ export default (params = {}) => {
   const contextGetter = getExperimentContext || getExperimentContextFromPackage
   const experimentName = typeof params === 'string' ? params : params.name
   const ExperimentContext = contextGetter(experimentName)
-  const experimentData =
-    useContext(ExperimentContext) ||
-    NON_WRAPPED_BY_CONTEXT_PROVIDER_FALLBACK_OBJECT
+  const experimentData = useContext(ExperimentContext) || NON_WRAPPED_BY_CONTEXT_PROVIDER_FALLBACK_OBJECT
   return experimentData
 }
