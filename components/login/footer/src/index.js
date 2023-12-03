@@ -2,12 +2,7 @@ import PropTypes from 'prop-types'
 
 import Link from './components/Link.js'
 import Logo from './components/Logo.js'
-import {
-  BASE_CLASS,
-  COMPANY_LINK,
-  COPYRIGHT_TEXT,
-  DEFAULT_COMPANY_LOGO
-} from './config.js'
+import {BASE_CLASS, COMPANY_LINK, COPYRIGHT_TEXT, DEFAULT_COMPANY_LOGO} from './config.js'
 
 const DEFAULT_LINK = Link
 
@@ -27,9 +22,7 @@ export default function LoginFooter({
       <a href={COMPANY_LINK} className={`${BASE_CLASS}-logo`}>
         <Logo image={companyLogo} />
       </a>
-      {links.length > 0 ? (
-        <ul className={`${BASE_CLASS}-list`}>{footerLinks}</ul>
-      ) : null}
+      {links.length > 0 ? <ul className={`${BASE_CLASS}-list`}>{footerLinks}</ul> : null}
       <p className={`${BASE_CLASS}-text`}>{COPYRIGHT_TEXT}</p>
     </footer>
   )
