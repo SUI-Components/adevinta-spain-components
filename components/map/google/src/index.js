@@ -43,8 +43,7 @@ function MapGoogle({
   signedUrl,
   ...others
 }) {
-  const [isInteractive, setIsInteractive] =
-    useControlledState(isInteractiveProp)
+  const [isInteractive, setIsInteractive] = useControlledState(isInteractiveProp)
 
   const {isLoaded, loadError} = useLoadScript({
     googleMapsApiKey: apiKey,

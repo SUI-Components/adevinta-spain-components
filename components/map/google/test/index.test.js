@@ -160,9 +160,6 @@ describe('MapGoogleImage', () => {
     setup(props)
 
     // Then
-    expect(screen.getByRole('img', {name: props.alt})).to.have.attr(
-      'src',
-      props.signedUrl
-    )
+    expect(screen.getByRole('img', {name: props.alt})).to.have.attr('src', props.signedUrl)
   })
 })
