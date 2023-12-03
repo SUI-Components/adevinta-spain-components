@@ -1,13 +1,7 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-export default function CardComposable({
-  className,
-  contentFirst,
-  landscapeLayout,
-  primary,
-  secondary
-}) {
+export default function CardComposable({className, contentFirst, landscapeLayout, primary, secondary}) {
   const classNames = cx(className, {
     'sui-CardComposable': !className,
     'sui-CardComposable--landscape': landscapeLayout,
@@ -17,9 +11,7 @@ export default function CardComposable({
   return (
     <div className={classNames}>
       <div className="sui-CardComposable-primary">{primary}</div>
-      {secondary && (
-        <div className="sui-CardComposable-secondary">{secondary}</div>
-      )}
+      {secondary && <div className="sui-CardComposable-secondary">{secondary}</div>}
     </div>
   )
 }
