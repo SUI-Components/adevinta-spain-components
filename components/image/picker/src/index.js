@@ -34,9 +34,7 @@ class ImagePicker extends Component {
     const src = selected === -1 ? emptyImage : images[selected].src
     const alt = selected === -1 ? defaultAlt : images[selected].alt
 
-    return (
-      <ImagePlaceholder src={src} alt={alt} placeholder={this.placeHolder} />
-    )
+    return <ImagePlaceholder src={src} alt={alt} placeholder={this.placeHolder} />
   }
 
   _getListImages() {
@@ -47,11 +45,7 @@ class ImagePicker extends Component {
         'sui-ImagePicker-thumbItem--selected': index === selected
       })
       return (
-        <li
-          className={itemClass}
-          key={image.src}
-          onClick={() => this._handleClick(image)}
-        >
+        <li className={itemClass} key={image.src} onClick={() => this._handleClick(image)}>
           <img src={image.thumb} alt={image.alt} title={image.alt} />
         </li>
       )
@@ -79,11 +73,7 @@ class ImagePicker extends Component {
   _displayActions(actions) {
     const actionList = actions.map((action, index) => {
       return (
-        <div
-          className="sui-ImagePicker-action"
-          key={index}
-          onClick={() => this._buttonAction(action.callback)}
-        >
+        <div className="sui-ImagePicker-action" key={index} onClick={() => this._buttonAction(action.callback)}>
           {action.node}
         </div>
       )
@@ -98,14 +88,10 @@ class ImagePicker extends Component {
     return (
       <div className="sui-ImagePicker">
         <div>
-          <div className="sui-ImagePicker-headImage">
-            {this._getHeadImage()}
-          </div>
+          <div className="sui-ImagePicker-headImage">{this._getHeadImage()}</div>
           {actions.length > 0 && this._displayActions(actions)}
         </div>
-        {images.length > 0 && (
-          <ul className="sui-ImagePicker-thumbList">{this._getListImages()}</ul>
-        )}
+        {images.length > 0 && <ul className="sui-ImagePicker-thumbList">{this._getListImages()}</ul>}
       </div>
     )
   }
