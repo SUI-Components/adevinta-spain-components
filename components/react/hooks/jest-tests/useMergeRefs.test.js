@@ -34,10 +34,7 @@ describe('useMergeRefs hook', () => {
   it('should merge both functional and object references', () => {
     const refs = {}
 
-    const TestComponent = React.forwardRef(function TestComponent(
-      props,
-      forwardedRef
-    ) {
+    const TestComponent = React.forwardRef(function TestComponent(props, forwardedRef) {
       const firstRef = useRef()
       const secondRef = useRef()
 

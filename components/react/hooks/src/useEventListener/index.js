@@ -4,12 +4,7 @@
  */
 import {useEffect, useRef} from 'react'
 
-export default function useEventListener(
-  events,
-  handler,
-  elementRef,
-  options = {}
-) {
+export default function useEventListener(events, handler, elementRef, options = {}) {
   // Use window if no element is passed, otherwise default to null in SSR
   const element = elementRef || (typeof window !== 'undefined' ? window : null)
   // Create a list of events if a single string is passed
@@ -34,15 +29,11 @@ export default function useEventListener(
     const listener = event => savedHandler.current(event)
 
     // Add event listener
-    eventList.forEach(eventName =>
-      element.addEventListener(eventName, listener, options)
-    )
+    eventList.forEach(eventName => element.addEventListener(eventName, listener, options))
 
     // Remove event listener on cleanup
     return () => {
-      eventList.forEach(eventName =>
-        element.removeEventListener(eventName, listener, options)
-      )
+      eventList.forEach(eventName => element.removeEventListener(eventName, listener, options))
     }
   }, [eventListSerialized, element]) // eslint-disable-line react-hooks/exhaustive-deps
 }

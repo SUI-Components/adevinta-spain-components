@@ -30,8 +30,7 @@ describe('useLocalStorage hook', () => {
     const {result} = renderHook(() => useLocalStorage('test_key', 'test-value'))
     const [, setValue] = result.current
 
-    const getValueFromLocalStorage = () =>
-      JSON.parse(window.localStorage.getItem('test_key'))
+    const getValueFromLocalStorage = () => JSON.parse(window.localStorage.getItem('test_key'))
 
     act(() => {
       setValue('new-value')

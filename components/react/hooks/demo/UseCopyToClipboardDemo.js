@@ -6,8 +6,7 @@ import {Button, Cell, Grid, Input, Label} from '@s-ui/documentation-library'
 
 export default function UseCopyToClipboardDemo() {
   const [value, setValue] = useState('')
-  const [{value: copyValue, error: copyError}, copyToClipboard] =
-    useCopyToClipboard()
+  const [{value: copyValue, error: copyError}, copyToClipboard] = useCopyToClipboard()
 
   return (
     <Grid cols={7} gutter={[8, 8]}>
@@ -31,12 +30,7 @@ export default function UseCopyToClipboardDemo() {
         <Input placeholder="place to paste" fullWidth />
       </Cell>
       <Cell span={7}>
-        <Label>Copy state:</Label>{' '}
-        {JSON.stringify(
-          {error: copyError ? 'true' : 'false', value: copyValue},
-          null,
-          2
-        )}
+        <Label>Copy state:</Label> {JSON.stringify({error: copyError ? 'true' : 'false', value: copyValue}, null, 2)}
       </Cell>
     </Grid>
   )
