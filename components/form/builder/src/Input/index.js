@@ -20,19 +20,7 @@ const INPUT_MODES = {
   DECIMAL: 'decimal'
 }
 
-const Input = ({
-  input,
-  tabIndex,
-  onChange,
-  onFocus,
-  onBlur,
-  size,
-  leftAddon,
-  rightAddon,
-  errors,
-  alerts,
-  renderer
-}) => {
+const Input = ({input, tabIndex, onChange, onFocus, onBlur, size, leftAddon, rightAddon, errors, alerts, renderer}) => {
   const errorMessages = errors[input.id]
   const alertMessages = alerts[input.id]
 
@@ -151,9 +139,7 @@ const Input = ({
 
   // render SUI component
   return (
-    <div
-      className={`sui-FormBuilder-field sui-FormBuilder-Input sui-FormBuilder-${inputProps.id}`}
-    >
+    <div className={`sui-FormBuilder-field sui-FormBuilder-Input sui-FormBuilder-${inputProps.id}`}>
       <MoleculeInputField {...inputProps} {...rendererResponse} />
     </div>
   )

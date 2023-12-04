@@ -6,12 +6,7 @@ import ScriptLoader from '@s-ui/react-script-loader'
 const getGoogleOneTap = () => window && window.google?.accounts
 const googleOneTapUrl = 'https://accounts.google.com/gsi/client'
 
-export default function GoogleOneTapLoader({
-  render,
-  timeoutRender,
-  onTimeout = () => null,
-  detectionDelay = 15000
-}) {
+export default function GoogleOneTapLoader({render, timeoutRender, onTimeout = () => null, detectionDelay = 15000}) {
   return (
     <ScriptLoader
       src={googleOneTapUrl}

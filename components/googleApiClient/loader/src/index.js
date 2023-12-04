@@ -6,12 +6,7 @@ import ScriptLoader from '@s-ui/react-script-loader'
 const getGoogleApiClient = () => window && window.gapi
 const googleApiClientUrl = 'https://apis.google.com/js/client.js'
 
-export default function GoogleApiClientLoader({
-  render,
-  timeoutRender,
-  onTimeout = () => null,
-  detectionDelay = 15000
-}) {
+export default function GoogleApiClientLoader({render, timeoutRender, onTimeout = () => null, detectionDelay = 15000}) {
   return (
     <ScriptLoader
       src={googleApiClientUrl}

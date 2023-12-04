@@ -18,13 +18,7 @@ class FormPta extends Component {
   constructor(props) {
     super(props)
 
-    const {
-      formUrl: BASE_URL,
-      onSubmit,
-      onError,
-      eventListeners,
-      ...settings
-    } = this.props
+    const {formUrl: BASE_URL, onSubmit, onError, eventListeners, ...settings} = this.props
     const QUERY = paramsToQueryString(settings)
     const formUrl = `${BASE_URL}?${QUERY}`
 
@@ -46,9 +40,7 @@ class FormPta extends Component {
   runEventCallbacks({data: {type, payload}}) {
     const {onSubmit, onError, eventListeners} = this.props
 
-    const genericCallbackMap = eventListeners
-      ? transformEventsListenersIntoCallbackMap(eventListeners)
-      : []
+    const genericCallbackMap = eventListeners ? transformEventsListenersIntoCallbackMap(eventListeners) : []
 
     const callbackMap = {
       [RESIZE_EVENT_TYPE]: [this.doResize],
@@ -79,12 +71,7 @@ class FormPta extends Component {
 
     return (
       <div className={BASE_CLASS}>
-        <iframe
-          id={IFRAME_ID}
-          ref={ref => (this._iframeRef = ref)}
-          className={CONTENT_CLASS}
-          src={formUrl}
-        />
+        <iframe id={IFRAME_ID} ref={ref => (this._iframeRef = ref)} className={CONTENT_CLASS} src={formUrl} />
       </div>
     )
   }

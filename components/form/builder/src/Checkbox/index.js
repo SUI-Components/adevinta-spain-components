@@ -7,16 +7,7 @@ import MoleculeCheckboxField from '@s-ui/react-molecule-checkbox-field'
 import IconCheck from '../Icons/IconCheck.js'
 import {createComponentMemo, field} from '../prop-types/index.js'
 
-const Checkbox = ({
-  checkbox,
-  tabIndex,
-  onChange,
-  onFocus,
-  onBlur,
-  errors,
-  alerts,
-  renderer
-}) => {
+const Checkbox = ({checkbox, tabIndex, onChange, onFocus, onBlur, errors, alerts, renderer}) => {
   const errorMessages = errors[checkbox.id]
   const alertMessages = alerts[checkbox.id]
 
@@ -84,11 +75,7 @@ const Checkbox = ({
 
   // render SUI component
   return (
-    <div
-      className={`sui-FormBuilder-field sui-FormBuilder-Switch sui-FormBuilder-${
-        checkboxProps.id || tabIndex
-      }`}
-    >
+    <div className={`sui-FormBuilder-field sui-FormBuilder-Switch sui-FormBuilder-${checkboxProps.id || tabIndex}`}>
       <MoleculeCheckboxField {...checkboxProps} {...rendererResponse} />
     </div>
   )

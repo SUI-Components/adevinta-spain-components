@@ -7,9 +7,7 @@ import Domain from '../../index.js'
 describe('[Domain] SetWorkPercentageTaskUseCase', () => {
   const domain = new Domain()
   const runSimpleTaskUseCase = domain.get('run_simple_task_use_case')
-  const setWorkPercentageUseCase = domain.get(
-    'set_work_percentage_task_use_case'
-  )
+  const setWorkPercentageUseCase = domain.get('set_work_percentage_task_use_case')
 
   it('should successfully modify the completion percentage of an specific work', async () => {
     // Given

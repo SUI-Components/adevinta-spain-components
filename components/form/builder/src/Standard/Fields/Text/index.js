@@ -4,16 +4,7 @@ import Input from '../../../Input/index.js'
 import TextArea from '../../../TextArea/index.js'
 import {DISPLAYS, FIELDS} from '../../index.js'
 
-const TextField = ({
-  field,
-  tabIndex,
-  onChange,
-  onFocus,
-  onBlur,
-  errors,
-  alerts,
-  renderer
-}) => {
+const TextField = ({field, tabIndex, onChange, onFocus, onBlur, errors, alerts, renderer}) => {
   if (field.display === DISPLAYS[FIELDS.TEXT].MULTILINE)
     return (
       <TextArea

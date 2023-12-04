@@ -72,9 +72,7 @@ export default class CollapsibleReadmore extends Component {
 
   _getContentWrapperInlineStyles() {
     return {
-      maxHeight: this.state.collapsed
-        ? this.props.maxHeight
-        : this._fullContentHeight
+      maxHeight: this.state.collapsed ? this.props.maxHeight : this._fullContentHeight
     }
   }
 
@@ -99,24 +97,14 @@ export default class CollapsibleReadmore extends Component {
     } = this.props
 
     return (
-      <a
-        className={`${CLASS}-ellipsisLink`}
-        onClick={this._handleEllipsisClick}
-        role="button"
-      >
+      <a className={`${CLASS}-ellipsisLink`} onClick={this._handleEllipsisClick} role="button">
         <div className={`${CLASS}-ellipsisWrapper`}>
           <span className={`${CLASS}-ellipsisText`}>
-            {this.state.collapsed
-              ? ellipsisText.collapsed
-              : ellipsisText.expanded}
+            {this.state.collapsed ? ellipsisText.collapsed : ellipsisText.expanded}
           </span>
           <div className={`${CLASS}-ellipsisIconBox`}>
             {EllipsisIcon && (
-              <EllipsisIcon
-                className={`${CLASS}-ellipsisIcon`}
-                size={size}
-                svgClass={`${CLASS}-ellipsisIcon`}
-              />
+              <EllipsisIcon className={`${CLASS}-ellipsisIcon`} size={size} svgClass={`${CLASS}-ellipsisIcon`} />
             )}
           </div>
         </div>
@@ -127,9 +115,7 @@ export default class CollapsibleReadmore extends Component {
   componentDidMount() {
     const contentWrapperEl = this._readMoreContentRef.current
 
-    this._fullContentHeight = contentWrapperEl
-      ? contentWrapperEl.offsetHeight
-      : 0
+    this._fullContentHeight = contentWrapperEl ? contentWrapperEl.offsetHeight : 0
 
     if (this._fullContentHeight > this.props.maxHeight) {
       this._readMoreButtonEnabled = true

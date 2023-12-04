@@ -1,7 +1,4 @@
-import {
-  CSSTransition as Transition,
-  TransitionGroup as AnimationTransitionGroup
-} from 'react-transition-group'
+import {CSSTransition as Transition, TransitionGroup as AnimationTransitionGroup} from 'react-transition-group'
 
 import PropTypes from 'prop-types'
 

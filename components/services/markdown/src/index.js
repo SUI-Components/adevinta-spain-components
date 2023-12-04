@@ -31,8 +31,7 @@ function ServiceMarkdown({onLoad = () => {}, src}) {
         const id = document.location.hash.substring(1)
         if (id) {
           const element = document.getElementById(id)
-          element &&
-            element.scrollIntoView({block: 'start', behavior: 'smooth'})
+          element && element.scrollIntoView({block: 'start', behavior: 'smooth'})
         }
       }
     },

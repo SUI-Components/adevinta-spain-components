@@ -26,8 +26,7 @@ const waitUntil = (truthyFn, callback, delay = 100, interval = 100) => {
   }, interval)
 }
 
-const getOptimizely = () =>
-  window && window.optimizely && window.optimizely.get && window.optimizely
+const getOptimizely = () => window && window.optimizely && window.optimizely.get && window.optimizely
 
 /**
  * Register handler to optimizely ONCE
@@ -105,9 +104,7 @@ class OptimizelyXExperiments {
    */
   static async getInfo(experimentId) {
     const sdk = await this.getSDK()
-    return (
-      sdk && sdk.get && sdk.get('state').getExperimentStates()[experimentId]
-    )
+    return sdk && sdk.get && sdk.get('state').getExperimentStates()[experimentId]
   }
 
   /**
@@ -153,9 +150,7 @@ class OptimizelyXExperiments {
   static async removeActivationListener(experimentId, removedHandler) {
     const handlers = activationHandlers[experimentId]
     if (!handlers) return
-    activationHandlers[experimentId] = handlers.filter(
-      handler => handler !== removedHandler
-    )
+    activationHandlers[experimentId] = handlers.filter(handler => handler !== removedHandler)
   }
 
   /**

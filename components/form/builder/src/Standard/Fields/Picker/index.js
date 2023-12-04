@@ -9,16 +9,7 @@ import Stepper from '../../../Stepper/index.js'
 import Switch from '../../../Switch/index.js'
 import {DISPLAYS, FIELDS} from '../../index.js'
 
-const PickerField = ({
-  field,
-  tabIndex,
-  onChange,
-  onFocus,
-  onBlur,
-  errors,
-  alerts,
-  renderer
-}) => {
+const PickerField = ({field, tabIndex, onChange, onFocus, onBlur, errors, alerts, renderer}) => {
   if (field.display === DISPLAYS[FIELDS.PICKER].SWITCH) {
     return (
       <Switch

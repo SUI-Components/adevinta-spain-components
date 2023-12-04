@@ -5,9 +5,7 @@ import Enzyme, {mount} from 'enzyme'
 
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17'
 
-import AbTestOptimizelyXExperiment, {
-  getExperimentContext
-} from '../../optimizelyXExperiment/src'
+import AbTestOptimizelyXExperiment, {getExperimentContext} from '../../optimizelyXExperiment/src'
 import {useExperiment as useExperimentRaw, useExperimentCore} from '../src'
 import OptimizelyX from '../src/useExperimentCore/optimizely-x'
 
@@ -18,13 +16,9 @@ jest.useFakeTimers()
 // configure dependencies
 const useExperiment = params =>
   useExperimentRaw(
-    typeof params === 'string'
-      ? {getExperimentContext, name: params}
-      : {getExperimentContext, ...params}
+    typeof params === 'string' ? {getExperimentContext, name: params} : {getExperimentContext, ...params}
   )
-const OptimizelyXExperiment = props => (
-  <AbTestOptimizelyXExperiment {...props} deps={{useExperimentCore}} />
-)
+const OptimizelyXExperiment = props => <AbTestOptimizelyXExperiment {...props} deps={{useExperimentCore}} />
 
 describe('Experiment', () => {
   let activationHandler
@@ -32,24 +26,17 @@ describe('Experiment', () => {
   beforeEach(() => {
     const noop = () => {}
     activationHandler = {single: noop}
-    jest
-      .spyOn(OptimizelyX, 'addActivationListener')
-      .mockImplementation((experimentId, handler) => {
-        activationHandler.single = handler
-        activationHandler[experimentId] = handler
-      })
+    jest.spyOn(OptimizelyX, 'addActivationListener').mockImplementation((experimentId, handler) => {
+      activationHandler.single = handler
+      activationHandler[experimentId] = handler
+    })
   })
 
   afterEach(() => {
     OptimizelyX.addActivationListener.mockRestore()
   })
 
-  const assertActivation = (
-    Component,
-    expectedFromDefault,
-    variationId,
-    expectedFromVariation
-  ) => {
+  const assertActivation = (Component, expectedFromDefault, variationId, expectedFromVariation) => {
     let mounted
     act(() => {
       mounted = mount(<Component />)
@@ -88,11 +75,7 @@ describe('Experiment', () => {
         () => {
           const experimentData = useExperiment({
             experimentId: 40000,
-            variations: [
-              {id: 700000, isDefault: true},
-              {id: 700001},
-              {id: 700002}
-            ]
+            variations: [{id: 700000, isDefault: true}, {id: 700001}, {id: 700002}]
           })
           return (
             <OptimizelyXExperiment feed={experimentData}>
@@ -119,11 +102,7 @@ describe('Experiment', () => {
           const experimentData = useExperiment({
             name: 'myexperiment',
             experimentId: 40000,
-            variations: [
-              {id: 700000, isDefault: true},
-              {id: 700001},
-              {id: 700002}
-            ]
+            variations: [{id: 700000, isDefault: true}, {id: 700001}, {id: 700002}]
           })
           return (
             <OptimizelyXExperiment feed={experimentData}>
@@ -164,20 +143,12 @@ describe('Experiment', () => {
           const catsExperimentData = useExperiment({
             name: 'cats',
             experimentId: 40000,
-            variations: [
-              {id: 700000, isDefault: true},
-              {id: 700001},
-              {id: 700002}
-            ]
+            variations: [{id: 700000, isDefault: true}, {id: 700001}, {id: 700002}]
           })
           const dogsExperimentData = useExperiment({
             name: 'dogs',
             experimentId: 50000,
-            variations: [
-              {id: 900000, isDefault: true},
-              {id: 900001},
-              {id: 900002}
-            ]
+            variations: [{id: 900000, isDefault: true}, {id: 900001}, {id: 900002}]
           })
           return (
             <OptimizelyXExperiment feed={catsExperimentData}>
@@ -222,20 +193,12 @@ describe('Experiment', () => {
         () => {
           const catsExperimentData = useExperiment({
             experimentId: 40000,
-            variations: [
-              {id: 700000, isDefault: true},
-              {id: 700001},
-              {id: 700002}
-            ]
+            variations: [{id: 700000, isDefault: true}, {id: 700001}, {id: 700002}]
           })
           const dogsExperimentData = useExperiment({
             name: 'dogs',
             experimentId: 50000,
-            variations: [
-              {id: 900000, isDefault: true},
-              {id: 900001},
-              {id: 900002}
-            ]
+            variations: [{id: 900000, isDefault: true}, {id: 900001}, {id: 900002}]
           })
           return (
             <OptimizelyXExperiment feed={catsExperimentData}>
@@ -261,11 +224,7 @@ describe('Experiment', () => {
         () => {
           const experimentData = useExperiment({
             experimentId: 40000,
-            variations: [
-              {id: 700000, isDefault: true},
-              {id: 700001},
-              {id: 700002}
-            ]
+            variations: [{id: 700000, isDefault: true}, {id: 700001}, {id: 700002}]
           })
           const {isWrapped} = experimentData
           return isWrapped.toString()
@@ -281,11 +240,7 @@ describe('Experiment', () => {
         () => {
           const experimentData = useExperiment({
             experimentId: 40000,
-            variations: [
-              {id: 700000, isDefault: true},
-              {id: 700001},
-              {id: 700002}
-            ]
+            variations: [{id: 700000, isDefault: true}, {id: 700001}, {id: 700002}]
           })
           const {isActive} = experimentData
           return isActive.toString()
@@ -301,11 +256,7 @@ describe('Experiment', () => {
         () => {
           const experimentData = useExperiment({
             experimentId: 40000,
-            variations: [
-              {id: 700000, isDefault: true},
-              {id: 700001},
-              {id: 700002}
-            ]
+            variations: [{id: 700000, isDefault: true}, {id: 700001}, {id: 700002}]
           })
           const {isDefault} = experimentData
           return isDefault.toString()
@@ -321,11 +272,7 @@ describe('Experiment', () => {
         () => {
           const experimentData = useExperiment({
             experimentId: 40000,
-            variations: [
-              {id: 700000, isDefault: true},
-              {id: 700001},
-              {id: 700002}
-            ]
+            variations: [{id: 700000, isDefault: true}, {id: 700001}, {id: 700002}]
           })
           const {isVariation} = experimentData
           return isVariation.toString()
@@ -341,11 +288,7 @@ describe('Experiment', () => {
         () => {
           const experimentData = useExperiment({
             experimentId: 40000,
-            variations: [
-              {id: 700000, isDefault: true},
-              {id: 700001},
-              {id: 700002}
-            ]
+            variations: [{id: 700000, isDefault: true}, {id: 700001}, {id: 700002}]
           })
           const {experimentId, variationId} = experimentData
           return `${experimentId}/${variationId}`
@@ -361,11 +304,7 @@ describe('Experiment', () => {
         () => {
           const experimentData = useExperiment({
             experimentId: 40000,
-            variations: [
-              {id: 700000},
-              {id: 700001},
-              {id: 700002, isDefault: true}
-            ]
+            variations: [{id: 700000}, {id: 700001}, {id: 700002, isDefault: true}]
           })
           const {variationName} = experimentData
           return variationName
@@ -381,11 +320,7 @@ describe('Experiment', () => {
         () => {
           const experimentData = useExperiment({
             experimentId: 40000,
-            variations: [
-              {id: 700000},
-              {id: 700001},
-              {id: 700002, isDefault: true}
-            ]
+            variations: [{id: 700000}, {id: 700001}, {id: 700002, isDefault: true}]
           })
           const {isVariationA, isVariationB, isVariationC} = experimentData
           return `${isVariationA}:${isVariationB}:${isVariationC}`
@@ -402,11 +337,7 @@ describe('Experiment', () => {
           const experimentData = useExperiment({
             experimentId: 40000,
             forceVariation: 700001, // B
-            variations: [
-              {id: 700000, isDefault: true},
-              {id: 700001},
-              {id: 700002}
-            ]
+            variations: [{id: 700000, isDefault: true}, {id: 700001}, {id: 700002}]
           })
           const {variationName} = experimentData
           return variationName
@@ -423,11 +354,7 @@ describe('Experiment', () => {
           const experimentData = useExperiment({
             experimentId: 40000,
             forceVariation: 'B',
-            variations: [
-              {id: 700000, isDefault: true},
-              {id: 700001},
-              {id: 700002}
-            ]
+            variations: [{id: 700000, isDefault: true}, {id: 700001}, {id: 700002}]
           })
           const {variationName} = experimentData
           return variationName
@@ -444,11 +371,7 @@ describe('Experiment', () => {
           const experimentData = useExperiment({
             experimentId: 40000,
             forceActivation: 700001, // B
-            variations: [
-              {id: 700000, isDefault: true},
-              {id: 700001},
-              {id: 700002}
-            ]
+            variations: [{id: 700000, isDefault: true}, {id: 700001}, {id: 700002}]
           })
           const {variationName} = experimentData
           return variationName
@@ -465,11 +388,7 @@ describe('Experiment', () => {
           const experimentData = useExperiment({
             experimentId: 40000,
             forceActivation: 'B',
-            variations: [
-              {id: 700000, isDefault: true},
-              {id: 700001},
-              {id: 700002}
-            ]
+            variations: [{id: 700000, isDefault: true}, {id: 700001}, {id: 700002}]
           })
           const {variationName} = experimentData
           return variationName
@@ -489,11 +408,7 @@ describe('Experiment', () => {
           onActivation: experimentData => {
             dataFromOnActivation = experimentData
           },
-          variations: [
-            {id: 700000, isDefault: true},
-            {id: 700001},
-            {id: 700002}
-          ]
+          variations: [{id: 700000, isDefault: true}, {id: 700001}, {id: 700002}]
         })
         const {variationName} = experimentData
         return variationName

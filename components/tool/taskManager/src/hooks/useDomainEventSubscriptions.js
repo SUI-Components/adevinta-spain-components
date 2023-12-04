@@ -6,14 +6,10 @@ const useDomainEventSubscriptions = (domain, executeUseCase) => {
     subscriptions.push(
       domain
         .get('run_simple_task_use_case')
-        .subscribe(({result}) =>
-          executeUseCase('process_queued_task_use_case', {localState: result})
-        ),
+        .subscribe(({result}) => executeUseCase('process_queued_task_use_case', {localState: result})),
       domain
         .get('run_task_use_case')
-        .subscribe(({result}) =>
-          executeUseCase('process_queued_task_use_case', {localState: result})
-        ),
+        .subscribe(({result}) => executeUseCase('process_queued_task_use_case', {localState: result})),
       domain.get('finish_work_task_use_case').subscribe(({result}) =>
         executeUseCase('process_in_progress_task_use_case', {
           localState: result
@@ -32,8 +28,7 @@ const useDomainEventSubscriptions = (domain, executeUseCase) => {
       })
     )
 
-    return () =>
-      subscriptions.forEach(subscription => subscription.unsubscribe())
+    return () => subscriptions.forEach(subscription => subscription.unsubscribe())
   })
 }
 

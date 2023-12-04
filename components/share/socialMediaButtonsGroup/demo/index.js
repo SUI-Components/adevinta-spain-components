@@ -1,6 +1,4 @@
-import ShareSocialMediaButtonsGroup, {
-  socialMediaDictionary
-} from 'components/share/socialMediaButtonsGroup/src/index'
+import ShareSocialMediaButtonsGroup, {socialMediaDictionary} from 'components/share/socialMediaButtonsGroup/src/index'
 
 const myConfig = {
   mail: {
@@ -55,13 +53,7 @@ const DemoSocialMediaButtonsGroup = () => {
 
       <h2>Custom Social Media Dictionary</h2>
       <ShareSocialMediaButtonsGroup
-        buttonsToShow={[
-          'facebook',
-          'mail',
-          'myOhterSocialMedia',
-          'twitter',
-          'whatsapp'
-        ]}
+        buttonsToShow={['facebook', 'mail', 'myOhterSocialMedia', 'twitter', 'whatsapp']}
         socialMediaDictionary={myConfig}
         textToShare="https://www.fotocasa.es/es/"
       />

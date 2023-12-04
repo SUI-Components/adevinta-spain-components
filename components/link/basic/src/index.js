@@ -70,12 +70,7 @@ export default function LinkBasic({
   }
 
   return (
-    <PolymorphicElement
-      as={as}
-      onClick={onClick}
-      {...commonProps}
-      {...(isAnchor ? anchorProps : {})}
-    >
+    <PolymorphicElement as={as} onClick={onClick} {...commonProps} {...(isAnchor ? anchorProps : {})}>
       {content}
     </PolymorphicElement>
   )

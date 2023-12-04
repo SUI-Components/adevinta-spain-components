@@ -7,17 +7,8 @@ const TITLE_ALIGN_CLASSNAMES = {
   right: 'sui-TitleBasic--alignRight'
 }
 
-export default function TitleBasic({
-  align = 'center',
-  className,
-  subtitle,
-  title
-}) {
-  const titleBasicClassName = cx(
-    'sui-TitleBasic',
-    className,
-    TITLE_ALIGN_CLASSNAMES[align]
-  )
+export default function TitleBasic({align = 'center', className, subtitle, title}) {
+  const titleBasicClassName = cx('sui-TitleBasic', className, TITLE_ALIGN_CLASSNAMES[align])
 
   return (
     <div className={titleBasicClassName}>

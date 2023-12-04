@@ -29,12 +29,7 @@ export default function BasicFormSection({
   return (
     <section style={{padding: '16px', marginBottom: '16px'}}>
       <form onSubmit={handleFormSubmit} noValidate>
-        <FormBuilder
-          errors={errors}
-          json={json}
-          onChange={fields => setStateFields(fields)}
-          {...restProps}
-        />
+        <FormBuilder errors={errors} json={json} onChange={fields => setStateFields(fields)} {...restProps} />
         <button>Submit</button>
       </form>
       <pre

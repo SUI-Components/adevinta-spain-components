@@ -1,8 +1,7 @@
 import useMediaQuery from '../useMediaQuery/index.js'
 
 const usePreCalculatedMediaQuery = queryInput => {
-  const supportMatchMedia =
-    typeof window !== 'undefined' && typeof window.matchMedia !== 'undefined'
+  const supportMatchMedia = typeof window !== 'undefined' && typeof window.matchMedia !== 'undefined'
   const query = queryInput.replace(/^@media( ?)/m, '')
   const matchMedia = supportMatchMedia ? window.matchMedia : null
 

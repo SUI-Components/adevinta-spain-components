@@ -51,11 +51,7 @@ class TabContent extends Component {
 
     return (
       <div className="sui-TabContent">
-        <TabsBasic
-          activeTab={activeTab}
-          handleClick={this._handleClick}
-          tabsList={tabsList}
-        />
+        <TabsBasic activeTab={activeTab} handleClick={this._handleClick} tabsList={tabsList} />
         {this._renderContent({activeTab, tabsContent})}
       </div>
     )

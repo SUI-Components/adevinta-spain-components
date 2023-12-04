@@ -52,10 +52,7 @@ const TagChip = ({
   >
     {label}
     {onRequestDelete && (
-      <span
-        onClick={preventDefaultHandler(onRequestDelete)}
-        className="sui-TagChip-delete"
-      >
+      <span onClick={preventDefaultHandler(onRequestDelete)} className="sui-TagChip-delete">
         <Icon svgClass="sui-TagChip-deleteIcon" />
       </span>
     )}

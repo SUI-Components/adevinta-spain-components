@@ -1,9 +1,4 @@
-export const DEFAULT_SOCIAL_MEDIA_BUTTONS = [
-  'mail',
-  'whatsapp',
-  'facebook',
-  'twitter'
-]
+export const DEFAULT_SOCIAL_MEDIA_BUTTONS = ['mail', 'whatsapp', 'facebook', 'twitter']
 
 const DEFAULT_SOCIAL_MEDIA_DICTIONARY = {
   mail: {

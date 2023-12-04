@@ -14,9 +14,7 @@ describe('[Domain] ProcessInProgressTaskUseCase', () => {
   const finishWorkTaskUseCase = domain.get('finish_work_task_use_case')
   const runTaskUseCase = domain.get('run_task_use_case')
   const processQueuedTaskUseCase = domain.get('process_queued_task_use_case')
-  const processInProgressTaskUseCase = domain.get(
-    'process_in_progress_task_use_case'
-  )
+  const processInProgressTaskUseCase = domain.get('process_in_progress_task_use_case')
 
   it('should mark as completed all in progress tasks that does not have runnable queued work', async () => {
     // Given
@@ -52,9 +50,7 @@ describe('[Domain] ProcessInProgressTaskUseCase', () => {
     })
 
     // Then
-    expect(nextState.tasks[0].status).to.eql(
-      config.get('AVAILABLE_STATUS').COMPLETED
-    )
+    expect(nextState.tasks[0].status).to.eql(config.get('AVAILABLE_STATUS').COMPLETED)
   })
 
   it('should execute all runnable queued work from queued tasks', async () => {

@@ -24,9 +24,7 @@ export default class CardSubscription extends Component {
   }
 
   _getCheckboxError = () =>
-    this.state.showErrorMessage && this.props.checkboxErrorMessage
-      ? this.props.checkboxErrorMessage
-      : null
+    this.state.showErrorMessage && this.props.checkboxErrorMessage ? this.props.checkboxErrorMessage : null
 
   _handleSubmit = event => {
     const {onSubmit} = this.props
@@ -38,14 +36,7 @@ export default class CardSubscription extends Component {
   }
 
   _printCardContent = ({termsOfUseAccepted}) => {
-    const {
-      placeholder,
-      iconButton,
-      responseError,
-      checkboxName,
-      checkboxLabel,
-      checkboxIcons
-    } = this.props
+    const {placeholder, iconButton, responseError, checkboxName, checkboxLabel, checkboxIcons} = this.props
     const IconAngle = iconButton || Chevronright
     const inputClassName = cx('sui-CardSubscription-input', {
       'has-error': !!responseError

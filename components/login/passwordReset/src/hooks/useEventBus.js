@@ -9,8 +9,7 @@ const useEventBus = () => {
   } = useContext(PasswordResetContext)
 
   const emit = (event, payload) => {
-    if (Object.values(EVENTS).includes(event) === false)
-      throw new Error(`"${event}" is not an accepted event name`)
+    if (Object.values(EVENTS).includes(event) === false) throw new Error(`"${event}" is not an accepted event name`)
 
     onEvent(event, payload)
   }

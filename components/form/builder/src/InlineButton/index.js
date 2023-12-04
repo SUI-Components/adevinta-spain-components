@@ -7,14 +7,7 @@ import MoleculeButtonGroupField from '@s-ui/react-molecule-button-group-field'
 
 import {createComponentMemo, field} from '../prop-types'
 
-const InlineButton = ({
-  inlineButton,
-  tabIndex,
-  onChange,
-  errors,
-  alerts,
-  renderer
-}) => {
+const InlineButton = ({inlineButton, tabIndex, onChange, errors, alerts, renderer}) => {
   const errorMessages = errors[inlineButton.id]
   const alertMessages = alerts[inlineButton.id]
   const datalist = inlineButton.datalist

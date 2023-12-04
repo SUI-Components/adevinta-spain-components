@@ -16,12 +16,7 @@ export const useControlledState = (controlledValue, defaultValue) => {
     [setInnerValue, controlledValue]
   )
 
-  return [
-    isControlled ? controlledValue : innerValue,
-    updater,
-    isControlled,
-    initialValue
-  ]
+  return [isControlled ? controlledValue : innerValue, updater, isControlled, initialValue]
 }
 
 export default useControlledState

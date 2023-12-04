@@ -20,10 +20,7 @@ const TableBasic = ({head, body, foot, fullWidth}) => {
         <thead>
           <tr>
             {head.map((element, index) => (
-              <th
-                key={index}
-                className={`${baseClass}-cell ${baseClass}-headerCell`}
-              >
+              <th key={index} className={`${baseClass}-cell ${baseClass}-headerCell`}>
                 {element}
               </th>
             ))}

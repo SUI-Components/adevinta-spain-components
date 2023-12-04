@@ -33,10 +33,7 @@ class CardCollapsible extends Component {
    * @param {boolean} itemProps.highlighted Highlight the item (bold style).
    * @return {Element} Item to display on card's header info area.
    */
-  _renderInfoItem(
-    {label, link, highlighted, target = '_blank', iconLeft: IconLeft, onClick},
-    index
-  ) {
+  _renderInfoItem({label, link, highlighted, target = '_blank', iconLeft: IconLeft, onClick}, index) {
     const InfoItemElement = link ? 'a' : 'span'
     const props = link ? {href: link, target, onClick} : {}
 
@@ -50,10 +47,7 @@ class CardCollapsible extends Component {
         {...props}
       >
         {IconLeft && (
-          <IconLeft
-            svgClass="sui-CardCollapsible-infoItemIcon"
-            className="sui-CardCollapsible-infoItemIcon"
-          />
+          <IconLeft svgClass="sui-CardCollapsible-infoItemIcon" className="sui-CardCollapsible-infoItemIcon" />
         )}
         <span>{label}</span>
       </InfoItemElement>
@@ -65,14 +59,8 @@ class CardCollapsible extends Component {
 
     return (
       <div className="sui-CardCollapsible-headerClose">
-        <a
-          className="sui-CardCollapsible-closeButton"
-          onClick={this._toggleCardContent}
-        >
-          <Icon
-            svgClass="sui-CardCollapsible-closeIcon"
-            className="sui-CardCollapsible-closeIcon"
-          />
+        <a className="sui-CardCollapsible-closeButton" onClick={this._toggleCardContent}>
+          <Icon svgClass="sui-CardCollapsible-closeIcon" className="sui-CardCollapsible-closeIcon" />
         </a>
       </div>
     )
@@ -107,11 +95,7 @@ class CardCollapsible extends Component {
             Image
           )}
         </div>
-        {info && (
-          <div className="sui-CardCollapsible-headerInfo">
-            {info.map(this._renderInfoItem)}
-          </div>
-        )}
+        {info && <div className="sui-CardCollapsible-headerInfo">{info.map(this._renderInfoItem)}</div>}
       </div>
     )
   }
@@ -134,18 +118,9 @@ class CardCollapsible extends Component {
 
   render() {
     const {collapsed} = this.state
-    const {
-      className,
-      children,
-      headerImage,
-      headerInfo,
-      onChangeHandler,
-      showCloseButton,
-      hasBoxShadowWhenExpanded
-    } = this.props
-    const headerInfoConfig = collapsed
-      ? headerInfo.displayWhenCollapsed
-      : headerInfo.displayWhenExpanded
+    const {className, children, headerImage, headerInfo, onChangeHandler, showCloseButton, hasBoxShadowWhenExpanded} =
+      this.props
+    const headerInfoConfig = collapsed ? headerInfo.displayWhenCollapsed : headerInfo.displayWhenExpanded
     const cssClassName = cx('sui-CardCollapsible', className, {
       'is-expanded': !collapsed,
       'sui-CardCollapsible--boxShadow': hasBoxShadowWhenExpanded

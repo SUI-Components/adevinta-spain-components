@@ -37,11 +37,9 @@ const DefaultSelect = ({
     label: select.label
   }
 
-  const onBlurCallback = otherParams =>
-    onBlur(select.id, blurFocusParams, otherParams)
+  const onBlurCallback = otherParams => onBlur(select.id, blurFocusParams, otherParams)
 
-  const onFocusCallback = otherParams =>
-    onFocus(select.id, blurFocusParams, otherParams)
+  const onFocusCallback = otherParams => onFocus(select.id, blurFocusParams, otherParams)
 
   const {datalist = []} = select
 
@@ -111,9 +109,7 @@ const DefaultSelect = ({
 
   // render SUI component
   return (
-    <div
-      className={`sui-FormBuilder-field sui-FormBuilder-DefaultSelect sui-FormBuilder-${selectProps.id}`}
-    >
+    <div className={`sui-FormBuilder-field sui-FormBuilder-DefaultSelect sui-FormBuilder-${selectProps.id}`}>
       {selectProps.children}
 
       {selectProps.label && (
@@ -122,11 +118,7 @@ const DefaultSelect = ({
         </label>
       )}
 
-      <MoleculeSelectField
-        {...selectProps}
-        {...rendererResponse}
-        multiselection={multiselection}
-      >
+      <MoleculeSelectField {...selectProps} {...rendererResponse} multiselection={multiselection}>
         {datalist.map(data => (
           <MoleculeSelectOption
             key={data.value}

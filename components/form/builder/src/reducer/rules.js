@@ -38,10 +38,7 @@ const fetch = config =>
       reject(Error('Network Error'))
     }
     request.open('GET', url, true)
-    headers &&
-      Object.entries(headers).map(([header, value]) =>
-        request.setRequestHeader(header, value)
-      )
+    headers && Object.entries(headers).map(([header, value]) => request.setRequestHeader(header, value))
     request.responseType = 'json'
     request.withCredentials = withCredentials
     request.send()
@@ -86,12 +83,7 @@ export const shouldApplyRule = (fields, changeField, locale) => when => {
         isValid = operators.GREATERTHAN(rule.id, rule.value, fields, locale)
         break
       case GREATERTHANEQUALS:
-        isValid = operators.GREATERTHANEQUALS(
-          rule.id,
-          rule.value,
-          fields,
-          locale
-        )
+        isValid = operators.GREATERTHANEQUALS(rule.id, rule.value, fields, locale)
         break
       case LESSTHANEQUALS:
         isValid = operators.LESSTHANEQUALS(rule.id, rule.value, fields, locale)
@@ -119,22 +111,12 @@ export const shouldApplyRule = (fields, changeField, locale) => when => {
 }
 
 export const fetchRemoteFields =
-  (
-    fields,
-    formID,
-    baseAPIURL,
-    responseInterceptor,
-    requestInterceptor,
-    extraParams
-  ) =>
-  async fieldsToChanges => {
+  (fields, formID, baseAPIURL, responseInterceptor, requestInterceptor, extraParams) => async fieldsToChanges => {
     const remoteFieldsToChange = await Promise.all(
       Object.entries(fieldsToChanges)
         .filter(([field, nextValue]) => nextValue.remote === REMOTE)
         .map(async ([field, nextValue]) => {
-          const defaultUrl = encodeURI(
-            `${baseAPIURL}/fieldrules/${field}?${fieldsToQP(fields, formID)}`
-          )
+          const defaultUrl = encodeURI(`${baseAPIURL}/fieldrules/${field}?${fieldsToQP(fields, formID)}`)
 
           const defaultConfig = {url: defaultUrl}
 
@@ -147,8 +129,7 @@ export const fetchRemoteFields =
 
           // Config must be follow the Axios pattern
           // https://github.com/axios/axios
-          const {callback, ...config} =
-            requestInterceptorConfig || defaultConfig
+          const {callback, ...config} = requestInterceptorConfig || defaultConfig
 
           const {remote, ...resetValue} = nextValue
 
@@ -169,17 +150,12 @@ export const fetchRemoteFields =
               const nextJSON = await responseInterceptor({
                 field,
                 url,
-                response:
-                  typeof json === 'string' || json instanceof String
-                    ? JSON.parse(json)
-                    : json
+                response: typeof json === 'string' || json instanceof String ? JSON.parse(json) : json
               })
               return [field, {...resetValue, ...nextJSON}]
             })
             .catch(error => {
-              console.error(
-                `FAILED requesting remote nextValue for ${field} with error: ${error}`
-              )
+              console.error(`FAILED requesting remote nextValue for ${field} with error: ${error}`)
               return [field, {}]
             })
         })
@@ -198,11 +174,7 @@ export const applyRules = async (
   locale,
   extraParams
 ) => {
-  const shouldApplyRuleForFieldsAndChangeField = shouldApplyRule(
-    fields,
-    changeField,
-    locale
-  )
+  const shouldApplyRuleForFieldsAndChangeField = shouldApplyRule(fields, changeField, locale)
   const fetchRemoteFieldsForFieldsAndFormID = fetchRemoteFields(
     fields,
     formID,
@@ -212,29 +184,22 @@ export const applyRules = async (
     extraParams
   )
 
-  const fieldsToChanges = Object.entries(rules).reduce(
-    (acc, [idField, rulesField]) => {
-      // Find works as OR operator, and we want the first match
-      const firstMatch = rulesField.find(ruleField =>
-        shouldApplyRuleForFieldsAndChangeField(ruleField.when)
-      )
+  const fieldsToChanges = Object.entries(rules).reduce((acc, [idField, rulesField]) => {
+    // Find works as OR operator, and we want the first match
+    const firstMatch = rulesField.find(ruleField => shouldApplyRuleForFieldsAndChangeField(ruleField.when))
 
-      return {
-        ...acc,
-        ...(firstMatch && {
-          [idField]: {
-            ...firstMatch.then.data,
-            ...(firstMatch.then.remote && {remote: REMOTE})
-          }
-        })
-      }
-    },
-    {}
-  )
+    return {
+      ...acc,
+      ...(firstMatch && {
+        [idField]: {
+          ...firstMatch.then.data,
+          ...(firstMatch.then.remote && {remote: REMOTE})
+        }
+      })
+    }
+  }, {})
 
-  const remoteFieldsToChange = await fetchRemoteFieldsForFieldsAndFormID(
-    fieldsToChanges
-  )
+  const remoteFieldsToChange = await fetchRemoteFieldsForFieldsAndFormID(fieldsToChanges)
 
   let nextFields = Object.entries(fieldsToChanges)
     .filter(([idField, nextValue]) => {

@@ -4,10 +4,7 @@ import {WorkListTaskValueObject} from './WorkListTaskValueObject.js'
 import {WorkResultTaskValueObject} from './WorkResultTaskValueObject.js'
 
 export class TaskValueObjectsFactory {
-  static statusTaskValueObject = (
-    config,
-    status = config.get('AVAILABLE_STATUS').QUEUED
-  ) => {
+  static statusTaskValueObject = (config, status = config.get('AVAILABLE_STATUS').QUEUED) => {
     const statusValueObject = new StatusTaskValueObject({
       config,
       value: status
@@ -19,12 +16,9 @@ export class TaskValueObjectsFactory {
   }
 
   static workListTaskValueObject = (config, work = [], taskId = null) => {
-    const workEntities = work.map(workItem =>
-      TaskEntitiesFactory.workTaskEntity({config, taskId, ...workItem})
-    )
+    const workEntities = work.map(workItem => TaskEntitiesFactory.workTaskEntity({config, taskId, ...workItem}))
     return new WorkListTaskValueObject({work: workEntities})
   }
 
-  static workResultTaskValueObject = result =>
-    new WorkResultTaskValueObject({result})
+  static workResultTaskValueObject = result => new WorkResultTaskValueObject({result})
 }

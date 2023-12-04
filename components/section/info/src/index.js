@@ -11,9 +11,7 @@ export default function SectionInfo({title, children, withoutBorder}) {
   })
 
   return (
-    <section
-      className={cx(baseClass, withoutBorder && `${baseClass}--withoutBorder`)}
-    >
+    <section className={cx(baseClass, withoutBorder && `${baseClass}--withoutBorder`)}>
       {title && <h3 className={titleClass}>{title}</h3>}
       <div className={contentClass}>{children}</div>
     </section>
@@ -24,10 +22,6 @@ SectionInfo.displayName = 'SectionInfo'
 
 SectionInfo.propTypes = {
   title: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.object
-  ]),
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.object]),
   withoutBorder: PropTypes.bool
 }

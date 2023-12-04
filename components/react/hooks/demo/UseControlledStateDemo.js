@@ -16,14 +16,9 @@ const CounterComponent = ({
   onReset = noop,
   onUnset = noop
 }) => {
-  const [internalValue, setInternalValue, , initialState] = useControlledState(
-    value,
-    initialValue
-  )
+  const [internalValue, setInternalValue, , initialState] = useControlledState(value, initialValue)
   const onClickHandler = (operation, handler) => () => {
-    const newInternalValue = operation(
-      internalValue === undefined ? initialState : internalValue
-    )
+    const newInternalValue = operation(internalValue === undefined ? initialState : internalValue)
     setInternalValue(newInternalValue)
     handler(newInternalValue)
     onChange(newInternalValue)
@@ -39,10 +34,7 @@ const CounterComponent = ({
         <Bold>{internalValue}</Bold>
       </Cell>
       <Cell span={1}>
-        <Button
-          onClick={onClickHandler(value => value + 1, onSubstract)}
-          fullWidth
-        >
+        <Button onClick={onClickHandler(value => value + 1, onSubstract)} fullWidth>
           +
         </Button>
       </Cell>

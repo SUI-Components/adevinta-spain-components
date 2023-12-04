@@ -5,11 +5,7 @@ export class ResetPasswordRequest extends ValueObject {
     return this._email
   }
 
-  static validate({
-    email,
-    emptyEmailPasswordErrorFactory,
-    invalidEmailPasswordErrorFactory
-  }) {
+  static validate({email, emptyEmailPasswordErrorFactory, invalidEmailPasswordErrorFactory}) {
     if (email.length === 0) {
       throw emptyEmailPasswordErrorFactory()
     }

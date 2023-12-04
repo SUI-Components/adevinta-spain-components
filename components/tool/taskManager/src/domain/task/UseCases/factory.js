@@ -29,8 +29,7 @@ export default class TaskUseCasesFactory {
   static setWorkPercentageTaskUseCase = ({config}) =>
     new SetWorkPercentageTaskUseCase({
       config,
-      setWorkPercentageTaskServiceFactory:
-        TaskServicesFactory.setWorkPercentageTaskService
+      setWorkPercentageTaskServiceFactory: TaskServicesFactory.setWorkPercentageTaskService
     })
 
   static finishWorkTaskUseCase = ({config}) =>
@@ -54,15 +53,13 @@ export default class TaskUseCasesFactory {
   static processQueuedTaskUseCase = ({config}) =>
     new ProcessQueuedTaskUseCase({
       config,
-      processQueuedTaskServiceFactory:
-        TaskServicesFactory.processQueuedTaskService
+      processQueuedTaskServiceFactory: TaskServicesFactory.processQueuedTaskService
     })
 
   static processInProgressTaskUseCase = ({config}) =>
     new ProcessInProgressTaskUseCase({
       config,
-      processInProgressTaskServiceFactory:
-        TaskServicesFactory.processInProgressTaskService
+      processInProgressTaskServiceFactory: TaskServicesFactory.processInProgressTaskService
     })
 
   static markErrorTaskUseCase = ({config}) =>

@@ -19,12 +19,7 @@ export default class LeafletMap {
     this.setZoomControlPosition(properties.zoomControlPosition)
     this.buildShapes(properties)
     this.subscribeToLeafletMapEvents()
-    this.layerManager.addChangeViewController(
-      properties,
-      this._map,
-      this._normalViewText,
-      this._satelliteViewText
-    )
+    this.layerManager.addChangeViewController(properties, this._map, this._normalViewText, this._satelliteViewText)
     this.markerManager.addIconMarkersToMap({
       icons: properties.icons,
       map: this._map
@@ -37,12 +32,7 @@ export default class LeafletMap {
     this._map.setView(new L.LatLng(coordinates[0], coordinates[1]), zoom)
   }
 
-  setSimplifyDraw({
-    simplifyDraw,
-    simplifyDrawMinimumCoordinates,
-    simplifyTolerance,
-    simplifyHighQuality
-  }) {
+  setSimplifyDraw({simplifyDraw, simplifyDrawMinimumCoordinates, simplifyTolerance, simplifyHighQuality}) {
     this._simplifyDraw = simplifyDraw
     this._simplifyDrawMinimumCoordinates = simplifyDrawMinimumCoordinates
     this._simplifyTolerance = simplifyTolerance
@@ -79,15 +69,7 @@ export default class LeafletMap {
     this.mapDOM = mapDOMInstance
   }
 
-  buildPolygons({
-    currentGeoCode,
-    hoverStyles,
-    onLayerClick,
-    onPolygonWithBounds,
-    polygons,
-    radius,
-    showLabels
-  }) {
+  buildPolygons({currentGeoCode, hoverStyles, onLayerClick, onPolygonWithBounds, polygons, radius, showLabels}) {
     this.polygons = new Polygons({
       currentGeoCode,
       hoverStyles,
@@ -134,9 +116,7 @@ export default class LeafletMap {
   }
 
   setCenter(options) {
-    this.setCenter(
-      L.latLng(parseFloat(options.latitude), parseFloat(options.longitude))
-    )
+    this.setCenter(L.latLng(parseFloat(options.latitude), parseFloat(options.longitude)))
     options.zoom && this.setZoom(options.zoom)
   }
 
@@ -185,17 +165,11 @@ export default class LeafletMap {
   }
 
   setView(viewType) {
-    if (
-      viewType === mapViewModes.NORMAL &&
-      this._currentLayer !== mapViewModes.NORMAL
-    ) {
+    if (viewType === mapViewModes.NORMAL && this._currentLayer !== mapViewModes.NORMAL) {
       this._map.removeLayer(this.layerManager.layers.map[1])
       this._map.addLayer(this.layerManager.layers.map[0])
       this._currentLayer = viewType
-    } else if (
-      viewType === mapViewModes.SATELLITE &&
-      this._currentLayer !== mapViewModes.SATELLITE
-    ) {
+    } else if (viewType === mapViewModes.SATELLITE && this._currentLayer !== mapViewModes.SATELLITE) {
       this._map.removeLayer(this.layerManager.layers.map[0])
       this._map.addLayer(this.layerManager.layers.map[1])
       this._currentLayer = viewType
@@ -287,8 +261,7 @@ export default class LeafletMap {
   }
 
   clearMarkersLayer() {
-    this.layerManager.layers.markers &&
-      this.clearLayer(this.layerManager.layers.markers)
+    this.layerManager.layers.markers && this.clearLayer(this.layerManager.layers.markers)
   }
 
   // Returns the elements in arrayToCompare that are not present in the arrayOrigin
@@ -297,9 +270,7 @@ export default class LeafletMap {
       !currentMarkers.some(comparedArrayPoint => {
         return (
           comparedArrayPoint.Id === originalArrayPoint.Id &&
-          comparedArrayPoint.options.icon.options.className.includes(
-            originalArrayPoint.customClassName
-          )
+          comparedArrayPoint.options.icon.options.className.includes(originalArrayPoint.customClassName)
         )
       }) && accumulate.push(originalArrayPoint)
       return accumulate
@@ -311,9 +282,7 @@ export default class LeafletMap {
       !pois.some(comparedArrayPoint => {
         return (
           comparedArrayPoint.Id === originalArrayPoint.Id &&
-          originalArrayPoint.options.icon.options.className.includes(
-            comparedArrayPoint.customClassName
-          )
+          originalArrayPoint.options.icon.options.className.includes(comparedArrayPoint.customClassName)
         )
       }) && accumulate.push(originalArrayPoint)
       return accumulate
@@ -323,10 +292,7 @@ export default class LeafletMap {
   dispatchCustomEvent({eventName, detail}) {
     let event
 
-    if (
-      this.mapDOM.CustomEvent &&
-      typeof this.mapDOM.CustomEvent === 'function'
-    ) {
+    if (this.mapDOM.CustomEvent && typeof this.mapDOM.CustomEvent === 'function') {
       event = new this.mapDOM.CustomEvent(eventName, {detail})
     } else {
       event = document.createEvent('CustomEvent')
@@ -337,9 +303,7 @@ export default class LeafletMap {
   }
 
   addLayersToMap(layerDataArray, groupName) {
-    const layers = layerDataArray.map(layerData =>
-      this.markerManager.createMarker(layerData)
-    )
+    const layers = layerDataArray.map(layerData => this.markerManager.createMarker(layerData))
     this.layerManager.addLayersToGroup(layers, groupName)
     this.addLayerGroupToMap(this.layerManager.layers[groupName])
   }
@@ -351,16 +315,13 @@ export default class LeafletMap {
     } else {
       // Get new Marker Type by checking one new POI.
       const {markerType} = pois[0]
-      const shouldClearAllMarkers =
-        markerType !== this.markerManager.currentMarkerType
+      const shouldClearAllMarkers = markerType !== this.markerManager.currentMarkerType
 
       // If we render a new type of Marker, then we need to clear all Markers.
       shouldClearAllMarkers && this.clearMarkersLayer()
 
       // Get current array of map Markers.
-      const currentMarkers = this.layerManager.getLayers(
-        this.layerManager.layers.markers
-      )
+      const currentMarkers = this.layerManager.getLayers(this.layerManager.layers.markers)
 
       // To prevent repaint all POIs that are already visible, get the news to Add and the ones to be Removed.
       const pointsToAdd = this.getPositiveDiffOfArraysOfPoints({
@@ -379,9 +340,7 @@ export default class LeafletMap {
       pointsToDelete.length &&
         pointsAreClickable &&
         pointsToAdd.forEach(pointToAdd => {
-          const pointToRefresh = pointsToDelete.find(
-            pointToDelete => pointToDelete.Id === pointToAdd.Id
-          )
+          const pointToRefresh = pointsToDelete.find(pointToDelete => pointToDelete.Id === pointToAdd.Id)
 
           if (pointToRefresh) {
             pointToAdd.latitude = pointToRefresh._latlng.lat
@@ -394,8 +353,7 @@ export default class LeafletMap {
       this.markerManager.currentMarkerType = markerType
 
       // Remove pointsToDelete, and Add new POI's to map.
-      pointsToDelete.length &&
-        this.layerManager.removeLayersFromGroup(pointsToDelete, 'markers')
+      pointsToDelete.length && this.layerManager.removeLayersFromGroup(pointsToDelete, 'markers')
       pointsToAdd.length && this.addLayersToMap(pointsToAdd, 'markers')
     }
   }
@@ -435,10 +393,7 @@ export default class LeafletMap {
     if (L.Draw && this._drawControl) return // do nothing if already loaded
 
     // Load drawing plugin
-    const [simplifyModule] = await Promise.all([
-      import('@turf/simplify'),
-      import('leaflet-draw')
-    ])
+    const [simplifyModule] = await Promise.all([import('@turf/simplify'), import('leaflet-draw')])
 
     simplifyGeoJson = simplifyModule.default
 
@@ -482,8 +437,7 @@ export default class LeafletMap {
     // add polygon to map
 
     const shouldSimplifyDraw =
-      this._simplifyDraw &&
-      drawnPolygon._latlngs[0].length >= this._simplifyDrawMinimumCoordinates
+      this._simplifyDraw && drawnPolygon._latlngs[0].length >= this._simplifyDrawMinimumCoordinates
 
     const simplifiedPolygon =
       (shouldSimplifyDraw &&
@@ -507,14 +461,8 @@ export default class LeafletMap {
       iconSize: [40, 40]
     })
     const coords = this._drawnPolygon._latlngs[0]
-    const buttonCoord = coords.reduce(
-      (acc, coord) => (coord.lat > acc.lat ? coord : acc),
-      coords[0]
-    )
-    this._drawnPolygonRemoveButton = L.marker(
-      [buttonCoord.lat, buttonCoord.lng],
-      {icon}
-    )
+    const buttonCoord = coords.reduce((acc, coord) => (coord.lat > acc.lat ? coord : acc), coords[0])
+    this._drawnPolygonRemoveButton = L.marker([buttonCoord.lat, buttonCoord.lng], {icon})
       .on('click', () => this.drawingClear())
       .addTo(this._map)
 
@@ -538,8 +486,7 @@ export default class LeafletMap {
 
   getPublicAPI() {
     return {
-      isCoordinatesVisibleOnScreen: latLng =>
-        this.isCoordinatesVisibleOnScreen(latLng),
+      isCoordinatesVisibleOnScreen: latLng => this.isCoordinatesVisibleOnScreen(latLng),
       setView: viewType => this.setView(viewType),
       zoomIn: () => this._map.zoomIn(),
       zoomOut: () => this._map.zoomOut(),

@@ -55,24 +55,12 @@ export default function CardArticle({
       <Link href={link} className="sui-CardArticle-link" title={title}>
         <div className={cardArticleMediaClassName(video)}>
           {video && <MediaIcon svgClass="sui-CardArticle-mediaIcon" />}
-          {lazyLoad ? (
-            <ImageLazyLoad {...lazyLoad} {...media} />
-          ) : (
-            <CardArticleMedia {...media} video={video} />
-          )}
+          {lazyLoad ? <ImageLazyLoad {...lazyLoad} {...media} /> : <CardArticleMedia {...media} video={video} />}
         </div>
       </Link>
       <div className={cardInfoClassName}>
         <div className="sui-CardArticle-infoInner">
-          {tag && (
-            <TagChip
-              rel={tag.rel}
-              label={tag.text}
-              href={tag.url}
-              linkFactory={Link}
-              type={tag.type}
-            />
-          )}
+          {tag && <TagChip rel={tag.rel} label={tag.text} href={tag.url} linkFactory={Link} type={tag.type} />}
           {comments && _renderComments(comments, Link)}
         </div>
       </div>

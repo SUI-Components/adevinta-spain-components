@@ -15,10 +15,7 @@ class MarkerManager {
   dispatchCustomEvent({eventName, detail}) {
     let event
 
-    if (
-      this.mapDOM.CustomEvent &&
-      typeof this.mapDOM.CustomEvent === 'function'
-    ) {
+    if (this.mapDOM.CustomEvent && typeof this.mapDOM.CustomEvent === 'function') {
       event = new this.mapDOM.CustomEvent(eventName, {detail})
     } else {
       event = document.createEvent('CustomEvent')
@@ -41,13 +38,7 @@ class MarkerManager {
       {eventName: 'mousemove', eventHandler: e => this.onMouseMove(e)}
     ]
 
-    const {
-      isDraggable,
-      latitude,
-      longitude,
-      markerType,
-      propertyInfo = {}
-    } = item
+    const {isDraggable, latitude, longitude, markerType, propertyInfo = {}} = item
 
     const marker = L.marker([latitude, longitude], {
       icon: this.getIconFor({item}),
@@ -179,9 +170,7 @@ class MarkerManager {
   }
 
   getInitialIcon() {
-    return (
-      this.markerTypeEquivalences[this._markerType] || this.DEFAULT_MARKER_TYPE
-    )
+    return this.markerTypeEquivalences[this._markerType] || this.DEFAULT_MARKER_TYPE
   }
 }
 

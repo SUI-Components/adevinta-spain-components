@@ -12,16 +12,7 @@ import RangeField from '../Standard/Fields/Range/index.js'
 import TextField from '../Standard/Fields/Text/index.js'
 import {FIELDS} from '../Standard/index.js'
 
-const ProxyField = ({
-  field,
-  tabIndex,
-  onChange,
-  onFocus,
-  onBlur,
-  errors,
-  alerts,
-  renderer
-}) => {
+const ProxyField = ({field, tabIndex, onChange, onFocus, onBlur, errors, alerts, renderer}) => {
   let Field
   switch (field.type) {
     case FIELDS.TEXT:

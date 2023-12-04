@@ -43,27 +43,19 @@ export class WorkTaskEntity extends Entity {
   }
 
   isInProgress() {
-    if (
-      this._status.getValue() ===
-      this._config.get('AVAILABLE_STATUS').IN_PROGRESS
-    )
-      return true
+    if (this._status.getValue() === this._config.get('AVAILABLE_STATUS').IN_PROGRESS) return true
 
     return false
   }
 
   isCompleted() {
-    if (
-      this._status.getValue() === this._config.get('AVAILABLE_STATUS').COMPLETED
-    )
-      return true
+    if (this._status.getValue() === this._config.get('AVAILABLE_STATUS').COMPLETED) return true
 
     return false
   }
 
   isQueued() {
-    if (this._status.getValue() === this._config.get('AVAILABLE_STATUS').QUEUED)
-      return true
+    if (this._status.getValue() === this._config.get('AVAILABLE_STATUS').QUEUED) return true
 
     return false
   }

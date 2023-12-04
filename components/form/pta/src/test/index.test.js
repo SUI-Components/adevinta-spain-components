@@ -14,9 +14,7 @@ describe('<FormPta />', () => {
 
     beforeEach(() => {
       // Given
-      component = (
-        <FormPta onSubmit={onSubmitSpy} onError={onErrorSpy} formUrl="anyUrl" />
-      )
+      component = <FormPta onSubmit={onSubmitSpy} onError={onErrorSpy} formUrl="anyUrl" />
       wrapper = shallow(component)
     })
 

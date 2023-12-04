@@ -1,15 +1,9 @@
 import PropTypes from 'prop-types'
 
-export default function BadgeCounter({
-  size = 'medium',
-  type = 'bullet',
-  thickness = 'medium'
-}) {
+export default function BadgeCounter({size = 'medium', type = 'bullet', thickness = 'medium'}) {
   return (
     <div className="sui-BadgeCounter">
-      <span
-        className={`sui-BadgeCounter--${size} sui-BadgeCounter-${type} sui-BadgeCounter-${type}--${thickness}`}
-      />
+      <span className={`sui-BadgeCounter--${size} sui-BadgeCounter-${type} sui-BadgeCounter-${type}--${thickness}`} />
     </div>
   )
 }

@@ -4,15 +4,7 @@ import PropTypes from 'prop-types'
 import AtomPanel from '@s-ui/react-atom-panel'
 import SuiTagChip from '@s-ui/react-tag-chip'
 
-const CardImageCover = ({
-  media,
-  title,
-  text,
-  tag,
-  tagChip: TagChip,
-  linkFactory: Link,
-  url
-}) => {
+const CardImageCover = ({media, title, text, tag, tagChip: TagChip, linkFactory: Link, url}) => {
   const onClick = () => {
     if (url) window.location.href = url
   }
@@ -27,13 +19,7 @@ const CardImageCover = ({
         <div className={INNER_CLASS} onClick={onClick}>
           {tag && (
             <div>
-              <TagChip
-                rel={tag.rel}
-                label={tag.text}
-                link={tag.url}
-                linkFactory={Link}
-                className={tag.className}
-              />
+              <TagChip rel={tag.rel} label={tag.text} link={tag.url} linkFactory={Link} className={tag.className} />
             </div>
           )}
           <h2 className={TITLE_CLASS}>

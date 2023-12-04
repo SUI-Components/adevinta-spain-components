@@ -10,11 +10,7 @@ export const TaskManagerContext = createContext()
 
 export const TaskManagerProvider = ({children, onCompleteAllTasks = NO_OP}) => {
   const exposedApi = useState({onCompleteAllTasks})
-  return (
-    <TaskManagerContext.Provider value={exposedApi}>
-      {children}
-    </TaskManagerContext.Provider>
-  )
+  return <TaskManagerContext.Provider value={exposedApi}>{children}</TaskManagerContext.Provider>
 }
 
 TaskManagerProvider.propTypes = {

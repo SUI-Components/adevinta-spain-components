@@ -38,11 +38,7 @@ class RatingIcons extends Component {
   }
 
   componentDidMount() {
-    const currentRatingFilledWidth = this.calculateWidthByRating(
-      this.props.rating,
-      this.props.maxValue,
-      this.ratingEle
-    )
+    const currentRatingFilledWidth = this.calculateWidthByRating(this.props.rating, this.props.maxValue, this.ratingEle)
     if (currentRatingFilledWidth !== this.state.ratingFilledWidth) {
       this.setState({
         ratingFilledWidth: currentRatingFilledWidth
@@ -59,10 +55,7 @@ class RatingIcons extends Component {
         <div className="sui-RatingIcons-empty" style={{fill: emptyColor}}>
           {ratingIcons}
         </div>
-        <div
-          className="sui-RatingIcons-filled"
-          style={{width: this.state.ratingFilledWidth, fill: fillColor}}
-        >
+        <div className="sui-RatingIcons-filled" style={{width: this.state.ratingFilledWidth, fill: fillColor}}>
           {ratingIcons}
         </div>
       </div>

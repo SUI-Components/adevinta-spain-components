@@ -8,17 +8,8 @@ const tagSelectableClassName = ({isSelected}) =>
     'is-selected': isSelected
   })
 
-const TagSelectable = ({
-  onClick,
-  isSelected,
-  value,
-  label,
-  icon: Icon = Check
-}) => (
-  <button
-    onClick={event => onClick(event, value)}
-    className={tagSelectableClassName({isSelected})}
-  >
+const TagSelectable = ({onClick, isSelected, value, label, icon: Icon = Check}) => (
+  <button onClick={event => onClick(event, value)} className={tagSelectableClassName({isSelected})}>
     {Icon && <Icon svgClass="sui-TagSelectable-icon" />}
     {label}
   </button>

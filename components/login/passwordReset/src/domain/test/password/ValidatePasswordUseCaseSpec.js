@@ -18,9 +18,7 @@ describe('[Domain] ValidatePasswordUseCase', () => {
     const [error, result] = await useCase.execute(requestBody)
     expect(error).to.not.be.null
     expect(error).to.be.an.instanceof(InvalidPasswordError)
-    expect(error.toString()).to.eql(
-      'Error: [PasswordError] Password is not valid'
-    )
+    expect(error.toString()).to.eql('Error: [PasswordError] Password is not valid')
     expect(result).to.be.null
   })
 

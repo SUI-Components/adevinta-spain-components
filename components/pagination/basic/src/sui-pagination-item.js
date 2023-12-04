@@ -5,9 +5,7 @@ const baseClass = 'sui-PaginationBasic'
 const PAGE_NUMBER_HOLDER = '%{pageNumber}'
 
 export default function PaginationItem({pageNumber, patternUrl, ...props}) {
-  const getText = () => (
-    <span className={`${baseClass}-text`}>{props.pageText}</span>
-  )
+  const getText = () => <span className={`${baseClass}-text`}>{props.pageText}</span>
 
   const onClick = e => props.handlePaginate(pageNumber, e)
 

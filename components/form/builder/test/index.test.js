@@ -9,10 +9,7 @@ import chaiDOM from 'chai-dom'
 import userEvent from '@testing-library/user-event'
 
 import BasicFormSection from '../demo/BasicFormSection.js'
-import {
-  FORM_BUILDER_SELECT_FIELD_MOCK,
-  FORM_BUILDER_SELECT_FIELD_WITH_DISABLED_MOCK
-} from '../mocks/index.js'
+import {FORM_BUILDER_SELECT_FIELD_MOCK, FORM_BUILDER_SELECT_FIELD_WITH_DISABLED_MOCK} from '../mocks/index.js'
 import FormBuilder from '../src/index.js'
 import {checkConstraintsFactory} from '../src/Standard/index.js'
 
@@ -56,10 +53,7 @@ describe('form/builder', () => {
   it('should display error validation message when field is required', async () => {
     const props = {
       json: FORM_BUILDER_SELECT_FIELD_MOCK,
-      errors: checkConstraintsFactory(
-        FORM_BUILDER_SELECT_FIELD_MOCK,
-        'es-ES'
-      )({all: true})
+      errors: checkConstraintsFactory(FORM_BUILDER_SELECT_FIELD_MOCK, 'es-ES')({all: true})
     }
 
     const {queryAllByText, getByText} = setupForm(props)
@@ -74,10 +68,7 @@ describe('form/builder', () => {
   it('should not display error validation message when field is disabled', async () => {
     const props = {
       json: FORM_BUILDER_SELECT_FIELD_WITH_DISABLED_MOCK,
-      errors: checkConstraintsFactory(
-        FORM_BUILDER_SELECT_FIELD_WITH_DISABLED_MOCK,
-        'es-ES'
-      )({all: true})
+      errors: checkConstraintsFactory(FORM_BUILDER_SELECT_FIELD_WITH_DISABLED_MOCK, 'es-ES')({all: true})
     }
 
     const {queryAllByText, getByText} = setupForm(props)

@@ -65,8 +65,7 @@ class CardProduct extends Component {
       handleFavorite,
       linkFactory: Link
     } = this.props
-    const {mediaHeight, tagsHeight, tagsPosition, dateHeight, datePosition} =
-      this.state
+    const {mediaHeight, tagsHeight, tagsPosition, dateHeight, datePosition} = this.state
     const cardProductTagsStyle = {
       top: tagsPosition === 'absolute' ? mediaHeight - tagsHeight : 'inherit'
     }
@@ -92,11 +91,7 @@ class CardProduct extends Component {
           }}
           className="sui-CardProduct-media"
         >
-          <CardProductSlider
-            images={images}
-            iconPrev={iconPrev}
-            iconNext={iconNext}
-          />
+          <CardProductSlider images={images} iconPrev={iconPrev} iconNext={iconNext} />
         </div>
         <div className="sui-CardProduct-content">
           <div className="sui-CardProduct-header">
@@ -114,10 +109,7 @@ class CardProduct extends Component {
                 ))}
               </div>
             </div>
-            <div
-              onClick={_onFavoriteClick}
-              className="sui-CardProduct-favorite"
-            >
+            <div onClick={_onFavoriteClick} className="sui-CardProduct-favorite">
               <FavoriteIcon svgClass={favoriteIconClassName} />
             </div>
           </div>

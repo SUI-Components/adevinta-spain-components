@@ -28,10 +28,7 @@ function useLocalStorage(key, initialValue, {parserFn = value => value} = {}) {
       const item = window.localStorage.getItem(key)
       return item ? JSON.parse(item) : initialValue
     } catch (error) {
-      console.warn(
-        `#useLocalStorage: an error occurred loading the localStorage key “${key}”:`,
-        error
-      )
+      console.warn(`#useLocalStorage: an error occurred loading the localStorage key “${key}”:`, error)
       return initialValue
     }
   }
@@ -49,24 +46,18 @@ function useLocalStorage(key, initialValue, {parserFn = value => value} = {}) {
    */
   const setValue = value => {
     if (!hasWindow()) {
-      console.warn(
-        `#useLocalStorage: impossible to set the localStorage “${key}” inside a no-client context.`
-      )
+      console.warn(`#useLocalStorage: impossible to set the localStorage “${key}” inside a no-client context.`)
     }
 
     try {
-      const valueToStore =
-        typeof value === 'function' ? value(storedValue) : value
+      const valueToStore = typeof value === 'function' ? value(storedValue) : value
       const valueToStoreSerialized = JSON.stringify(valueToStore)
 
       window.localStorage.setItem(key, valueToStoreSerialized)
 
       setStoredValue(valueToStore)
     } catch (error) {
-      console.warn(
-        `#useLocalStorage: error setting the localStorage key “${key}”:`,
-        error
-      )
+      console.warn(`#useLocalStorage: error setting the localStorage key “${key}”:`, error)
     }
   }
 

@@ -121,9 +121,7 @@ export default function FormAutocompleted(props) {
     }
   }
 
-  const _handleOutsideClick = event =>
-    !excludeFromOutsideClick.includes(event.target) &&
-    setShowSuggestsList(false)
+  const _handleOutsideClick = event => !excludeFromOutsideClick.includes(event.target) && setShowSuggestsList(false)
 
   const _focusInput = () => {
     inputEl.current.focus()
@@ -132,11 +130,7 @@ export default function FormAutocompleted(props) {
   const _renderSubmitButton = (
     {text, icon: Icon} // eslint-disable-line
   ) => (
-    <button
-      className="sui-FormAutocompleted-submit"
-      onClick={_handleSubmit}
-      ref={submitEl}
-    >
+    <button className="sui-FormAutocompleted-submit" onClick={_handleSubmit} ref={submitEl}>
       {Icon && <Icon svgClass="sui-FormAutocompleted-submitIcon" />}
       {text}
     </button>
@@ -144,18 +138,12 @@ export default function FormAutocompleted(props) {
 
   const _renderSuggestsList = () =>
     suggests && suggests.length > 0 ? (
-      <SuggestsList
-        {...props}
-        handleSelect={_handleSelect}
-        active={active}
-        ref={suggestList}
-      />
+      <SuggestsList {...props} handleSelect={_handleSelect} active={active} ref={suggestList} />
     ) : null
 
   useMount(() => {
     excludeFromOutsideClick = [inputEl, submitEl, suggestList]
-    closeOnOutsideClick === true &&
-      window.addEventListener('click', _handleOutsideClick, false)
+    closeOnOutsideClick === true && window.addEventListener('click', _handleOutsideClick, false)
 
     return () => {
       window.removeEventListener('click', _handleOutsideClick, false)
@@ -181,12 +169,7 @@ export default function FormAutocompleted(props) {
             onFocus={handleFocus}
             onBlur={handleBlur}
           />
-          {value && (
-            <span
-              className="sui-FormAutocompleted-clear"
-              onClick={_handleClear}
-            />
-          )}
+          {value && <span className="sui-FormAutocompleted-clear" onClick={_handleClear} />}
         </div>
         {submit && _renderSubmitButton(submit)}
       </div>

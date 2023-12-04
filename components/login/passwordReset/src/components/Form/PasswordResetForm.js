@@ -41,14 +41,10 @@ const PasswordResetForm = () => {
             return ''
           case 'EmptyEmailPasswordError':
             emit(RESET_PASSWORD_EMAIL_VALIDATION_ERROR, {email, error})
-            return i18n.t(
-              'LOGIN_CROSS.PASSWORD_RESET.STEP_1.ERRORS.EMPTY_EMAIL'
-            )
+            return i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.ERRORS.EMPTY_EMAIL')
           default:
             emit(RESET_PASSWORD_EMAIL_VALIDATION_ERROR, {email, error})
-            return i18n.t(
-              'LOGIN_CROSS.PASSWORD_RESET.STEP_1.ERRORS.INVALID_EMAIL'
-            )
+            return i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.ERRORS.INVALID_EMAIL')
         }
       })
   }
@@ -89,12 +85,9 @@ const PasswordResetForm = () => {
       }
       setIsLoading(true)
       executeResetPasswordUseCase({
-        onSuccessText: i18n.t(
-          'LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUCCESS.EMAIL_SENDED',
-          {
-            email
-          }
-        )
+        onSuccessText: i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUCCESS.EMAIL_SENDED', {
+          email
+        })
       })
     })
   }
@@ -102,12 +95,9 @@ const PasswordResetForm = () => {
   const handleResend = () => {
     emit(RESET_PASSWORD_RESEND_CLICK, {email})
     executeResetPasswordUseCase({
-      onSuccessText: i18n.t(
-        'LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUCCESS.EMAIL_RESEND',
-        {
-          email
-        }
-      )
+      onSuccessText: i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.SUCCESS.EMAIL_RESEND', {
+        email
+      })
     })
   }
 
@@ -115,10 +105,7 @@ const PasswordResetForm = () => {
     <>
       {notification.text ? (
         <>
-          <Notification
-            notificationText={notification.text}
-            isError={notification.isError}
-          />
+          <Notification notificationText={notification.text} isError={notification.isError} />
           <ResendText handleResend={handleResend} />
         </>
       ) : null}
@@ -130,9 +117,7 @@ const PasswordResetForm = () => {
             label={i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.EMAIL_LABEL')}
             name="email"
             onChange={handleChange}
-            placeholder={i18n.t(
-              'LOGIN_CROSS.PASSWORD_RESET.STEP_1.EMAIL_PLACEHOLDER'
-            )}
+            placeholder={i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.EMAIL_PLACEHOLDER')}
             size="l"
             type="text"
             value={email}

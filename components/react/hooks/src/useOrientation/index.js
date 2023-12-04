@@ -16,9 +16,7 @@ const SIDES = {
 const isClient = typeof window !== 'undefined'
 
 function useOrientation() {
-  const [orientation, setOrientation] = useState(
-    () => isClient && window.orientation
-  )
+  const [orientation, setOrientation] = useState(() => isClient && window.orientation)
   const hasOrientation = Boolean(orientation)
   const isPortrait = String(orientation) === UPRIGHT
   const side = SIDES[String(orientation)]

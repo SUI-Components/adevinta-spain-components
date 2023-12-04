@@ -39,9 +39,7 @@ describe('useMediaQuery hook', () => {
     })
     it('should work without window.matchMedia available and defaultMatches true', () => {
       expect(typeof window.matchMedia).toEqual('undefined')
-      const {result} = renderHook(() =>
-        useMediaQuery('(min-width:100px)', {defaultMatches: true})
-      )
+      const {result} = renderHook(() => useMediaQuery('(min-width:100px)', {defaultMatches: true}))
       expect(result.current).toBe(true)
     })
   })

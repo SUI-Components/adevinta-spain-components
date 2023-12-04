@@ -16,9 +16,7 @@ export default function useCopyToClipboard() {
       try {
         // only strings and numbers casted to strings can be copied to clipboard
         if (typeof value !== 'string' && typeof value !== 'number') {
-          const error = new Error(
-            `Cannot copy typeof ${typeof value} to clipboard, must be a string`
-          )
+          const error = new Error(`Cannot copy typeof ${typeof value} to clipboard, must be a string`)
           if (process.env.NODE_ENV === 'development') console.error(error) // eslint-disable-line no-console
           setState({value, error})
         }

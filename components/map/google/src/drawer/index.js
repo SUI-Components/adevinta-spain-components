@@ -5,16 +5,9 @@ import PropTypes from 'prop-types'
 
 import {useGoogleMap} from '@react-google-maps/api'
 
-import {
-  DISABLED_MAP_INTERACTION_OPTIONS,
-  ENABLED_MAP_INTERACTION_OPTIONS
-} from './settings.js'
+import {DISABLED_MAP_INTERACTION_OPTIONS, ENABLED_MAP_INTERACTION_OPTIONS} from './settings.js'
 
-function GoogleMapsDrawer({
-  drawing = false,
-  onStopDrawing,
-  polylineOptions = {}
-}) {
+function GoogleMapsDrawer({drawing = false, onStopDrawing, polylineOptions = {}}) {
   const mapsLibrary = google?.maps // Looking for global google object
   const mapRef = useGoogleMap() // Get map instance from context
 
@@ -28,9 +21,7 @@ function GoogleMapsDrawer({
   }, [drawing]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const draw = ({polyline}) => {
-    mapsLibrary.event.addListener(mapRef, 'mousemove', event =>
-      polyline.getPath().push(event.latLng)
-    )
+    mapsLibrary.event.addListener(mapRef, 'mousemove', event => polyline.getPath().push(event.latLng))
   }
 
   const clearListeners = () => {
@@ -76,9 +67,7 @@ function GoogleMapsDrawer({
 
     mapsLibrary.event.addListener(mapRef, 'touchmove', e => e.preventDefault())
     mapsLibrary.event.addListener(mapRef, 'mousedown', () => draw({polyline}))
-    mapsLibrary.event.addListener(mapRef, 'mouseup', () =>
-      stopDrawing({polyline})
-    )
+    mapsLibrary.event.addListener(mapRef, 'mouseup', () => stopDrawing({polyline}))
   }
 
   // No need to render anything, just listen to drawing events and draw on the map
