@@ -42,7 +42,7 @@ describe('useQuery hook', () => {
         () => {
           return Promise.resolve([null, counter++])
         },
-        {refetchInterval: 10}
+        {refetchInterval: 100}
       )
     )
 
