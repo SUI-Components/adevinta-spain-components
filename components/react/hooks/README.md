@@ -192,6 +192,137 @@ export default function Demo() {
 
 Keep in mind this functionality if you want to prioritize one design over other. For example, to be sure you render on the server the mobile layout and keep for the client.
 
+### useMutation
+
+Useful when creating, updating or removing data from a source.
+
+Perform a given mutation and update the status of it.
+
+```jsx
+const QueryStory = () => {
+  const {domain} = useContext(Context)
+  const [createAd, {isLoading}] = useMutation(
+    () => {
+      return domain.get('create_ad_use_case').execute()
+    },
+    {
+      onSuccess: ad => {
+        console.log(ad)
+      }
+    }
+  )
+
+  const handleClick = () => {
+    createAd()
+  }
+
+  return (
+    <button onClick={handleClick} isLoading={isLoading}>
+      Create
+    </button>
+  )
+}
+```
+
+### useQuery
+
+Hook to fetch data from a source and receive a status update.
+
+
+##### Basic usage
+
+Perform a given query and update the status of it
+
+```jsx
+import useQuery from '@s-ui/react-hooks/lib/useQuery/index.js'
+
+const QueryStory = () => {
+  const {domain} = useContext(Context)
+  const {
+    isLoading,
+    isError,
+    data: ads,
+    error
+  } = useQuery(() => {
+    return domain.get('get_ads_use_case').execute()
+  })
+
+  if (isLoading) {
+    return <span>Loading...</span>
+  }
+
+  if (isError) {
+    return <span>Error: {error.message}</span>
+  }
+
+  // also status === 'success', but "else" logic works, too
+  return (
+    <ul>
+      {ads.map(ad => (
+        <li key={ad.id}>{ad.title}</li>
+      ))}
+    </ul>
+  )
+}
+```
+
+##### Initial state
+
+Use `initialData` prop to avoid executing the query when the component is mounted. Useful when using Server-Side rendering.
+
+```jsx
+import useQuery from '@s-ui/react-hooks/lib/useQuery/index.js'
+
+const QueryStory = ({ads}) => {
+  const {domain} = useContext(Context)
+  const {data} = useQuery(
+    () => {
+      return domain.get('get_ads_use_case').execute()
+    },
+    {initialData: ads}
+  )
+}
+```
+
+##### Interval
+
+Execute the query every `refetchInterval` milliseconds
+
+```jsx
+import useQuery from '@s-ui/react-hooks/lib/useQuery/index.js'
+
+const QueryStory = ({ads}) => {
+  const {domain} = useContext(Context)
+
+  const {data} = useQuery(
+    () => {
+      return domain.get('get_ads_use_case').execute()
+    },
+    {refetchInterval: 3000}
+  )
+}
+```
+
+##### Disabled mount execution
+
+Disable mount fetch assigning `isExecuteOnMountDisabled` prop to `true`
+
+```jsx
+import useQuery from '@s-ui/react-hooks/lib/useQuery/index.js'
+
+const QueryStory = ({ads}) => {
+  const {domain} = useContext(Context)
+
+  // Wont be executed on mount instead refetch can be used
+  const {data, refetch} = useQuery(
+    () => {
+      return domain.get('get_ads_use_case').execute()
+    },
+    {isExecuteOnMountDisabled: true}
+  )
+}
+```
+
 ### useScroll
 
 Hook to get the scroll position and the direction of scroll, limited to the Y axis.
