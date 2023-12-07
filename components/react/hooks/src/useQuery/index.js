@@ -1,7 +1,7 @@
 import {useEffect, useRef} from 'react'
 
-import useRequest from '@s-ui/react-hooks/lib/useRequest/index.js'
-export * from '@s-ui/react-hooks/lib/useRequest/index.js'
+import useRequest from '../useRequest/index.js'
+export * from '../useRequest/index.js'
 
 const useQuery = (query, {refetchInterval, isExecuteOnMountDisabled, ...options} = {}, deps = []) => {
   const {data, refetch, ...others} = useRequest(query, options)
