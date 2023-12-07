@@ -199,6 +199,8 @@ Useful when creating, updating or removing data from a source.
 Perform a given mutation and update the status of it.
 
 ```jsx
+import useQuery from '@s-ui/react-hooks/lib/useMutation/index.js'
+
 const QueryStory = () => {
   const {domain} = useContext(Context)
   const [createAd, {isLoading}] = useMutation(
