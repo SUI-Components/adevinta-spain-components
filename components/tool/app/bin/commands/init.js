@@ -47,7 +47,7 @@ const optimizeConfigurations = () => {
 }
 
 const addBiometricConfig = () => {
-  return runCommand(`npx sui-app add-biometric-config`)
+  return runCommand(`sui-app add-biometric-config`)
 }
 
 // Business logic

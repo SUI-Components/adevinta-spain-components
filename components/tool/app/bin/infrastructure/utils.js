@@ -10,6 +10,12 @@ const fileExists = file => {
   }
 }
 
+const fileContains = (content, file) => {
+  const {readFileSync} = require('fs')
+  const data = readFileSync(file, 'utf8')
+  return data.includes(content)
+}
+
 const readJSONFile = file => {
   const {readFileSync} = require('fs')
   const data = readFileSync(file)
@@ -59,6 +65,7 @@ const uninstallPackage = packageName => {
 module.exports = {
   getCurrentDirectory,
   fileExists,
+  fileContains,
   readJSONFile,
   saveJSONFile,
   reportError,
