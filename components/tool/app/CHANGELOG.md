@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.12.0 (2023-12-21)
+
+
+### Features
+
+* **components/tool/app:** Auto-configure biometric permissions ([37c1e7f](https://github.com/SUI-Components/adevinta-spain-components/commit/37c1e7f352620268b3f60b19d2694a430f3d8d8e))
+
+
+
 # 1.11.0 (2023-11-17)
 
 
