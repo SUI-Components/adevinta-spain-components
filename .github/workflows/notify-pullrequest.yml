@@ -1,0 +1,40 @@
+name: Notify on Slack about a Pull Request as a Show or Ask type of change
+
+on:
+  pull_request:
+    types: [labeled]
+
+env:
+  SLACK_CHANNEL_ID: C018Q6WBJ85
+
+jobs:
+  notify:
+    if: ${{ github.event.label.name == 'show' || github.event.label.name == 'ask' }}
+    runs-on: small
+    steps:
+      - name: Notify
+        uses: slackapi/slack-github-action@v1
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        with:
+          channel-id: ${{ env.SLACK_CHANNEL_ID }}
+          payload: |
+            {
+            "text": ":sui: :${{ github.event.label.name }}: _*${{ github.event.pull_request.title }}*_",
+              "attachments": [
+                {
+                  "color": "${{ github.event.label.name == 'show' && '#AFE1AF' || '#C9CC3F'}} ",
+                  "blocks": [
+                    {
+                      "type": "context",
+                      "elements": [
+                        {
+                          "type": "mrkdwn",
+                          "text": ":point_right: ${{ github.server_url }}/${{ github.repository }}/pull/${{ github.event.pull_request.number }}\n :github: <${{ github.server_url }}/${{ github.actor }}|${{ github.actor }}>"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
