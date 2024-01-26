@@ -12,10 +12,15 @@ $bgc-topbar-user: $c-white !default;
 $bgsz-topbar-user-brand: 100% !default;
 $bxsh-topbar-user: $bxsh-base !default;
 $fill-topbar-user-toggle-icon: $c-accent !default;
+$h-topbar-user-brand-icon-large: $sz-icon-xl !default;
+$h-topbar-user-brand-icon-small: $sz-icon-m !default;
 $h-topbar-user-brand-large: 0 !default;
 $h-topbar-user-brand-small: 0 !default;
+$h-topbar-user-flow-button: 48px !default;
 $maw-topbar-user-nav: 350px !default;
 $size-topbar-user-toggle-icon: 24px !default;
+$w-topbar-user-brand-icon-large: $sz-icon-xl !default;
+$w-topbar-user-brand-icon-small: $sz-icon-m !default;
 $w-topbar-user-brand-large: 0 !default;
 $w-topbar-user-brand-small: 0 !default;
 $w-topbar-user-nav: 90% !default;
@@ -45,34 +50,6 @@ $w-topbar-user-nav: 90% !default;
     border-radius: $bdrs-topbar-user;
   }
 
-  &-ctaButtonIcon {
-    fill: currentColor !important;
-  }
-
-  &-wrap {
-    display: flex;
-    flex: 1;
-  }
-
-  &-toggle {
-    @include reset-button;
-    @include media-breakpoint-up(m) {
-      display: none;
-    }
-    margin-left: -$m-h;
-    padding: $p-v $p-h;
-
-    &.has-notifications {
-      @include sui-badge-notification(true, 2px, 12px);
-    }
-
-    &Icon {
-      fill: $fill-topbar-user-toggle-icon !important;
-      height: $size-topbar-user-toggle-icon;
-      width: $size-topbar-user-toggle-icon;
-    }
-  }
-
   &-brand {
     @include reset-link;
     align-self: center;
@@ -97,6 +74,20 @@ $w-topbar-user-nav: 90% !default;
     }
     padding: $p-v 0;
     width: $w-topbar-user-brand-small;
+
+    &Icon {
+      align-items: center;
+      display: flex;
+      margin-right: $m-l;
+
+      @include media-breakpoint-up(m) {
+        margin-right: $m-xxl;
+      }
+    }
+  }
+
+  &-ctaButtonIcon {
+    fill: currentColor !important;
   }
 
   &-nav {
@@ -153,6 +144,7 @@ $w-topbar-user-nav: 90% !default;
         order: 1;
       }
     }
+
     @include media-breakpoint-up(m) {
       display: flex;
       justify-content: space-between;
@@ -172,5 +164,40 @@ $w-topbar-user-nav: 90% !default;
         flex: 1;
       }
     }
+  }
+
+  &-title {
+    display: flex;
+    align-items: center;
+  }
+
+  &-toggle {
+    @include reset-button;
+    @include media-breakpoint-up(m) {
+      display: none;
+    }
+    margin-left: -$m-h;
+    padding: $p-v $p-h;
+
+    &.has-notifications {
+      @include sui-badge-notification(true, 2px, 12px);
+    }
+
+    &Icon {
+      fill: $fill-topbar-user-toggle-icon !important;
+      height: $size-topbar-user-toggle-icon;
+      width: $size-topbar-user-toggle-icon;
+    }
+  }
+
+  &-nav-button {
+    align-items: center;
+    display: flex;
+    height: $h-topbar-user-flow-button;
+  }
+
+  &-wrap {
+    display: flex;
+    flex: 1;
   }
 }
