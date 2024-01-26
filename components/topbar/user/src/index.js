@@ -22,7 +22,7 @@ const HTML_HAS_SCROLL_DISABLED = 'html-has-scroll-disabled'
 const BODY_HAS_SCROLL_DISABLED = 'body-has-scroll-disabled'
 
 const TITLE_CLASS_NAME = 'sui-TopbarUser-title'
-const FLOW_BUTTON_CLASS_NAME = 'sui-TopbarUser-nav-button'
+const FLOW_BUTTON_CLASS_NAME = 'sui-TopbarUser-navButton'
 
 /**
  * Render main navigation function.
