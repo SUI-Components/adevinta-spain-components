@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.2.0 (2024-01-26)
+
+
+### Features
+
+* **components/topbar/user:** add new props to component ([6652a1f](https://github.com/SUI-Components/adevinta-spain-components/commit/6652a1fb54bfe3fd514cd54a6838a241b1a36567))
+* **components/topbar/user:** adjust component styles ([1da38d6](https://github.com/SUI-Components/adevinta-spain-components/commit/1da38d64365ca5a78ce80b3e22b58be57e0b203e))
+
+
+
 # 2.1.0 (2023-07-06)
 
 
