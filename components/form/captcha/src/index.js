@@ -18,13 +18,7 @@ const CAPTCHA_VERIFIER = () =>
   typeof window.grecaptcha !== 'undefined' &&
   typeof window.grecaptcha.render !== 'undefined'
 
-const FormCaptcha = ({
-  containerId,
-  siteKey,
-  locale,
-  onSubmit = () => {},
-  size = CAPTCHA_DEFAULT_SIZE
-}) => {
+const FormCaptcha = ({containerId, siteKey, locale, onSubmit = () => {}, size = CAPTCHA_DEFAULT_SIZE}) => {
   const [showCaptcha, setShowCaptcha] = useState(false)
   const [captchaId, setCaptchaId] = useState(null)
 
@@ -67,12 +61,7 @@ const FormCaptcha = ({
     <>
       {showCaptcha && (
         <div id={captchaContainerId}>
-          <ScriptLoader
-            isAsync
-            render={load}
-            src={CAPTCHA_SRC}
-            verifier={CAPTCHA_VERIFIER}
-          />
+          <ScriptLoader isAsync render={load} src={CAPTCHA_SRC} verifier={CAPTCHA_VERIFIER} />
         </div>
       )}
     </>

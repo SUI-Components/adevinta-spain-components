@@ -5,16 +5,7 @@ import Multipicker from '../../../Multicheckbox'
 import Select from '../../../Select/Default'
 import {DISPLAYS, FIELDS} from '../../index'
 
-export default function MultipickerField({
-  alerts,
-  errors,
-  field,
-  onBlur,
-  onChange,
-  onFocus,
-  renderer,
-  tabIndex
-}) {
+export default function MultipickerField({alerts, errors, field, onBlur, onChange, onFocus, renderer, tabIndex}) {
   switch (field.display) {
     case DISPLAYS[FIELDS.MULTIPICKER].BUTTON:
       return (

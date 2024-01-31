@@ -16,8 +16,7 @@ const json = {
     postalCode: '08302',
     addressLocality: 'Mataró'
   },
-  image:
-    'https://a.ccdn.es/coches/store_images_profesionales/123456_13032018103554.jpg',
+  image: 'https://a.ccdn.es/coches/store_images_profesionales/123456_13032018103554.jpg',
   telephone: ['123456789'],
   geo: {
     '@type': 'GeoCoordinates',

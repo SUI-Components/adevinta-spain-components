@@ -1,12 +1,5 @@
 /* eslint-disable react/prop-types */
-import {
-  Anchor,
-  Box,
-  H1,
-  H2,
-  ListItem,
-  OrderedList
-} from '@s-ui/documentation-library'
+import {Anchor, Box, H1, H2, ListItem, OrderedList} from '@s-ui/documentation-library'
 
 import UseBooleanDemo from './UseBooleanDemo.js'
 import UseControlledStateDemo from './UseControlledStateDemo.js'
@@ -46,13 +39,7 @@ const orderedHookList = [
 // eslint-disable-next-line react/prop-types
 function HookDemo({component: Component}) {
   return (
-    <Box
-      id={Component.demoName}
-      outline
-      elementType="article"
-      color="#167db7"
-      style={{marginBottom: '1em'}}
-    >
+    <Box id={Component.demoName} outline elementType="article" color="#167db7" style={{marginBottom: '1em'}}>
       <H2>{Component.demoName}</H2>
       <Component />
     </Box>
@@ -66,9 +53,7 @@ export default function HooksDemo() {
       <OrderedList>
         {orderedHookList.map((HookComponent, id) => (
           <ListItem key={id}>
-            <Anchor href={`#${HookComponent.demoName}`}>
-              {HookComponent.demoName}
-            </Anchor>
+            <Anchor href={`#${HookComponent.demoName}`}>{HookComponent.demoName}</Anchor>
           </ListItem>
         ))}
       </OrderedList>

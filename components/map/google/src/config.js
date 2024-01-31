@@ -9,5 +9,4 @@ export const getDefaultMapSize = ({height, width}) => ({
   width: width ?? '100%'
 })
 
-export const handle = handler =>
-  typeof handler === 'function' ? handler : () => {}
+export const handle = handler => (typeof handler === 'function' ? handler : () => {})

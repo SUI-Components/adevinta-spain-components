@@ -1,10 +1,6 @@
 import PropTypes from 'prop-types'
 
-import MoleculeNotification, {
-  BRDS_SIZE,
-  TYPES,
-  VARIATIONS
-} from '@s-ui/react-molecule-notification'
+import MoleculeNotification, {BRDS_SIZE, TYPES, VARIATIONS} from '@s-ui/react-molecule-notification'
 
 import {BASE_CLASS} from '../../config.js'
 const Notification = ({notificationText, isError = false}) => {

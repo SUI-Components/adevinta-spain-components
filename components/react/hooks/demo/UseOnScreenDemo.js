@@ -9,9 +9,8 @@ export default function UseOnScreenDemo() {
   return (
     <>
       <Paragraph>
-        Scroll until you see the message. When the message is shown, the color
-        of the block is green. When is not in the viewport, the color of the
-        block is red.
+        Scroll until you see the message. When the message is shown, the color of the block is green. When is not in the
+        viewport, the color of the block is red.
       </Paragraph>
       <Box
         style={{

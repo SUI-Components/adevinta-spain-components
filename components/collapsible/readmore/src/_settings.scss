@@ -23,7 +23,5 @@ $trstf-collapsible-read-more: ease-in-out !default;
 
 // Animated transitions and transformations.
 $trf-collapsible-read-more-ellipsis-icon: rotateZ(180deg) !default;
-$trs-collapsible-read-more-content-wrapper: max-height
-  $trsdu-collapsible-read-more $trstf-collapsible-read-more;
-$trs-collapsible-read-more-ellipsis-icon: transform $trsdu-collapsible-read-more
-  $trstf-collapsible-read-more;
+$trs-collapsible-read-more-content-wrapper: max-height $trsdu-collapsible-read-more $trstf-collapsible-read-more;
+$trs-collapsible-read-more-ellipsis-icon: transform $trsdu-collapsible-read-more $trstf-collapsible-read-more;

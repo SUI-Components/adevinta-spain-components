@@ -21,20 +21,11 @@ ListLinkItem.propTypes = {
   useReactRouterLinks: PropTypes.bool
 }
 
-export default function ListLink({
-  displayInline,
-  list = [],
-  useReactRouterLinks
-}) {
+export default function ListLink({displayInline, list = [], useReactRouterLinks}) {
   return (
     <ul className="sui-ListLink">
       {list.map((item, index) => (
-        <ListLinkItem
-          key={index}
-          item={item}
-          displayInline={displayInline}
-          useReactRouterLinks={useReactRouterLinks}
-        />
+        <ListLinkItem key={index} item={item} displayInline={displayInline} useReactRouterLinks={useReactRouterLinks} />
       ))}
     </ul>
   )

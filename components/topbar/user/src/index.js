@@ -21,24 +21,51 @@ const DEFAULT_NAV_WRAP_STYLE = {
 const HTML_HAS_SCROLL_DISABLED = 'html-has-scroll-disabled'
 const BODY_HAS_SCROLL_DISABLED = 'body-has-scroll-disabled'
 
+const TITLE_CLASS_NAME = 'sui-TopbarUser-title'
+const FLOW_BUTTON_CLASS_NAME = 'sui-TopbarUser-navButton'
+
+/**
+ * Render main navigation function.
+ */
+const renderNavMain =
+  ({isToggleHidden, linkFactory}) =>
+  ({icon, label: text, menu, arrowButtonIcon, onClick = noop}, index) => {
+    const handleToggleMenu = () => onClick()
+
+    return (
+      <DropdownBasic
+        key={index}
+        button={{icon, text, arrowButtonIcon}}
+        menu={menu}
+        expandOnMouseOver={isToggleHidden}
+        linkFactory={linkFactory}
+        onToggleMenu={handleToggleMenu}
+      />
+    )
+  }
+
 /**
  * Topbar containing a dropdown with user data (login, logout, secured links...).
  */
 export default function TopbarUser({
-  shouldDisplayNavUser = true,
-  toggleIcon = Menu,
   brand,
-  navMain,
-  navUser,
-  navCTA,
   customContent,
+  elementsToKeepScrollOnToggleMenu = [],
   linkFactory = ({href, className, children, target, title}) => (
     <a href={href} className={className} target={target} title={title}>
       {children}
     </a>
   ),
+  navButton,
+  navCTA,
+  navMain,
+  navUser,
   onToggle = () => {},
-  elementsToKeepScrollOnToggleMenu = []
+  shouldDisplayNavUser = true,
+  shouldDisplayToggle = true,
+  showBrandIcon = false,
+  title,
+  toggleIcon = Menu
 }) {
   const _topbarUserNode = useRef(null)
   const _topbarUserToggleNode = useRef(null)
@@ -51,8 +78,7 @@ export default function TopbarUser({
    * Set navigation wrap inline styles.
    */
   const _setNavWrapStyles = () => {
-    const {top, left, height, width} =
-      _topbarUserNode.current.getBoundingClientRect()
+    const {top, left, height, width} = _topbarUserNode.current.getBoundingClientRect()
     const navWrapTop = top + height
     setNavWrapStyle({
       top: navWrapTop,
@@ -90,6 +116,7 @@ export default function TopbarUser({
      * Set the display state for toggle button.
      */
     const _setToggleDisplayState = () => {
+      if (!shouldDisplayToggle) return
       // Only go on if user has been resized the browser window horizontally.
       if (window.innerWidth === _windowWidth.current) return
       // Then save the new global value again.
@@ -124,8 +151,7 @@ export default function TopbarUser({
       window.document.documentElement.classList.add(HTML_HAS_SCROLL_DISABLED)
       window.document.body.classList.add(BODY_HAS_SCROLL_DISABLED)
       elementsToKeepScrollOnToggleMenu.forEach(selector => {
-        document.querySelector(selector).style.transform =
-          transformStyleToKeepScroll
+        document.querySelector(selector).style.transform = transformStyleToKeepScroll
       })
     }
 
@@ -139,8 +165,7 @@ export default function TopbarUser({
       })
       window.document.documentElement.classList.remove(HTML_HAS_SCROLL_DISABLED)
       window.document.body.classList.remove(BODY_HAS_SCROLL_DISABLED)
-      elementsToKeepScrollOnToggleMenu.length &&
-        window.scrollTo(0, _verticalScrollPosition)
+      elementsToKeepScrollOnToggleMenu.length && window.scrollTo(0, _verticalScrollPosition)
     }
 
     // Given toggle button is hidden in desktop.
@@ -154,36 +179,14 @@ export default function TopbarUser({
     }
   }, [menuExpanded, isToggleHidden, elementsToKeepScrollOnToggleMenu])
 
-  /**
-   * Render main navigation function.
-   */
-  const _renderNavMain =
-    isToggleHidden =>
-    ({icon, label: text, menu, arrowButtonIcon, onClick = noop}, index) => {
-      const handleToggleMenu = () => onClick()
-
-      return (
-        <DropdownBasic
-          key={index}
-          button={{icon, text, arrowButtonIcon}}
-          menu={menu}
-          expandOnMouseOver={isToggleHidden}
-          linkFactory={linkFactory}
-          onToggleMenu={handleToggleMenu}
-        />
-      )
-    }
-
   const Link = linkFactory
   const ToggleIcon = toggleIcon
-  const {image: BrandImage, name: brandName, url: brandUrl} = brand
+  const {icon: BrandIcon, image: BrandImage, name: brandName, url: brandUrl} = brand
   const {avatar, name, menu, hasUserBadgeLabel} = navUser
   const navWrapClassName = cx('sui-TopbarUser-navWrap', {
     'is-expanded': menuExpanded
   })
-  const hasNotifications = navUser.menu.some(({notifications}) =>
-    Boolean(notifications)
-  )
+  const hasNotifications = navUser.menu.some(({notifications}) => Boolean(notifications))
   const toggleMenuClassName = cx('sui-TopbarUser-toggle', {
     'has-notifications': hasNotifications
   })
@@ -193,29 +196,31 @@ export default function TopbarUser({
   return (
     <div ref={_topbarUserNode} className="sui-TopbarUser">
       <div className="sui-TopbarUser-wrap">
-        <button
-          ref={_topbarUserToggleNode}
-          className={toggleMenuClassName}
-          onClick={_toggleMenu}
-        >
-          <ToggleIcon svgClass="sui-TopbarUser-toggleIcon" />
-        </button>
-        <Link
-          href={brandUrl}
-          className="sui-TopbarUser-brand"
-          title={brandName}
-        >
-          {BrandImage ? <BrandImage /> : brandName}
-        </Link>
+        {navButton ? <div className={FLOW_BUTTON_CLASS_NAME}>{navButton}</div> : null}
+        {shouldDisplayToggle ? (
+          <button ref={_topbarUserToggleNode} className={toggleMenuClassName} onClick={_toggleMenu}>
+            <ToggleIcon svgClass="sui-TopbarUser-toggleIcon" />
+          </button>
+        ) : (
+          <></>
+        )}
+        {showBrandIcon ? (
+          <Link href={brandUrl} className="sui-TopbarUser-brandIcon" title={brandName}>
+            <BrandIcon />
+          </Link>
+        ) : (
+          <Link href={brandUrl} className="sui-TopbarUser-brand" title={brandName}>
+            {BrandImage ? <BrandImage /> : brandName}
+          </Link>
+        )}
+        {title ? <div className={TITLE_CLASS_NAME}>{title}</div> : null}
         <div
           className={navWrapClassName}
           style={isToggleHidden ? DEFAULT_NAV_WRAP_STYLE : navWrapStyle}
           onClick={_handleNavWrapClick}
         >
           <div className="sui-TopbarUser-nav">
-            <div className="sui-TopbarUser-navMain">
-              {navMain.map(_renderNavMain(isToggleHidden))}
-            </div>
+            <div className="sui-TopbarUser-navMain">{navMain.map(renderNavMain({isToggleHidden, linkFactory}))}</div>
             {shouldDisplayNavUser && (
               <div className="sui-TopbarUser-navUser">
                 <DropdownUser
@@ -231,7 +236,7 @@ export default function TopbarUser({
           </div>
         </div>
       </div>
-      {customContent}
+      {customContent ? <div className="sui-TopbarUser-customContent">{customContent}</div> : <></>}
       {navCTA && !customContent && (
         <div className="sui-TopbarUser-ctaButton">
           <AtomButton
@@ -258,6 +263,10 @@ export default function TopbarUser({
 TopbarUser.displayName = 'TopbarUser'
 
 TopbarUser.propTypes = {
+  /**
+   * Render custom node as flow button
+   */
+  navButton: PropTypes.node,
   /**
    * Optional toggle icon.
    */
@@ -328,6 +337,10 @@ TopbarUser.propTypes = {
    * Dropdown user visibility
    */
   shouldDisplayNavUser: PropTypes.bool,
+  /**
+   * Toggle icon visibility
+   */
+  shouldDisplayToggle: PropTypes.bool,
   /**
    * Dropdown user object.
    */
@@ -410,5 +423,13 @@ TopbarUser.propTypes = {
   /**
    * Function that is being executed each time use toggle topbar with the state
    */
-  onToggle: PropTypes.func
+  onToggle: PropTypes.func,
+  /**
+   * Boolean to determines whether the Brand Icon should be shown, instead of Brand image
+   */
+  showBrandIcon: PropTypes.bool,
+  /**
+   * Render custom node as title
+   */
+  title: PropTypes.node
 }

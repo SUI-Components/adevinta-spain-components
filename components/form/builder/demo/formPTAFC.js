@@ -11,9 +11,7 @@ export const json = {
         label: 'Add your photos. You can upload several at the same time',
         hint: 'Add your photos. You can upload several at the same time',
         display: 'image',
-        constraints: [
-          {property: {maxsize: '30'}, message: 'You can upload up to 30 photos'}
-        ]
+        constraints: [{property: {maxsize: '30'}, message: 'You can upload up to 30 photos'}]
       },
       {
         id: 'propertyTypeId',
@@ -266,8 +264,7 @@ export const json = {
             constraints: [
               {
                 property: {notnull: ''},
-                message:
-                  'We need a valid value for the consumption efficiency scale'
+                message: 'We need a valid value for the consumption efficiency scale'
               }
             ]
           },
@@ -306,8 +303,7 @@ export const json = {
             constraints: [
               {
                 property: {notnull: ''},
-                message:
-                  'We need a valid value for the emission efficiency scale'
+                message: 'We need a valid value for the emission efficiency scale'
               }
             ]
           },
@@ -523,9 +519,7 @@ export const json = {
           }
         },
         {
-          when: [
-            {operator: 'IN', id: 'propertyTypeId', value: ['3', '6', '7']}
-          ],
+          when: [{operator: 'IN', id: 'propertyTypeId', value: ['3', '6', '7']}],
           then: {
             data: {
               value: '3',
@@ -884,15 +878,11 @@ export const json = {
       ],
       energyCertificateId: [
         {
-          when: [
-            {operator: 'IN', id: 'propertyTypeId', value: ['2', '5', '6']}
-          ],
+          when: [{operator: 'IN', id: 'propertyTypeId', value: ['2', '5', '6']}],
           then: {data: {hidden: false, required: true}}
         },
         {
-          when: [
-            {operator: 'NIN', id: 'propertyTypeId', value: ['2', '5', '6']}
-          ],
+          when: [{operator: 'NIN', id: 'propertyTypeId', value: ['2', '5', '6']}],
           then: {data: {hidden: true, required: false}}
         }
       ],

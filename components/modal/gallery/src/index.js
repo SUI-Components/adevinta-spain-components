@@ -7,8 +7,7 @@ import SuiModal from '@s-ui/react-modal-basic'
 
 const NO_OP = () => {}
 
-const DEFAULT_COUNTER_TEXT_FORMATTER = (current, total) =>
-  `${current} / ${total}`
+const DEFAULT_COUNTER_TEXT_FORMATTER = (current, total) => `${current} / ${total}`
 
 class ModalGallery extends Component {
   state = {
@@ -33,9 +32,7 @@ class ModalGallery extends Component {
       <div className="sui-ModalGallery-header">
         <div className="sui-ModalGallery-imageCounter">
           {IconImages && <IconImages className="sui-ModalGallery-iconImages" />}
-          <span className="sui-ModalGallery-counterText">
-            {counterTextFormatter(currentSlide, totalSlides)}
-          </span>
+          <span className="sui-ModalGallery-counterText">{counterTextFormatter(currentSlide, totalSlides)}</span>
         </div>
       </div>
     )
@@ -61,8 +58,7 @@ class ModalGallery extends Component {
 
   render() {
     const {currentSlide} = this.state
-    const {open, initialSlide, lazyLoadSlider, multimedia, iconClose, onClose} =
-      this.props
+    const {open, initialSlide, lazyLoadSlider, multimedia, iconClose, onClose} = this.props
 
     return (
       <div className="sui-ModalGallery">

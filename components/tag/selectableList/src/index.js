@@ -24,9 +24,7 @@ export default class TagSelectableList extends Component {
   }
 
   toggleAll = () => {
-    this.setSelectedValues(
-      this.isAllSelected() ? [] : this.props.tagsList.map(item => item.value)
-    )
+    this.setSelectedValues(this.isAllSelected() ? [] : this.props.tagsList.map(item => item.value))
   }
 
   setSelectedValues(selectedValues) {

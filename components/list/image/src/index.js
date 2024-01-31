@@ -29,11 +29,7 @@ const renderSuiLazyloadImage = image => (
  */
 const renderImageItem = (image, index) =>
   image && (
-    <li
-      className="sui-ListImage-item"
-      key={index}
-      onClick={ensureFunction(image.onClick)}
-    >
+    <li className="sui-ListImage-item" key={index} onClick={ensureFunction(image.onClick)}>
       {renderSuiLazyloadImage(image)}
     </li>
   )
@@ -48,19 +44,11 @@ const renderImageItem = (image, index) =>
  */
 const renderImageWithMoreItemsBox = (image, index, moreItemsBox) =>
   image && (
-    <li
-      className="sui-ListImage-item"
-      key={index}
-      onClick={ensureFunction(moreItemsBox.onClick)}
-    >
+    <li className="sui-ListImage-item" key={index} onClick={ensureFunction(moreItemsBox.onClick)}>
       <div className="sui-ListImage-lastItemContainer">
         {renderSuiLazyloadImage(image)}
         <div className="sui-ListImage-moreItemsBox">
-          {moreItemsBox.label && (
-            <span className="sui-ListImage-moreItemsBoxLabel">
-              {moreItemsBox.label}
-            </span>
-          )}
+          {moreItemsBox.label && <span className="sui-ListImage-moreItemsBoxLabel">{moreItemsBox.label}</span>}
         </div>
       </div>
     </li>
@@ -70,11 +58,7 @@ const ListImage = ({className, images, maxItems, moreItemsBox}) => (
   <ul className={cx('sui-ListImage', className)}>
     {images.slice(0, maxItems - 1).map(renderImageItem)}
     {images.length > maxItems && !!moreItemsBox
-      ? renderImageWithMoreItemsBox(
-          images[maxItems - 1],
-          maxItems - 1,
-          moreItemsBox
-        )
+      ? renderImageWithMoreItemsBox(images[maxItems - 1], maxItems - 1, moreItemsBox)
       : renderImageItem(images[maxItems - 1], maxItems - 1)}
   </ul>
 )

@@ -8,8 +8,8 @@ export default function UseNearScreenDemo() {
   return (
     <>
       <Paragraph>
-        Scroll until the message is near. Once the message is near enough the
-        color of the box will be green. Until then, the box will be red.
+        Scroll until the message is near. Once the message is near enough the color of the box will be green. Until
+        then, the box will be red.
       </Paragraph>
       <Box
         style={{

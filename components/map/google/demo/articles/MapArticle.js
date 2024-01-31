@@ -1,23 +1,14 @@
 import MapGoogle from 'components/map/google/src/index.js'
 import PropTypes from 'prop-types'
 
-import {
-  Article,
-  Cell,
-  Code,
-  Grid,
-  H2,
-  H3,
-  Text
-} from '@s-ui/documentation-library'
+import {Article, Cell, Code, Grid, H2, H3, Text} from '@s-ui/documentation-library'
 
 const MapArticle = ({apiKey, height, width}) => {
   return (
     <Article>
       <H2>Interactive Map</H2>
       <Text>
-        Render a map. Toggle between a static map image and a dynamic map using{' '}
-        <Code>isInteractive</Code> prop.
+        Render a map. Toggle between a static map image and a dynamic map using <Code>isInteractive</Code> prop.
       </Text>
 
       <Grid cols={2} gutter={[8, 8]}>
@@ -33,8 +24,7 @@ const MapArticle = ({apiKey, height, width}) => {
           <H3>Controlled</H3>
 
           <Text>
-            Use <Code>isInteractive</Code> prop to toggle between static and
-            dynamic. In this will be always interactive
+            Use <Code>isInteractive</Code> prop to toggle between static and dynamic. In this will be always interactive
           </Text>
 
           <div style={{height, width}}>

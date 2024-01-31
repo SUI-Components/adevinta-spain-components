@@ -1,23 +1,10 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-function ButtonBasic({
-  disabled,
-  icon,
-  text,
-  layout,
-  onClick,
-  size = 'medium',
-  type = 'primary'
-}) {
-  const className = cx(
-    'sui-ButtonBasic',
-    `sui-ButtonBasic--${size}`,
-    `sui-ButtonBasic--${type}`,
-    {
-      [`sui-ButtonBasic--${layout}`]: layout
-    }
-  )
+function ButtonBasic({disabled, icon, text, layout, onClick, size = 'medium', type = 'primary'}) {
+  const className = cx('sui-ButtonBasic', `sui-ButtonBasic--${size}`, `sui-ButtonBasic--${type}`, {
+    [`sui-ButtonBasic--${layout}`]: layout
+  })
 
   return (
     <button className={className} disabled={disabled} onClick={onClick}>

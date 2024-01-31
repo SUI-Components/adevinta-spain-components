@@ -58,9 +58,7 @@ class ModalBasic extends Component {
 
   _toggleWindowScroll(disableScroll) {
     const {classList} = window.document.body
-    disableScroll
-      ? classList.add(CLASS_MODAL_OPEN)
-      : classList.remove(CLASS_MODAL_OPEN)
+    disableScroll ? classList.add(CLASS_MODAL_OPEN) : classList.remove(CLASS_MODAL_OPEN)
   }
 
   _handleCloseClick = () => {
@@ -68,39 +66,20 @@ class ModalBasic extends Component {
   }
 
   _handleOutsideClick = event => {
-    if (
-      this.props.closeOnOutsideClick &&
-      event.target === this.wrapperDOMEl.current
-    ) {
+    if (this.props.closeOnOutsideClick && event.target === this.wrapperDOMEl.current) {
       this._closeModal()
     }
   }
 
   _renderHeader = () => {
-    const {
-      header,
-      textClose,
-      textCloseHidden,
-      iconClose: IconClose
-    } = this.props
+    const {header, textClose, textCloseHidden, iconClose: IconClose} = this.props
 
     return (
-      <div
-        className="sui-ModalBasic-header"
-        onTouchMove={e => e.preventDefault()}
-      >
+      <div className="sui-ModalBasic-header" onTouchMove={e => e.preventDefault()}>
         {header}
-        <button
-          className="sui-ModalBasic-close"
-          onClick={this._handleCloseClick}
-          type="button"
-        >
+        <button className="sui-ModalBasic-close" onClick={this._handleCloseClick} type="button">
           <IconClose svgClass="sui-ModalBasic-closeIcon" />
-          {textCloseHidden ? (
-            <span className="sui-ModalBasic-closeTextHidden">{textClose}</span>
-          ) : (
-            textClose
-          )}
+          {textCloseHidden ? <span className="sui-ModalBasic-closeTextHidden">{textClose}</span> : textClose}
         </button>
       </div>
     )
@@ -119,11 +98,7 @@ class ModalBasic extends Component {
     })
 
     return (
-      <div
-        className={wrapperClassName}
-        ref={this.wrapperDOMEl}
-        onClick={this._handleOutsideClick}
-      >
+      <div className={wrapperClassName} ref={this.wrapperDOMEl} onClick={this._handleOutsideClick}>
         <div className={dialogClassName}>
           {header && this._renderHeader()}
           <div
@@ -172,9 +147,7 @@ class ModalBasic extends Component {
     if (usePortal) {
       // check if we're in the client using the flag isClientReady
       // as portals are only usable in client
-      return isClientReady
-        ? createPortal(modalElement, this._getContainer())
-        : null
+      return isClientReady ? createPortal(modalElement, this._getContainer()) : null
     }
 
     return modalElement

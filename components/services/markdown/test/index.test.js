@@ -10,13 +10,9 @@ chai.use(chaiDOM)
 
 describe('services/markdown', () => {
   it('Render', async () => {
-    render(
-      <ServiceMarkdown src="https://sui-statics-frontend.spain.advgo.net/texts/fotocasa-pro/es/cookies.md" />
-    )
+    render(<ServiceMarkdown src="https://sui-statics-frontend.spain.advgo.net/texts/fotocasa-pro/es/cookies.md" />)
 
-    const text = await screen.findByText(
-      '¿Qué es una cookie? ¿Y para qué usamos estas tecnologías?'
-    )
+    const text = await screen.findByText('¿Qué es una cookie? ¿Y para qué usamos estas tecnologías?')
     expect(text).not.to.be.null
   })
 })

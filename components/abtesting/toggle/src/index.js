@@ -5,9 +5,7 @@ import {createElement} from 'react'
 import PropTypes from 'prop-types'
 
 export default function AbTestToggle({children, variation}) {
-  const filterFunc = variation
-    ? child => child.props.variationId == variation
-    : child => child.props.defaultVariation
+  const filterFunc = variation ? child => child.props.variationId == variation : child => child.props.defaultVariation
 
   let child = children.filter(filterFunc)[0] || null
 

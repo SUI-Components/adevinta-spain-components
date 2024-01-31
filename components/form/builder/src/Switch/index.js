@@ -6,14 +6,7 @@ import MoleculeSwitch from '@s-ui/react-atom-switch'
 
 import {createComponentMemo, field} from '../prop-types'
 
-const Switch = ({
-  switchField,
-  tabIndex,
-  onChange,
-  errors,
-  alerts,
-  renderer
-}) => {
+const Switch = ({switchField, tabIndex, onChange, errors, alerts, renderer}) => {
   const errorMessages = errors[switchField.id]
   const alertMessages = alerts[switchField.id]
 
@@ -59,11 +52,7 @@ const Switch = ({
 
   // render SUI component
   return (
-    <div
-      className={`sui-FormBuilder-field sui-FormBuilder-Switch sui-FormBuilder-${
-        switchProps.id || tabIndex
-      }`}
-    >
+    <div className={`sui-FormBuilder-field sui-FormBuilder-Switch sui-FormBuilder-${switchProps.id || tabIndex}`}>
       <MoleculeSwitch {...switchProps} {...rendererResponse} />
     </div>
   )

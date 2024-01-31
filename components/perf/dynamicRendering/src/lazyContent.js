@@ -2,12 +2,7 @@ import PropTypes from 'prop-types'
 
 import {useNearScreen} from '@s-ui/react-hooks'
 
-export default function LazyContent({
-  children,
-  rootMargin = '100px 0px 0px',
-  placeholder,
-  height
-}) {
+export default function LazyContent({children, rootMargin = '100px 0px 0px', placeholder, height}) {
   const [isNearScreen, fromRef] = useNearScreen({offset: rootMargin})
 
   if (isNearScreen) {
@@ -19,9 +14,7 @@ export default function LazyContent({
       </div>
     )
   } else {
-    return (
-      <div ref={fromRef} style={{height: `${height}px`, marginBottom: '1px'}} />
-    )
+    return <div ref={fromRef} style={{height: `${height}px`, marginBottom: '1px'}} />
   }
 }
 

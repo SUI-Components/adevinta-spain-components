@@ -34,17 +34,11 @@ const CollapsibleBasic = ({
     'is-collapsed': isCollapsed,
     'is-expanded': !isCollapsed
   })
-  const contentCssClassNames = cx(
-    'sui-CollapsibleBasic-collapsibleContent',
-    ANIMATION_SPEED_CLASSNAMES[animationSpeed]
-  )
+  const contentCssClassNames = cx('sui-CollapsibleBasic-collapsibleContent', ANIMATION_SPEED_CLASSNAMES[animationSpeed])
 
   return (
     <div className={cssClassNames}>
-      <div
-        className="sui-CollapsibleBasic-trigger"
-        onClick={isClickable ? handleClick : undefined}
-      >
+      <div className="sui-CollapsibleBasic-trigger" onClick={isClickable ? handleClick : undefined}>
         <div className="sui-CollapsibleBasic-trigger-label">{label}</div>
         {!hideTriggerIcon && (
           <div className="sui-CollapsibleBasic-trigger-iconBox">

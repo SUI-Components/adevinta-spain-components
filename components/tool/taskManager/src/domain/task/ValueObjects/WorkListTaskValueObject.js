@@ -26,9 +26,7 @@ export class WorkListTaskValueObject extends ValueObject {
   }
 
   getRunnableWork() {
-    return this._work.filter(
-      work => work.isQueued() && work.areDependenciesMet(this)
-    )
+    return this._work.filter(work => work.isQueued() && work.areDependenciesMet(this))
   }
 
   toJSON() {

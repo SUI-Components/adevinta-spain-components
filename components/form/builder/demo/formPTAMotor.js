@@ -147,9 +147,7 @@ export const formPTAMotor = {
             display: 'distance',
             disabled: false,
             required: true,
-            constraints: [
-              {type: 'pattern', value: '\\d*', message: 'Sólo números ;)'}
-            ]
+            constraints: [{type: 'pattern', value: '\\d*', message: 'Sólo números ;)'}]
           },
           {
             id: 'transmission',
@@ -215,9 +213,7 @@ export const formPTAMotor = {
             label: 'Precio',
             display: 'money',
             required: false,
-            constraints: [
-              {type: 'pattern', value: '\\d*', message: 'Sólo números ;)'}
-            ]
+            constraints: [{type: 'pattern', value: '\\d*', message: 'Sólo números ;)'}]
           }
         ]
       },
@@ -230,8 +226,7 @@ export const formPTAMotor = {
           {
             id: 'description',
             type: 'text',
-            label:
-              'Añade toda la información que quieras sobre el estado de tu vehículo',
+            label: 'Añade toda la información que quieras sobre el estado de tu vehículo',
             display: 'multiline',
             required: true,
             constraints: [
@@ -309,9 +304,7 @@ export const formPTAMotor = {
               {value: '49', text: 'Zamora'},
               {value: '50', text: 'Zaragoza'}
             ],
-            constraints: [
-              {type: 'notnull', value: '', message: 'Campo requerido'}
-            ]
+            constraints: [{type: 'notnull', value: '', message: 'Campo requerido'}]
           },
           {
             id: 'phone',
@@ -319,9 +312,7 @@ export const formPTAMotor = {
             display: 'phone',
             label: 'Teléfono',
             required: true,
-            constraints: [
-              {type: 'pattern', value: '\\d*', message: 'Sólo números ;)'}
-            ]
+            constraints: [{type: 'pattern', value: '\\d*', message: 'Sólo números ;)'}]
           }
         ]
       },

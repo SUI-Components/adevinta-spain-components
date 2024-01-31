@@ -2,16 +2,7 @@ import {useRef, useState} from 'react'
 
 import {useEventListener} from 'components/react/hooks/src'
 
-import {
-  Box,
-  Cell,
-  Grid,
-  H3,
-  Input,
-  Label,
-  ListItem,
-  UnorderedList
-} from '@s-ui/documentation-library'
+import {Box, Cell, Grid, H3, Input, Label, ListItem, UnorderedList} from '@s-ui/documentation-library'
 
 const availableEvents = ['click', 'mouseenter', 'scroll']
 
@@ -30,11 +21,7 @@ export default function UseEventListenerDemo() {
     })
   }
 
-  useEventListener(
-    Array.from(events),
-    e => setTriggered(e.type),
-    targetRef.current
-  )
+  useEventListener(Array.from(events), e => setTriggered(e.type), targetRef.current)
 
   return (
     <Grid cols={4}>
@@ -44,12 +31,7 @@ export default function UseEventListenerDemo() {
           {availableEvents.map((event, idx) => (
             <ListItem key={idx}>
               <Label>
-                <Input
-                  type="checkbox"
-                  value={event}
-                  checked={events.has(event)}
-                  onChange={updateEvents}
-                />
+                <Input type="checkbox" value={event} checked={events.has(event)} onChange={updateEvents} />
                 {event}
               </Label>
             </ListItem>

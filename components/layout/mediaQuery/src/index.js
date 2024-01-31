@@ -40,9 +40,7 @@ const LayoutMediaQueryFactory = function (BREAKPOINTS) {
         window.addEventListener('resize', this.handleWindowResize)
         initialWidth = window.outerWidth
       } else {
-        this.containerResizeObserver = new ResizeObserver(
-          this.handleContainerResize
-        )
+        this.containerResizeObserver = new ResizeObserver(this.handleContainerResize)
         this.containerResizeObserver.observe(container)
         initialWidth = getWidth(container)
       }

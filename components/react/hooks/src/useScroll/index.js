@@ -10,8 +10,7 @@ const AXIS_MAP = {
 const isClient = typeof window !== 'undefined' && window.document
 
 export default function useScroll({axis = 'Y'} = {}) {
-  const getBoundingClientRect = () =>
-    isClient ? document.body.getBoundingClientRect() : 0
+  const getBoundingClientRect = () => (isClient ? document.body.getBoundingClientRect() : 0)
   const boundingKey = AXIS_MAP[axis]
 
   const [scroll, setScroll] = useState({

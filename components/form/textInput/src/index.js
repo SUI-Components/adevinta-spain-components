@@ -7,17 +7,7 @@ const renderErrorMessage = error => (
   </div>
 )
 
-const FormTextInput = ({
-  className,
-  errorMessage,
-  name,
-  onChange,
-  onFocus,
-  onBlur,
-  onKeyPress,
-  placeholder,
-  value
-}) => (
+const FormTextInput = ({className, errorMessage, name, onChange, onFocus, onBlur, onKeyPress, placeholder, value}) => (
   <div className={cx('sui-FormTextInput', className)}>
     <input
       className="sui-FormTextInput-value"

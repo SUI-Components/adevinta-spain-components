@@ -1192,15 +1192,11 @@ export const json = {
     rules: {
       priceDaily: [
         {
-          when: [
-            {operator: 'SUPERSET', id: 'extras_fields', value: ['95', '96']}
-          ],
+          when: [{operator: 'SUPERSET', id: 'extras_fields', value: ['95', '96']}],
           then: {data: {hidden: false}}
         },
         {
-          when: [
-            {operator: 'NSUPERSET', id: 'extras_fields', value: ['95', '96']}
-          ],
+          when: [{operator: 'NSUPERSET', id: 'extras_fields', value: ['95', '96']}],
           then: {data: {hidden: true}}
         }
       ],
@@ -2353,17 +2349,7 @@ export const json = {
             {
               operator: 'NIN',
               id: 'subcategory2',
-              value: [
-                '695',
-                '696',
-                '697',
-                '699',
-                '700',
-                '701',
-                '702',
-                '703',
-                '704'
-              ]
+              value: ['695', '696', '697', '699', '700', '701', '702', '703', '704']
             }
           ],
           then: {
@@ -2381,17 +2367,7 @@ export const json = {
             {
               operator: 'IN',
               id: 'subcategory2',
-              value: [
-                '695',
-                '696',
-                '697',
-                '699',
-                '700',
-                '701',
-                '702',
-                '703',
-                '704'
-              ]
+              value: ['695', '696', '697', '699', '700', '701', '702', '703', '704']
             }
           ],
           then: {

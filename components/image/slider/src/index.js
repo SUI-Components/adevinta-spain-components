@@ -92,9 +92,7 @@ export default function ImageSlider({
   counterIcon = IconCamera,
   counterPatternFactory = defaultCounterPatternFactory
 }) {
-  const [currentSlide, setCurrentSlide] = useState(
-    sliderOptions.initialSlide || 0
-  )
+  const [currentSlide, setCurrentSlide] = useState(sliderOptions.initialSlide || 0)
   const slides = getSlides(currentSlide, content, linkFactory)
   const hasSingleImage = slides.length === 1
   const {useFullHeight} = sliderOptions
@@ -105,10 +103,7 @@ export default function ImageSlider({
   })
 
   const buildCounter = totalImages => {
-    const classNames = cx(
-      'sui-ImageSlider-counter',
-      `sui-ImageSlider-counter--${counterPosition}`
-    )
+    const classNames = cx('sui-ImageSlider-counter', `sui-ImageSlider-counter--${counterPosition}`)
     const Icon = counterIcon
     return (
       <div className={classNames}>
@@ -132,10 +127,7 @@ export default function ImageSlider({
     slides.length > 0 && (
       <div onClick={handleClick} className={BASE_CLASS}>
         {slides.length > 1 ? (
-          <MoleculeCarousel
-            {...sliderOptions}
-            onSlideAfter={onSlideAfterHandler}
-          >
+          <MoleculeCarousel {...sliderOptions} onSlideAfter={onSlideAfterHandler}>
             {slides}
           </MoleculeCarousel>
         ) : (
@@ -193,9 +185,7 @@ ImageSlider.propTypes = {
   /**
    * Counter position.
    */
-  counterPosition: PropTypes.oneOf(
-    Object.values(IMAGE_SLIDER_COUNTER_POSITIONS)
-  ),
+  counterPosition: PropTypes.oneOf(Object.values(IMAGE_SLIDER_COUNTER_POSITIONS)),
   /**
    * Custom icon for counter
    */

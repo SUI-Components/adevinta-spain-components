@@ -4,9 +4,7 @@ import {useReducer} from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
-import MoleculeBadgeCounter, {
-  moleculeBadgeCounterSizes
-} from '@s-ui/react-molecule-badge-counter'
+import MoleculeBadgeCounter, {moleculeBadgeCounterSizes} from '@s-ui/react-molecule-badge-counter'
 
 import {reducer, reducerActions, reducerInitialState} from './reducer'
 
@@ -26,21 +24,15 @@ const DropdownUser = ({
 
   const toggleMenu = () => dispatch({type: reducerActions.TOGGLE_MENU})
 
-  const handleMouseOver = () =>
-    expandOnMouseOver && dispatch({type: reducerActions.MOUSE_HOVER})
+  const handleMouseOver = () => expandOnMouseOver && dispatch({type: reducerActions.MOUSE_HOVER})
 
-  const handleMouseOut = () =>
-    expandOnMouseOver && dispatch({type: reducerActions.MOUSE_OUT})
+  const handleMouseOut = () => expandOnMouseOver && dispatch({type: reducerActions.MOUSE_OUT})
 
   const handleClick = () => !expandOnMouseOver && toggleMenu()
 
-  const handleTouchStart = () =>
-    expandOnMouseOver && collapseByTouch && toggleMenu()
+  const handleTouchStart = () => expandOnMouseOver && collapseByTouch && toggleMenu()
 
-  const renderLink = (
-    {onClick, text, url, icon: Icon, notifications, highlight},
-    index
-  ) => {
+  const renderLink = ({onClick, text, url, icon: Icon, notifications, highlight}, index) => {
     const linkClassName = cx('sui-DropdownUserMenu-listLink', {
       'sui-DropdownUserMenu-listLinkHighlight': highlight
     })
@@ -51,22 +43,14 @@ const DropdownUser = ({
 
     return (
       <li key={`${text}-${index}`} className="sui-DropdownUserMenu-listItem">
-        <Link
-          href={url}
-          className={linkClassName}
-          title={text}
-          onClick={handleClick}
-        >
+        <Link href={url} className={linkClassName} title={text} onClick={handleClick}>
           <div className="sui-DropdownUserMenu-listIcon">
             <Icon />
           </div>
           <span className="sui-DropdownUserMenu-listText">{text}</span>
           {hasLinkNotifications && (
             <span className="sui-DropdownUserMenu-listNotification">
-              <MoleculeBadgeCounter
-                label={!!hasBadgeLabel && notifications}
-                size={moleculeBadgeCounterSizes.SMALL}
-              />
+              <MoleculeBadgeCounter label={!!hasBadgeLabel && notifications} size={moleculeBadgeCounterSizes.SMALL} />
             </span>
           )}
         </Link>
@@ -82,22 +66,10 @@ const DropdownUser = ({
   })
 
   return (
-    <div
-      className={wrapperClassName}
-      onMouseOver={handleMouseOver}
-      onMouseOut={handleMouseOut}
-    >
-      <div
-        className="sui-DropdownUser-button"
-        onClick={handleClick}
-        onTouchStart={handleTouchStart}
-      >
+    <div className={wrapperClassName} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+      <div className="sui-DropdownUser-button" onClick={handleClick} onTouchStart={handleTouchStart}>
         <div className="sui-DropdownUser-buttonAvatarWrap">
-          <img
-            className="sui-DropdownUser-buttonAvatar"
-            src={avatar}
-            alt={`${name}-avatar`}
-          />
+          <img className="sui-DropdownUser-buttonAvatar" src={avatar} alt={`${name}-avatar`} />
         </div>
         <span className="sui-DropdownUser-buttonText">{name}</span>
       </div>

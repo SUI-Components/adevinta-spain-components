@@ -10,15 +10,11 @@ export default function UseStepsDemo() {
   return (
     <>
       <Grid cols={3} gutter=",12" style={{maxWidth: 300, marginBottom: 24}}>
-        <Cell align="center">
-          {prev && <Button onClick={prev}>Prev</Button>}
-        </Cell>
+        <Cell align="center">{prev && <Button onClick={prev}>Prev</Button>}</Cell>
         <Cell align="center">
           <Strong>Step: {steps[step]}</Strong>
         </Cell>
-        <Cell align="center">
-          {step < 3 && <Button onClick={() => next(step + 1)}>Next</Button>}
-        </Cell>
+        <Cell align="center">{step < 3 && <Button onClick={() => next(step + 1)}>Next</Button>}</Cell>
       </Grid>
       <Grid gutter="12">
         <Strong>History: {history.toString()}</Strong>

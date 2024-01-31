@@ -1,17 +1,7 @@
 import {Entity} from '@s-ui/domain'
 
 export class TaskEntity extends Entity {
-  constructor({
-    config,
-    createdAt,
-    finishedAt,
-    id,
-    log,
-    name,
-    status,
-    updatedAt,
-    work
-  }) {
+  constructor({config, createdAt, finishedAt, id, log, name, status, updatedAt, work}) {
     super({
       config,
       createdAt,

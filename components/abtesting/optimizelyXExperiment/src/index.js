@@ -10,8 +10,7 @@ function AbTestOptimizelyXExperiment(props) {
 
   // ACT AS AN EXPERIMENT CONTEXT PROVIDER ONLY
   // - feeds from an external experiment and provides data from it to the context
-  if (isProviderOnly)
-    return <ExperimentProviderOnly {...props} experimentData={experimentData} />
+  if (isProviderOnly) return <ExperimentProviderOnly {...props} experimentData={experimentData} />
 
   // ACT AS AN EXPERIMENT CORE RUNNER AND CONTEXT PROVIDER
   // - internally runs the experiment and provides data from it to the context

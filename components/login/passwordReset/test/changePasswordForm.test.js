@@ -11,12 +11,7 @@ import {fireEvent, waitFor} from '@testing-library/react'
 import Mocker from '@s-ui/mockmock/lib/http'
 
 import literals from '../src/literals/es-ES.js'
-import {
-  DEFAULT_TOKEN,
-  ONE_DAY,
-  SECOND_STEP_TEXT,
-  VALID_PASSWORD
-} from './fixtures.js'
+import {DEFAULT_TOKEN, ONE_DAY, SECOND_STEP_TEXT, VALID_PASSWORD} from './fixtures.js'
 import {setTokenAndExpiration} from './utils.js'
 
 const {LOGIN_CROSS} = literals
@@ -82,9 +77,7 @@ describe('ChangePasswordForm', () => {
 
     // When
     const {getByLabelText, findByText} = setup(props)
-    const passwordInput = getByLabelText(
-      LOGIN_CROSS.PASSWORD_RESET.STEP_2.NEW_PASSWORD_LABEL
-    )
+    const passwordInput = getByLabelText(LOGIN_CROSS.PASSWORD_RESET.STEP_2.NEW_PASSWORD_LABEL)
 
     // Then
     fireEvent.change(passwordInput, {target: {value: '1'}})
@@ -96,9 +89,7 @@ describe('ChangePasswordForm', () => {
 
     // When
     const {getByLabelText, findByText} = setup(props)
-    const passwordInput = getByLabelText(
-      LOGIN_CROSS.PASSWORD_RESET.STEP_2.NEW_PASSWORD_LABEL
-    )
+    const passwordInput = getByLabelText(LOGIN_CROSS.PASSWORD_RESET.STEP_2.NEW_PASSWORD_LABEL)
 
     // Then
     fireEvent.change(passwordInput, {target: {value: '1'}})
@@ -112,15 +103,11 @@ describe('ChangePasswordForm', () => {
 
     // When
     const {getByLabelText, findByText} = setup(props)
-    const passwordInput = getByLabelText(
-      LOGIN_CROSS.PASSWORD_RESET.STEP_2.REPEAT_PASSWORD_LABEL
-    )
+    const passwordInput = getByLabelText(LOGIN_CROSS.PASSWORD_RESET.STEP_2.REPEAT_PASSWORD_LABEL)
 
     // Then
     fireEvent.change(passwordInput, {target: {value: '1'}})
-    await findByText(
-      LOGIN_CROSS.PASSWORD_RESET.STEP_2.ERRORS.PASSWORDS_NOT_MATCH
-    )
+    await findByText(LOGIN_CROSS.PASSWORD_RESET.STEP_2.ERRORS.PASSWORDS_NOT_MATCH)
   })
   it('should enable submit button when passwords are valid and match', async () => {
     // Given
@@ -129,14 +116,10 @@ describe('ChangePasswordForm', () => {
     // When
     const {getByRole, findByLabelText} = setup(props)
 
-    const repeatPasswordInput = await findByLabelText(
-      LOGIN_CROSS.PASSWORD_RESET.STEP_2.REPEAT_PASSWORD_LABEL
-    )
+    const repeatPasswordInput = await findByLabelText(LOGIN_CROSS.PASSWORD_RESET.STEP_2.REPEAT_PASSWORD_LABEL)
     fireEvent.change(repeatPasswordInput, {target: {value: VALID_PASSWORD}})
 
-    const passwordInput = await findByLabelText(
-      LOGIN_CROSS.PASSWORD_RESET.STEP_2.NEW_PASSWORD_LABEL
-    )
+    const passwordInput = await findByLabelText(LOGIN_CROSS.PASSWORD_RESET.STEP_2.NEW_PASSWORD_LABEL)
     fireEvent.change(passwordInput, {target: {value: VALID_PASSWORD}})
 
     // Then
@@ -164,14 +147,10 @@ describe('ChangePasswordForm', () => {
     // When
     const {getByRole, findByLabelText, findByText} = setup(props)
 
-    const repeatPasswordInput = await findByLabelText(
-      LOGIN_CROSS.PASSWORD_RESET.STEP_2.REPEAT_PASSWORD_LABEL
-    )
+    const repeatPasswordInput = await findByLabelText(LOGIN_CROSS.PASSWORD_RESET.STEP_2.REPEAT_PASSWORD_LABEL)
     fireEvent.change(repeatPasswordInput, {target: {value: VALID_PASSWORD}})
 
-    const passwordInput = await findByLabelText(
-      LOGIN_CROSS.PASSWORD_RESET.STEP_2.NEW_PASSWORD_LABEL
-    )
+    const passwordInput = await findByLabelText(LOGIN_CROSS.PASSWORD_RESET.STEP_2.NEW_PASSWORD_LABEL)
     fireEvent.change(passwordInput, {target: {value: VALID_PASSWORD}})
 
     const submitButton = getByRole('button', {
@@ -202,14 +181,10 @@ describe('ChangePasswordForm', () => {
     // When
     const {getByRole, findByLabelText, findByText} = setup(props)
 
-    const repeatPasswordInput = await findByLabelText(
-      LOGIN_CROSS.PASSWORD_RESET.STEP_2.REPEAT_PASSWORD_LABEL
-    )
+    const repeatPasswordInput = await findByLabelText(LOGIN_CROSS.PASSWORD_RESET.STEP_2.REPEAT_PASSWORD_LABEL)
     fireEvent.change(repeatPasswordInput, {target: {value: VALID_PASSWORD}})
 
-    const passwordInput = await findByLabelText(
-      LOGIN_CROSS.PASSWORD_RESET.STEP_2.NEW_PASSWORD_LABEL
-    )
+    const passwordInput = await findByLabelText(LOGIN_CROSS.PASSWORD_RESET.STEP_2.NEW_PASSWORD_LABEL)
     fireEvent.change(passwordInput, {target: {value: VALID_PASSWORD}})
 
     const submitButton = getByRole('button', {

@@ -2,15 +2,7 @@ import {RULES} from './constants'
 import {applyRules} from './rules'
 
 export const reducer =
-  (
-    rules,
-    formID,
-    baseAPIURL,
-    responseInterceptor,
-    requestInterceptor,
-    locale,
-    extraParams
-  ) =>
+  (rules, formID, baseAPIURL, responseInterceptor, requestInterceptor, locale, extraParams) =>
   async (fields, action) => {
     const {type, id} = action
     let nextFields

@@ -49,11 +49,7 @@ const FormBuilder = ({
   __PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current = stateFields
 
   const changeField = (fieldId, fieldValue) => {
-    const nextFields = changeFieldById(
-      __PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current,
-      fieldId,
-      {value: fieldValue}
-    )
+    const nextFields = changeFieldById(__PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current, fieldId, {value: fieldValue})
     setStateFields(nextFields)
 
     return nextFields
@@ -70,15 +66,8 @@ const FormBuilder = ({
         locale,
         extraParams
       )
-      const timerShowSpinner = setTimeout(
-        () => setStateShowSpinner(true),
-        FormBuilder.USER_MINIMAL_DELAY
-      )
-      const transformedValue = transformations(
-        id,
-        value,
-        pickFieldById(fields, id)
-      )
+      const timerShowSpinner = setTimeout(() => setStateShowSpinner(true), FormBuilder.USER_MINIMAL_DELAY)
+      const transformedValue = transformations(id, value, pickFieldById(fields, id))
 
       const nextFields = changeField(id, transformedValue)
       clearTimeout(timerShowSpinner)
@@ -117,14 +106,7 @@ const FormBuilder = ({
   )
 
   useEffect(() => {
-    const reducerWithRules = reducer(
-      rules,
-      formID,
-      baseAPIURL,
-      responseInterceptor,
-      requestInterceptor,
-      locale
-    )
+    const reducerWithRules = reducer(rules, formID, baseAPIURL, responseInterceptor, requestInterceptor, locale)
     const timerShowSpinner = setTimeout(
       () => setStateShowSpinner(showSpinnerOnInitLoad),
       FormBuilder.USER_MINIMAL_DELAY
@@ -133,21 +115,13 @@ const FormBuilder = ({
       .reduce(async (previousPromise, fieldId) => {
         const previousFields = await previousPromise
 
-        const fieldHasNoInitValue =
-          !initFields[fieldId] || initFields[fieldId] === ''
+        const fieldHasNoInitValue = !initFields[fieldId] || initFields[fieldId] === ''
 
         const fieldDatalist = pickFieldById(previousFields, fieldId)?.datalist
 
-        const fieldCanBeAutocompleted =
-          allowAutoFillOnInitLoad &&
-          fieldHasNoInitValue &&
-          fieldDatalist?.length === 1
+        const fieldCanBeAutocompleted = allowAutoFillOnInitLoad && fieldHasNoInitValue && fieldDatalist?.length === 1
 
-        if (
-          !forceRulesOnAllFields &&
-          fieldHasNoInitValue &&
-          !fieldCanBeAutocompleted
-        ) {
+        if (!forceRulesOnAllFields && fieldHasNoInitValue && !fieldCanBeAutocompleted) {
           return previousFields
         }
 
@@ -196,9 +170,7 @@ const FormBuilder = ({
           />
         )
       })}
-      {stateShowSpinner && (
-        <AtomSpinner type={atomSpinnerTypes.SECTION} loader={loader} />
-      )}
+      {stateShowSpinner && <AtomSpinner type={atomSpinnerTypes.SECTION} loader={loader} />}
     </div>
   )
 }

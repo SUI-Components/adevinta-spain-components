@@ -9,11 +9,7 @@ export class ChangePasswordRequest extends ValueObject {
     return this._token
   }
 
-  static validate({
-    password,
-    emptyPasswordErrorFactory,
-    invalidPasswordErrorFactory
-  }) {
+  static validate({password, emptyPasswordErrorFactory, invalidPasswordErrorFactory}) {
     if (password.length === 0) {
       throw emptyPasswordErrorFactory()
     }

@@ -8,16 +8,7 @@ import MoleculeField from '@s-ui/react-molecule-field'
 import IconCheck from '../Icons/IconCheck'
 import {createComponentMemo, field} from '../prop-types'
 
-const Multipicker = ({
-  multipicker,
-  tabIndex,
-  onChange,
-  onFocus,
-  onBlur,
-  errors,
-  alerts,
-  renderer
-}) => {
+const Multipicker = ({multipicker, tabIndex, onChange, onFocus, onBlur, errors, alerts, renderer}) => {
   const errorMessages = errors[multipicker.id]
   const alertMessages = alerts[multipicker.id]
 
@@ -79,9 +70,7 @@ const Multipicker = ({
   // render SUI component
   return (
     <div
-      className={`sui-FormBuilder-field sui-FormBuilder-Multipicker sui-FormBuilder-${
-        multipickerProps.id || tabIndex
-      }`}
+      className={`sui-FormBuilder-field sui-FormBuilder-Multipicker sui-FormBuilder-${multipickerProps.id || tabIndex}`}
     >
       <MoleculeField {...multipickerProps}>
         {multipicker.datalist.map(item => (

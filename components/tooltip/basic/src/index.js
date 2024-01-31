@@ -8,9 +8,7 @@ export default function TooltipBasic(props) {
   const customClass = cx(`sui-TooltipBasic`, {
     [className]: !!className
   })
-  return (
-    <ReactTooltip {...props} className={customClass} insecure={false} border />
-  )
+  return <ReactTooltip {...props} className={customClass} insecure={false} border />
 }
 
 TooltipBasic.propTypes = {

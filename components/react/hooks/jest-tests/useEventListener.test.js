@@ -31,9 +31,7 @@ describe('useEventListener hook', () => {
       removeEventListener
     }
 
-    const {unmount} = renderHook(() =>
-      useEventListener('click', () => {}, target)
-    )
+    const {unmount} = renderHook(() => useEventListener('click', () => {}, target))
 
     expect(target.addEventListener).toHaveBeenCalledTimes(1)
     expect(target.removeEventListener).not.toHaveBeenCalled()
@@ -50,10 +48,9 @@ describe('useEventListener hook', () => {
       removeEventListener
     }
 
-    const {rerender, unmount} = renderHook(
-      ({event, handler, element}) => useEventListener(event, handler, element),
-      {initialProps: {event: 'click', handler: () => {}, element: target}}
-    )
+    const {rerender, unmount} = renderHook(({event, handler, element}) => useEventListener(event, handler, element), {
+      initialProps: {event: 'click', handler: () => {}, element: target}
+    })
 
     expect(target.addEventListener).toHaveBeenCalledTimes(1)
     expect(target.removeEventListener).not.toHaveBeenCalled()

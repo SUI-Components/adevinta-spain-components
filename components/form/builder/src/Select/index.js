@@ -5,17 +5,7 @@ import {DISPLAYS, FIELDS} from '../Standard'
 import AutosuggestSelect from './Autosuggest'
 import DefaultSelect from './Default'
 
-const Select = ({
-  select,
-  onChange,
-  onFocus,
-  onBlur,
-  tabIndex,
-  size,
-  errors,
-  alerts,
-  renderer
-}) => {
+const Select = ({select, onChange, onFocus, onBlur, tabIndex, size, errors, alerts, renderer}) => {
   let Field
   switch (select.display) {
     case DISPLAYS[FIELDS.PICKER].AUTOCOMPLETE:

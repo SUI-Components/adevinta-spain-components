@@ -41,9 +41,7 @@ export class LocalStateTaskRepository extends TaskRepository {
       tasks: [...this._localState.tasks]
     }
 
-    const parentTaskIndex = updatedState.tasks.findIndex(
-      task => task.id === workEntity._taskId.get()
-    )
+    const parentTaskIndex = updatedState.tasks.findIndex(task => task.id === workEntity._taskId.get())
 
     if (parentTaskIndex === -1) return this._localState
 
@@ -52,8 +50,7 @@ export class LocalStateTaskRepository extends TaskRepository {
     )
     if (currentWorkIndex === -1) return this._localState
 
-    updatedState.tasks[parentTaskIndex].work[currentWorkIndex] =
-      workEntity.toJSON()
+    updatedState.tasks[parentTaskIndex].work[currentWorkIndex] = workEntity.toJSON()
 
     return updatedState
   }
@@ -66,15 +63,11 @@ export class LocalStateTaskRepository extends TaskRepository {
   }
 
   getNonStartedTasks() {
-    return this._getTasksFilteredByStatus(
-      this._config.get('AVAILABLE_STATUS').QUEUED
-    )
+    return this._getTasksFilteredByStatus(this._config.get('AVAILABLE_STATUS').QUEUED)
   }
 
   getInProgressTasks() {
-    return this._getTasksFilteredByStatus(
-      this._config.get('AVAILABLE_STATUS').IN_PROGRESS
-    )
+    return this._getTasksFilteredByStatus(this._config.get('AVAILABLE_STATUS').IN_PROGRESS)
   }
 
   updateTasks(tasks) {
@@ -84,9 +77,7 @@ export class LocalStateTaskRepository extends TaskRepository {
     }
 
     tasks.forEach(task => {
-      const parentTaskIndex = updatedState.tasks.findIndex(
-        existingTask => existingTask.id === task._id.get()
-      )
+      const parentTaskIndex = updatedState.tasks.findIndex(existingTask => existingTask.id === task._id.get())
       if (parentTaskIndex !== -1) {
         updatedState.tasks[parentTaskIndex] = task.toJSON()
       }

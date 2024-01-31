@@ -8,9 +8,7 @@ export const datalistEntries = fields => {
       }
 
       const entry =
-        field.type === 'picker' &&
-        field.datalist &&
-        field.datalist.find(entry => entry.value === field.value)
+        field.type === 'picker' && field.datalist && field.datalist.find(entry => entry.value === field.value)
 
       return entry && {[field.id]: entry}
     })
@@ -95,9 +93,7 @@ export const fieldsNamesInOrderOfDefinition = fields => {
 }
 
 export const fieldsToQP = (fields, formID) => {
-  const qs = `form_id=${formID}&${fieldsToArrayOfStringEncoded(fields).join(
-    '&'
-  )}`
+  const qs = `form_id=${formID}&${fieldsToArrayOfStringEncoded(fields).join('&')}`
   return qs
 }
 
@@ -133,11 +129,7 @@ export const pickFieldById = (fields, id) => {
       deepFlatten,
       clean,
       head
-    )(
-      fields
-        .filter(field => Array.isArray(field.fields))
-        .map(field => pickFieldById(field.fields, id))
-    )
+    )(fields.filter(field => Array.isArray(field.fields)).map(field => pickFieldById(field.fields, id)))
   }
   return field
 }

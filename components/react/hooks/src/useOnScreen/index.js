@@ -6,13 +6,7 @@ export function useNearScreen({initialValue = false, offset = '200px'} = {}) {
   return useOnScreen({once: true, offset, initialValue})
 }
 
-export default function useOnScreen({
-  initialValue = false,
-  offset = '0px',
-  once = true,
-  threshold,
-  ref
-} = {}) {
+export default function useOnScreen({initialValue = false, offset = '0px', once = true, threshold, ref} = {}) {
   // State and setter for storing whether element is visible or not
   const [isIntersecting, setIntersecting] = useState(initialValue)
   const outerRef = useRef()
@@ -31,10 +25,7 @@ export default function useOnScreen({
       'isIntersecting' in window.IntersectionObserverEntry.prototype
 
     let observer
-    ;(isIntersectionObserverEnabled
-      ? Promise.resolve()
-      : import('intersection-observer')
-    ).then(() => {
+    ;(isIntersectionObserverEnabled ? Promise.resolve() : import('intersection-observer')).then(() => {
       observer = new window.IntersectionObserver(
         ([entry]) => {
           // Update our state when observer callback fires

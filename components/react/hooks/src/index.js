@@ -1,9 +1,7 @@
 export default function ReactHooks() {
   if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line no-console
-    console.warn(
-      "[@s-ui/react-hooks] can't be used as a standalone package.\nYou must import a specific hook."
-    )
+    console.warn("[@s-ui/react-hooks] can't be used as a standalone package.\nYou must import a specific hook.")
   }
   return null
 }
@@ -22,10 +20,7 @@ export {default as useMount} from './useMount/index.js'
 export {default as useMountedState} from './useMountedState/index.js'
 export {default as useOnClickOutside} from './useOnClickOutside/index.js'
 export {default as useOnScreen, useNearScreen} from './useOnScreen/index.js'
-export {
-  default as useOrientation,
-  orientations
-} from './useOrientation/index.js'
+export {default as useOrientation, orientations} from './useOrientation/index.js'
 export {default as usePrevious} from './usePrevious/index.js'
 export {default as useScroll} from './useScroll/index.js'
 export {default as useSteps} from './useSteps/index.js'

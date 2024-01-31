@@ -59,15 +59,7 @@ export default function ImageLazyLoad({
         </div>
       )}
       <div className={lazyLoadImageWrapClassName}>
-        {isNearScreen && (
-          <img
-            alt={alt}
-            className={lazyLoadImageClassName}
-            onError={onError}
-            src={src}
-            title={title}
-          />
-        )}
+        {isNearScreen && <img alt={alt} className={lazyLoadImageClassName} onError={onError} src={src} title={title} />}
       </div>
     </div>
   )
@@ -106,15 +98,7 @@ ImageLazyLoad.propTypes = {
   /**
    * Optional aspect ratio of the image.
    */
-  aspectRatio: PropTypes.oneOf([
-    '1:1',
-    '5:4',
-    '4:3',
-    '3:2',
-    '5:3',
-    '16:9',
-    '3:1'
-  ])
+  aspectRatio: PropTypes.oneOf(['1:1', '5:4', '4:3', '3:2', '5:3', '16:9', '3:1'])
 }
 
 ImageLazyLoad.displayName = 'ImageLazyLoad'

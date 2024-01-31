@@ -112,10 +112,7 @@ const LoginForm = () => {
     <>
       {notification.text ? (
         <>
-          <Notification
-            notificationText={notification.text}
-            isError={notification.isError}
-          />
+          <Notification notificationText={notification.text} isError={notification.isError} />
         </>
       ) : null}
       {!notification.text ? (
@@ -127,9 +124,7 @@ const LoginForm = () => {
               label={i18n.t('LOGIN_CROSS.LOGIN.EMAIL')}
               name="email"
               onChange={handleEmailChange}
-              placeholder={i18n.t(
-                'LOGIN_CROSS.PASSWORD_RESET.STEP_1.EMAIL_PLACEHOLDER'
-              )}
+              placeholder={i18n.t('LOGIN_CROSS.PASSWORD_RESET.STEP_1.EMAIL_PLACEHOLDER')}
               size="l"
               type="text"
               value={email}
@@ -149,9 +144,7 @@ const LoginForm = () => {
             />
           </div>
           <div className={`${BASE_CLASS}-formInput`}>
-            <div className={`${BASE_CLASS}-formLink`}>
-              {i18n.t('LOGIN_CROSS.LOGIN.FORGOT_YOUR_PASSWORD')}
-            </div>
+            <div className={`${BASE_CLASS}-formLink`}>{i18n.t('LOGIN_CROSS.LOGIN.FORGOT_YOUR_PASSWORD')}</div>
           </div>
           {/* <div className={`${BASE_CLASS}-formInput`}>
             {i18n.t('LOGIN_CROSS.LOGIN.RELAYING_ON_THIS_DEVICE')}

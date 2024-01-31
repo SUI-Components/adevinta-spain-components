@@ -2,16 +2,7 @@ import PropTypes from 'prop-types'
 
 import FieldSet from '../../../FieldSet/index.js'
 
-const FieldSetField = ({
-  field,
-  tabIndex,
-  onChange,
-  onFocus,
-  onBlur,
-  errors,
-  alerts,
-  renderer
-}) => {
+const FieldSetField = ({field, tabIndex, onChange, onFocus, onBlur, errors, alerts, renderer}) => {
   return (
     <FieldSet
       fieldset={field}

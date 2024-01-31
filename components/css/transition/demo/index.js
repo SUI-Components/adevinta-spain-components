@@ -29,43 +29,24 @@ const TransitionFadeExample = () => {
           Toggle Fade Out Left / In Right
         </button>
 
-        <CssTransition
-          type={TYPES.FADE_OUT_LEFT}
-          in={isFirstStep}
-          unmountOnExit
-        >
+        <CssTransition type={TYPES.FADE_OUT_LEFT} in={isFirstStep} unmountOnExit>
           <ExampleContent text="Step 1" backgroundColor="aliceblue" />
         </CssTransition>
 
-        <CssTransition
-          type={TYPES.FADE_IN_RIGHT}
-          in={!isFirstStep}
-          unmountOnExit
-        >
+        <CssTransition type={TYPES.FADE_IN_RIGHT} in={!isFirstStep} unmountOnExit>
           <ExampleContent text="Step 2" backgroundColor="antiquewhite" />
         </CssTransition>
       </div>
       <div>
-        <button
-          type="button"
-          onClick={() => toggleFirstStepFadeIn(!isFirstStepFadeIn)}
-        >
+        <button type="button" onClick={() => toggleFirstStepFadeIn(!isFirstStepFadeIn)}>
           Toggle Fade In / Out
         </button>
 
-        <CssTransition
-          type={TYPES.FADE_IN}
-          in={isFirstStepFadeIn}
-          unmountOnExit
-        >
+        <CssTransition type={TYPES.FADE_IN} in={isFirstStepFadeIn} unmountOnExit>
           <ExampleContent text="Step 1" backgroundColor="aliceblue" />
         </CssTransition>
 
-        <CssTransition
-          type={TYPES.FADE_OUT}
-          in={!isFirstStepFadeIn}
-          unmountOnExit
-        >
+        <CssTransition type={TYPES.FADE_OUT} in={!isFirstStepFadeIn} unmountOnExit>
           <ExampleContent text="Step 2" backgroundColor="antiquewhite" />
         </CssTransition>
       </div>

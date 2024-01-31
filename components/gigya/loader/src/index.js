@@ -6,13 +6,7 @@ import ScriptLoader from '@s-ui/react-script-loader'
 const getGigya = () => window && window.gigya
 const gigyaUrl = 'https://cdns.gigya.com/js/gigya.js?apiKey='
 
-export default function GigyaLoader({
-  render,
-  timeoutRender,
-  onTimeout,
-  detectionDelay = 15000,
-  gigyaApiKey
-}) {
+export default function GigyaLoader({render, timeoutRender, onTimeout, detectionDelay = 15000, gigyaApiKey}) {
   return (
     <ScriptLoader
       src={`${gigyaUrl}${gigyaApiKey}`}

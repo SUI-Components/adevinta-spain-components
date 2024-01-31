@@ -1,5 +1,65 @@
 # CHANGELOG
 
+# 1.12.0 (2023-12-21)
+
+
+### Features
+
+* **components/tool/app:** Auto-configure biometric permissions ([37c1e7f](https://github.com/SUI-Components/adevinta-spain-components/commit/37c1e7f352620268b3f60b19d2694a430f3d8d8e))
+
+
+
+# 1.11.0 (2023-11-17)
+
+
+### Features
+
+* **components/tool/app:** Add readline dependency ([b85dabc](https://github.com/SUI-Components/adevinta-spain-components/commit/b85dabc20af236aacdb76b97fe3bf12db2c95f54))
+* **components/tool/app:** Avoid compiling problems ([8a85ab0](https://github.com/SUI-Components/adevinta-spain-components/commit/8a85ab0980bf30485591ea2df625f484607e99bc))
+* **components/tool/app:** Change dependencies ([75bf2cf](https://github.com/SUI-Components/adevinta-spain-components/commit/75bf2cf885a9b2b8da7f92e89767ca9e9a3aa20a))
+* **components/tool/app:** Remove readline-sync dependency ([803758a](https://github.com/SUI-Components/adevinta-spain-components/commit/803758a4183a73caa4985cd9a90df9cf202575ec))
+* **components/tool/app:** Start to work on addBiometricConfig command ([78f30ff](https://github.com/SUI-Components/adevinta-spain-components/commit/78f30ff9f43c145f54a40ace1d97dd7432331257))
+
+
+
+# 1.10.0 (2023-11-16)
+
+
+### Features
+
+* **components/tool/app:** Improve API organization ([dc3b16e](https://github.com/SUI-Components/adevinta-spain-components/commit/dc3b16e68de01839f5d23edfc7f70ddc3d2c4a97))
+
+
+
+# 1.9.0 (2023-11-16)
+
+
+### Features
+
+* **components/tool/app:** Automatic optimization of the capacitor config file ([86b04d0](https://github.com/SUI-Components/adevinta-spain-components/commit/86b04d0e711255f36220ca03c70333be7cd7dd25))
+* **components/tool/app:** Lint issues ([68a1041](https://github.com/SUI-Components/adevinta-spain-components/commit/68a1041f8a0aa65b16866d9bf60af2c6f3a322f6))
+* **components/tool/app:** Linter nightmare ([8016865](https://github.com/SUI-Components/adevinta-spain-components/commit/8016865977c1c49e2895153a921cf0488aee847f))
+
+
+
+# 1.8.0 (2023-11-15)
+
+
+### Features
+
+* **components/tool/app:** Local notifications ([6fad502](https://github.com/SUI-Components/adevinta-spain-components/commit/6fad502a5ae88e7f782439c7c72411aa93d7e6c8))
+
+
+
+# 1.7.0 (2023-11-15)
+
+
+### Features
+
+* **components/tool/app:** Add icons command ([ae7f3ef](https://github.com/SUI-Components/adevinta-spain-components/commit/ae7f3ef63e480898a7db409198b450d3658cca5b))
+
+
+
 # 1.6.0 (2023-11-14)
 
 

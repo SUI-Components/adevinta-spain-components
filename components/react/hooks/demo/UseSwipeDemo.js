@@ -10,9 +10,7 @@ export default function UseSwipeDemo() {
 
   return (
     <>
-      <Paragraph>
-        Swipe left or right inside the box to see the effect of your action
-      </Paragraph>
+      <Paragraph>Swipe left or right inside the box to see the effect of your action</Paragraph>
       <div
         ref={swipeRef}
         style={{

@@ -4,11 +4,7 @@ import {getExperimentContext} from '../context'
 
 function ExperimentProviderOnly({children, experimentData}) {
   const ExperimentContext = getExperimentContext(experimentData.name)
-  return (
-    <ExperimentContext.Provider value={experimentData}>
-      {children}
-    </ExperimentContext.Provider>
-  )
+  return <ExperimentContext.Provider value={experimentData}>{children}</ExperimentContext.Provider>
 }
 
 ExperimentProviderOnly.propTypes = {

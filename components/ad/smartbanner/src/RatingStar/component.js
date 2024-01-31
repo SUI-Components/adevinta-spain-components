@@ -5,8 +5,7 @@ import IconStarEmptyDefault from '@s-ui/react-icons/lib/Starempty'
 import IconStarHalfDefault from '@s-ui/react-icons/lib/Starhalf'
 
 const baseNumber = 0.5
-const checkRatingValue = ({ratingValue, ratingMax}) =>
-  ratingValue % baseNumber === 0 && ratingValue <= ratingMax
+const checkRatingValue = ({ratingValue, ratingMax}) => ratingValue % baseNumber === 0 && ratingValue <= ratingMax
 
 const RatingStar = ({
   ratingValue = 0,
@@ -43,11 +42,7 @@ const RatingStar = ({
     return <SvgIconsCall key={index} svgClass="sui-AdSmartbanner-ratingIcon" />
   }
 
-  return (
-    <span className="sui-AdSmartbanner-rating">
-      {Array(ratingMax).fill().map(_renderStar)}
-    </span>
-  )
+  return <span className="sui-AdSmartbanner-rating">{Array(ratingMax).fill().map(_renderStar)}</span>
 }
 
 RatingStar.propTypes = {

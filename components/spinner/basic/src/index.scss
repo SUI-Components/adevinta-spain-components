@@ -38,8 +38,7 @@
 
     &Arc {
       @include sui-spinner-position;
-      animation: sui-spinner-animation $animdur-spinner $animic-spinner
-        $animtf-spinner;
+      animation: sui-spinner-animation $animdur-spinner $animic-spinner $animtf-spinner;
     }
   }
 

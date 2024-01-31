@@ -14,15 +14,7 @@ const getCheckboxIcon = (checked, customIcons) => {
   return icon
 }
 
-const FormCheckbox = ({
-  checked,
-  className,
-  errorMessage,
-  label,
-  name,
-  onChange,
-  svgIcons
-}) => {
+const FormCheckbox = ({checked, className, errorMessage, label, name, onChange, svgIcons}) => {
   const CheckboxIcon = getCheckboxIcon(checked, svgIcons)
   return (
     <div className={cx('sui-FormCheckbox', className)}>
@@ -39,9 +31,7 @@ const FormCheckbox = ({
       </label>
       {errorMessage && (
         <div className="sui-FormCheckbox-errorMessage">
-          <span className="sui-FormCheckbox-errorMessageLabel">
-            {errorMessage}
-          </span>
+          <span className="sui-FormCheckbox-errorMessageLabel">{errorMessage}</span>
         </div>
       )}
     </div>

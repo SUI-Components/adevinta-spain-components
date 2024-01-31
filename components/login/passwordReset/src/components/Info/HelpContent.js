@@ -12,9 +12,7 @@ const HelpContent = ({icons}) => {
     <div className={`${BASE_CLASS}-helpContent`}>
       <AtomIcon icon={icons.helpContent || DEFAULT_ATC_ICON} />
       <div className="">
-        <div className={`${BASE_CLASS}-helpContentTitle`}>
-          {i18n.t('LOGIN_CROSS.PASSWORD_RESET.DOUBTS.TITLE')}
-        </div>
+        <div className={`${BASE_CLASS}-helpContentTitle`}>{i18n.t('LOGIN_CROSS.PASSWORD_RESET.DOUBTS.TITLE')}</div>
         <div className={`${BASE_CLASS}-helpContentText`}>
           <span
             dangerouslySetInnerHTML={{

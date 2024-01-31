@@ -2,10 +2,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import AtomProgressBar from '@s-ui/react-atom-progress-bar'
-import MoleculeAccordion, {
-  moleculeAccordionBehavior,
-  MoleculeAccordionItem
-} from '@s-ui/react-molecule-accordion'
+import MoleculeAccordion, {moleculeAccordionBehavior, MoleculeAccordionItem} from '@s-ui/react-molecule-accordion'
 
 import {TaskManagerProvider} from './components/TaskManagerContext.js'
 import useBeforeUnloadEffect from './hooks/useBeforeUnloadEffect.js'
@@ -37,19 +34,14 @@ export default function ToolTaskManager({
           if (taskAmountFilter !== 0 && taskAmountFilter > index) return
 
           const Icon = statusIcons[task.status] || ''
-          const taskClassName = cx(
-            'sui-ToolTaskManager-task',
-            `is-${task.status.toLowerCase()}`
-          )
+          const taskClassName = cx('sui-ToolTaskManager-task', `is-${task.status.toLowerCase()}`)
 
           const getLabel = () => {
             return (
               <div className={taskClassName}>
                 <div className="sui-ToolTaskManager-taskInfo">
                   <div className="sui-ToolTaskManager-taskIcon">{Icon}</div>
-                  <div className="sui-ToolTaskManager-taskName">
-                    {task.name}
-                  </div>
+                  <div className="sui-ToolTaskManager-taskName">{task.name}</div>
                 </div>
                 <div className="sui-ToolTaskManager-taskCounter">
                   {countFinishedWork(task.id)} de {countWork(task.id)}
@@ -71,19 +63,12 @@ export default function ToolTaskManager({
                     return (
                       <div className="sui-ToolTaskManager-work">
                         <div className="sui-ToolTaskManager-workInfo">
-                          <span className="sui-ToolTaskManager-workInfoText">
-                            {work.name}
-                          </span>
+                          <span className="sui-ToolTaskManager-workInfoText">{work.name}</span>
                           <span>{work.percentage}%</span>
                         </div>
 
                         <div className="sui-ToolTaskManager-workProgressBar">
-                          <AtomProgressBar
-                            hideIndicator
-                            percentage={work.percentage}
-                            type="line"
-                            size="medium"
-                          />
+                          <AtomProgressBar hideIndicator percentage={work.percentage} type="line" size="medium" />
                         </div>
                       </div>
                     )
@@ -106,10 +91,7 @@ export default function ToolTaskManager({
   return (
     <div className="sui-ToolTaskManager" onClick={registerClick}>
       <div className="sui-ToolTaskManager-container">
-        <MoleculeAccordion
-          as="div"
-          behavior={moleculeAccordionBehavior.MULTIPLE}
-        >
+        <MoleculeAccordion as="div" behavior={moleculeAccordionBehavior.MULTIPLE}>
           <>{getItems()}</>
         </MoleculeAccordion>
       </div>

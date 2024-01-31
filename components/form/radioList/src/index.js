@@ -1,13 +1,6 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-export default function FormRadioList({
-  name,
-  className,
-  classNameItem,
-  options,
-  handleChange,
-  selectedValue
-}) {
+export default function FormRadioList({name, className, classNameItem, options, handleChange, selectedValue}) {
   function _renderOptions() {
     return options.map(({value, label}, index) => {
       const checked = selectedValue === value
@@ -43,16 +36,10 @@ FormRadioList.propTypes = {
   classNameItem: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      value: PropTypes.oneOfType([
-        PropTypes.number.isRequired,
-        PropTypes.string.isRequired
-      ]),
+      value: PropTypes.oneOfType([PropTypes.number.isRequired, PropTypes.string.isRequired]),
       label: PropTypes.string.isRequired
     })
   ),
   handleChange: PropTypes.func.isRequired,
-  selectedValue: PropTypes.oneOfType([
-    PropTypes.number.isRequired,
-    PropTypes.string.isRequired
-  ])
+  selectedValue: PropTypes.oneOfType([PropTypes.number.isRequired, PropTypes.string.isRequired])
 }

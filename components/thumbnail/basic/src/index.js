@@ -2,12 +2,7 @@ import PropTypes from 'prop-types'
 
 import Thumbnail from './Thumbnail'
 
-const ThumbnailBasic = function ({
-  href,
-  target = '_blank',
-  onClick,
-  ...thumbnailProps
-}) {
+const ThumbnailBasic = function ({href, target = '_blank', onClick, ...thumbnailProps}) {
   return href ? (
     <a href={href} target={target} onClick={onClick}>
       <Thumbnail {...thumbnailProps} />

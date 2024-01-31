@@ -30,18 +30,11 @@ class ImagePlaceholder extends Component {
 
   get _classNames() {
     const {className, rounded} = this.props
-    return classnames(
-      ImagePlaceholder.CLASSNAME,
-      className,
-      rounded && `${ImagePlaceholder.CLASSNAME}--rounded`
-    )
+    return classnames(ImagePlaceholder.CLASSNAME, className, rounded && `${ImagePlaceholder.CLASSNAME}--rounded`)
   }
 
   get _imageClassNames() {
-    return classnames(
-      ImagePlaceholder.IMAGE_CLASS,
-      this.state.imageLoaded || `${ImagePlaceholder.IMAGE_CLASS}--hidden`
-    )
+    return classnames(ImagePlaceholder.IMAGE_CLASS, this.state.imageLoaded || `${ImagePlaceholder.IMAGE_CLASS}--hidden`)
   }
 
   get _imageProps() {
@@ -50,12 +43,7 @@ class ImagePlaceholder extends Component {
   }
 
   _renderPlaceholder() {
-    return (
-      <img
-        {...this.props.placeholder}
-        className={ImagePlaceholder.IMAGE_CLASS}
-      />
-    )
+    return <img {...this.props.placeholder} className={ImagePlaceholder.IMAGE_CLASS} />
   }
 
   /**

@@ -34,32 +34,16 @@ const TitleMultisize = ({
   title,
   titleSize = 'xl'
 }) => (
-  <div
-    className={cx(
-      'sui-TitleMultisize',
-      `sui-TitleMultisize--${orientation}`,
-      className
-    )}
-  >
+  <div className={cx('sui-TitleMultisize', `sui-TitleMultisize--${orientation}`, className)}>
     {buildTitleElement(
       preTitleSize,
-      cx(
-        'sui-TitleMultisize-preTitle',
-        `sui-TitleMultisize-preTitle--${preTitleSize}`
-      ),
+      cx('sui-TitleMultisize-preTitle', `sui-TitleMultisize-preTitle--${preTitleSize}`),
       preTitle
     )}
-    {buildTitleElement(
-      titleSize,
-      cx('sui-TitleMultisize-title', `sui-TitleMultisize-title--${titleSize}`),
-      title
-    )}
+    {buildTitleElement(titleSize, cx('sui-TitleMultisize-title', `sui-TitleMultisize-title--${titleSize}`), title)}
     {buildTitleElement(
       postTitleSize,
-      cx(
-        'sui-TitleMultisize-postTitle',
-        `sui-TitleMultisize-postTitle--${postTitleSize}`
-      ),
+      cx('sui-TitleMultisize-postTitle', `sui-TitleMultisize-postTitle--${postTitleSize}`),
       postTitle
     )}
   </div>

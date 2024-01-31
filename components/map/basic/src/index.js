@@ -110,20 +110,12 @@ class MapBasic extends Component {
   }
 
   subscribeToMapEvents() {
-    this.mapEventList.forEach(mapEvent =>
-      this.mapDOMInstance.addEventListener(
-        mapEvent.name,
-        mapEvent.handleFunction
-      )
-    )
+    this.mapEventList.forEach(mapEvent => this.mapDOMInstance.addEventListener(mapEvent.name, mapEvent.handleFunction))
   }
 
   unsubscribeFromMapEvents() {
     this.mapEventList.forEach(mapEvent =>
-      this.mapDOMInstance.removeEventListener(
-        mapEvent.name,
-        mapEvent.handleFunction
-      )
+      this.mapDOMInstance.removeEventListener(mapEvent.name, mapEvent.handleFunction)
     )
   }
 
@@ -157,15 +149,7 @@ class MapBasic extends Component {
   }
 
   // eslint-disable-next-line camelcase
-  UNSAFE_componentWillReceiveProps({
-    zoom,
-    center,
-    heatMapUrl,
-    pois,
-    showHeatmap,
-    isSetViewEnabled,
-    showSatelliteView
-  }) {
+  UNSAFE_componentWillReceiveProps({zoom, center, heatMapUrl, pois, showHeatmap, isSetViewEnabled, showSatelliteView}) {
     if (isSetViewEnabled) {
       this.mapInstance.setViewCenter(center, zoom)
     }
@@ -215,10 +199,7 @@ MapBasic.propTypes = {
    * An array composed by lat and lng like: [lat, lng]
    */
   center: PropTypes.array,
-  currentGeoCode: PropTypes.arrayOf.oneOf([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string)
-  ]),
+  currentGeoCode: PropTypes.arrayOf.oneOf([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   /**
    * Heat map url is the source where we are going to get the heatMap layers
    */

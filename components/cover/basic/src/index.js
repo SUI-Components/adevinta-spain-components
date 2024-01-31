@@ -45,17 +45,9 @@ class CoverBasic extends Component {
     const styles = {backgroundImage, height}
 
     return (
-      <div
-        className={this.coverBasicClassNames}
-        onClick={this.props.handleClick}
-        style={styles}
-      >
-        {this.props.children && (
-          <div className={`${baseClass}-children`}>{this.props.children}</div>
-        )}
-        {this.buttons.length > 0 && (
-          <div className={`${baseClass}-buttonList`}>{this.buttons}</div>
-        )}
+      <div className={this.coverBasicClassNames} onClick={this.props.handleClick} style={styles}>
+        {this.props.children && <div className={`${baseClass}-children`}>{this.props.children}</div>}
+        {this.buttons.length > 0 && <div className={`${baseClass}-buttonList`}>{this.buttons}</div>}
       </div>
     )
   }

@@ -1,7 +1,6 @@
 import {useEffect, useState} from 'react'
 
-const supportMatchMedia =
-  typeof window !== 'undefined' && typeof window.matchMedia !== 'undefined'
+const supportMatchMedia = typeof window !== 'undefined' && typeof window.matchMedia !== 'undefined'
 
 function useMediaQuery(queryInput, {defaultMatches = false} = {}) {
   const query = queryInput.replace(/^@media( ?)/m, '')

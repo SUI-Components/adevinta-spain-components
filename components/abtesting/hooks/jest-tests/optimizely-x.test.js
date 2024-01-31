@@ -30,9 +30,7 @@ describe('OptimizelyXExperiments', () => {
       get: jest.fn().mockReturnValue({
         getExperimentStates: () => fakeExperiments
       }),
-      push: jest
-        .fn()
-        .mockImplementation(listener => (sdkHandler = listener.handler))
+      push: jest.fn().mockImplementation(listener => (sdkHandler = listener.handler))
     }
   })
 

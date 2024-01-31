@@ -1,5 +1,5 @@
-import useI18n from '../../hooks/useI18n.js'
 import {BASE_CLASS} from '../../config.js'
+import useI18n from '../../hooks/useI18n.js'
 
 const LoginInfo = () => {
   const i18n = useI18n()

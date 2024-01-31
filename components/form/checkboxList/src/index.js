@@ -11,36 +11,28 @@ const labelClassName = ({classNameItem, checked, value}) =>
     [`${classNameItem} ${classNameItem}--${value}`]: !!classNameItem
   })
 
-const FormCheckboxList = ({
-  classNameItem,
-  handleChange,
-  name,
-  options,
-  selectedValues
-}) => (
+const FormCheckboxList = ({classNameItem, handleChange, name, options, selectedValues}) => (
   <div className="sui-FormCheckboxList">
-    {options.map(
-      ({value, label, checked = isChecked({selectedValues, value})}, index) => (
-        <label
-          key={index}
-          className={labelClassName({
-            checked,
-            classNameItem,
-            value
-          })}
-        >
-          <input
-            checked={checked}
-            className="sui-FormCheckboxList-input"
-            name={name}
-            onChange={handleChange}
-            type="checkbox"
-            value={value}
-          />
-          {label}
-        </label>
-      )
-    )}
+    {options.map(({value, label, checked = isChecked({selectedValues, value})}, index) => (
+      <label
+        key={index}
+        className={labelClassName({
+          checked,
+          classNameItem,
+          value
+        })}
+      >
+        <input
+          checked={checked}
+          className="sui-FormCheckboxList-input"
+          name={name}
+          onChange={handleChange}
+          type="checkbox"
+          value={value}
+        />
+        {label}
+      </label>
+    ))}
   </div>
 )
 
@@ -52,19 +44,11 @@ FormCheckboxList.propTypes = {
   name: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      value: PropTypes.oneOfType([
-        PropTypes.number.isRequired,
-        PropTypes.string.isRequired
-      ]),
+      value: PropTypes.oneOfType([PropTypes.number.isRequired, PropTypes.string.isRequired]),
       label: PropTypes.string.isRequired
     })
   ),
-  selectedValues: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      PropTypes.number.isRequired,
-      PropTypes.string.isRequired
-    ])
-  )
+  selectedValues: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number.isRequired, PropTypes.string.isRequired]))
 }
 
 export default FormCheckboxList

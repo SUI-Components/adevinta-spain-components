@@ -41,16 +41,13 @@ export default params => {
       variations.find(
         variation =>
           // name or id are both valid ways to force a variation
-          variationId === getNameFromVariation(variation) ||
-          variationId === variation.id
+          variationId === getNameFromVariation(variation) || variationId === variation.id
       )
     return checkedVariation ? checkedVariation.id : null
   }
 
   const getNameFromVariationId = variationId => {
-    return getNameFromVariation(
-      variations.find(variation => variationId === variation.id)
-    )
+    return getNameFromVariation(variations.find(variation => variationId === variation.id))
   }
 
   const getFlagsFromVariationId = variationId => {
@@ -59,8 +56,7 @@ export default params => {
 
       // capitalize variation name in order to get a well-formed camel case key
       // i. e. for a name 'foo' → isVariationFoo
-      const capitalizedVariationName =
-        variationName.charAt(0).toUpperCase() + variationName.slice(1)
+      const capitalizedVariationName = variationName.charAt(0).toUpperCase() + variationName.slice(1)
 
       return {
         ...obj,
@@ -84,8 +80,7 @@ export default params => {
     }
   }
 
-  const initialVariationId =
-    checkVariationId(params.forceVariation) || defaultVariationId
+  const initialVariationId = checkVariationId(params.forceVariation) || defaultVariationId
 
   // set state which will be used to provide context
   const initialState = buildExperimentState({variationId: initialVariationId})
@@ -122,10 +117,7 @@ export default params => {
        * Activate variation via `forceActivation` API flag
        */
       if (forceActivation) {
-        setTimeout(
-          () => activationHandler(checkVariationId(forceActivation)),
-          forceActivationDelay
-        )
+        setTimeout(() => activationHandler(checkVariationId(forceActivation)), forceActivationDelay)
         logWatchOutMessage(getMessageForParam('forceActivation'))
         return
       }
@@ -156,41 +148,27 @@ export default params => {
 
       const splitNames = forceExperiment => forceExperiment.split('|')
       const getForceExperimentToBeApplied = () => {
-        if (
-          forceExperimentFromQueryParam &&
-          forceExperimentFromSessionStorage
-        ) {
+        if (forceExperimentFromQueryParam && forceExperimentFromSessionStorage) {
           // When both query param and session storage entry are present,
           // query param has preference BUT only if it's the same name,
           // so it can override session storage entry.
           const [nameFromQP] = splitNames(forceExperimentFromQueryParam)
           const [nameFromSS] = splitNames(forceExperimentFromSessionStorage)
-          return nameFromQP === nameFromSS
-            ? forceExperimentFromQueryParam
-            : forceExperimentFromSessionStorage
+          return nameFromQP === nameFromSS ? forceExperimentFromQueryParam : forceExperimentFromSessionStorage
         }
         // Otherwise, whether any of them are present preference rule is simple
-        return (
-          forceExperimentFromQueryParam || forceExperimentFromSessionStorage
-        )
+        return forceExperimentFromQueryParam || forceExperimentFromSessionStorage
       }
 
       const forceExperiment = getForceExperimentToBeApplied()
       if (forceExperiment) {
         const [experimentName, variationName] = splitNames(forceExperiment)
-        if (
-          !experimentName ||
-          !variationName ||
-          state.name !== experimentName
-        ) {
+        if (!experimentName || !variationName || state.name !== experimentName) {
           return
         }
 
         // fake activation is ready to trigger
-        setTimeout(
-          () => activationHandler(checkVariationId(variationName)),
-          forceActivationDelay
-        )
+        setTimeout(() => activationHandler(checkVariationId(variationName)), forceActivationDelay)
 
         storage({
           method: 'setItem',

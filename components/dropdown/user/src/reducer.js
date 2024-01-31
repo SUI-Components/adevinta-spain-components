@@ -30,8 +30,4 @@ const reducer = (state, {type}) => {
   }
 }
 
-export {
-  ACTIONS as reducerActions,
-  INITIAL_STATE as reducerInitialState,
-  reducer
-}
+export {ACTIONS as reducerActions, INITIAL_STATE as reducerInitialState, reducer}

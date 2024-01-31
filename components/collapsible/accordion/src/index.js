@@ -4,12 +4,7 @@ import PropTypes from 'prop-types'
 
 import CollapsibleBasic from '@s-ui/react-collapsible-basic'
 
-function CollapsibleAccordion({
-  preserveState = false,
-  onItemChange = (collapsed, id) => {},
-  items,
-  icon
-}) {
+function CollapsibleAccordion({preserveState = false, onItemChange = (collapsed, id) => {}, items, icon}) {
   const [openIndex, setOpenIndex] = useState(null)
 
   const handleClick = id => {
