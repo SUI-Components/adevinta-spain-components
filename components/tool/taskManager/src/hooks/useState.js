@@ -42,9 +42,10 @@ const reducer = (state, action) => {
 }
 
 // Create a custom hook that uses the reducer and returns the state and dispatch function
-const useState = ({onCompleteAllTasks}) => {
+const useState = ({onCompleteAllTasks, forceDevMode}) => {
   const [state, dispatch] = useReducer(reducer, {
-    ...initialState
+    ...initialState,
+    isDevModeEnabled: forceDevMode
   })
   const stateRef = useRef(state)
   stateRef.current = state
