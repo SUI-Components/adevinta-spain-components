@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.23.0 (2024-01-31)
+
+
+### Features
+
+* **components/tool/taskManager:** Add a prop to force dev mode in task manager ([10ef511](https://github.com/SUI-Components/adevinta-spain-components/commit/10ef5115209557978a105edd9ed2c02569dcd68b))
+
+
+
 # 1.22.0 (2023-09-28)
 
 
