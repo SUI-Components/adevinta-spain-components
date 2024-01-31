@@ -42,9 +42,10 @@ const reducer = (state, action) => {
 }
 
 // Create a custom hook that uses the reducer and returns the state and dispatch function
-const useState = ({onCompleteAllTasks}) => {
+const useState = ({onCompleteAllTasks, forceDevMode}) => {
   const [state, dispatch] = useReducer(reducer, {
-    ...initialState
+    ...initialState,
+    isDevModeEnabled: forceDevMode
   })
   const stateRef = useRef(state)
   stateRef.current = state
@@ -124,15 +125,11 @@ const useState = ({onCompleteAllTasks}) => {
   // Getters
   // TODO: Most of this functions will be migrated to domain soon
   const getState = () => stateRef.current
-  const getTask = (taskId, state = getState()) =>
-    state.tasks.find(task => task.id === taskId)
+  const getTask = (taskId, state = getState()) => state.tasks.find(task => task.id === taskId)
   // Work status check
-  const _isVisibleWork = (work, state = getState()) =>
-    work.isVisible || state.isDevModeEnabled
-  const _isFinishedWork = work =>
-    work.status === domain.get('config').get('AVAILABLE_STATUS').COMPLETED
-  const _isErroredWork = work =>
-    work.status === domain.get('config').get('AVAILABLE_STATUS').ERROR
+  const _isVisibleWork = (work, state = getState()) => work.isVisible || state.isDevModeEnabled
+  const _isFinishedWork = work => work.status === domain.get('config').get('AVAILABLE_STATUS').COMPLETED
+  const _isErroredWork = work => work.status === domain.get('config').get('AVAILABLE_STATUS').ERROR
   // Counts the number of work that meets a specific criteria
   const _countWorkFromTask = (taskId, countCriteria, state = getState()) => {
     const task = getTask(taskId, state)
@@ -143,18 +140,11 @@ const useState = ({onCompleteAllTasks}) => {
 
   // Count visible work from a specific task
   const countWork = (taskId, state = getState()) => {
-    return _countWorkFromTask(
-      taskId,
-      work => _isVisibleWork(work, state),
-      state
-    )
+    return _countWorkFromTask(taskId, work => _isVisibleWork(work, state), state)
   }
   // Count visible and finished work from a specific task
   const countFinishedWork = (taskId, state = getState()) => {
-    return _countWorkFromTask(
-      taskId,
-      work => _isVisibleWork(work, state) && _isFinishedWork(work)
-    )
+    return _countWorkFromTask(taskId, work => _isVisibleWork(work, state) && _isFinishedWork(work))
   }
 
   const countErroredWork = taskId => {
@@ -162,34 +152,27 @@ const useState = ({onCompleteAllTasks}) => {
   }
 
   // Checks if a task is visible
-  const _isVisibleTask = (taskId, state = getState()) =>
-    countWork(taskId, state) > 0
+  const _isVisibleTask = (taskId, state = getState()) => countWork(taskId, state) > 0
   // Checks if a task has errored work
   const _isErroredTask = taskId => countErroredWork(taskId) > 0
   // Counts the number of tasks that are being processed
   const countInProgressTasks = () =>
     getState().tasks.filter(
       task =>
-        _isVisibleTask(task.id) &&
-        countWork(task.id) > countFinishedWork(task.id) &&
-        _isErroredTask(task.id) === false
+        _isVisibleTask(task.id) && countWork(task.id) > countFinishedWork(task.id) && _isErroredTask(task.id) === false
     ).length
   // Counts the number of tasks that finished
   const countCompletedTasks = (state = getState()) =>
     state.tasks.filter(
-      task =>
-        _isVisibleTask(task.id, state) &&
-        countWork(task.id, state) === countFinishedWork(task.id, state)
+      task => _isVisibleTask(task.id, state) && countWork(task.id, state) === countFinishedWork(task.id, state)
     ).length
 
   // Counts the number of tasks that are visible, regardless of their status
-  const countTasks = (state = getState()) =>
-    state.tasks.filter(task => _isVisibleTask(task.id, state)).length
+  const countTasks = (state = getState()) => state.tasks.filter(task => _isVisibleTask(task.id, state)).length
 
   const getInProgressTaskPercentage = () => {
     const inProgressTask = getState().tasks.find(
-      task =>
-        task.status === domain.get('config').get('AVAILABLE_STATUS').IN_PROGRESS
+      task => task.status === domain.get('config').get('AVAILABLE_STATUS').IN_PROGRESS
     )
 
     if (inProgressTask === undefined) return 0
@@ -198,17 +181,14 @@ const useState = ({onCompleteAllTasks}) => {
     const finishedWork = countFinishedWork(inProgressTask.id)
 
     const inProgressWork = inProgressTask.work.find(
-      work =>
-        work.status === domain.get('config').get('AVAILABLE_STATUS').IN_PROGRESS
+      work => work.status === domain.get('config').get('AVAILABLE_STATUS').IN_PROGRESS
     )
 
     let inProgressWorkPercentage = 0
     if (inProgressWork !== undefined) {
       inProgressWorkPercentage = inProgressWork.percentage
     }
-    const completionPercentage = Math.round(
-      ((finishedWork + inProgressWorkPercentage / 100) * 100) / work
-    )
+    const completionPercentage = Math.round(((finishedWork + inProgressWorkPercentage / 100) * 100) / work)
 
     return completionPercentage
   }
