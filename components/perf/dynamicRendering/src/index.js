@@ -1,3 +1,5 @@
+import {useEffect, useState} from 'react'
+
 import PropTypes from 'prop-types'
 
 import LazyContent from './lazyContent.js'
@@ -30,7 +32,12 @@ export default function PerfDynamicRendering({
   userAgent
 }) {
   const isBot = checkUserAgentIsBot(userAgent, botsUserAgents)
-  const isOnBrowser = typeof window !== 'undefined'
+  const [isOnBrowser, setIsOnBrowser] = useState(false)
+  // const isOnBrowser = typeof window !== 'undefined'
+
+  useEffect(() => {
+    setIsOnBrowser(true)
+  }, [])
 
   // Force render in server and client
   if (forceRender) return children
