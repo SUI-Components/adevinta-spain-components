@@ -33,7 +33,6 @@ export default function PerfDynamicRendering({
 }) {
   const isBot = checkUserAgentIsBot(userAgent, botsUserAgents)
   const [isOnBrowser, setIsOnBrowser] = useState(false)
-  // const isOnBrowser = typeof window !== 'undefined'
 
   useEffect(() => {
     setIsOnBrowser(true)
