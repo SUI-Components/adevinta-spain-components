@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.19.0 (2024-02-14)
+
+
+### Bug Fixes
+
+* hydration mismatch ([d22c2cb](https://github.com/SUI-Components/adevinta-spain-components/commit/d22c2cbbf8e3f3849a591daba195469ff3c4a212))
+
+
+
 # 1.18.0 (2023-11-30)
 
 
@@ -190,6 +199,3 @@
 
 * **perf/dynamicRendering:** avoid executing method to be exported ([ffd44df](https://github.com/SUI-Components/adevinta-spain-components/commit/ffd44df436bec75596479cd6fea243b340b4ccff))
 * **perf/dynamicRendering:** move to functional component ([cf2aa95](https://github.com/SUI-Components/adevinta-spain-components/commit/cf2aa95696427078be85fde161d6f13d4de49bae))
-
-
-
