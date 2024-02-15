@@ -1,5 +1,3 @@
-import {useEffect, useState} from 'react'
-
 import PropTypes from 'prop-types'
 
 import LazyContent from './lazyContent.js'
