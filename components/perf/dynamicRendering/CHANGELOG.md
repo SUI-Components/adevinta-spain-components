@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.20.0 (2024-02-15)
+
+
+### Features
+
+* small improvements for cls ([b602ae3](https://github.com/SUI-Components/adevinta-spain-components/commit/b602ae3bd58bb896e88194fc43256fc917909f3d))
+
+
+
 # 1.19.0 (2024-02-14)
 
 
