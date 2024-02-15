@@ -54,7 +54,7 @@ export default function PerfDynamicRendering({
     )
   } else if (placeholder) {
     // so, we're on the server side or the component is disabled
-    return placeholder
+    return <div className="sui-PerfDynamicRendering-placeholder">{placeholder}</div>
   } else {
     return <div style={{containIntrinsicSize: `auto ${height}px`, height: `${height}px`, marginBottom: '1px'}} />
   }
