@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.21.0 (2024-02-16)
+
+
+### Features
+
+* remove not needed imports ([710b3c9](https://github.com/SUI-Components/adevinta-spain-components/commit/710b3c9b0ad0eac2edfb619cb4d0de8992e154f3))
+* remove use state ([588cb05](https://github.com/SUI-Components/adevinta-spain-components/commit/588cb056b305adea82a0a7e9b95a3c2ad07a1a07))
+
+
+
 # 1.20.0 (2024-02-15)
 
 
