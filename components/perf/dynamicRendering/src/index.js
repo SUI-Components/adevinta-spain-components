@@ -1,5 +1,3 @@
-import {useEffect, useState} from 'react'
-
 import PropTypes from 'prop-types'
 
 import LazyContent from './lazyContent.js'
@@ -32,11 +30,6 @@ export default function PerfDynamicRendering({
   userAgent
 }) {
   const isBot = checkUserAgentIsBot(userAgent, botsUserAgents)
-  const [isOnBrowser, setIsOnBrowser] = useState(false)
-
-  useEffect(() => {
-    setIsOnBrowser(true)
-  }, [])
 
   // Force render in server and client
   if (forceRender) return children
@@ -46,7 +39,7 @@ export default function PerfDynamicRendering({
 
   // now, we're sure the user isNotBot
   // so check if we're on the browser side and if is not disabled the component
-  if (isOnBrowser && !disabled) {
+  if (!disabled) {
     return (
       <LazyContent rootMargin={rootMargin} placeholder={placeholder} height={height}>
         {children}
