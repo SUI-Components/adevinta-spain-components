@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.22.0 (2024-02-21)
+
+
+### Bug Fixes
+
+* remove content-visibility rule to avoid CLS problem ([3f31d94](https://github.com/SUI-Components/adevinta-spain-components/commit/3f31d94634b2d1235571ae608c72fc2d8bb9af2b))
+
+
+
 # 1.21.0 (2024-02-16)
 
 
