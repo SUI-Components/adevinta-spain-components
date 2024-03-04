@@ -13,11 +13,29 @@ yargs
     'syncs the compiled version of the web app with the ios and android projects',
     require('./commands/sync.js')
   )
+  .command(
+    'open [platform]',
+    'opens the project IDE',
+    yargs => {
+      yargs.positional('platform', {
+        type: 'string',
+        default: 'android',
+        choices: ['android', 'ios'],
+        describe: 'the name of the platform to open the project in'
+      })
+    },
+    require('./commands/open.js')
+  )
   .command('icons', 'generates and transforms icons both for ios an android', require('./commands/icons.js'))
   .command(
     'add-biometric-config',
     'Configures both iOS and Android to use biometric authentication',
     require('./commands/addBiometricConfig.js')
+  )
+  .command(
+    'add-url-scheme',
+    'Adds a custom URL scheme to both iOS and Android projects',
+    require('./commands/addUrlScheme.js')
   )
   .help()
   .command({

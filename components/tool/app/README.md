@@ -42,6 +42,12 @@ Run `npx sui-app init` to initialize an existing project.
 
 To remove `sui-app` and all configuration files and dependencies, and make  , run `npx sui-app remove`.
 
+### Opening the app
+
+If you have errors while compiling the app, please ensure you have properly opened the project before checking anything else.
+
+Run `npx sui-app open ios` or `npx sui-app open android` in order to start the project.
+
 ### Synchronize
 
 After making changes to the web app and building it, both iOS and Android projects need to be synchronized. 
@@ -49,6 +55,10 @@ After making changes to the web app and building it, both iOS and Android projec
 This can be performed by running `npx sui-app sync`.
 
 This command can be added after the standard build task.
+
+## Add url schemes
+
+You can add basic url schemes (not universal links) by running `npx sui-app add-url-scheme`.
 
 ## Biometric login
 
