@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.14.0 (2024-04-15)
+
+
+### Features
+
+* Add live updates support to sui-app ([6daec16](https://github.com/SUI-Components/adevinta-spain-components/commit/6daec169a124eefaebdc031706a0f691575c8d4b))
+* Uninstall on remove ([4e26136](https://github.com/SUI-Components/adevinta-spain-components/commit/4e26136065f552eaf659a1094a563d826eae4c97))
+
+
+
 # 1.13.0 (2024-03-04)
 
 
