@@ -1,17 +1,10 @@
 /* eslint-disable no-console */
 // Constants
-const {PACKAGE_JSON_FILE, PACKAGE_NAME} = require('../infrastructure/config.js')
+const {PACKAGE_NAME} = require('../infrastructure/config.js')
 
 // Infra
 
-const {
-  getCurrentDirectory,
-  readJSONFile,
-  reportError,
-  runCommand,
-  installPackage,
-  saveJSONFile
-} = require('../infrastructure/utils.js')
+const {readJSONFile, reportError, runCommand, saveJSONFile} = require('../infrastructure/utils.js')
 
 const {confirmQuestion} = require('../infrastructure/input.js')
 
@@ -51,20 +44,7 @@ const addBiometricConfig = () => {
 }
 
 // Business logic
-const {hasPackageJson, hasCapacitorConfig} = require('../domain/utils.js')
-
-const hasDependency = dependency => {
-  const packageData = readJSONFile(`${getCurrentDirectory()}/${PACKAGE_JSON_FILE}`)
-  return packageData.dependencies.hasOwnProperty(dependency)
-}
-
-const installDependency = dependency => {
-  console.log(`\n🚚 Installing required dependency 👉 ${dependency}\n`)
-  const result = installPackage(dependency)
-
-  if (result === false) reportError(`\n🚨 Something went wrong while installing dependencies 🚨\n`)
-  else console.log(`\n✅ Dependency has been successfully installed\n`)
-}
+const {hasPackageJson, hasCapacitorConfig, installDependency, hasDependency} = require('../domain/utils.js')
 
 const initAppProject = () => {
   console.log('\n🚚 Initializing the project.\n')
@@ -129,6 +109,8 @@ module.exports = async () => {
   if (!hasDependency('@capgo/capacitor-native-biometric')) installDependency('@capgo/capacitor-native-biometric')
 
   if (!hasDependency('@capacitor/local-notifications')) installDependency('@capacitor/local-notifications')
+
+  if (!hasDependency('@capgo/capacitor-updater')) installDependency('@capgo/capacitor-updater')
 
   // If app has already been initialized
   if (hasCapacitorConfig()) {

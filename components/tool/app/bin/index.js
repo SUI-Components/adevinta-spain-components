@@ -37,6 +37,7 @@ yargs
     'Adds a custom URL scheme to both iOS and Android projects',
     require('./commands/addUrlScheme.js')
   )
+  .command('add-live-update', 'Adds live update capabilities to the project', require('./commands/addLiveUpdate.js'))
   .help()
   .command({
     command: '*',
