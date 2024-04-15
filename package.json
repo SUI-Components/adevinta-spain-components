@@ -35,6 +35,7 @@
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "7.16.8",
     "@s-ui/documentation-library": "1",
+    "@s-ui/js-compiler": "1",
     "@s-ui/lint": "4",
     "@s-ui/precommit": "3",
     "@s-ui/studio": "11",
