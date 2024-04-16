@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.12.0 (2024-04-16)
+
+
+### Bug Fixes
+
+* onTimeout callback is executed on ScriptLoader initialization ([42cff42](https://github.com/SUI-Components/adevinta-spain-components/commit/42cff42e8c21f020dcaa70e5d99576cf1dfbd4ff))
+
+
+
 # 1.11.0 (2022-10-27)
 
 
@@ -103,6 +112,3 @@
 ### Features
 
 * **script/loader:** introduce script loader component ([927e965](https://github.com/SUI-Components/adevinta-spain-components/commit/927e96550d64bb959e491a1769454d7eec148611))
-
-
-
