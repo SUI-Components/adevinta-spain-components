@@ -25,7 +25,10 @@ const ScriptLoader = ({
       .catch(() => seTimeout(true))
   }
 
-  useEffect(() => timeout && onTimeout(), [onTimeout, timeout])
+  useEffect(() => {
+    timeout && onTimeout()
+  }, [onTimeout, timeout])
+
   useMount(initLoad)
 
   if (readyToRender && render) return render()
