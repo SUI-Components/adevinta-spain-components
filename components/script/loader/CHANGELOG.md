@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.13.0 (2024-04-16)
+
+
+### Features
+
+* add bracket in the useEffect to avoid returning false ([9274c98](https://github.com/SUI-Components/adevinta-spain-components/commit/9274c989ff115896b4ce82fd96e2ff2c55184571))
+
+
+
 # 1.12.0 (2024-04-16)
 
 
