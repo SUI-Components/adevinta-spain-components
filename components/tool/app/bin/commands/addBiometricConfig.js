@@ -47,7 +47,7 @@ const addAndroidBiometricConfig = async () => {
   })
 
   // Add uses-feature
-  manifest.manifest.application[0]['uses-feature'] = {
+  manifest.manifest['uses-feature'] = {
     $: {
       'android:name': 'android.hardware.fingerprint',
       'android:required': 'false'
