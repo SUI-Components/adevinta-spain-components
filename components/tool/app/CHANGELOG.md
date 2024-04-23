@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.15.0 (2024-04-23)
+
+
+### Features
+
+* Add isNative method ([103f1bf](https://github.com/SUI-Components/adevinta-spain-components/commit/103f1bfdc9ec28621bd546917e46d45d43a3f292))
+
+
+
 # 1.14.0 (2024-04-15)
 
 
