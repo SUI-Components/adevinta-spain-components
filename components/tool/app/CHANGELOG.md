@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.16.0 (2024-04-23)
+
+
+### Features
+
+* Add capgo live updates to the wrapped API ([c2e6801](https://github.com/SUI-Components/adevinta-spain-components/commit/c2e6801fcb0df8defd8e04b829572b6be3f2754c))
+
+
+
 # 1.15.0 (2024-04-23)
 
 
