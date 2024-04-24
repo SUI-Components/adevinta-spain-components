@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/sui-tool-app",
-  "version": "1.16.0",
+  "version": "1.17.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@capacitor/android": "^5.5.1",
+    "@capacitor/app": "^5.0.7",
     "@capacitor/cli": "^5.5.1",
     "@capacitor/core": "^5.5.1",
     "@capacitor/ios": "^5.5.1",

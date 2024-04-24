@@ -112,6 +112,8 @@ module.exports = async () => {
 
   if (!hasDependency('@capgo/capacitor-updater')) installDependency('@capgo/capacitor-updater')
 
+  if (!hasDependency('@capacitor/app')) installDependency('@capacitor/app')
+
   // If app has already been initialized
   if (hasCapacitorConfig()) {
     reportError(`\nThis project has already-been initialized. Please run sui-app remove before initializing again.\n`)

@@ -32,6 +32,7 @@ const uninstallPlugins = () => {
   uninstallPackage('@capgo/capacitor-native-biometric')
   uninstallPackage('@capacitor/local-notifications')
   uninstallPackage('@capgo/capacitor-updater')
+  uninstallPackage('@capacitor/app')
 }
 
 // Business logic
