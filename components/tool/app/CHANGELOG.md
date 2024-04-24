@@ -1,5 +1,23 @@
 # CHANGELOG
 
+# 1.19.0 (2024-04-24)
+
+
+### Features
+
+* Add Http client to sui-app ([cdd94c6](https://github.com/SUI-Components/adevinta-spain-components/commit/cdd94c669f926bef761b2de7486d408c08e61ae5))
+
+
+
+# 1.18.0 (2024-04-24)
+
+
+### Features
+
+* Always install capacitor 5 related plugins ([ed77370](https://github.com/SUI-Components/adevinta-spain-components/commit/ed77370181bcf483ac4da0768044c4edcfff142d))
+
+
+
 # 1.17.0 (2024-04-24)
 
 
