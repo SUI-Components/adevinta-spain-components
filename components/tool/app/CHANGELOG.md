@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.18.0 (2024-04-24)
+
+
+### Features
+
+* Always install capacitor 5 related plugins ([ed77370](https://github.com/SUI-Components/adevinta-spain-components/commit/ed77370181bcf483ac4da0768044c4edcfff142d))
+
+
+
 # 1.17.0 (2024-04-24)
 
 
