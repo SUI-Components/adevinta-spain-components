@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.17.0 (2024-04-24)
+
+
+### Features
+
+* Add capacitor app to sui-app ([4c86db1](https://github.com/SUI-Components/adevinta-spain-components/commit/4c86db177776f4fad637f813d9b0d47515297983))
+
+
+
 # 1.16.0 (2024-04-23)
 
 
