@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 2.3.0 (2024-04-24)
+
+
+### Features
+
+* add experiment code to topbar user component ([798cefb](https://github.com/SUI-Components/adevinta-spain-components/commit/798cefb7fa3fd2539c1e6dbcb00a08a15d9b2a12))
+* lint ([862ee6e](https://github.com/SUI-Components/adevinta-spain-components/commit/862ee6ebc65d5ccd2984b8c18ae4a6dfad4d0909))
+* lint ([1c99671](https://github.com/SUI-Components/adevinta-spain-components/commit/1c99671be56add7202083d1f1487399bd3e93b3b))
+
+
+
 # 2.2.0 (2024-01-26)
 
 
@@ -525,6 +536,3 @@
 ### Bug Fixes
 
 * **topbar/user:** adjusting colors and breakpoints ([eab1ff9](https://github.com/SUI-Components/adevinta-spain-components/commit/eab1ff90f86c39ab664c1c5b9a9eab8ca7da2cb5))
-
-
-
