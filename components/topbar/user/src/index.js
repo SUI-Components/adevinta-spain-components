@@ -25,7 +25,7 @@ const TITLE_CLASS_NAME = 'sui-TopbarUser-title'
 const FLOW_BUTTON_CLASS_NAME = 'sui-TopbarUser-navButton'
 
 // Experiment code
-const EXPERIMENT_PUBLISH_LITERAL = 'Publicar'
+const EXPERIMENT_PUBLISH_LITERAL = 'Vender'
 const EXPERIMENT_ACCESS_LITERAL = 'Acceder'
 const EXPERIMENT_LOGIN_URL = '/login/?p=l'
 
