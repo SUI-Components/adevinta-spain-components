@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.4.0 (2024-04-30)
+
+
+### Features
+
+* Update cta copy for the experiment in Motor topbar ([e59f992](https://github.com/SUI-Components/adevinta-spain-components/commit/e59f992c3b250e7106eba3a5b809b9e9ed7956ae))
+
+
+
 # 2.3.0 (2024-04-24)
 
 
