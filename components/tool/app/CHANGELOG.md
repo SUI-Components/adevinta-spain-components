@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.20.0 (2024-04-30)
+
+
+### Features
+
+* Add cookies and getPlatform methods to sui-app ([1149943](https://github.com/SUI-Components/adevinta-spain-components/commit/11499436447c4c0fb01cd9f096d751fd3bfecae4))
+
+
+
 # 1.19.0 (2024-04-24)
 
 
