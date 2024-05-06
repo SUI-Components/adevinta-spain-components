@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.21.0 (2024-05-06)
+
+
+### Features
+
+* Create specific methods to determine each platform ([394b49f](https://github.com/SUI-Components/adevinta-spain-components/commit/394b49f24a5328cf41e1e72cf6c0ab2cc064e237))
+
+
+
 # 1.20.0 (2024-04-30)
 
 
