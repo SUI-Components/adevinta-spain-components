@@ -1,5 +1,59 @@
 # CHANGELOG
 
+# 1.20.0 (2024-04-30)
+
+
+### Features
+
+* Add cookies and getPlatform methods to sui-app ([1149943](https://github.com/SUI-Components/adevinta-spain-components/commit/11499436447c4c0fb01cd9f096d751fd3bfecae4))
+
+
+
+# 1.19.0 (2024-04-24)
+
+
+### Features
+
+* Add Http client to sui-app ([cdd94c6](https://github.com/SUI-Components/adevinta-spain-components/commit/cdd94c669f926bef761b2de7486d408c08e61ae5))
+
+
+
+# 1.18.0 (2024-04-24)
+
+
+### Features
+
+* Always install capacitor 5 related plugins ([ed77370](https://github.com/SUI-Components/adevinta-spain-components/commit/ed77370181bcf483ac4da0768044c4edcfff142d))
+
+
+
+# 1.17.0 (2024-04-24)
+
+
+### Features
+
+* Add capacitor app to sui-app ([4c86db1](https://github.com/SUI-Components/adevinta-spain-components/commit/4c86db177776f4fad637f813d9b0d47515297983))
+
+
+
+# 1.16.0 (2024-04-23)
+
+
+### Features
+
+* Add capgo live updates to the wrapped API ([c2e6801](https://github.com/SUI-Components/adevinta-spain-components/commit/c2e6801fcb0df8defd8e04b829572b6be3f2754c))
+
+
+
+# 1.15.0 (2024-04-23)
+
+
+### Features
+
+* Add isNative method ([103f1bf](https://github.com/SUI-Components/adevinta-spain-components/commit/103f1bfdc9ec28621bd546917e46d45d43a3f292))
+
+
+
 # 1.14.0 (2024-04-15)
 
 

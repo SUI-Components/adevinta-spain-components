@@ -86,8 +86,17 @@ $w-topbar-user-nav: 90% !default;
     }
   }
 
-  &-ctaButtonIcon {
-    fill: currentColor !important;
+  &-cta {
+    display: flex;
+    gap: $m-m;
+
+    &--isPublishMainAction {
+      flex-direction: row-reverse;
+    }
+
+    &ButtonIcon {
+      fill: currentColor !important;
+    }
   }
 
   &-nav {
