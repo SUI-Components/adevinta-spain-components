@@ -38,7 +38,7 @@
     "@s-ui/js-compiler": "1",
     "@s-ui/lint": "4",
     "@s-ui/precommit": "3",
-    "@s-ui/studio": "11.40.0",
+    "@s-ui/studio": "11",
     "@wojtekmaj/enzyme-adapter-react-17": "0.4.1",
     "enzyme": "3.11.0",
     "jest": "26.6.3",
