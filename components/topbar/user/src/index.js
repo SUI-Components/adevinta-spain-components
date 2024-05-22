@@ -24,11 +24,6 @@ const BODY_HAS_SCROLL_DISABLED = 'body-has-scroll-disabled'
 const TITLE_CLASS_NAME = 'sui-TopbarUser-title'
 const FLOW_BUTTON_CLASS_NAME = 'sui-TopbarUser-navButton'
 
-// Experiment code
-const EXPERIMENT_PUBLISH_LITERAL = 'Vender'
-const EXPERIMENT_ACCESS_LITERAL = 'Acceder'
-const EXPERIMENT_LOGIN_URL = '/login/?p=l'
-
 /**
  * Render main navigation function.
  */
@@ -63,6 +58,7 @@ export default function TopbarUser({
   ),
   navButton,
   navCTA,
+  navCTALogin,
   navMain,
   navUser,
   onToggle = () => {},
@@ -70,13 +66,8 @@ export default function TopbarUser({
   shouldDisplayToggle = true,
   showBrandIcon = false,
   title,
-  toggleIcon = Menu,
-  isPublishSolidVariation,
-  isAccessSolidVariation,
-  isLogged
+  toggleIcon = Menu
 }) {
-  const isLoginButtonVariation = isPublishSolidVariation || isAccessSolidVariation
-
   const _topbarUserNode = useRef(null)
   const _topbarUserToggleNode = useRef(null)
   const _windowWidth = useRef()
@@ -203,10 +194,6 @@ export default function TopbarUser({
 
   const handleCTAclick = navCTA && navCTA.onClick
 
-  const ctaClassName = cx('sui-TopbarUser-cta', {
-    'sui-TopbarUser-cta--isPublishMainAction': isPublishSolidVariation
-  })
-
   return (
     <div ref={_topbarUserNode} className="sui-TopbarUser">
       <div className="sui-TopbarUser-wrap">
@@ -251,13 +238,28 @@ export default function TopbarUser({
         </div>
       </div>
       {customContent ? <div className="sui-TopbarUser-customContent">{customContent}</div> : <></>}
-      <div className={ctaClassName}>
+      <div className="sui-TopbarUser-cta">
+        {navCTALogin && !customContent && (
+          <div className="sui-TopbarUser-ctaAccess">
+            <AtomButton
+              link
+              linkFactory={linkFactory}
+              design={'outline'}
+              href={navCTALogin.url}
+              title={navCTALogin.text}
+              shape={navCTALogin.shape}
+              size={atomButtonSizes.SMALL}
+            >
+              {navCTALogin.text}
+            </AtomButton>
+          </div>
+        )}
         {navCTA && !customContent && (
           <div className="sui-TopbarUser-ctaButton">
             <AtomButton
               link
               linkFactory={linkFactory}
-              design={!isLoginButtonVariation || isPublishSolidVariation ? 'solid' : 'outline'}
+              design={'solid'}
               href={navCTA.url}
               title={navCTA.text}
               {...(navCTA.icon && {
@@ -267,21 +269,7 @@ export default function TopbarUser({
               size={atomButtonSizes.SMALL}
               onClick={handleCTAclick}
             >
-              {isLoginButtonVariation ? EXPERIMENT_PUBLISH_LITERAL : navCTA.text}
-            </AtomButton>
-          </div>
-        )}
-        {!customContent && isLoginButtonVariation && !isLogged && (
-          <div className="sui-TopbarUser-ctaAccess">
-            <AtomButton
-              link
-              linkFactory={linkFactory}
-              design={isAccessSolidVariation ? 'solid' : 'outline'}
-              href={EXPERIMENT_LOGIN_URL}
-              shape="circular"
-              size={atomButtonSizes.SMALL}
-            >
-              {EXPERIMENT_ACCESS_LITERAL}
+              {navCTA.text}
             </AtomButton>
           </div>
         )}
@@ -420,6 +408,31 @@ TopbarUser.propTypes = {
    * CTA data.
    */
   navCTA: PropTypes.shape({
+    /**
+     * Call to action url.
+     */
+    url: PropTypes.string.isRequired,
+    /**
+     * Call to action optional icon.
+     */
+    icon: PropTypes.func,
+    /**
+     * Call to action text.
+     */
+    text: PropTypes.string.isRequired,
+    /**
+     * Call to action click handler.
+     */
+    onClick: PropTypes.func,
+    /**
+     * Atom shape customizable.
+     */
+    shape: PropTypes.string
+  }),
+  /**
+   * CTALogin data.
+   */
+  navCTALogin: PropTypes.shape({
     /**
      * Call to action url.
      */

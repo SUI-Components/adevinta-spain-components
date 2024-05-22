@@ -90,10 +90,6 @@ $w-topbar-user-nav: 90% !default;
     display: flex;
     gap: $m-m;
 
-    &--isPublishMainAction {
-      flex-direction: row-reverse;
-    }
-
     &ButtonIcon {
       fill: currentColor !important;
     }
