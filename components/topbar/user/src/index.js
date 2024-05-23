@@ -193,6 +193,7 @@ export default function TopbarUser({
   })
 
   const handleCTAclick = navCTA && navCTA.onClick
+  const handleCTALoginClick = navCTALogin && navCTALogin.onClick
 
   return (
     <div ref={_topbarUserNode} className="sui-TopbarUser">
@@ -249,6 +250,7 @@ export default function TopbarUser({
               title={navCTALogin.text}
               shape={navCTALogin.shape}
               size={atomButtonSizes.SMALL}
+              onClick={handleCTALoginClick}
             >
               {navCTALogin.text}
             </AtomButton>
@@ -436,7 +438,7 @@ TopbarUser.propTypes = {
     /**
      * Call to action url.
      */
-    url: PropTypes.string.isRequired,
+    url: PropTypes.string,
     /**
      * Call to action optional icon.
      */
