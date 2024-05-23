@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.5.0 (2024-05-23)
+
+
+### Features
+
+* rollout topbar user with login callback experiment ([a9e8c66](https://github.com/SUI-Components/adevinta-spain-components/commit/a9e8c66a582a961eac1d206046db89df2edb2764))
+
+
+
 # 2.4.0 (2024-04-30)
 
 
