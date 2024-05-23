@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.6.0 (2024-05-23)
+
+
+### Features
+
+* handle clicks on navCtaLogin button ([8838ea2](https://github.com/SUI-Components/adevinta-spain-components/commit/8838ea2ec4fd3f28effd102bd79ad56d40a98dd7))
+
+
+
 # 2.5.0 (2024-05-23)
 
 
