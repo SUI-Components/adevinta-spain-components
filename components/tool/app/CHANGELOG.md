@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.22.0 (2024-06-11)
+
+
+### Features
+
+* Add browser plugin support to sui-app ([61d2ab7](https://github.com/SUI-Components/adevinta-spain-components/commit/61d2ab7347fe2f25d556a82c784a631aa1e9f6aa))
+* Update to capacitor 6 ([4d53cf0](https://github.com/SUI-Components/adevinta-spain-components/commit/4d53cf0963018ab672d4736422aef7b940a83df0))
+
+
+
 # 1.21.0 (2024-05-06)
 
 
