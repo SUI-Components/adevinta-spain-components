@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.24.0 (2024-06-11)
+
+
+### Features
+
+* Release new version ([9d7be37](https://github.com/SUI-Components/adevinta-spain-components/commit/9d7be375499e65c94c62788b94081bf05e4ea5d7))
+
+
+
 # 1.23.0 (2024-06-11)
 
 
