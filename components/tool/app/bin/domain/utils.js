@@ -17,7 +17,6 @@ const hasPackageJson = () => {
 const hasCapacitorConfig = () => {
   return fileExists(`${getCurrentDirectory()}/${PROJECT_CONFIG_FILE}`)
 }
-
 const hasIosUrlScheme = scheme => {
   // Asumiendo que 'scheme' es el protocolo custom que buscas, como 'myapp'
   const iosPlistPath = `${getCurrentDirectory()}/ios/App/App/Info.plist`
