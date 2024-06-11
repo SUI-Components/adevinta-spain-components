@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 const yargs = require('yargs')
-
 const COMMAND_NAME = 'sui-app'
 
 yargs
