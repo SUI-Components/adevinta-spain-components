@@ -19,6 +19,6 @@ module.exports = () => {
     reportError(`\n\nThis project has not been initialized. sui-app cannot configure live updates\n\n`)
   }
 
-  if (!hasDependency('@capgo/capacitor-updater')) installDependency('@capgo/capacitor-updater@5')
+  if (!hasDependency('@capgo/capacitor-updater')) installDependency('@capgo/capacitor-updater@6')
   else reportError(`\n\nLive updates were already installed\n\n`)
 }

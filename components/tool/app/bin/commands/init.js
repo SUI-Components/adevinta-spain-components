@@ -106,13 +106,15 @@ module.exports = async () => {
     installDependency(PACKAGE_NAME)
   }
 
-  if (!hasDependency('@capgo/capacitor-native-biometric')) installDependency('@capgo/capacitor-native-biometric@5')
+  if (!hasDependency('@capgo/capacitor-native-biometric')) installDependency('@capgo/capacitor-native-biometric@6')
 
-  if (!hasDependency('@capacitor/local-notifications')) installDependency('@capacitor/local-notifications@5')
+  if (!hasDependency('@capacitor/local-notifications')) installDependency('@capacitor/local-notifications@6')
 
-  if (!hasDependency('@capgo/capacitor-updater')) installDependency('@capgo/capacitor-updater@5')
+  if (!hasDependency('@capgo/capacitor-updater')) installDependency('@capgo/capacitor-updater@6')
 
-  if (!hasDependency('@capacitor/app')) installDependency('@capacitor/app@5')
+  if (!hasDependency('@capacitor/app')) installDependency('@capacitor/app@6')
+
+  if (!hasDependency('@capacitor/browser')) installDependency('@capacitor/browser@6')
 
   // If app has already been initialized
   if (hasCapacitorConfig()) {
