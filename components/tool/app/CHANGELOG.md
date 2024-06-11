@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.23.0 (2024-06-11)
+
+
+### Features
+
+* Dummy commit ([74746e5](https://github.com/SUI-Components/adevinta-spain-components/commit/74746e53763f69f4976fc2226c06ef2c3417223c))
+
+
+
 # 1.22.0 (2024-06-11)
 
 
