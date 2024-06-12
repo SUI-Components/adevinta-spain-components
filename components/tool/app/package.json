@@ -24,10 +24,11 @@
   "dependencies": {
     "@capacitor/android": "^6",
     "@capacitor/app": "^6",
+    "@capacitor/browser": "^6",
     "@capacitor/cli": "^6",
     "@capacitor/core": "^6",
     "@capacitor/ios": "^6",
-    "@capacitor/browser": "^6",
+    "@capacitor/network": "^6",
     "@capgo/capacitor-native-biometric": "^5.1.0",
     "@capgo/capacitor-updater": "^5.9.4",
     "readline": "^1.3.0",

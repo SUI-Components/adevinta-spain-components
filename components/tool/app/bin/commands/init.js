@@ -116,6 +116,8 @@ module.exports = async () => {
 
   if (!hasDependency('@capacitor/browser')) installDependency('@capacitor/browser@6')
 
+  if (!hasDependency('@capacitor/network')) installDependency('@capacitor/network@6')
+
   // If app has already been initialized
   if (hasCapacitorConfig()) {
     reportError(`\nThis project has already-been initialized. Please run sui-app remove before initializing again.\n`)
