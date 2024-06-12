@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.25.0 (2024-06-12)
+
+
+### Features
+
+* Add network plugin ([be4ab59](https://github.com/SUI-Components/adevinta-spain-components/commit/be4ab5964c4bdaf8cbe10eb647bd07f5a2134155))
+
+
+
 # 1.24.0 (2024-06-11)
 
 
