@@ -34,6 +34,7 @@ const uninstallPlugins = () => {
   uninstallPackage('@capgo/capacitor-updater')
   uninstallPackage('@capacitor/app')
   uninstallPackage('@capacitor/browser')
+  uninstallPackage('@capacitor/network')
 }
 
 // Business logic
