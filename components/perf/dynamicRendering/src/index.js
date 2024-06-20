@@ -1,26 +1,13 @@
 import PropTypes from 'prop-types'
 
+import {checkLegitimateCrawler} from '@s-ui/js/lib/ua-parser'
+
 import LazyContent from './lazyContent.js'
 
 import './index.scss'
 
-const BOTS_USER_AGENTS = [
-  'googlebot',
-  'google-structured-data-testing-tool',
-  'bingbot',
-  'linkedinbot',
-  'mediapartners-google',
-  'debugbear'
-]
-
-function checkUserAgentIsBot(userAgent, botsUserAgents) {
-  const lowerCaseUserAgent = userAgent.toLowerCase()
-  // check if the userAgent is a bot
-  return botsUserAgents.some(ua => lowerCaseUserAgent.includes(ua))
-}
-
 export default function PerfDynamicRendering({
-  botsUserAgents = BOTS_USER_AGENTS,
+  botsUserAgents,
   children,
   disabled,
   forceRender,
@@ -29,7 +16,7 @@ export default function PerfDynamicRendering({
   rootMargin,
   userAgent
 }) {
-  const isBot = checkUserAgentIsBot(userAgent, botsUserAgents)
+  const isBot = checkLegitimateCrawler(userAgent, botsUserAgents)
 
   // Force render in server and client
   if (forceRender) return children
