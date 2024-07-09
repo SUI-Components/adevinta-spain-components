@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.26.0 (2024-07-09)
+
+
+### Features
+
+* Add event listener functions to in-app browser ([f24b5dd](https://github.com/SUI-Components/adevinta-spain-components/commit/f24b5dd833514c30f12145a7e43444ed4f0e3a05))
+
+
+
 # 1.25.0 (2024-06-12)
 
 
