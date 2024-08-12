@@ -9,7 +9,7 @@
     "sass": "cpx \"./src/**/*.scss\" ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1",
+    "@s-ui/component-dependencies": "beta",
     "@s-ui/react-image-placeholder": "2"
   },
   "keywords": [],

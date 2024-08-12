@@ -9,7 +9,7 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1",
+    "@s-ui/component-dependencies": "beta",
     "@turf/simplify": "6",
     "leaflet": "1.2.0",
     "leaflet-draw": "1.0.4"

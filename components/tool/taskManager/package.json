@@ -15,7 +15,7 @@
     "@s-ui/react-molecule-accordion": "2"
   },
   "peerDependencies": {
-    "@s-ui/theme": "8"
+    "@s-ui/theme": "beta"
   },
   "repository": {
     "type": "git",

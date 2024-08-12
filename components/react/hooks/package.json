@@ -1,6 +1,6 @@
 {
   "name": "@s-ui/react-hooks",
-  "version": "1.38.0",
+  "version": "1.38.0-beta.0",
   "description": "",
   "main": "lib/index.js",
   "sideEffects": false,
@@ -10,7 +10,7 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1",
+    "@s-ui/component-dependencies": "beta",
     "intersection-observer": "0.10.0"
   },
   "keywords": [],

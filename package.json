@@ -48,7 +48,7 @@
     "validate-commit-msg": "2.14.0"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "1",
+    "@s-ui/component-dependencies": "beta",
     "@s-ui/mono": "2",
     "@s-ui/react-primitive-injector": "^1.2.0"
   },
