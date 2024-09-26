@@ -6,11 +6,19 @@ const scriptPromises = []
  * @param  {string} params.src
  * @param  {function} params.verifier
  * @param  {boolean} params.isAsync
+ * @param  {boolean} params.isDefer
  * @param  {number} params.detectionDelay
  * @param  {string} params.stylesheet
  * @return {Promise}
  */
-const loadScript = ({src, verifier, isAsync, detectionDelay, stylesheet}) => {
+const loadScript = ({
+  src,
+  verifier,
+  isAsync,
+  isDefer,
+  detectionDelay,
+  stylesheet
+}) => {
   scriptPromises[src] =
     scriptPromises[src] ||
     new Promise((resolve, reject) => {
@@ -21,7 +29,7 @@ const loadScript = ({src, verifier, isAsync, detectionDelay, stylesheet}) => {
         return
       }
 
-      injectScript({src, isAsync})
+      injectScript({src, isAsync, isDefer})
       stylesheet && injectStyles(stylesheet)
       waitUntil(verifier, resolve, reject, detectionDelay)
     })
@@ -34,13 +42,16 @@ const loadScript = ({src, verifier, isAsync, detectionDelay, stylesheet}) => {
  * @param  {object} params
  * @param  {string} params.src
  * @param  {boolean} params.isAsync
+ * @param  {boolean} params.isDefer
  * @return {void}
  */
-const injectScript = ({src, isAsync}) => {
+const injectScript = ({src, isAsync, isDefer}) => {
   const script = document.createElement('script')
 
   script.src = src
-  script.async = isAsync
+  script.defer = isDefer
+
+  if (!isDefer) script.async = isAsync
 
   document.body.appendChild(script)
 }
