@@ -12,6 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@s-ui/component-dependencies": "beta"
+    "@s-ui/component-dependencies": "1"
   }
 }

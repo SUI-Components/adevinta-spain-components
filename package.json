@@ -8,12 +8,14 @@
   ],
   "scripts": {
     "build": "sui-studio build",
+    "clean": "rm -rf ./node_modules && rm -f package-lock.json",
     "co": "sui-mono commit",
     "commit-msg": "validate-commit-msg",
     "dev": "sui-studio dev",
     "generate": "sui-studio generate -S s-ui",
     "lint:js": "sui-lint js",
     "lint:sass": "sui-lint sass",
+    "respawn": "npm run clean && npm run phoenix",
     "lint": "npm run lint:js && npm run lint:sass",
     "phoenix:ci": "npm run phoenix",
     "phoenix": "npx @s-ui/mono@2 phoenix && npx -y ultra-runner --raw --recursive prepublishOnly &>/dev/null",
@@ -24,6 +26,9 @@
     "test": "npm run test:studio && npm run test:jest",
     "update:commit:status": "npx @s-ui/ci update-commit-status",
     "pre-push": "npm run test"
+  },
+  "overrides": {
+    "@s-ui/theme": "beta"
   },
   "repository": {
     "type": "git",
@@ -48,7 +53,7 @@
     "validate-commit-msg": "2.14.0"
   },
   "dependencies": {
-    "@s-ui/component-dependencies": "beta",
+    "@s-ui/component-dependencies": "1",
     "@s-ui/mono": "2",
     "@s-ui/react-primitive-injector": "^1.2.0"
   },

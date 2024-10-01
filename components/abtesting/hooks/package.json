@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@s-ui/abtesting-optimizely-x": "1",
-    "@s-ui/component-dependencies": "beta"
+    "@s-ui/component-dependencies": "1"
   },
   "keywords": [],
   "author": "",
