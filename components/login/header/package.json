@@ -9,7 +9,7 @@
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
   "peerDependencies": {
-    "@s-ui/theme": "8"
+    "@s-ui/theme": "beta"
   },
   "dependencies": {
     "@s-ui/react-atom-button": "1"

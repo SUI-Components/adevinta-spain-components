@@ -24,7 +24,7 @@
     "@s-ui/mockmock": "1"
   },
   "peerDependencies": {
-    "@s-ui/theme": "8"
+    "@s-ui/theme": "beta"
   },
   "repository": {
     "type": "git",

@@ -1,2 +1,6 @@
+assets
+demo
 src
-mocks
+test
+node_modules
+CHANGELOG.md
