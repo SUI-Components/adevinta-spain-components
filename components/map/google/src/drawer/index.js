@@ -7,7 +7,7 @@ import {useGoogleMap} from '@react-google-maps/api'
 
 import {DISABLED_MAP_INTERACTION_OPTIONS, ENABLED_MAP_INTERACTION_OPTIONS} from './settings.js'
 
-function GoogleMapsDrawer({drawing = false, onStopDrawing, polylineOptions = {}}) {
+function GoogleMapsDrawer({drawing = false, onStopDrawing, onUnfinishedDrawing, polylineOptions = {}}) {
   const mapsLibrary = google?.maps // Looking for global google object
   const mapRef = useGoogleMap() // Get map instance from context
 
@@ -42,7 +42,10 @@ function GoogleMapsDrawer({drawing = false, onStopDrawing, polylineOptions = {}}
   }
 
   const stopDrawing = ({polyline} = {}) => {
-    if (!mapsLibrary || !mapRef || !polyline) return []
+    if (!mapsLibrary || !mapRef || !polyline || polyline.getPath().getArray() <= 2) {
+      handleOnUnfinishedDrawing({polyline})
+      return null
+    }
 
     const path = convertMVCArrayToLatLngLiteralArray({polyline})
 
@@ -70,6 +73,14 @@ function GoogleMapsDrawer({drawing = false, onStopDrawing, polylineOptions = {}}
     mapsLibrary.event.addListener(mapRef, 'mouseup', () => stopDrawing({polyline}))
   }
 
+  const handleOnUnfinishedDrawing = ({polyline}) => {
+    mapsLibrary.event.clearListeners(mapRef, 'mousemove')
+
+    // Reset the polyline path
+    polyline?.setPath([])
+    onUnfinishedDrawing?.()
+  }
+
   // No need to render anything, just listen to drawing events and draw on the map
   return null
 }
@@ -77,6 +88,7 @@ function GoogleMapsDrawer({drawing = false, onStopDrawing, polylineOptions = {}}
 GoogleMapsDrawer.displayName = 'GoogleMapsDrawer'
 GoogleMapsDrawer.propTypes = {
   drawing: PropTypes.bool,
+  onUnfinishedDrawing: PropTypes.func,
   onStopDrawing: PropTypes.func.isRequired,
   polylineOptions: PropTypes.object
 }
