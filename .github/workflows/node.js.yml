@@ -28,7 +28,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
         run: |
-          npm install --legacy-peer-deps --no-audit --no-fund --no-optional && npx -y ultra-runner --raw --recursive prepublishOnly &>/dev/null
+          npm ci --legacy-peer-deps --no-audit --no-fund --no-optional && npx -y ultra-runner --raw --recursive prepublishOnly &>/dev/null
           npm run lint
           npm run build
         env:
@@ -54,7 +54,7 @@ jobs:
 
       - name: Testing
         run: |
-          npm install --legacy-peer-deps --no-audit --no-fund --no-optional
+          npm ci --legacy-peer-deps --no-audit --no-fund --no-optional
           npx -y ultra-runner --raw --recursive prepublishOnly &>/dev/null
           xvfb-run --auto-servernum npm run test -- --ci
 
@@ -71,7 +71,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Release components
         run: |
-          npm install --legacy-peer-deps --no-audit --no-fund --no-optional
+          npm ci --legacy-peer-deps --no-audit --no-fund --no-optional
           npx @s-ui/ci release
         env:
           GITHUB_EMAIL: cloud-accounts@scmspain.com
