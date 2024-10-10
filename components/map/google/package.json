@@ -4,17 +4,12 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "prepare": "npm run build:js && npm run build:styles",
+    "prepublishOnly": "rm -Rf ./lib && mkdir -p ./lib && npm run build:js && npm run build:styles",
     "build:js": "babel --presets sui ./src --out-dir ./lib",
     "build:styles": "cpx './src/**/*.scss' ./lib"
   },
-  "sideEffects": false,
   "peerDependencies": {
     "@s-ui/theme": "8"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/SUI-Components/adevinta-spain-components.git"
   },
   "keywords": [],
   "author": "",
