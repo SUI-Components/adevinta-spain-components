@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.9.0 (2024-10-10)
+
+
+### Features
+
+* Add new onUnfinishedDrawing for detect when user no finish drawing ([0455565](https://github.com/SUI-Components/adevinta-spain-components/commit/04555651d5246d38c851daa37e70b538ae296089))
+
+
+
 # 1.8.0 (2023-08-31)
 
 
@@ -81,6 +90,3 @@
 ### Features
 
 * **components/map/google:** Create Map Google base component ([41c5a4c](https://github.com/SUI-Components/adevinta-spain-components/commit/41c5a4c053c3c34668097b7501a019ce8ae163bf))
-
-
-
