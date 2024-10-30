@@ -9,7 +9,7 @@ const DEFAULT_SOCIAL_MEDIA_DICTIONARY = {
   whatsapp: {
     design: 'outline',
     literal: 'WhatsApp',
-    url: 'https://wa.me/?text='
+    url: 'https://api.whatsapp.com/send?text='
   },
   facebook: {
     design: 'outline',
