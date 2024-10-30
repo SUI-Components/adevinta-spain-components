@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.4.0 (2024-10-30)
+
+
+### Features
+
+* Change Whatsapp share url to improve open graph meta ([2e1070d](https://github.com/SUI-Components/adevinta-spain-components/commit/2e1070d689150427fd99d12f098654f858611bf4))
+
+
+
 # 1.3.0 (2022-10-27)
 
 
@@ -23,6 +32,3 @@
 * **share/socialMediaButtonsGroup:** remove icons ([ddbb8a3](https://github.com/SUI-Components/adevinta-spain-components/commit/ddbb8a39813fe454fb35d4847eae5f4c225e68ba))
 * **share/socialMediaButtonsGroup:** remove package icons ([bb713fc](https://github.com/SUI-Components/adevinta-spain-components/commit/bb713fc0bbe265958e7b63eae19e112d002d668b))
 * **share/socialMediaButtonsGroup:** update readme ([0471841](https://github.com/SUI-Components/adevinta-spain-components/commit/04718413debff73664b03af85d8c7f6f3f90aee7))
-
-
-
