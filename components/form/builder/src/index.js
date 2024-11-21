@@ -1,22 +1,22 @@
-import {useCallback, useEffect, useRef, useState} from 'react'
+import {useCallback, useEffect, useState} from 'react'
 
 import PropTypes from 'prop-types'
 
 import {inputSizes as fieldSizes} from '@s-ui/react-atom-input'
 import AtomSpinner, {atomSpinnerTypes} from '@s-ui/react-atom-spinner'
 
-import {getUpdatedFormState} from './mapper/formState'
-import {RULES} from './reducer/constants'
+import {getUpdatedFormState} from './mapper/formState.js'
+import {RULES} from './reducer/constants.js'
 import {
   changeFieldById,
   fieldsNamesInOrderOfDefinition,
   fieldsToObject,
   fieldsToObjectNativeTypes,
   pickFieldById
-} from './reducer/fields'
-import {json} from './prop-types'
-import ProxyField from './ProxyField'
-import {reducer} from './reducer'
+} from './reducer/fields.js'
+import {json} from './prop-types/index.js'
+import ProxyField from './ProxyField/index.js'
+import {reducer} from './reducer/index.js'
 
 const FormBuilder = ({
   allowAutoFillOnInitLoad = false,
@@ -45,11 +45,9 @@ const FormBuilder = ({
   const {fields = [], rules = {}, id: formID} = json.form
   const [stateFields, setStateFields] = useState(fields)
   const [stateShowSpinner, setStateShowSpinner] = useState(false)
-  const __PERFORMANCE_UGLY_HACK_STATE_FIELDS__ = useRef()
-  __PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current = stateFields
 
-  const changeField = (fieldId, fieldValue) => {
-    const nextFields = changeFieldById(__PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current, fieldId, {value: fieldValue})
+  const changeField = (fieldId, fieldValue, fields) => {
+    const nextFields = changeFieldById(fields, fieldId, {value: fieldValue})
     setStateFields(nextFields)
 
     return nextFields
@@ -69,7 +67,7 @@ const FormBuilder = ({
       const timerShowSpinner = setTimeout(() => setStateShowSpinner(true), FormBuilder.USER_MINIMAL_DELAY)
       const transformedValue = transformations(id, value, pickFieldById(fields, id))
 
-      const nextFields = changeField(id, transformedValue)
+      const nextFields = changeField(id, transformedValue, stateFields)
       clearTimeout(timerShowSpinner)
 
       const nextStateFields = await reducerWithRules(nextFields, {
@@ -102,7 +100,7 @@ const FormBuilder = ({
       setStateShowSpinner(false)
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [...(shouldRerenderAllFieldsOnChange && {renderer})]
+    [...(shouldRerenderAllFieldsOnChange && {renderer}), stateFields]
   )
 
   useEffect(() => {
@@ -127,7 +125,8 @@ const FormBuilder = ({
 
         const nextFieldsChanged = changeField(
           fieldId,
-          fieldCanBeAutocompleted ? fieldDatalist[0].value : initFields[fieldId]
+          fieldCanBeAutocompleted ? fieldDatalist[0].value : initFields[fieldId],
+          previousFields
         )
         const nextFieldsWithRules = await reducerWithRules(nextFieldsChanged, {
           type: RULES,
@@ -135,7 +134,7 @@ const FormBuilder = ({
         })
 
         return nextFieldsWithRules
-      }, Promise.resolve(__PERFORMANCE_UGLY_HACK_STATE_FIELDS__.current))
+      }, Promise.resolve(stateFields))
       .then(nextFields => {
         clearTimeout(timerShowSpinner)
         setStateFields(nextFields)
