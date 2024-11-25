@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.21.0 (2024-11-25)
+
+
+### Features
+
+* Improve Form Builder state when React 18 ([19ec54a](https://github.com/SUI-Components/adevinta-spain-components/commit/19ec54ab4192de418ef4d9f70d6b0f50c6885d54))
+
+
+
 # 5.20.0 (2023-04-03)
 
 
@@ -1257,6 +1266,3 @@
 * **form/builder:** fix style variable ([7922be6](https://github.com/SUI-Components/adevinta-spain-components/commit/7922be67829aaafbaaf313cc40e2e9268c330438))
 * **form/builder:** init component ([8e59d4e](https://github.com/SUI-Components/adevinta-spain-components/commit/8e59d4e2b25934c2f9325b9017a14aab98cb06c3))
 * **form/builder:** update comments ([fc355a1](https://github.com/SUI-Components/adevinta-spain-components/commit/fc355a1f411432f4dc2f5163555f8955617154ff))
-
-
-
