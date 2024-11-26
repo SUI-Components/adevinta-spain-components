@@ -30,24 +30,26 @@ function MapGoogle({
   center = DEFAULT_CENTER,
   children,
   errorNode,
-  isInteractive: isInteractiveProp,
   height,
-  width,
+  isInteractive: isInteractiveProp,
   language = DEFAULT_LANGUAGE,
   loaderNode,
-  staticImageNode,
-  zoom = DEFAULT_ZOOM,
+  mapIds,
   onError,
   onLoad,
   onUnmount,
   signedUrl,
+  staticImageNode,
+  width,
+  zoom = DEFAULT_ZOOM,
   ...others
 }) {
   const [isInteractive, setIsInteractive] = useControlledState(isInteractiveProp)
 
   const {isLoaded, loadError} = useLoadScript({
     googleMapsApiKey: apiKey,
-    language
+    language,
+    mapIds
   })
 
   const handleOnLoad = useCallback(
@@ -107,16 +109,17 @@ MapGoogle.propTypes = {
   children: PropTypes.node,
   errorNode: PropTypes.node,
   height: PropTypes.number,
-  width: PropTypes.number,
   isInteractive: PropTypes.bool,
   language: PropTypes.string,
   loaderNode: PropTypes.node,
+  mapIds: PropTypes.array,
   onError: PropTypes.func,
   onLoad: PropTypes.func,
   onUnmount: PropTypes.func,
+  signedUrl: PropTypes.string,
   staticImageNode: PropTypes.node,
-  zoom: PropTypes.number,
-  signedUrl: PropTypes.string
+  width: PropTypes.number,
+  zoom: PropTypes.number
 }
 
 export default MapGoogle
