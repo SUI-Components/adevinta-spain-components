@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.10.0 (2024-11-26)
+
+
+### Features
+
+* Add support to inject mapId prop to google map component ([a074019](https://github.com/SUI-Components/adevinta-spain-components/commit/a07401940c6ed2e9575a49f16585f9367720ca02))
+
+
+
 # 1.9.0 (2024-10-10)
 
 
