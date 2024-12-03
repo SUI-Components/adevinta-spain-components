@@ -122,13 +122,7 @@ const DefaultSelect = ({
 
       <MoleculeSelectField {...selectProps} {...rendererResponse} multiselection={multiselection}>
         {nextDataList.map(({value, text, description, leftAddon, ...others}) => (
-          <MoleculeSelectOption
-            key={value}
-            value={value}
-            description={description}
-            leftAddon={leftAddon}
-            {...others}
-          >
+          <MoleculeSelectOption key={value} value={value} description={description} leftAddon={leftAddon} {...others}>
             {text}
           </MoleculeSelectOption>
         ))}
