@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 5.22.0 (2024-12-03)
+
+
+### Features
+
+* fix lint ([a7ec502](https://github.com/SUI-Components/adevinta-spain-components/commit/a7ec5022c972f3110257ddbe794b1da96632e209))
+* improvements ([e920cd5](https://github.com/SUI-Components/adevinta-spain-components/commit/e920cd5cbf64532de75518d92a40d1c0021cb07d))
+* use datalist from renderer prop ([e99ad88](https://github.com/SUI-Components/adevinta-spain-components/commit/e99ad886d4cf3448542f5381e539048cae5ca7c9))
+
+
+
 # 5.21.0 (2024-11-25)
 
 
