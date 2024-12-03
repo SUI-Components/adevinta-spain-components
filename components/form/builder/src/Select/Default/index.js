@@ -107,6 +107,8 @@ const DefaultSelect = ({
   // render custom component
   if (isValidElement(rendererResponse)) return rendererResponse
 
+  const nextDataList = rendererResponse?.dataList || datalist
+
   // render SUI component
   return (
     <div className={`sui-FormBuilder-field sui-FormBuilder-DefaultSelect sui-FormBuilder-${selectProps.id}`}>
@@ -119,14 +121,9 @@ const DefaultSelect = ({
       )}
 
       <MoleculeSelectField {...selectProps} {...rendererResponse} multiselection={multiselection}>
-        {datalist.map(data => (
-          <MoleculeSelectOption
-            key={data.value}
-            value={data.value}
-            description={data.description}
-            leftAddon={data.leftAddon}
-          >
-            {data.text}
+        {nextDataList.map(({value, text, description, leftAddon, ...others}) => (
+          <MoleculeSelectOption key={value} value={value} description={description} leftAddon={leftAddon} {...others}>
+            {text}
           </MoleculeSelectOption>
         ))}
       </MoleculeSelectField>
