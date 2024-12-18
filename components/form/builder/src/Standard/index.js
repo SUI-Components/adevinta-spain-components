@@ -40,6 +40,7 @@ const DISPLAYS = {
     DROPDOWN: 'dropdown'
   },
   [FIELDS.RANGE]: {
+    BUTTON_INLINE: 'button-inline',
     DEFAULT: ''
   }
 }
