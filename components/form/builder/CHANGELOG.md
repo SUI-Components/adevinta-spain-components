@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.23.0 (2024-12-18)
+
+
+### Features
+
+* add display button-inline component to type range ([46c03a0](https://github.com/SUI-Components/adevinta-spain-components/commit/46c03a0811bc76d7f428c4e3e4eddc1bed0a1ff7))
+
+
+
 # 5.22.0 (2024-12-03)
 
 
