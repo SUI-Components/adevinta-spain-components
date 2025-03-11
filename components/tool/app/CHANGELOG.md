@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.27.0 (2025-03-11)
+
+
+### Features
+
+* install push notifications plugin ([2efdfcd](https://github.com/SUI-Components/adevinta-spain-components/commit/2efdfcd12c696a1b0b3d7b69fd0442692e5c0e98))
+
+
+
 # 1.26.0 (2024-07-09)
 
 
