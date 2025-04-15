@@ -114,12 +114,6 @@ const DefaultSelect = ({
     <div className={`sui-FormBuilder-field sui-FormBuilder-DefaultSelect sui-FormBuilder-${selectProps.id}`}>
       {selectProps.children}
 
-      {selectProps.label && (
-        <label className="sui-FormBuilder-label" htmlFor={selectProps.id}>
-          {selectProps.label}
-        </label>
-      )}
-
       <MoleculeSelectField {...selectProps} {...rendererResponse} multiselection={multiselection}>
         {nextDataList.map(({value, text, description, leftAddon, ...others}) => (
           <MoleculeSelectOption key={value} value={value} description={description} leftAddon={leftAddon} {...others}>
