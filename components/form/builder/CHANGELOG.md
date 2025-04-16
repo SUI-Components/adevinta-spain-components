@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.25.0 (2025-04-16)
+
+
+### Features
+
+* let assign an id to every button of an inline button field type ([9e939f7](https://github.com/SUI-Components/adevinta-spain-components/commit/9e939f706282e4b3b987fee62f80922e618af814))
+
+
+
 # 5.24.0 (2025-04-16)
 
 
