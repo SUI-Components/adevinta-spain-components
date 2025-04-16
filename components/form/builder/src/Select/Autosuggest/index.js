@@ -134,11 +134,6 @@ const AutosuggestSelect = ({select, tabIndex, onChange, onFocus, onBlur, size, e
   // render SUI component
   return (
     <div className={`sui-FormBuilder-field sui-FormBuilder-AutosuggestSelect sui-FormBuilder-${autosuggestProps.id}`}>
-      {autosuggestProps.label && (
-        <label className="sui-FormBuilder-label" htmlFor={autosuggestProps.id}>
-          {autosuggestProps.label}
-        </label>
-      )}
       <MoleculeAutosuggestField {...autosuggestProps} {...rendererResponse}>
         {suggestions.map((suggestion, i) => (
           <MoleculeAutosuggestOption key={suggestion.value} value={suggestion.text}>
