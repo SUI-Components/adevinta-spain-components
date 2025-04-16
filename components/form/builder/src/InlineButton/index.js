@@ -66,6 +66,7 @@ const InlineButton = ({inlineButton, tabIndex, onChange, errors, alerts, rendere
         {rendererResponse?.children ||
           datalist.map(button => (
             <Button
+              id={button.id ?? `${inlineButton.id}-${button.value}`}
               key={button.text}
               design={button.value === inlineButton.value ? 'solid' : 'outline'}
               onClick={() => onClickHandler(button.value)}
