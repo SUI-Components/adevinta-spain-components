@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 5.24.0 (2025-04-16)
+
+
+### Features
+
+* remove duplicate labels on selects and autosuggests ([2ac7644](https://github.com/SUI-Components/adevinta-spain-components/commit/2ac764421d85354846115f59d4bb988bf803a912))
+
+
+
 # 5.23.0 (2024-12-18)
 
 
