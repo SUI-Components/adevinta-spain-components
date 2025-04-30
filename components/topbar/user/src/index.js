@@ -243,11 +243,9 @@ export default function TopbarUser({
         {navCTALogin && !customContent && (
           <div className="sui-TopbarUser-ctaAccess">
             <AtomButton
-              link
-              linkFactory={linkFactory}
+              aria-haspopup="dialog"
               design={'outline'}
               href={navCTALogin.url}
-              title={navCTALogin.text}
               shape={navCTALogin.shape}
               size={atomButtonSizes.SMALL}
               onClick={handleCTALoginClick}
