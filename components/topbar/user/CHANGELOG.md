@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.7.0 (2025-04-30)
+
+
+### Features
+
+* adapt topbar user component acceder cta to a11y ([3cc8726](https://github.com/SUI-Components/adevinta-spain-components/commit/3cc872689c47daa679b83a2ab0e7e9e3872e07d4))
+
+
+
 # 2.6.0 (2024-05-23)
 
 
