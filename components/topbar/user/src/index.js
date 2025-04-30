@@ -66,6 +66,7 @@ export default function TopbarUser({
   shouldDisplayToggle = true,
   showBrandIcon = false,
   title,
+  toggleAriaProps = {},
   toggleIcon = Menu
 }) {
   const _topbarUserNode = useRef(null)
@@ -194,13 +195,14 @@ export default function TopbarUser({
 
   const handleCTAclick = navCTA && navCTA.onClick
   const handleCTALoginClick = navCTALogin && navCTALogin.onClick
+  const mainMenuId = 'main-menu'
 
   return (
     <div ref={_topbarUserNode} className="sui-TopbarUser">
       <div className="sui-TopbarUser-wrap">
         {navButton ? <div className={FLOW_BUTTON_CLASS_NAME}>{navButton}</div> : null}
         {shouldDisplayToggle ? (
-          <button ref={_topbarUserToggleNode} className={toggleMenuClassName} onClick={_toggleMenu}>
+          <button aria-expanded={menuExpanded} aria-haspopup="true" aria-controls={mainMenuId} ref={_topbarUserToggleNode} className={toggleMenuClassName} onClick={_toggleMenu} {...toggleAriaProps}>
             <ToggleIcon svgClass="sui-TopbarUser-toggleIcon" />
           </button>
         ) : (
@@ -220,6 +222,7 @@ export default function TopbarUser({
           className={navWrapClassName}
           style={isToggleHidden ? DEFAULT_NAV_WRAP_STYLE : navWrapStyle}
           onClick={_handleNavWrapClick}
+          id={mainMenuId}
         >
           <div className="sui-TopbarUser-nav">
             <div className="sui-TopbarUser-navMain">{navMain.map(renderNavMain({isToggleHidden, linkFactory}))}</div>
@@ -474,5 +477,9 @@ TopbarUser.propTypes = {
   /**
    * Render custom node as title
    */
-  title: PropTypes.node
+  title: PropTypes.node,
+  /**
+   * Accessibility props for menu toggle button
+   */
+  toggleAriaProps: PropTypes.object
 }
