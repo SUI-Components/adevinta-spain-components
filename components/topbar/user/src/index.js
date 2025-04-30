@@ -202,7 +202,15 @@ export default function TopbarUser({
       <div className="sui-TopbarUser-wrap">
         {navButton ? <div className={FLOW_BUTTON_CLASS_NAME}>{navButton}</div> : null}
         {shouldDisplayToggle ? (
-          <button aria-expanded={menuExpanded} aria-haspopup="true" aria-controls={mainMenuId} ref={_topbarUserToggleNode} className={toggleMenuClassName} onClick={_toggleMenu} {...toggleAriaProps}>
+          <button
+            aria-expanded={menuExpanded}
+            aria-haspopup="true"
+            aria-controls={mainMenuId}
+            ref={_topbarUserToggleNode}
+            className={toggleMenuClassName}
+            onClick={_toggleMenu}
+            {...toggleAriaProps}
+          >
             <ToggleIcon svgClass="sui-TopbarUser-toggleIcon" />
           </button>
         ) : (
