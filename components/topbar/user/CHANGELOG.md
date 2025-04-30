@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.8.0 (2025-04-30)
+
+
+### Features
+
+* Add a11y attributes ([4dbbcba](https://github.com/SUI-Components/adevinta-spain-components/commit/4dbbcbaf445d33457e6f09d1a16384c5b71d3d09))
+* Lint ([39ad066](https://github.com/SUI-Components/adevinta-spain-components/commit/39ad066dd7143eb4da70e3951d370fb67c21ba09))
+
+
+
 # 2.7.0 (2025-04-30)
 
 
