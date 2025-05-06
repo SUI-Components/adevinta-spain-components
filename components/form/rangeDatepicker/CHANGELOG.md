@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.30.0 (2025-05-06)
+
+
+### Features
+
+* overwrite styles to avoid sass functions inside thir party co ([500a20a](https://github.com/SUI-Components/adevinta-spain-components/commit/500a20a18e98d2ed7118af678ce33cb9794fa8b1))
+* use a different css func ([0ffc7aa](https://github.com/SUI-Components/adevinta-spain-components/commit/0ffc7aa5d1e38367e6b438313514ed3a8301f46c))
+
+
+
 # 1.29.0 (2022-10-27)
 
 
@@ -247,6 +257,3 @@
 ### Features
 
 * **form/rangeDatepicker:** new component Range datepicker ([412d8f2](https://github.com/SUI-Components/adevinta-spain-components/commit/412d8f274447a21943c23c56dbde84c945f2c546))
-
-
-
