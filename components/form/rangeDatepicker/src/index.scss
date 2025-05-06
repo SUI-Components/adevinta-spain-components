@@ -1,6 +1,9 @@
 @import '~@s-ui/theme/lib/settings-compat-v7/index';
 @import '~@s-ui/theme/lib/index';
+
 @import '~@s-ui/react-atom-button/lib/index';
+
+@import '~react-datepicker/src/stylesheets/datepicker.scss';
 
 $z-range-datepicker-icon: 2 !default;
 $c-range-datepicker-icon-fill: $c-text-base !default;
@@ -11,11 +14,6 @@ $bgc-range-datepicker-selected: $c-primary !default;
 $w-range-datepicker-input: 130px !default;
 $fz-range-datepicker-input: $fz-xs !default;
 $p-range-datepicker-input: $p-m $p-l !default;
-
-/* Overwrite react-datepicker variables */
-$datepicker__selected-color: $bgc-range-datepicker-selected; // sass-lint:disable-line variable-name-format
-/* Load react-datepicker styles */
-@import '~react-datepicker/src/stylesheets/datepicker.scss';
 
 .sui-FormRangeDatepicker {
   display: flex;
@@ -53,5 +51,52 @@ $datepicker__selected-color: $bgc-range-datepicker-selected; // sass-lint:disabl
     cursor: pointer;
     font-size: $fz-range-datepicker-input;
     padding: $p-range-datepicker-input;
+  }
+
+  .react-datepicker__time-container {
+    .react-datepicker__time {
+      .react-datepicker__time-box {
+        ul.react-datepicker__time-list {
+          li.react-datepicker__time-list-ite {
+            &--selected {
+              background-color: $bgc-range-datepicker-selected;
+              &:hover {
+                background-color: $bgc-range-datepicker-selected;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .react-datepicker__day {
+    &--selected,
+    &--in-selecting-range,
+    &--in-range {
+      background-color: $bgc-range-datepicker-selected;
+
+      &:hover {
+        background-color: color-mix(in srgb, $bgc-range-datepicker-selected, $c-black 5%);
+      }
+    }
+
+    &--keyboard-selected {
+      background-color: color-mix(in srgb, $bgc-range-datepicker-selected, $c-white 10%);
+
+      &:hover {
+        background-color: color-mix(in srgb, $bgc-range-datepicker-selected, $c-black 5%);
+      }
+    }
+
+    &--in-selecting-range:not(&--in-range) {
+      background-color: rgb($bgc-range-datepicker-selected / 0.5);
+    }
+  }
+
+  .react-datepicker__close-icon {
+    &::after {
+      background-color: $bgc-range-datepicker-selected;
+    }
   }
 }
