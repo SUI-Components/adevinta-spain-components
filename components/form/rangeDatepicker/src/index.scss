@@ -90,7 +90,7 @@ $p-range-datepicker-input: $p-m $p-l !default;
     }
 
     &--in-selecting-range:not(&--in-range) {
-      background-color: rgb($bgc-range-datepicker-selected / 0.5);
+      background-color: color-mix(in srgb, $bgc-range-datepicker-selected, transparent 50%);
     }
   }
 
