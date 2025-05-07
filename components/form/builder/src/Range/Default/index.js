@@ -63,7 +63,7 @@ const DefaultRange = ({range, tabIndex, onChange, onFocus, onBlur, errors, alert
     onChange: onChangeCallback,
     onBlur: onBlurCallback,
     onFocus: onFocusCallback,
-    helpText: range.help,
+    helpText: range.help && <p>{range.help}</p>,
     tabIndex
   }
 
@@ -75,7 +75,7 @@ const DefaultRange = ({range, tabIndex, onChange, onFocus, onBlur, errors, alert
     onChange: onChangeCallback,
     onBlur: onBlurCallback,
     onFocus: onFocusCallback,
-    helpText: range.help,
+    helpText: range.help && <p>{range.help}</p>,
     tabIndex
   }
 

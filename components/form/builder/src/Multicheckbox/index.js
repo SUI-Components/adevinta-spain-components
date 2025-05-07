@@ -46,10 +46,10 @@ const Multipicker = ({multipicker, tabIndex, onChange, onFocus, onBlur, errors, 
       hidden: true
     }),
     ...(!!errorMessages && {
-      errorText: errorMessages.join('\n')
+      errorText: errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
     }),
     ...(!!alertMessages && {
-      alertText: alertMessages.join('\n')
+      alertText: alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
     })
   }
 

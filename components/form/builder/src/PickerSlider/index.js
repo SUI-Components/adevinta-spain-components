@@ -43,9 +43,11 @@ const PickerSlider = ({slider, onChange, onFocus, onBlur, errors, alerts, render
     return null
   }
 
-  const errorText = errorMessages && errorMessages.join('\n')
-  const alertText = alertMessages && alertMessages.join('\n')
-  const helpText = slider.help
+  const errorText =
+    errorMessages && errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
+  const alertText =
+    alertMessages && alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
+  const helpText = slider.help && <p>{slider.help}</p>
   const marks = [formatter(min), formatter(max)]
 
   const response = renderer({

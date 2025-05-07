@@ -26,10 +26,10 @@ const Radio = ({radio, tabIndex, onChange, errors, alerts, renderer}) => {
       hidden: true
     }),
     ...(!!errorMessages && {
-      errorText: errorMessages.join('\n')
+      errorText: errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
     }),
     ...(!!alertMessages && {
-      alertText: alertMessages.join('\n')
+      alertText: alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
     })
   }
 
@@ -65,7 +65,7 @@ const Radio = ({radio, tabIndex, onChange, errors, alerts, renderer}) => {
             key={button.value}
             value={button.value}
             label={button.text}
-            helpText={button.hint}
+            helpText={button.hint && <p>{button.hint}</p>}
           />
         ))}
       </MoleculeRadioButtonGroup>

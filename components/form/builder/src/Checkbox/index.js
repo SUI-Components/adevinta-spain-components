@@ -52,10 +52,10 @@ const Checkbox = ({checkbox, tabIndex, onChange, onFocus, onBlur, errors, alerts
       hidden: true
     }),
     ...(!!errorMessages && {
-      errorText: errorMessages.join('\n')
+      errorText: errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
     }),
     ...(!!alertMessages && {
-      alertText: alertMessages.join('\n')
+      alertText: alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
     })
   }
 

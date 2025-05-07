@@ -92,7 +92,7 @@ const AutosuggestSelect = ({select, tabIndex, onChange, onFocus, onBlur, size, e
     name: select.name,
     placeholder: select.hint,
     onChange: onChangeCallback,
-    helpText: select.help,
+    helpText: select.help && <p>{select.help}</p>,
     onBlur: onBlurCallback,
     onFocus: onFocusCallback,
     iconClear: <IconClose />,
@@ -105,10 +105,10 @@ const AutosuggestSelect = ({select, tabIndex, onChange, onFocus, onBlur, size, e
       hidden: true
     }),
     ...(!!errorMessages && {
-      errorText: errorMessages.join('\n')
+      errorText: errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
     }),
     ...(!!alertMessages && {
-      alertText: alertMessages.join('\n')
+      alertText: alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
     }),
     selectSize: size,
     ...constraintsProps
