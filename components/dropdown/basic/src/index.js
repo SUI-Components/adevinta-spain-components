@@ -110,7 +110,6 @@ export default function DropdownBasic({
           onClick={onClickHandler}
           rel={rel || undefined}
           target={target}
-          title={text}
         >
           {text}
         </Link>

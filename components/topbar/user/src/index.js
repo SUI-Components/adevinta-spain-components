@@ -272,7 +272,6 @@ export default function TopbarUser({
               linkFactory={linkFactory}
               design={'solid'}
               href={navCTA.url}
-              title={navCTA.text}
               {...(navCTA.icon && {
                 leftIcon: <navCTA.icon svgClass="sui-TopbarUser-ctaButtonIcon" />
               })}
