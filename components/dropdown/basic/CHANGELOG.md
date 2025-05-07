@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.44.0 (2025-05-07)
+
+
+### Features
+
+* a11y remove redundand title attr ([2fa2099](https://github.com/SUI-Components/adevinta-spain-components/commit/2fa2099c5a5a301c5f6fdba2ea8392fdffed611c))
+
+
+
 # 1.43.0 (2022-10-27)
 
 
@@ -323,6 +332,3 @@
 ### Bug Fixes
 
 * **dropdown/basic:** adjusting breakpoints ([aaad295](https://github.com/SUI-Components/adevinta-spain-components/commit/aaad295d748b066fa6e40897481597beafcf265d))
-
-
-
