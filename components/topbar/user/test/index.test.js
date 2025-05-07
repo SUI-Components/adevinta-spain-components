@@ -23,9 +23,9 @@ describe('topbar/user', () => {
   })
 
   it('The user can see the navigation button when declared', () => {
-    const {getByTitle} = render(<Component navCTA={navCTA} />)
+    const {getByText} = render(<Component navCTA={navCTA} />)
 
-    expect(getByTitle(navCTA.text)).to.have.attribute('href', navCTA.url)
+    expect(getByText(navCTA.text)).to.have.attribute('href', navCTA.url)
   })
 
   it('The user can see a custom content instead of a navigation button', () => {
