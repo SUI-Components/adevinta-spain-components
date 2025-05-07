@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 6.0.0 (2025-05-07)
+
+
+### Features
+
+* fix lint ([b9b6fee](https://github.com/SUI-Components/adevinta-spain-components/commit/b9b6fee9c53cf54a0cf961a5e199958f82325b6f))
+* upgrade molecule select version ([8b10881](https://github.com/SUI-Components/adevinta-spain-components/commit/8b10881965f345391a37b4102e408779f5a07dca))
+
+
+
 # 5.25.0 (2025-04-16)
 
 

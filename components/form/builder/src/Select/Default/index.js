@@ -5,9 +5,9 @@ import PropTypes from 'prop-types'
 import MoleculeSelectOption from '@s-ui/react-molecule-dropdown-option'
 import MoleculeSelectField from '@s-ui/react-molecule-select-field'
 
-import IconChevronDown from '../../Icons/IconChevronDown'
-import IconCloseTag from '../../Icons/IconCloseTag'
-import {createComponentMemo, field} from '../../prop-types'
+import IconChevronDown from '../../Icons/IconChevronDown.js'
+import IconCloseTag from '../../Icons/IconCloseTag.js'
+import {createComponentMemo, field} from '../../prop-types/index.js'
 
 const DefaultSelect = ({
   select,
