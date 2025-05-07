@@ -43,7 +43,7 @@ const DropdownUser = ({
 
     return (
       <li key={`${text}-${index}`} className="sui-DropdownUserMenu-listItem">
-        <Link href={url} className={linkClassName} title={text} onClick={handleClick}>
+        <Link href={url} className={linkClassName} onClick={handleClick}>
           <div className="sui-DropdownUserMenu-listIcon">
             <Icon />
           </div>

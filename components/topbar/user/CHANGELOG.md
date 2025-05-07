@@ -1,5 +1,17 @@
 # CHANGELOG
 
+# 2.9.0 (2025-05-07)
+
+
+### Features
+
+* a11y remove redundant title attr ([a972794](https://github.com/SUI-Components/adevinta-spain-components/commit/a972794d0e62f575fbe055655dfaa9cba242c926))
+* adapt spec ([b1a02c6](https://github.com/SUI-Components/adevinta-spain-components/commit/b1a02c69cf9a0e4d23f66ccf944887fde3956664))
+* adapt spec ([ce08b39](https://github.com/SUI-Components/adevinta-spain-components/commit/ce08b39befca6490264967f6e36a8621ae0d9fad))
+* adapt spec ([5868450](https://github.com/SUI-Components/adevinta-spain-components/commit/5868450a3e11a4cb0777c51f4d606d637aec31dd))
+
+
+
 # 2.8.0 (2025-04-30)
 
 
