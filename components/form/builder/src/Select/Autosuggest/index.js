@@ -20,8 +20,8 @@ const fromTextToValue = datalist => text => {
 }
 
 const AutosuggestSelect = ({select, tabIndex, onChange, onFocus, onBlur, size, errors, alerts, renderer}) => {
-  const errorMessages = errors[select.id] || []
-  const alertMessages = alerts[select.id] || []
+  const errorMessages = errors[select.id]
+  const alertMessages = alerts[select.id]
 
   const {datalist = []} = select
   const fromTextToValueWithDatalist = fromTextToValue(datalist)
@@ -80,11 +80,7 @@ const AutosuggestSelect = ({select, tabIndex, onChange, onFocus, onBlur, size, e
    * - There are no other errors involved
    */
   const showEmptySuggestionText =
-    !suggestions.length && !!localStateText && select.emptySuggestionText && !errorMessages.length
-
-  if (showEmptySuggestionText) {
-    errorMessages.push(select.emptySuggestionText)
-  }
+    !suggestions.length && !!localStateText && select.emptySuggestionText && !errorMessages?.length
 
   const autosuggestProps = {
     id: select.id,
@@ -106,6 +102,9 @@ const AutosuggestSelect = ({select, tabIndex, onChange, onFocus, onBlur, size, e
     }),
     ...(!!errorMessages && {
       errorText: errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
+    }),
+    ...(showEmptySuggestionText && {
+      errorText: [select.emptySuggestionText]
     }),
     ...(!!alertMessages && {
       alertText: alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
