@@ -23,24 +23,24 @@ const InlineButton = ({inlineButton, tabIndex, onChange, errors, alerts, rendere
     [onChange, inlineButton]
   )
 
+  const errorText = errorMessages?.length
+    ? errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
+    : ''
+
+  const alertText = alertMessages?.length
+    ? alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
+    : ''
+
   const inlineButtonProps = {
     id: inlineButton.id,
     label: inlineButton.label,
     tabIndex,
     value: inlineButton.value || '',
     onChange: onChangeCallback,
-    ...(inlineButton.disabled && {
-      disabled: true
-    }),
-    ...(inlineButton.hidden && {
-      hidden: true
-    }),
-    ...(!!errorMessages && {
-      errorText: errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
-    }),
-    ...(!!alertMessages && {
-      alertText: alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
-    })
+    ...(inlineButton.disabled && {disabled: true}),
+    ...(inlineButton.hidden && {hidden: true}),
+    ...(!!errorMessages && {errorText}),
+    ...(!!alertMessages && {alertText})
   }
 
   if (inlineButtonProps.hidden) {

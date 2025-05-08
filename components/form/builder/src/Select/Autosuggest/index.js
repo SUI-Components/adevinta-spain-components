@@ -82,6 +82,14 @@ const AutosuggestSelect = ({select, tabIndex, onChange, onFocus, onBlur, size, e
   const showEmptySuggestionText =
     !suggestions.length && !!localStateText && select.emptySuggestionText && !errorMessages?.length
 
+  const errorText = errorMessages?.length
+    ? errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
+    : ''
+
+  const alertText = alertMessages?.length
+    ? alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
+    : ''
+
   const autosuggestProps = {
     id: select.id,
     label: select.label,
@@ -94,21 +102,11 @@ const AutosuggestSelect = ({select, tabIndex, onChange, onFocus, onBlur, size, e
     iconClear: <IconClose />,
     value: localStateText,
     tabIndex,
-    ...(select.disabled && {
-      disabled: true
-    }),
-    ...(select.hidden && {
-      hidden: true
-    }),
-    ...(!!errorMessages && {
-      errorText: errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
-    }),
-    ...(showEmptySuggestionText && {
-      errorText: [select.emptySuggestionText]
-    }),
-    ...(!!alertMessages && {
-      alertText: alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
-    }),
+    ...(select.disabled && {disabled: true}),
+    ...(select.hidden && {hidden: true}),
+    ...(!!errorMessages && {errorText}),
+    ...(!!alertMessages && {alertText}),
+    ...(showEmptySuggestionText && {errorText: [select.emptySuggestionText]}),
     selectSize: size,
     ...constraintsProps
   }

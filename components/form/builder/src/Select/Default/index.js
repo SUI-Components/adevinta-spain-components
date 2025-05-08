@@ -59,6 +59,14 @@ const DefaultSelect = ({
 
   const DEFAULT_SELECT_VALUE = multiselection ? [] : ''
 
+  const errorText = errorMessages?.length
+    ? errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
+    : ''
+
+  const alertText = alertMessages?.length
+    ? alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
+    : ''
+
   const selectProps = {
     id: select.id,
     label: select.label,
@@ -74,18 +82,10 @@ const DefaultSelect = ({
     onFocus: onFocusCallback,
     helpText: select.help && <p>{select.help}</p>,
     tabIndex,
-    ...(select.disabled && {
-      disabled: true
-    }),
-    ...(select.hidden && {
-      hidden: true
-    }),
-    ...(!!errorMessages && {
-      errorText: errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
-    }),
-    ...(!!alertMessages && {
-      alertText: alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
-    }),
+    ...(select.disabled && {disabled: true}),
+    ...(select.hidden && {hidden: true}),
+    ...(!!errorMessages && {errorText}),
+    ...(!!alertMessages && {alertText}),
     selectSize: size,
     ...constraintsProps
   }

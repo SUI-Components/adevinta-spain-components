@@ -91,20 +91,20 @@ const Input = ({input, tabIndex, onChange, onFocus, onBlur, size, leftAddon, rig
     }
   }
 
+  const errorText = errorMessages?.length
+    ? errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
+    : ''
+
+  const alertText = alertMessages?.length
+    ? alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
+    : ''
+
   nextProps = {
     ...nextProps,
-    ...(input.hidden && {
-      hidden: true
-    }),
-    ...(input.disabled && {
-      disabled: true
-    }),
-    ...(!!errorMessages && {
-      errorText: errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
-    }),
-    ...(!!alertMessages && {
-      alertText: alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
-    })
+    ...(input.hidden && {hidden: true}),
+    ...(input.disabled && {disabled: true}),
+    ...(!!errorMessages && {errorText}),
+    ...(!!alertMessages && {alertText})
   }
 
   const inputProps = {

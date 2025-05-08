@@ -21,6 +21,14 @@ const MultiButton = ({alerts, errors, multiButton, onBlur, onChange, onFocus, re
 
   const onBlurCallback = () => onBlur(multiButton.id)
 
+  const errorText = errorMessages?.length
+    ? errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
+    : ''
+
+  const alertText = alertMessages?.length
+    ? alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
+    : ''
+
   const multiButtonProps = {
     id: multiButton.id,
     label: multiButton.label,
@@ -28,18 +36,10 @@ const MultiButton = ({alerts, errors, multiButton, onBlur, onChange, onFocus, re
     onFocus: onFocusCallback,
     tabIndex,
     value: multiButton.value,
-    ...(multiButton.disabled && {
-      disabled: true
-    }),
-    ...(multiButton.hidden && {
-      hidden: true
-    }),
-    ...(!!errorMessages && {
-      errorText: errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
-    }),
-    ...(!!alertMessages && {
-      alertText: alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
-    })
+    ...(multiButton.disabled && {disabled: true}),
+    ...(multiButton.hidden && {hidden: true}),
+    ...(!!errorMessages && {errorText}),
+    ...(!!alertMessages && {alertText})
   }
 
   if (multiButtonProps.hidden) return null

@@ -15,22 +15,22 @@ const Radio = ({radio, tabIndex, onChange, errors, alerts, renderer}) => {
     return onChange(radio.id, value)
   }
 
+  const errorText = errorMessages?.length
+    ? errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
+    : ''
+
+  const alertText = alertMessages?.length
+    ? alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
+    : ''
+
   const radioProps = {
     id: radio.id,
     label: radio.label,
     tabIndex,
-    ...(radio.disabled && {
-      disabled: true
-    }),
-    ...(radio.hidden && {
-      hidden: true
-    }),
-    ...(!!errorMessages && {
-      errorText: errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
-    }),
-    ...(!!alertMessages && {
-      alertText: alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
-    })
+    ...(radio.disabled && {disabled: true}),
+    ...(radio.hidden && {hidden: true}),
+    ...(!!errorMessages && {errorText}),
+    ...(!!alertMessages && {alertText})
   }
 
   if (radioProps.hidden) {

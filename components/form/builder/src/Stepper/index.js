@@ -17,6 +17,14 @@ const Stepper = ({stepper, tabIndex, onChange, errors, alerts, renderer}) => {
 
   const onChangeHandler = (__, {value}) => onChange(stepper.id, value)
 
+  const errorText = errorMessages?.length
+    ? errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
+    : ''
+
+  const alertText = alertMessages?.length
+    ? alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
+    : ''
+
   const stepperProps = {
     id: stepper.id,
     inputDisabled: stepper.inputDisabled,
@@ -27,18 +35,10 @@ const Stepper = ({stepper, tabIndex, onChange, errors, alerts, renderer}) => {
     minValueErrorText: stepper.minValueErrorText,
     tabIndex,
     value: stepper.value,
-    ...(stepper.disabled && {
-      disabled: true
-    }),
-    ...(stepper.hidden && {
-      hidden: true
-    }),
-    ...(!!errorMessages && {
-      errorText: errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
-    }),
-    ...(!!alertMessages && {
-      alertText: alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
-    })
+    ...(stepper.disabled && {disabled: true}),
+    ...(stepper.hidden && {hidden: true}),
+    ...(!!errorMessages && {errorText}),
+    ...(!!alertMessages && {alertText})
   }
 
   if (stepperProps.hidden) {
