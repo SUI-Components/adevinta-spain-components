@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 7.1.0 (2025-05-08)
+
+
+### Features
+
+* errorText and alerText will be empty string as expected if no errors ([0ca3fb2](https://github.com/SUI-Components/adevinta-spain-components/commit/0ca3fb2e2454202ba9b6c7c222b7e8a590a17f75))
+
+
+
 # 7.0.0 (2025-05-08)
 
 
