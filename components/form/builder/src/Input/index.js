@@ -100,10 +100,10 @@ const Input = ({input, tabIndex, onChange, onFocus, onBlur, size, leftAddon, rig
       disabled: true
     }),
     ...(!!errorMessages && {
-      errorText: errorMessages.join('\n')
+      errorText: errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
     }),
     ...(!!alertMessages && {
-      alertText: alertMessages.join('\n')
+      alertText: alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
     })
   }
 
@@ -113,7 +113,7 @@ const Input = ({input, tabIndex, onChange, onFocus, onBlur, size, leftAddon, rig
     label: input.label || '',
     tabIndex,
     placeholder: input.hint,
-    helpText: input.help,
+    helpText: input.help && <p>{input.help}</p>,
     value: input.value || '',
     onChange: onChangeCallback,
     onFocus: onFocusCallback,

@@ -72,7 +72,7 @@ const DefaultSelect = ({
     onChange: onChangeCallback,
     onBlur: onBlurCallback,
     onFocus: onFocusCallback,
-    helpText: select.help,
+    helpText: select.help && <p>{select.help}</p>,
     tabIndex,
     ...(select.disabled && {
       disabled: true
@@ -81,10 +81,10 @@ const DefaultSelect = ({
       hidden: true
     }),
     ...(!!errorMessages && {
-      errorText: errorMessages.join('\n')
+      errorText: errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
     }),
     ...(!!alertMessages && {
-      alertText: alertMessages.join('\n')
+      alertText: alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
     }),
     selectSize: size,
     ...constraintsProps
