@@ -18,6 +18,15 @@ const Switch = ({switchField, tabIndex, onChange, errors, alerts, renderer}) => 
     },
     [onChange, switchField]
   )
+
+  const errorText = errorMessages?.length
+    ? errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
+    : ''
+
+  const alertText = alertMessages?.length
+    ? alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
+    : ''
+
   const switchProps = {
     name: switchField.id,
     label: switchField.label,
@@ -25,18 +34,10 @@ const Switch = ({switchField, tabIndex, onChange, errors, alerts, renderer}) => 
     value: switched,
     onToggle: onChangeCallback,
     type: 'single',
-    ...(switchField.disabled && {
-      disabled: true
-    }),
-    ...(switchField.hidden && {
-      hidden: true
-    }),
-    ...(!!errorMessages && {
-      errorText: errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
-    }),
-    ...(!!alertMessages && {
-      alertText: alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
-    })
+    ...(switchField.disabled && {disabled: true}),
+    ...(switchField.hidden && {hidden: true}),
+    ...(!!errorMessages && {errorText}),
+    ...(!!alertMessages && {alertText})
   }
 
   if (switchProps.hidden) {

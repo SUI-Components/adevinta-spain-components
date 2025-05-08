@@ -29,6 +29,14 @@ const Multipicker = ({multipicker, tabIndex, onChange, onFocus, onBlur, errors, 
 
   const onBlurCallback = () => onBlur(multipicker.id)
 
+  const errorText = errorMessages?.length
+    ? errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
+    : ''
+
+  const alertText = alertMessages?.length
+    ? alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
+    : ''
+
   const multipickerProps = {
     id: multipicker.id,
     label: multipicker.label,
@@ -39,18 +47,10 @@ const Multipicker = ({multipicker, tabIndex, onChange, onFocus, onBlur, errors, 
     onBlur: onBlurCallback,
     tabIndex,
     intermediate: false,
-    ...(multipicker.disabled && {
-      disabled: true
-    }),
-    ...(multipicker.hidden && {
-      hidden: true
-    }),
-    ...(!!errorMessages && {
-      errorText: errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
-    }),
-    ...(!!alertMessages && {
-      alertText: alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
-    })
+    ...(multipicker.disabled && {disabled: true}),
+    ...(multipicker.hidden && {hidden: true}),
+    ...(!!errorMessages && {errorText}),
+    ...(!!alertMessages && {alertText})
   }
 
   if (multipickerProps.hidden) {

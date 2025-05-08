@@ -43,20 +43,20 @@ const TextArea = ({textArea, tabIndex, onChange, onFocus, onBlur, errors, alerts
     }
   }, nextProps)
 
+  const errorText = errorMessages?.length
+    ? errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
+    : ''
+
+  const alertText = alertMessages?.length
+    ? alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
+    : ''
+
   nextProps = {
     ...nextProps,
-    ...(textArea.hidden && {
-      hidden: true
-    }),
-    ...(textArea.disabled && {
-      disabled: true
-    }),
-    ...(!!errorMessages && {
-      errorText: errorMessages.map((errorMessage, index) => <p key={`${errorMessage}-${index}`}>{errorMessage}</p>)
-    }),
-    ...(!!alertMessages && {
-      alertText: alertMessages.map((alertMessage, index) => <p key={`${alertMessage}-${index}`}>{alertMessage}</p>)
-    })
+    ...(textArea.hidden && {hidden: true}),
+    ...(textArea.disabled && {disabled: true}),
+    ...(!!errorMessages && {errorText}),
+    ...(!!alertMessages && {alertText})
   }
 
   const textAreaProps = {
