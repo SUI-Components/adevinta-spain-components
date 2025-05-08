@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 7.0.0 (2025-05-08)
+
+
+### Features
+
+* force major because of @s-ui/react-atom-tag v4 ([1cabba3](https://github.com/SUI-Components/adevinta-spain-components/commit/1cabba37fcafcfa3df99c8e32876d542062a997b))
+* upgrade @s-ui/react-atom-tag ([114daa3](https://github.com/SUI-Components/adevinta-spain-components/commit/114daa3b3a374f93b5f72a7c4fdef6020ad08023))
+
+
+
 # 6.1.0 (2025-05-08)
 
 
