@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 6.1.0 (2025-05-08)
+
+
+### Features
+
+* fix suggestion field on autosuggest ([3d65014](https://github.com/SUI-Components/adevinta-spain-components/commit/3d650142ab20fc4076cc5cf04385b442fd1e71aa))
+* use paragraph element on help, error, and alert field texts ([ee56865](https://github.com/SUI-Components/adevinta-spain-components/commit/ee56865c17a7aa9f6eb6585d78d9c69f9ea91c50))
+
+
+
 # 6.0.0 (2025-05-07)
 
 
