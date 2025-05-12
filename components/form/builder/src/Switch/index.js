@@ -2,7 +2,7 @@ import {isValidElement, memo, useCallback} from 'react'
 
 import PropTypes from 'prop-types'
 
-import AtomSwitch, {atomSwitchColors, atomSwitchTypes} from '@s-ui/react-atom-switch'
+import AtomSwitch, {atomSwitchColors, atomSwitchDesigns} from '@s-ui/react-atom-switch'
 
 import {createComponentMemo, field} from '../prop-types/index.js'
 
@@ -29,7 +29,7 @@ const Switch = ({switchField, tabIndex, onChange, errors, alerts, renderer}) => 
 
   const switchProps = {
     color: atomSwitchColors.NEUTRAL,
-    design: atomSwitchTypes.SINGLE,
+    design: atomSwitchDesigns.SINGLE,
     initialValue: switched,
     label: switchField.label,
     name: switchField.id,
