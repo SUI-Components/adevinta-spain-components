@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 8.1.0 (2025-05-12)
+
+
+### Features
+
+* fix switch import designs ([fd38501](https://github.com/SUI-Components/adevinta-spain-components/commit/fd3850169ffc6e75d8b57caeb8337615899086c0))
+* set aria label to select options ([05398df](https://github.com/SUI-Components/adevinta-spain-components/commit/05398df7380a5fdfd50b71e0a909b6d73229d753))
+
+
+
 # 8.0.0 (2025-05-12)
 
 
