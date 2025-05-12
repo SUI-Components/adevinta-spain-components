@@ -2,9 +2,9 @@ import {isValidElement, memo, useCallback} from 'react'
 
 import PropTypes from 'prop-types'
 
-import MoleculeSwitch from '@s-ui/react-atom-switch'
+import AtomSwitch, {atomSwitchColors, atomSwitchTypes} from '@s-ui/react-atom-switch'
 
-import {createComponentMemo, field} from '../prop-types'
+import {createComponentMemo, field} from '../prop-types/index.js'
 
 const Switch = ({switchField, tabIndex, onChange, errors, alerts, renderer}) => {
   const errorMessages = errors[switchField.id]
@@ -28,12 +28,13 @@ const Switch = ({switchField, tabIndex, onChange, errors, alerts, renderer}) => 
     : ''
 
   const switchProps = {
-    name: switchField.id,
-    label: switchField.label,
+    color: atomSwitchColors.NEUTRAL,
+    design: atomSwitchTypes.SINGLE,
     initialValue: switched,
-    value: switched,
+    label: switchField.label,
+    name: switchField.id,
     onToggle: onChangeCallback,
-    type: 'single',
+    value: switched,
     ...(switchField.disabled && {disabled: true}),
     ...(switchField.hidden && {hidden: true}),
     ...(!!errorMessages && {errorText}),
@@ -54,7 +55,7 @@ const Switch = ({switchField, tabIndex, onChange, errors, alerts, renderer}) => 
   // render SUI component
   return (
     <div className={`sui-FormBuilder-field sui-FormBuilder-Switch sui-FormBuilder-${switchProps.id || tabIndex}`}>
-      <MoleculeSwitch {...switchProps} {...rendererResponse} />
+      <AtomSwitch {...switchProps} {...rendererResponse} />
     </div>
   )
 }
