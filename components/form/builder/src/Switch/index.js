@@ -13,8 +13,8 @@ const Switch = ({switchField, tabIndex, onChange, errors, alerts, renderer}) => 
   const switched = ['true', true].includes(switchField.value)
 
   const onChangeCallback = useCallback(
-    value => {
-      return onChange(switchField.id, JSON.stringify(value))
+    (event, {checked}) => {
+      return onChange(switchField.id, JSON.stringify(checked))
     },
     [onChange, switchField]
   )
@@ -34,7 +34,7 @@ const Switch = ({switchField, tabIndex, onChange, errors, alerts, renderer}) => 
     label: switchField.label,
     name: switchField.id,
     onToggle: onChangeCallback,
-    value: switched,
+    checked: switched,
     ...(switchField.disabled && {disabled: true}),
     ...(switchField.hidden && {hidden: true}),
     ...(!!errorMessages && {errorText}),
