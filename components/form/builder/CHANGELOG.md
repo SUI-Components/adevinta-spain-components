@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 8.2.0 (2025-05-19)
+
+
+### Features
+
+* apply breaking changes of new atom switch version ([863009b](https://github.com/SUI-Components/adevinta-spain-components/commit/863009b10fd4d1523e6f5dbdf471b6b978d15b91))
+
+
+
 # 8.1.0 (2025-05-12)
 
 
