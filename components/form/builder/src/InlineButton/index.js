@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import Button from '@s-ui/react-atom-button'
 import MoleculeButtonGroupField from '@s-ui/react-molecule-button-group-field'
 
-import {createComponentMemo, field} from '../prop-types'
+import {createComponentMemo, field} from '../prop-types/index.js'
 
 const InlineButton = ({inlineButton, tabIndex, onChange, errors, alerts, renderer}) => {
   const errorMessages = errors[inlineButton.id]
@@ -47,7 +47,7 @@ const InlineButton = ({inlineButton, tabIndex, onChange, errors, alerts, rendere
     return null
   }
 
-  const rendererResponse = renderer({
+  const {selectedIcon: SelectedIcon, ...rendererResponse} = renderer({
     id: inlineButton.id,
     innerProps: {...inlineButtonProps, datalist, display: inlineButton.display}
   })
@@ -70,6 +70,7 @@ const InlineButton = ({inlineButton, tabIndex, onChange, errors, alerts, rendere
               key={button.text}
               design={button.value === inlineButton.value ? 'solid' : 'outline'}
               onClick={() => onClickHandler(button.value)}
+              {...(button.value === inlineButton.value && SelectedIcon && {leftIcon: SelectedIcon})}
               isSubmit={false}
               isButton
               disabled={button.disabled}
