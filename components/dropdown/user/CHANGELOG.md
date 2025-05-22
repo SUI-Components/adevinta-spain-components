@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.2.0 (2025-05-22)
+
+
+### Features
+
+* set avatar image alt attribute to empty string for accessibility ([be5fe3b](https://github.com/SUI-Components/adevinta-spain-components/commit/be5fe3ba5d11891d322dea16860772a2e38a5be7))
+
+
+
 # 4.1.0 (2025-05-07)
 
 
