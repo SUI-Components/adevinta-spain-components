@@ -69,7 +69,7 @@ const DropdownUser = ({
     <div className={wrapperClassName} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
       <div className="sui-DropdownUser-button" onClick={handleClick} onTouchStart={handleTouchStart}>
         <div className="sui-DropdownUser-buttonAvatarWrap">
-          <img className="sui-DropdownUser-buttonAvatar" src={avatar} alt={`${name}-avatar`} />
+          <img className="sui-DropdownUser-buttonAvatar" src={avatar} alt="" />
         </div>
         <span className="sui-DropdownUser-buttonText">{name}</span>
       </div>
