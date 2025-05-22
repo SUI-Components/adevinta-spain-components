@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 8.3.0 (2025-05-22)
+
+
+### Features
+
+* add optional inline button ([ace1b51](https://github.com/SUI-Components/adevinta-spain-components/commit/ace1b5148baeadd456714e607e8a3aa4abacedb2))
+
+
+
 # 8.2.0 (2025-05-19)
 
 
