@@ -24,8 +24,19 @@ const BODY_HAS_SCROLL_DISABLED = 'body-has-scroll-disabled'
 const TITLE_CLASS_NAME = 'sui-TopbarUser-title'
 const FLOW_BUTTON_CLASS_NAME = 'sui-TopbarUser-navButton'
 
+const HEADING_TAGS = {
+  h1: 'h1',
+  h2: 'h2',
+  h3: 'h3',
+  h4: 'h4',
+  h5: 'h5',
+  h6: 'h6'
+}
+
 const renderBrand = ({showBrandIcon, linkFactory: Link, brand}) => {
-  const {icon: BrandIcon, image: BrandImage, name, url, asH1} = brand
+  const {headingTag: Heading, icon: BrandIcon, image: BrandImage, name, url} = brand
+
+  const asHeading = Boolean(Heading)
 
   const brandLink = showBrandIcon ? (
     <Link href={url} className="sui-TopbarUser-brandIcon" title={name}>
@@ -37,7 +48,7 @@ const renderBrand = ({showBrandIcon, linkFactory: Link, brand}) => {
     </Link>
   )
 
-  return asH1 ? <h1 className="sui-TopbarUser-heading">{brandLink}</h1> : brandLink
+  return asHeading ? <Heading className="sui-TopbarUser-heading">{brandLink}</Heading> : brandLink
 }
 
 /**
@@ -497,3 +508,5 @@ TopbarUser.propTypes = {
    */
   toggleAriaProps: PropTypes.object
 }
+
+export {HEADING_TAGS as topbarUserHeadingTags}
