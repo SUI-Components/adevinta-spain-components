@@ -135,17 +135,17 @@ export default function DropdownBasic({
           onClick={expandOnMouseOver ? NO_OP : onClick}
           onTouchStart={expandOnMouseOver && collapseByTouch ? onClick : NO_OP}
         >
-          <div className={`${BASE_CLASS}-buttonContent`}>
+          <span className={`${BASE_CLASS}-buttonContent`}>
             {Icon && (
-              <div className={`${BASE_CLASS}-buttonIcon`}>
+              <span className={`${BASE_CLASS}-buttonIcon`}>
                 <Icon />
-              </div>
+              </span>
             )}
             <span>{text}</span>
-          </div>
-          <div className={`${BASE_CLASS}-buttonIcon`}>
+          </span>
+          <span className={`${BASE_CLASS}-buttonIcon`}>
             <ArrowButtonIcon />
-          </div>
+          </span>
         </button>
       </div>
       <div className={MENU_CLASS} ref={wrapper}>
