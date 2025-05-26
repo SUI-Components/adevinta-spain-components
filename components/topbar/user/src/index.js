@@ -24,6 +24,22 @@ const BODY_HAS_SCROLL_DISABLED = 'body-has-scroll-disabled'
 const TITLE_CLASS_NAME = 'sui-TopbarUser-title'
 const FLOW_BUTTON_CLASS_NAME = 'sui-TopbarUser-navButton'
 
+const renderBrand = ({showBrandIcon, linkFactory: Link, brand}) => {
+  const {icon: BrandIcon, image: BrandImage, name, url, asH1} = brand
+
+  const brandLink = showBrandIcon ? (
+    <Link href={url} className="sui-TopbarUser-brandIcon" title={name}>
+      <BrandIcon />
+    </Link>
+  ) : (
+    <Link href={url} className="sui-TopbarUser-brand" title={name}>
+      {BrandImage ? <BrandImage /> : name}
+    </Link>
+  )
+
+  return asH1 ? <h1 className="sui-TopbarUser-heading">{brandLink}</h1> : brandLink
+}
+
 /**
  * Render main navigation function.
  */
@@ -181,9 +197,8 @@ export default function TopbarUser({
     }
   }, [menuExpanded, isToggleHidden, elementsToKeepScrollOnToggleMenu])
 
-  const Link = linkFactory
   const ToggleIcon = toggleIcon
-  const {icon: BrandIcon, image: BrandImage, name: brandName, url: brandUrl} = brand
+
   const {avatar, name, menu, hasUserBadgeLabel} = navUser
   const navWrapClassName = cx('sui-TopbarUser-navWrap', {
     'is-expanded': menuExpanded
@@ -216,15 +231,7 @@ export default function TopbarUser({
         ) : (
           <></>
         )}
-        {showBrandIcon ? (
-          <Link href={brandUrl} className="sui-TopbarUser-brandIcon" title={brandName}>
-            <BrandIcon />
-          </Link>
-        ) : (
-          <Link href={brandUrl} className="sui-TopbarUser-brand" title={brandName}>
-            {BrandImage ? <BrandImage /> : brandName}
-          </Link>
-        )}
+        {renderBrand({brand, linkFactory, showBrandIcon})}
         {title ? <div className={TITLE_CLASS_NAME}>{title}</div> : null}
         <div
           className={navWrapClassName}

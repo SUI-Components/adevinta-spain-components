@@ -50,6 +50,12 @@ $w-topbar-user-nav: 90% !default;
     border-radius: $bdrs-topbar-user;
   }
 
+  &-heading {
+    display: inline-flex;
+    font-size: 0;
+    line-height: 0;
+  }
+
   &-brand {
     @include reset-link;
     align-self: center;
