@@ -24,6 +24,33 @@ const BODY_HAS_SCROLL_DISABLED = 'body-has-scroll-disabled'
 const TITLE_CLASS_NAME = 'sui-TopbarUser-title'
 const FLOW_BUTTON_CLASS_NAME = 'sui-TopbarUser-navButton'
 
+const HEADING_TAGS = {
+  h1: 'h1',
+  h2: 'h2',
+  h3: 'h3',
+  h4: 'h4',
+  h5: 'h5',
+  h6: 'h6'
+}
+
+const renderBrand = ({showBrandIcon, linkFactory: Link, brand}) => {
+  const {headingTag: Heading, icon: BrandIcon, image: BrandImage, name, url} = brand
+
+  const asHeading = Boolean(Heading)
+
+  const brandLink = showBrandIcon ? (
+    <Link href={url} className="sui-TopbarUser-brandIcon" title={name}>
+      <BrandIcon />
+    </Link>
+  ) : (
+    <Link href={url} className="sui-TopbarUser-brand" title={name}>
+      {BrandImage ? <BrandImage /> : name}
+    </Link>
+  )
+
+  return asHeading ? <Heading className="sui-TopbarUser-heading">{brandLink}</Heading> : brandLink
+}
+
 /**
  * Render main navigation function.
  */
@@ -181,9 +208,8 @@ export default function TopbarUser({
     }
   }, [menuExpanded, isToggleHidden, elementsToKeepScrollOnToggleMenu])
 
-  const Link = linkFactory
   const ToggleIcon = toggleIcon
-  const {icon: BrandIcon, image: BrandImage, name: brandName, url: brandUrl} = brand
+
   const {avatar, name, menu, hasUserBadgeLabel} = navUser
   const navWrapClassName = cx('sui-TopbarUser-navWrap', {
     'is-expanded': menuExpanded
@@ -216,15 +242,7 @@ export default function TopbarUser({
         ) : (
           <></>
         )}
-        {showBrandIcon ? (
-          <Link href={brandUrl} className="sui-TopbarUser-brandIcon" title={brandName}>
-            <BrandIcon />
-          </Link>
-        ) : (
-          <Link href={brandUrl} className="sui-TopbarUser-brand" title={brandName}>
-            {BrandImage ? <BrandImage /> : brandName}
-          </Link>
-        )}
+        {renderBrand({brand, linkFactory, showBrandIcon})}
         {title ? <div className={TITLE_CLASS_NAME}>{title}</div> : null}
         <div
           className={navWrapClassName}
@@ -490,3 +508,5 @@ TopbarUser.propTypes = {
    */
   toggleAriaProps: PropTypes.object
 }
+
+export {HEADING_TAGS as topbarUserHeadingTags}
