@@ -87,7 +87,7 @@ export default function DropdownBasic({
    */
   const renderMenuItem = ({title, links}, index) => (
     <div key={index} className={`${MENU_CLASS}-item`}>
-      {title && <header className={`${MENU_CLASS}-title`}>{title}</header>}
+      {title && <label className={`${MENU_CLASS}-title`}>{title}</label>}
       <ul className={`${MENU_CLASS}-list`}>{links.map(renderLink)}</ul>
     </div>
   )
