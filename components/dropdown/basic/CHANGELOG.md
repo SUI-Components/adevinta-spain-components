@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.45.0 (2025-05-26)
+
+
+### Bug Fixes
+
+* Change header tag to label ([909f891](https://github.com/SUI-Components/adevinta-spain-components/commit/909f8915dd25daf6403a575557d4f7ba65c50ead))
+* Replace divs with spans for button content ([bb794f7](https://github.com/SUI-Components/adevinta-spain-components/commit/bb794f74f8314514695f2654b94ba56d1c91a811))
+* Title styling ([1dbdd38](https://github.com/SUI-Components/adevinta-spain-components/commit/1dbdd388a9b2f5341c892d73d93cd673a29d8dd8))
+
+
+
 # 1.44.0 (2025-05-07)
 
 
