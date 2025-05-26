@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.10.0 (2025-05-26)
+
+
+### Features
+
+* adding heading to topbar ([c346e33](https://github.com/SUI-Components/adevinta-spain-components/commit/c346e33b6c6433841f66e60121f08e2b252374da))
+* more flexible approach ([b7173ff](https://github.com/SUI-Components/adevinta-spain-components/commit/b7173ffe441fc8b1fd304d9f854343a117253a3f))
+
+
+
 # 2.9.0 (2025-05-07)
 
 
