@@ -87,7 +87,7 @@ export default function DropdownBasic({
    */
   const renderMenuItem = ({title, links}, index) => (
     <div key={index} className={`${MENU_CLASS}-item`}>
-      {title && <header className={`${MENU_CLASS}-title`}>{title}</header>}
+      {title && <label className={`${MENU_CLASS}-title`}>{title}</label>}
       <ul className={`${MENU_CLASS}-list`}>{links.map(renderLink)}</ul>
     </div>
   )
@@ -135,17 +135,17 @@ export default function DropdownBasic({
           onClick={expandOnMouseOver ? NO_OP : onClick}
           onTouchStart={expandOnMouseOver && collapseByTouch ? onClick : NO_OP}
         >
-          <div className={`${BASE_CLASS}-buttonContent`}>
+          <span className={`${BASE_CLASS}-buttonContent`}>
             {Icon && (
-              <div className={`${BASE_CLASS}-buttonIcon`}>
+              <span className={`${BASE_CLASS}-buttonIcon`}>
                 <Icon />
-              </div>
+              </span>
             )}
             <span>{text}</span>
-          </div>
-          <div className={`${BASE_CLASS}-buttonIcon`}>
+          </span>
+          <span className={`${BASE_CLASS}-buttonIcon`}>
             <ArrowButtonIcon />
-          </div>
+          </span>
         </button>
       </div>
       <div className={MENU_CLASS} ref={wrapper}>
