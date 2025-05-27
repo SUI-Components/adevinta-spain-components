@@ -93,6 +93,17 @@ export default function DropdownBasic({
   )
 
   /**
+   * Function rendering a menu element container.
+   */
+  const renderMenuItemContainer = ({id, menu, ref}) => {
+    return (
+      <div className={MENU_CLASS} ref={ref} id={id}>
+        {menu.map(renderMenuItem)}
+      </div>
+    )
+  }
+
+  /**
    * Function rendering a simple list item link.
    */
   const renderLink = ({onClick, rel, target, text, url}, index) => {
@@ -123,6 +134,8 @@ export default function DropdownBasic({
     'is-expanded': expanded
   })
 
+  const dropdownContentID = `dropdown-menu-${text.replace(' ', '-')}`
+
   return (
     <div
       className={wrapperClassName}
@@ -134,6 +147,9 @@ export default function DropdownBasic({
           className={`${BASE_CLASS}-button`}
           onClick={expandOnMouseOver ? NO_OP : onClick}
           onTouchStart={expandOnMouseOver && collapseByTouch ? onClick : NO_OP}
+          aria-expanded={expanded}
+          aria-haspopup
+          aria-controls={dropdownContentID}
         >
           <span className={`${BASE_CLASS}-buttonContent`}>
             {Icon && (
@@ -148,9 +164,7 @@ export default function DropdownBasic({
           </span>
         </button>
       </div>
-      <div className={MENU_CLASS} ref={wrapper}>
-        {menu.map(renderMenuItem)}
-      </div>
+      {renderMenuItemContainer({menu, ref: wrapper, id: dropdownContentID})}
     </div>
   )
 }
