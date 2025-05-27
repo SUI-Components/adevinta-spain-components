@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.46.0 (2025-05-27)
+
+
+### Features
+
+* add ARIA attributes for improved accessibility ([0f3f232](https://github.com/SUI-Components/adevinta-spain-components/commit/0f3f2325b5cf6df11d24661b38db63da4a4f9dfa))
+
+
+
 # 1.45.0 (2025-05-26)
 
 
