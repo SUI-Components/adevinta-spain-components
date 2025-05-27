@@ -134,7 +134,7 @@ export default function DropdownBasic({
     'is-expanded': expanded
   })
 
-  const dropdownContentID = `dropdown-menu-${text.replace(' ', '-')}`
+  const dropdownContentID = `dropdown-menu-${text.replace(/ /g, '-')}`
 
   return (
     <div
