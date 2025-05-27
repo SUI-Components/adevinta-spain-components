@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.47.0 (2025-05-27)
+
+
+### Features
+
+* Update replace ([f5d276f](https://github.com/SUI-Components/adevinta-spain-components/commit/f5d276f8c1086a4e0956a28018bcd5fb752a733f))
+
+
+
 # 1.46.0 (2025-05-27)
 
 
