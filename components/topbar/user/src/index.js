@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import {useEffect, useRef, useState} from 'react'
 
 import cx from 'classnames'
@@ -56,6 +55,7 @@ const renderBrand = ({showBrandIcon, linkFactory: Link, brand}) => {
  */
 const renderNavMain =
   ({isToggleHidden, linkFactory}) =>
+  // eslint-disable-next-line react/prop-types
   ({icon, label: text, menu, arrowButtonIcon, onClick = noop}, index) => {
     const handleToggleMenu = () => onClick()
 
@@ -210,7 +210,7 @@ export default function TopbarUser({
 
   const ToggleIcon = toggleIcon
 
-  const {avatar, name, menu, hasUserBadgeLabel} = navUser
+  const {accessibleBadgeLabel, avatar, name, menu, hasUserBadgeLabel} = navUser
   const navWrapClassName = cx('sui-TopbarUser-navWrap', {
     'is-expanded': menuExpanded
   })
@@ -255,7 +255,7 @@ export default function TopbarUser({
             {shouldDisplayNavUser && (
               <div className="sui-TopbarUser-navUser">
                 <DropdownUser
-                  user={{avatar, name}}
+                  user={{accessibleBadgeLabel, avatar, name}}
                   menu={menu}
                   expandOnMouseOver
                   hasNotifications={hasNotifications && !menuExpanded}
@@ -348,6 +348,10 @@ TopbarUser.propTypes = {
        */
       label: PropTypes.string,
       /**
+       * Optional arrow button icon.
+       */
+      arrowButtonIcon: PropTypes.func,
+      /**
        * Nav menu.
        */
       menu: PropTypes.arrayOf(
@@ -372,11 +376,19 @@ TopbarUser.propTypes = {
               /**
                * Menu link target.
                */
-              target: PropTypes.string
+              target: PropTypes.string,
+              /**
+               * Menu link icon.
+               */
+              icon: PropTypes.func
             })
           )
         })
-      )
+      ),
+      /**
+       * Nav click handler.
+       */
+      onClick: PropTypes.func
     })
   ),
   /**
@@ -392,6 +404,10 @@ TopbarUser.propTypes = {
    */
   navUser: PropTypes.shape({
     /**
+     * Accessible text when user has notifications.
+     */
+    accessibleBadgeLabel: PropTypes.string,
+    /**
      * User name.
      */
     name: PropTypes.string.isRequired,
@@ -404,6 +420,10 @@ TopbarUser.propTypes = {
      */
     menu: PropTypes.arrayOf(
       PropTypes.shape({
+        /**
+         * Accessible text when user has notifications.
+         */
+        accessibleBadgeLabel: PropTypes.string,
         /**
          * Menu links text.
          */
