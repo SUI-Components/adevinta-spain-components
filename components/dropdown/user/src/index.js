@@ -1,12 +1,12 @@
-/* eslint-disable react/prop-types */
 import {useReducer} from 'react'
 
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import MoleculeBadgeCounter, {moleculeBadgeCounterSizes} from '@s-ui/react-molecule-badge-counter'
+import VisuallyHidden from '@s-ui/react-primitive-visually-hidden'
 
-import {reducer, reducerActions, reducerInitialState} from './reducer'
+import {reducer, reducerActions, reducerInitialState} from './reducer.js'
 
 const DropdownUser = ({
   expandOnMouseOver = false,
@@ -32,7 +32,10 @@ const DropdownUser = ({
 
   const handleTouchStart = () => expandOnMouseOver && collapseByTouch && toggleMenu()
 
-  const renderLink = ({onClick, text, url, icon: Icon, notifications, highlight}, index) => {
+  const renderLink = (
+    {accessibleBadgeLabel: linkAccessibleBadgeLabel, onClick, text, url, icon: Icon, notifications, highlight},
+    index
+  ) => {
     const linkClassName = cx('sui-DropdownUserMenu-listLink', {
       'sui-DropdownUserMenu-listLinkHighlight': highlight
     })
@@ -40,6 +43,9 @@ const DropdownUser = ({
     const handleClick = e => onClick(e)
 
     const hasLinkNotifications = Boolean(notifications)
+
+    const hasAccessibilityLabel =
+      hasLinkNotifications && typeof linkAccessibleBadgeLabel === 'string' && linkAccessibleBadgeLabel.length > 0
 
     return (
       <li key={`${text}-${index}`} className="sui-DropdownUserMenu-listItem">
@@ -49,9 +55,12 @@ const DropdownUser = ({
           </div>
           <span className="sui-DropdownUserMenu-listText">{text}</span>
           {hasLinkNotifications && (
-            <span className="sui-DropdownUserMenu-listNotification">
-              <MoleculeBadgeCounter label={!!hasBadgeLabel && notifications} size={moleculeBadgeCounterSizes.SMALL} />
-            </span>
+            <>
+              {hasAccessibilityLabel && <VisuallyHidden>{linkAccessibleBadgeLabel}</VisuallyHidden>}
+              <span className="sui-DropdownUserMenu-listNotification">
+                <MoleculeBadgeCounter label={!!hasBadgeLabel && notifications} size={moleculeBadgeCounterSizes.SMALL} />
+              </span>
+            </>
           )}
         </Link>
       </li>
@@ -59,11 +68,14 @@ const DropdownUser = ({
   }
 
   const {expanded, collapseByTouch} = state
-  const {name, avatar} = user
+  const {accessibleBadgeLabel, name, avatar} = user
   const wrapperClassName = cx('sui-DropdownUser', {
     'is-expanded': expanded,
     'has-notifications': hasNotifications
   })
+
+  const showAccessibleBadgeLabel =
+    hasNotifications && typeof accessibleBadgeLabel === 'string' && accessibleBadgeLabel.length > 0
 
   return (
     <div className={wrapperClassName} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
@@ -72,6 +84,7 @@ const DropdownUser = ({
           <img className="sui-DropdownUser-buttonAvatar" src={avatar} alt="" />
         </div>
         <span className="sui-DropdownUser-buttonText">{name}</span>
+        {showAccessibleBadgeLabel && <VisuallyHidden>{accessibleBadgeLabel}</VisuallyHidden>}
       </div>
       <div className="sui-DropdownUserMenu-wrap">
         <div className="sui-DropdownUserMenu">
@@ -90,6 +103,10 @@ DropdownUser.propTypes = {
    */
   user: PropTypes.shape({
     /**
+     * Accessible text when user has notifications.
+     */
+    accessibleBadgeLabel: PropTypes.string,
+    /**
      * User name.
      */
     name: PropTypes.string.isRequired,
@@ -103,6 +120,10 @@ DropdownUser.propTypes = {
    */
   menu: PropTypes.arrayOf(
     PropTypes.shape({
+      /**
+       * Accessible text when user has notifications.
+       */
+      accessibleBadgeLabel: PropTypes.string,
       /**
        * Menu links text.
        */
