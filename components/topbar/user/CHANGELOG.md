@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.11.0 (2025-06-06)
+
+
+### Features
+
+* pass on accessibleBadgeLabel prop and adjust prop types ([2f8e0cf](https://github.com/SUI-Components/adevinta-spain-components/commit/2f8e0cf8b36647e4f1fd85d6a3571c1102e6c131))
+
+
+
 # 2.10.0 (2025-05-26)
 
 
