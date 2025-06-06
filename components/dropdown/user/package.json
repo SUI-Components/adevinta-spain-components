@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@s-ui/component-dependencies": "1",
-    "@s-ui/react-molecule-badge-counter": "1"
+    "@s-ui/react-molecule-badge-counter": "1",
+    "@s-ui/react-primitive-visually-hidden": "1"
   }
 }
