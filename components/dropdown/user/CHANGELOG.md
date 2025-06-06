@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 4.3.0 (2025-06-06)
+
+
+### Features
+
+* add dependencies ([4d2345a](https://github.com/SUI-Components/adevinta-spain-components/commit/4d2345a7605afeb629cec442f2c80125a3df2cef))
+* add missing styles ([545e260](https://github.com/SUI-Components/adevinta-spain-components/commit/545e260070568d01fd0ed99c51f4f5cc53fee185))
+* make changes on dropdown user component ([83d1afe](https://github.com/SUI-Components/adevinta-spain-components/commit/83d1afe085926d40a259e15d10c7a290da61cc53))
+
+
+
 # 4.2.0 (2025-05-22)
 
 
