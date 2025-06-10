@@ -121,6 +121,7 @@ export default function DropdownBasic({
           onClick={onClickHandler}
           rel={rel || undefined}
           target={target}
+          tabIndex={0}
         >
           {text}
         </Link>
@@ -150,6 +151,7 @@ export default function DropdownBasic({
           aria-expanded={expanded}
           aria-haspopup
           aria-controls={dropdownContentID}
+          tabIndex={0}
         >
           <span className={`${BASE_CLASS}-buttonContent`}>
             {Icon && (
