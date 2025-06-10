@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.48.0 (2025-06-10)
+
+
+### Features
+
+* Add tabindex 0 to dropdown links ([d3c2124](https://github.com/SUI-Components/adevinta-spain-components/commit/d3c2124e7a6cea048bba8cfdfdafaf73ca1f91b2))
+
+
+
 # 1.47.0 (2025-05-27)
 
 
