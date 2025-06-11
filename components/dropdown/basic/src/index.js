@@ -147,6 +147,8 @@ export default function DropdownBasic({
         <button
           className={`${BASE_CLASS}-button`}
           onClick={expandOnMouseOver ? NO_OP : onClick}
+          onFocus={onMouseOver}
+          onBlur={onMouseOut}
           onTouchStart={expandOnMouseOver && collapseByTouch ? onClick : NO_OP}
           aria-expanded={expanded}
           aria-haspopup
