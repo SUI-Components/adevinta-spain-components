@@ -51,6 +51,7 @@ $fz-card-arrow-description: $fz-xs !default;
     &Title {
       color: $c-card-arrow-title;
       font-size: $fz-card-arrow-title;
+      font-weight: $fw-bold;
       margin-top: 0;
       margin-bottom: 0;
     }
