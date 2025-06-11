@@ -28,8 +28,6 @@ const DropdownUser = ({
 
   const handleMouseOut = () => expandOnMouseOver && dispatch({type: reducerActions.MOUSE_OUT})
 
-  const handleClick = () => !expandOnMouseOver && toggleMenu()
-
   const handleTouchStart = () => expandOnMouseOver && collapseByTouch && toggleMenu()
 
   const renderLink = (
@@ -79,13 +77,19 @@ const DropdownUser = ({
 
   return (
     <div className={wrapperClassName} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-      <div className="sui-DropdownUser-button" onClick={handleClick} onTouchStart={handleTouchStart}>
+      <button
+        className="sui-DropdownUser-button"
+        onClick={toggleMenu}
+        onTouchStart={handleTouchStart}
+        tabIndex={0}
+        role="button"
+      >
         <div className="sui-DropdownUser-buttonAvatarWrap">
           <img className="sui-DropdownUser-buttonAvatar" src={avatar} alt="" />
         </div>
         <span className="sui-DropdownUser-buttonText">{name}</span>
         {showAccessibleBadgeLabel && <VisuallyHidden>{accessibleBadgeLabel}</VisuallyHidden>}
-      </div>
+      </button>
       <div className="sui-DropdownUserMenu-wrap">
         <div className="sui-DropdownUserMenu">
           <ul className="sui-DropdownUserMenu-list">{menu.map(renderLink)}</ul>
