@@ -10,8 +10,16 @@ const BASE_CLASS = 'sui-DropdownBasic'
 const MENU_CLASS = `${BASE_CLASS}Menu`
 const NO_OP = () => {}
 
-const defaultLinkFactory = ({href, className, children, onClick, rel, target, title}) => (
-  <a href={href} className={className} onClick={onClick} rel={rel || undefined} target={target} title={title}>
+const defaultLinkFactory = ({href, className, children, onClick, rel, tabIndex, target, title}) => (
+  <a
+    href={href}
+    className={className}
+    onClick={onClick}
+    rel={rel || undefined}
+    target={target}
+    title={title}
+    tabIndex={tabIndex}
+  >
     {children}
   </a>
 )
