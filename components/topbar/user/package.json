@@ -14,7 +14,7 @@
   "dependencies": {
     "@s-ui/component-dependencies": "1",
     "@s-ui/react-atom-button": "1",
-    "@s-ui/react-dropdown-basic": "1",
+    "@s-ui/react-dropdown-basic": "git@github.com:SUI-Components/adevinta-spain-components.git#feat/focus-menu-by-kb",
     "@s-ui/react-dropdown-user": "4",
     "@s-ui/react-hooks": "1",
     "@s-ui/react-icons": "1"
