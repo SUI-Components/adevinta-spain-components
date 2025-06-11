@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.14.0 (2025-06-11)
+
+
+### Features
+
+* Allow dynamic heading tags and update title styles ([ac24432](https://github.com/SUI-Components/adevinta-spain-components/commit/ac244320deb1a15badf754e8ea3563ecc3f4314c))
+
+
+
 # 1.13.0 (2022-10-27)
 
 
@@ -121,6 +130,3 @@
 * **card/arrow:** link card with arrow icon ([2e283c9](https://github.com/SUI-Components/adevinta-spain-components/commit/2e283c9a6c25c92228d5f9b73273ad0544f32584))
 * **card/arrow:** set isRequired to link prop ([044b73e](https://github.com/SUI-Components/adevinta-spain-components/commit/044b73ea86762d92eb5035142491b9e24bd7ef88))
 * **card/arrow:** update README ([fddb27b](https://github.com/SUI-Components/adevinta-spain-components/commit/fddb27b6015580a3dce8ae1c6c8d6ce8340ff410))
-
-
-
