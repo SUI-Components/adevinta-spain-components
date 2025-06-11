@@ -146,9 +146,7 @@ export default function DropdownBasic({
       <div className={`${BASE_CLASS}-buttonWrap`}>
         <button
           className={`${BASE_CLASS}-button`}
-          onClick={expandOnMouseOver ? NO_OP : onClick}
-          onFocus={onMouseOver}
-          onBlur={onMouseOut}
+          onClick={onClick}
           onTouchStart={expandOnMouseOver && collapseByTouch ? onClick : NO_OP}
           aria-expanded={expanded}
           aria-haspopup
