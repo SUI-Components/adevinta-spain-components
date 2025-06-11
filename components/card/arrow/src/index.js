@@ -4,11 +4,24 @@ import PropTypes from 'prop-types'
 import AtomImage from '@s-ui/react-atom-image'
 import Chevronright from '@s-ui/react-icons/lib/Chevronright'
 
+const HEADING_TAGS = {
+  h1: 'h1',
+  h2: 'h2',
+  h3: 'h3',
+  h4: 'h4',
+  h5: 'h5',
+  h6: 'h6',
+  p: 'p'
+}
+
 const CardArrow = ({media, text, icon, linkFactory: Link, link}) => {
   /**
    * If there is no Icon prop, set one by default
    */
   const Icon = icon || Chevronright
+
+  const {headingTag: Heading = HEADING_TAGS.h3} = text
+
   return (
     <div className="sui-CardArrow">
       <Link className="sui-CardArrow-link" href={link}>
@@ -18,7 +31,7 @@ const CardArrow = ({media, text, icon, linkFactory: Link, link}) => {
           </div>
         )}
         <div className="sui-CardArrow-inner">
-          <h3 className="sui-CardArrow-innerTitle">{text.title}</h3>
+          <Heading className="sui-CardArrow-innerTitle">{text.title}</Heading>
           {text.description && <p className="sui-CardArrow-innerDescription">{text.description}</p>}
         </div>
         <Icon svgClass="sui-CardArrow-icon" className="sui-CardArrow-icon" />
@@ -42,7 +55,8 @@ CardArrow.propTypes = {
    */
   text: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    description: PropTypes.string
+    description: PropTypes.string,
+    headingTag: PropTypes.oneOf(Object.keys(HEADING_TAGS))
   }).isRequired,
   /**
    * Icon optional prop
@@ -62,4 +76,5 @@ CardArrow.defaultProps = {
   linkFactory: ({children, ...rest}) => <a {...rest}>{children}</a>
 }
 
+export {HEADING_TAGS as cardArrowHeadingTags}
 export default CardArrow
