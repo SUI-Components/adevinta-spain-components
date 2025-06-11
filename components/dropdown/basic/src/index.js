@@ -93,20 +93,32 @@ export default function DropdownBasic({
   /**
    * Function rendering menu element.
    */
-  const renderMenuItem = ({title, links}, index) => (
-    <div key={index} className={`${MENU_CLASS}-item`}>
-      {title && <label className={`${MENU_CLASS}-title`}>{title}</label>}
-      <ul className={`${MENU_CLASS}-list`}>{links.map(renderLink)}</ul>
-    </div>
-  )
+  const renderMenuItem = ({title, links, isLastMenu, onMouseOut}, index) => {
+    return (
+      <div key={index} className={`${MENU_CLASS}-item`}>
+        {title && <label className={`${MENU_CLASS}-title`}>{title}</label>}
+        <ul className={`${MENU_CLASS}-list`}>
+          {links.map((linkProps, index) => {
+            const isLastItem = index === links.length - 1
+            return renderLink({...linkProps, isLastMenu, onMouseOut, isLastItem}, index)
+          })}
+        </ul>
+      </div>
+    )
+  }
 
   /**
    * Function rendering a menu element container.
    */
-  const renderMenuItemContainer = ({id, menu, ref}) => {
+  const renderMenuItemContainer = ({id, menu, ref, onMouseOut}) => {
+    const menuItems = menu.map((menuProps, index) => {
+      const isLastMenu = index === menu.length - 1
+      return renderMenuItem({...menuProps, onMouseOut, isLastMenu}, index)
+    })
+
     return (
       <div className={MENU_CLASS} ref={ref} id={id}>
-        {menu.map(renderMenuItem)}
+        {menuItems}
       </div>
     )
   }
@@ -114,7 +126,7 @@ export default function DropdownBasic({
   /**
    * Function rendering a simple list item link.
    */
-  const renderLink = ({onClick, rel, target, text, url}, index) => {
+  const renderLink = ({isLastMenu, isLastItem, onMouseOut, onClick, rel, target, text, url}, index) => {
     const Link = linkFactory
     const onClickHandler = e => {
       onClick && onClick(e)
@@ -130,6 +142,7 @@ export default function DropdownBasic({
           rel={rel || undefined}
           target={target}
           tabIndex={0}
+          onBlur={isLastMenu && isLastItem ? onMouseOut : NO_OP}
         >
           {text}
         </Link>
@@ -174,7 +187,7 @@ export default function DropdownBasic({
           </span>
         </button>
       </div>
-      {renderMenuItemContainer({menu, ref: wrapper, id: dropdownContentID})}
+      {renderMenuItemContainer({menu, ref: wrapper, id: dropdownContentID, onMouseOut})}
     </div>
   )
 }
