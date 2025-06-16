@@ -12,12 +12,20 @@
   &-trigger {
     align-items: center;
     background-color: $bgc-collapsible-basic-trigger;
-    border: $bd-collapsible-basic-trigger;
     border-radius: $bdr-collapsible-basic-trigger;
+    border: $bd-collapsible-basic-trigger;
+    cursor: pointer;
     display: flex;
     line-height: $lh-collapsible-basic;
     margin-bottom: $mb-collapsible-basic-trigger;
     padding: $p-collapsible-basic-trigger;
+    text-align: left;
+    width: 100%;
+
+    &:focus-visible {
+      outline: 2px solid $c-primary;
+      border-radius: $bdrs-m;
+    }
 
     &-iconBox {
       transition: $trs-collapsible-basic-trigger-icon;

@@ -18,6 +18,7 @@ const CollapsibleBasic = ({
   hideTriggerIcon,
   icon: ArrowIcon,
   isClickable,
+  id,
   label
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(collapsed)
@@ -36,20 +37,24 @@ const CollapsibleBasic = ({
   })
   const contentCssClassNames = cx('sui-CollapsibleBasic-collapsibleContent', ANIMATION_SPEED_CLASSNAMES[animationSpeed])
 
+  const contentId = id ? `collapsible-basic-${id}` : `collapsible-basic-default`
+
   return (
     <div className={cssClassNames}>
-      <div className="sui-CollapsibleBasic-trigger" onClick={isClickable ? handleClick : undefined}>
-        <div className="sui-CollapsibleBasic-trigger-label">{label}</div>
+      <button className="sui-CollapsibleBasic-trigger" onClick={isClickable ? handleClick : undefined}>
+        <span className="sui-CollapsibleBasic-trigger-label">{label}</span>
         {!hideTriggerIcon && (
-          <div className="sui-CollapsibleBasic-trigger-iconBox">
+          <span className="sui-CollapsibleBasic-trigger-iconBox">
             <ArrowIcon
               svgClass="sui-CollapsibleBasic-trigger-iconBox-icon"
               className="sui-CollapsibleBasic-trigger-iconBox-icon"
             />
-          </div>
+          </span>
         )}
+      </button>
+      <div className={contentCssClassNames} id={contentId} role="region">
+        {children}
       </div>
-      <div className={contentCssClassNames}>{children}</div>
     </div>
   )
 }
@@ -85,6 +90,10 @@ CollapsibleBasic.propTypes = {
    * Allow click in the label to open or close it
    */
   isClickable: PropTypes.bool,
+  /**
+   * Id of the component, used to generate the content id
+   */
+  id: PropTypes.string.isRequired,
   /**
    * Customise the speed of the transition animation: normal 0.3s, fast: 0.15s
    */
