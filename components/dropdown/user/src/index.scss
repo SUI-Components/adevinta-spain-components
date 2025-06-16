@@ -33,10 +33,16 @@
 
     align-items: center;
     background: $bg-dropdown-user-button;
+    border: none;
     display: flex;
     position: relative;
     text-align: left;
     width: 100%;
+
+    &:focus-visible {
+      outline: 2px solid $c-primary;
+      border-radius: $bdrs-m;
+    }
 
     &Avatar {
       border-radius: 100%;
