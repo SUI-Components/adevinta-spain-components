@@ -1,5 +1,17 @@
 # CHANGELOG
 
+# 1.49.0 (2025-06-16)
+
+
+### Features
+
+* Add focus and blur events to button ([d30ce21](https://github.com/SUI-Components/adevinta-spain-components/commit/d30ce2107e028066a2d7fbe809bdd0f16a23086c))
+* Run always onclick handler ([9f84026](https://github.com/SUI-Components/adevinta-spain-components/commit/9f8402657fb70aef4d1328573d7c8c272a2f5d89))
+* Toggle menu after last item blur ([55c7447](https://github.com/SUI-Components/adevinta-spain-components/commit/55c7447e739618f86cb23b290f3b27107fd79c43))
+* Update default linkfactory ([a8ac5bd](https://github.com/SUI-Components/adevinta-spain-components/commit/a8ac5bd9f4f0d0fe4db61c67bfabc1edc899936b))
+
+
+
 # 1.48.0 (2025-06-10)
 
 
