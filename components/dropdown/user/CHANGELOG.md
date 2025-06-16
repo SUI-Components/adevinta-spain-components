@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.4.0 (2025-06-16)
+
+
+### Features
+
+* Navigate in dropdown user ([a9eb5d6](https://github.com/SUI-Components/adevinta-spain-components/commit/a9eb5d683a38dd14bdf925465ac2f8b5e12b8466))
+
+
+
 # 4.3.0 (2025-06-06)
 
 
