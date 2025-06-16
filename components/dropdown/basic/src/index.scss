@@ -51,6 +51,11 @@ $tt-dropdown-basic-menu-title: uppercase !default;
       color: $c-dropdown-basic-button-hover;
     }
 
+    &:focus-visible {
+      outline: 2px solid $c-primary;
+      border-radius: $bdrs-m;
+    }
+
     &Wrap {
       @include media-breakpoint-up(m) {
         padding: $size-dropdown-arrow-up 0;
