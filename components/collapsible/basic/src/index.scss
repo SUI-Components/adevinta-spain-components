@@ -68,6 +68,10 @@
   &.is-collapsed {
     .sui-CollapsibleBasic-collapsibleContent {
       max-height: 0;
+
+      &.is-hidden {
+        display: none;
+      }
     }
   }
 

@@ -22,12 +22,19 @@ const CollapsibleBasic = ({
   label
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(collapsed)
+  const [isAnimationFinished, setIsAnimationFinished] = useState(collapsed)
+
   useEffect(() => {
     setIsCollapsed(collapsed)
   }, [collapsed])
+
   const handleClick = () => {
+    setIsAnimationFinished(false)
+
     const nextIsCollapsed = !isCollapsed
-    setIsCollapsed(nextIsCollapsed)
+    setTimeout(() => {
+      setIsCollapsed(nextIsCollapsed)
+    })
     onClick(nextIsCollapsed)
   }
 
@@ -35,13 +42,25 @@ const CollapsibleBasic = ({
     'is-collapsed': isCollapsed,
     'is-expanded': !isCollapsed
   })
-  const contentCssClassNames = cx('sui-CollapsibleBasic-collapsibleContent', ANIMATION_SPEED_CLASSNAMES[animationSpeed])
+  const contentCssClassNames = cx('sui-CollapsibleBasic-collapsibleContent', {
+    [ANIMATION_SPEED_CLASSNAMES[animationSpeed]]: true,
+    'is-hidden': isAnimationFinished && isCollapsed
+  })
 
   const contentId = id ? `collapsible-basic-${id}` : `collapsible-basic-default`
+  const onAnimationEnd = () => {
+    setIsAnimationFinished(true)
+  }
 
   return (
     <div className={cssClassNames}>
-      <button className="sui-CollapsibleBasic-trigger" onClick={isClickable ? handleClick : undefined}>
+      <button
+        aria-expanded={!isCollapsed}
+        aria-controls={contentId}
+        className="sui-CollapsibleBasic-trigger"
+        onClick={isClickable ? handleClick : undefined}
+        type="button"
+      >
         <span className="sui-CollapsibleBasic-trigger-label">{label}</span>
         {!hideTriggerIcon && (
           <span className="sui-CollapsibleBasic-trigger-iconBox">
@@ -52,7 +71,7 @@ const CollapsibleBasic = ({
           </span>
         )}
       </button>
-      <div className={contentCssClassNames} id={contentId} role="region">
+      <div className={contentCssClassNames} id={contentId} role="region" onTransitionEnd={onAnimationEnd}>
         {children}
       </div>
     </div>
