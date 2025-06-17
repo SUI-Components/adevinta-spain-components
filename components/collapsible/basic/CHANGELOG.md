@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 2.15.0 (2025-06-17)
+
+
+### Features
+
+* Animation refactor ([c790648](https://github.com/SUI-Components/adevinta-spain-components/commit/c7906482bf46392c0a577d82fbb441597349d9d2))
+* Make collapsible headers focusable via kb ([cf3a691](https://github.com/SUI-Components/adevinta-spain-components/commit/cf3a691b8685ef732c70d1876b72b974ba3bb983))
+
+
+
 # 2.14.0 (2022-10-27)
 
 
@@ -267,6 +277,3 @@
 ### Features
 
 * **collapsible/basic:** collapsible/expandible component. ([bcb1277](https://github.com/SUI-Components/adevinta-spain-components/commit/bcb127701f616b4ba66fbaa5fbabd6bd5c36e73a))
-
-
-
