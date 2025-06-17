@@ -18,15 +18,23 @@ const CollapsibleBasic = ({
   hideTriggerIcon,
   icon: ArrowIcon,
   isClickable,
+  id,
   label
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(collapsed)
+  const [isAnimationFinished, setIsAnimationFinished] = useState(collapsed)
+
   useEffect(() => {
     setIsCollapsed(collapsed)
   }, [collapsed])
+
   const handleClick = () => {
+    setIsAnimationFinished(false)
+
     const nextIsCollapsed = !isCollapsed
-    setIsCollapsed(nextIsCollapsed)
+    setTimeout(() => {
+      setIsCollapsed(nextIsCollapsed)
+    })
     onClick(nextIsCollapsed)
   }
 
@@ -34,22 +42,38 @@ const CollapsibleBasic = ({
     'is-collapsed': isCollapsed,
     'is-expanded': !isCollapsed
   })
-  const contentCssClassNames = cx('sui-CollapsibleBasic-collapsibleContent', ANIMATION_SPEED_CLASSNAMES[animationSpeed])
+  const contentCssClassNames = cx('sui-CollapsibleBasic-collapsibleContent', {
+    [ANIMATION_SPEED_CLASSNAMES[animationSpeed]]: true,
+    'is-hidden': isAnimationFinished && isCollapsed
+  })
+
+  const contentId = id ? `collapsible-basic-${id}` : `collapsible-basic-default`
+  const onAnimationEnd = () => {
+    setIsAnimationFinished(true)
+  }
 
   return (
     <div className={cssClassNames}>
-      <div className="sui-CollapsibleBasic-trigger" onClick={isClickable ? handleClick : undefined}>
-        <div className="sui-CollapsibleBasic-trigger-label">{label}</div>
+      <button
+        aria-expanded={!isCollapsed}
+        aria-controls={contentId}
+        className="sui-CollapsibleBasic-trigger"
+        onClick={isClickable ? handleClick : undefined}
+        type="button"
+      >
+        <span className="sui-CollapsibleBasic-trigger-label">{label}</span>
         {!hideTriggerIcon && (
-          <div className="sui-CollapsibleBasic-trigger-iconBox">
+          <span className="sui-CollapsibleBasic-trigger-iconBox">
             <ArrowIcon
               svgClass="sui-CollapsibleBasic-trigger-iconBox-icon"
               className="sui-CollapsibleBasic-trigger-iconBox-icon"
             />
-          </div>
+          </span>
         )}
+      </button>
+      <div className={contentCssClassNames} id={contentId} role="region" onTransitionEnd={onAnimationEnd}>
+        {children}
       </div>
-      <div className={contentCssClassNames}>{children}</div>
     </div>
   )
 }
@@ -85,6 +109,10 @@ CollapsibleBasic.propTypes = {
    * Allow click in the label to open or close it
    */
   isClickable: PropTypes.bool,
+  /**
+   * Id of the component, used to generate the content id
+   */
+  id: PropTypes.string.isRequired,
   /**
    * Customise the speed of the transition animation: normal 0.3s, fast: 0.15s
    */
