@@ -237,7 +237,7 @@ export default function TopbarUser({
             onClick={_toggleMenu}
             {...toggleAriaProps}
           >
-            <ToggleIcon svgClass="sui-TopbarUser-toggleIcon" />
+            <ToggleIcon svgClass="sui-TopbarUser-toggleIcon" aria-hidden role="presentation" />
           </button>
         ) : (
           <></>
