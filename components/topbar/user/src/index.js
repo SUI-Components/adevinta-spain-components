@@ -4,6 +4,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 
 import AtomButton, {atomButtonSizes} from '@s-ui/react-atom-button'
+import {ATOM_ICON_SIZES} from '@s-ui/react-atom-icon'
 import DropdownBasic from '@s-ui/react-dropdown-basic'
 import DropdownUser from '@s-ui/react-dropdown-user'
 import useIsomorphicLayoutEffect from '@s-ui/react-hooks/lib/useIsomorphicLayoutEffect/index.js'
@@ -237,7 +238,12 @@ export default function TopbarUser({
             onClick={_toggleMenu}
             {...toggleAriaProps}
           >
-            <ToggleIcon svgClass="sui-TopbarUser-toggleIcon" aria-hidden role="presentation" />
+            <ToggleIcon
+              svgClass="sui-TopbarUser-toggleIcon"
+              aria-hidden
+              role="presentation"
+              size={ATOM_ICON_SIZES.large}
+            />
           </button>
         ) : (
           <></>

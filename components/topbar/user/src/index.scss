@@ -191,7 +191,7 @@ $w-topbar-user-nav: 90% !default;
     padding: $p-v $p-h;
 
     &.has-notifications {
-      @include sui-badge-notification(true, 2px, 12px);
+      @include sui-badge-notification(true, 12px, 12px);
     }
 
     &Icon {
