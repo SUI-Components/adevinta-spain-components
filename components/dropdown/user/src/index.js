@@ -49,7 +49,7 @@ const DropdownUser = ({
       <li key={`${text}-${index}`} className="sui-DropdownUserMenu-listItem">
         <Link href={url} className={linkClassName} onClick={handleClick}>
           <div className="sui-DropdownUserMenu-listIcon">
-            <Icon />
+            <Icon aria-hidden role="presentation" />
           </div>
           <span className="sui-DropdownUserMenu-listText">{text}</span>
           {hasLinkNotifications && (
