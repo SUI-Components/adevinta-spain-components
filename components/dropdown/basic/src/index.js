@@ -183,7 +183,7 @@ export default function DropdownBasic({
             <span>{text}</span>
           </span>
           <span className={`${BASE_CLASS}-buttonIcon`}>
-            <ArrowButtonIcon />
+            <ArrowButtonIcon aria-hidden role="presentation" />
           </span>
         </button>
       </div>
