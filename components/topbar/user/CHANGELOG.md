@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 2.12.0 (2025-07-01)
+
+
+### Features
+
+* install react-atom-icon ([ca1153a](https://github.com/SUI-Components/adevinta-spain-components/commit/ca1153a31a3b4e8cea71611e9b68ffaa4b3b274e))
+* styling toggle icon ([69501e4](https://github.com/SUI-Components/adevinta-spain-components/commit/69501e4d8b68e2da733dba6c90aba6a5f433dad2))
+* topbar toggle icon with presentation role ([7b291a9](https://github.com/SUI-Components/adevinta-spain-components/commit/7b291a9b778324a22469b889053f7b2779057753))
+
+
+
 # 2.11.0 (2025-06-06)
 
 
