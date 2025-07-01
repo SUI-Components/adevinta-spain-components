@@ -177,13 +177,13 @@ export default function DropdownBasic({
           <span className={`${BASE_CLASS}-buttonContent`}>
             {Icon && (
               <span className={`${BASE_CLASS}-buttonIcon`}>
-                <Icon />
+                <Icon aria-hidden role="presentation" />
               </span>
             )}
             <span>{text}</span>
           </span>
           <span className={`${BASE_CLASS}-buttonIcon`}>
-            <ArrowButtonIcon />
+            <ArrowButtonIcon aria-hidden role="presentation" />
           </span>
         </button>
       </div>
