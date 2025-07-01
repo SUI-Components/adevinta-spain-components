@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 4.5.0 (2025-07-01)
+
+
+### Features
+
+* add role presentation to icons ([38da30f](https://github.com/SUI-Components/adevinta-spain-components/commit/38da30f5d7d8a5e99aad445e2bf0a533a3fc2610))
+
+
+
 # 4.4.0 (2025-06-16)
 
 
