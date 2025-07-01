@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 1.50.0 (2025-07-01)
+
+
+### Features
+
+* add role presentation to dropdown basic arrows ([948f6d6](https://github.com/SUI-Components/adevinta-spain-components/commit/948f6d637c22e3d30aa78f11bfab48986502d0bd))
+* add role presentation to icons ([c40e20c](https://github.com/SUI-Components/adevinta-spain-components/commit/c40e20cc5ab1339f246a021219eeac6ed81d232e))
+
+
+
 # 1.49.0 (2025-06-16)
 
 
