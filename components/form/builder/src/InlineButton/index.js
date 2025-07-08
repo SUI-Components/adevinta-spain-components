@@ -47,10 +47,11 @@ const InlineButton = ({inlineButton, tabIndex, onChange, errors, alerts, rendere
     return null
   }
 
-  const {selectedIcon: SelectedIcon, ...rendererResponse} = renderer({
-    id: inlineButton.id,
-    innerProps: {...inlineButtonProps, datalist, display: inlineButton.display}
-  })
+  const {selectedIcon: SelectedIcon, ...rendererResponse} =
+    renderer({
+      id: inlineButton.id,
+      innerProps: {...inlineButtonProps, datalist, display: inlineButton.display}
+    }) || {}
 
   // render custom component
   if (isValidElement(rendererResponse)) return rendererResponse
