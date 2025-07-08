@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 8.4.0 (2025-07-08)
+
+
+### Bug Fixes
+
+* add inlineButton destructuring default value ([27c4d58](https://github.com/SUI-Components/adevinta-spain-components/commit/27c4d5800d195c8da5917da1d1add0a747dd8034))
+
+
+
 # 8.3.0 (2025-05-22)
 
 
