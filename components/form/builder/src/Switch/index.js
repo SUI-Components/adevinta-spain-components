@@ -30,7 +30,7 @@ const Switch = ({switchField, tabIndex, onChange, errors, alerts, renderer}) => 
   const switchProps = {
     color: atomSwitchColors.NEUTRAL,
     design: atomSwitchDesigns.SINGLE,
-    initialValue: switched,
+    defaultChecked: switched,
     label: switchField.label,
     name: switchField.id,
     onToggle: onChangeCallback,
