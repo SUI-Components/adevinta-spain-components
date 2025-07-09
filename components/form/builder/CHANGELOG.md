@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 8.5.0 (2025-07-09)
+
+
+### Bug Fixes
+
+* use defaultChecked prop instead of initialValue ([1e0a291](https://github.com/SUI-Components/adevinta-spain-components/commit/1e0a29120cad20990003a12b5ddb00c47c3c51f3))
+
+
+
 # 8.4.0 (2025-07-08)
 
 
