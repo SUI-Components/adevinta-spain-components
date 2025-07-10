@@ -28,7 +28,7 @@ const Switch = ({switchField, tabIndex, onChange, errors, alerts, renderer}) => 
     : ''
 
   const switchProps = {
-    color: atomSwitchColors.NEUTRAL,
+    color: atomSwitchColors.PRIMARY,
     design: atomSwitchDesigns.SINGLE,
     defaultChecked: switched,
     label: switchField.label,
