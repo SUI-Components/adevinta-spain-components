@@ -1,5 +1,15 @@
 # CHANGELOG
 
+# 8.6.0 (2025-07-10)
+
+
+### Features
+
+* add radio role to button and radiogroup role to container, also add a ([514f41b](https://github.com/SUI-Components/adevinta-spain-components/commit/514f41bb3b4fa8410a48db0bb63d1a62c3a31850))
+* modify switch component color prop ([536d073](https://github.com/SUI-Components/adevinta-spain-components/commit/536d073331b3b75753531ae8afea5b6dc8e9faca))
+
+
+
 # 8.5.0 (2025-07-09)
 
 
