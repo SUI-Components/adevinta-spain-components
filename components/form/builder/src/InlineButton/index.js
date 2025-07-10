@@ -2,7 +2,7 @@ import {isValidElement, memo, useCallback} from 'react'
 
 import PropTypes from 'prop-types'
 
-import Button from '@s-ui/react-atom-button'
+import AtomButton, {atomButtonDesigns} from '@s-ui/react-atom-button'
 import MoleculeButtonGroupField from '@s-ui/react-molecule-button-group-field'
 
 import {createComponentMemo, field} from '../prop-types/index.js'
@@ -62,22 +62,25 @@ const InlineButton = ({inlineButton, tabIndex, onChange, errors, alerts, rendere
       className={`sui-FormBuilder-field sui-FormBuilder-InlineButton sui-FormBuilder-${
         inlineButtonProps.id || tabIndex
       }`}
+      role="radiogroup"
     >
       <MoleculeButtonGroupField {...inlineButtonProps} {...rendererResponse}>
         {rendererResponse?.children ||
           datalist.map(button => (
-            <Button
+            <AtomButton
+              aria-checked={button.value === inlineButton.value}
+              aria-label={button.ariaLabel ?? button.text}
+              design={button.value === inlineButton.value ? atomButtonDesigns.SOLID : atomButtonDesigns.OUTLINE}
+              disabled={button.disabled}
               id={button.id ?? `${inlineButton.id}-${button.value}`}
               key={button.text}
-              design={button.value === inlineButton.value ? 'solid' : 'outline'}
               onClick={() => onClickHandler(button.value)}
+              role="radio"
+              type="button"
               {...(button.value === inlineButton.value && SelectedIcon && {leftIcon: SelectedIcon})}
-              isSubmit={false}
-              isButton
-              disabled={button.disabled}
             >
               {button.text}
-            </Button>
+            </AtomButton>
           ))}
       </MoleculeButtonGroupField>
     </div>
