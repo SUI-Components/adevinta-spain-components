@@ -5,24 +5,30 @@ import PropTypes from 'prop-types'
 const STATUS_OK = 200
 const COMPLETED = 4
 
-function ServiceMarkdown({onLoad = () => {}, src}) {
+function ServiceMarkdown({onLoad = () => {}, src, content}) {
   const [html, setHtml] = useState('')
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
     import(/* webpackChunkName: "marked" */ 'marked').then(markedLibrary => {
       const {marked} = markedLibrary
-      const req = new window.XMLHttpRequest()
-      req.open('GET', src, true)
-      req.onload = () => {
-        if (req.readyState === COMPLETED && req.status === STATUS_OK) {
-          setHtml(marked(req.responseText))
-          setLoaded(true)
+
+      if (content) {
+        setHtml(marked(content))
+        setLoaded(true)
+      } else if (src) {
+        const req = new window.XMLHttpRequest()
+        req.open('GET', src, true)
+        req.onload = () => {
+          if (req.readyState === COMPLETED && req.status === STATUS_OK) {
+            setHtml(marked(req.responseText))
+            setLoaded(true)
+          }
         }
+        req.send(null)
       }
-      req.send(null)
     })
-  }, [src])
+  }, [src, content])
 
   useEffect(
     () => {
@@ -56,7 +62,12 @@ ServiceMarkdown.propTypes = {
    * The web address of the markdown file to fetch and parse
    * For example "https://mycdn.com/myfile.md"
    */
-  src: PropTypes.string.isRequired
+  src: PropTypes.string,
+  /**
+   * Markdown content as string to parse directly
+   * Alternative to using src prop
+   */
+  content: PropTypes.string
 }
 
 export default ServiceMarkdown
