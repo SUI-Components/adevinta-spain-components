@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 1.16.0 (2025-09-30)
+
+
+### Features
+
+* Add support for direct markdown content and update tests ([b05bd24](https://github.com/SUI-Components/adevinta-spain-components/commit/b05bd24e7042f53e84ae411f02bcdd323796908f))
+
+
+
 # 1.15.0 (2023-08-17)
 
 
@@ -128,6 +137,3 @@
 ### Features
 
 * **services/markdown:** first commit ([6d04614](https://github.com/SUI-Components/adevinta-spain-components/commit/6d0461497ad752e2b3cae494fa2cb07766eaeefb))
-
-
-
