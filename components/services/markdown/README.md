@@ -15,12 +15,34 @@ $ npm install @s-ui/react-services-markdown --save
 ## Usage
 
 ### Basic usage
+
+#### Loading from external URL
 ```js
 import ServiceMarkdown from '@s-ui/react-services-markdown'
 
 return (
   <article className='myMarkdownFile'>
     <ServiceMarkdown src="https://mycdn.com/myfile.md"/>
+  </article>
+)
+```
+
+#### Using markdown content directly
+```js
+import ServiceMarkdown from '@s-ui/react-services-markdown'
+
+const markdownContent = `
+# Hello World
+This is **bold** text and this is *italic* text.
+
+- Item 1
+- Item 2
+- Item 3
+`
+
+return (
+  <article className='myMarkdownFile'>
+    <ServiceMarkdown content={markdownContent}/>
   </article>
 )
 ```
