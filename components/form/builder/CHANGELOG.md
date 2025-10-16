@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 8.7.0 (2025-10-16)
+
+
+### Features
+
+* add leftIcon prop based on rendererResponse ([cf219f9](https://github.com/SUI-Components/adevinta-spain-components/commit/cf219f91ea052b9f760712fafb783bca53283e2e))
+
+
+
 # 8.6.0 (2025-07-10)
 
 
