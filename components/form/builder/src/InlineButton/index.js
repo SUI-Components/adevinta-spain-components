@@ -66,7 +66,7 @@ const InlineButton = ({inlineButton, tabIndex, onChange, errors, alerts, rendere
     >
       <MoleculeButtonGroupField {...inlineButtonProps} {...rendererResponse}>
         {rendererResponse?.children ||
-          datalist.map(button => (
+          datalist.map((button, index) => (
             <AtomButton
               aria-checked={button.value === inlineButton.value}
               aria-label={button.ariaLabel ?? button.text}
@@ -74,6 +74,7 @@ const InlineButton = ({inlineButton, tabIndex, onChange, errors, alerts, rendere
               disabled={button.disabled}
               id={button.id ?? `${inlineButton.id}-${button.value}`}
               key={button.text}
+              leftIcon={rendererResponse?.datalist?.[index]?.leftIcon}
               onClick={() => onClickHandler(button.value)}
               role="radio"
               type="button"
