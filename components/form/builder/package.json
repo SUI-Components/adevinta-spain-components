@@ -18,7 +18,7 @@
     "@s-ui/react-atom-tag": "4",
     "@s-ui/react-molecule-autosuggest-field": "2",
     "@s-ui/react-molecule-button-group-field": "1",
-    "@s-ui/react-molecule-checkbox-field": "2",
+    "@s-ui/react-molecule-checkbox-field": "5",
     "@s-ui/react-molecule-data-counter": "1",
     "@s-ui/react-molecule-dropdown-option": "2",
     "@s-ui/react-molecule-field": "1",
