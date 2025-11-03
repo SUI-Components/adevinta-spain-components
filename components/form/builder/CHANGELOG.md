@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 9.0.0 (2025-11-03)
+
+
+### Features
+
+* restore package.json file ([8157e97](https://github.com/SUI-Components/adevinta-spain-components/commit/8157e973cf5e78f0903883427cb5a39948dbcf5e))
+* updagrade checkbox field form builder ([67d4b84](https://github.com/SUI-Components/adevinta-spain-components/commit/67d4b84d496c1851f419d03fb277aafff5b6c50b))
+* upgrade major version ([9ce60d7](https://github.com/SUI-Components/adevinta-spain-components/commit/9ce60d718a36e8f77781806fdbee1e1f4d3cf1b3))
+
+
+
 # 8.7.0 (2025-10-16)
 
 
