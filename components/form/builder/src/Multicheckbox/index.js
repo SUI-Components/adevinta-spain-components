@@ -12,9 +12,10 @@ const Multipicker = ({multipicker, tabIndex, onChange, onFocus, onBlur, errors, 
   const errorMessages = errors[multipicker.id]
   const alertMessages = alerts[multipicker.id]
 
-  const onChangeCallback = e => {
-    const targetId = e.target.id
-    const checked = e.target.checked
+  const onChangeCallback = (e, {checked: checkedValue, name: fieldId}) => {
+    const targetId = e.target.id || fieldId
+    const checked = e.target.checked || checkedValue
+
     let newValue = []
 
     if (checked) {
