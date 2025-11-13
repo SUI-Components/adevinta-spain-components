@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 9.3.0 (2025-11-13)
+
+
+### Features
+
+* bump version ([b523c9e](https://github.com/SUI-Components/adevinta-spain-components/commit/b523c9ee0f91c46ae65554e92b1b887b4209abd7))
+
+
+
 # 9.1.0 (2025-11-13)
 
 
