@@ -13,8 +13,9 @@ const Checkbox = ({checkbox, tabIndex, onChange, onFocus, onBlur, errors, alerts
 
   const checked = ['true', true].includes(checkbox.value)
 
-  const onChangeCallback = e => {
-    return onChange(checkbox.id, JSON.stringify(e.target.checked))
+  const onChangeCallback = (e, {checked: checkedValue}) => {
+    const checked = e.target.checked || checkedValue
+    return onChange(checkbox.id, JSON.stringify(checked))
   }
 
   const onBlurCallback = () => onBlur(checkbox.id)
