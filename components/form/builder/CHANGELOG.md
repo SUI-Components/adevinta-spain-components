@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 9.1.0 (2025-11-13)
+
+
+### Features
+
+* get checked value as fallback when the field value changes ([3b89be3](https://github.com/SUI-Components/adevinta-spain-components/commit/3b89be3c5101f0ff99c0550981c49dc70c351cc5))
+
+
+
 # 9.0.0 (2025-11-03)
 
 
