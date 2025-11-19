@@ -1,7 +1,7 @@
 import ToolTaskManager, {TaskManagerProvider} from 'components/tool/taskManager/src'
 
 // Simple function that logs to console
-const handleTasksChange = (tasks) => {
+const handleTasksChange = tasks => {
   console.log('=== VISIBLE TASKS ===')
   console.log('Number of tasks:', tasks.length)
   console.log('Complete list:', tasks)
@@ -23,8 +23,6 @@ const handleTasksChange = (tasks) => {
 
 export default () => (
   <TaskManagerProvider>
-    <ToolTaskManager
-      onVisibleTasksChange={handleTasksChange}
-    />
+    <ToolTaskManager onVisibleTasksChange={handleTasksChange} />
   </TaskManagerProvider>
 )
