@@ -1,5 +1,16 @@
 # CHANGELOG
 
+# 1.24.0 (2025-11-19)
+
+
+### Features
+
+* update lint ([23bb063](https://github.com/SUI-Components/adevinta-spain-components/commit/23bb063f424311b9ec208ccecc4fbbde4bb35c8f))
+* update taskManager. Add onVisibleTasksChange callback ([a5ae4fc](https://github.com/SUI-Components/adevinta-spain-components/commit/a5ae4fc22054d4ecd38e07b629ce85c63a1b8f79))
+* update test ([8149633](https://github.com/SUI-Components/adevinta-spain-components/commit/8149633bc15872bfa3459a1f9c0d5705fe47e5ae))
+
+
+
 # 1.23.0 (2024-01-31)
 
 
@@ -209,6 +220,3 @@
 * **components/tool/taskManager:** Add dependencies and fix tests ([c52afea](https://github.com/SUI-Components/adevinta-spain-components/commit/c52afeab8b450df5136b04509ef8618223fcc0ae))
 * **components/tool/taskManager:** Add taskmanager PoC to adevinta-spain-components ([8b9ba3b](https://github.com/SUI-Components/adevinta-spain-components/commit/8b9ba3b704b8e919e6a2c4291adbc76564e4e4e4))
 * **components/tool/taskManager:** Solve lint issues ([e46ddce](https://github.com/SUI-Components/adevinta-spain-components/commit/e46ddce4f6f7eb3753798c7cf44027cba242443e))
-
-
-
