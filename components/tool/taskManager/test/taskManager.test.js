@@ -39,7 +39,7 @@ describe('ToolTaskManager', () => {
     ReactDOM.unmountComponentAtNode(div)
   })
 
-  it('should NOT render null', () => {
+  it('should render null when no visible tasks', () => {
     // Given
     const props = {}
 
@@ -48,7 +48,7 @@ describe('ToolTaskManager', () => {
 
     // Then
     expect(container.innerHTML).to.be.a('string')
-    expect(container.innerHTML).to.not.have.lengthOf(0)
+    expect(container.innerHTML).to.have.lengthOf(0)
   })
 
   it.skip('should NOT extend classNames', () => {
