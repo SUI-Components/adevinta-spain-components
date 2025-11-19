@@ -170,6 +170,34 @@ const useState = ({onCompleteAllTasks, forceDevMode}) => {
   // Counts the number of tasks that are visible, regardless of their status
   const countTasks = (state = getState()) => state.tasks.filter(task => _isVisibleTask(task.id, state)).length
 
+  // Gets the list of visible tasks applying the same filters used in rendering
+  const getVisibleTasks = ({taskAmountFilter = 0, taskIdsFilter = []} = {}, state = getState()) => {
+    const {tasks, isDevModeEnabled} = state
+    const hasIdFilter = Array.isArray(taskIdsFilter) && taskIdsFilter.length > 0
+    const hasAmountFilter = taskAmountFilter !== 0
+
+    // Create Set for O(1) lookup if we have ID filters
+    const idFilterSet = hasIdFilter ? new Set(taskIdsFilter) : null
+
+    // Early return if no tasks
+    if (!tasks.length) return []
+
+    const result = []
+
+    for (let i = 0; i < tasks.length; i++) {
+      const task = tasks[i]
+
+      // Early exit conditions - most restrictive first
+      if (hasAmountFilter && taskAmountFilter > i) continue
+      if (task.visibleWork === 0 && !isDevModeEnabled) continue
+      if (hasIdFilter && !idFilterSet.has(task.id)) continue
+
+      result.push(task)
+    }
+
+    return result
+  }
+
   const getInProgressTaskPercentage = () => {
     const inProgressTask = getState().tasks.find(
       task => task.status === domain.get('config').get('AVAILABLE_STATUS').IN_PROGRESS
@@ -210,7 +238,8 @@ const useState = ({onCompleteAllTasks, forceDevMode}) => {
     countInProgressTasks,
     countTasks,
     countWork,
-    getInProgressTaskPercentage
+    getInProgressTaskPercentage,
+    getVisibleTasks
   }
 }
 
