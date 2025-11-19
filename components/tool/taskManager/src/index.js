@@ -1,5 +1,6 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
+import {useEffect} from 'react'
 
 import AtomProgressBar from '@s-ui/react-atom-progress-bar'
 import MoleculeAccordion, {moleculeAccordionBehavior, MoleculeAccordionItem} from '@s-ui/react-molecule-accordion'
@@ -8,16 +9,25 @@ import {TaskManagerProvider} from './components/TaskManagerContext.js'
 import useBeforeUnloadEffect from './hooks/useBeforeUnloadEffect.js'
 import useContext from './hooks/useContext.js'
 import useDevMode from './hooks/useDevMode.js'
+
 export default function ToolTaskManager({
   isVisible = true,
   statusIcons = {},
   taskAmountFilter = 0,
-  taskIdsFilter = []
+  taskIdsFilter = [],
+  onVisibleTasksChange = () => {}
 }) {
-  const {countWork, countFinishedWork, getState} = useContext()
+  const {countWork, countFinishedWork, getState, getVisibleTasks} = useContext()
   const state = getState()
   const {isDevModeEnabled, registerClick} = useDevMode()
   useBeforeUnloadEffect({isVisible})
+
+  // Notify parent component when visible tasks change
+  useEffect(() => {
+    const visibleTasks = getVisibleTasks({taskAmountFilter, taskIdsFilter})
+    onVisibleTasksChange(visibleTasks)
+  }, [state.tasks, taskAmountFilter, taskIdsFilter, state.isDevModeEnabled, onVisibleTasksChange, getVisibleTasks])
+
   const getItems = () => {
     return (
       <>
@@ -88,6 +98,9 @@ export default function ToolTaskManager({
   //   ? state.tasks.length
   //   : state.tasks.filter(task => task.visibleWork > 0).length
 
+  const visibleTasks = getVisibleTasks({taskAmountFilter, taskIdsFilter})
+  if (visibleTasks.length === 0) return null
+
   return (
     <div className="sui-ToolTaskManager" onClick={registerClick}>
       <div className="sui-ToolTaskManager-container">
@@ -112,7 +125,8 @@ ToolTaskManager.propTypes = {
     })
   ),
   taskAmountFilter: PropTypes.number,
-  taskIdsFilter: PropTypes.arrayOf(PropTypes.string)
+  taskIdsFilter: PropTypes.arrayOf(PropTypes.string),
+  onVisibleTasksChange: PropTypes.func
 }
 
 export {TaskManagerProvider, useContext as useTaskManagerContext}
