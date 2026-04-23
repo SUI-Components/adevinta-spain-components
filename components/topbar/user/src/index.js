@@ -87,6 +87,7 @@ export default function TopbarUser({
   navButton,
   navCTA,
   navCTALogin,
+  navCTASecondary,
   navMain,
   navUser,
   onToggle = () => {},
@@ -307,6 +308,7 @@ export default function TopbarUser({
             </AtomButton>
           </div>
         )}
+        {navCTASecondary && !customContent && <div className="sui-TopbarUser-ctaSecondary">{navCTASecondary}</div>}
       </div>
     </div>
   )
@@ -483,6 +485,10 @@ TopbarUser.propTypes = {
      */
     shape: PropTypes.string
   }),
+  /**
+   * Render custom node as secondary CTA, displayed after navCTA
+   */
+  navCTASecondary: PropTypes.node,
   /**
    * CTALogin data.
    */

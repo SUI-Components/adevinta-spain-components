@@ -118,3 +118,5 @@ export const navCTA = {
   icon: PencilIcon,
   text: 'Check our code'
 }
+
+export const navCTASecondary = <a href="https://github.com/SUI-Components/sui-components/issues">Secondary action</a>

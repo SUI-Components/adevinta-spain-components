@@ -93,6 +93,7 @@ $w-topbar-user-nav: 90% !default;
   }
 
   &-cta {
+    align-items: center;
     display: flex;
     gap: $m-m;
 
