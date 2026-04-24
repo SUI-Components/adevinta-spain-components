@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 2.13.0 (2026-04-24)
+
+
+### Features
+
+* add navCTASecondary prop ([d9f874e](https://github.com/SUI-Components/adevinta-spain-components/commit/d9f874e2afa2ddfe1901ea46dae69bc5d9bc99a5))
+
+
+
 # 2.12.0 (2025-07-01)
 
 
