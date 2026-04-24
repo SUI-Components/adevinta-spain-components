@@ -125,11 +125,16 @@ const navCTA = {
   text: 'Check our code'
 }
 
+const navCTASecondary = <a href="https://github.com/SUI-Components/sui-components/issues">Open an issue</a>
+
 const Demo = () => {
   return (
     <>
       <h1>Topbar with CTA</h1>
       <Topbar />
+
+      <h1>Topbar with CTA and Secondary CTA</h1>
+      <Topbar navCTASecondary={navCTASecondary} />
 
       <h1>Topbar with Custom content</h1>
       <Topbar customContent={<div>custom content</div>} />

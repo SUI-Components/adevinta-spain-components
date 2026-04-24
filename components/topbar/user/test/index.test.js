@@ -9,7 +9,7 @@ import chaiDOM from 'chai-dom'
 
 import {fireEvent, render, waitFor} from '@testing-library/react'
 
-import {brand, navCTA, navMain, navUser} from './fixtures.js'
+import {brand, navCTA, navCTASecondary, navMain, navUser} from './fixtures.js'
 
 chai.use(chaiDOM)
 
@@ -38,6 +38,19 @@ describe('topbar/user', () => {
 
     expect(getByText(/custom content/i)).to.exist
     expect(queryByTitle(navCTA.text)).not.exist
+  })
+
+  it('The user can see the secondary CTA when declared', () => {
+    const {getByText} = render(<Component navCTASecondary={navCTASecondary} />)
+
+    expect(getByText(/Secondary action/i)).to.exist
+  })
+
+  it('The secondary CTA is not rendered when customContent is provided', () => {
+    const customContent = <div>custom content</div>
+    const {queryByText} = render(<Component customContent={customContent} navCTASecondary={navCTASecondary} />)
+
+    expect(queryByText(/Secondary action/i)).not.exist
   })
 
   it('The user can open toggable menus and see clickable link items', async () => {
