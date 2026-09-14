@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types'
 
-import {field} from '../prop-types'
-import {DISPLAYS, FIELDS} from '../Standard'
-import AutosuggestSelect from './Autosuggest'
-import DefaultSelect from './Default'
+import {field} from '../prop-types/index.js'
+import {DISPLAYS, FIELDS} from '../Standard/index.js'
+import AutosuggestSelect from './Autosuggest/index.js'
+import DefaultSelect from './Default/index.js'
+import DropdownAutosuggestSelect from './DropdownAutosuggest/index.js'
 
 const Select = ({select, onChange, onFocus, onBlur, tabIndex, size, errors, alerts, renderer}) => {
   let Field
@@ -11,6 +12,21 @@ const Select = ({select, onChange, onFocus, onBlur, tabIndex, size, errors, aler
     case DISPLAYS[FIELDS.PICKER].AUTOCOMPLETE:
       Field = (
         <AutosuggestSelect
+          select={select}
+          onChange={onChange}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          tabIndex={tabIndex}
+          size={size}
+          errors={errors}
+          alerts={alerts}
+          renderer={renderer}
+        />
+      )
+      break
+    case DISPLAYS[FIELDS.PICKER].DROPDOWN_AUTOSUGGEST:
+      Field = (
+        <DropdownAutosuggestSelect
           select={select}
           onChange={onChange}
           onFocus={onFocus}
