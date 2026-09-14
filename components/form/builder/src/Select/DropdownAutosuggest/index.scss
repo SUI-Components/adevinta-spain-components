@@ -1,0 +1,34 @@
+@import '~@s-ui/react-molecule-autosuggest-field/lib/index';
+@import '~@s-ui/react-molecule-dropdown-option/lib/index';
+@import '~@s-ui/react-molecule-select/lib/index';
+
+.sui-FormBuilder-DropdownAutosuggestSelect {
+  &--l .sui-AtomInput-input {
+    height: $h-atom-input--l;
+    min-height: $h-atom-input--l;
+  }
+
+  .sui-AtomInput--withIcon-icon--right {
+    svg {
+      fill: $c-select-list-arrow-fill !important;
+      height: $h-select-list-arrow;
+      width: $w-select-list-arrow;
+    }
+
+    path {
+      fill: $c-select-list-arrow-fill !important;
+    }
+  }
+
+  .sui-MoleculeAutosuggest--disabled .sui-AtomInput--withIcon-icon--right {
+    svg,
+    path {
+      fill: $c-molecule-select-arrow-disabled !important;
+    }
+  }
+
+  &-arrow--open {
+    display: inline-flex;
+    transform: rotate(180deg);
+  }
+}

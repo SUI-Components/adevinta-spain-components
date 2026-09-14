@@ -28,6 +28,7 @@ const DISPLAYS = {
   [FIELDS.PICKER]: {
     SWITCH: 'switch',
     AUTOCOMPLETE: 'autocomplete',
+    DROPDOWN_AUTOSUGGEST: 'dropdown-autosuggest',
     DROPDOWN: 'dropdown',
     RADIO: 'radio',
     CHECKBOX: 'checkbox',
