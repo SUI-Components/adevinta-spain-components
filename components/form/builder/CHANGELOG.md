@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 9.5.0 (2026-09-14)
+
+
+### Features
+
+* simplify and improve ([dd85f12](https://github.com/SUI-Components/adevinta-spain-components/commit/dd85f1271e5f60434e82155faac3763583e27926))
+
+
+
 # 9.4.0 (2026-09-14)
 
 
