@@ -13,6 +13,8 @@ const fromTextToValue = datalist => text => {
   return item?.value
 }
 
+const normalize = str => removeAccents(str.toLowerCase()).replace(/\W|_/g, '')
+
 const DropdownAutosuggestSelect = ({select, tabIndex, onChange, onFocus, onBlur, size, errors, alerts, renderer}) => {
   const errorMessages = errors[select.id]
   const alertMessages = alerts[select.id]
@@ -61,24 +63,12 @@ const DropdownAutosuggestSelect = ({select, tabIndex, onChange, onFocus, onBlur,
     onBlur(select.id, blurFocusParams)
   }
 
-  // transform constraints to props
-  const constraints = select.constraints || []
-  let constraintsProps = {}
-  constraintsProps = constraints.reduce((acc, constraint) => {
-    if (constraint?.property?.notnull === '') {
-      return {
-        ...acc,
-        required: true
-      }
-    } else {
-      return acc
-    }
-  }, constraintsProps)
-
-  const normalize = str => removeAccents(str.toLowerCase()).replace(/\W|_/g)
+  const constraintsProps = (select.constraints || []).some(constraint => constraint?.property?.notnull === '')
+    ? {required: true}
+    : {}
 
   const getSuggestions = suggestionText =>
-    suggestionText ? datalist.filter(({text}) => normalize(text).match(normalize(suggestionText))) : datalist
+    suggestionText ? datalist.filter(({text}) => normalize(text).includes(normalize(suggestionText))) : datalist
 
   const suggestions = getSuggestions(localStateText)
 
@@ -156,7 +146,7 @@ const DropdownAutosuggestSelect = ({select, tabIndex, onChange, onFocus, onBlur,
       }}
     >
       <MoleculeAutosuggestField {...autosuggestProps} {...extraProps} {...(rightIcon && {rightIcon})}>
-        {suggestions.map((suggestion, i) => (
+        {suggestions.map(suggestion => (
           <MoleculeAutosuggestOption key={suggestion.value} value={suggestion.text}>
             {suggestion.text}
           </MoleculeAutosuggestOption>
