@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 9.4.0 (2026-09-14)
+
+
+### Features
+
+* create dropdown autosuggets display type: an autosuggest with dropdow ([fc9fd0f](https://github.com/SUI-Components/adevinta-spain-components/commit/fc9fd0f92357236478c39ed5c7aeb4d318762908))
+
+
+
 # 9.3.0 (2025-11-13)
 
 
