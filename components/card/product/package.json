@@ -15,6 +15,6 @@
     "@s-ui/component-dependencies": "1",
     "@s-ui/react-icons": "1",
     "@s-ui/react-tag-chip": "1",
-    "swiper": "3.4.1"
+    "swiper": "6.5.1"
   }
 }
