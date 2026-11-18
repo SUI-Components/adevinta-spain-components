@@ -2,9 +2,20 @@
 const src = 'https://cdns.gigya.com/JS/gigya.js?apikey=3_mguHvyO40mAI8ozGJLSFiYAMicGHRYkOaz56NX5uvYlRjrI5qHdfBxw25Q-SYYz8' // This API key is a demo key, please don't use it in your site :D
 const verifier = () => window && window.gigya
 const render = () => 'Gigya is loaded! You can now interact with the sdk functions!!'
+const renderDefer = () => 'Gigya is loaded with defer attribute! You can now interact with the sdk functions!!'
 
 return (
   <div>
+    <h3>Demo</h3>
+    <p>
+      <ScriptLoader
+        src={src}
+        verifier={verifier}
+        isDefer
+        render={renderDefer}
+      />
+    </p>
+
     <p>
       <ScriptLoader
         src={src}
