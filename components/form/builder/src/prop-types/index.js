@@ -21,6 +21,7 @@ export const field = PropTypes.shape({
   value: PropTypes.string,
   hidden: PropTypes.bool,
   disabled: PropTypes.bool,
+  readOnly: PropTypes.bool,
   datalist: PropTypes.arrayOf(datalist),
   constraints: PropTypes.arrayOf(constraint),
   // eslint-disable-next-line no-use-before-define

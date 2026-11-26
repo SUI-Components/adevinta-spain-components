@@ -25,6 +25,7 @@ const DropdownAutosuggestSelect = ({select, tabIndex, onChange, onFocus, onBlur,
   const [localStateText, setLocalStateText] = useState(selectedOption?.text || '')
   const [isOpen, setIsOpen] = useState(false)
   const inputRef = useRef()
+  const isReadOnlyRef = useRef(false)
 
   useEffect(() => {
     const option = datalist.find(item => item.value === select.value)
@@ -32,12 +33,14 @@ const DropdownAutosuggestSelect = ({select, tabIndex, onChange, onFocus, onBlur,
   }, [select.value, datalist])
 
   const onChangeCallback = useCallback((evt, {value: text}) => {
+    if (isReadOnlyRef.current) return
     setLocalStateText(text)
     setIsOpen(true)
   }, [])
 
   const onSelectCallback = useCallback(
     (evt, {value: text}) => {
+      if (isReadOnlyRef.current) return
       const value = fromTextToValueWithDatalist(text)
       setLocalStateText(text)
       onChange(select.id, value, {text})
@@ -105,6 +108,7 @@ const DropdownAutosuggestSelect = ({select, tabIndex, onChange, onFocus, onBlur,
     isOpen,
     refMoleculeAutosuggestInput: inputRef,
     ...(select.disabled && {disabled: true}),
+    ...(select.readOnly && {readOnly: true}),
     ...(select.hidden && {hidden: true}),
     ...(!!errorMessages && {errorText}),
     ...(!!alertMessages && {alertText}),
@@ -131,8 +135,12 @@ const DropdownAutosuggestSelect = ({select, tabIndex, onChange, onFocus, onBlur,
   if (isValidElement(rendererResponse)) return rendererResponse
 
   const {inputSize, iconArrowDown, ...extraProps} = rendererResponse || {}
+
+  isReadOnlyRef.current = Boolean(autosuggestProps.readOnly || extraProps.readOnly)
+  const isListOpen = isOpen && !isReadOnlyRef.current
+
   const rightIcon = iconArrowDown ? (
-    <span className={isOpen ? 'sui-FormBuilder-DropdownAutosuggestSelect-arrow--open' : ''}>{iconArrowDown}</span>
+    <span className={isListOpen ? 'sui-FormBuilder-DropdownAutosuggestSelect-arrow--open' : ''}>{iconArrowDown}</span>
   ) : null
 
   // render SUI component
@@ -140,12 +148,19 @@ const DropdownAutosuggestSelect = ({select, tabIndex, onChange, onFocus, onBlur,
     <div
       className={`sui-FormBuilder-field sui-FormBuilder-DropdownAutosuggestSelect${
         inputSize ? ` sui-FormBuilder-DropdownAutosuggestSelect--${inputSize}` : ''
-      } sui-FormBuilder-${autosuggestProps.id}`}
+      }${isReadOnlyRef.current ? ' sui-FormBuilder-DropdownAutosuggestSelect--readOnly' : ''} sui-FormBuilder-${
+        autosuggestProps.id
+      }`}
       onMouseDown={e => {
         if (e.target.tagName !== 'INPUT') e.preventDefault()
       }}
     >
-      <MoleculeAutosuggestField {...autosuggestProps} {...extraProps} {...(rightIcon && {rightIcon})}>
+      <MoleculeAutosuggestField
+        {...autosuggestProps}
+        {...extraProps}
+        isOpen={isListOpen}
+        {...(rightIcon && {rightIcon})}
+      >
         {suggestions.map(suggestion => (
           <MoleculeAutosuggestOption key={suggestion.value} value={suggestion.text}>
             {suggestion.text}
