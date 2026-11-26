@@ -103,6 +103,7 @@ const Input = ({input, tabIndex, onChange, onFocus, onBlur, size, leftAddon, rig
     ...nextProps,
     ...(input.hidden && {hidden: true}),
     ...(input.disabled && {disabled: true}),
+    ...(input.readOnly && {readOnly: true}),
     ...(!!errorMessages && {errorText}),
     ...(!!alertMessages && {alertText})
   }

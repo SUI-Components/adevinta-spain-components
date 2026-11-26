@@ -26,6 +26,7 @@ const DefaultSelect = ({
 
   const onChangeCallback = useCallback(
     (evt, {value, inputId = select.id}) => {
+      if (select.readOnly) return
       return onChange(inputId, value)
     },
     [onChange, select]
@@ -83,6 +84,7 @@ const DefaultSelect = ({
     helpText: select.help && <p>{select.help}</p>,
     tabIndex,
     ...(select.disabled && {disabled: true}),
+    ...(select.readOnly && {readOnly: true}),
     ...(select.hidden && {hidden: true}),
     ...(!!errorMessages && {errorText}),
     ...(!!alertMessages && {alertText}),

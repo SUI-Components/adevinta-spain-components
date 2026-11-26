@@ -27,6 +27,16 @@
     }
   }
 
+  // Same as the SUI select when read only: the arrow does not invite to open the list
+  &--readOnly .sui-AtomInput--withIcon-icon--right {
+    cursor: default;
+
+    svg,
+    path {
+      fill: $c-molecule-select-arrow-disabled !important;
+    }
+  }
+
   &-arrow--open {
     display: inline-flex;
     transform: rotate(180deg);
