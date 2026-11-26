@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# 9.6.0 (2026-11-26)
+
+
+### Features
+
+* make readOnly prop works on inputs, selects, and dropdown autosuggest ([1f39eda](https://github.com/SUI-Components/adevinta-spain-components/commit/1f39edaaeac3944b130b621a4f5b2570989d38d2))
+
+
+
 # 9.5.0 (2026-09-14)
 
 
